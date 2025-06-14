@@ -16,7 +16,9 @@ class VerifyCodePageModel extends FlutterFlowModel<VerifyCodePageWidget> {
   String? Function(BuildContext, String?)? pinCodeControllerValidator;
   String? _pinCodeControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Pease enter  valid code';
+      return FFLocalizations.of(context).getText(
+        '0nkfanj2' /* Pease enter  valid code */,
+      );
     }
     if (val.length < 4) {
       return 'Requires 4 characters.';

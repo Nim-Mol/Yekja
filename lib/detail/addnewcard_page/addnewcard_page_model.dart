@@ -19,7 +19,9 @@ class AddnewcardPageModel extends FlutterFlowModel<AddnewcardPageWidget> {
   String? Function(BuildContext, String?)? textController1Validator;
   String? _textController1Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Please enter valid card holder name.';
+      return FFLocalizations.of(context).getText(
+        '69wy7hnc' /* Please enter valid card holder... */,
+      );
     }
 
     return null;
@@ -31,7 +33,9 @@ class AddnewcardPageModel extends FlutterFlowModel<AddnewcardPageWidget> {
   String? Function(BuildContext, String?)? textController2Validator;
   String? _textController2Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Please enter valid card number.';
+      return FFLocalizations.of(context).getText(
+        'fp8h98zh' /* Please enter valid card number... */,
+      );
     }
 
     return null;
@@ -43,7 +47,9 @@ class AddnewcardPageModel extends FlutterFlowModel<AddnewcardPageWidget> {
   String? Function(BuildContext, String?)? textController3Validator;
   String? _textController3Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Please enter valid expiray date.';
+      return FFLocalizations.of(context).getText(
+        '01vkoiox' /* Please enter valid expiray dat... */,
+      );
     }
 
     return null;
@@ -55,7 +61,9 @@ class AddnewcardPageModel extends FlutterFlowModel<AddnewcardPageWidget> {
   String? Function(BuildContext, String?)? textController4Validator;
   String? _textController4Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Please enter valid cvv.';
+      return FFLocalizations.of(context).getText(
+        '1gtoud41' /* Please enter valid cvv. */,
+      );
     }
 
     return null;

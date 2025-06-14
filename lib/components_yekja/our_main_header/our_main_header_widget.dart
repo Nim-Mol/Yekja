@@ -1,3 +1,4 @@
+import '/flutter_flow/flutter_flow_language_selector.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +39,7 @@ class _OurMainHeaderWidgetState extends State<OurMainHeaderWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70.0,
+      height: 82.49,
       decoration: BoxDecoration(
         color: Color(0xFF232426),
         borderRadius: BorderRadius.only(
@@ -90,7 +91,9 @@ class _OurMainHeaderWidgetState extends State<OurMainHeaderWidget> {
                                   ),
                                 ),
                                 Text(
-                                  '55',
+                                  FFLocalizations.of(context).getText(
+                                    'ryl4p4ag' /* 55 */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -117,7 +120,9 @@ class _OurMainHeaderWidgetState extends State<OurMainHeaderWidget> {
                               child: Align(
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
-                                  'Trust score',
+                                  FFLocalizations.of(context).getText(
+                                    'qu52uqkl' /* Trust score */,
+                                  ),
                                   textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -140,16 +145,60 @@ class _OurMainHeaderWidgetState extends State<OurMainHeaderWidget> {
                   ],
                 ),
               ),
-              Container(
-                width: 50.0,
-                height: 50.0,
-                clipBehavior: Clip.antiAlias,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                ),
-                child: Image.asset(
-                  'assets/images/bob.jpg',
-                  fit: BoxFit.cover,
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                child: Container(
+                  height: 216.36,
+                  child: Stack(
+                    alignment: AlignmentDirectional(0.0, 0.0),
+                    children: [
+                      Align(
+                        alignment: AlignmentDirectional(0.0, -1.0),
+                        child: Container(
+                          width: 50.0,
+                          height: 50.0,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                          ),
+                          child: Image.asset(
+                            'assets/images/bob.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: AlignmentDirectional(0.0, 1.0),
+                        child: FlutterFlowLanguageSelector(
+                          width: 85.0,
+                          height: 22.66,
+                          backgroundColor:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderColor: Colors.transparent,
+                          dropdownIconColor:
+                              FlutterFlowTheme.of(context).secondaryText,
+                          borderRadius: 8.0,
+                          textStyle: FlutterFlowTheme.of(context)
+                              .labelSmall
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .labelSmallFamily,
+                                fontSize: 10.0,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: !FlutterFlowTheme.of(context)
+                                    .labelSmallIsCustom,
+                              ),
+                          hideFlags: true,
+                          flagSize: 24.0,
+                          flagTextGap: 8.0,
+                          currentLanguage:
+                              FFLocalizations.of(context).languageCode,
+                          languages: FFLocalizations.languages(),
+                          onChanged: (lang) => setAppLanguage(context, lang),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],

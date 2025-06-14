@@ -69,7 +69,9 @@ class _EmptyDataWidgetState extends State<EmptyDataWidget> {
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
             child: Text(
-              'No results found',
+              FFLocalizations.of(context).getText(
+                '81n0qewt' /* No results found */,
+              ),
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).titleLarge.override(
                     fontFamily: 'Satoshi',
@@ -80,7 +82,9 @@ class _EmptyDataWidgetState extends State<EmptyDataWidget> {
             ),
           ),
           Text(
-            'Try using simpler search terms and then \nfiltering the correct tog',
+            FFLocalizations.of(context).getText(
+              'ap9226j5' /* Try using simpler search terms... */,
+            ),
             textAlign: TextAlign.center,
             style: FlutterFlowTheme.of(context).titleSmall.override(
                   fontFamily: 'Satoshi',

@@ -17,11 +17,15 @@ class ForgotPasswordPageModel
   String? Function(BuildContext, String?)? textControllerValidator;
   String? _textControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'please enter valid your email address.';
+      return FFLocalizations.of(context).getText(
+        'tx1anksc' /* please enter valid your email ... */,
+      );
     }
 
     if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {
-      return 'please enter your email address.';
+      return FFLocalizations.of(context).getText(
+        'dxfpl9nd' /* please enter your email addres... */,
+      );
     }
     return null;
   }

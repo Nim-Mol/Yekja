@@ -15,7 +15,9 @@ class ResetPasswordPageModel extends FlutterFlowModel<ResetPasswordPageWidget> {
   String? Function(BuildContext, String?)? textController1Validator;
   String? _textController1Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Please enter valid new password.';
+      return FFLocalizations.of(context).getText(
+        '7fzxxs8j' /* Please enter valid new passwor... */,
+      );
     }
 
     return null;
@@ -27,7 +29,9 @@ class ResetPasswordPageModel extends FlutterFlowModel<ResetPasswordPageWidget> {
   String? Function(BuildContext, String?)? textController2Validator;
   String? _textController2Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'please enter valid confirm passsword.';
+      return FFLocalizations.of(context).getText(
+        '71vw82ef' /* please enter valid confirm pas... */,
+      );
     }
 
     return null;

@@ -17,7 +17,9 @@ class ChangePasswordPageModel
   String? Function(BuildContext, String?)? textController1Validator;
   String? _textController1Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Please  enter valid new password.';
+      return FFLocalizations.of(context).getText(
+        'o2r9wrf3' /* Please  enter valid new passwo... */,
+      );
     }
 
     return null;
@@ -30,7 +32,9 @@ class ChangePasswordPageModel
   String? Function(BuildContext, String?)? textController2Validator;
   String? _textController2Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Please  enter valid confirm password.';
+      return FFLocalizations.of(context).getText(
+        '3ldbjfsd' /* Please  enter valid confirm pa... */,
+      );
     }
 
     return null;

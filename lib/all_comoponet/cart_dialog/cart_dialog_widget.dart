@@ -77,7 +77,9 @@ class _CartDialogWidgetState extends State<CartDialogWidget> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  'Are you sure?',
+                  FFLocalizations.of(context).getText(
+                    'gnyel4cc' /* Are you sure? */,
+                  ),
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).titleLarge.override(
                         fontFamily: 'Satoshi',
@@ -93,7 +95,9 @@ class _CartDialogWidgetState extends State<CartDialogWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(24.0, 8.0, 24.0, 0.0),
                     child: Text(
-                      'Are you sure you would like to delete this item from the shoping cart?',
+                      FFLocalizations.of(context).getText(
+                        'ouwm4k95' /* Are you sure you would like to... */,
+                      ),
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).titleSmall.override(
                             fontFamily: 'Satoshi',
@@ -120,7 +124,9 @@ class _CartDialogWidgetState extends State<CartDialogWidget> {
                             onPressed: () async {
                               Navigator.pop(context);
                             },
-                            text: 'No',
+                            text: FFLocalizations.of(context).getText(
+                              '6a9plz8m' /* No */,
+                            ),
                             options: FFButtonOptions(
                               width: 170.0,
                               height: 56.0,
@@ -156,7 +162,9 @@ class _CartDialogWidgetState extends State<CartDialogWidget> {
                           onPressed: () async {
                             await widget.ontapyes?.call();
                           },
-                          text: 'Yes',
+                          text: FFLocalizations.of(context).getText(
+                            'fshk6jm2' /* Yes */,
+                          ),
                           options: FFButtonOptions(
                             width: 170.0,
                             height: 56.0,

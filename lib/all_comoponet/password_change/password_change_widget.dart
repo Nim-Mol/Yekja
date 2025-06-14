@@ -80,7 +80,9 @@ class _PasswordChangeWidgetState extends State<PasswordChangeWidget> {
                   ),
                 ),
                 Text(
-                  'Password changed!',
+                  FFLocalizations.of(context).getText(
+                    '6jzbzlmu' /* Password changed! */,
+                  ),
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).titleLarge.override(
                         fontFamily: 'Satoshi',
@@ -90,7 +92,9 @@ class _PasswordChangeWidgetState extends State<PasswordChangeWidget> {
                       ),
                 ),
                 Text(
-                  'Your password has been changed successfull use your new password to login',
+                  FFLocalizations.of(context).getText(
+                    't68uvs2f' /* Your password has been changed... */,
+                  ),
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Satoshi',
@@ -104,7 +108,9 @@ class _PasswordChangeWidgetState extends State<PasswordChangeWidget> {
                   onPressed: () async {
                     await widget.onTapReset?.call();
                   },
-                  text: 'Ok',
+                  text: FFLocalizations.of(context).getText(
+                    '9z1whymb' /* Ok */,
+                  ),
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 56.0,

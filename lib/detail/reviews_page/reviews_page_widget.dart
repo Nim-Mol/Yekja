@@ -87,7 +87,9 @@ class _ReviewsPageWidgetState extends State<ReviewsPageWidget>
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Text(
-                        '4.0',
+                        FFLocalizations.of(context).getText(
+                          '66ku3mjd' /* 4.0 */,
+                        ),
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).titleLarge.override(
                               fontFamily: 'Satoshi',
@@ -112,7 +114,9 @@ class _ReviewsPageWidgetState extends State<ReviewsPageWidget>
                         glowColor: Color(0xFFFFC107),
                       ),
                       Text(
-                        'Based on 23 reviews',
+                        FFLocalizations.of(context).getText(
+                          'x7iif5up' /* Based on 23 reviews */,
+                        ),
                         maxLines: 1,
                         style: FlutterFlowTheme.of(context).titleSmall.override(
                               fontFamily: 'Satoshi',
@@ -147,7 +151,9 @@ class _ReviewsPageWidgetState extends State<ReviewsPageWidget>
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Leslie Alexander',
+                                    FFLocalizations.of(context).getText(
+                                      'rxtq9yyu' /* Leslie Alexander */,
+                                    ),
                                     textAlign: TextAlign.start,
                                     maxLines: 1,
                                     style: FlutterFlowTheme.of(context)
@@ -160,7 +166,9 @@ class _ReviewsPageWidgetState extends State<ReviewsPageWidget>
                                         ),
                                   ),
                                   Text(
-                                    '5 Min',
+                                    FFLocalizations.of(context).getText(
+                                      'f30piew6' /* 5 Min */,
+                                    ),
                                     textAlign: TextAlign.start,
                                     maxLines: 1,
                                     style: FlutterFlowTheme.of(context)
@@ -204,7 +212,9 @@ class _ReviewsPageWidgetState extends State<ReviewsPageWidget>
                         padding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 8.0, 20.0, 24.0),
                         child: Text(
-                          'Good service and I\'m happy with the service,best value plant nursery in my area.',
+                          FFLocalizations.of(context).getText(
+                            '57j93ako' /* Good service and I'm happy wit... */,
+                          ),
                           textAlign: TextAlign.start,
                           maxLines: 2,
                           style: FlutterFlowTheme.of(context)
@@ -239,7 +249,9 @@ class _ReviewsPageWidgetState extends State<ReviewsPageWidget>
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Raji Fakhr',
+                                  FFLocalizations.of(context).getText(
+                                    'v6ofv7vn' /* Raji Fakhr */,
+                                  ),
                                   maxLines: 1,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -251,7 +263,9 @@ class _ReviewsPageWidgetState extends State<ReviewsPageWidget>
                                       ),
                                 ),
                                 Text(
-                                  '10 Min',
+                                  FFLocalizations.of(context).getText(
+                                    '4d0vdy4g' /* 10 Min */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
@@ -291,7 +305,9 @@ class _ReviewsPageWidgetState extends State<ReviewsPageWidget>
                         padding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 8.0, 20.0, 24.0),
                         child: Text(
-                          'Formal assessment of something with the intention of change if necessary.',
+                          FFLocalizations.of(context).getText(
+                            'g48zhywg' /* Formal assessment of something... */,
+                          ),
                           textAlign: TextAlign.start,
                           maxLines: 2,
                           style: FlutterFlowTheme.of(context)
@@ -326,7 +342,9 @@ class _ReviewsPageWidgetState extends State<ReviewsPageWidget>
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Thuwaybah Issa',
+                                  FFLocalizations.of(context).getText(
+                                    'wxbaqwac' /* Thuwaybah Issa */,
+                                  ),
                                   maxLines: 1,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -338,7 +356,9 @@ class _ReviewsPageWidgetState extends State<ReviewsPageWidget>
                                       ),
                                 ),
                                 Text(
-                                  '15 Min',
+                                  FFLocalizations.of(context).getText(
+                                    'hjca21i3' /* 15 Min */,
+                                  ),
                                   maxLines: 1,
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
@@ -379,7 +399,9 @@ class _ReviewsPageWidgetState extends State<ReviewsPageWidget>
                         padding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 8.0, 20.0, 24.0),
                         child: Text(
-                          'Good service and I\'m happy with the service,best value plant nursery in my area.',
+                          FFLocalizations.of(context).getText(
+                            '78kxzikd' /* Good service and I'm happy wit... */,
+                          ),
                           textAlign: TextAlign.start,
                           style: FlutterFlowTheme.of(context)
                               .titleSmall
@@ -413,7 +435,9 @@ class _ReviewsPageWidgetState extends State<ReviewsPageWidget>
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Nuhaid Rihab',
+                                  FFLocalizations.of(context).getText(
+                                    'e1b2lub2' /* Nuhaid Rihab */,
+                                  ),
                                   maxLines: 1,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -425,7 +449,9 @@ class _ReviewsPageWidgetState extends State<ReviewsPageWidget>
                                       ),
                                 ),
                                 Text(
-                                  '20 Min',
+                                  FFLocalizations.of(context).getText(
+                                    'ivvsfbyu' /* 20 Min */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
@@ -465,7 +491,9 @@ class _ReviewsPageWidgetState extends State<ReviewsPageWidget>
                         padding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 8.0, 20.0, 24.0),
                         child: Text(
-                          'Review of the latest book on Chaucer. A criticism is a judgment, usually in an article, either favorable.',
+                          FFLocalizations.of(context).getText(
+                            'wd1f2mqj' /* Review of the latest book on C... */,
+                          ),
                           textAlign: TextAlign.start,
                           style: FlutterFlowTheme.of(context)
                               .titleSmall
@@ -499,7 +527,9 @@ class _ReviewsPageWidgetState extends State<ReviewsPageWidget>
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Nuhaid Rihab',
+                                  FFLocalizations.of(context).getText(
+                                    'qksj5snf' /* Nuhaid Rihab */,
+                                  ),
                                   maxLines: 1,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -511,7 +541,9 @@ class _ReviewsPageWidgetState extends State<ReviewsPageWidget>
                                       ),
                                 ),
                                 Text(
-                                  '20 Min',
+                                  FFLocalizations.of(context).getText(
+                                    'iliqi8ae' /* 20 Min */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
@@ -551,7 +583,9 @@ class _ReviewsPageWidgetState extends State<ReviewsPageWidget>
                         padding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 8.0, 20.0, 0.0),
                         child: Text(
-                          'Review of the latest book on Chaucer. A criticism is a judgment, usually in an article, either favorable.',
+                          FFLocalizations.of(context).getText(
+                            'ho7wedwq' /* Review of the latest book on C... */,
+                          ),
                           textAlign: TextAlign.start,
                           style: FlutterFlowTheme.of(context)
                               .titleSmall
@@ -578,7 +612,9 @@ class _ReviewsPageWidgetState extends State<ReviewsPageWidget>
                     onPressed: () async {
                       context.pushNamed(WriteReviewPageWidget.routeName);
                     },
-                    text: 'Write a review',
+                    text: FFLocalizations.of(context).getText(
+                      'wcyttu8x' /* Write a review */,
+                    ),
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 56.0,

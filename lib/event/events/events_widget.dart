@@ -95,9 +95,15 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                   .locationValueController ??=
                                               FormFieldController<String>(null),
                                           options: [
-                                            'Amsterdam',
-                                            'Utrecht',
-                                            'Roterdam'
+                                            FFLocalizations.of(context).getText(
+                                              '2kp727kk' /* Amsterdam */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              '5s0c0ero' /* Utrecht */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'kcq2onos' /* Roterdam */,
+                                            )
                                           ],
                                           onChanged: (val) => safeSetState(
                                               () => _model.locationValue = val),
@@ -143,8 +149,15 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                             context)
                                                         .bodyMediumIsCustom,
                                               ),
-                                          hintText: 'Location',
-                                          searchHintText: 'Search...',
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            'i7ajooi4' /* Location */,
+                                          ),
+                                          searchHintText:
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                            't14ytv6g' /* Search... */,
+                                          ),
                                           icon: Icon(
                                             Icons.keyboard_arrow_down_rounded,
                                             color: FlutterFlowTheme.of(context)
@@ -227,7 +240,9 @@ class _EventsWidgetState extends State<EventsWidget> {
                                       onPressed: () {
                                         print('Button-Create pressed ...');
                                       },
-                                      text: 'Create your Own ',
+                                      text: FFLocalizations.of(context).getText(
+                                        '9elpb7u6' /* Create your Own  */,
+                                      ),
                                       options: FFButtonOptions(
                                         width: 150.0,
                                         height: 40.0,
@@ -313,7 +328,9 @@ class _EventsWidgetState extends State<EventsWidget> {
                                         ),
                                       ),
                                       Text(
-                                        'This Week',
+                                        FFLocalizations.of(context).getText(
+                                          'v49kkwir' /* This Week */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .override(
@@ -337,7 +354,9 @@ class _EventsWidgetState extends State<EventsWidget> {
                                             ),
                                       ),
                                       Text(
-                                        '10 events',
+                                        FFLocalizations.of(context).getText(
+                                          'x1xolbmi' /* 10 events */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -396,7 +415,9 @@ class _EventsWidgetState extends State<EventsWidget> {
                                         ),
                                       ),
                                       Text(
-                                        'New Events',
+                                        FFLocalizations.of(context).getText(
+                                          't6hrpmq7' /* New Events */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .override(
@@ -420,7 +441,9 @@ class _EventsWidgetState extends State<EventsWidget> {
                                             ),
                                       ),
                                       Text(
-                                        '10 events',
+                                        FFLocalizations.of(context).getText(
+                                          'w0pnp1z3' /* 10 events */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .labelSmall
                                             .override(
@@ -475,7 +498,9 @@ class _EventsWidgetState extends State<EventsWidget> {
                                         ),
                                       ),
                                       Text(
-                                        'Past Events',
+                                        FFLocalizations.of(context).getText(
+                                          'ti6bni8k' /* Past Events */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .override(
@@ -499,7 +524,9 @@ class _EventsWidgetState extends State<EventsWidget> {
                                             ),
                                       ),
                                       Text(
-                                        '10 events',
+                                        FFLocalizations.of(context).getText(
+                                          '7zdzq2zc' /* 10 events */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .labelSmall
                                             .override(
@@ -554,7 +581,9 @@ class _EventsWidgetState extends State<EventsWidget> {
                                         ),
                                       ),
                                       Text(
-                                        'Papular',
+                                        FFLocalizations.of(context).getText(
+                                          'j6urr4mb' /* Papular */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .override(
@@ -578,7 +607,9 @@ class _EventsWidgetState extends State<EventsWidget> {
                                             ),
                                       ),
                                       Text(
-                                        '10 events',
+                                        FFLocalizations.of(context).getText(
+                                          'en1tquyj' /* 10 events */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .labelSmall
                                             .override(
@@ -617,7 +648,9 @@ class _EventsWidgetState extends State<EventsWidget> {
                                     Padding(
                                       padding: EdgeInsets.all(16.0),
                                       child: Text(
-                                        'Categories',
+                                        FFLocalizations.of(context).getText(
+                                          'qxqmxean' /* Categories */,
+                                        ),
                                         textAlign: TextAlign.start,
                                         style: FlutterFlowTheme.of(context)
                                             .titleLarge
@@ -661,7 +694,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                             alignment:
                                                 AlignmentDirectional(-0.3, 0.0),
                                             child: Text(
-                                              'See all',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'fppuf54e' /* See all */,
+                                              ),
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyMedium
@@ -693,71 +729,6 @@ class _EventsWidgetState extends State<EventsWidget> {
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      Opacity(
-                                        opacity: 0.8,
-                                        child: Container(
-                                          width: 160.0,
-                                          height: 50.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(8.0),
-                                              bottomRight: Radius.circular(8.0),
-                                              topLeft: Radius.circular(8.0),
-                                              topRight: Radius.circular(8.0),
-                                            ),
-                                          ),
-                                          child: Stack(
-                                            children: [
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    -1.0, 0.0),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          12.0, 0.0, 0.0, 0.0),
-                                                  child: ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                    child: Image.asset(
-                                                      'assets/images/BBQ.gif',
-                                                      width: 40.0,
-                                                      height: 40.0,
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Text(
-                                                  'BBQ',
-                                                  style:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumIsCustom,
-                                                          ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
                                       Container(
                                         width: 160.0,
                                         height: 50.0,
@@ -795,13 +766,16 @@ class _EventsWidgetState extends State<EventsWidget> {
                                             ),
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  0.67, -0.08),
+                                                  0.05, 0.09),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         40.0, 0.0, 0.0, 0.0),
                                                 child: Text(
-                                                  'Game Night',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'sfaqm5h0' /* Game Night */,
+                                                  ),
                                                   style:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -864,7 +838,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                               alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Text(
-                                                'Sport',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'v6fucuhz' /* Sport */,
+                                                ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -925,7 +902,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                               alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Text(
-                                                'BBQ',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'cpfbz0wo' /* BBQ */,
+                                                ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -985,7 +965,9 @@ class _EventsWidgetState extends State<EventsWidget> {
                                           alignment:
                                               AlignmentDirectional(-1.0, -1.0),
                                           child: Text(
-                                            'New Shows',
+                                            FFLocalizations.of(context).getText(
+                                              '7qvgei9i' /* New Shows */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -1011,7 +993,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 10.0, 0.0, 0.0),
                                             child: Text(
-                                              'Last updated Today',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'i1wixmqg' /* Last updated Today */,
+                                              ),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .labelSmall
@@ -1095,7 +1080,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                   size: 15.0,
                                                 ),
                                                 Text(
-                                                  'Amsterdam, Ziggo Dome',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'r5cmv49k' /* Amsterdam, Ziggo Dome */,
+                                                  ),
                                                   style:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -1118,7 +1106,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                               alignment: AlignmentDirectional(
                                                   -1.0, 0.0),
                                               child: Text(
-                                                'Summer Party',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'mohqul2m' /* Summer Party */,
+                                                ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -1141,7 +1132,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                               alignment: AlignmentDirectional(
                                                   -1.0, -1.0),
                                               child: Text(
-                                                'agust 23, 05:00 PM',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '0rcwktmq' /* agust 23, 05:00 PM */,
+                                                ),
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .bodySmall
@@ -1239,7 +1233,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                   size: 15.0,
                                                 ),
                                                 Text(
-                                                  'Amsterdam, Ziggo Dome',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '10zjo3pm' /* Amsterdam, Ziggo Dome */,
+                                                  ),
                                                   style:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -1262,7 +1259,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                               alignment: AlignmentDirectional(
                                                   -1.0, 0.0),
                                               child: Text(
-                                                'Summer Party',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '0kvtjf5o' /* Summer Party */,
+                                                ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -1285,7 +1285,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                               alignment: AlignmentDirectional(
                                                   -1.0, -1.0),
                                               child: Text(
-                                                'agust 23, 05:00 PM',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'q533wolg' /* agust 23, 05:00 PM */,
+                                                ),
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .bodySmall
@@ -1383,7 +1386,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                   size: 15.0,
                                                 ),
                                                 Text(
-                                                  'Amstelven, Amsterdam\'sBos',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'qmljwuqk' /* Amstelven, Amsterdam'sBos */,
+                                                  ),
                                                   style:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -1406,7 +1412,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                               alignment: AlignmentDirectional(
                                                   -1.0, 0.0),
                                               child: Text(
-                                                'Summer BBQ',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'rlyjcccd' /* Summer BBQ */,
+                                                ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -1429,7 +1438,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                               alignment: AlignmentDirectional(
                                                   -1.0, -1.0),
                                               child: Text(
-                                                'juli 23, 05:00 PM',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'mhsv7wn4' /* juli 23, 05:00 PM */,
+                                                ),
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .bodySmall
@@ -1524,7 +1536,9 @@ class _EventsWidgetState extends State<EventsWidget> {
                                           alignment:
                                               AlignmentDirectional(-1.0, -1.0),
                                           child: Text(
-                                            'Best of last month',
+                                            FFLocalizations.of(context).getText(
+                                              'hlhfhorw' /* Best of last month */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -1550,7 +1564,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 10.0, 0.0, 0.0),
                                             child: Text(
-                                              'Based on your like and reviews',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'kgmsmnqi' /* Based on your like and reviews */,
+                                              ),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .labelSmall
@@ -1646,7 +1663,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                 alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Text(
-                                                  'Game Night',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'rxbhr3mo' /* Game Night */,
+                                                  ),
                                                   style:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -1679,7 +1699,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                   size: 15.0,
                                                 ),
                                                 Text(
-                                                  'Utrecht',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '7weex4k8' /* Utrecht */,
+                                                  ),
                                                   style:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -1702,7 +1725,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                               alignment: AlignmentDirectional(
                                                   -1.0, 0.0),
                                               child: Text(
-                                                'Mafia',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'wir5zro3' /* Mafia */,
+                                                ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -1725,7 +1751,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                               alignment: AlignmentDirectional(
                                                   -1.0, -1.0),
                                               child: Text(
-                                                'agust 23, 05:00 PM',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'gkg8vs6k' /* agust 23, 05:00 PM */,
+                                                ),
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .bodySmall
@@ -1770,21 +1799,15 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                   alignment:
                                                       AlignmentDirectional(
                                                           0.0, 0.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 2.0),
-                                                    child: ClipRRect(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                      child: Image.asset(
-                                                        'assets/images/star.gif',
-                                                        width: 20.0,
-                                                        height: 20.0,
-                                                        fit: BoxFit.fill,
-                                                      ),
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    child: Image.asset(
+                                                      'assets/images/star.gif',
+                                                      width: 20.0,
+                                                      height: 20.0,
+                                                      fit: BoxFit.fill,
                                                     ),
                                                   ),
                                                 ),
@@ -1792,35 +1815,47 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                   alignment:
                                                       AlignmentDirectional(
                                                           0.0, 0.0),
-                                                  child: Text(
-                                                    '4.8',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .poppins(
-                                                            fontWeight:
-                                                                FontWeight.w300,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 2.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'ee1eczmi' /* 4.8 */,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w300,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .warning,
+                                                                fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w300,
+                                                                fontStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
                                                                     .fontStyle,
-                                                          ),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .warning,
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w300,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
+                                                              ),
+                                                    ),
                                                   ),
                                                 ),
                                               ],
@@ -1885,7 +1920,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                 alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Text(
-                                                  'Social',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '941hvre2' /* Social */,
+                                                  ),
                                                   style:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -1918,7 +1956,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                   size: 15.0,
                                                 ),
                                                 Text(
-                                                  'Amsterdam',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'uz5idaos' /* Amsterdam */,
+                                                  ),
                                                   style:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -1941,7 +1982,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                               alignment: AlignmentDirectional(
                                                   -1.0, 0.0),
                                               child: Text(
-                                                'Book Club',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '0nsdrkwp' /* Book Club */,
+                                                ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -1964,7 +2008,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                               alignment: AlignmentDirectional(
                                                   -1.0, -1.0),
                                               child: Text(
-                                                'agust 23, 05:00 PM',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '6f9oi0a1' /* agust 23, 05:00 PM */,
+                                                ),
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .bodySmall
@@ -2009,21 +2056,15 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                   alignment:
                                                       AlignmentDirectional(
                                                           0.0, 0.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 2.0),
-                                                    child: ClipRRect(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                      child: Image.asset(
-                                                        'assets/images/star.gif',
-                                                        width: 20.0,
-                                                        height: 20.0,
-                                                        fit: BoxFit.fill,
-                                                      ),
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    child: Image.asset(
+                                                      'assets/images/star.gif',
+                                                      width: 20.0,
+                                                      height: 20.0,
+                                                      fit: BoxFit.fill,
                                                     ),
                                                   ),
                                                 ),
@@ -2031,35 +2072,47 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                   alignment:
                                                       AlignmentDirectional(
                                                           0.0, 0.0),
-                                                  child: Text(
-                                                    '5',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .poppins(
-                                                            fontWeight:
-                                                                FontWeight.w300,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 2.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '0vhc4y98' /* 5 */,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w300,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .warning,
+                                                                fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w300,
+                                                                fontStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
                                                                     .fontStyle,
-                                                          ),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .warning,
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w300,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
+                                                              ),
+                                                    ),
                                                   ),
                                                 ),
                                               ],
@@ -2124,7 +2177,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                 alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Text(
-                                                  'BBQ',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'q3q0d5ui' /* BBQ */,
+                                                  ),
                                                   style:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -2157,7 +2213,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                   size: 15.0,
                                                 ),
                                                 Text(
-                                                  'Amstelven,Amsterdam\'s Bos',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'c5txrema' /* Amstelven,Amsterdam's Bos */,
+                                                  ),
                                                   style:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -2180,7 +2239,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                               alignment: AlignmentDirectional(
                                                   -1.0, 0.0),
                                               child: Text(
-                                                'Picnic Lovers',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'jb80kqem' /* Picnic Lovers */,
+                                                ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -2203,7 +2265,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                               alignment: AlignmentDirectional(
                                                   -1.0, -1.0),
                                               child: Text(
-                                                'agust 23, 05:00 PM',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'qe8smj8m' /* agust 23, 05:00 PM */,
+                                                ),
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .bodySmall
@@ -2248,21 +2313,15 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                   alignment:
                                                       AlignmentDirectional(
                                                           0.0, 0.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 2.0),
-                                                    child: ClipRRect(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                      child: Image.asset(
-                                                        'assets/images/star.gif',
-                                                        width: 20.0,
-                                                        height: 20.0,
-                                                        fit: BoxFit.fill,
-                                                      ),
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    child: Image.asset(
+                                                      'assets/images/star.gif',
+                                                      width: 20.0,
+                                                      height: 20.0,
+                                                      fit: BoxFit.fill,
                                                     ),
                                                   ),
                                                 ),
@@ -2270,35 +2329,47 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                   alignment:
                                                       AlignmentDirectional(
                                                           0.0, 0.0),
-                                                  child: Text(
-                                                    '4',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .poppins(
-                                                            fontWeight:
-                                                                FontWeight.w300,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 2.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'iu8qjnpz' /* 4 */,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .poppins(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w300,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .warning,
+                                                                fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w300,
+                                                                fontStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
                                                                     .fontStyle,
-                                                          ),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .warning,
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w300,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
+                                                              ),
+                                                    ),
                                                   ),
                                                 ),
                                               ],

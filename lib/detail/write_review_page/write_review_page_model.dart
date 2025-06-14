@@ -15,7 +15,9 @@ class WriteReviewPageModel extends FlutterFlowModel<WriteReviewPageWidget> {
   String? Function(BuildContext, String?)? textControllerValidator;
   String? _textControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Please entre valid write a review.';
+      return FFLocalizations.of(context).getText(
+        'amnv5cpz' /* Please entre valid write a rev... */,
+      );
     }
 
     return null;

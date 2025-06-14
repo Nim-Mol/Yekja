@@ -19,7 +19,9 @@ class EditProfilePageModel extends FlutterFlowModel<EditProfilePageWidget> {
   String? Function(BuildContext, String?)? textController1Validator;
   String? _textController1Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Please enter valid first name.';
+      return FFLocalizations.of(context).getText(
+        'xu2qdymg' /* Please enter valid first name. */,
+      );
     }
 
     return null;
@@ -31,7 +33,9 @@ class EditProfilePageModel extends FlutterFlowModel<EditProfilePageWidget> {
   String? Function(BuildContext, String?)? textController2Validator;
   String? _textController2Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Please enter valid last name.';
+      return FFLocalizations.of(context).getText(
+        '5dxsp78b' /* Please enter valid last name. */,
+      );
     }
 
     return null;

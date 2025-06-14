@@ -93,6 +93,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => PrivacyPolicyPageWidget(),
         ),
         FFRoute(
+          name: SwipableMAWidget.routeName,
+          path: SwipableMAWidget.routePath,
+          builder: (context, params) => SwipableMAWidget(),
+        ),
+        FFRoute(
           name: WriteReviewPageWidget.routeName,
           path: WriteReviewPageWidget.routePath,
           builder: (context, params) => WriteReviewPageWidget(),
@@ -158,6 +163,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => EditProfilePageWidget(),
         ),
         FFRoute(
+          name: EventsWidget.routeName,
+          path: EventsWidget.routePath,
+          builder: (context, params) => EventsWidget(),
+        ),
+        FFRoute(
           name: AboutPageWidget.routeName,
           path: AboutPageWidget.routePath,
           builder: (context, params) => AboutPageWidget(),
@@ -166,11 +176,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: ChatdetailWidget.routeName,
           path: ChatdetailWidget.routePath,
           builder: (context, params) => ChatdetailWidget(),
-        ),
-        FFRoute(
-          name: ProfilePageWidget.routeName,
-          path: ProfilePageWidget.routePath,
-          builder: (context, params) => ProfilePageWidget(),
         ),
         FFRoute(
           name: SettingPageWidget.routeName,
@@ -183,19 +188,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => AddnewcardPageWidget(),
         ),
         FFRoute(
-          name: SwipableMAWidget.routeName,
-          path: SwipableMAWidget.routePath,
-          builder: (context, params) => SwipableMAWidget(),
+          name: PersonalInfoWidget.routeName,
+          path: PersonalInfoWidget.routePath,
+          builder: (context, params) => PersonalInfoWidget(),
         ),
         FFRoute(
-          name: EventsWidget.routeName,
-          path: EventsWidget.routePath,
-          builder: (context, params) => EventsWidget(),
+          name: HOmeTestWidget.routeName,
+          path: HOmeTestWidget.routePath,
+          builder: (context, params) => HOmeTestWidget(),
         ),
         FFRoute(
           name: HomePageWidget.routeName,
           path: HomePageWidget.routePath,
           builder: (context, params) => HomePageWidget(),
+        ),
+        FFRoute(
+          name: ProfilePageWidget.routeName,
+          path: ProfilePageWidget.routePath,
+          builder: (context, params) => ProfilePageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

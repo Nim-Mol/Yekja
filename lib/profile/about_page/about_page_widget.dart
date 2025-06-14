@@ -85,7 +85,9 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 0.0, 0.0),
                       child: Text(
-                        'Traditional indian soup lentils.',
+                        FFLocalizations.of(context).getText(
+                          'sj2ejwyi' /* Traditional indian soup lentil... */,
+                        ),
                         maxLines: 1,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Satoshi',
@@ -104,7 +106,9 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. ',
+                            FFLocalizations.of(context).getText(
+                              'eyopgro8' /* Lorem ipsum dolor sit amet, co... */,
+                            ),
                             textAlign: TextAlign.justify,
                             style: FlutterFlowTheme.of(context)
                                 .titleSmall
@@ -118,7 +122,9 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                                 ),
                           ),
                           Text(
-                            'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.',
+                            FFLocalizations.of(context).getText(
+                              'v0leq08k' /* Amet minim mollit non deserunt... */,
+                            ),
                             textAlign: TextAlign.justify,
                             style: FlutterFlowTheme.of(context)
                                 .titleSmall
@@ -132,7 +138,9 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                                 ),
                           ),
                           Text(
-                            'In a laoreet purus. Integer turpis quam, laoreet id orci nec, ultrices lacinia nunc. Aliquam erat volutpat. Curabitur fringilla in purus eget egestas. Etiam quis.',
+                            FFLocalizations.of(context).getText(
+                              'u4cub474' /* In a laoreet purus. Integer tu... */,
+                            ),
                             textAlign: TextAlign.justify,
                             style: FlutterFlowTheme.of(context)
                                 .titleSmall
@@ -146,7 +154,9 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                                 ),
                           ),
                           Text(
-                            'IVorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. ',
+                            FFLocalizations.of(context).getText(
+                              'wm4znpuc' /* IVorem ipsum dolor sit amet, c... */,
+                            ),
                             textAlign: TextAlign.justify,
                             style: FlutterFlowTheme.of(context)
                                 .titleSmall
@@ -160,7 +170,9 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                                 ),
                           ),
                           Text(
-                            'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. ',
+                            FFLocalizations.of(context).getText(
+                              'wk5x7m62' /* Amet minim mollit non deserunt... */,
+                            ),
                             textAlign: TextAlign.justify,
                             style: FlutterFlowTheme.of(context)
                                 .titleSmall
@@ -174,7 +186,9 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                                 ),
                           ),
                           Text(
-                            'IVorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. ',
+                            FFLocalizations.of(context).getText(
+                              '822wmebl' /* IVorem ipsum dolor sit amet, c... */,
+                            ),
                             textAlign: TextAlign.justify,
                             style: FlutterFlowTheme.of(context)
                                 .titleSmall

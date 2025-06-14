@@ -18,7 +18,9 @@ class AddnewaddressPageModel extends FlutterFlowModel<AddnewaddressPageWidget> {
   String? Function(BuildContext, String?)? textController1Validator;
   String? _textController1Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Please enter valid new address.';
+      return FFLocalizations.of(context).getText(
+        'utcgziz3' /* Please enter valid new address... */,
+      );
     }
 
     return null;
@@ -35,7 +37,9 @@ class AddnewaddressPageModel extends FlutterFlowModel<AddnewaddressPageWidget> {
   String? Function(BuildContext, String?)? textController2Validator;
   String? _textController2Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Please enter valid street.';
+      return FFLocalizations.of(context).getText(
+        '5pdoazh1' /* Please enter valid street. */,
+      );
     }
 
     return null;

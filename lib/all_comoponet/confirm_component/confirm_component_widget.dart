@@ -102,7 +102,9 @@ class _ConfirmComponentWidgetState extends State<ConfirmComponentWidget>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Home ',
+                            FFLocalizations.of(context).getText(
+                              'gneyf983' /* Home  */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -113,7 +115,9 @@ class _ConfirmComponentWidgetState extends State<ConfirmComponentWidget>
                                 ),
                           ),
                           Text(
-                            '2118 thornridge cir. syracuse, connecticut 35624',
+                            FFLocalizations.of(context).getText(
+                              '6p7awqfv' /* 2118 thornridge cir. syracuse,... */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
@@ -146,7 +150,9 @@ class _ConfirmComponentWidgetState extends State<ConfirmComponentWidget>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Payment methods',
+                            FFLocalizations.of(context).getText(
+                              '12trzrod' /* Payment methods */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -180,7 +186,9 @@ class _ConfirmComponentWidgetState extends State<ConfirmComponentWidget>
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 16.0, 0.0),
                                 child: Text(
-                                  'Google pay',
+                                  FFLocalizations.of(context).getText(
+                                    'f5kc9why' /* Google pay */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
@@ -201,7 +209,9 @@ class _ConfirmComponentWidgetState extends State<ConfirmComponentWidget>
                   ),
                 ),
                 Text(
-                  '3 Items in the cart',
+                  FFLocalizations.of(context).getText(
+                    'ldms2ala' /* 3 Items in the cart */,
+                  ),
                   style: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Satoshi',
                         color: FlutterFlowTheme.of(context).primaryText,
@@ -239,7 +249,9 @@ class _ConfirmComponentWidgetState extends State<ConfirmComponentWidget>
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 16.0),
                   child: Text(
-                    'Payment summary',
+                    FFLocalizations.of(context).getText(
+                      'onsu278e' /* Payment summary */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Satoshi',
                           fontSize: 20.0,
@@ -271,7 +283,9 @@ class _ConfirmComponentWidgetState extends State<ConfirmComponentWidget>
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 16.0),
                               child: Text(
-                                'Subtotal',
+                                FFLocalizations.of(context).getText(
+                                  'dcu9bycv' /* Subtotal */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
@@ -288,7 +302,9 @@ class _ConfirmComponentWidgetState extends State<ConfirmComponentWidget>
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 16.0),
                               child: Text(
-                                'Shipping',
+                                FFLocalizations.of(context).getText(
+                                  'ytx8oe27' /* Shipping */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
@@ -302,7 +318,9 @@ class _ConfirmComponentWidgetState extends State<ConfirmComponentWidget>
                               ),
                             ),
                             Text(
-                              'Total',
+                              FFLocalizations.of(context).getText(
+                                'n7r2q1r2' /* Total */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
@@ -324,7 +342,9 @@ class _ConfirmComponentWidgetState extends State<ConfirmComponentWidget>
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 16.0),
                               child: Text(
-                                '\$114.00',
+                                FFLocalizations.of(context).getText(
+                                  '74ssfqpc' /* $114.00 */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
@@ -341,7 +361,9 @@ class _ConfirmComponentWidgetState extends State<ConfirmComponentWidget>
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 16.0),
                               child: Text(
-                                '\$10.00',
+                                FFLocalizations.of(context).getText(
+                                  '7tvj62yi' /* $10.00 */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
@@ -355,7 +377,9 @@ class _ConfirmComponentWidgetState extends State<ConfirmComponentWidget>
                               ),
                             ),
                             Text(
-                              '\$124.00',
+                              FFLocalizations.of(context).getText(
+                                'vcmjwnqr' /* $124.00 */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(

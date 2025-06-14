@@ -53,7 +53,9 @@ class _ChatComopnetWidgetState extends State<ChatComopnetWidget> {
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(20.0, 63.0, 0.0, 16.0),
             child: Text(
-              'Chat',
+              FFLocalizations.of(context).getText(
+                'yehk8rq2' /* Chat */,
+              ),
               maxLines: 1,
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Satoshi',
@@ -119,7 +121,9 @@ class _ChatComopnetWidgetState extends State<ChatComopnetWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 0.0, 0.0, 0.0),
                                     child: Text(
-                                      'Search',
+                                      FFLocalizations.of(context).getText(
+                                        'urkkzuba' /* Search */,
+                                      ),
                                       maxLines: 1,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -201,7 +205,10 @@ class _ChatComopnetWidgetState extends State<ChatComopnetWidget> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  'Basinah Quraishi',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'fmgb2ksa' /* Basinah Quraishi */,
+                                                  ),
                                                   maxLines: 1,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -215,7 +222,10 @@ class _ChatComopnetWidgetState extends State<ChatComopnetWidget> {
                                                       ),
                                                 ),
                                                 Text(
-                                                  'Hello sir',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'r5mk7tsj' /* Hello sir */,
+                                                  ),
                                                   textAlign: TextAlign.start,
                                                   maxLines: 1,
                                                   style: FlutterFlowTheme.of(
@@ -240,7 +250,10 @@ class _ChatComopnetWidgetState extends State<ChatComopnetWidget> {
                                                 alignment: AlignmentDirectional(
                                                     1.0, 0.0),
                                                 child: Text(
-                                                  '27 Min',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'wn55w6ba' /* 27 Min */,
+                                                  ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .titleSmall
@@ -308,7 +321,10 @@ class _ChatComopnetWidgetState extends State<ChatComopnetWidget> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  'Iftikar Buthayna',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'fun81ire' /* Iftikar Buthayna */,
+                                                  ),
                                                   maxLines: 1,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -322,7 +338,10 @@ class _ChatComopnetWidgetState extends State<ChatComopnetWidget> {
                                                       ),
                                                 ),
                                                 Text(
-                                                  'Good morning sir',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'yl1sgi2i' /* Good morning sir */,
+                                                  ),
                                                   textAlign: TextAlign.start,
                                                   maxLines: 1,
                                                   style: FlutterFlowTheme.of(
@@ -347,7 +366,10 @@ class _ChatComopnetWidgetState extends State<ChatComopnetWidget> {
                                                 alignment: AlignmentDirectional(
                                                     1.0, 0.0),
                                                 child: Text(
-                                                  '27 Min',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'z20s1lgm' /* 27 Min */,
+                                                  ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .titleSmall
@@ -415,7 +437,10 @@ class _ChatComopnetWidgetState extends State<ChatComopnetWidget> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  'Fariq Azhar',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'dd3hm7oy' /* Fariq Azhar */,
+                                                  ),
                                                   maxLines: 1,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -429,7 +454,10 @@ class _ChatComopnetWidgetState extends State<ChatComopnetWidget> {
                                                       ),
                                                 ),
                                                 Text(
-                                                  'Ok sir',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '43ingyh1' /* Ok sir */,
+                                                  ),
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -453,7 +481,10 @@ class _ChatComopnetWidgetState extends State<ChatComopnetWidget> {
                                                 alignment: AlignmentDirectional(
                                                     1.0, 0.0),
                                                 child: Text(
-                                                  '27 Min',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'k8mjufht' /* 27 Min */,
+                                                  ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .titleSmall
@@ -521,7 +552,10 @@ class _ChatComopnetWidgetState extends State<ChatComopnetWidget> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  'Radeyah Hawra',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'qyo2p7fb' /* Radeyah Hawra */,
+                                                  ),
                                                   maxLines: 1,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -535,7 +569,10 @@ class _ChatComopnetWidgetState extends State<ChatComopnetWidget> {
                                                       ),
                                                 ),
                                                 Text(
-                                                  'Potilies sir',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'qlu2aawv' /* Potilies sir */,
+                                                  ),
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -559,7 +596,10 @@ class _ChatComopnetWidgetState extends State<ChatComopnetWidget> {
                                                 alignment: AlignmentDirectional(
                                                     1.0, 0.0),
                                                 child: Text(
-                                                  '27 Min',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'xbfoad3b' /* 27 Min */,
+                                                  ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .titleSmall
@@ -627,7 +667,10 @@ class _ChatComopnetWidgetState extends State<ChatComopnetWidget> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  'May Dunya',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'a5hpjage' /* May Dunya */,
+                                                  ),
                                                   maxLines: 1,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -641,7 +684,10 @@ class _ChatComopnetWidgetState extends State<ChatComopnetWidget> {
                                                       ),
                                                 ),
                                                 Text(
-                                                  '36154212',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'grxah90a' /* 36154212 */,
+                                                  ),
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -665,7 +711,10 @@ class _ChatComopnetWidgetState extends State<ChatComopnetWidget> {
                                                 alignment: AlignmentDirectional(
                                                     1.0, 0.0),
                                                 child: Text(
-                                                  '27 Min',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'f15cfbbp' /* 27 Min */,
+                                                  ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .titleSmall
@@ -733,7 +782,10 @@ class _ChatComopnetWidgetState extends State<ChatComopnetWidget> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  'Fayruz Awad',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'm4b3rd8t' /* Fayruz Awad */,
+                                                  ),
                                                   maxLines: 1,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -747,7 +799,10 @@ class _ChatComopnetWidgetState extends State<ChatComopnetWidget> {
                                                       ),
                                                 ),
                                                 Text(
-                                                  'Loadig',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'adsei9sc' /* Loadig */,
+                                                  ),
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -771,7 +826,10 @@ class _ChatComopnetWidgetState extends State<ChatComopnetWidget> {
                                                 alignment: AlignmentDirectional(
                                                     1.0, 0.0),
                                                 child: Text(
-                                                  '27 Min',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'gpw4nj3k' /* 27 Min */,
+                                                  ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .titleSmall

@@ -99,7 +99,9 @@ class _FilterPageWidgetState extends State<FilterPageWidget>
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Categories',
+                            FFLocalizations.of(context).getText(
+                              'x657ak29' /* Categories */,
+                            ),
                             maxLines: 1,
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -112,7 +114,9 @@ class _FilterPageWidgetState extends State<FilterPageWidget>
                                 ),
                           ),
                           Text(
-                            'View all',
+                            FFLocalizations.of(context).getText(
+                              '351c5gwm' /* View all */,
+                            ),
                             maxLines: 1,
                             style: FlutterFlowTheme.of(context)
                                 .titleSmall
@@ -226,7 +230,9 @@ class _FilterPageWidgetState extends State<FilterPageWidget>
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Age preference',
+                            FFLocalizations.of(context).getText(
+                              'ksvb8tuc' /* Age preference */,
+                            ),
                             maxLines: 1,
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -239,7 +245,9 @@ class _FilterPageWidgetState extends State<FilterPageWidget>
                                 ),
                           ),
                           Text(
-                            '20-40',
+                            FFLocalizations.of(context).getText(
+                              '16hm6c3p' /* 20-40 */,
+                            ),
                             maxLines: 1,
                             style: FlutterFlowTheme.of(context)
                                 .titleSmall
@@ -288,7 +296,9 @@ class _FilterPageWidgetState extends State<FilterPageWidget>
                             onPressed: () async {
                               context.safePop();
                             },
-                            text: 'Reset',
+                            text: FFLocalizations.of(context).getText(
+                              '0wtgs91w' /* Reset */,
+                            ),
                             options: FFButtonOptions(
                               width: 186.0,
                               height: 56.0,
@@ -329,7 +339,9 @@ class _FilterPageWidgetState extends State<FilterPageWidget>
                             onPressed: () async {
                               context.safePop();
                             },
-                            text: 'Apply',
+                            text: FFLocalizations.of(context).getText(
+                              '968w6phc' /* Apply */,
+                            ),
                             options: FFButtonOptions(
                               width: 186.0,
                               height: 56.0,

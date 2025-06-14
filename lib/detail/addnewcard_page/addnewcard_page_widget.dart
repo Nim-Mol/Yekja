@@ -91,7 +91,14 @@ class _AddnewcardPageWidgetState extends State<AddnewcardPageWidget> {
                         child: FlutterFlowDropDown<String>(
                           controller: _model.dropDownValueController ??=
                               FormFieldController<String>(null),
-                          options: ['Credit Card', 'Debit Card'],
+                          options: [
+                            FFLocalizations.of(context).getText(
+                              '7d3970t0' /* Credit Card */,
+                            ),
+                            FFLocalizations.of(context).getText(
+                              '95owi1am' /* Debit Card */,
+                            )
+                          ],
                           onChanged: (val) =>
                               safeSetState(() => _model.dropDownValue = val),
                           width: double.infinity,
@@ -106,7 +113,9 @@ class _AddnewcardPageWidgetState extends State<AddnewcardPageWidget> {
                                 useGoogleFonts: !FlutterFlowTheme.of(context)
                                     .bodyMediumIsCustom,
                               ),
-                          hintText: 'Select card type',
+                          hintText: FFLocalizations.of(context).getText(
+                            '9q7to6hw' /* Select card type */,
+                          ),
                           icon: Icon(
                             Icons.keyboard_arrow_down_rounded,
                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -146,7 +155,9 @@ class _AddnewcardPageWidgetState extends State<AddnewcardPageWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             isDense: false,
-                            labelText: 'Card holder name',
+                            labelText: FFLocalizations.of(context).getText(
+                              'xhhcf1za' /* Card holder name */,
+                            ),
                             labelStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -156,7 +167,9 @@ class _AddnewcardPageWidgetState extends State<AddnewcardPageWidget> {
                                   fontSize: 13.0,
                                   letterSpacing: 0.0,
                                 ),
-                            hintText: 'Card holder name',
+                            hintText: FFLocalizations.of(context).getText(
+                              'kld2c2oq' /* Card holder name */,
+                            ),
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -230,7 +243,9 @@ class _AddnewcardPageWidgetState extends State<AddnewcardPageWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             isDense: false,
-                            labelText: 'Card number',
+                            labelText: FFLocalizations.of(context).getText(
+                              '760jsitm' /* Card number */,
+                            ),
                             labelStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -240,7 +255,9 @@ class _AddnewcardPageWidgetState extends State<AddnewcardPageWidget> {
                                   fontSize: 13.0,
                                   letterSpacing: 0.0,
                                 ),
-                            hintText: 'Card number',
+                            hintText: FFLocalizations.of(context).getText(
+                              'wwzr3c68' /* Card number */,
+                            ),
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -314,7 +331,9 @@ class _AddnewcardPageWidgetState extends State<AddnewcardPageWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             isDense: false,
-                            labelText: 'Expiray date',
+                            labelText: FFLocalizations.of(context).getText(
+                              'cg1dui74' /* Expiray date */,
+                            ),
                             labelStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -324,7 +343,9 @@ class _AddnewcardPageWidgetState extends State<AddnewcardPageWidget> {
                                   fontSize: 13.0,
                                   letterSpacing: 0.0,
                                 ),
-                            hintText: 'Expiray date',
+                            hintText: FFLocalizations.of(context).getText(
+                              '8sjf5i61' /* Expiray date */,
+                            ),
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -398,7 +419,9 @@ class _AddnewcardPageWidgetState extends State<AddnewcardPageWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             isDense: false,
-                            labelText: 'CVV',
+                            labelText: FFLocalizations.of(context).getText(
+                              'x9q220lh' /* CVV */,
+                            ),
                             labelStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -408,7 +431,9 @@ class _AddnewcardPageWidgetState extends State<AddnewcardPageWidget> {
                                   fontSize: 13.0,
                                   letterSpacing: 0.0,
                                 ),
-                            hintText: 'CVV',
+                            hintText: FFLocalizations.of(context).getText(
+                              'c8tmxcop' /* CVV */,
+                            ),
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -488,7 +513,9 @@ class _AddnewcardPageWidgetState extends State<AddnewcardPageWidget> {
                               }
                               context.safePop();
                             },
-                            text: 'Add',
+                            text: FFLocalizations.of(context).getText(
+                              '4qezr8e5' /* Add */,
+                            ),
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 56.0,

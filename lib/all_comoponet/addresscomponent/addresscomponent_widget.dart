@@ -120,7 +120,9 @@ class _AddresscomponentWidgetState extends State<AddresscomponentWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
-                                    'Office',
+                                    FFLocalizations.of(context).getText(
+                                      'p5v6bsuz' /* Office */,
+                                    ),
                                     maxLines: 1,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -140,7 +142,9 @@ class _AddresscomponentWidgetState extends State<AddresscomponentWidget> {
                               ],
                             ),
                             Text(
-                              '4517 washington ave. manchester, kentucky\n39495',
+                              FFLocalizations.of(context).getText(
+                                'gufgipto' /* 4517 washington ave. mancheste... */,
+                              ),
                               maxLines: 2,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -217,7 +221,9 @@ class _AddresscomponentWidgetState extends State<AddresscomponentWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
-                                    'Home ',
+                                    FFLocalizations.of(context).getText(
+                                      'swclfvsw' /* Home  */,
+                                    ),
                                     maxLines: 1,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -237,7 +243,9 @@ class _AddresscomponentWidgetState extends State<AddresscomponentWidget> {
                               ],
                             ),
                             Text(
-                              '2118 thornridge cir. syracuse, connecticut \n35624',
+                              FFLocalizations.of(context).getText(
+                                'crmg12jy' /* 2118 thornridge cir. syracuse,... */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -276,7 +284,9 @@ class _AddresscomponentWidgetState extends State<AddresscomponentWidget> {
               );
             },
             child: Text(
-              '+ Add new address',
+              FFLocalizations.of(context).getText(
+                'nuzt4ojt' /* + Add new address */,
+              ),
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).titleSmall.override(
                     fontFamily: 'Satoshi',

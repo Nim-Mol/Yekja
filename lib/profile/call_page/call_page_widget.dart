@@ -75,7 +75,9 @@ class _CallPageWidgetState extends State<CallPageWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                         child: Text(
-                          'Jane cooper',
+                          FFLocalizations.of(context).getText(
+                            'y3o5jfkv' /* Jane cooper */,
+                          ),
                           textAlign: TextAlign.center,
                           maxLines: 1,
                           style: FlutterFlowTheme.of(context)
@@ -93,7 +95,9 @@ class _CallPageWidgetState extends State<CallPageWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                         child: Text(
-                          '20:12',
+                          FFLocalizations.of(context).getText(
+                            'vgemo2vv' /* 20:12 */,
+                          ),
                           maxLines: 1,
                           style: FlutterFlowTheme.of(context)
                               .titleSmall

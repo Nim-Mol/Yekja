@@ -141,7 +141,9 @@ class _PaymentComponentWidgetState extends State<PaymentComponentWidget>
                                       children: [
                                         Expanded(
                                           child: Text(
-                                            'Google pay',
+                                            FFLocalizations.of(context).getText(
+                                              '9ykaq9tl' /* Google pay */,
+                                            ),
                                             maxLines: 1,
                                             style: FlutterFlowTheme.of(context)
                                                 .titleSmall
@@ -158,7 +160,9 @@ class _PaymentComponentWidgetState extends State<PaymentComponentWidget>
                                         ),
                                         Expanded(
                                           child: Text(
-                                            'XXXX XXXX 125',
+                                            FFLocalizations.of(context).getText(
+                                              '7mhwa2bz' /* XXXX XXXX 125 */,
+                                            ),
                                             textAlign: TextAlign.start,
                                             maxLines: 1,
                                             style: FlutterFlowTheme.of(context)
@@ -269,7 +273,9 @@ class _PaymentComponentWidgetState extends State<PaymentComponentWidget>
                                       children: [
                                         Expanded(
                                           child: Text(
-                                            'Paypal',
+                                            FFLocalizations.of(context).getText(
+                                              '9y0ue7f4' /* Paypal */,
+                                            ),
                                             maxLines: 1,
                                             style: FlutterFlowTheme.of(context)
                                                 .titleSmall
@@ -286,7 +292,9 @@ class _PaymentComponentWidgetState extends State<PaymentComponentWidget>
                                         ),
                                         Expanded(
                                           child: Text(
-                                            'XXXX XXXX 3698',
+                                            FFLocalizations.of(context).getText(
+                                              '6fnq4b68' /* XXXX XXXX 3698 */,
+                                            ),
                                             textAlign: TextAlign.start,
                                             maxLines: 1,
                                             style: FlutterFlowTheme.of(context)
@@ -396,7 +404,9 @@ class _PaymentComponentWidgetState extends State<PaymentComponentWidget>
                                       children: [
                                         Expanded(
                                           child: Text(
-                                            'Visa',
+                                            FFLocalizations.of(context).getText(
+                                              'uunvzk5e' /* Visa */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .titleSmall
                                                 .override(
@@ -412,7 +422,9 @@ class _PaymentComponentWidgetState extends State<PaymentComponentWidget>
                                         ),
                                         Expanded(
                                           child: Text(
-                                            'XXXX XXXX 3698',
+                                            FFLocalizations.of(context).getText(
+                                              'lgow3bp1' /* XXXX XXXX 3698 */,
+                                            ),
                                             textAlign: TextAlign.start,
                                             maxLines: 1,
                                             style: FlutterFlowTheme.of(context)
@@ -494,7 +506,9 @@ class _PaymentComponentWidgetState extends State<PaymentComponentWidget>
               );
             },
             child: Text(
-              '+ Add new card',
+              FFLocalizations.of(context).getText(
+                'kvs22ls9' /* + Add new card */,
+              ),
               textAlign: TextAlign.center,
               maxLines: 1,
               style: FlutterFlowTheme.of(context).titleSmall.override(

@@ -121,7 +121,9 @@ class _HelpPageWidgetState extends State<HelpPageWidget>
                                   _model.expandableExpandableController1,
                               child: ExpandablePanel(
                                 header: Text(
-                                  'Which company best for furniture?',
+                                  FFLocalizations.of(context).getText(
+                                    '24c4afj9' /* Which company best for furnitu... */,
+                                  ),
                                   maxLines: 1,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -144,7 +146,9 @@ class _HelpPageWidgetState extends State<HelpPageWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 16.0),
                                   child: Text(
-                                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                                    FFLocalizations.of(context).getText(
+                                      'l1qm6pea' /* Lorem ipsum dolor sit amet, co... */,
+                                    ),
                                     textAlign: TextAlign.justify,
                                     style: FlutterFlowTheme.of(context)
                                         .titleSmall
@@ -195,7 +199,9 @@ class _HelpPageWidgetState extends State<HelpPageWidget>
                                   _model.expandableExpandableController2,
                               child: ExpandablePanel(
                                 header: Text(
-                                  'Which online shopping is best?',
+                                  FFLocalizations.of(context).getText(
+                                    'dtpcil6r' /* Which online shopping is best? */,
+                                  ),
                                   maxLines: 1,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -217,7 +223,9 @@ class _HelpPageWidgetState extends State<HelpPageWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 16.0),
                                   child: Text(
-                                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                                    FFLocalizations.of(context).getText(
+                                      'odjaij7e' /* Lorem ipsum dolor sit amet, co... */,
+                                    ),
                                     textAlign: TextAlign.justify,
                                     style: FlutterFlowTheme.of(context)
                                         .titleSmall
@@ -268,7 +276,9 @@ class _HelpPageWidgetState extends State<HelpPageWidget>
                                   _model.expandableExpandableController3,
                               child: ExpandablePanel(
                                 header: Text(
-                                  'What comes under furniture?',
+                                  FFLocalizations.of(context).getText(
+                                    'o9brjb3x' /* What comes under furniture? */,
+                                  ),
                                   maxLines: 1,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -290,7 +300,9 @@ class _HelpPageWidgetState extends State<HelpPageWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 16.0),
                                   child: Text(
-                                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                                    FFLocalizations.of(context).getText(
+                                      'bkl59zgx' /* Lorem ipsum dolor sit amet, co... */,
+                                    ),
                                     textAlign: TextAlign.justify,
                                     style: FlutterFlowTheme.of(context)
                                         .titleSmall
@@ -341,7 +353,9 @@ class _HelpPageWidgetState extends State<HelpPageWidget>
                                   _model.expandableExpandableController4,
                               child: ExpandablePanel(
                                 header: Text(
-                                  'Which furniture is best in India?',
+                                  FFLocalizations.of(context).getText(
+                                    '95ksmw47' /* Which furniture is best in Ind... */,
+                                  ),
                                   maxLines: 1,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -363,7 +377,9 @@ class _HelpPageWidgetState extends State<HelpPageWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 16.0),
                                   child: Text(
-                                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                                    FFLocalizations.of(context).getText(
+                                      'nu3cwjjm' /* Lorem ipsum dolor sit amet, co... */,
+                                    ),
                                     textAlign: TextAlign.justify,
                                     style: FlutterFlowTheme.of(context)
                                         .titleSmall
@@ -414,7 +430,9 @@ class _HelpPageWidgetState extends State<HelpPageWidget>
                                   _model.expandableExpandableController5,
                               child: ExpandablePanel(
                                 header: Text(
-                                  'Are items in Amazon original?',
+                                  FFLocalizations.of(context).getText(
+                                    'eks33xkk' /* Are items in Amazon original? */,
+                                  ),
                                   maxLines: 1,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -436,7 +454,9 @@ class _HelpPageWidgetState extends State<HelpPageWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 16.0),
                                   child: Text(
-                                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                                    FFLocalizations.of(context).getText(
+                                      '21arpmnw' /* Lorem ipsum dolor sit amet, co... */,
+                                    ),
                                     textAlign: TextAlign.justify,
                                     style: FlutterFlowTheme.of(context)
                                         .titleSmall
@@ -487,7 +507,9 @@ class _HelpPageWidgetState extends State<HelpPageWidget>
                                   _model.expandableExpandableController6,
                               child: ExpandablePanel(
                                 header: Text(
-                                  'Does Amazon sell original items?',
+                                  FFLocalizations.of(context).getText(
+                                    'aloc0wpz' /* Does Amazon sell original item... */,
+                                  ),
                                   maxLines: 1,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -509,7 +531,9 @@ class _HelpPageWidgetState extends State<HelpPageWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 16.0),
                                   child: Text(
-                                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                                    FFLocalizations.of(context).getText(
+                                      'sjaptzm1' /* Lorem ipsum dolor sit amet, co... */,
+                                    ),
                                     textAlign: TextAlign.justify,
                                     style: FlutterFlowTheme.of(context)
                                         .titleSmall
@@ -560,7 +584,9 @@ class _HelpPageWidgetState extends State<HelpPageWidget>
                                   _model.expandableExpandableController7,
                               child: ExpandablePanel(
                                 header: Text(
-                                  'Is it OK to buy from Amazon?',
+                                  FFLocalizations.of(context).getText(
+                                    'isn1j7jh' /* Is it OK to buy from Amazon? */,
+                                  ),
                                   maxLines: 1,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -582,7 +608,9 @@ class _HelpPageWidgetState extends State<HelpPageWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 16.0),
                                   child: Text(
-                                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                                    FFLocalizations.of(context).getText(
+                                      'ncwlis4k' /* Lorem ipsum dolor sit amet, co... */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(

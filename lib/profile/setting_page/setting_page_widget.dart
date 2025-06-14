@@ -160,14 +160,16 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 0.0, 0.0),
                                   child: Text(
-                                    'About us',
+                                    FFLocalizations.of(context).getText(
+                                      'x0kdsaqy' /* About us */,
+                                    ),
                                     maxLines: 1,
                                     style: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
                                           fontFamily: 'Satoshi',
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryText,
+                                              .primaryBackground,
                                           fontSize: 17.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
@@ -234,7 +236,9 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 0.0, 0.0),
                                   child: Text(
-                                    'Help',
+                                    FFLocalizations.of(context).getText(
+                                      'ic8q7mg9' /* Help */,
+                                    ),
                                     maxLines: 1,
                                     style: FlutterFlowTheme.of(context)
                                         .titleSmall
@@ -308,7 +312,9 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 0.0, 0.0),
                                   child: Text(
-                                    'Feedback',
+                                    FFLocalizations.of(context).getText(
+                                      'bh7jxmp0' /* Feedback */,
+                                    ),
                                     maxLines: 1,
                                     style: FlutterFlowTheme.of(context)
                                         .titleSmall

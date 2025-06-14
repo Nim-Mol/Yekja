@@ -63,7 +63,9 @@ class _DoneDialogWidgetState extends State<DoneDialogWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Text(
-                'Are you sure?',
+                FFLocalizations.of(context).getText(
+                  '57mfnl2n' /* Are you sure? */,
+                ),
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).titleLarge.override(
                       fontFamily: 'Satoshi',
@@ -77,7 +79,9 @@ class _DoneDialogWidgetState extends State<DoneDialogWidget> {
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(24.0, 8.0, 24.0, 0.0),
                   child: Text(
-                    'Are you sure you would like to remove this item from this order? ',
+                    FFLocalizations.of(context).getText(
+                      '2pbw2a4y' /* Are you sure you would like to... */,
+                    ),
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Satoshi',
@@ -102,7 +106,9 @@ class _DoneDialogWidgetState extends State<DoneDialogWidget> {
                           onPressed: () {
                             print('Button pressed ...');
                           },
-                          text: 'No',
+                          text: FFLocalizations.of(context).getText(
+                            '3desyw8s' /* No */,
+                          ),
                           options: FFButtonOptions(
                             width: 170.0,
                             height: 56.0,
@@ -140,7 +146,9 @@ class _DoneDialogWidgetState extends State<DoneDialogWidget> {
                           onPressed: () {
                             print('Button pressed ...');
                           },
-                          text: 'Yes',
+                          text: FFLocalizations.of(context).getText(
+                            '1iycfzbj' /* Yes */,
+                          ),
                           options: FFButtonOptions(
                             width: 170.0,
                             height: 56.0,

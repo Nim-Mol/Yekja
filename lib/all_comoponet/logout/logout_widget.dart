@@ -73,7 +73,9 @@ class _LogoutWidgetState extends State<LogoutWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                   child: Text(
-                    'Logout',
+                    FFLocalizations.of(context).getText(
+                      'spvj04pz' /* Logout */,
+                    ),
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).titleLarge.override(
                           fontFamily: 'Satoshi',
@@ -90,7 +92,9 @@ class _LogoutWidgetState extends State<LogoutWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                     child: Text(
-                      'Are you sure you want to logout?',
+                      FFLocalizations.of(context).getText(
+                        'ia1pz9go' /* Are you sure you want to logou... */,
+                      ),
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).titleSmall.override(
                             fontFamily: 'Satoshi',
@@ -113,7 +117,9 @@ class _LogoutWidgetState extends State<LogoutWidget> {
                           onPressed: () async {
                             Navigator.pop(context);
                           },
-                          text: 'No',
+                          text: FFLocalizations.of(context).getText(
+                            'ugwbxf2n' /* No */,
+                          ),
                           options: FFButtonOptions(
                             width: 170.0,
                             height: 56.0,
@@ -148,7 +154,9 @@ class _LogoutWidgetState extends State<LogoutWidget> {
                         onPressed: () async {
                           await widget.onTapLogout?.call();
                         },
-                        text: 'Yes',
+                        text: FFLocalizations.of(context).getText(
+                          '9nmqr467' /* Yes */,
+                        ),
                         options: FFButtonOptions(
                           width: 170.0,
                           height: 56.0,

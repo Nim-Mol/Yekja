@@ -9,9 +9,7 @@ import 'package:flutter/material.dart';
 class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  TutorialCoachMark? homePageIntroController;
-  // Model for OurMainHeader component.
-  late OurMainHeaderModel ourMainHeaderModel;
+  TutorialCoachMark? homePageController;
   // State field(s) for Carousel widget.
   CarouselSliderController? carouselController1;
   int carouselCurrentIndex1 = 1;
@@ -20,6 +18,9 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   CarouselSliderController? carouselController2;
   int carouselCurrentIndex2 = 1;
 
+  // Model for OurMainHeader component.
+  late OurMainHeaderModel ourMainHeaderModel;
+
   @override
   void initState(BuildContext context) {
     ourMainHeaderModel = createModel(context, () => OurMainHeaderModel());
@@ -27,7 +28,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
 
   @override
   void dispose() {
-    homePageIntroController?.finish();
+    homePageController?.finish();
     ourMainHeaderModel.dispose();
   }
 }

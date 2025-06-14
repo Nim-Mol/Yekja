@@ -68,7 +68,9 @@ class _FavouriteEmptyWidgetState extends State<FavouriteEmptyWidget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
               child: Text(
-                'No favorite yet!',
+                FFLocalizations.of(context).getText(
+                  'lveqe3uo' /* No favorite yet! */,
+                ),
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).titleLarge.override(
                       fontFamily: 'Satoshi',
@@ -79,7 +81,9 @@ class _FavouriteEmptyWidgetState extends State<FavouriteEmptyWidget> {
               ),
             ),
             Text(
-              'Like a product you see save them here to your favourites.',
+              FFLocalizations.of(context).getText(
+                'prk2a2pn' /* Like a product you see save th... */,
+              ),
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).titleSmall.override(
                     fontFamily: 'Satoshi',

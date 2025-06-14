@@ -92,7 +92,9 @@ class _AddnewaddressPageWidgetState extends State<AddnewaddressPageWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             isDense: false,
-                            labelText: 'New address',
+                            labelText: FFLocalizations.of(context).getText(
+                              'mff7d21e' /* New address */,
+                            ),
                             labelStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -102,7 +104,9 @@ class _AddnewaddressPageWidgetState extends State<AddnewaddressPageWidget> {
                                   fontSize: 13.0,
                                   letterSpacing: 0.0,
                                 ),
-                            hintText: 'New address',
+                            hintText: FFLocalizations.of(context).getText(
+                              '4br7f00z' /* New address */,
+                            ),
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -177,7 +181,14 @@ class _AddnewaddressPageWidgetState extends State<AddnewaddressPageWidget> {
                         child: FlutterFlowDropDown<String>(
                           controller: _model.dropDownValueController ??=
                               FormFieldController<String>(null),
-                          options: ['Surat', 'Ahemdabad'],
+                          options: [
+                            FFLocalizations.of(context).getText(
+                              '3slq5f42' /* Surat */,
+                            ),
+                            FFLocalizations.of(context).getText(
+                              '3j4eh72z' /* Ahemdabad */,
+                            )
+                          ],
                           onChanged: (val) =>
                               safeSetState(() => _model.dropDownValue = val),
                           width: double.infinity,
@@ -210,8 +221,12 @@ class _AddnewaddressPageWidgetState extends State<AddnewaddressPageWidget> {
                                 useGoogleFonts: !FlutterFlowTheme.of(context)
                                     .bodyMediumIsCustom,
                               ),
-                          hintText: 'Select City',
-                          searchHintText: 'Select City',
+                          hintText: FFLocalizations.of(context).getText(
+                            '7hirru8b' /* Select City */,
+                          ),
+                          searchHintText: FFLocalizations.of(context).getText(
+                            'fyrtf1mr' /* Select City */,
+                          ),
                           icon: Icon(
                             Icons.keyboard_arrow_down_rounded,
                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -242,7 +257,9 @@ class _AddnewaddressPageWidgetState extends State<AddnewaddressPageWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             isDense: false,
-                            labelText: 'Street',
+                            labelText: FFLocalizations.of(context).getText(
+                              '1yrygi96' /* Street */,
+                            ),
                             labelStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -252,7 +269,9 @@ class _AddnewaddressPageWidgetState extends State<AddnewaddressPageWidget> {
                                   fontSize: 13.0,
                                   letterSpacing: 0.0,
                                 ),
-                            hintText: 'Street',
+                            hintText: FFLocalizations.of(context).getText(
+                              'jcy3n8gf' /* Street */,
+                            ),
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(

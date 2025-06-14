@@ -97,7 +97,9 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Basinah Quraishi',
+                            FFLocalizations.of(context).getText(
+                              '71xw6t33' /* Basinah Quraishi */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -108,7 +110,9 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                                 ),
                           ),
                           Text(
-                            'Hello sir',
+                            FFLocalizations.of(context).getText(
+                              'zuqg8tu7' /* Hello sir */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
@@ -160,7 +164,9 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               10.0, 0.0, 10.0, 0.0),
                           child: Text(
-                            'Yesterday',
+                            FFLocalizations.of(context).getText(
+                              '6wmoc6n8' /* Yesterday */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
@@ -212,7 +218,9 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 12.0, 16.0, 13.0),
                               child: Text(
-                                'Hello, brother',
+                                FFLocalizations.of(context).getText(
+                                  'mdu1w55m' /* Hello, brother */,
+                                ),
                                 textAlign: TextAlign.center,
                                 maxLines: 1,
                                 style: FlutterFlowTheme.of(context)
@@ -253,7 +261,9 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 16.0, 16.0, 16.0),
                               child: Text(
-                                'Language is a means of the new communication',
+                                FFLocalizations.of(context).getText(
+                                  'hqpnggeo' /* Language is a means of the new... */,
+                                ),
                                 textAlign: TextAlign.start,
                                 style: FlutterFlowTheme.of(context)
                                     .titleSmall
@@ -298,7 +308,9 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 10.0, 0.0, 10.0, 0.0),
                             child: Text(
-                              'Today',
+                              FFLocalizations.of(context).getText(
+                                'q19l9lfr' /* Today */,
+                              ),
                               maxLines: 1,
                               style: FlutterFlowTheme.of(context)
                                   .titleSmall
@@ -354,7 +366,9 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 12.0, 16.0, 13.0),
                               child: Text(
-                                'Good morning, brother',
+                                FFLocalizations.of(context).getText(
+                                  'svwgmjd7' /* Good morning, brother */,
+                                ),
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
                                     .titleSmall
@@ -394,7 +408,9 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 16.0, 16.0, 16.0),
                               child: Text(
-                                'Instruction in a prompt and provide a detailed response',
+                                FFLocalizations.of(context).getText(
+                                  'glbyizlc' /* Instruction in a prompt and pr... */,
+                                ),
                                 textAlign: TextAlign.start,
                                 style: FlutterFlowTheme.of(context)
                                     .titleSmall
@@ -443,7 +459,9 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                                     fontSize: 17.0,
                                     letterSpacing: 0.0,
                                   ),
-                              hintText: 'Type here',
+                              hintText: FFLocalizations.of(context).getText(
+                                'ztyst9mh' /* Type here */,
+                              ),
                               hintStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(

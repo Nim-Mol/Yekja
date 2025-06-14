@@ -153,7 +153,9 @@ class _SecurityPageWidgetState extends State<SecurityPageWidget>
                                 Align(
                                   alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Text(
-                                    'Face ID',
+                                    FFLocalizations.of(context).getText(
+                                      'kvsjl11z' /* Face ID */,
+                                    ),
                                     maxLines: 1,
                                     style: FlutterFlowTheme.of(context)
                                         .titleSmall
@@ -235,7 +237,9 @@ class _SecurityPageWidgetState extends State<SecurityPageWidget>
                                 Align(
                                   alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
-                                    'Notifications',
+                                    FFLocalizations.of(context).getText(
+                                      '3md5ep01' /* Notifications */,
+                                    ),
                                     maxLines: 1,
                                     style: FlutterFlowTheme.of(context)
                                         .titleSmall
@@ -326,7 +330,9 @@ class _SecurityPageWidgetState extends State<SecurityPageWidget>
                                   Align(
                                     alignment: AlignmentDirectional(-1.0, 0.0),
                                     child: Text(
-                                      'Change password',
+                                      FFLocalizations.of(context).getText(
+                                        'snzn7yvn' /* Change password */,
+                                      ),
                                       maxLines: 1,
                                       style: FlutterFlowTheme.of(context)
                                           .titleSmall

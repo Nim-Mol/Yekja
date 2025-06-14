@@ -95,7 +95,9 @@ class _PrivacyPolicyPageWidgetState extends State<PrivacyPolicyPageWidget>
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                         child: Text(
-                          'Types of data we collect',
+                          FFLocalizations.of(context).getText(
+                            'et3v0xw9' /* Types of data we collect */,
+                          ),
                           maxLines: 1,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -108,7 +110,9 @@ class _PrivacyPolicyPageWidgetState extends State<PrivacyPolicyPageWidget>
                         ),
                       ),
                       Text(
-                        'Torem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum ',
+                        FFLocalizations.of(context).getText(
+                          'pjccx30m' /* Torem ipsum dolor sit amet, co... */,
+                        ),
                         style: FlutterFlowTheme.of(context).titleSmall.override(
                               fontFamily: 'Satoshi',
                               color: FlutterFlowTheme.of(context).secondaryText,
@@ -121,7 +125,9 @@ class _PrivacyPolicyPageWidgetState extends State<PrivacyPolicyPageWidget>
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                         child: Text(
-                          'Use of your personal data',
+                          FFLocalizations.of(context).getText(
+                            'tfexkisk' /* Use of your personal data */,
+                          ),
                           maxLines: 1,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -136,7 +142,9 @@ class _PrivacyPolicyPageWidgetState extends State<PrivacyPolicyPageWidget>
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                         child: Text(
-                          'Torem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum ',
+                          FFLocalizations.of(context).getText(
+                            '0c0whg70' /* Torem ipsum dolor sit amet, co... */,
+                          ),
                           style: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(
@@ -153,7 +161,9 @@ class _PrivacyPolicyPageWidgetState extends State<PrivacyPolicyPageWidget>
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                         child: Text(
-                          'Disclosure of your data',
+                          FFLocalizations.of(context).getText(
+                            'or00gc18' /* Disclosure of your data */,
+                          ),
                           maxLines: 1,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -168,7 +178,9 @@ class _PrivacyPolicyPageWidgetState extends State<PrivacyPolicyPageWidget>
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                         child: Text(
-                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec ac odio tempor orci dapibus ultrices in iaculis lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec ac odio tempor orci dapibus ultrices in iaculis Ac auctor augue mauris augue neque gravida. Velit ut tortor pretium viverra suspendisse. Volutpat commodo sed egestas egestas fringilla phasellus faucibus. ',
+                          FFLocalizations.of(context).getText(
+                            '8zt0gtha' /* Lorem ipsum dolor sit amet, co... */,
+                          ),
                           style: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(

@@ -10,6 +10,7 @@ export '/profile/feedback_page/feedback_page_widget.dart'
     show FeedbackPageWidget;
 export '/profile/privacy_policy_page/privacy_policy_page_widget.dart'
     show PrivacyPolicyPageWidget;
+export '/home/swipable_m_a/swipable_m_a_widget.dart' show SwipableMAWidget;
 export '/detail/write_review_page/write_review_page_widget.dart'
     show WriteReviewPageWidget;
 export '/profile/security_page/security_page_widget.dart'
@@ -31,12 +32,14 @@ export '/profile/terms_conditions_page/terms_conditions_page_widget.dart'
 export '/detail/reviews_page/reviews_page_widget.dart' show ReviewsPageWidget;
 export '/profile/edit_profile_page/edit_profile_page_widget.dart'
     show EditProfilePageWidget;
+export '/event/events/events_widget.dart' show EventsWidget;
 export '/profile/about_page/about_page_widget.dart' show AboutPageWidget;
 export '/chat/chatdetail/chatdetail_widget.dart' show ChatdetailWidget;
-export '/profile/profile_page/profile_page_widget.dart' show ProfilePageWidget;
 export '/profile/setting_page/setting_page_widget.dart' show SettingPageWidget;
 export '/detail/addnewcard_page/addnewcard_page_widget.dart'
     show AddnewcardPageWidget;
-export '/home/swipable_m_a/swipable_m_a_widget.dart' show SwipableMAWidget;
-export '/event/events/events_widget.dart' show EventsWidget;
+export '/profile/personal_info/personal_info_widget.dart'
+    show PersonalInfoWidget;
+export '/home/h_ome_test/h_ome_test_widget.dart' show HOmeTestWidget;
 export '/home/home_page/home_page_widget.dart' show HomePageWidget;
+export '/profile/profile_page/profile_page_widget.dart' show ProfilePageWidget;

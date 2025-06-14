@@ -15,7 +15,9 @@ class FeedbackPageModel extends FlutterFlowModel<FeedbackPageWidget> {
   String? Function(BuildContext, String?)? textControllerValidator;
   String? _textControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Please enter valid Feedback.';
+      return FFLocalizations.of(context).getText(
+        'jkpmczmx' /* Please enter valid Feedback. */,
+      );
     }
 
     return null;

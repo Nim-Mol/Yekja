@@ -96,7 +96,9 @@ class _TermsConditionsPageWidgetState extends State<TermsConditionsPageWidget>
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          'Last update:',
+                          FFLocalizations.of(context).getText(
+                            'h07847j4' /* Last update: */,
+                          ),
                           maxLines: 1,
                           style: FlutterFlowTheme.of(context)
                               .titleSmall
@@ -110,7 +112,9 @@ class _TermsConditionsPageWidgetState extends State<TermsConditionsPageWidget>
                               ),
                         ),
                         Text(
-                          ' 27/12/2023',
+                          FFLocalizations.of(context).getText(
+                            'gt5ezvts' /*  27/12/2023 */,
+                          ),
                           maxLines: 1,
                           style: FlutterFlowTheme.of(context)
                               .titleSmall
@@ -130,7 +134,9 @@ class _TermsConditionsPageWidgetState extends State<TermsConditionsPageWidget>
                     padding:
                         EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 20.0, 24.0),
                     child: Text(
-                      'Please read these terms of service, carefully before using our app operated by us.',
+                      FFLocalizations.of(context).getText(
+                        'ymkkp0xc' /* Please read these terms of ser... */,
+                      ),
                       maxLines: 2,
                       style: FlutterFlowTheme.of(context).titleSmall.override(
                             fontFamily: 'Satoshi',
@@ -145,7 +151,9 @@ class _TermsConditionsPageWidgetState extends State<TermsConditionsPageWidget>
                     padding:
                         EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
                     child: Text(
-                      'Conditions of Uses',
+                      FFLocalizations.of(context).getText(
+                        'qtiz5odk' /* Conditions of Uses */,
+                      ),
                       textAlign: TextAlign.start,
                       maxLines: 1,
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -161,7 +169,9 @@ class _TermsConditionsPageWidgetState extends State<TermsConditionsPageWidget>
                     padding:
                         EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 20.0, 0.0),
                     child: Text(
-                      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. \n\nMany desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).',
+                      FFLocalizations.of(context).getText(
+                        'n6b25ynm' /* It is a long established fact ... */,
+                      ),
                       style: FlutterFlowTheme.of(context).titleSmall.override(
                             fontFamily: 'Satoshi',
                             color: FlutterFlowTheme.of(context).primaryText,

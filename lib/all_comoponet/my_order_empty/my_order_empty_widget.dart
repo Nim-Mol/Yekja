@@ -64,7 +64,9 @@ class _MyOrderEmptyWidgetState extends State<MyOrderEmptyWidget> {
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
             child: Text(
-              'No order yet!',
+              FFLocalizations.of(context).getText(
+                '3x5ajroo' /* No order yet! */,
+              ),
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).titleLarge.override(
                     fontFamily: 'Satoshi',
@@ -75,7 +77,9 @@ class _MyOrderEmptyWidgetState extends State<MyOrderEmptyWidget> {
             ),
           ),
           Text(
-            'Explore and shortlist somelist some product',
+            FFLocalizations.of(context).getText(
+              '87ki34ez' /* Explore and shortlist somelist... */,
+            ),
             textAlign: TextAlign.center,
             style: FlutterFlowTheme.of(context).titleSmall.override(
                   fontFamily: 'Satoshi',

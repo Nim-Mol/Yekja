@@ -55,7 +55,9 @@ class _FavComponetWidgetState extends State<FavComponetWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Text(
-                  'Favorite',
+                  FFLocalizations.of(context).getText(
+                    'jbhbbeak' /* Favorite */,
+                  ),
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
                         fontFamily: 'Satoshi',
                         fontSize: 28.0,

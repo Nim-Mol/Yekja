@@ -54,7 +54,9 @@ class _ProfileComponetWidgetState extends State<ProfileComponetWidget> {
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(20.0, 63.0, 0.0, 16.0),
             child: Text(
-              'Profile',
+              FFLocalizations.of(context).getText(
+                'en780gdf' /* Profile */,
+              ),
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Satoshi',
                     fontSize: 28.0,
@@ -95,7 +97,9 @@ class _ProfileComponetWidgetState extends State<ProfileComponetWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'John Abram',
+                              FFLocalizations.of(context).getText(
+                                'j4w08s29' /* John Abram */,
+                              ),
                               maxLines: 1,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -110,7 +114,9 @@ class _ProfileComponetWidgetState extends State<ProfileComponetWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 4.0, 0.0, 0.0),
                               child: Text(
-                                'johnabram@gmail.com',
+                                FFLocalizations.of(context).getText(
+                                  'ejlbbjsx' /* johnabram@gmail.com */,
+                                ),
                                 maxLines: 1,
                                 style: FlutterFlowTheme.of(context)
                                     .titleSmall
@@ -135,84 +141,77 @@ class _ProfileComponetWidgetState extends State<ProfileComponetWidget> {
                 Padding(
                   padding:
                       EdgeInsetsDirectional.fromSTEB(20.0, 32.0, 20.0, 16.0),
-                  child: InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      context.pushNamed(ProfilePageWidget.routeName);
-                    },
-                    child: Container(
-                      width: 388.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).lightGray,
-                        borderRadius: BorderRadius.circular(16.0),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Container(
-                              width: 48.0,
-                              height: 48.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).secondary,
-                                shape: BoxShape.circle,
-                              ),
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(0.0),
-                                child: SvgPicture.asset(
-                                  'assets/images/profile-1.svg',
-                                  fit: BoxFit.contain,
-                                ),
+                  child: Container(
+                    width: 388.0,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).lightGray,
+                      borderRadius: BorderRadius.circular(16.0),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: 48.0,
+                            height: 48.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).secondary,
+                              shape: BoxShape.circle,
+                            ),
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(0.0),
+                              child: SvgPicture.asset(
+                                'assets/images/profile-1.svg',
+                                fit: BoxFit.contain,
                               ),
                             ),
-                            Expanded(
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'My profile',
-                                  maxLines: 1,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
-                                        fontSize: 17.0,
-                                        letterSpacing: 0.0,
-                                        lineHeight: 1.5,
-                                        useGoogleFonts:
-                                            !FlutterFlowTheme.of(context)
-                                                .bodyMediumIsCustom,
-                                      ),
-                                ),
-                              ),
-                            ),
-                            Padding(
+                          ),
+                          Expanded(
+                            child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 0.0, 8.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Align(
-                                    alignment: AlignmentDirectional(1.0, 0.0),
-                                    child: Icon(
-                                      Icons.arrow_forward_ios,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 20.0,
+                                  16.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  'l7mt0wn3' /* My profile */,
+                                ),
+                                maxLines: 1,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      fontSize: 17.0,
+                                      letterSpacing: 0.0,
+                                      lineHeight: 1.5,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
                                     ),
-                                  ),
-                                ],
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                8.0, 0.0, 8.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Align(
+                                  alignment: AlignmentDirectional(1.0, 0.0),
+                                  child: Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 20.0,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -261,7 +260,9 @@ class _ProfileComponetWidgetState extends State<ProfileComponetWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 0.0, 0.0),
                                 child: Text(
-                                  'Security',
+                                  FFLocalizations.of(context).getText(
+                                    'xfxg5sbj' /* Security */,
+                                  ),
                                   maxLines: 1,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -343,7 +344,9 @@ class _ProfileComponetWidgetState extends State<ProfileComponetWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 0.0, 0.0),
                                 child: Text(
-                                  'Settings',
+                                  FFLocalizations.of(context).getText(
+                                    'z4l11x34' /* Settings */,
+                                  ),
                                   maxLines: 1,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -420,7 +423,9 @@ class _ProfileComponetWidgetState extends State<ProfileComponetWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 0.0, 0.0),
                               child: Text(
-                                'My orders',
+                                FFLocalizations.of(context).getText(
+                                  'pf1s4yua' /* My orders */,
+                                ),
                                 maxLines: 1,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -507,7 +512,9 @@ class _ProfileComponetWidgetState extends State<ProfileComponetWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 0.0, 0.0),
                                 child: Text(
-                                  'Privacy policy',
+                                  FFLocalizations.of(context).getText(
+                                    '17oytv6v' /* Privacy policy */,
+                                  ),
                                   maxLines: 1,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -595,7 +602,9 @@ class _ProfileComponetWidgetState extends State<ProfileComponetWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 0.0, 0.0),
                                 child: Text(
-                                  'Terms & conditions',
+                                  FFLocalizations.of(context).getText(
+                                    'utisgn27' /* Terms & conditions */,
+                                  ),
                                   maxLines: 1,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -703,7 +712,9 @@ class _ProfileComponetWidgetState extends State<ProfileComponetWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 0.0, 0.0),
                                   child: Text(
-                                    'Log out',
+                                    FFLocalizations.of(context).getText(
+                                      '4ym96u4p' /* Log out */,
+                                    ),
                                     maxLines: 1,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium

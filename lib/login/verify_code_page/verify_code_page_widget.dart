@@ -83,7 +83,9 @@ class _VerifyCodePageWidgetState extends State<VerifyCodePageWidget> {
                           Align(
                             alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Text(
-                              'The confimation code was sent via email',
+                              FFLocalizations.of(context).getText(
+                                '5tb8yf2m' /* The confimation code was sent ... */,
+                              ),
                               textAlign: TextAlign.start,
                               style: FlutterFlowTheme.of(context)
                                   .titleSmall
@@ -98,7 +100,9 @@ class _VerifyCodePageWidgetState extends State<VerifyCodePageWidget> {
                             ),
                           ),
                           Text(
-                            'johnabram@gmail.com',
+                            FFLocalizations.of(context).getText(
+                              '51awg9dv' /* johnabram@gmail.com */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
@@ -174,7 +178,9 @@ class _VerifyCodePageWidgetState extends State<VerifyCodePageWidget> {
                           text: TextSpan(
                             children: [
                               TextSpan(
-                                text: 'Don’t get the code? ',
+                                text: FFLocalizations.of(context).getText(
+                                  'va3m435c' /* Don’t get the code?  */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -187,7 +193,9 @@ class _VerifyCodePageWidgetState extends State<VerifyCodePageWidget> {
                                     ),
                               ),
                               TextSpan(
-                                text: 'Resend code',
+                                text: FFLocalizations.of(context).getText(
+                                  'a58i7832' /* Resend code */,
+                                ),
                                 style: TextStyle(
                                   color: FlutterFlowTheme.of(context).primary,
                                   fontSize: 17.0,
@@ -220,7 +228,9 @@ class _VerifyCodePageWidgetState extends State<VerifyCodePageWidget> {
 
                           context.pushNamed(ResetPasswordPageWidget.routeName);
                         },
-                        text: 'Verify now',
+                        text: FFLocalizations.of(context).getText(
+                          'vjvaogfy' /* Verify now */,
+                        ),
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 56.0,

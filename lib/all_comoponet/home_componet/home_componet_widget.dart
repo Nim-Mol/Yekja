@@ -80,7 +80,11 @@ class _HomeComponetWidgetState extends State<HomeComponetWidget>
               children: [
                 Expanded(
                   child: Text(
-                    'Find best one \nfurniture',
+                    FFLocalizations.of(context).getText(
+                      '8xoxm2um' /* Find best one 
+furniture */
+                      ,
+                    ),
                     textAlign: TextAlign.start,
                     style: FlutterFlowTheme.of(context).titleLarge.override(
                           fontFamily: 'Satoshi',
@@ -184,7 +188,9 @@ class _HomeComponetWidgetState extends State<HomeComponetWidget>
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 0.0, 0.0),
                             child: Text(
-                              'Search',
+                              FFLocalizations.of(context).getText(
+                                'xhm4wha5' /* Search */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -240,7 +246,11 @@ class _HomeComponetWidgetState extends State<HomeComponetWidget>
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 33.0, 25.0, 0.0, 0.0),
                             child: Text(
-                              'Furniture  in unique \nstyle',
+                              FFLocalizations.of(context).getText(
+                                'oryz01sr' /* Furniture  in unique 
+style */
+                                ,
+                              ),
                               textAlign: TextAlign.start,
                               style: FlutterFlowTheme.of(context)
                                   .titleLarge
@@ -268,7 +278,9 @@ class _HomeComponetWidgetState extends State<HomeComponetWidget>
                               child: Align(
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
-                                  'Order Now',
+                                  FFLocalizations.of(context).getText(
+                                    'jfnoilsc' /* Order Now */,
+                                  ),
                                   textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
@@ -297,7 +309,9 @@ class _HomeComponetWidgetState extends State<HomeComponetWidget>
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Categories',
+                        FFLocalizations.of(context).getText(
+                          'epj8ectn' /* Categories */,
+                        ),
                         maxLines: 1,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Satoshi',
@@ -308,7 +322,9 @@ class _HomeComponetWidgetState extends State<HomeComponetWidget>
                             ),
                       ),
                       Text(
-                        'View all',
+                        FFLocalizations.of(context).getText(
+                          'uumrfpkp' /* View all */,
+                        ),
                         maxLines: 1,
                         style: FlutterFlowTheme.of(context).titleSmall.override(
                               fontFamily: 'Satoshi',
@@ -413,7 +429,9 @@ class _HomeComponetWidgetState extends State<HomeComponetWidget>
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Trending products',
+                        FFLocalizations.of(context).getText(
+                          'm04ntfua' /* Trending products */,
+                        ),
                         maxLines: 1,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Satoshi',
@@ -423,7 +441,9 @@ class _HomeComponetWidgetState extends State<HomeComponetWidget>
                             ),
                       ),
                       Text(
-                        'View all',
+                        FFLocalizations.of(context).getText(
+                          'jn9vdulr' /* View all */,
+                        ),
                         maxLines: 1,
                         style: FlutterFlowTheme.of(context).titleSmall.override(
                               fontFamily: 'Satoshi',
@@ -527,7 +547,9 @@ class _HomeComponetWidgetState extends State<HomeComponetWidget>
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Explore more',
+                        FFLocalizations.of(context).getText(
+                          'rt4qvee4' /* Explore more */,
+                        ),
                         maxLines: 1,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Satoshi',
@@ -538,7 +560,9 @@ class _HomeComponetWidgetState extends State<HomeComponetWidget>
                             ),
                       ),
                       Text(
-                        'View all',
+                        FFLocalizations.of(context).getText(
+                          'mvrq885a' /* View all */,
+                        ),
                         maxLines: 1,
                         style: FlutterFlowTheme.of(context).titleSmall.override(
                               fontFamily: 'Satoshi',

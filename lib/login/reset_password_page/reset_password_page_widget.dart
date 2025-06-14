@@ -85,7 +85,9 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 20.0, 0.0),
                           child: Text(
-                            'Create your new password to log in',
+                            FFLocalizations.of(context).getText(
+                              '6baohfcj' /* Create your new password to lo... */,
+                            ),
                             textAlign: TextAlign.start,
                             maxLines: 1,
                             style: FlutterFlowTheme.of(context)
@@ -113,7 +115,9 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             isDense: false,
-                            labelText: 'New password',
+                            labelText: FFLocalizations.of(context).getText(
+                              '7qj4jthi' /* New password */,
+                            ),
                             labelStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -123,7 +127,9 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                   fontSize: 13.0,
                                   letterSpacing: 0.0,
                                 ),
-                            hintText: 'New password',
+                            hintText: FFLocalizations.of(context).getText(
+                              'hd56x034' /* New password */,
+                            ),
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -202,7 +208,9 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             isDense: false,
-                            labelText: 'Confirm password',
+                            labelText: FFLocalizations.of(context).getText(
+                              'ssuipl8e' /* Confirm password */,
+                            ),
                             labelStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -212,7 +220,9 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                   fontSize: 13.0,
                                   letterSpacing: 0.0,
                                 ),
-                            hintText: 'Confirm password',
+                            hintText: FFLocalizations.of(context).getText(
+                              'duge37vu' /* Confirm password */,
+                            ),
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -334,7 +344,9 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                 );
                               }
                             },
-                            text: 'Reset password',
+                            text: FFLocalizations.of(context).getText(
+                              'j3fkaqso' /* Reset password */,
+                            ),
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 56.0,

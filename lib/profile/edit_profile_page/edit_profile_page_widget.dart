@@ -28,16 +28,26 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
     super.initState();
     _model = createModel(context, () => EditProfilePageModel());
 
-    _model.textController1 ??= TextEditingController(text: 'abc');
+    _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController(text: 'xyz');
+    _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
 
-    _model.textController3 ??= TextEditingController(text: 'abc@gmail.com');
+    _model.textController3 ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
+          _model.textController1?.text = FFLocalizations.of(context).getText(
+            'cq38fd08' /* abc */,
+          );
+          _model.textController2?.text = FFLocalizations.of(context).getText(
+            '343jl3kw' /* xyz */,
+          );
+          _model.textController3?.text = FFLocalizations.of(context).getText(
+            'a080hwzc' /* abc@gmail.com */,
+          );
+        }));
   }
 
   @override
@@ -180,7 +190,9 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'John Abram',
+                                    FFLocalizations.of(context).getText(
+                                      '8sb7vstv' /* John Abram */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -191,7 +203,9 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                         ),
                                   ),
                                   Text(
-                                    'johnabram@gmail.com',
+                                    FFLocalizations.of(context).getText(
+                                      'np0lsmdx' /* johnabram@gmail.com */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
@@ -219,7 +233,9 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                             obscureText: false,
                             decoration: InputDecoration(
                               isDense: false,
-                              labelText: 'First name',
+                              labelText: FFLocalizations.of(context).getText(
+                                't1x1npmz' /* First name */,
+                              ),
                               labelStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
@@ -230,7 +246,9 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
-                              hintText: 'First name',
+                              hintText: FFLocalizations.of(context).getText(
+                                'pe76x8jk' /* First name */,
+                              ),
                               hintStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
@@ -307,7 +325,9 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                             obscureText: false,
                             decoration: InputDecoration(
                               isDense: false,
-                              labelText: 'Last name',
+                              labelText: FFLocalizations.of(context).getText(
+                                'l8bplxxc' /* Last name */,
+                              ),
                               labelStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
@@ -317,7 +337,9 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                     fontSize: 13.0,
                                     letterSpacing: 0.0,
                                   ),
-                              hintText: 'Last name',
+                              hintText: FFLocalizations.of(context).getText(
+                                'mytq602l' /* Last name */,
+                              ),
                               hintStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
@@ -395,7 +417,9 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                             obscureText: false,
                             decoration: InputDecoration(
                               isDense: false,
-                              hintText: 'Email address',
+                              hintText: FFLocalizations.of(context).getText(
+                                'b72z9jr8' /* Email address */,
+                              ),
                               hintStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
@@ -469,7 +493,9 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                     }
                     context.safePop();
                   },
-                  text: 'Save',
+                  text: FFLocalizations.of(context).getText(
+                    'juhlo2km' /* Save */,
+                  ),
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 56.0,

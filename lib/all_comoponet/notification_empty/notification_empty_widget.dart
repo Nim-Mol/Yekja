@@ -65,7 +65,9 @@ class _NotificationEmptyWidgetState extends State<NotificationEmptyWidget> {
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
             child: Text(
-              'No notifications yet!',
+              FFLocalizations.of(context).getText(
+                '0qkduv6z' /* No notifications yet! */,
+              ),
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).titleLarge.override(
                     fontFamily: 'Satoshi',
@@ -76,7 +78,9 @@ class _NotificationEmptyWidgetState extends State<NotificationEmptyWidget> {
             ),
           ),
           Text(
-            'We did not found any notification let’s \nstart exploring',
+            FFLocalizations.of(context).getText(
+              'n1mo3i4f' /* We did not found any notificat... */,
+            ),
             textAlign: TextAlign.center,
             style: FlutterFlowTheme.of(context).titleSmall.override(
                   fontFamily: 'Satoshi',

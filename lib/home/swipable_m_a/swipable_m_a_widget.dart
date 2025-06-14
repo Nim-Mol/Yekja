@@ -68,7 +68,9 @@ class _SwipableMAWidgetState extends State<SwipableMAWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          'Discover Local Offers & Events',
+                          FFLocalizations.of(context).getText(
+                            'c1pfqxt9' /* Discover Local Offers & Events */,
+                          ),
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context)
                               .displaySmall
@@ -93,7 +95,9 @@ class _SwipableMAWidgetState extends State<SwipableMAWidget> {
                         Padding(
                           padding: EdgeInsets.all(20.0),
                           child: Text(
-                            'Swipe through offerings, events, and exchanges from your community. When you both swipe right, you connect to trade, support, or join forces.',
+                            FFLocalizations.of(context).getText(
+                              'z2x2a2db' /* Swipe through offerings, event... */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .titleMedium
                                 .override(

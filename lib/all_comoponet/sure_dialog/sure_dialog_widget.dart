@@ -72,7 +72,9 @@ class _SureDialogWidgetState extends State<SureDialogWidget> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  'Are you sure?',
+                  FFLocalizations.of(context).getText(
+                    'et2uvphw' /* Are you sure? */,
+                  ),
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).titleLarge.override(
                         fontFamily: 'Satoshi',
@@ -88,7 +90,9 @@ class _SureDialogWidgetState extends State<SureDialogWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 32.0),
                     child: Text(
-                      'Are you sure you would like to remove this item from this order? ',
+                      FFLocalizations.of(context).getText(
+                        'x1dv3mze' /* Are you sure you would like to... */,
+                      ),
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).titleSmall.override(
                             fontFamily: 'Satoshi',
@@ -113,7 +117,9 @@ class _SureDialogWidgetState extends State<SureDialogWidget> {
                             onPressed: () async {
                               Navigator.pop(context);
                             },
-                            text: 'No',
+                            text: FFLocalizations.of(context).getText(
+                              '62uhuxkp' /* No */,
+                            ),
                             options: FFButtonOptions(
                               width: 170.0,
                               height: 56.0,
@@ -149,7 +155,9 @@ class _SureDialogWidgetState extends State<SureDialogWidget> {
                           onPressed: () async {
                             await widget.onTapdone?.call();
                           },
-                          text: 'Yes',
+                          text: FFLocalizations.of(context).getText(
+                            'muma8cun' /* Yes */,
+                          ),
                           options: FFButtonOptions(
                             width: 170.0,
                             height: 56.0,

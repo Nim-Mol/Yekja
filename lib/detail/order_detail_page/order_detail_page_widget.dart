@@ -115,7 +115,10 @@ class _OrderDetailPageWidgetState extends State<OrderDetailPageWidget>
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Text(
-                                              'Order ID :',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'lkihf97e' /* Order ID : */,
+                                              ),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -128,7 +131,10 @@ class _OrderDetailPageWidgetState extends State<OrderDetailPageWidget>
                                                       ),
                                             ),
                                             Text(
-                                              ' #123654',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'lmnac4b8' /*  #123654 */,
+                                              ),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -148,7 +154,10 @@ class _OrderDetailPageWidgetState extends State<OrderDetailPageWidget>
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Text(
-                                              'Order at 6:35 PM|',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'iwcovqks' /* Order at 6:35 PM| */,
+                                              ),
                                               maxLines: 1,
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -166,7 +175,10 @@ class _OrderDetailPageWidgetState extends State<OrderDetailPageWidget>
                                                       ),
                                             ),
                                             Text(
-                                              '4 March',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '4lch27s7' /* 4 March */,
+                                              ),
                                               maxLines: 1,
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -211,7 +223,9 @@ class _OrderDetailPageWidgetState extends State<OrderDetailPageWidget>
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 3.0, 16.0, 3.0),
                                         child: Text(
-                                          'Pending',
+                                          FFLocalizations.of(context).getText(
+                                            'fe4sg29t' /* Pending */,
+                                          ),
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -235,7 +249,9 @@ class _OrderDetailPageWidgetState extends State<OrderDetailPageWidget>
                         padding:
                             EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
                         child: Text(
-                          'Customer',
+                          FFLocalizations.of(context).getText(
+                            'omxtm18b' /* Customer */,
+                          ),
                           maxLines: 1,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -279,7 +295,9 @@ class _OrderDetailPageWidgetState extends State<OrderDetailPageWidget>
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        'Jane cooper',
+                                        FFLocalizations.of(context).getText(
+                                          'mg2c1r5j' /* Jane cooper */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
@@ -333,7 +351,9 @@ class _OrderDetailPageWidgetState extends State<OrderDetailPageWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 16.0, 0.0, 0.0),
                                   child: Text(
-                                    'Office Address',
+                                    FFLocalizations.of(context).getText(
+                                      'dxaqlq2j' /* Office Address */,
+                                    ),
                                     maxLines: 1,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -346,7 +366,9 @@ class _OrderDetailPageWidgetState extends State<OrderDetailPageWidget>
                                   ),
                                 ),
                                 Text(
-                                  '4517 washington ave. manchester, kentucky 39495',
+                                  FFLocalizations.of(context).getText(
+                                    'unwaqbh6' /* 4517 washington ave. mancheste... */,
+                                  ),
                                   maxLines: 2,
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
@@ -363,7 +385,9 @@ class _OrderDetailPageWidgetState extends State<OrderDetailPageWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 16.0, 0.0, 0.0),
                                   child: Text(
-                                    'Home Address',
+                                    FFLocalizations.of(context).getText(
+                                      '2ma6y8t7' /* Home Address */,
+                                    ),
                                     maxLines: 1,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -376,7 +400,9 @@ class _OrderDetailPageWidgetState extends State<OrderDetailPageWidget>
                                   ),
                                 ),
                                 Text(
-                                  '2118 thornridge cir. syracuse, connecticut 35624',
+                                  FFLocalizations.of(context).getText(
+                                    'zielytrq' /* 2118 thornridge cir. syracuse,... */,
+                                  ),
                                   maxLines: 1,
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
@@ -393,7 +419,9 @@ class _OrderDetailPageWidgetState extends State<OrderDetailPageWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 16.0, 0.0, 0.0),
                                   child: Text(
-                                    'Order note',
+                                    FFLocalizations.of(context).getText(
+                                      '8yhu29y4' /* Order note */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -408,7 +436,9 @@ class _OrderDetailPageWidgetState extends State<OrderDetailPageWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 16.0, 0.0),
                                   child: Text(
-                                    'I need the best one',
+                                    FFLocalizations.of(context).getText(
+                                      't7fk7jbv' /* I need the best one */,
+                                    ),
                                     maxLines: 1,
                                     style: FlutterFlowTheme.of(context)
                                         .titleSmall
@@ -464,7 +494,9 @@ class _OrderDetailPageWidgetState extends State<OrderDetailPageWidget>
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Possibly table',
+                                          FFLocalizations.of(context).getText(
+                                            '74yuid8d' /* Possibly table */,
+                                          ),
                                           textAlign: TextAlign.start,
                                           maxLines: 1,
                                           style: FlutterFlowTheme.of(context)
@@ -478,7 +510,9 @@ class _OrderDetailPageWidgetState extends State<OrderDetailPageWidget>
                                               ),
                                         ),
                                         Text(
-                                          '\$30.00',
+                                          FFLocalizations.of(context).getText(
+                                            '2ubn5vod' /* $30.00 */,
+                                          ),
                                           textAlign: TextAlign.start,
                                           maxLines: 1,
                                           style: FlutterFlowTheme.of(context)
@@ -507,7 +541,9 @@ class _OrderDetailPageWidgetState extends State<OrderDetailPageWidget>
                         padding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 24.0, 0.0, 16.0),
                         child: Text(
-                          'Payment summary',
+                          FFLocalizations.of(context).getText(
+                            'xohpj1u6' /* Payment summary */,
+                          ),
                           maxLines: 1,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -552,7 +588,9 @@ class _OrderDetailPageWidgetState extends State<OrderDetailPageWidget>
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 16.0),
                                           child: Text(
-                                            'Subtotal',
+                                            FFLocalizations.of(context).getText(
+                                              'caes7d6g' /* Subtotal */,
+                                            ),
                                             maxLines: 1,
                                             style: FlutterFlowTheme.of(context)
                                                 .titleSmall
@@ -572,7 +610,9 @@ class _OrderDetailPageWidgetState extends State<OrderDetailPageWidget>
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 16.0),
                                           child: Text(
-                                            'Shipping',
+                                            FFLocalizations.of(context).getText(
+                                              '1evrjq0h' /* Shipping */,
+                                            ),
                                             maxLines: 1,
                                             style: FlutterFlowTheme.of(context)
                                                 .titleSmall
@@ -588,7 +628,9 @@ class _OrderDetailPageWidgetState extends State<OrderDetailPageWidget>
                                           ),
                                         ),
                                         Text(
-                                          'Total',
+                                          FFLocalizations.of(context).getText(
+                                            '3s5du8oj' /* Total */,
+                                          ),
                                           maxLines: 1,
                                           style: FlutterFlowTheme.of(context)
                                               .titleSmall
@@ -614,7 +656,9 @@ class _OrderDetailPageWidgetState extends State<OrderDetailPageWidget>
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 16.0),
                                         child: Text(
-                                          '\$114.00',
+                                          FFLocalizations.of(context).getText(
+                                            '7ftwu6e0' /* $114.00 */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .titleSmall
                                               .override(
@@ -632,7 +676,9 @@ class _OrderDetailPageWidgetState extends State<OrderDetailPageWidget>
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 16.0),
                                         child: Text(
-                                          '\$10.00',
+                                          FFLocalizations.of(context).getText(
+                                            'tisru0s4' /* $10.00 */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .titleSmall
                                               .override(
@@ -647,7 +693,9 @@ class _OrderDetailPageWidgetState extends State<OrderDetailPageWidget>
                                         ),
                                       ),
                                       Text(
-                                        '\$124.00',
+                                        FFLocalizations.of(context).getText(
+                                          'jr9qinm5' /* $124.00 */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
@@ -707,7 +755,9 @@ class _OrderDetailPageWidgetState extends State<OrderDetailPageWidget>
                           },
                         );
                       },
-                      text: 'Cancel order',
+                      text: FFLocalizations.of(context).getText(
+                        'bi9jcpvo' /* Cancel order */,
+                      ),
                       options: FFButtonOptions(
                         width: double.infinity,
                         height: 56.0,

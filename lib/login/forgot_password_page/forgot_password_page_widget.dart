@@ -70,7 +70,9 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                   padding:
                       EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 20.0, 0.0),
                   child: Text(
-                    'Type your email, we will send you verification code via email',
+                    FFLocalizations.of(context).getText(
+                      '7cx2kxrk' /* Type your email, we will send ... */,
+                    ),
                     textAlign: TextAlign.start,
                     maxLines: 2,
                     style: FlutterFlowTheme.of(context).titleSmall.override(
@@ -100,7 +102,9 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                       obscureText: false,
                       decoration: InputDecoration(
                         isDense: false,
-                        labelText: 'Email address',
+                        labelText: FFLocalizations.of(context).getText(
+                          'ukwsa1lg' /* Email address */,
+                        ),
                         labelStyle: FlutterFlowTheme.of(context)
                             .labelMedium
                             .override(
@@ -109,7 +113,9 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                               fontSize: 13.0,
                               letterSpacing: 0.0,
                             ),
-                        hintText: 'Email address',
+                        hintText: FFLocalizations.of(context).getText(
+                          'b9qhzbmh' /* Email address */,
+                        ),
                         hintStyle:
                             FlutterFlowTheme.of(context).labelMedium.override(
                                   fontFamily: 'Satoshi',
@@ -183,7 +189,9 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
 
                     context.pushNamed(VerifyCodePageWidget.routeName);
                   },
-                  text: 'Continue',
+                  text: FFLocalizations.of(context).getText(
+                    'pn42p7ja' /* Continue */,
+                  ),
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 56.0,

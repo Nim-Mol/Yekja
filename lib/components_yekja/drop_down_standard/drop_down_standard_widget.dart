@@ -54,17 +54,39 @@ class _DropDownStandardWidgetState extends State<DropDownStandardWidget> {
         options: List<String>.from(
             ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11']),
         optionLabels: [
-          'I need help',
-          'I want to offer help',
-          'I want to organize an event',
-          'I\'m giving away something ',
-          'I\'m selling something',
-          'I want to borrow',
-          'I\'m lending something',
-          'I\'m looking to buy (from Iran)',
-          'I\'m looking to buy (from NL)',
-          'I need a professional (in Iran)',
-          'I need a professional (in NL)'
+          FFLocalizations.of(context).getText(
+            'ovads50a' /* I need help */,
+          ),
+          FFLocalizations.of(context).getText(
+            'eij263gg' /* I want to offer help */,
+          ),
+          FFLocalizations.of(context).getText(
+            'pm50e711' /* I want to organize an event */,
+          ),
+          FFLocalizations.of(context).getText(
+            'a1bonwie' /* I'm giving away something  */,
+          ),
+          FFLocalizations.of(context).getText(
+            '08ke4dvj' /* I'm selling something */,
+          ),
+          FFLocalizations.of(context).getText(
+            'jzwl48uh' /* I want to borrow */,
+          ),
+          FFLocalizations.of(context).getText(
+            'dnz0n838' /* I'm lending something */,
+          ),
+          FFLocalizations.of(context).getText(
+            '2q1acdpn' /* I'm looking to buy (from Iran) */,
+          ),
+          FFLocalizations.of(context).getText(
+            'lfeu1v7l' /* I'm looking to buy (from NL) */,
+          ),
+          FFLocalizations.of(context).getText(
+            'j17b5y90' /* I need a professional (in Iran... */,
+          ),
+          FFLocalizations.of(context).getText(
+            'ipyqmw60' /* I need a professional (in NL) */,
+          )
         ],
         onChanged: (val) => safeSetState(() => _model.dropDownValue = val),
         width: double.infinity,

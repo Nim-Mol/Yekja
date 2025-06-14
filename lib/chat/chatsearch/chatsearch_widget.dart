@@ -85,7 +85,9 @@ class _ChatsearchWidgetState extends State<ChatsearchWidget> {
                                   fontSize: 17.0,
                                   letterSpacing: 0.0,
                                 ),
-                            hintText: 'Search',
+                            hintText: FFLocalizations.of(context).getText(
+                              'heyv0y7l' /* Search */,
+                            ),
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -145,7 +147,9 @@ class _ChatsearchWidgetState extends State<ChatsearchWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                         child: Text(
-                          'People',
+                          FFLocalizations.of(context).getText(
+                            '9c2yt8y7' /* People */,
+                          ),
                           style: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(
@@ -194,7 +198,9 @@ class _ChatsearchWidgetState extends State<ChatsearchWidget> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Fariq Azhar',
+                                          FFLocalizations.of(context).getText(
+                                            'e12a7uxc' /* Fariq Azhar */,
+                                          ),
                                           maxLines: 1,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -206,7 +212,9 @@ class _ChatsearchWidgetState extends State<ChatsearchWidget> {
                                               ),
                                         ),
                                         Text(
-                                          'Ok sir',
+                                          FFLocalizations.of(context).getText(
+                                            'ysc1jits' /* Ok sir */,
+                                          ),
                                           maxLines: 1,
                                           style: FlutterFlowTheme.of(context)
                                               .titleSmall
@@ -227,7 +235,9 @@ class _ChatsearchWidgetState extends State<ChatsearchWidget> {
                                         alignment:
                                             AlignmentDirectional(1.0, 0.0),
                                         child: Text(
-                                          '27 Min',
+                                          FFLocalizations.of(context).getText(
+                                            'qkm0spa9' /* 27 Min */,
+                                          ),
                                           textAlign: TextAlign.justify,
                                           maxLines: 1,
                                           style: FlutterFlowTheme.of(context)
@@ -255,7 +265,9 @@ class _ChatsearchWidgetState extends State<ChatsearchWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                         child: Text(
-                          'Messages',
+                          FFLocalizations.of(context).getText(
+                            'udn2jkxq' /* Messages */,
+                          ),
                           style: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(
@@ -295,7 +307,9 @@ class _ChatsearchWidgetState extends State<ChatsearchWidget> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Jane cooper',
+                                          FFLocalizations.of(context).getText(
+                                            '83da51ga' /* Jane cooper */,
+                                          ),
                                           maxLines: 1,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -308,7 +322,9 @@ class _ChatsearchWidgetState extends State<ChatsearchWidget> {
                                               ),
                                         ),
                                         Text(
-                                          'Ghusna she for new',
+                                          FFLocalizations.of(context).getText(
+                                            'dufjtrv0' /* Ghusna she for new */,
+                                          ),
                                           maxLines: 1,
                                           style: FlutterFlowTheme.of(context)
                                               .titleSmall
@@ -328,7 +344,9 @@ class _ChatsearchWidgetState extends State<ChatsearchWidget> {
                                     Align(
                                       alignment: AlignmentDirectional(1.0, 0.0),
                                       child: Text(
-                                        '20/03/2023',
+                                        FFLocalizations.of(context).getText(
+                                          'x19rkdf7' /* 20/03/2023 */,
+                                        ),
                                         textAlign: TextAlign.justify,
                                         maxLines: 1,
                                         style: FlutterFlowTheme.of(context)
@@ -380,7 +398,9 @@ class _ChatsearchWidgetState extends State<ChatsearchWidget> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'Fariq Azhar',
+                                            FFLocalizations.of(context).getText(
+                                              '8birqyxf' /* Fariq Azhar */,
+                                            ),
                                             maxLines: 1,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -393,7 +413,9 @@ class _ChatsearchWidgetState extends State<ChatsearchWidget> {
                                                 ),
                                           ),
                                           Text(
-                                            'Ok sir',
+                                            FFLocalizations.of(context).getText(
+                                              'b0qavx0w' /* Ok sir */,
+                                            ),
                                             maxLines: 1,
                                             style: FlutterFlowTheme.of(context)
                                                 .titleSmall
@@ -414,7 +436,9 @@ class _ChatsearchWidgetState extends State<ChatsearchWidget> {
                                     Align(
                                       alignment: AlignmentDirectional(1.0, 0.0),
                                       child: Text(
-                                        '16/03/2020',
+                                        FFLocalizations.of(context).getText(
+                                          'qiswl4cd' /* 16/03/2020 */,
+                                        ),
                                         textAlign: TextAlign.justify,
                                         maxLines: 1,
                                         style: FlutterFlowTheme.of(context)

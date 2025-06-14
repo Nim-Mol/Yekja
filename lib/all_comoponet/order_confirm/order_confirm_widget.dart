@@ -82,7 +82,9 @@ class _OrderConfirmWidgetState extends State<OrderConfirmWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                   child: Text(
-                    'Order successfull!',
+                    FFLocalizations.of(context).getText(
+                      'hs2wmnjg' /* Order successfull! */,
+                    ),
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).titleLarge.override(
                           fontFamily: 'Satoshi',
@@ -95,7 +97,9 @@ class _OrderConfirmWidgetState extends State<OrderConfirmWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                   child: Text(
-                    'Thank you so much for your order.',
+                    FFLocalizations.of(context).getText(
+                      '6xiootek' /* Thank you so much for your ord... */,
+                    ),
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Satoshi',
@@ -112,7 +116,9 @@ class _OrderConfirmWidgetState extends State<OrderConfirmWidget> {
                     onPressed: () async {
                       await widget.onTapOrder?.call();
                     },
-                    text: 'Back to home',
+                    text: FFLocalizations.of(context).getText(
+                      '9bjkjlo7' /* Back to home */,
+                    ),
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 56.0,

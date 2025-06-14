@@ -94,7 +94,9 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                           obscureText: !_model.passwordVisibility1,
                           decoration: InputDecoration(
                             isDense: false,
-                            labelText: 'New password',
+                            labelText: FFLocalizations.of(context).getText(
+                              'es31lnj2' /* New password */,
+                            ),
                             labelStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -104,7 +106,9 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                                   fontSize: 13.0,
                                   letterSpacing: 0.0,
                                 ),
-                            hintText: 'New password',
+                            hintText: FFLocalizations.of(context).getText(
+                              'n1c51t31' /* New password */,
+                            ),
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -192,7 +196,9 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                             obscureText: !_model.passwordVisibility2,
                             decoration: InputDecoration(
                               isDense: false,
-                              labelText: 'Confirm password',
+                              labelText: FFLocalizations.of(context).getText(
+                                '4gt7mmvz' /* Confirm password */,
+                              ),
                               labelStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
@@ -202,7 +208,9 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                                     fontSize: 13.0,
                                     letterSpacing: 0.0,
                                   ),
-                              hintText: 'Confirm password',
+                              hintText: FFLocalizations.of(context).getText(
+                                'uzjift62' /* Confirm password */,
+                              ),
                               hintStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
@@ -329,7 +337,9 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                                   );
                                 }
                               },
-                              text: 'Save',
+                              text: FFLocalizations.of(context).getText(
+                                'm0ojx49m' /* Save */,
+                              ),
                               options: FFButtonOptions(
                                 width: double.infinity,
                                 height: 56.0,

@@ -77,7 +77,9 @@ class _FeedBackWidgetState extends State<FeedBackWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                   child: Text(
-                    'Your feedback submitted',
+                    FFLocalizations.of(context).getText(
+                      'p3u8bq3i' /* Your feedback submitted */,
+                    ),
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).titleLarge.override(
                           fontFamily: 'Satoshi',
@@ -90,7 +92,9 @@ class _FeedBackWidgetState extends State<FeedBackWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                   child: Text(
-                    'Your review has been submitted \nsuccessfully.',
+                    FFLocalizations.of(context).getText(
+                      'h5p2gsrr' /* Your review has been submitted... */,
+                    ),
                     textAlign: TextAlign.center,
                     maxLines: 2,
                     style: FlutterFlowTheme.of(context).titleSmall.override(
@@ -109,7 +113,9 @@ class _FeedBackWidgetState extends State<FeedBackWidget> {
                       context.safePop();
                       Navigator.pop(context);
                     },
-                    text: 'Ok',
+                    text: FFLocalizations.of(context).getText(
+                      '2w8dd6cq' /* Ok */,
+                    ),
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 56.0,

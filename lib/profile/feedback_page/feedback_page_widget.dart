@@ -90,7 +90,9 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                               decoration: InputDecoration(
                                 isDense: false,
                                 alignLabelWithHint: true,
-                                hintText: 'Write your feedback...',
+                                hintText: FFLocalizations.of(context).getText(
+                                  'lif54gtt' /* Write your feedback... */,
+                                ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
@@ -192,7 +194,9 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                           },
                         );
                       },
-                      text: 'Submit',
+                      text: FFLocalizations.of(context).getText(
+                        'kjdnza70' /* Submit */,
+                      ),
                       options: FFButtonOptions(
                         width: double.infinity,
                         height: 56.0,

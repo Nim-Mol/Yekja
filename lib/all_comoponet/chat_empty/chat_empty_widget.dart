@@ -64,7 +64,9 @@ class _ChatEmptyWidgetState extends State<ChatEmptyWidget> {
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
             child: Text(
-              'No message yet!',
+              FFLocalizations.of(context).getText(
+                'okhx9o9y' /* No message yet! */,
+              ),
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).titleLarge.override(
                     fontFamily: 'Satoshi',
@@ -75,7 +77,9 @@ class _ChatEmptyWidgetState extends State<ChatEmptyWidget> {
             ),
           ),
           Text(
-            'No messages in your inboxa yet!\n start chatting with your neighbours.',
+            FFLocalizations.of(context).getText(
+              '6fy47ivq' /* No messages in your inboxa yet... */,
+            ),
             textAlign: TextAlign.center,
             style: FlutterFlowTheme.of(context).titleSmall.override(
                   fontFamily: 'Satoshi',

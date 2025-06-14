@@ -131,7 +131,10 @@ class _ProductComponentWidgetState extends State<ProductComponentWidget> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             AutoSizeText(
-                                              'Item Title',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'zcmv3e6u' /* Item Title */,
+                                              ),
                                               textAlign: TextAlign.start,
                                               maxLines: 1,
                                               minFontSize: 12.0,
@@ -150,7 +153,10 @@ class _ProductComponentWidgetState extends State<ProductComponentWidget> {
                                             ),
                                             Flexible(
                                               child: AutoSizeText(
-                                                'Price',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '2bfqa5n2' /* Price */,
+                                                ),
                                                 textAlign: TextAlign.start,
                                                 maxLines: 1,
                                                 minFontSize: 8.0,
@@ -170,7 +176,10 @@ class _ProductComponentWidgetState extends State<ProductComponentWidget> {
                                               ),
                                             ),
                                             AutoSizeText(
-                                              'Amsterdam',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '0zssz39y' /* Amsterdam */,
+                                              ),
                                               minFontSize: 8.0,
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -231,7 +240,11 @@ class _ProductComponentWidgetState extends State<ProductComponentWidget> {
                                                             AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: AutoSizeText(
-                                                          'Mohammad',
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'zqb28jlx' /* Mohammad */,
+                                                          ),
                                                           textAlign:
                                                               TextAlign.center,
                                                           minFontSize: 8.0,

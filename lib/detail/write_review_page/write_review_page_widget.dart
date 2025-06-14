@@ -89,8 +89,9 @@ class _WriteReviewPageWidgetState extends State<WriteReviewPageWidget> {
                               decoration: InputDecoration(
                                 isDense: false,
                                 alignLabelWithHint: true,
-                                hintText:
-                                    'Would you like write anything about|',
+                                hintText: FFLocalizations.of(context).getText(
+                                  'gr9w4vot' /* Would you like write anything ... */,
+                                ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
@@ -162,7 +163,9 @@ class _WriteReviewPageWidgetState extends State<WriteReviewPageWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 8.0, 20.0, 0.0),
                           child: Text(
-                            '350 Characters remaining',
+                            FFLocalizations.of(context).getText(
+                              'fdz15yw2' /* 350 Characters remaining */,
+                            ),
                             textAlign: TextAlign.justify,
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -196,7 +199,9 @@ class _WriteReviewPageWidgetState extends State<WriteReviewPageWidget> {
                       }
                       context.safePop();
                     },
-                    text: 'Submit review',
+                    text: FFLocalizations.of(context).getText(
+                      'lxmt4ut6' /* Submit review */,
+                    ),
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 56.0,

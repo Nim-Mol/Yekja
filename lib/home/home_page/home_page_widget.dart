@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/walkthroughs/home_page.dart';
+import '/index.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
     show TutorialCoachMark;
@@ -581,19 +582,30 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    -1.0, -1.0),
-                                                child: ClipRRect(
+                                              Container(
+                                                width: 50.0,
+                                                height: 40.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0x4240C057),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                  child: Image.asset(
-                                                    'assets/images/offerHelp.gif',
-                                                    width: 40.0,
-                                                    height: 40.0,
-                                                    fit: BoxFit.cover,
+                                                      BorderRadius.only(
+                                                    bottomLeft:
+                                                        Radius.circular(8.0),
+                                                    bottomRight:
+                                                        Radius.circular(8.0),
+                                                    topLeft:
+                                                        Radius.circular(8.0),
+                                                    topRight:
+                                                        Radius.circular(8.0),
                                                   ),
+                                                  shape: BoxShape.rectangle,
+                                                ),
+                                                child: Icon(
+                                                  Icons.hail,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .customColor1,
+                                                  size: 24.0,
                                                 ),
                                               ),
                                               Text(
@@ -684,19 +696,30 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    -1.0, -1.0),
-                                                child: ClipRRect(
+                                              Container(
+                                                width: 50.0,
+                                                height: 40.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0x421A8D9A),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                  child: Image.asset(
-                                                    'assets/images/job-search.gif',
-                                                    width: 40.0,
-                                                    height: 40.0,
-                                                    fit: BoxFit.cover,
+                                                      BorderRadius.only(
+                                                    bottomLeft:
+                                                        Radius.circular(8.0),
+                                                    bottomRight:
+                                                        Radius.circular(8.0),
+                                                    topLeft:
+                                                        Radius.circular(8.0),
+                                                    topRight:
+                                                        Radius.circular(8.0),
                                                   ),
+                                                  shape: BoxShape.rectangle,
+                                                ),
+                                                child: Icon(
+                                                  Icons.person_search_sharp,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .accent4,
+                                                  size: 24.0,
                                                 ),
                                               ),
                                               Text(
@@ -787,18 +810,35 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    -1.0, -1.0),
-                                                child: ClipRRect(
+                                              Container(
+                                                width: 50.0,
+                                                height: 40.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0x42F25081),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                  child: Image.asset(
-                                                    'assets/images/offerHelp.gif',
-                                                    width: 40.0,
-                                                    height: 40.0,
-                                                    fit: BoxFit.cover,
+                                                      BorderRadius.only(
+                                                    bottomLeft:
+                                                        Radius.circular(8.0),
+                                                    bottomRight:
+                                                        Radius.circular(8.0),
+                                                    topLeft:
+                                                        Radius.circular(8.0),
+                                                    topRight:
+                                                        Radius.circular(8.0),
+                                                  ),
+                                                  shape: BoxShape.rectangle,
+                                                ),
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: FaIcon(
+                                                    FontAwesomeIcons
+                                                        .handsHelping,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .red2,
+                                                    size: 22.0,
                                                   ),
                                                 ),
                                               ),
@@ -890,18 +930,35 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    -1.0, -1.0),
-                                                child: ClipRRect(
+                                              Container(
+                                                width: 50.0,
+                                                height: 40.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0x42FAB005),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                  child: Image.asset(
-                                                    'assets/images/Events.gif',
-                                                    width: 40.0,
-                                                    height: 40.0,
-                                                    fit: BoxFit.cover,
+                                                      BorderRadius.only(
+                                                    bottomLeft:
+                                                        Radius.circular(8.0),
+                                                    bottomRight:
+                                                        Radius.circular(8.0),
+                                                    topLeft:
+                                                        Radius.circular(8.0),
+                                                    topRight:
+                                                        Radius.circular(8.0),
+                                                  ),
+                                                  shape: BoxShape.rectangle,
+                                                ),
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: FaIcon(
+                                                    FontAwesomeIcons
+                                                        .calendarAlt,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .yellow1,
+                                                    size: 20.0,
                                                   ),
                                                 ),
                                               ),
@@ -1062,8 +1119,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             Align(
                               alignment: AlignmentDirectional(0.0, 1.0),
                               child: FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  context.pushNamed(SwipableMAWidget.routeName);
                                 },
                                 text: FFLocalizations.of(context).getText(
                                   '45nxx23g' /* Button */,

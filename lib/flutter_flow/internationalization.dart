@@ -175,6 +175,41 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'خانه',
     },
   },
+  // PersonalInfo
+  {
+    'dhbx92pr': {
+      'en': 'Personal Information',
+      'fa': 'اطلاعات شخصی',
+    },
+    '2jfkyihz': {
+      'en': '45',
+      'fa': '۴۵',
+    },
+    '6383gkiu': {
+      'en': 'Likes',
+      'fa': 'لایک‌ها',
+    },
+    'wmdfjpwn': {
+      'en': '674',
+      'fa': '۶۷۴ عدد',
+    },
+    '5n79suz7': {
+      'en': 'Trust Score',
+      'fa': 'امتیاز اعتماد',
+    },
+    'keflnha4': {
+      'en': '45',
+      'fa': '۴۵',
+    },
+    'zrigxn7j': {
+      'en': 'Likes',
+      'fa': 'لایک‌ها',
+    },
+    'j4hgtmpg': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
   // Checkout1Page
   {
     'gubfc5t4': {
@@ -345,6 +380,123 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'خانه',
     },
   },
+  // HomePage
+  {
+    'tp5ycz33': {
+      'en': 'What are you looking for today?',
+      'fa': 'امروز دنبال چی هستی؟',
+    },
+    'b6xasaj9': {
+      'en': 'IRAN-NL',
+      'fa': 'رویدادها',
+    },
+    '0vip22m0': {
+      'en': 'EVENTS',
+      'fa': 'رویدادها',
+    },
+    '3tz78yea': {
+      'en': 'COMMUNITY CARE',
+      'fa': 'مراقبت‌های اجتماعی',
+    },
+    'ib0ekrge': {
+      'en': 'MARKETPLACE',
+      'fa': 'مراقبت‌های اجتماعی',
+    },
+    'hmb7gki5': {
+      'en': 'Tranding Categories',
+      'fa': 'دسته بندی های ترندینگ',
+    },
+    '9s3kmnj6': {
+      'en': 'See all',
+      'fa': 'همه را ببینید',
+    },
+    '0tf02ybh': {
+      'en': 'Help Request',
+      'fa': 'درخواست کمک',
+    },
+    'lfk150vu': {
+      'en': '50 requests',
+      'fa': '۵۰ درخواست',
+    },
+    'fbxtj3am': {
+      'en': 'Need a Job',
+      'fa': 'نیاز به شغل',
+    },
+    'c9inkp2j': {
+      'en': '3 requests',
+      'fa': '۳ درخواست',
+    },
+    't2z7olia': {
+      'en': 'Help Offer',
+      'fa': 'پیشنهاد کمک',
+    },
+    'w4ta04kv': {
+      'en': '10 requests',
+      'fa': '۱۰ درخواست',
+    },
+    'cjy59qdz': {
+      'en': 'New Events',
+      'fa': 'رویدادهای جدید',
+    },
+    'z5ktm6xn': {
+      'en': '2 requests',
+      'fa': '۲ درخواست',
+    },
+    'pshx57tg': {
+      'en': 'What’s Around You? Swipe to See',
+      'fa': 'چه چیزهایی در اطراف شما وجود دارد؟ برای دیدن، صفحه را بکشید',
+    },
+    'nl42s9kh': {
+      'en': 'Swipe through a world of existing \nproducts, services and events',
+      'fa': 'در دنیایی از محصولات، خدمات و رویدادهای موجود جستجو کنید',
+    },
+    '1ydrd3oe': {
+      'en': 'Swipe through a world of existing products, services and events',
+      'fa': 'در دنیایی از محصولات، خدمات و رویدادهای موجود جستجو کنید',
+    },
+    '45nxx23g': {
+      'en': 'Button',
+      'fa': 'دکمه',
+    },
+    '607mveb5': {
+      'en': 'Community Shoutouts',
+      'fa': 'فریادهای جامعه',
+    },
+    '3e2bxvtz': {
+      'en': 'Thank you Ali ',
+      'fa': 'ممنون علی.',
+    },
+    'hzf4lfor': {
+      'en':
+          'For your Community support, we can make it abette world with indviduals like you.',
+      'fa':
+          'برای حمایت اجتماعی شما، می‌توانیم با افرادی مثل شما، دنیا را به دنیایی بهتر تبدیل کنیم.',
+    },
+    'ei09liyp': {
+      'en': 'Thank you Ali ',
+      'fa': 'ممنون علی.',
+    },
+    'gjeiq4pf': {
+      'en':
+          'For your Community support, we can make it abette world with indviduals like you.',
+      'fa':
+          'برای حمایت اجتماعی شما، می‌توانیم با افرادی مثل شما، دنیا را به دنیایی بهتر تبدیل کنیم.',
+    },
+    'd1hvqyow': {
+      'en': 'Thank you Ali ',
+      'fa': 'ممنون علی.',
+    },
+    'celsaycw': {
+      'en':
+          'For your Community support, we can make it abette world with indviduals like you.',
+      'fa':
+          'برای حمایت اجتماعی شما، می‌توانیم با افرادی مثل شما، دنیا را به دنیایی بهتر تبدیل کنیم.',
+    },
+    'b8gufi8a': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
   // WriteReviewPage
   {
     'gr9w4vot': {
@@ -387,6 +539,49 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'تغییر رمز عبور',
     },
     'sf4e1hbe': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // ProfilePage
+  {
+    'fueaz9te': {
+      'en': 'Profile',
+      'fa': 'پروفایل',
+    },
+    'hqyt6jd3': {
+      'en': 'Tom Hanks',
+      'fa': 'تام هنکس',
+    },
+    'segc8rtw': {
+      'en': 'Tom_Hanks@gmail.com',
+      'fa': 'Tom_Hanks@gmail.com',
+    },
+    '6qcg2p25': {
+      'en': 'Personal Information',
+      'fa': 'اطلاعات شخصی',
+    },
+    '6e1gjcci': {
+      'en': 'My Posts',
+      'fa': 'پست‌های من',
+    },
+    'g6fwp41n': {
+      'en': 'My Favourites',
+      'fa': 'موارد دلخواه من',
+    },
+    '36qgv5u6': {
+      'en': 'Notifications',
+      'fa': 'اعلان‌ها',
+    },
+    '6bxmq5ee': {
+      'en': 'Yekja Terms&Conditions',
+      'fa': 'شرایط و ضوابط یکجا',
+    },
+    'rh49er06': {
+      'en': 'Privacy and policy',
+      'fa': 'حریم خصوصی و سیاست',
+    },
+    'yq4fqtye': {
       'en': 'Home',
       'fa': 'خانه',
     },
@@ -1379,208 +1574,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'خانه',
     },
   },
-  // PersonalInfo
-  {
-    'dhbx92pr': {
-      'en': 'Personal Information',
-      'fa': 'اطلاعات شخصی',
-    },
-    '2jfkyihz': {
-      'en': '45',
-      'fa': '۴۵',
-    },
-    '6383gkiu': {
-      'en': 'Likes',
-      'fa': 'لایک‌ها',
-    },
-    'wmdfjpwn': {
-      'en': '674',
-      'fa': '۶۷۴ عدد',
-    },
-    '5n79suz7': {
-      'en': 'Trust Score',
-      'fa': 'امتیاز اعتماد',
-    },
-    'keflnha4': {
-      'en': '45',
-      'fa': '۴۵',
-    },
-    'zrigxn7j': {
-      'en': 'Likes',
-      'fa': 'لایک‌ها',
-    },
-    'j4hgtmpg': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // HOmeTest
-  {
-    'b8gufi8a': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // HomePage
-  {
-    'tp5ycz33': {
-      'en': 'What are you looking for today?',
-      'fa': 'امروز دنبال چی هستی؟',
-    },
-    'b6xasaj9': {
-      'en': 'IRAN-NL',
-      'fa': 'رویدادها',
-    },
-    '0vip22m0': {
-      'en': 'EVENTS',
-      'fa': 'رویدادها',
-    },
-    '3tz78yea': {
-      'en': 'COMMUNITY CARE',
-      'fa': 'مراقبت‌های اجتماعی',
-    },
-    'ib0ekrge': {
-      'en': 'MARKETPLACE',
-      'fa': 'مراقبت‌های اجتماعی',
-    },
-    'hmb7gki5': {
-      'en': 'Tranding Categories',
-      'fa': 'دسته بندی های ترندینگ',
-    },
-    '9s3kmnj6': {
-      'en': 'See all',
-      'fa': 'همه را ببینید',
-    },
-    '0tf02ybh': {
-      'en': 'Help Request',
-      'fa': 'درخواست کمک',
-    },
-    'lfk150vu': {
-      'en': '50 requests',
-      'fa': '۵۰ درخواست',
-    },
-    'fbxtj3am': {
-      'en': 'Need a Job',
-      'fa': 'نیاز به شغل',
-    },
-    'c9inkp2j': {
-      'en': '3 requests',
-      'fa': '۳ درخواست',
-    },
-    't2z7olia': {
-      'en': 'Help Offer',
-      'fa': 'پیشنهاد کمک',
-    },
-    'w4ta04kv': {
-      'en': '10 requests',
-      'fa': '۱۰ درخواست',
-    },
-    'cjy59qdz': {
-      'en': 'New Events',
-      'fa': 'رویدادهای جدید',
-    },
-    'z5ktm6xn': {
-      'en': '2 requests',
-      'fa': '۲ درخواست',
-    },
-    'pshx57tg': {
-      'en': 'What’s Around You? Swipe to See',
-      'fa': 'چه چیزهایی در اطراف شما وجود دارد؟ برای دیدن، صفحه را بکشید',
-    },
-    'nl42s9kh': {
-      'en': 'Swipe through a world of existing \nproducts, services and events',
-      'fa': 'در دنیایی از محصولات، خدمات و رویدادهای موجود جستجو کنید',
-    },
-    '1ydrd3oe': {
-      'en': 'Swipe through a world of existing products, services and events',
-      'fa': 'در دنیایی از محصولات، خدمات و رویدادهای موجود جستجو کنید',
-    },
-    '45nxx23g': {
-      'en': 'Button',
-      'fa': 'دکمه',
-    },
-    '607mveb5': {
-      'en': 'Community Shoutouts',
-      'fa': 'فریادهای جامعه',
-    },
-    '3e2bxvtz': {
-      'en': 'Thank you Ali ',
-      'fa': 'ممنون علی.',
-    },
-    'hzf4lfor': {
-      'en':
-          'For your Community support, we can make it abette world with indviduals like you.',
-      'fa':
-          'برای حمایت اجتماعی شما، می‌توانیم با افرادی مثل شما، دنیا را به دنیایی بهتر تبدیل کنیم.',
-    },
-    'ei09liyp': {
-      'en': 'Thank you Ali ',
-      'fa': 'ممنون علی.',
-    },
-    'gjeiq4pf': {
-      'en':
-          'For your Community support, we can make it abette world with indviduals like you.',
-      'fa':
-          'برای حمایت اجتماعی شما، می‌توانیم با افرادی مثل شما، دنیا را به دنیایی بهتر تبدیل کنیم.',
-    },
-    'd1hvqyow': {
-      'en': 'Thank you Ali ',
-      'fa': 'ممنون علی.',
-    },
-    'celsaycw': {
-      'en':
-          'For your Community support, we can make it abette world with indviduals like you.',
-      'fa':
-          'برای حمایت اجتماعی شما، می‌توانیم با افرادی مثل شما، دنیا را به دنیایی بهتر تبدیل کنیم.',
-    },
-    'wk295irs': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // ProfilePage
-  {
-    'fueaz9te': {
-      'en': 'Profile',
-      'fa': 'پروفایل',
-    },
-    'hqyt6jd3': {
-      'en': 'Tom Hanks',
-      'fa': 'تام هنکس',
-    },
-    'segc8rtw': {
-      'en': 'Tom_Hanks@gmail.com',
-      'fa': 'Tom_Hanks@gmail.com',
-    },
-    '6qcg2p25': {
-      'en': 'Personal Information',
-      'fa': 'اطلاعات شخصی',
-    },
-    '6e1gjcci': {
-      'en': 'My Posts',
-      'fa': 'پست‌های من',
-    },
-    'g6fwp41n': {
-      'en': 'My Favourites',
-      'fa': 'موارد دلخواه من',
-    },
-    '36qgv5u6': {
-      'en': 'Notifications',
-      'fa': 'اعلان‌ها',
-    },
-    '6bxmq5ee': {
-      'en': 'Yekja Terms&Conditions',
-      'fa': 'شرایط و ضوابط یکجا',
-    },
-    'rh49er06': {
-      'en': 'Privacy and policy',
-      'fa': 'حریم خصوصی و سیاست',
-    },
-    'yq4fqtye': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
   // ProductComponent
   {
     'zcmv3e6u': {
@@ -2167,6 +2160,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'rw2ih3s4': {
       'en': 'Headline2',
       'fa': 'تیتر۲',
+    },
+    'wk295irs': {
+      'en': 'Home',
+      'fa': 'خانه',
     },
     'hmubrdhh': {
       'en': '',

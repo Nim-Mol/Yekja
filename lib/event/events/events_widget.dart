@@ -313,17 +313,27 @@ class _EventsWidgetState extends State<EventsWidget> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(-1.0, -1.0),
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/calander.png',
-                                            width: 30.0,
-                                            height: 30.0,
-                                            fit: BoxFit.cover,
+                                      Container(
+                                        width: 50.0,
+                                        height: 40.0,
+                                        decoration: BoxDecoration(
+                                          color: Color(0x427950F2),
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(8.0),
+                                            bottomRight: Radius.circular(8.0),
+                                            topLeft: Radius.circular(8.0),
+                                            topRight: Radius.circular(8.0),
+                                          ),
+                                          shape: BoxShape.rectangle,
+                                        ),
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: FaIcon(
+                                            FontAwesomeIcons.calendarWeek,
+                                            color: FlutterFlowTheme.of(context)
+                                                .purple1,
+                                            size: 24.0,
                                           ),
                                         ),
                                       ),
@@ -400,17 +410,27 @@ class _EventsWidgetState extends State<EventsWidget> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(-1.0, -1.0),
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/announcement.png',
-                                            width: 30.0,
-                                            height: 30.0,
-                                            fit: BoxFit.cover,
+                                      Container(
+                                        width: 50.0,
+                                        height: 40.0,
+                                        decoration: BoxDecoration(
+                                          color: Color(0x421A8D9A),
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(8.0),
+                                            bottomRight: Radius.circular(8.0),
+                                            topLeft: Radius.circular(8.0),
+                                            topRight: Radius.circular(8.0),
+                                          ),
+                                          shape: BoxShape.rectangle,
+                                        ),
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: FaIcon(
+                                            FontAwesomeIcons.bullhorn,
+                                            color: FlutterFlowTheme.of(context)
+                                                .accent4,
+                                            size: 24.0,
                                           ),
                                         ),
                                       ),
@@ -483,17 +503,27 @@ class _EventsWidgetState extends State<EventsWidget> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(-1.0, -1.0),
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/calander.png',
-                                            width: 30.0,
-                                            height: 30.0,
-                                            fit: BoxFit.cover,
+                                      Container(
+                                        width: 50.0,
+                                        height: 40.0,
+                                        decoration: BoxDecoration(
+                                          color: Color(0x42FAB005),
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(8.0),
+                                            bottomRight: Radius.circular(8.0),
+                                            topLeft: Radius.circular(8.0),
+                                            topRight: Radius.circular(8.0),
+                                          ),
+                                          shape: BoxShape.rectangle,
+                                        ),
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: FaIcon(
+                                            FontAwesomeIcons.calendarAlt,
+                                            color: FlutterFlowTheme.of(context)
+                                                .yellow1,
+                                            size: 20.0,
                                           ),
                                         ),
                                       ),
@@ -566,17 +596,27 @@ class _EventsWidgetState extends State<EventsWidget> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(-1.0, -1.0),
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/calander.png',
-                                            width: 30.0,
-                                            height: 30.0,
-                                            fit: BoxFit.cover,
+                                      Container(
+                                        width: 50.0,
+                                        height: 40.0,
+                                        decoration: BoxDecoration(
+                                          color: Color(0x42F25081),
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(8.0),
+                                            bottomRight: Radius.circular(8.0),
+                                            topLeft: Radius.circular(8.0),
+                                            topRight: Radius.circular(8.0),
+                                          ),
+                                          shape: BoxShape.rectangle,
+                                        ),
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Icon(
+                                            Icons.auto_awesome_rounded,
+                                            color: FlutterFlowTheme.of(context)
+                                                .red2,
+                                            size: 24.0,
                                           ),
                                         ),
                                       ),
@@ -747,19 +787,34 @@ class _EventsWidgetState extends State<EventsWidget> {
                                             Align(
                                               alignment: AlignmentDirectional(
                                                   -1.0, 0.0),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 0.0, 0.0, 0.0),
-                                                child: ClipRRect(
+                                              child: Container(
+                                                width: 50.0,
+                                                height: 40.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0x42228BE6),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                  child: Image.asset(
-                                                    'assets/images/GameNight.gif',
-                                                    width: 40.0,
-                                                    height: 40.0,
-                                                    fit: BoxFit.cover,
+                                                      BorderRadius.only(
+                                                    bottomLeft:
+                                                        Radius.circular(8.0),
+                                                    bottomRight:
+                                                        Radius.circular(8.0),
+                                                    topLeft:
+                                                        Radius.circular(8.0),
+                                                    topRight:
+                                                        Radius.circular(8.0),
+                                                  ),
+                                                  shape: BoxShape.rectangle,
+                                                ),
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Icon(
+                                                    Icons.diversity_3_outlined,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .blue2,
+                                                    size: 25.0,
                                                   ),
                                                 ),
                                               ),
@@ -817,19 +872,34 @@ class _EventsWidgetState extends State<EventsWidget> {
                                             Align(
                                               alignment: AlignmentDirectional(
                                                   -1.0, 0.0),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 0.0, 0.0, 0.0),
-                                                child: ClipRRect(
+                                              child: Container(
+                                                width: 50.0,
+                                                height: 40.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0x42FAB005),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                  child: Image.asset(
-                                                    'assets/images/sport.gif',
-                                                    width: 40.0,
-                                                    height: 40.0,
-                                                    fit: BoxFit.cover,
+                                                      BorderRadius.only(
+                                                    bottomLeft:
+                                                        Radius.circular(8.0),
+                                                    bottomRight:
+                                                        Radius.circular(8.0),
+                                                    topLeft:
+                                                        Radius.circular(8.0),
+                                                    topRight:
+                                                        Radius.circular(8.0),
+                                                  ),
+                                                  shape: BoxShape.rectangle,
+                                                ),
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Icon(
+                                                    Icons.sports_tennis,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .yellow1,
+                                                    size: 25.0,
                                                   ),
                                                 ),
                                               ),
@@ -881,19 +951,34 @@ class _EventsWidgetState extends State<EventsWidget> {
                                             Align(
                                               alignment: AlignmentDirectional(
                                                   -1.0, 0.0),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 0.0, 0.0, 0.0),
-                                                child: ClipRRect(
+                                              child: Container(
+                                                width: 50.0,
+                                                height: 40.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0x42F25081),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                  child: Image.asset(
-                                                    'assets/images/BBQ.gif',
-                                                    width: 40.0,
-                                                    height: 40.0,
-                                                    fit: BoxFit.cover,
+                                                      BorderRadius.only(
+                                                    bottomLeft:
+                                                        Radius.circular(8.0),
+                                                    bottomRight:
+                                                        Radius.circular(8.0),
+                                                    topLeft:
+                                                        Radius.circular(8.0),
+                                                    topRight:
+                                                        Radius.circular(8.0),
+                                                  ),
+                                                  shape: BoxShape.rectangle,
+                                                ),
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Icon(
+                                                    Icons.outdoor_grill_rounded,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .red2,
+                                                    size: 30.0,
                                                   ),
                                                 ),
                                               ),
@@ -1021,9 +1106,7 @@ class _EventsWidgetState extends State<EventsWidget> {
                                           child: FlutterFlowIconButton(
                                             borderRadius: 25.0,
                                             buttonSize: 30.0,
-                                            fillColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .textfiled,
+                                            fillColor: Color(0xA8696969),
                                             icon: FaIcon(
                                               FontAwesomeIcons.angleRight,
                                               color:

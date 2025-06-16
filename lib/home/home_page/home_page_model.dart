@@ -1,5 +1,6 @@
 import '/components_yekja/our_main_header/our_main_header_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'home_page_widget.dart' show HomePageWidget;
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'

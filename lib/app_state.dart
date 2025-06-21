@@ -36,6 +36,9 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _isOnboarding = prefs.getBool('ff_isOnboarding') ?? _isOnboarding;
     });
+    _safeInit(() {
+      _Interests = prefs.getStringList('ff_Interests') ?? _Interests;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -910,6 +913,41 @@ class FFAppState extends ChangeNotifier {
   set isOnboarding(bool value) {
     _isOnboarding = value;
     prefs.setBool('ff_isOnboarding', value);
+  }
+
+  List<String> _Interests = [];
+  List<String> get Interests => _Interests;
+  set Interests(List<String> value) {
+    _Interests = value;
+    prefs.setStringList('ff_Interests', value);
+  }
+
+  void addToInterests(String value) {
+    Interests.add(value);
+    prefs.setStringList('ff_Interests', _Interests);
+  }
+
+  void removeFromInterests(String value) {
+    Interests.remove(value);
+    prefs.setStringList('ff_Interests', _Interests);
+  }
+
+  void removeAtIndexFromInterests(int index) {
+    Interests.removeAt(index);
+    prefs.setStringList('ff_Interests', _Interests);
+  }
+
+  void updateInterestsAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    Interests[index] = updateFn(_Interests[index]);
+    prefs.setStringList('ff_Interests', _Interests);
+  }
+
+  void insertAtIndexInInterests(int index, String value) {
+    Interests.insert(index, value);
+    prefs.setStringList('ff_Interests', _Interests);
   }
 }
 

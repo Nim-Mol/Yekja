@@ -2,17 +2,18 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'botton_standard_model.dart';
 export 'botton_standard_model.dart';
 
 class BottonStandardWidget extends StatefulWidget {
   const BottonStandardWidget({
     super.key,
-    String? buttontext,
-  }) : this.buttontext = buttontext ?? 'ButtonLabel';
+    this.buttontext,
+    required this.onPressed,
+  });
 
-  final String buttontext;
+  final String? buttontext;
+  final Future Function()? onPressed;
 
   @override
   State<BottonStandardWidget> createState() => _BottonStandardWidgetState();
@@ -44,35 +45,36 @@ class _BottonStandardWidgetState extends State<BottonStandardWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 50.0),
+      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
       child: FFButtonWidget(
-        onPressed: () {
-          print('Button pressed ...');
+        onPressed: () async {
+          await widget.onPressed?.call();
         },
-        text: FFAppState().introIndex == 2 ? 'Get Started' : 'Next',
+        text: valueOrDefault<String>(
+          widget.buttontext,
+          'Next',
+        ),
         options: FFButtonOptions(
           width: double.infinity,
-          height: 56.0,
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+          height: 51.0,
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
           iconAlignment: IconAlignment.start,
           iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-          color: Color(0xFF587858),
+          color: FlutterFlowTheme.of(context).green1,
           textStyle: FlutterFlowTheme.of(context).titleMedium.override(
                 fontFamily: 'Satoshi',
                 color: FlutterFlowTheme.of(context).primary,
                 fontSize: 16.0,
                 letterSpacing: 0.0,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w500,
               ),
-          elevation: 0.0,
+          elevation: 5.0,
           borderSide: BorderSide(
-            color: Colors.transparent,
-            width: 1.0,
+            color: FlutterFlowTheme.of(context).green1,
+            width: 2.0,
           ),
-          borderRadius: BorderRadius.circular(16.0),
+          borderRadius: BorderRadius.circular(12.0),
         ),
         showLoadingIndicator: false,
       ),

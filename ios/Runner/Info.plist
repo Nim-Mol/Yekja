@@ -13,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Eastly</string>
+	<string>Yekja</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleLocalizations</key>
@@ -31,10 +31,10 @@
         <key>CFBundleTypeRole</key>
         <string>Editor</string>
         <key>CFBundleURLName</key>
-        <string>eastly.com</string>
+        <string>yekja.com</string>
         <key>CFBundleURLSchemes</key>
         <array>
-        <string>eastly</string>
+        <string>yekja</string>
         </array>
         </dict>
     </array>

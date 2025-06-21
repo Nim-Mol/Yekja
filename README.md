@@ -1,4 +1,4 @@
-# Eastly
+# Yekja
 
 A new Flutter project.
 

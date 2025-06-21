@@ -98,6 +98,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => PrivacyPolicyPageWidget(),
         ),
         FFRoute(
+          name: OnboardingPageWidget.routeName,
+          path: OnboardingPageWidget.routePath,
+          builder: (context, params) => OnboardingPageWidget(),
+        ),
+        FFRoute(
           name: SwipableMAWidget.routeName,
           path: SwipableMAWidget.routePath,
           builder: (context, params) => SwipableMAWidget(),
@@ -111,6 +116,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: WriteReviewPageWidget.routeName,
           path: WriteReviewPageWidget.routePath,
           builder: (context, params) => WriteReviewPageWidget(),
+        ),
+        FFRoute(
+          name: QuestionairPageWidget.routeName,
+          path: QuestionairPageWidget.routePath,
+          builder: (context, params) => QuestionairPageWidget(),
         ),
         FFRoute(
           name: SecurityPageWidget.routeName,
@@ -201,6 +211,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: AddnewcardPageWidget.routeName,
           path: AddnewcardPageWidget.routePath,
           builder: (context, params) => AddnewcardPageWidget(),
+        ),
+        FFRoute(
+          name: SignInPageWidget.routeName,
+          path: SignInPageWidget.routePath,
+          builder: (context, params) => SignInPageWidget(),
+        ),
+        FFRoute(
+          name: SignUpPageWidget.routeName,
+          path: SignUpPageWidget.routePath,
+          builder: (context, params) => SignUpPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

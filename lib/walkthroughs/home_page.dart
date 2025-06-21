@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 
-import '/components_yekja/intro_tooltip/intro_tooltip_widget.dart';
+import '/components/intro_tooltip_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 // Focus widget keys for this walkthrough

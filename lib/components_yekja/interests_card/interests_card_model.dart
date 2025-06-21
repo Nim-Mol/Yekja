@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'confirm_component_widget.dart' show ConfirmComponentWidget;
+import 'interests_card_widget.dart' show InterestsCardWidget;
 import 'package:flutter/material.dart';
 
-class ConfirmComponentModel extends FlutterFlowModel<ConfirmComponentWidget> {
+class InterestsCardModel extends FlutterFlowModel<InterestsCardWidget> {
   @override
   void initState(BuildContext context) {}
 

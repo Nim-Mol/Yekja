@@ -363,6 +363,49 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'خانه',
     },
   },
+  // OnboardingPage
+  {
+    'fvqou22z': {
+      'en': 'OFFER HELP, GET CLOSER',
+      'fa': '',
+    },
+    'x5ipfs17': {
+      'en':
+          'Need help moving, repairing, or learning? Your community steps in — no pressure, just help.',
+      'fa': '',
+    },
+    'dq5yb1i0': {
+      'en': 'EXCHANGE FREELY',
+      'fa': '',
+    },
+    'e8ck1z6d': {
+      'en':
+          'Swap items or services — old-school style. Get what you need while passing along what you don’t.',
+      'fa': '',
+    },
+    'mc82p32c': {
+      'en': 'ORGANISE OR JOIN EVENTS',
+      'fa': '',
+    },
+    '6hct3poo': {
+      'en':
+          'Host your own or join others — from cozy game nights to creative workshops. It’s your space to connect.',
+      'fa': '',
+    },
+    '77oebv9d': {
+      'en': 'NEVER FAR FROM IRAN',
+      'fa': '',
+    },
+    '2lvwirso': {
+      'en':
+          'Need something from someone trusted in Iran? Income for them, ease for you.',
+      'fa': '',
+    },
+    'b8gufi8a': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
   // Swipable_MA
   {
     'c1pfqxt9': {
@@ -492,7 +535,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa':
           'برای حمایت اجتماعی شما، می‌توانیم با افرادی مثل شما، دنیا را به دنیایی بهتر تبدیل کنیم.',
     },
-    'b8gufi8a': {
+    'qv3strvd': {
       'en': 'Home',
       'fa': 'خانه',
     },
@@ -520,6 +563,53 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'ارسال نقد و بررسی',
     },
     'fzdiiauy': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // QuestionairPage
+  {
+    'nbdummsk': {
+      'en': 'Where are you located?',
+      'fa': '',
+    },
+    'y5itzz6t': {
+      'en':
+          'So we can better match you with nearby events, services, and users.',
+      'fa': '',
+    },
+    '1295uiwr': {
+      'en': 'Select Location',
+      'fa': '',
+    },
+    'tpkopas3': {
+      'en': 'How do you want to use Yekja?',
+      'fa': '',
+    },
+    'jetsdu3f': {
+      'en':
+          'Select all the ways you\'d like to use the app — find help, exchange, trade, or connect with people.',
+      'fa': '',
+    },
+    'g5kggsww': {
+      'en': 'Ready to swap?',
+      'fa': '',
+    },
+    'eng9z0mt': {
+      'en':
+          'Got something others could use? Swap what you have for what you need — you agree together how it works.',
+      'fa': '',
+    },
+    'nro0no3y': {
+      'en': 'What would you host or attend?',
+      'fa': '',
+    },
+    '8p8vwszd': {
+      'en':
+          'Host your own or join others — from cozy game nights to creative workshops. It’s your space to connect.',
+      'fa': '',
+    },
+    'z05zz2bf': {
       'en': 'Home',
       'fa': 'خانه',
     },
@@ -1574,6 +1664,117 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'خانه',
     },
   },
+  // SignInPage
+  {
+    '3yjo0udr': {
+      'en': 'Welcome Back',
+      'fa': '',
+    },
+    '9amiwbff': {
+      'en':
+          'Sign in to find trusted people, exchanges, and opportunities near you.',
+      'fa': '',
+    },
+    '8p9u8xta': {
+      'en': 'Email',
+      'fa': '',
+    },
+    '719u7ojl': {
+      'en': 'Password',
+      'fa': '',
+    },
+    'nxmvn4ld': {
+      'en': 'Forgot password? ',
+      'fa': '',
+    },
+    'btvjsow4': {
+      'en': 'Click here',
+      'fa': '',
+    },
+    'c0foq102': {
+      'en': 'OR',
+      'fa': '',
+    },
+    '4pvcq608': {
+      'en': 'Continue with Google',
+      'fa': '',
+    },
+    'neytz17q': {
+      'en': 'Continue with Facebook',
+      'fa': '',
+    },
+    'qqhkk63r': {
+      'en': 'No account yet? ',
+      'fa': '',
+    },
+    'oc6h6d27': {
+      'en': 'Sign Up here',
+      'fa': '',
+    },
+    '0rujztpm': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // SignUpPage
+  {
+    'w51ndrcz': {
+      'en': 'Create an account',
+      'fa': '',
+    },
+    '4z21d4lm': {
+      'en': 'Let\'s get started by filling out the form below.',
+      'fa': '',
+    },
+    'nvfo5j5k': {
+      'en': 'Your Name',
+      'fa': '',
+    },
+    '89dit003': {
+      'en': 'Email',
+      'fa': '',
+    },
+    'llboq7q5': {
+      'en': 'Password',
+      'fa': '',
+    },
+    '1j6t5sr8': {
+      'en': 'Confirm Password',
+      'fa': '',
+    },
+    'q3xjm17v': {
+      'en': 'OR',
+      'fa': '',
+    },
+    'er6ptcif': {
+      'en': 'Continue with Google',
+      'fa': '',
+    },
+    'cm35ie6x': {
+      'en': 'Continue with Facebook',
+      'fa': '',
+    },
+    'eo7evm6p': {
+      'en': 'Already have an account? ',
+      'fa': '',
+    },
+    'vk8yd8no': {
+      'en': ' Sign In here',
+      'fa': '',
+    },
+    'gdw0qcl7': {
+      'en': 'Terms of Service',
+      'fa': '',
+    },
+    'os16i96x': {
+      'en': 'Privacy Policy',
+      'fa': '',
+    },
+    '2g978126': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
   // ProductComponent
   {
     'zcmv3e6u': {
@@ -1588,9 +1789,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Amsterdam',
       'fa': 'آمستردام',
     },
-    'zqb28jlx': {
-      'en': 'Mohammad',
-      'fa': 'محمد',
+    'yl913sc3': {
+      'en': 'Hello World',
+      'fa': '',
     },
   },
   // FavouriteEmpty
@@ -1749,57 +1950,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '9z1whymb': {
       'en': 'Ok',
       'fa': 'باشه',
-    },
-  },
-  // ConfirmComponent
-  {
-    'gneyf983': {
-      'en': 'Home ',
-      'fa': 'خانه',
-    },
-    '6p7awqfv': {
-      'en': '2118 thornridge cir. syracuse, connecticut 35624',
-      'fa': '۲۱۱۸، سیراکیوز، کنتیکت، کد پستی ۳۵۶۲۴، تورنریج',
-    },
-    '12trzrod': {
-      'en': 'Payment methods',
-      'fa': 'روش‌های پرداخت',
-    },
-    'f5kc9why': {
-      'en': 'Google pay',
-      'fa': 'گوگل پی',
-    },
-    'ldms2ala': {
-      'en': '3 Items in the cart',
-      'fa': '۳ کالا در سبد خرید',
-    },
-    'onsu278e': {
-      'en': 'Payment summary',
-      'fa': 'خلاصه پرداخت',
-    },
-    'dcu9bycv': {
-      'en': 'Subtotal',
-      'fa': 'جمع جزئی',
-    },
-    'ytx8oe27': {
-      'en': 'Shipping',
-      'fa': 'حمل و نقل',
-    },
-    'n7r2q1r2': {
-      'en': 'Total',
-      'fa': 'مجموع',
-    },
-    '74ssfqpc': {
-      'en': '\$114.00',
-      'fa': '۱۱۴٫۰۰ دلار',
-    },
-    '7tvj62yi': {
-      'en': '\$10.00',
-      'fa': '۱۰٫۰۰ دلار',
-    },
-    'vcmjwnqr': {
-      'en': '\$124.00',
-      'fa': '۱۲۴٫۰۰ دلار',
     },
   },
   // NotificationEmpty

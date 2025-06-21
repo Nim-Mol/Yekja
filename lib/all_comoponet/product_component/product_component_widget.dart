@@ -45,8 +45,8 @@ class _ProductComponentWidgetState extends State<ProductComponentWidget> {
         Align(
           alignment: AlignmentDirectional(0.0, 0.0),
           child: Container(
-            width: 320.0,
-            height: 450.0,
+            width: 300.0,
+            height: 400.0,
             child: Stack(
               alignment: AlignmentDirectional(1.0, -1.0),
               children: [
@@ -66,36 +66,39 @@ class _ProductComponentWidgetState extends State<ProductComponentWidget> {
                         Container(
                           height: 600.0,
                           decoration: BoxDecoration(),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              await Navigator.push(
-                                context,
-                                PageTransition(
-                                  type: PageTransitionType.fade,
-                                  child: FlutterFlowExpandedImageView(
-                                    image: Image.asset(
-                                      'assets/images/on-1.png',
-                                      fit: BoxFit.contain,
+                          child: Opacity(
+                            opacity: 0.8,
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                await Navigator.push(
+                                  context,
+                                  PageTransition(
+                                    type: PageTransitionType.fade,
+                                    child: FlutterFlowExpandedImageView(
+                                      image: Image.asset(
+                                        'assets/images/on-1.png',
+                                        fit: BoxFit.contain,
+                                      ),
+                                      allowRotation: false,
+                                      tag: 'imageTag',
+                                      useHeroAnimation: true,
                                     ),
-                                    allowRotation: false,
-                                    tag: 'imageTag',
-                                    useHeroAnimation: true,
                                   ),
-                                ),
-                              );
-                            },
-                            child: Hero(
-                              tag: 'imageTag',
-                              transitionOnUserGestures: true,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(0.0),
-                                child: Image.asset(
-                                  'assets/images/on-1.png',
-                                  fit: BoxFit.cover,
+                                );
+                              },
+                              child: Hero(
+                                tag: 'imageTag',
+                                transitionOnUserGestures: true,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(0.0),
+                                  child: Image.asset(
+                                    'assets/images/on-1.png',
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                             ),
@@ -130,26 +133,42 @@ class _ProductComponentWidgetState extends State<ProductComponentWidget> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            AutoSizeText(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'zcmv3e6u' /* Item Title */,
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .green1,
+                                                borderRadius:
+                                                    BorderRadius.circular(5.0),
                                               ),
-                                              textAlign: TextAlign.start,
-                                              maxLines: 1,
-                                              minFontSize: 12.0,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Satoshi',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
-                                                    fontSize: 18.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w500,
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        6.0, 2.0, 6.0, 2.0),
+                                                child: AutoSizeText(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'zcmv3e6u' /* Item Title */,
                                                   ),
+                                                  textAlign: TextAlign.start,
+                                                  maxLines: 1,
+                                                  minFontSize: 12.0,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Satoshi',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        fontSize: 18.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              ),
                                             ),
                                             Flexible(
                                               child: AutoSizeText(
@@ -234,20 +253,23 @@ class _ProductComponentWidgetState extends State<ProductComponentWidget> {
                                                         fit: BoxFit.cover,
                                                       ),
                                                     ),
-                                                    Expanded(
-                                                      child: Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: AutoSizeText(
+                                                    Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Icon(
+                                                          Icons.arrow_back,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .yellow1,
+                                                          size: 24.0,
+                                                        ),
+                                                        Text(
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            'zqb28jlx' /* Mohammad */,
+                                                            'yl913sc3' /* Hello World */,
                                                           ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          minFontSize: 8.0,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -255,22 +277,15 @@ class _ProductComponentWidgetState extends State<ProductComponentWidget> {
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMediumFamily,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
-                                                                fontSize: 12.0,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w200,
                                                                 useGoogleFonts:
                                                                     !FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyMediumIsCustom,
                                                               ),
                                                         ),
-                                                      ),
+                                                      ],
                                                     ),
                                                   ],
                                                 ),

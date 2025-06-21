@@ -41,6 +41,8 @@ class _SplashWidgetState extends State<SplashWidget>
         } else {
           context.goNamed(EventsWidget.routeName);
         }
+      } else {
+        context.pushNamed(OnboardingPageWidget.routeName);
       }
     });
 

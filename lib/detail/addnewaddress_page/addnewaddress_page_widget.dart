@@ -340,7 +340,9 @@ class _AddnewaddressPageWidgetState extends State<AddnewaddressPageWidget> {
                         child: wrapWithModel(
                           model: _model.bottonStandardModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: BottonStandardWidget(),
+                          child: BottonStandardWidget(
+                            onPressed: () async {},
+                          ),
                         ),
                       ),
                     ],

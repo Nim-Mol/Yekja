@@ -1,26 +1,28 @@
 import '/components_yekja/botton_standard/botton_standard_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'sign_in_page_widget.dart' show SignInPageWidget;
 import 'package:flutter/material.dart';
 
 class SignInPageModel extends FlutterFlowModel<SignInPageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final formKey = GlobalKey<FormState>();
   // State field(s) for emailAddress widget.
   FocusNode? emailAddressFocusNode;
   TextEditingController? emailAddressTextController;
   String? Function(BuildContext, String?)? emailAddressTextControllerValidator;
-  // State field(s) for password widget.
-  FocusNode? passwordFocusNode;
-  TextEditingController? passwordTextController;
-  late bool passwordVisibility;
-  String? Function(BuildContext, String?)? passwordTextControllerValidator;
+  // State field(s) for PassWord widget.
+  FocusNode? passWordFocusNode;
+  TextEditingController? passWordTextController;
+  late bool passWordVisibility;
+  String? Function(BuildContext, String?)? passWordTextControllerValidator;
   // Model for BottonStandard component.
   late BottonStandardModel bottonStandardModel;
 
   @override
   void initState(BuildContext context) {
-    passwordVisibility = false;
+    passWordVisibility = false;
     bottonStandardModel = createModel(context, () => BottonStandardModel());
   }
 
@@ -29,8 +31,8 @@ class SignInPageModel extends FlutterFlowModel<SignInPageWidget> {
     emailAddressFocusNode?.dispose();
     emailAddressTextController?.dispose();
 
-    passwordFocusNode?.dispose();
-    passwordTextController?.dispose();
+    passWordFocusNode?.dispose();
+    passWordTextController?.dispose();
 
     bottonStandardModel.dispose();
   }

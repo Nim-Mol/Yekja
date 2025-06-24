@@ -69,7 +69,6 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                   child: Container(
                     height: 95.0,
                     decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
                       shape: BoxShape.rectangle,
                     ),
                     alignment: AlignmentDirectional(0.0, 0.0),

@@ -225,7 +225,7 @@ class _ProfileComponetWidgetState extends State<ProfileComponetWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      context.pushNamed(SecurityPageWidget.routeName);
+                      context.pushNamed(EventPlannerPageWidget.routeName);
                     },
                     child: Container(
                       width: double.infinity,

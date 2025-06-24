@@ -39,6 +39,10 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _Interests = prefs.getStringList('ff_Interests') ?? _Interests;
     });
+    _safeInit(() {
+      _isAccountCreated =
+          prefs.getBool('ff_isAccountCreated') ?? _isAccountCreated;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -948,6 +952,19 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInInterests(int index, String value) {
     Interests.insert(index, value);
     prefs.setStringList('ff_Interests', _Interests);
+  }
+
+  bool _isAccountCreated = false;
+  bool get isAccountCreated => _isAccountCreated;
+  set isAccountCreated(bool value) {
+    _isAccountCreated = value;
+    prefs.setBool('ff_isAccountCreated', value);
+  }
+
+  String _errorMessage = '';
+  String get errorMessage => _errorMessage;
+  set errorMessage(String value) {
+    _errorMessage = value;
   }
 }
 

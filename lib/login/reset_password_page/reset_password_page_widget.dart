@@ -1,4 +1,3 @@
-import '/all_comoponet/app_bar/app_bar_widget.dart';
 import '/all_comoponet/password_change/password_change_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -53,19 +52,41 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(40.0),
+          child: AppBar(
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            automaticallyImplyLeading: false,
+            actions: [],
+            flexibleSpace: FlexibleSpaceBar(
+              title: Align(
+                alignment: AlignmentDirectional(0.0, 0.0),
+                child: Text(
+                  FFLocalizations.of(context).getText(
+                    'ezuq28f4' /* Reset password */,
+                  ),
+                  style: FlutterFlowTheme.of(context).headlineMedium.override(
+                        fontFamily:
+                            FlutterFlowTheme.of(context).headlineMediumFamily,
+                        fontSize: 28.0,
+                        letterSpacing: 0.0,
+                        useGoogleFonts: !FlutterFlowTheme.of(context)
+                            .headlineMediumIsCustom,
+                      ),
+                ),
+              ),
+              centerTitle: false,
+              expandedTitleScale: 1.0,
+            ),
+            elevation: 2.0,
+          ),
+        ),
         body: SafeArea(
           top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              wrapWithModel(
-                model: _model.appBarModel,
-                updateCallback: () => safeSetState(() {}),
-                child: AppBarWidget(
-                  name: 'Reset password',
-                ),
-              ),
               Expanded(
                 child: Form(
                   key: _model.formKey,

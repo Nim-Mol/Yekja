@@ -1,4 +1,3 @@
-import '/all_comoponet/app_bar/app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'change_password_page_widget.dart' show ChangePasswordPageWidget;
 import 'package:flutter/material.dart';
@@ -8,8 +7,6 @@ class ChangePasswordPageModel
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
-  // Model for AppBar component.
-  late AppBarModel appBarModel;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
@@ -18,7 +15,7 @@ class ChangePasswordPageModel
   String? _textController1Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'o2r9wrf3' /* Please  enter valid new passwo... */,
+        '8jck5xal' /* Please  enter valid new passwo... */,
       );
     }
 
@@ -33,7 +30,7 @@ class ChangePasswordPageModel
   String? _textController2Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        '3ldbjfsd' /* Please  enter valid confirm pa... */,
+        'w5i7eiux' /* Please  enter valid confirm pa... */,
       );
     }
 
@@ -42,7 +39,6 @@ class ChangePasswordPageModel
 
   @override
   void initState(BuildContext context) {
-    appBarModel = createModel(context, () => AppBarModel());
     passwordVisibility1 = false;
     textController1Validator = _textController1Validator;
     passwordVisibility2 = false;
@@ -51,7 +47,6 @@ class ChangePasswordPageModel
 
   @override
   void dispose() {
-    appBarModel.dispose();
     textFieldFocusNode1?.dispose();
     textController1?.dispose();
 

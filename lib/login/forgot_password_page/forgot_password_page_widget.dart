@@ -1,8 +1,8 @@
-import '/all_comoponet/app_bar/app_bar_widget.dart';
+import '/auth/supabase_auth/auth_util.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/index.dart';
 import 'package:flutter/material.dart';
 import 'forgot_password_page_model.dart';
 export 'forgot_password_page_model.dart';
@@ -28,8 +28,8 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
     super.initState();
     _model = createModel(context, () => ForgotPasswordPageModel());
 
-    _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
+    _model.emailTextController ??= TextEditingController();
+    _model.emailFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -50,20 +50,54 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(40.0),
+          child: AppBar(
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            automaticallyImplyLeading: false,
+            leading: FlutterFlowIconButton(
+              borderColor: Colors.transparent,
+              borderRadius: 30.0,
+              borderWidth: 1.0,
+              buttonSize: 50.0,
+              icon: Icon(
+                Icons.arrow_back_ios_new,
+                color: Colors.white,
+                size: 20.0,
+              ),
+              onPressed: () async {
+                context.pop();
+              },
+            ),
+            actions: [],
+            flexibleSpace: FlexibleSpaceBar(
+              title: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                child: Text(
+                  FFLocalizations.of(context).getText(
+                    'ouc203vm' /* Forgot Pssword */,
+                  ),
+                  style: FlutterFlowTheme.of(context).headlineMedium.override(
+                        fontFamily: 'Satoshi',
+                        color: Colors.white,
+                        fontSize: 26.0,
+                        letterSpacing: 0.0,
+                      ),
+                ),
+              ),
+              centerTitle: true,
+              expandedTitleScale: 1.0,
+            ),
+            elevation: 2.0,
+          ),
+        ),
         body: SafeArea(
           top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              wrapWithModel(
-                model: _model.appBarModel,
-                updateCallback: () => safeSetState(() {}),
-                child: AppBarWidget(
-                  name: 'Forgot password',
-                ),
-              ),
               Align(
                 alignment: AlignmentDirectional(0.0, 0.0),
                 child: Padding(
@@ -95,8 +129,8 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                     child: TextFormField(
-                      controller: _model.textController,
-                      focusNode: _model.textFieldFocusNode,
+                      controller: _model.emailTextController,
+                      focusNode: _model.emailFocusNode,
                       autofocus: false,
                       textInputAction: TextInputAction.done,
                       obscureText: false,
@@ -172,8 +206,8 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                           ),
                       keyboardType: TextInputType.emailAddress,
                       cursorColor: FlutterFlowTheme.of(context).primaryText,
-                      validator:
-                          _model.textControllerValidator.asValidator(context),
+                      validator: _model.emailTextControllerValidator
+                          .asValidator(context),
                     ),
                   ),
                 ),
@@ -182,12 +216,20 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(20.0, 48.0, 20.0, 24.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    if (_model.formKey.currentState == null ||
-                        !_model.formKey.currentState!.validate()) {
+                    if (_model.emailTextController.text.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            'Email required!',
+                          ),
+                        ),
+                      );
                       return;
                     }
-
-                    context.pushNamed(VerifyCodePageWidget.routeName);
+                    await authManager.resetPassword(
+                      email: _model.emailTextController.text,
+                      context: context,
+                    );
                   },
                   text: FFLocalizations.of(context).getText(
                     'pn42p7ja' /* Continue */,

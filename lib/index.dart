@@ -1,6 +1,5 @@
 // Export pages
 export '/detail/filter_page/filter_page_widget.dart' show FilterPageWidget;
-export '/personal_info/personal_info_widget.dart' show PersonalInfoWidget;
 export '/detail/checkout1_page/checkout1_page_widget.dart'
     show Checkout1PageWidget;
 export '/detail/addnewaddress_page/addnewaddress_page_widget.dart'
@@ -11,25 +10,17 @@ export '/profile/feedback_page/feedback_page_widget.dart'
     show FeedbackPageWidget;
 export '/profile/privacy_policy_page/privacy_policy_page_widget.dart'
     show PrivacyPolicyPageWidget;
-export '/onboarding/onboarding_page/onboarding_page_widget.dart'
-    show OnboardingPageWidget;
 export '/home/swipable_m_a/swipable_m_a_widget.dart' show SwipableMAWidget;
-export '/home_page/home_page_widget.dart' show HomePageWidget;
+export '/home/home_page/home_page_widget.dart' show HomePageWidget;
 export '/detail/write_review_page/write_review_page_widget.dart'
     show WriteReviewPageWidget;
-export '/onboarding/questionair_page/questionair_page_widget.dart'
-    show QuestionairPageWidget;
-export '/profile/security_page/security_page_widget.dart'
-    show SecurityPageWidget;
-export '/profile_page/profile_page_widget.dart' show ProfilePageWidget;
-export '/profile/help_page/help_page_widget.dart' show HelpPageWidget;
+export '/profile/profile_page/profile_page_widget.dart' show ProfilePageWidget;
 export '/profile/change_password_page/change_password_page_widget.dart'
     show ChangePasswordPageWidget;
 export '/login/forgot_password_page/forgot_password_page_widget.dart'
     show ForgotPasswordPageWidget;
 export '/detail/order_detail_page/order_detail_page_widget.dart'
     show OrderDetailPageWidget;
-export '/splash/splash/splash_widget.dart' show SplashWidget;
 export '/login/reset_password_page/reset_password_page_widget.dart'
     show ResetPasswordPageWidget;
 export '/chat/chatsearch/chatsearch_widget.dart' show ChatsearchWidget;
@@ -45,5 +36,14 @@ export '/chat/chatdetail/chatdetail_widget.dart' show ChatdetailWidget;
 export '/profile/setting_page/setting_page_widget.dart' show SettingPageWidget;
 export '/detail/addnewcard_page/addnewcard_page_widget.dart'
     show AddnewcardPageWidget;
+export '/home/onboarding/onboarding_page/onboarding_page_widget.dart'
+    show OnboardingPageWidget;
 export '/login/sign_in_page/sign_in_page_widget.dart' show SignInPageWidget;
+export '/home/onboarding/questionair_page/questionair_page_widget.dart'
+    show QuestionairPageWidget;
 export '/login/sign_up_page/sign_up_page_widget.dart' show SignUpPageWidget;
+export '/detail/contact_u_s/contact_u_s_widget.dart' show ContactUSWidget;
+export '/profile/event_planner_page/event_planner_page_widget.dart'
+    show EventPlannerPageWidget;
+export '/profile/faq/faq_widget.dart' show FaqWidget;
+export '/splash/splash/splash_widget.dart' show SplashWidget;

@@ -1,6 +1,8 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_language_selector.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'our_main_header_model.dart';
 export 'our_main_header_model.dart';
@@ -154,16 +156,33 @@ class _OurMainHeaderWidgetState extends State<OurMainHeaderWidget> {
                     children: [
                       Align(
                         alignment: AlignmentDirectional(0.0, -1.0),
-                        child: Container(
-                          width: 50.0,
-                          height: 50.0,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                          ),
-                          child: Image.asset(
-                            'assets/images/bob.jpg',
-                            fit: BoxFit.cover,
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed(
+                              ProfilePageWidget.routeName,
+                              queryParameters: {
+                                'ownerID': serializeParam(
+                                  currentUserUid,
+                                  ParamType.String,
+                                ),
+                              }.withoutNulls,
+                            );
+                          },
+                          child: Container(
+                            width: 50.0,
+                            height: 50.0,
+                            clipBehavior: Clip.antiAlias,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                            ),
+                            child: Image.asset(
+                              'assets/images/bob.jpg',
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                       ),

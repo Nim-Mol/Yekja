@@ -1,4 +1,4 @@
-import '/all_comoponet/app_bar/app_bar_widget.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -53,23 +53,43 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          automaticallyImplyLeading: false,
+          leading: FlutterFlowIconButton(
+            borderColor: Colors.transparent,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 50.0,
+            icon: Icon(
+              Icons.arrow_back_ios_new,
+              color: Colors.white,
+              size: 20.0,
+            ),
+            onPressed: () async {
+              context.pop();
+            },
+          ),
+          title: Text(
+            FFLocalizations.of(context).getText(
+              '13hkjxzm' /* Change Password */,
+            ),
+            style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  fontFamily: 'Satoshi',
+                  color: Colors.white,
+                  fontSize: 22.0,
+                  letterSpacing: 0.0,
+                ),
+          ),
+          actions: [],
+          centerTitle: false,
+          elevation: 2.0,
+        ),
         body: SafeArea(
           top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  wrapWithModel(
-                    model: _model.appBarModel,
-                    updateCallback: () => safeSetState(() {}),
-                    child: AppBarWidget(
-                      name: 'Change password',
-                    ),
-                  ),
-                ],
-              ),
               Expanded(
                 child: Form(
                   key: _model.formKey,
@@ -95,7 +115,7 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                           decoration: InputDecoration(
                             isDense: false,
                             labelText: FFLocalizations.of(context).getText(
-                              'es31lnj2' /* New password */,
+                              'vihtivjk' /* New password */,
                             ),
                             labelStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
@@ -107,7 +127,7 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                                   letterSpacing: 0.0,
                                 ),
                             hintText: FFLocalizations.of(context).getText(
-                              'n1c51t31' /* New password */,
+                              'yp6inssm' /* New password */,
                             ),
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
@@ -197,7 +217,7 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                             decoration: InputDecoration(
                               isDense: false,
                               labelText: FFLocalizations.of(context).getText(
-                                '4gt7mmvz' /* Confirm password */,
+                                'ao0xte64' /* Confirm password */,
                               ),
                               labelStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
@@ -209,7 +229,7 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                                     letterSpacing: 0.0,
                                   ),
                               hintText: FFLocalizations.of(context).getText(
-                                'uzjift62' /* Confirm password */,
+                                'lwkof6wj' /* Confirm password */,
                               ),
                               hintStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
@@ -338,7 +358,7 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                                 }
                               },
                               text: FFLocalizations.of(context).getText(
-                                'm0ojx49m' /* Save */,
+                                'kmgxcfsd' /* Save */,
                               ),
                               options: FFButtonOptions(
                                 width: double.infinity,
@@ -347,13 +367,13 @@ class _ChangePasswordPageWidgetState extends State<ChangePasswordPageWidget> {
                                     0.0, 0.0, 0.0, 0.0),
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
+                                color: Color(0x4212B886),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleMedium
                                     .override(
                                       fontFamily: 'Satoshi',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,

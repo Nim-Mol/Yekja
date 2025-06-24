@@ -175,41 +175,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'خانه',
     },
   },
-  // PersonalInfo
-  {
-    'dhbx92pr': {
-      'en': 'Personal Information',
-      'fa': 'اطلاعات شخصی',
-    },
-    '2jfkyihz': {
-      'en': '45',
-      'fa': '۴۵',
-    },
-    '6383gkiu': {
-      'en': 'Likes',
-      'fa': 'لایک‌ها',
-    },
-    'wmdfjpwn': {
-      'en': '674',
-      'fa': '۶۷۴ عدد',
-    },
-    '5n79suz7': {
-      'en': 'Trust Score',
-      'fa': 'امتیاز اعتماد',
-    },
-    'keflnha4': {
-      'en': '45',
-      'fa': '۴۵',
-    },
-    'zrigxn7j': {
-      'en': 'Likes',
-      'fa': 'لایک‌ها',
-    },
-    'j4hgtmpg': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
   // Checkout1Page
   {
     'gubfc5t4': {
@@ -278,25 +243,21 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'The confimation code was sent via email',
       'fa': 'کد تایید از طریق ایمیل ارسال شد',
     },
-    '51awg9dv': {
-      'en': 'johnabram@gmail.com',
-      'fa': 'johnabram@gmail.com',
-    },
     '0nkfanj2': {
       'en': 'Pease enter  valid code',
       'fa': 'لطفا کد معتبر را وارد کنید',
     },
-    'va3m435c': {
-      'en': 'Don’t get the code? ',
-      'fa': 'کد را دریافت نمی‌کنید؟',
-    },
-    'a58i7832': {
-      'en': 'Resend code',
-      'fa': 'ارسال مجدد کد',
-    },
     'vjvaogfy': {
+      'en': 'Resend',
+      'fa': 'اکنون تأیید کنید',
+    },
+    'hwnjny5a': {
       'en': 'Verify now',
       'fa': 'اکنون تأیید کنید',
+    },
+    'l60nokfp': {
+      'en': 'Verify code',
+      'fa': '',
     },
     'ker0wihq': {
       'en': 'Home',
@@ -363,49 +324,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'خانه',
     },
   },
-  // OnboardingPage
-  {
-    'fvqou22z': {
-      'en': 'OFFER HELP, GET CLOSER',
-      'fa': '',
-    },
-    'x5ipfs17': {
-      'en':
-          'Need help moving, repairing, or learning? Your community steps in — no pressure, just help.',
-      'fa': '',
-    },
-    'dq5yb1i0': {
-      'en': 'EXCHANGE FREELY',
-      'fa': '',
-    },
-    'e8ck1z6d': {
-      'en':
-          'Swap items or services — old-school style. Get what you need while passing along what you don’t.',
-      'fa': '',
-    },
-    'mc82p32c': {
-      'en': 'ORGANISE OR JOIN EVENTS',
-      'fa': '',
-    },
-    '6hct3poo': {
-      'en':
-          'Host your own or join others — from cozy game nights to creative workshops. It’s your space to connect.',
-      'fa': '',
-    },
-    '77oebv9d': {
-      'en': 'NEVER FAR FROM IRAN',
-      'fa': '',
-    },
-    '2lvwirso': {
-      'en':
-          'Need something from someone trusted in Iran? Income for them, ease for you.',
-      'fa': '',
-    },
-    'b8gufi8a': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
   // Swipable_MA
   {
     'c1pfqxt9': {
@@ -425,7 +343,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // HomePage
   {
-    'tp5ycz33': {
+    'ju1a70oo': {
+      'en': 'TextField',
+      'fa': '',
+    },
+    '29b8mvcw': {
+      'en': 'Search',
+      'fa': 'جستجو',
+    },
+    '558fzs8h': {
       'en': 'What are you looking for today?',
       'fa': 'امروز دنبال چی هستی؟',
     },
@@ -498,7 +424,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'در دنیایی از محصولات، خدمات و رویدادهای موجود جستجو کنید',
     },
     '45nxx23g': {
-      'en': 'Button',
+      'en': 'Start',
       'fa': 'دکمه',
     },
     '607mveb5': {
@@ -535,9 +461,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa':
           'برای حمایت اجتماعی شما، می‌توانیم با افرادی مثل شما، دنیا را به دنیایی بهتر تبدیل کنیم.',
     },
+    '6lyr5um7': {
+      'en': 'your community',
+      'fa': '',
+    },
     'qv3strvd': {
       'en': 'Home',
-      'fa': 'خانه',
+      'fa': '',
     },
   },
   // WriteReviewPage
@@ -567,227 +497,284 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'خانه',
     },
   },
-  // QuestionairPage
-  {
-    'nbdummsk': {
-      'en': 'Where are you located?',
-      'fa': '',
-    },
-    'y5itzz6t': {
-      'en':
-          'So we can better match you with nearby events, services, and users.',
-      'fa': '',
-    },
-    '1295uiwr': {
-      'en': 'Select Location',
-      'fa': '',
-    },
-    'tpkopas3': {
-      'en': 'How do you want to use Yekja?',
-      'fa': '',
-    },
-    'jetsdu3f': {
-      'en':
-          'Select all the ways you\'d like to use the app — find help, exchange, trade, or connect with people.',
-      'fa': '',
-    },
-    'g5kggsww': {
-      'en': 'Ready to swap?',
-      'fa': '',
-    },
-    'eng9z0mt': {
-      'en':
-          'Got something others could use? Swap what you have for what you need — you agree together how it works.',
-      'fa': '',
-    },
-    'nro0no3y': {
-      'en': 'What would you host or attend?',
-      'fa': '',
-    },
-    '8p8vwszd': {
-      'en':
-          'Host your own or join others — from cozy game nights to creative workshops. It’s your space to connect.',
-      'fa': '',
-    },
-    'z05zz2bf': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // SecurityPage
-  {
-    'kvsjl11z': {
-      'en': 'Face ID',
-      'fa': 'شناسه چهره',
-    },
-    '3md5ep01': {
-      'en': 'Notifications',
-      'fa': 'اعلان‌ها',
-    },
-    'snzn7yvn': {
-      'en': 'Change password',
-      'fa': 'تغییر رمز عبور',
-    },
-    'sf4e1hbe': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
   // ProfilePage
   {
-    'fueaz9te': {
-      'en': 'Profile',
-      'fa': 'پروفایل',
-    },
-    'hqyt6jd3': {
+    'qa6tsx7c': {
       'en': 'Tom Hanks',
-      'fa': 'تام هنکس',
+      'fa': '',
     },
-    'segc8rtw': {
-      'en': 'Tom_Hanks@gmail.com',
-      'fa': 'Tom_Hanks@gmail.com',
+    '05h3rmcf': {
+      'en': 'Amsterdam',
+      'fa': '',
     },
-    '6qcg2p25': {
-      'en': 'Personal Information',
-      'fa': 'اطلاعات شخصی',
+    '9l28yn87': {
+      'en': '45',
+      'fa': '',
     },
-    '6e1gjcci': {
-      'en': 'My Posts',
-      'fa': 'پست‌های من',
+    '6uo9r8ha': {
+      'en': 'Likes',
+      'fa': '',
     },
-    'g6fwp41n': {
-      'en': 'My Favourites',
-      'fa': 'موارد دلخواه من',
+    '37p2ppm3': {
+      'en': '674',
+      'fa': '',
     },
-    '36qgv5u6': {
-      'en': 'Notifications',
-      'fa': 'اعلان‌ها',
+    'pjj7ywj8': {
+      'en': 'Trust Score',
+      'fa': '',
     },
-    '6bxmq5ee': {
-      'en': 'Yekja Terms&Conditions',
-      'fa': 'شرایط و ضوابط یکجا',
+    'n2e8hgo3': {
+      'en': '4.5',
+      'fa': '',
     },
-    'rh49er06': {
-      'en': 'Privacy and policy',
-      'fa': 'حریم خصوصی و سیاست',
+    '41pq3bn9': {
+      'en': 'Review',
+      'fa': '',
+    },
+    '6qe3ahve': {
+      'en':
+          'Hi, I’m Tom Hanks. I love storytelling, old typewriters, and baseball. When I’m not acting, I’m reading history, writing, or enjoying a good cup of coffee. Life’s short—be kind, stay curious, and always say yes to adventure.',
+      'fa': '',
+    },
+    '4sl9g7bt': {
+      'en': 'Posts',
+      'fa': '',
+    },
+    'csirqns1': {
+      'en': 'Events',
+      'fa': '',
+    },
+    'j2w2ssrk': {
+      'en': 'Game Night',
+      'fa': '',
+    },
+    'nsnjjx9n': {
+      'en': 'Utrecht',
+      'fa': '',
+    },
+    's8iulkb6': {
+      'en': 'Mafia',
+      'fa': '',
+    },
+    'y2l4c7gc': {
+      'en': 'agust 23, 05:00 PM',
+      'fa': '',
+    },
+    '5aa49ubc': {
+      'en': '4.8',
+      'fa': '',
+    },
+    'owf4s8qy': {
+      'en': 'Marketplace',
+      'fa': '',
+    },
+    'tlappe9y': {
+      'en': 'Rentals',
+      'fa': '',
+    },
+    'o9l0r3xn': {
+      'en': 'Utrecht',
+      'fa': '',
+    },
+    'ra5h6xlu': {
+      'en': 'Mafia',
+      'fa': '',
+    },
+    'ki2ry3fw': {
+      'en': 'agust 23, 05:00 PM',
+      'fa': '',
+    },
+    '4zv72f0x': {
+      'en': '4.8',
+      'fa': '',
+    },
+    '30k1rzvm': {
+      'en': 'Events',
+      'fa': '',
+    },
+    'q62mhner': {
+      'en': 'Social',
+      'fa': '',
+    },
+    'tspock34': {
+      'en': 'Amsterdam',
+      'fa': '',
+    },
+    'hhsce8au': {
+      'en': 'Book Club',
+      'fa': '',
+    },
+    'wznowx7k': {
+      'en': 'agust 23, 05:00 PM',
+      'fa': '',
+    },
+    '18saa002': {
+      'en': '4.8',
+      'fa': '',
+    },
+    'wbr2dbqe': {
+      'en': 'Community Care',
+      'fa': '',
+    },
+    'i53lovf6': {
+      'en': 'BBQ',
+      'fa': '',
+    },
+    '4bce450q': {
+      'en': 'Amstelven,Amsterdam\'s Bos',
+      'fa': '',
+    },
+    'gzw3hrtx': {
+      'en': 'Picnic Lovers',
+      'fa': '',
+    },
+    'c6p921jg': {
+      'en': 'agust 23, 05:00 PM',
+      'fa': '',
+    },
+    '0tmp22me': {
+      'en': '4.8',
+      'fa': '',
+    },
+    '6jnfb6ls': {
+      'en': 'Favorites',
+      'fa': '',
+    },
+    'sc4mo5ms': {
+      'en': 'Amsterdam, Ziggo Dome',
+      'fa': 'آمستردام، گنبد زیگو',
+    },
+    'r18xyi45': {
+      'en': 'Summer Party',
+      'fa': 'مهمانی تابستانی',
+    },
+    'rlyyg4by': {
+      'en': 'agust 23, 05:00 PM',
+      'fa': '۲۳ آگوست، ساعت ۱۷:۰۰',
+    },
+    '5ipe6543': {
+      'en': 'Amsterdam, Ziggo Dome',
+      'fa': 'آمستردام، گنبد زیگو',
+    },
+    'wpbjnp95': {
+      'en': 'Summer Party',
+      'fa': 'مهمانی تابستانی',
+    },
+    'qtap45w8': {
+      'en': 'agust 23, 05:00 PM',
+      'fa': '۲۳ آگوست، ساعت ۱۷:۰۰',
+    },
+    'xpzf7d5z': {
+      'en': 'Amstelven, Amsterdam\'sBos',
+      'fa': 'آمستلون، آمستردام بوس',
+    },
+    'ytijevrm': {
+      'en': 'Summer BBQ',
+      'fa': 'باربیکیو تابستانی',
+    },
+    '87v28q18': {
+      'en': 'juli 23, 05:00 PM',
+      'fa': '۲۳ ژوئیه، ساعت ۱۷:۰۰',
+    },
+    'mlu812pp': {
+      'en': 'Reviews',
+      'fa': '',
+    },
+    'jpye0lqv': {
+      'en': 'Sam  sung',
+      'fa': '',
+    },
+    'vc4e99t9': {
+      'en': '(5)',
+      'fa': '',
+    },
+    'q077mst8': {
+      'en':
+          'I attended the Sunset Sounds Music Festival 2025 last weekend, and it was absolutely incredible! From start to finish, the experience was seamless and full of energy. ',
+      'fa': '',
+    },
+    '2ljvna72': {
+      'en': 'agust 23, 05:00 PM',
+      'fa': '',
+    },
+    'r06mfbpv': {
+      'en': 'Sam  sung',
+      'fa': 'اوترخت',
+    },
+    'tfg51enn': {
+      'en': '(4.5)',
+      'fa': '',
+    },
+    '2axs82xx': {
+      'en':
+          'I attended the Sunset Sounds Music Festival 2025 last weekend, and it was absolutely incredible! From start to finish, the experience was seamless and full of energy. ',
+      'fa': 'مافیا',
+    },
+    'f4j4dk9l': {
+      'en': 'agust 23, 05:00 PM',
+      'fa': '۲۳ آگوست، ساعت ۱۷:۰۰',
+    },
+    'tq2ulkz6': {
+      'en': 'Sam  sung',
+      'fa': 'اوترخت',
+    },
+    'shtj1vh5': {
+      'en': '(3)',
+      'fa': '',
+    },
+    'x3mzc2rk': {
+      'en':
+          'I attended the Sunset Sounds Music Festival 2025 last weekend, and it was absolutely incredible! From start to finish, the experience was seamless and full of energy. ',
+      'fa': 'مافیا',
+    },
+    'y9zyaw1r': {
+      'en': 'agust 23, 05:00 PM',
+      'fa': '۲۳ آگوست، ساعت ۱۷:۰۰',
     },
     'yq4fqtye': {
       'en': 'Home',
       'fa': 'خانه',
     },
   },
-  // HelpPage
-  {
-    '24c4afj9': {
-      'en': 'Which company best for furniture?',
-      'fa': 'کدام شرکت برای مبلمان بهتر است؟',
-    },
-    'l1qm6pea': {
-      'en':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      'fa':
-          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    'dtpcil6r': {
-      'en': 'Which online shopping is best?',
-      'fa': 'کدام خرید آنلاین بهتر است؟',
-    },
-    'odjaij7e': {
-      'en':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      'fa':
-          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    'o9brjb3x': {
-      'en': 'What comes under furniture?',
-      'fa': 'زیر مبلمان چه چیزهایی قرار می‌گیرد؟',
-    },
-    'bkl59zgx': {
-      'en':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      'fa':
-          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    '95ksmw47': {
-      'en': 'Which furniture is best in India?',
-      'fa': 'کدام مبلمان در هند بهترین است؟',
-    },
-    'nu3cwjjm': {
-      'en':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      'fa':
-          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    'eks33xkk': {
-      'en': 'Are items in Amazon original?',
-      'fa': 'آیا کالاهای موجود در آمازون اصل هستند؟',
-    },
-    '21arpmnw': {
-      'en':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      'fa':
-          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    'aloc0wpz': {
-      'en': 'Does Amazon sell original items?',
-      'fa': 'آیا آمازون اقلام اورجینال می‌فروشد؟',
-    },
-    'sjaptzm1': {
-      'en':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      'fa':
-          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    'isn1j7jh': {
-      'en': 'Is it OK to buy from Amazon?',
-      'fa': 'آیا خرید از آمازون اشکالی ندارد؟',
-    },
-    'ncwlis4k': {
-      'en':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      'fa':
-          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    'xelooj4q': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
   // ChangePasswordPage
   {
-    'es31lnj2': {
+    '13hkjxzm': {
+      'en': 'Change Password',
+      'fa': '',
+    },
+    'vihtivjk': {
       'en': 'New password',
       'fa': 'رمز عبور جدید',
     },
-    'n1c51t31': {
+    'yp6inssm': {
       'en': 'New password',
       'fa': 'رمز عبور جدید',
     },
-    '4gt7mmvz': {
+    'ao0xte64': {
       'en': 'Confirm password',
       'fa': 'تأیید رمز عبور',
     },
-    'uzjift62': {
+    'lwkof6wj': {
       'en': 'Confirm password',
       'fa': 'تأیید رمز عبور',
     },
-    'm0ojx49m': {
+    'kmgxcfsd': {
       'en': 'Save',
       'fa': 'ذخیره',
     },
-    'o2r9wrf3': {
+    '8jck5xal': {
       'en': 'Please  enter valid new password.',
       'fa': 'لطفا رمز عبور جدید معتبری وارد کنید.',
     },
-    'bquhm6mz': {
+    '9amewow5': {
       'en': 'Please choose an option from the dropdown',
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
     },
-    '3ldbjfsd': {
+    'w5i7eiux': {
       'en': 'Please  enter valid confirm password.',
       'fa': 'لطفا رمز عبور معتبر را وارد کنید.',
     },
-    'nmffikq0': {
+    'zcnl34nd': {
       'en': 'Please choose an option from the dropdown',
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
     },
@@ -826,6 +813,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'pn42p7ja': {
       'en': 'Continue',
       'fa': 'ادامه',
+    },
+    'ouc203vm': {
+      'en': 'Forgot Pssword',
+      'fa': '',
     },
     'ns7bgfpq': {
       'en': 'Home',
@@ -931,13 +922,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'خانه',
     },
   },
-  // Splash
-  {
-    'twp4gkdv': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
   // ResetPasswordPage
   {
     '6baohfcj': {
@@ -979,6 +963,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'elie794q': {
       'en': 'Please choose an option from the dropdown',
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'ezuq28f4': {
+      'en': 'Reset password',
+      'fa': '',
     },
     'yp5q6x4q': {
       'en': 'Home',
@@ -1184,81 +1172,239 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // EditProfilePage
   {
-    '8sb7vstv': {
+    '0s0oq8lm': {
+      'en': 'Personal',
+      'fa': '',
+    },
+    'tttjt5vi': {
       'en': 'John Abram',
       'fa': 'جان آبرام',
     },
-    'np0lsmdx': {
+    '4xa9vb8h': {
       'en': 'johnabram@gmail.com',
       'fa': 'johnabram@gmail.com',
     },
-    't1x1npmz': {
+    'ajz4jud6': {
       'en': 'First name',
-      'fa': 'نام کوچک',
-    },
-    'pe76x8jk': {
-      'en': 'First name',
-      'fa': 'نام کوچک',
-    },
-    'cq38fd08': {
-      'en': 'abc',
-      'fa': 'الفبای',
-    },
-    'l8bplxxc': {
-      'en': 'Last name',
-      'fa': 'نام خانوادگی',
-    },
-    'mytq602l': {
-      'en': 'Last name',
-      'fa': 'نام خانوادگی',
-    },
-    '343jl3kw': {
-      'en': 'xyz',
-      'fa': 'ایکس وای زد',
-    },
-    '9yh4jgue': {
-      'en': '',
       'fa': '',
     },
-    'b72z9jr8': {
-      'en': 'Email address',
-      'fa': 'آدرس ایمیل',
+    'eftvagcn': {
+      'en': 'First name',
+      'fa': '',
     },
-    'a080hwzc': {
-      'en': 'abc@gmail.com',
-      'fa': 'abc@gmail.com',
+    'qhflssql': {
+      'en': 'Name',
+      'fa': '',
     },
-    'xu2qdymg': {
+    '6ko0lmu7': {
+      'en': 'Last name',
+      'fa': 'نام خانوادگی',
+    },
+    'gqjiokb0': {
+      'en': 'Last name',
+      'fa': 'نام خانوادگی',
+    },
+    '7pspadti': {
+      'en': 'Last Name',
+      'fa': 'ایکس وای زد',
+    },
+    'qesx3ssd': {
+      'en': 'Email',
+      'fa': 'نام خانوادگی',
+    },
+    'i3byp893': {
+      'en': 'Email',
+      'fa': 'نام خانوادگی',
+    },
+    '76yap4yl': {
+      'en': 'email@email.com',
+      'fa': 'ایکس وای زد',
+    },
+    'rvgsvj77': {
+      'en': 'PhoneNumber',
+      'fa': 'نام خانوادگی',
+    },
+    '19di0w5p': {
+      'en': 'PhonrNumber',
+      'fa': 'نام خانوادگی',
+    },
+    'mb8nyqzi': {
+      'en': '0612345678',
+      'fa': 'ایکس وای زد',
+    },
+    'dstarzca': {
+      'en': 'Biography',
+      'fa': 'نام خانوادگی',
+    },
+    'd7253m78': {
+      'en': 'Email',
+      'fa': 'نام خانوادگی',
+    },
+    '70gf5yhz': {
+      'en': 'Let everyone know about you.',
+      'fa': '',
+    },
+    'a3u6xako': {
       'en': 'Please enter valid first name.',
       'fa': 'لطفا نام و نام خانوادگی معتبر وارد کنید.',
     },
-    '1qcswtv6': {
+    'qv5r7ztk': {
+      'en': 'Minimum 4 letters are required.',
+      'fa': '',
+    },
+    'dl7s6888': {
+      'en': 'Too lang.',
+      'fa': '',
+    },
+    'ktttbjpc': {
+      'en': 'Only letter(A-Z) are valid.',
+      'fa': '',
+    },
+    'cdh9zhru': {
       'en': 'Please choose an option from the dropdown',
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
     },
-    '5dxsp78b': {
-      'en': 'Please enter valid last name.',
+    'evx6tw37': {
+      'en': 'LastName is required',
+      'fa': '',
+    },
+    'su2elewf': {
+      'en': 'Only letter\'s and space are allowed.',
+      'fa': '',
+    },
+    '9c7hli0h': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'dn67pzsa': {
+      'en': 'Please enter valid Email address.',
       'fa': 'لطفا نام خانوادگی معتبر وارد کنید.',
     },
-    '7ecykz20': {
+    '6tsrcuds': {
+      'en': 'Please enter valid Email address.',
+      'fa': '',
+    },
+    'qchb1jhd': {
       'en': 'Please choose an option from the dropdown',
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
     },
-    'de2de285': {
-      'en': 'Please enter valid email address.',
-      'fa': 'لطفا آدرس ایمیل معتبری وارد کنید.',
+    'dk5fo1dm': {
+      'en': 'email@email.com is required',
+      'fa': '',
     },
-    '4sen6l34': {
-      'en': 'Please enter valid email address.',
-      'fa': 'لطفا آدرس ایمیل معتبری وارد کنید.',
+    '74oi7dkd': {
+      'en': 'Use a valid phone number.  follow the suggestion 0612345678',
+      'fa': '',
     },
-    '9l1nfwp9': {
+    '76m0a5y9': {
       'en': 'Please choose an option from the dropdown',
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
     },
-    'juhlo2km': {
+    '31v134g5': {
+      'en': 'Too many characters.',
+      'fa': '',
+    },
+    '8w6ysc3w': {
+      'en': 'Invalid structure, please follow the suggestion 0612345678',
+      'fa': '',
+    },
+    'h76wjrvt': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'hwnil7yj': {
+      'en': 'Change password',
+      'fa': '',
+    },
+    '2rhbv0f2': {
       'en': 'Save',
-      'fa': 'ذخیره',
+      'fa': '',
+    },
+    'oayetdci': {
+      'en': 'Privacy Setting',
+      'fa': '',
+    },
+    'yagsy89e': {
+      'en': 'Email notification',
+      'fa': '',
+    },
+    'j4c6boy0': {
+      'en': 'App notification',
+      'fa': '',
+    },
+    '0j95yesk': {
+      'en': 'Show profile biography',
+      'fa': '',
+    },
+    'ww3yseu2': {
+      'en': 'Show profile photo',
+      'fa': '',
+    },
+    'dcfzdej6': {
+      'en': 'Allow users to message me.',
+      'fa': '',
+    },
+    '31c1xk41': {
+      'en': 'Terms&Privacy',
+      'fa': '',
+    },
+    'ctjxfbis': {
+      'en': 'Last update:',
+      'fa': 'آخرین به‌روزرسانی:',
+    },
+    'rrttthby': {
+      'en': ' 27/12/2023',
+      'fa': '۲۷/۱۲/۲۰۲۳',
+    },
+    '2a0i1twc': {
+      'en':
+          'Please read these terms of service, carefully before using our app operated by us.',
+      'fa':
+          'لطفاً قبل از استفاده از برنامه‌ای که توسط ما اداره می‌شود، این شرایط خدمات را با دقت مطالعه کنید.',
+    },
+    'vjketkqj': {
+      'en': 'Conditions of Uses',
+      'fa': 'شرایط استفاده',
+    },
+    'zg7rimqt': {
+      'en':
+          'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. \n\nMany desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).',
+      'fa':
+          'این یک واقعیت دیرینه است که خواننده هنگام نگاه کردن به طرح‌بندی یک صفحه، حواسش به محتوای خوانای آن پرت می‌شود. نکته استفاده از لورم ایپسوم این است که برخلاف استفاده از «محتوا اینجا، محتوا اینجا» توزیع حروف کم و بیش نرمالی دارد و باعث می‌شود مانند انگلیسی خوانا به نظر برسد.\n\nبسیاری از بسته‌های نشر رومیزی و ویرایشگرهای صفحات وب اکنون از لورم ایپسوم به عنوان متن مدل پیش‌فرض خود استفاده می‌کنند و جستجوی «لورم ایپسوم» بسیاری از وب‌سایت‌ها را که هنوز در مراحل ابتدایی خود هستند، آشکار می‌کند. نسخه‌های مختلفی در طول سال‌ها تکامل یافته‌اند، گاهی به طور تصادفی، گاهی به طور هدفمند (تزریق طنز و موارد مشابه).',
+    },
+    'j8q97d3v': {
+      'en': 'Types of data we collect',
+      'fa': 'انواع داده‌هایی که جمع‌آوری می‌کنیم',
+    },
+    '24o3rhph': {
+      'en':
+          'Torem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum ',
+      'fa':
+          'Torem ipsum dolor sit amet، consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim، metus nec fringilla accumsan، risus sem sollicitudin lacus، ut interdum',
+    },
+    'zny8u66d': {
+      'en': 'Use of your personal data',
+      'fa': 'استفاده از داده‌های شخصی شما',
+    },
+    '9196e67i': {
+      'en':
+          'Torem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum ',
+      'fa':
+          'Torem ipsum dolor sit amet، consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim، metus nec fringilla accumsan، risus sem sollicitudin lacus، ut interdum',
+    },
+    'agq5tly5': {
+      'en': 'Disclosure of your data',
+      'fa': 'افشای داده‌های شما',
+    },
+    '4jf3c8pv': {
+      'en':
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec ac odio tempor orci dapibus ultrices in iaculis lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec ac odio tempor orci dapibus ultrices in iaculis Ac auctor augue mauris augue neque gravida. Velit ut tortor pretium viverra suspendisse. Volutpat commodo sed egestas egestas fringilla phasellus faucibus. ',
+      'fa':
+          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec ac odio tempor orci dapibus ultrices in iaculis lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec ac odio tempor orci dapibus ultrices in iaculis Ac auctor augue mauris augue neque gravida. تعلیق پرتیوم ویورا. Volutpat commodo sed egestas egestas fringillaphallus faucibus.',
+    },
+    'ye7an5vq': {
+      'en': 'Back',
+      'fa': '',
     },
     '2615xb3m': {
       'en': 'Home',
@@ -1655,11 +1801,54 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Please enter valid cvv.',
       'fa': 'لطفا cvv معتبر وارد کنید.',
     },
-    '4wa3jltb': {
+    'u4kll9wd': {
       'en': 'Please choose an option from the dropdown',
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
     },
     '2aedvv87': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // OnboardingPage
+  {
+    'fvqou22z': {
+      'en': 'OFFER HELP, GET CLOSER',
+      'fa': '',
+    },
+    'x5ipfs17': {
+      'en':
+          'Need help moving, repairing, or learning? Your community steps in — no pressure, just help.',
+      'fa': '',
+    },
+    'dq5yb1i0': {
+      'en': 'EXCHANGE FREELY',
+      'fa': '',
+    },
+    'e8ck1z6d': {
+      'en':
+          'Swap items or services — old-school style. Get what you need while passing along what you don’t.',
+      'fa': '',
+    },
+    'mc82p32c': {
+      'en': 'ORGANISE OR JOIN EVENTS',
+      'fa': '',
+    },
+    '6hct3poo': {
+      'en':
+          'Host your own or join others — from cozy game nights to creative workshops. It’s your space to connect.',
+      'fa': '',
+    },
+    '77oebv9d': {
+      'en': 'NEVER FAR FROM IRAN',
+      'fa': '',
+    },
+    '2lvwirso': {
+      'en':
+          'Need something from someone trusted in Iran? Income for them, ease for you.',
+      'fa': '',
+    },
+    'b8gufi8a': {
       'en': 'Home',
       'fa': 'خانه',
     },
@@ -1675,11 +1864,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           'Sign in to find trusted people, exchanges, and opportunities near you.',
       'fa': '',
     },
-    '8p9u8xta': {
+    'sdree3ti': {
       'en': 'Email',
       'fa': '',
     },
-    '719u7ojl': {
+    'xpgw6kd9': {
       'en': 'Password',
       'fa': '',
     },
@@ -1695,14 +1884,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'OR',
       'fa': '',
     },
-    '4pvcq608': {
-      'en': 'Continue with Google',
-      'fa': '',
-    },
-    'neytz17q': {
-      'en': 'Continue with Facebook',
-      'fa': '',
-    },
     'qqhkk63r': {
       'en': 'No account yet? ',
       'fa': '',
@@ -1713,7 +1894,54 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '0rujztpm': {
       'en': 'Home',
-      'fa': 'خانه',
+      'fa': '',
+    },
+  },
+  // QuestionairPage
+  {
+    'nbdummsk': {
+      'en': 'Where are you located?',
+      'fa': '',
+    },
+    'y5itzz6t': {
+      'en':
+          'So we can better match you with nearby events, services, and users.',
+      'fa': '',
+    },
+    '1295uiwr': {
+      'en': 'Select Location',
+      'fa': '',
+    },
+    'tpkopas3': {
+      'en': 'How do you want to use Yekja?',
+      'fa': '',
+    },
+    'jetsdu3f': {
+      'en':
+          'Select all the ways you\'d like to use the app — find help, exchange, trade, or connect with people.',
+      'fa': '',
+    },
+    'g5kggsww': {
+      'en': 'Ready to swap?',
+      'fa': '',
+    },
+    'eng9z0mt': {
+      'en':
+          'Got something others could use? Swap what you have for what you need — you agree together how it works.',
+      'fa': '',
+    },
+    'nro0no3y': {
+      'en': 'What would you host or attend?',
+      'fa': '',
+    },
+    '8p8vwszd': {
+      'en':
+          'Host your own or join others — from cozy game nights to creative workshops. It’s your space to connect.',
+      'fa': '',
+    },
+    'z05zz2bf': {
+      'en': 'Home',
+      'fa': '',
     },
   },
   // SignUpPage
@@ -1726,20 +1954,78 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Let\'s get started by filling out the form below.',
       'fa': '',
     },
-    'nvfo5j5k': {
-      'en': 'Your Name',
+    '7256pz7h': {
+      'en': 'First Name',
       'fa': '',
     },
-    '89dit003': {
+    'l59oh5jc': {
       'en': 'Email',
       'fa': '',
     },
-    'llboq7q5': {
+    '17880f1u': {
       'en': 'Password',
       'fa': '',
     },
-    '1j6t5sr8': {
+    '1256s0cp': {
       'en': 'Confirm Password',
+      'fa': '',
+    },
+    'rl6es88l': {
+      'en': 'Password dosen\'t match.',
+      'fa': '',
+    },
+    'nwrf2xzf': {
+      'en': 'First Name is required',
+      'fa': '',
+    },
+    '9yvyvlpk': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': '',
+    },
+    'yomt8b8f': {
+      'en': 'Email is required',
+      'fa': '',
+    },
+    '5gfprwht': {
+      'en': 'Please enter valid Email address.',
+      'fa': '',
+    },
+    'szbz780w': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': '',
+    },
+    '0ndzc1mz': {
+      'en': 'Password is required',
+      'fa': '',
+    },
+    'ckanrmbh': {
+      'en': 'Minimum 6 characters are required.',
+      'fa': '',
+    },
+    'h40f5p5q': {
+      'en':
+          '- At least one uppercase letter\n\n- At least one digit\n\n- At least 8 characters ',
+      'fa': '',
+    },
+    'uqmqpy8n': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': '',
+    },
+    '8me73vdb': {
+      'en': 'Confirm Password is required',
+      'fa': '',
+    },
+    '1nu2760r': {
+      'en': 'Minimum 6 characters are required.',
+      'fa': '',
+    },
+    '1ges8uvu': {
+      'en':
+          '- At least one uppercase letter\n\n- At least one digit\n\n- At least 8 characters ',
+      'fa': '',
+    },
+    'mebfhwgq': {
+      'en': 'Please choose an option from the dropdown',
       'fa': '',
     },
     'q3xjm17v': {
@@ -1747,11 +2033,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': '',
     },
     'er6ptcif': {
-      'en': 'Continue with Google',
-      'fa': '',
-    },
-    'cm35ie6x': {
-      'en': 'Continue with Facebook',
+      'en': 'Continue as a Gust',
       'fa': '',
     },
     'eo7evm6p': {
@@ -1771,6 +2053,276 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': '',
     },
     '2g978126': {
+      'en': 'Home',
+      'fa': '',
+    },
+  },
+  // contactUS
+  {
+    'z0sazu0u': {
+      'en': 'Email',
+      'fa': 'نام خانوادگی',
+    },
+    '5q3k1rt7': {
+      'en': 'Email',
+      'fa': 'نام خانوادگی',
+    },
+    'xpl7q84t': {
+      'en': 'email@email.com',
+      'fa': 'ایکس وای زد',
+    },
+    '3gudmp3j': {
+      'en': 'Selec a subject ...',
+      'fa': '',
+    },
+    '5uhc3bbc': {
+      'en': 'Search...',
+      'fa': '',
+    },
+    'mo50cxbo': {
+      'en': 'Question about the Plattpform',
+      'fa': '',
+    },
+    'c6b7yfsx': {
+      'en': 'Issue with the plattform',
+      'fa': '',
+    },
+    'kut4wzrx': {
+      'en': 'Suggestion about the platform',
+      'fa': '',
+    },
+    'bi8szr71': {
+      'en': 'Advertisment',
+      'fa': '',
+    },
+    '256h8ngn': {
+      'en': 'Note',
+      'fa': 'نام خانوادگی',
+    },
+    '6asv4851': {
+      'en': 'Email',
+      'fa': 'نام خانوادگی',
+    },
+    '2rd89igt': {
+      'en': 'Let everyone know about you.',
+      'fa': '',
+    },
+    'erqkv95q': {
+      'en': 'Button',
+      'fa': '',
+    },
+    '1fxews6h': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // EventPlannerPage
+  {
+    'fueaz9te': {
+      'en': 'EVENT Planner',
+      'fa': '',
+    },
+    'pmeyyea3': {
+      'en': 'Last name',
+      'fa': 'نام خانوادگی',
+    },
+    '77dmic2j': {
+      'en': 'Last name',
+      'fa': 'نام خانوادگی',
+    },
+    'd5vclro2': {
+      'en': 'abc',
+      'fa': 'ایکس وای زد',
+    },
+    'kh5e2big': {
+      'en': 'Last name',
+      'fa': 'نام خانوادگی',
+    },
+    'b4whf5u0': {
+      'en': 'Last name',
+      'fa': 'نام خانوادگی',
+    },
+    'z3txx20g': {
+      'en': 'abc',
+      'fa': 'ایکس وای زد',
+    },
+    'nl8akwdv': {
+      'en': 'Upload event images',
+      'fa': '',
+    },
+    'zkxvnfgr': {
+      'en': 'City',
+      'fa': 'نام خانوادگی',
+    },
+    '2xqo7hs9': {
+      'en': 'Last name',
+      'fa': 'نام خانوادگی',
+    },
+    'ue5fizg0': {
+      'en': 'abc',
+      'fa': 'ایکس وای زد',
+    },
+    'o73adl38': {
+      'en': 'Postcode',
+      'fa': 'نام خانوادگی',
+    },
+    'jwwbwoz0': {
+      'en': 'Last name',
+      'fa': 'نام خانوادگی',
+    },
+    'c928rmmi': {
+      'en': 'abc',
+      'fa': 'ایکس وای زد',
+    },
+    'j9j5yo1z': {
+      'en': 'Street',
+      'fa': 'نام خانوادگی',
+    },
+    'qyhmr20m': {
+      'en': 'Last name',
+      'fa': 'نام خانوادگی',
+    },
+    'tdt6wqds': {
+      'en': 'abc',
+      'fa': 'ایکس وای زد',
+    },
+    'lg2wgooq': {
+      'en': 'abc is required',
+      'fa': '',
+    },
+    'cy2op59q': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'evnr9xle': {
+      'en': 'abc is required',
+      'fa': '',
+    },
+    'dzw2xk45': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    '9jsas965': {
+      'en': 'abc is required',
+      'fa': '',
+    },
+    '9l1nfwp9': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'z0lkglcm': {
+      'en': 'abc is required',
+      'fa': '',
+    },
+    'm0y8j0ob': {
+      'en': 'Please use a valide Dutch postcode.',
+      'fa': '',
+    },
+    '4wa3jltb': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'cdlju6nh': {
+      'en': 'abc is required',
+      'fa': '',
+    },
+    'wj5jhy3i': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': '',
+    },
+    'sf4e1hbe': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // FAQ
+  {
+    'dhbx92pr': {
+      'en': 'FAQ',
+      'fa': '',
+    },
+    '24c4afj9': {
+      'en': 'Whiat is Trust score?',
+      'fa': 'کدام شرکت برای مبلمان بهتر است؟',
+    },
+    'l1qm6pea': {
+      'en':
+          'Trust Score System\nThe Trust Score would be a dynamic value (e.g., 0–100) that indicates how trustworthy a user is, based on various factors.\n\n🔸 Factors That Could Influence Trust Score:\nVerified Identity\nGovernment ID, business license, phone number, etc.\n\n🔸 Customer Reviews & Ratings\nHigh ratings and positive feedback increase the score.\n\n🔸 Completed Transactions\nNumber and consistency of successful sales or services.\n\n🔸 Response Time & Engagement\nHow fast and often a user responds to messages or inquiries.\n\n🔸 Dispute History\nFewer disputes or issues with orders mean a higher score.\n\n🔸 Account Age & Activity\nOlder, consistently active accounts tend to be more trusted.\n\n🔸 Admin Verification\nFor certain professionals (e.g. a dentist), manual verification by Our team.(Contact our team)',
+      'fa':
+          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    },
+    'dtpcil6r': {
+      'en': 'How to become a Trust?',
+      'fa': 'کدام خرید آنلاین بهتر است؟',
+    },
+    'odjaij7e': {
+      'en':
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'fa':
+          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    },
+    'o9brjb3x': {
+      'en': 'What comes under furniture?',
+      'fa': 'زیر مبلمان چه چیزهایی قرار می‌گیرد؟',
+    },
+    'bkl59zgx': {
+      'en':
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'fa':
+          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    },
+    '95ksmw47': {
+      'en': 'Which furniture is best in India?',
+      'fa': 'کدام مبلمان در هند بهترین است؟',
+    },
+    'nu3cwjjm': {
+      'en':
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'fa':
+          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    },
+    'eks33xkk': {
+      'en': 'Are items in Amazon original?',
+      'fa': 'آیا کالاهای موجود در آمازون اصل هستند؟',
+    },
+    '21arpmnw': {
+      'en':
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'fa':
+          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    },
+    'aloc0wpz': {
+      'en': 'Does Amazon sell original items?',
+      'fa': 'آیا آمازون اقلام اورجینال می‌فروشد؟',
+    },
+    'sjaptzm1': {
+      'en':
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'fa':
+          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    },
+    'isn1j7jh': {
+      'en': 'Is it OK to buy from Amazon?',
+      'fa': 'آیا خرید از آمازون اشکالی ندارد؟',
+    },
+    'ncwlis4k': {
+      'en':
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'fa':
+          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    },
+    'gvdgmual': {
+      'en': 'Contact Yekja',
+      'fa': '',
+    },
+    'xelooj4q': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // Splash
+  {
+    'twp4gkdv': {
       'en': 'Home',
       'fa': 'خانه',
     },
@@ -2263,6 +2815,33 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '2w8dd6cq': {
       'en': 'Ok',
       'fa': 'باشه',
+    },
+  },
+  // Profile_setting
+  {
+    'uc7ythtx': {
+      'en': 'Edit Profile',
+      'fa': '',
+    },
+    'ux5iqynl': {
+      'en': 'Terms & Conditions',
+      'fa': '',
+    },
+    'ks3vswcp': {
+      'en': 'Share Profile',
+      'fa': '',
+    },
+    'ha2x8rnw': {
+      'en': 'Help Center!',
+      'fa': '',
+    },
+    '81n9awh1': {
+      'en': 'Log Out',
+      'fa': '',
+    },
+    'pqjay962': {
+      'en': 'Cancel',
+      'fa': '',
     },
   },
   // Miscellaneous

@@ -199,7 +199,7 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          context.pushNamed(HelpPageWidget.routeName);
+                          context.pushNamed(FaqWidget.routeName);
                         },
                         child: Container(
                           width: 388.0,

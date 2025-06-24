@@ -1,4 +1,3 @@
-import '/all_comoponet/app_bar/app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'reset_password_page_widget.dart' show ResetPasswordPageWidget;
 import 'package:flutter/material.dart';
@@ -7,8 +6,6 @@ class ResetPasswordPageModel extends FlutterFlowModel<ResetPasswordPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
-  // Model for AppBar component.
-  late AppBarModel appBarModel;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
@@ -39,14 +36,12 @@ class ResetPasswordPageModel extends FlutterFlowModel<ResetPasswordPageWidget> {
 
   @override
   void initState(BuildContext context) {
-    appBarModel = createModel(context, () => AppBarModel());
     textController1Validator = _textController1Validator;
     textController2Validator = _textController2Validator;
   }
 
   @override
   void dispose() {
-    appBarModel.dispose();
     textFieldFocusNode1?.dispose();
     textController1?.dispose();
 

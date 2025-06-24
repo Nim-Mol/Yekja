@@ -34,12 +34,12 @@ class _SplashWidgetState extends State<SplashWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await Future.delayed(const Duration(milliseconds: 3000));
+      await Future.delayed(const Duration(milliseconds: 1000));
       if (FFAppState().isOnboarding == true) {
         if (FFAppState().isLogin == true) {
-          context.goNamed(HomePageWidget.routeName);
+          context.pushNamed(HomePageWidget.routeName);
         } else {
-          context.goNamed(EventsWidget.routeName);
+          context.pushNamed(SignInPageWidget.routeName);
         }
       } else {
         context.pushNamed(OnboardingPageWidget.routeName);

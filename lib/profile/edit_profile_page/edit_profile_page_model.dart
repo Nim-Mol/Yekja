@@ -1,10 +1,24 @@
-import '/components_yekja/botton_standard/botton_standard_widget.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'edit_profile_page_widget.dart' show EditProfilePageWidget;
 import 'package:flutter/material.dart';
 
 class EditProfilePageModel extends FlutterFlowModel<EditProfilePageWidget> {
+  ///  Local state fields for this page.
+
+  FFUploadedFile? newAvatar;
+
+  bool allowProfilePhoto = true;
+
+  bool allowSocialMedia = true;
+
+  bool allowFavList = true;
+
+  bool allowCall = true;
+
+  bool allowMessage = true;
+
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -15,51 +29,65 @@ class EditProfilePageModel extends FlutterFlowModel<EditProfilePageWidget> {
   int get tabBarPreviousIndex =>
       tabBarController != null ? tabBarController!.previousIndex : 0;
 
-  bool isDataUploading_uploadData4up = false;
-  FFUploadedFile uploadedLocalFile_uploadData4up =
+  // Stores action output result for [Backend Call - Update Row(s)] action in Remove widget.
+  List<UserExtRow>? defultAvatar;
+  bool isDataUploading_newAvatarImg = false;
+  FFUploadedFile uploadedLocalFile_newAvatarImg =
       FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl_newAvatarImg = '';
 
-  bool isDataUploading_uploadDataX8t = false;
-  FFUploadedFile uploadedLocalFile_uploadDataX8t =
+  // Stores action output result for [Backend Call - Update Row(s)] action in Edit widget.
+  List<UserExtRow>? updatedAvatar;
+  bool isDataUploading_backgroundImg = false;
+  FFUploadedFile uploadedLocalFile_backgroundImg =
       FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl_backgroundImg = '';
 
-  // State field(s) for FirsName widget.
-  FocusNode? firsNameFocusNode;
-  TextEditingController? firsNameTextController;
-  String? Function(BuildContext, String?)? firsNameTextControllerValidator;
-  String? _firsNameTextControllerValidator(BuildContext context, String? val) {
+  // Stores action output result for [Backend Call - Update Row(s)] action in IconButton widget.
+  List<UserExtRow>? newwalpaper;
+  // Stores action output result for [Backend Call - Update Row(s)] action in RemoveWallpaper widget.
+  List<UserExtRow>? removedWallpaper;
+  // State field(s) for UserName widget.
+  FocusNode? userNameFocusNode;
+  TextEditingController? userNameTextController;
+  String? Function(BuildContext, String?)? userNameTextControllerValidator;
+  String? _userNameTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'a3u6xako' /* Please enter valid first name. */,
+        'kzqn68ob' /* This field is required. */,
       );
     }
 
-    if (val.length < 2) {
+    if (val.length < 3) {
       return FFLocalizations.of(context).getText(
-        'qv5r7ztk' /* Minimum 4 letters are required... */,
+        'x0qbl9nx' /* Minimum 3 letters are required... */,
       );
     }
-    if (val.length > 20) {
+    if (val.length > 15) {
       return FFLocalizations.of(context).getText(
-        'dl7s6888' /* Too lang. */,
+        '5w04aalv' /* user name is too lang. */,
       );
     }
     if (!RegExp(kTextValidatorUsernameRegex).hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        'ktttbjpc' /* Only letter(A-Z) are valid. */,
+        '3jdly5te' /* Only letter(A-Z) are valid. */,
       );
     }
     return null;
   }
 
+  // State field(s) for FirstName widget.
+  FocusNode? firstNameFocusNode;
+  TextEditingController? firstNameTextController;
+  String? Function(BuildContext, String?)? firstNameTextControllerValidator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
-  String? _textController2Validator(BuildContext context, String? val) {
+  TextEditingController? textController3;
+  String? Function(BuildContext, String?)? textController3Validator;
+  String? _textController3Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'evx6tw37' /* LastName is required */,
+        'ysa8o678' /* This field is required */,
       );
     }
 
@@ -71,7 +99,7 @@ class EditProfilePageModel extends FlutterFlowModel<EditProfilePageWidget> {
     }
     if (!RegExp('^[A-Za-z ]+\$').hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        'su2elewf' /* Only letter's and space are al... */,
+        '9mmnqcod' /* Please only user letter. */,
       );
     }
     return null;
@@ -84,14 +112,20 @@ class EditProfilePageModel extends FlutterFlowModel<EditProfilePageWidget> {
   String? _emailTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'dn67pzsa' /* Please enter valid Email addre... */,
+        'xm54x3n1' /* Please enter valid Email addre... */,
+      );
+    }
+
+    if (val.length < 7) {
+      return FFLocalizations.of(context).getText(
+        'cjui5wmm' /* This field is required */,
       );
     }
 
     if (!RegExp('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}\$')
         .hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        '6tsrcuds' /* Please enter valid Email addre... */,
+        'bzz1mpym' /* Please enter valid Email addre... */,
       );
     }
     return null;
@@ -105,18 +139,22 @@ class EditProfilePageModel extends FlutterFlowModel<EditProfilePageWidget> {
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'dk5fo1dm' /* email@email.com is required */,
+        'n8h9b885' /* This field is required. */,
       );
     }
 
-    if (!RegExp('^0\\d{9}\$').hasMatch(val)) {
+    if (!RegExp('^06\\d{8}\$').hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        '74oi7dkd' /* Use a valid phone number.  fol... */,
+        '45tsdecd' /* Use a valid phone number. e.g ... */,
       );
     }
     return null;
   }
 
+  // State field(s) for City widget.
+  FocusNode? cityFocusNode;
+  TextEditingController? cityTextController;
+  String? Function(BuildContext, String?)? cityTextControllerValidator;
   // State field(s) for Biography widget.
   FocusNode? biographyFocusNode;
   TextEditingController? biographyTextController;
@@ -128,44 +166,48 @@ class EditProfilePageModel extends FlutterFlowModel<EditProfilePageWidget> {
 
     if (val.length > 250) {
       return FFLocalizations.of(context).getText(
-        '31v134g5' /* Too many characters. */,
+        '4z0aqe0c' /* Too many characters. */,
       );
     }
 
     return null;
   }
 
-  // Model for BottonStandard component.
-  late BottonStandardModel bottonStandardModel;
-  // State field(s) for Switch widget.
-  bool? switchValue1;
-  // State field(s) for Switch widget.
-  bool? switchValue2;
-  // State field(s) for Switch widget.
-  bool? switchValue3;
-  // State field(s) for Switch widget.
-  bool? switchValue4;
-  // State field(s) for Switch widget.
-  bool? switchValue5;
+  // Stores action output result for [Validate Form] action in ChangePassword widget.
+  bool? valid;
+  // State field(s) for AllowProfilePhoto widget.
+  bool? allowProfilePhotoValue;
+  // State field(s) for AllowSocialMedia widget.
+  bool? allowSocialMediaValue;
+  // State field(s) for AllowFavList widget.
+  bool? allowFavListValue;
+  // State field(s) for AllowCall widget.
+  bool? allowCallValue;
+  // State field(s) for AllowMessage widget.
+  bool? allowMessageValue;
+  // Stores action output result for [Backend Call - Update Row(s)] action in Save widget.
+  List<ConsentsRow>? savedInfo;
 
   @override
   void initState(BuildContext context) {
-    firsNameTextControllerValidator = _firsNameTextControllerValidator;
-    textController2Validator = _textController2Validator;
+    userNameTextControllerValidator = _userNameTextControllerValidator;
+    textController3Validator = _textController3Validator;
     emailTextControllerValidator = _emailTextControllerValidator;
     phoneNumberTextControllerValidator = _phoneNumberTextControllerValidator;
     biographyTextControllerValidator = _biographyTextControllerValidator;
-    bottonStandardModel = createModel(context, () => BottonStandardModel());
   }
 
   @override
   void dispose() {
     tabBarController?.dispose();
-    firsNameFocusNode?.dispose();
-    firsNameTextController?.dispose();
+    userNameFocusNode?.dispose();
+    userNameTextController?.dispose();
+
+    firstNameFocusNode?.dispose();
+    firstNameTextController?.dispose();
 
     textFieldFocusNode?.dispose();
-    textController2?.dispose();
+    textController3?.dispose();
 
     emailFocusNode?.dispose();
     emailTextController?.dispose();
@@ -173,9 +215,10 @@ class EditProfilePageModel extends FlutterFlowModel<EditProfilePageWidget> {
     phoneNumberFocusNode?.dispose();
     phoneNumberTextController?.dispose();
 
+    cityFocusNode?.dispose();
+    cityTextController?.dispose();
+
     biographyFocusNode?.dispose();
     biographyTextController?.dispose();
-
-    bottonStandardModel.dispose();
   }
 }

@@ -321,7 +321,7 @@ final List<Map<String, String>> _defaultLanguagesList = [
   {"isoCode": "ha", "name": "هَوُسَ"},
   {"isoCode": "he", "name": "עברית"},
   {"isoCode": "hz", "name": "Otjiherero"},
-  {"isoCode": "hi", "name": "हिन्दी, हिंदी"},
+  {"isoCode": "hi", "name": "हिन्दी"},
   {"isoCode": "ho", "name": "Hiri Motu"},
   {"isoCode": "hu", "name": "Magyar"},
   {"isoCode": "is", "name": "Íslenska"},

@@ -1,10 +1,15 @@
-import '/components_yekja/botton_standard/botton_standard_widget.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/shared_components/botton_standard/botton_standard_widget.dart';
 import '/index.dart';
 import 'sign_in_page_widget.dart' show SignInPageWidget;
 import 'package:flutter/material.dart';
 
 class SignInPageModel extends FlutterFlowModel<SignInPageWidget> {
+  ///  Local state fields for this page.
+
+  bool vrified = true;
+
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -19,6 +24,10 @@ class SignInPageModel extends FlutterFlowModel<SignInPageWidget> {
   String? Function(BuildContext, String?)? passWordTextControllerValidator;
   // Model for BottonStandard component.
   late BottonStandardModel bottonStandardModel;
+  // Stores action output result for [Backend Call - Insert Row] action in BottonStandard widget.
+  MonitoringLogsRow? singedIn;
+  // Stores action output result for [Backend Call - Insert Row] action in RichText widget.
+  MonitoringLogsRow? gustUser;
 
   @override
   void initState(BuildContext context) {

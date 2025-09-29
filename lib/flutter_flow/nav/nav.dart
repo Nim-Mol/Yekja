@@ -1,13 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 
 import '/backend/schema/structs/index.dart';
 
-
 import '/auth/base_auth_user_provider.dart';
 
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 import '/index.dart';
@@ -78,56 +79,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? OnboardingPageWidget() : SplashWidget(),
+          appStateNotifier.loggedIn ? HomePageWidget() : SplashWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => appStateNotifier.loggedIn
-              ? OnboardingPageWidget()
-              : SplashWidget(),
-        ),
-        FFRoute(
-          name: FilterPageWidget.routeName,
-          path: FilterPageWidget.routePath,
-          builder: (context, params) => FilterPageWidget(),
-        ),
-        FFRoute(
-          name: Checkout1PageWidget.routeName,
-          path: Checkout1PageWidget.routePath,
-          builder: (context, params) => Checkout1PageWidget(),
-        ),
-        FFRoute(
-          name: AddnewaddressPageWidget.routeName,
-          path: AddnewaddressPageWidget.routePath,
-          builder: (context, params) => AddnewaddressPageWidget(),
-        ),
-        FFRoute(
-          name: VerifyCodePageWidget.routeName,
-          path: VerifyCodePageWidget.routePath,
-          builder: (context, params) => VerifyCodePageWidget(
-            userEmail: params.getParam(
-              'userEmail',
-              ParamType.String,
-            ),
-            userName: params.getParam(
-              'userName',
-              ParamType.String,
-            ),
-            userPassword: params.getParam(
-              'userPassword',
-              ParamType.String,
-            ),
-            confirmPassword: params.getParam(
-              'confirmPassword',
-              ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: FeedbackPageWidget.routeName,
-          path: FeedbackPageWidget.routePath,
-          builder: (context, params) => FeedbackPageWidget(),
+          builder: (context, _) =>
+              appStateNotifier.loggedIn ? HomePageWidget() : SplashWidget(),
         ),
         FFRoute(
           name: PrivacyPolicyPageWidget.routeName,
@@ -135,74 +93,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => PrivacyPolicyPageWidget(),
         ),
         FFRoute(
-          name: SwipableMAWidget.routeName,
-          path: SwipableMAWidget.routePath,
-          builder: (context, params) => SwipableMAWidget(),
+          name: FaqWidget.routeName,
+          path: FaqWidget.routePath,
+          builder: (context, params) => FaqWidget(),
         ),
         FFRoute(
-          name: HomePageWidget.routeName,
-          path: HomePageWidget.routePath,
-          builder: (context, params) => HomePageWidget(),
-        ),
-        FFRoute(
-          name: WriteReviewPageWidget.routeName,
-          path: WriteReviewPageWidget.routePath,
-          builder: (context, params) => WriteReviewPageWidget(),
-        ),
-        FFRoute(
-          name: ProfilePageWidget.routeName,
-          path: ProfilePageWidget.routePath,
-          builder: (context, params) => ProfilePageWidget(
-            ownerID: params.getParam(
-              'ownerID',
-              ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: ChangePasswordPageWidget.routeName,
-          path: ChangePasswordPageWidget.routePath,
-          builder: (context, params) => ChangePasswordPageWidget(),
-        ),
-        FFRoute(
-          name: ForgotPasswordPageWidget.routeName,
-          path: ForgotPasswordPageWidget.routePath,
-          builder: (context, params) => ForgotPasswordPageWidget(),
-        ),
-        FFRoute(
-          name: OrderDetailPageWidget.routeName,
-          path: OrderDetailPageWidget.routePath,
-          builder: (context, params) => OrderDetailPageWidget(),
-        ),
-        FFRoute(
-          name: ResetPasswordPageWidget.routeName,
-          path: ResetPasswordPageWidget.routePath,
-          builder: (context, params) => ResetPasswordPageWidget(),
-        ),
-        FFRoute(
-          name: ChatsearchWidget.routeName,
-          path: ChatsearchWidget.routePath,
-          builder: (context, params) => ChatsearchWidget(),
-        ),
-        FFRoute(
-          name: CallPageWidget.routeName,
-          path: CallPageWidget.routePath,
-          builder: (context, params) => CallPageWidget(),
-        ),
-        FFRoute(
-          name: TermsConditionsPageWidget.routeName,
-          path: TermsConditionsPageWidget.routePath,
-          builder: (context, params) => TermsConditionsPageWidget(),
-        ),
-        FFRoute(
-          name: ReviewsPageWidget.routeName,
-          path: ReviewsPageWidget.routePath,
-          builder: (context, params) => ReviewsPageWidget(),
-        ),
-        FFRoute(
-          name: EditProfilePageWidget.routeName,
-          path: EditProfilePageWidget.routePath,
-          builder: (context, params) => EditProfilePageWidget(),
+          name: DashboardWidget.routeName,
+          path: DashboardWidget.routePath,
+          builder: (context, params) => DashboardWidget(),
         ),
         FFRoute(
           name: EventsWidget.routeName,
@@ -210,24 +108,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => EventsWidget(),
         ),
         FFRoute(
-          name: AboutPageWidget.routeName,
-          path: AboutPageWidget.routePath,
-          builder: (context, params) => AboutPageWidget(),
-        ),
-        FFRoute(
-          name: ChatdetailWidget.routeName,
-          path: ChatdetailWidget.routePath,
-          builder: (context, params) => ChatdetailWidget(),
-        ),
-        FFRoute(
-          name: SettingPageWidget.routeName,
-          path: SettingPageWidget.routePath,
-          builder: (context, params) => SettingPageWidget(),
-        ),
-        FFRoute(
-          name: AddnewcardPageWidget.routeName,
-          path: AddnewcardPageWidget.routePath,
-          builder: (context, params) => AddnewcardPageWidget(),
+          name: ReportedPostWidget.routeName,
+          path: ReportedPostWidget.routePath,
+          builder: (context, params) => ReportedPostWidget(),
         ),
         FFRoute(
           name: OnboardingPageWidget.routeName,
@@ -235,14 +118,120 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => OnboardingPageWidget(),
         ),
         FFRoute(
-          name: SignInPageWidget.routeName,
-          path: SignInPageWidget.routePath,
-          builder: (context, params) => SignInPageWidget(),
+          name: ImageGalleryPageWidget.routeName,
+          path: ImageGalleryPageWidget.routePath,
+          builder: (context, params) => ImageGalleryPageWidget(
+            marketId: params.getParam(
+              'marketId',
+              ParamType.String,
+            ),
+            previewImages: params.getParam<String>(
+              'previewImages',
+              ParamType.String,
+              isList: true,
+            ),
+          ),
         ),
         FFRoute(
-          name: QuestionairPageWidget.routeName,
-          path: QuestionairPageWidget.routePath,
-          builder: (context, params) => QuestionairPageWidget(),
+          name: EventItmePageWidget.routeName,
+          path: EventItmePageWidget.routePath,
+          builder: (context, params) => EventItmePageWidget(),
+        ),
+        FFRoute(
+          name: IranNLItemPageWidget.routeName,
+          path: IranNLItemPageWidget.routePath,
+          builder: (context, params) => IranNLItemPageWidget(),
+        ),
+        FFRoute(
+          name: CreateItemSubCatWidget.routeName,
+          path: CreateItemSubCatWidget.routePath,
+          builder: (context, params) => CreateItemSubCatWidget(),
+        ),
+        FFRoute(
+          name: CreateWishlistWidget.routeName,
+          path: CreateWishlistWidget.routePath,
+          builder: (context, params) => CreateWishlistWidget(),
+        ),
+        FFRoute(
+          name: SignInConfirmWidget.routeName,
+          path: SignInConfirmWidget.routePath,
+          builder: (context, params) => SignInConfirmWidget(),
+        ),
+        FFRoute(
+          name: ForgotPasswordPageWidget.routeName,
+          path: ForgotPasswordPageWidget.routePath,
+          builder: (context, params) => ForgotPasswordPageWidget(),
+        ),
+        FFRoute(
+          name: PreviewPostWidget.routeName,
+          path: PreviewPostWidget.routePath,
+          builder: (context, params) => PreviewPostWidget(),
+        ),
+        FFRoute(
+          name: SplashWidget.routeName,
+          path: SplashWidget.routePath,
+          builder: (context, params) => SplashWidget(),
+        ),
+        FFRoute(
+          name: CreateItemCatWidget.routeName,
+          path: CreateItemCatWidget.routePath,
+          builder: (context, params) => CreateItemCatWidget(),
+        ),
+        FFRoute(
+          name: CreateItemImagesWidget.routeName,
+          path: CreateItemImagesWidget.routePath,
+          builder: (context, params) => CreateItemImagesWidget(),
+        ),
+        FFRoute(
+          name: ChangePasswordPageWidget.routeName,
+          path: ChangePasswordPageWidget.routePath,
+          builder: (context, params) => ChangePasswordPageWidget(),
+        ),
+        FFRoute(
+          name: EditPostWidget.routeName,
+          path: EditPostWidget.routePath,
+          builder: (context, params) => EditPostWidget(
+            postId: params.getParam(
+              'postId',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: OverviewMarketWidget.routeName,
+          path: OverviewMarketWidget.routePath,
+          builder: (context, params) => OverviewMarketWidget(),
+        ),
+        FFRoute(
+          name: OverviewCareWidget.routeName,
+          path: OverviewCareWidget.routePath,
+          builder: (context, params) => OverviewCareWidget(),
+        ),
+        FFRoute(
+          name: ResetPasswordPageWidget.routeName,
+          path: ResetPasswordPageWidget.routePath,
+          builder: (context, params) => ResetPasswordPageWidget(),
+        ),
+        FFRoute(
+          name: TermsConditionsPageWidget.routeName,
+          path: TermsConditionsPageWidget.routePath,
+          builder: (context, params) => TermsConditionsPageWidget(),
+        ),
+        FFRoute(
+          name: CreateItemDetailWidget.routeName,
+          path: CreateItemDetailWidget.routePath,
+          builder: (context, params) => CreateItemDetailWidget(),
+        ),
+        FFRoute(
+          name: ProfileExtendedWidget.routeName,
+          path: ProfileExtendedWidget.routePath,
+          requireAuth: true,
+          builder: (context, params) => ProfileExtendedWidget(
+            profileId: params.getParam(
+              'profileId',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: SignUpPageWidget.routeName,
@@ -250,24 +239,132 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => SignUpPageWidget(),
         ),
         FFRoute(
-          name: ContactUSWidget.routeName,
-          path: ContactUSWidget.routePath,
-          builder: (context, params) => ContactUSWidget(),
+          name: ReportedUserWidget.routeName,
+          path: ReportedUserWidget.routePath,
+          builder: (context, params) => ReportedUserWidget(),
         ),
         FFRoute(
-          name: EventPlannerPageWidget.routeName,
-          path: EventPlannerPageWidget.routePath,
-          builder: (context, params) => EventPlannerPageWidget(),
+          name: SignInPageWidget.routeName,
+          path: SignInPageWidget.routePath,
+          builder: (context, params) => SignInPageWidget(),
         ),
         FFRoute(
-          name: FaqWidget.routeName,
-          path: FaqWidget.routePath,
-          builder: (context, params) => FaqWidget(),
+          name: ProductDetailWidget.routeName,
+          path: ProductDetailWidget.routePath,
+          builder: (context, params) => ProductDetailWidget(
+            postID: params.getParam(
+              'postID',
+              ParamType.String,
+            ),
+            mainCatID: params.getParam(
+              'mainCatID',
+              ParamType.int,
+            ),
+          ),
         ),
         FFRoute(
-          name: SplashWidget.routeName,
-          path: SplashWidget.routePath,
-          builder: (context, params) => SplashWidget(),
+          name: ScoringSystemWidget.routeName,
+          path: ScoringSystemWidget.routePath,
+          builder: (context, params) => ScoringSystemWidget(),
+        ),
+        FFRoute(
+          name: ContactYEKJAWidget.routeName,
+          path: ContactYEKJAWidget.routePath,
+          builder: (context, params) => ContactYEKJAWidget(),
+        ),
+        FFRoute(
+          name: ChatdetailWidget.routeName,
+          path: ChatdetailWidget.routePath,
+          requireAuth: true,
+          builder: (context, params) => ChatdetailWidget(
+            chatId: params.getParam(
+              'chatId',
+              ParamType.int,
+            ),
+            ownerID: params.getParam(
+              'ownerID',
+              ParamType.String,
+            ),
+            postID: params.getParam(
+              'postID',
+              ParamType.String,
+            ),
+            ownerUserName: params.getParam(
+              'ownerUserName',
+              ParamType.String,
+            ),
+            ownerAvatar: params.getParam(
+              'ownerAvatar',
+              ParamType.String,
+            ),
+            senderID: params.getParam(
+              'senderID',
+              ParamType.String,
+            ),
+            senderUserName: params.getParam(
+              'senderUserName',
+              ParamType.String,
+            ),
+            senderAvatar: params.getParam(
+              'senderAvatar',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: CreateItemMainCatWidget.routeName,
+          path: CreateItemMainCatWidget.routePath,
+          builder: (context, params) => CreateItemMainCatWidget(),
+        ),
+        FFRoute(
+          name: SwipableWidget.routeName,
+          path: SwipableWidget.routePath,
+          builder: (context, params) => SwipableWidget(),
+        ),
+        FFRoute(
+          name: HomePageWidget.routeName,
+          path: HomePageWidget.routePath,
+          builder: (context, params) => HomePageWidget(),
+        ),
+        FFRoute(
+          name: SearchPageWidget.routeName,
+          path: SearchPageWidget.routePath,
+          builder: (context, params) => SearchPageWidget(
+            searchTermParam: params.getParam(
+              'searchTermParam',
+              ParamType.String,
+            ),
+            navigateBackTo: params.getParam(
+              'navigateBackTo',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: ChatPageWidget.routeName,
+          path: ChatPageWidget.routePath,
+          builder: (context, params) => ChatPageWidget(
+            profileid: params.getParam(
+              'profileid',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: ProfilePageWidget.routeName,
+          path: ProfilePageWidget.routePath,
+          requireAuth: true,
+          builder: (context, params) => ProfilePageWidget(
+            profileId: params.getParam(
+              'profileId',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: EditProfilePageWidget.routeName,
+          path: EditProfilePageWidget.routePath,
+          builder: (context, params) => EditProfilePageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -452,11 +549,14 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Container(
-                  color: Colors.transparent,
-                  child: Image.asset(
-                    'assets/images/Splace_screen_(2).png',
-                    fit: BoxFit.cover,
+              ? Center(
+                  child: SizedBox(
+                    width: 50.0,
+                    height: 50.0,
+                    child: SpinKitChasingDots(
+                      color: FlutterFlowTheme.of(context).greenInit,
+                      size: 50.0,
+                    ),
                   ),
                 )
               : page;

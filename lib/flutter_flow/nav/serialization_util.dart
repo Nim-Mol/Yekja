@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 import '/backend/schema/structs/index.dart';
-
+import '/backend/schema/enums/enums.dart';
 import '/backend/supabase/supabase.dart';
 
 import '../../flutter_flow/place.dart';
@@ -74,6 +74,9 @@ String? serializeParam(
 
       case ParamType.DataStruct:
         data = param is BaseStruct ? param.serialize() : null;
+
+      case ParamType.Enum:
+        data = (param is Enum) ? param.serialize() : null;
 
       case ParamType.SupabaseRow:
         return json.encode((param as SupabaseDataRow).data);
@@ -155,6 +158,7 @@ enum ParamType {
   JSON,
 
   DataStruct,
+  Enum,
   SupabaseRow,
 }
 
@@ -218,8 +222,84 @@ dynamic deserializeParam<T>(
         switch (T) {
           case UserExtRow:
             return UserExtRow(data);
-          case ProductsRow:
-            return ProductsRow(data);
+          case TriggerLogRow:
+            return TriggerLogRow(data);
+          case ViewPopularMarketPostsRow:
+            return ViewPopularMarketPostsRow(data);
+          case ConsentsRow:
+            return ConsentsRow(data);
+          case MonitoringLogsRow:
+            return MonitoringLogsRow(data);
+          case ReportedRow:
+            return ReportedRow(data);
+          case UserExtArchiveRow:
+            return UserExtArchiveRow(data);
+          case ChatsRow:
+            return ChatsRow(data);
+          case MarketRow:
+            return MarketRow(data);
+          case SubCategoriesRow:
+            return SubCategoriesRow(data);
+          case ViewCarePostDetailsRow:
+            return ViewCarePostDetailsRow(data);
+          case DeletedCareRow:
+            return DeletedCareRow(data);
+          case ViewUserChatsRow:
+            return ViewUserChatsRow(data);
+          case MessagesDeleteRow:
+            return MessagesDeleteRow(data);
+          case ViewRecentHelpRequestsRow:
+            return ViewRecentHelpRequestsRow(data);
+          case ContactYekjaRow:
+            return ContactYekjaRow(data);
+          case ViewRecentExchangeRow:
+            return ViewRecentExchangeRow(data);
+          case ViewRecentHelpOffersRow:
+            return ViewRecentHelpOffersRow(data);
+          case DeletedMessagesRow:
+            return DeletedMessagesRow(data);
+          case CareRow:
+            return CareRow(data);
+          case ViewPostSearchRow:
+            return ViewPostSearchRow(data);
+          case DeletedChatsRow:
+            return DeletedChatsRow(data);
+          case CommunityShoutoutRow:
+            return CommunityShoutoutRow(data);
+          case PostLikeRelationRow:
+            return PostLikeRelationRow(data);
+          case MarketLikesRow:
+            return MarketLikesRow(data);
+          case ViewPopularCarePostsRow:
+            return ViewPopularCarePostsRow(data);
+          case ViewUserPostsRow:
+            return ViewUserPostsRow(data);
+          case CitiesRow:
+            return CitiesRow(data);
+          case MessagesRow:
+            return MessagesRow(data);
+          case DeletedMarketRow:
+            return DeletedMarketRow(data);
+          case ViewUnseenTotalsRow:
+            return ViewUnseenTotalsRow(data);
+          case ViewTopSubcategoriesRow:
+            return ViewTopSubcategoriesRow(data);
+          case ViewSwipablePostsRow:
+            return ViewSwipablePostsRow(data);
+          case ViewUserFavoritesRow:
+            return ViewUserFavoritesRow(data);
+          case ViewMarketPostDetailsRow:
+            return ViewMarketPostDetailsRow(data);
+          case ViewRecentFreeRow:
+            return ViewRecentFreeRow(data);
+          case UserFavoritesRow:
+            return UserFavoritesRow(data);
+          case CategoriesRow:
+            return CategoriesRow(data);
+          case ViewUserReviewsRow:
+            return ViewUserReviewsRow(data);
+          case ReviewsRow:
+            return ReviewsRow(data);
           default:
             return null;
         }
@@ -227,6 +307,9 @@ dynamic deserializeParam<T>(
       case ParamType.DataStruct:
         final data = json.decode(param) as Map<String, dynamic>? ?? {};
         return structBuilder != null ? structBuilder(data) : null;
+
+      case ParamType.Enum:
+        return deserializeEnum<T>(param);
 
       default:
         return null;

@@ -1,5 +1,5 @@
-import '/all_comoponet/app_bar/app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/shared_components/app_bar/app_bar_widget.dart';
 import 'terms_conditions_page_widget.dart' show TermsConditionsPageWidget;
 import 'package:flutter/material.dart';
 

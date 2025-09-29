@@ -1,5 +1,6 @@
-import '/components_yekja/botton_standard/botton_standard_widget.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/shared_components/botton_standard/botton_standard_widget.dart';
 import '/index.dart';
 import 'sign_up_page_widget.dart' show SignUpPageWidget;
 import 'package:flutter/material.dart';
@@ -8,15 +9,13 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
-  // State field(s) for fisrtName widget.
-  FocusNode? fisrtNameFocusNode;
-  TextEditingController? fisrtNameTextController;
-  String? Function(BuildContext, String?)? fisrtNameTextControllerValidator;
-  String? _fisrtNameTextControllerValidator(BuildContext context, String? val) {
+  // State field(s) for userName widget.
+  FocusNode? userNameFocusNode;
+  TextEditingController? userNameTextController;
+  String? Function(BuildContext, String?)? userNameTextControllerValidator;
+  String? _userNameTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        'nwrf2xzf' /* First Name is required */,
-      );
+      return 'Field is required';
     }
 
     if (val.length < 1) {
@@ -24,7 +23,9 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
     }
 
     if (!RegExp(kTextValidatorUsernameRegex).hasMatch(val)) {
-      return 'Must start with a letter and can only contain letters, digits and - or _.';
+      return FFLocalizations.of(context).getText(
+        'ae4rvotw' /* User name is invalid */,
+      );
     }
     return null;
   }
@@ -36,9 +37,7 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
   String? _emailAddressTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        'yomt8b8f' /* Email is required */,
-      );
+      return 'Field is required';
     }
 
     if (val.length < 1) {
@@ -48,7 +47,7 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
     if (!RegExp('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}\$')
         .hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        '5gfprwht' /* Please enter valid Email addre... */,
+        '5gfprwht' /* Please enter a valid email add... */,
       );
     }
     return null;
@@ -61,9 +60,7 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
   String? Function(BuildContext, String?)? passWordTextControllerValidator;
   String? _passWordTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        '0ndzc1mz' /* Password is required */,
-      );
+      return 'Field is required';
     }
 
     if (val.length < 6) {
@@ -88,9 +85,7 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
   String? _confPasswordTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        '8me73vdb' /* Confirm Password is required */,
-      );
+      return 'Field is required';
     }
 
     if (val.length < 6) {
@@ -106,10 +101,14 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
   late BottonStandardModel bottonStandardModel;
   // Stores action output result for [Custom Action - customSignUpWithEmail] action in BottonStandard widget.
   String? authonticationError;
+  // Stores action output result for [Backend Call - Insert Row] action in BottonStandard widget.
+  MonitoringLogsRow? newRegister;
+  // Stores action output result for [Backend Call - Insert Row] action in Button widget.
+  MonitoringLogsRow? gustUser;
 
   @override
   void initState(BuildContext context) {
-    fisrtNameTextControllerValidator = _fisrtNameTextControllerValidator;
+    userNameTextControllerValidator = _userNameTextControllerValidator;
     emailAddressTextControllerValidator = _emailAddressTextControllerValidator;
     passWordVisibility = false;
     passWordTextControllerValidator = _passWordTextControllerValidator;
@@ -120,8 +119,8 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
 
   @override
   void dispose() {
-    fisrtNameFocusNode?.dispose();
-    fisrtNameTextController?.dispose();
+    userNameFocusNode?.dispose();
+    userNameTextController?.dispose();
 
     emailAddressFocusNode?.dispose();
     emailAddressTextController?.dispose();

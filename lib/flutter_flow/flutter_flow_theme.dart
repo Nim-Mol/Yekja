@@ -50,7 +50,7 @@ abstract class FlutterFlowTheme {
   late Color priceTagEventy;
   late Color navBarEventy;
   late Color iconEventy;
-  late Color green1;
+  late Color greenInit;
   late Color customColor1;
   late Color red1;
   late Color red2;
@@ -63,6 +63,9 @@ abstract class FlutterFlowTheme {
   late Color lightgray1;
   late Color midgray;
   late Color darkgray;
+  late Color customColor2;
+  late Color customColor3;
+  late Color green1;
 
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
@@ -191,7 +194,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color priceTagEventy = const Color(0xFF00A1E7);
   late Color navBarEventy = const Color(0xFF00A1E7);
   late Color iconEventy = const Color(0xFF0593D7);
-  late Color green1 = const Color(0xFF12B886);
+  late Color greenInit = const Color(0xFF0F9970);
   late Color customColor1 = const Color(0xFF40C057);
   late Color red1 = const Color(0xFFFA5252);
   late Color red2 = const Color(0xFFF25081);
@@ -204,6 +207,9 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color lightgray1 = const Color(0xFFEBEBEB);
   late Color midgray = const Color(0xFF737373);
   late Color darkgray = const Color(0xFF4D4D4D);
+  late Color customColor2 = const Color(0xFFAA72E8);
+  late Color customColor3 = const Color(0xFF089F88);
+  late Color green1 = const Color(0xFF12B886);
 }
 
 abstract class Typography {
@@ -339,10 +345,10 @@ class MobileTypography extends Typography {
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'yekja_1';
+  String get labelMediumFamily => 'Satoshi';
   bool get labelMediumIsCustom => true;
   TextStyle get labelMedium => TextStyle(
-        fontFamily: 'yekja_1',
+        fontFamily: 'Satoshi',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,

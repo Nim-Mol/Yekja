@@ -25,23 +25,89 @@ class FFAppState extends ChangeNotifier {
       _isLogin = prefs.getBool('ff_isLogin') ?? _isLogin;
     });
     _safeInit(() {
-      _profile = prefs.getBool('ff_profile') ?? _profile;
-    });
-    _safeInit(() {
-      _CheckOutIndex = prefs.getInt('ff_CheckOutIndex') ?? _CheckOutIndex;
-    });
-    _safeInit(() {
       _selectHomeIndex = prefs.getInt('ff_selectHomeIndex') ?? _selectHomeIndex;
     });
     _safeInit(() {
       _isOnboarding = prefs.getBool('ff_isOnboarding') ?? _isOnboarding;
     });
     _safeInit(() {
-      _Interests = prefs.getStringList('ff_Interests') ?? _Interests;
-    });
-    _safeInit(() {
       _isAccountCreated =
           prefs.getBool('ff_isAccountCreated') ?? _isAccountCreated;
+    });
+    _safeInit(() {
+      _UserIsReported = prefs.getBool('ff_UserIsReported') ?? _UserIsReported;
+    });
+    _safeInit(() {
+      if (prefs.containsKey('ff_userInfo')) {
+        try {
+          final serializedData = prefs.getString('ff_userInfo') ?? '{}';
+          _userInfo =
+              UserInfoStruct.fromSerializableMap(jsonDecode(serializedData));
+        } catch (e) {
+          print("Can't decode persisted data type. Error: $e.");
+        }
+      }
+    });
+    _safeInit(() {
+      if (prefs.containsKey('ff_marketPlaceMeta')) {
+        try {
+          final serializedData = prefs.getString('ff_marketPlaceMeta') ?? '{}';
+          _marketPlaceMeta =
+              MarketModelStruct.fromSerializableMap(jsonDecode(serializedData));
+        } catch (e) {
+          print("Can't decode persisted data type. Error: $e.");
+        }
+      }
+    });
+    _safeInit(() {
+      _postLike = prefs.getBool('ff_postLike') ?? _postLike;
+    });
+    _safeInit(() {
+      _ReportedPosts = prefs
+              .getStringList('ff_ReportedPosts')
+              ?.map((x) {
+                try {
+                  return ReportedPostsStruct.fromSerializableMap(jsonDecode(x));
+                } catch (e) {
+                  print("Can't decode persisted data type. Error: $e.");
+                  return null;
+                }
+              })
+              .withoutNulls
+              .toList() ??
+          _ReportedPosts;
+    });
+    _safeInit(() {
+      if (prefs.containsKey('ff_filterAppState')) {
+        try {
+          final serializedData = prefs.getString('ff_filterAppState') ?? '{}';
+          _filterAppState = FilterModel2Struct.fromSerializableMap(
+              jsonDecode(serializedData));
+        } catch (e) {
+          print("Can't decode persisted data type. Error: $e.");
+        }
+      }
+    });
+    _safeInit(() {
+      _alICsv = prefs.getString('ff_alICsv') ?? _alICsv;
+    });
+    _safeInit(() {
+      _IsGust = prefs.getBool('ff_IsGust') ?? _IsGust;
+    });
+    _safeInit(() {
+      _TopCatState = prefs
+              .getStringList('ff_TopCatState')
+              ?.map((x) {
+                try {
+                  return TopCatModelStruct.fromSerializableMap(jsonDecode(x));
+                } catch (e) {
+                  print("Can't decode persisted data type. Error: $e.");
+                  return null;
+                }
+              })
+              .withoutNulls
+              .toList() ??
+          _TopCatState;
     });
   }
 
@@ -51,531 +117,6 @@ class FFAppState extends ChangeNotifier {
   }
 
   late SharedPreferences prefs;
-
-  List<CategoriesModelStruct> _categoriesList = [
-    CategoriesModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/r2yry49ybkpo/beautiful-shot-stylish-grey-chair-isolated-white-background_1.png\",\"name\":\"Adirondack chair\",\"price\":\"\$120.00\"}')),
-    CategoriesModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/pivp3uwgotc0/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(1).png\",\"name\":\"Barcelona Chair\",\"price\":\"\$110.00\"}'))
-  ];
-  List<CategoriesModelStruct> get categoriesList => _categoriesList;
-  set categoriesList(List<CategoriesModelStruct> value) {
-    _categoriesList = value;
-  }
-
-  void addToCategoriesList(CategoriesModelStruct value) {
-    categoriesList.add(value);
-  }
-
-  void removeFromCategoriesList(CategoriesModelStruct value) {
-    categoriesList.remove(value);
-  }
-
-  void removeAtIndexFromCategoriesList(int index) {
-    categoriesList.removeAt(index);
-  }
-
-  void updateCategoriesListAtIndex(
-    int index,
-    CategoriesModelStruct Function(CategoriesModelStruct) updateFn,
-  ) {
-    categoriesList[index] = updateFn(_categoriesList[index]);
-  }
-
-  void insertAtIndexInCategoriesList(int index, CategoriesModelStruct value) {
-    categoriesList.insert(index, value);
-  }
-
-  List<ExploreModelStruct> _exploreList = [
-    ExploreModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Bentwood Chair\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/ihw0kblp626u/photo-modern-luxury-arm-chair-furniture-design_1.png\",\"price\":\"\$80.00\"}')),
-    ExploreModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Bentwood Chair\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/1tyqs484moax/photo-modern-luxury-arm-chair-furniture-design_1_(1).png\",\"price\":\"\$80.00\"}'))
-  ];
-  List<ExploreModelStruct> get exploreList => _exploreList;
-  set exploreList(List<ExploreModelStruct> value) {
-    _exploreList = value;
-  }
-
-  void addToExploreList(ExploreModelStruct value) {
-    exploreList.add(value);
-  }
-
-  void removeFromExploreList(ExploreModelStruct value) {
-    exploreList.remove(value);
-  }
-
-  void removeAtIndexFromExploreList(int index) {
-    exploreList.removeAt(index);
-  }
-
-  void updateExploreListAtIndex(
-    int index,
-    ExploreModelStruct Function(ExploreModelStruct) updateFn,
-  ) {
-    exploreList[index] = updateFn(_exploreList[index]);
-  }
-
-  void insertAtIndexInExploreList(int index, ExploreModelStruct value) {
-    exploreList.insert(index, value);
-  }
-
-  List<SearchResultModelStruct> _searchResultList = [
-    SearchResultModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/je2qow40k6bq/Group_1171275474.png\",\"name\":\"Statistical table\",\"price\":\"\$80.00\"}')),
-    SearchResultModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/8400pkatk3fc/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(2).png\",\"name\":\"Classified table\",\"price\":\"\$50.00\"}')),
-    SearchResultModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/uyknp4mosnri/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(3).png\",\"name\":\"Simple table\",\"price\":\"\$20.00\"}')),
-    SearchResultModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/r9gc1lqxfpx9/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(4).png\",\"name\":\"Characteristic table\",\"price\":\"\$30.00\"}')),
-    SearchResultModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/4kmqkrwcua3x/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(5).png\",\"name\":\"Possibly table\",\"price\":\"\$14.00\"}')),
-    SearchResultModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/i1u6w40e9wuo/Group_1171275474_(1).png\",\"name\":\"Coffee table\",\"price\":\"\$70.00\"}')),
-    SearchResultModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/fcex3vpate5b/Group_1171275474_(2).png\",\"name\":\"Rectangular table\",\"price\":\"\$95.00\"}')),
-    SearchResultModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/iprhholmzx19/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(6).png\",\"name\":\"Lift-top table\",\"price\":\"\$20.00\"}'))
-  ];
-  List<SearchResultModelStruct> get searchResultList => _searchResultList;
-  set searchResultList(List<SearchResultModelStruct> value) {
-    _searchResultList = value;
-  }
-
-  void addToSearchResultList(SearchResultModelStruct value) {
-    searchResultList.add(value);
-  }
-
-  void removeFromSearchResultList(SearchResultModelStruct value) {
-    searchResultList.remove(value);
-  }
-
-  void removeAtIndexFromSearchResultList(int index) {
-    searchResultList.removeAt(index);
-  }
-
-  void updateSearchResultListAtIndex(
-    int index,
-    SearchResultModelStruct Function(SearchResultModelStruct) updateFn,
-  ) {
-    searchResultList[index] = updateFn(_searchResultList[index]);
-  }
-
-  void insertAtIndexInSearchResultList(
-      int index, SearchResultModelStruct value) {
-    searchResultList.insert(index, value);
-  }
-
-  List<FilterModelStruct> _filter = [
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Table\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/pngoo5d0rkw3/Group_1171275473_(3).png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Chair\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/zt8ra3x80s9g/Group_1171275473.png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Bed\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/sj4l7634hxkv/Group_1171275473_(1).png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Lamp\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/rcwzigackus8/Group_1171275473_(2).png\"}'))
-  ];
-  List<FilterModelStruct> get filter => _filter;
-  set filter(List<FilterModelStruct> value) {
-    _filter = value;
-  }
-
-  void addToFilter(FilterModelStruct value) {
-    filter.add(value);
-  }
-
-  void removeFromFilter(FilterModelStruct value) {
-    filter.remove(value);
-  }
-
-  void removeAtIndexFromFilter(int index) {
-    filter.removeAt(index);
-  }
-
-  void updateFilterAtIndex(
-    int index,
-    FilterModelStruct Function(FilterModelStruct) updateFn,
-  ) {
-    filter[index] = updateFn(_filter[index]);
-  }
-
-  void insertAtIndexInFilter(int index, FilterModelStruct value) {
-    filter.insert(index, value);
-  }
-
-  List<FilterModelStruct> _categoryList = [
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Table\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/pngoo5d0rkw3/Group_1171275473_(3).png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Chair\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/zt8ra3x80s9g/Group_1171275473.png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Bed\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/sj4l7634hxkv/Group_1171275473_(1).png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Lamp\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/rcwzigackus8/Group_1171275473_(2).png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Bench\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/3xj7pnzl3wlx/Group_1171275507.png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Desks\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/n18x2s3wfszm/Group_1171275507_(1).png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Door\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/lqhm4u08bd1y/Group_1171275507_(2).png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Swing\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/n3nt5zuygx6t/Group_1171275507_(3).png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Cabinets\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/hv7ivhriwaw5/Group_1171275507_(4).png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Chest\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/gg16ht4mx0nb/Group_1171275507_(5).png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Living\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/8sldyvgc38cu/Group_1171275507_(7).png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Storage\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/qol8qj1tnw7j/Group_1171275507_(6).png\"}'))
-  ];
-  List<FilterModelStruct> get categoryList => _categoryList;
-  set categoryList(List<FilterModelStruct> value) {
-    _categoryList = value;
-  }
-
-  void addToCategoryList(FilterModelStruct value) {
-    categoryList.add(value);
-  }
-
-  void removeFromCategoryList(FilterModelStruct value) {
-    categoryList.remove(value);
-  }
-
-  void removeAtIndexFromCategoryList(int index) {
-    categoryList.removeAt(index);
-  }
-
-  void updateCategoryListAtIndex(
-    int index,
-    FilterModelStruct Function(FilterModelStruct) updateFn,
-  ) {
-    categoryList[index] = updateFn(_categoryList[index]);
-  }
-
-  void insertAtIndexInCategoryList(int index, FilterModelStruct value) {
-    categoryList.insert(index, value);
-  }
-
-  List<SearchModelStruct> _searchList = [
-    SearchModelStruct.fromSerializableMap(jsonDecode('{\"name\":\"Tables\"}')),
-    SearchModelStruct.fromSerializableMap(
-        jsonDecode('{\"name\":\"Dining Table\"}')),
-    SearchModelStruct.fromSerializableMap(
-        jsonDecode('{\"name\":\"Bookcases\"}')),
-    SearchModelStruct.fromSerializableMap(jsonDecode('{\"name\":\"Dresser\"}')),
-    SearchModelStruct.fromSerializableMap(
-        jsonDecode('{\"name\":\"Living room\"}')),
-    SearchModelStruct.fromSerializableMap(
-        jsonDecode('{\"name\":\"Office furniture\"}')),
-    SearchModelStruct.fromSerializableMap(jsonDecode('{\"name\":\"Seating\"}'))
-  ];
-  List<SearchModelStruct> get searchList => _searchList;
-  set searchList(List<SearchModelStruct> value) {
-    _searchList = value;
-  }
-
-  void addToSearchList(SearchModelStruct value) {
-    searchList.add(value);
-  }
-
-  void removeFromSearchList(SearchModelStruct value) {
-    searchList.remove(value);
-  }
-
-  void removeAtIndexFromSearchList(int index) {
-    searchList.removeAt(index);
-  }
-
-  void updateSearchListAtIndex(
-    int index,
-    SearchModelStruct Function(SearchModelStruct) updateFn,
-  ) {
-    searchList[index] = updateFn(_searchList[index]);
-  }
-
-  void insertAtIndexInSearchList(int index, SearchModelStruct value) {
-    searchList.insert(index, value);
-  }
-
-  List<NotificationModelStruct> _notificationList = [
-    NotificationModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Notifications show when you swipe.\",\"time\":\"Just now\"}')),
-    NotificationModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Swipe down from the top of hugd.\",\"time\":\"1 Min\"}')),
-    NotificationModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Some notifications can also show.\",\"time\":\"2 Min\"}')),
-    NotificationModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"The notifications provides overview\",\"time\":\"5 Min\"}')),
-    NotificationModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Monitor system during periods ma.\",\"time\":\"10 Min\"}')),
-    NotificationModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Contains data when the system hu.\",\"time\":\"20 Min\"}')),
-    NotificationModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Contains data when the system hu.\",\"time\":\"30 Min\"}')),
-    NotificationModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Notifications show when you swipe.\",\"time\":\"40 Min\"}'))
-  ];
-  List<NotificationModelStruct> get notificationList => _notificationList;
-  set notificationList(List<NotificationModelStruct> value) {
-    _notificationList = value;
-  }
-
-  void addToNotificationList(NotificationModelStruct value) {
-    notificationList.add(value);
-  }
-
-  void removeFromNotificationList(NotificationModelStruct value) {
-    notificationList.remove(value);
-  }
-
-  void removeAtIndexFromNotificationList(int index) {
-    notificationList.removeAt(index);
-  }
-
-  void updateNotificationListAtIndex(
-    int index,
-    NotificationModelStruct Function(NotificationModelStruct) updateFn,
-  ) {
-    notificationList[index] = updateFn(_notificationList[index]);
-  }
-
-  void insertAtIndexInNotificationList(
-      int index, NotificationModelStruct value) {
-    notificationList.insert(index, value);
-  }
-
-  List<SearchResultModelStruct> _trandingProducts = [
-    SearchResultModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/r2yry49ybkpo/beautiful-shot-stylish-grey-chair-isolated-white-background_1.png\",\"name\":\"Adirondack chair\",\"price\":\"\$120.00\"}')),
-    SearchResultModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/pivp3uwgotc0/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(1).png\",\"name\":\"Barcelona Chair\",\"price\":\"\$110.00\"}')),
-    SearchResultModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/b5qihe0a7ls2/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(7).png\",\"name\":\"Avro furniture\",\"price\":\"\$50.00\"}')),
-    SearchResultModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/xu26bxit2rjl/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(8).png\",\"name\":\"Comfort creation\",\"price\":\"\$35.00\"}')),
-    SearchResultModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/tvilop1yhk0x/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(9).png\",\"name\":\"Plastic moulded\",\"price\":\"\$14.00\"}')),
-    SearchResultModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/eilutey35h85/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(10).png\",\"name\":\"Nilkamal set\",\"price\":\"\$70.00\"}')),
-    SearchResultModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/2g4qngqmuive/Group_1171275474_(3).png\",\"name\":\"High Back Chair\",\"price\":\"\$95.00\"}')),
-    SearchResultModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/bmlxjqgn2lgo/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(11).png\",\"name\":\"Relaxed armchair\",\"price\":\"\$20.00\"}'))
-  ];
-  List<SearchResultModelStruct> get trandingProducts => _trandingProducts;
-  set trandingProducts(List<SearchResultModelStruct> value) {
-    _trandingProducts = value;
-  }
-
-  void addToTrandingProducts(SearchResultModelStruct value) {
-    trandingProducts.add(value);
-  }
-
-  void removeFromTrandingProducts(SearchResultModelStruct value) {
-    trandingProducts.remove(value);
-  }
-
-  void removeAtIndexFromTrandingProducts(int index) {
-    trandingProducts.removeAt(index);
-  }
-
-  void updateTrandingProductsAtIndex(
-    int index,
-    SearchResultModelStruct Function(SearchResultModelStruct) updateFn,
-  ) {
-    trandingProducts[index] = updateFn(_trandingProducts[index]);
-  }
-
-  void insertAtIndexInTrandingProducts(
-      int index, SearchResultModelStruct value) {
-    trandingProducts.insert(index, value);
-  }
-
-  List<ExploreModelStruct> _exploreDetail = [
-    ExploreModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Bentwood Chair\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/ihw0kblp626u/photo-modern-luxury-arm-chair-furniture-design_1.png\",\"price\":\"\$80.00\"}')),
-    ExploreModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Statistical table\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/je2qow40k6bq/Group_1171275474.png\",\"price\":\"\$80.00\"}')),
-    ExploreModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Characteristic table\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/r9gc1lqxfpx9/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(4).png\",\"price\":\"\$30.00\"}')),
-    ExploreModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Possibly table\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/4kmqkrwcua3x/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(5).png\",\"price\":\"\$14.00\"}')),
-    ExploreModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Lift-top table\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/iprhholmzx19/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(6).png\",\"price\":\"\$20.00\"}')),
-    ExploreModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Avro furniture\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/b5qihe0a7ls2/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(7).png\",\"price\":\"\$50.00\"}')),
-    ExploreModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Barcelona Chair\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/pivp3uwgotc0/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(1).png\",\"price\":\"\$110.00\"}')),
-    ExploreModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Nilkamal set\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/eilutey35h85/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(10).png\",\"price\":\"\$70.00\"}'))
-  ];
-  List<ExploreModelStruct> get exploreDetail => _exploreDetail;
-  set exploreDetail(List<ExploreModelStruct> value) {
-    _exploreDetail = value;
-  }
-
-  void addToExploreDetail(ExploreModelStruct value) {
-    exploreDetail.add(value);
-  }
-
-  void removeFromExploreDetail(ExploreModelStruct value) {
-    exploreDetail.remove(value);
-  }
-
-  void removeAtIndexFromExploreDetail(int index) {
-    exploreDetail.removeAt(index);
-  }
-
-  void updateExploreDetailAtIndex(
-    int index,
-    ExploreModelStruct Function(ExploreModelStruct) updateFn,
-  ) {
-    exploreDetail[index] = updateFn(_exploreDetail[index]);
-  }
-
-  void insertAtIndexInExploreDetail(int index, ExploreModelStruct value) {
-    exploreDetail.insert(index, value);
-  }
-
-  List<SearchResultModelStruct> _favouritelist = [];
-  List<SearchResultModelStruct> get favouritelist => _favouritelist;
-  set favouritelist(List<SearchResultModelStruct> value) {
-    _favouritelist = value;
-  }
-
-  void addToFavouritelist(SearchResultModelStruct value) {
-    favouritelist.add(value);
-  }
-
-  void removeFromFavouritelist(SearchResultModelStruct value) {
-    favouritelist.remove(value);
-  }
-
-  void removeAtIndexFromFavouritelist(int index) {
-    favouritelist.removeAt(index);
-  }
-
-  void updateFavouritelistAtIndex(
-    int index,
-    SearchResultModelStruct Function(SearchResultModelStruct) updateFn,
-  ) {
-    favouritelist[index] = updateFn(_favouritelist[index]);
-  }
-
-  void insertAtIndexInFavouritelist(int index, SearchResultModelStruct value) {
-    favouritelist.insert(index, value);
-  }
-
-  List<ExploreModelStruct> _checkout = [
-    ExploreModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Office\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/3am7vdi1cpdg/Radio_button_(3).png\",\"price\":\"4517 washington ave. manchester, kentucky 39495\"}')),
-    ExploreModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Home \",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/h8euxowwb10c/Radio_button_(2).png\",\"price\":\"2118 thornridge cir. syracuse, connecticut 35624\"}'))
-  ];
-  List<ExploreModelStruct> get checkout => _checkout;
-  set checkout(List<ExploreModelStruct> value) {
-    _checkout = value;
-  }
-
-  void addToCheckout(ExploreModelStruct value) {
-    checkout.add(value);
-  }
-
-  void removeFromCheckout(ExploreModelStruct value) {
-    checkout.remove(value);
-  }
-
-  void removeAtIndexFromCheckout(int index) {
-    checkout.removeAt(index);
-  }
-
-  void updateCheckoutAtIndex(
-    int index,
-    ExploreModelStruct Function(ExploreModelStruct) updateFn,
-  ) {
-    checkout[index] = updateFn(_checkout[index]);
-  }
-
-  void insertAtIndexInCheckout(int index, ExploreModelStruct value) {
-    checkout.insert(index, value);
-  }
-
-  List<FilterModelStruct> _guestList = [
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Security\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/bqk9sm79rb9n/Group_1171275234.png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Settings\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/htlb3n1i1qiz/Group_1171275234_(1).png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Privacy policy\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/iwc9j9jcjldv/Group_1171275234_(2).png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Terms & conditions\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/3hczsh3lrkvp/Group_1171275234_(3).png\"}'))
-  ];
-  List<FilterModelStruct> get guestList => _guestList;
-  set guestList(List<FilterModelStruct> value) {
-    _guestList = value;
-  }
-
-  void addToGuestList(FilterModelStruct value) {
-    guestList.add(value);
-  }
-
-  void removeFromGuestList(FilterModelStruct value) {
-    guestList.remove(value);
-  }
-
-  void removeAtIndexFromGuestList(int index) {
-    guestList.removeAt(index);
-  }
-
-  void updateGuestListAtIndex(
-    int index,
-    FilterModelStruct Function(FilterModelStruct) updateFn,
-  ) {
-    guestList[index] = updateFn(_guestList[index]);
-  }
-
-  void insertAtIndexInGuestList(int index, FilterModelStruct value) {
-    guestList.insert(index, value);
-  }
-
-  List<FilterModelStruct> _settingList = [
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"About us\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/ui6jvc6ppgnz/Group_1171275234_(6).png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Help\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/0ntg42f0mf2b/Group_1171275234_(7).png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Feedback\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/nqgx1nz23dg5/Group_1171275234_(8).png\"}'))
-  ];
-  List<FilterModelStruct> get settingList => _settingList;
-  set settingList(List<FilterModelStruct> value) {
-    _settingList = value;
-  }
-
-  void addToSettingList(FilterModelStruct value) {
-    settingList.add(value);
-  }
-
-  void removeFromSettingList(FilterModelStruct value) {
-    settingList.remove(value);
-  }
-
-  void removeAtIndexFromSettingList(int index) {
-    settingList.removeAt(index);
-  }
-
-  void updateSettingListAtIndex(
-    int index,
-    FilterModelStruct Function(FilterModelStruct) updateFn,
-  ) {
-    settingList[index] = updateFn(_settingList[index]);
-  }
-
-  void insertAtIndexInSettingList(int index, FilterModelStruct value) {
-    settingList.insert(index, value);
-  }
 
   int _introIndex = 0;
   int get introIndex => _introIndex;
@@ -597,50 +138,6 @@ class FFAppState extends ChangeNotifier {
     prefs.setBool('ff_isLogin', value);
   }
 
-  List<FilterModelStruct> _guestPofile1 = [
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"My profile\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/ioe0lhit7qte/Group_1171275234_(9).png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Security\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/imyjcoume5l1/Group_1171275234_(4).png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Settings\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/htlb3n1i1qiz/Group_1171275234_(1).png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"My orders\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/rbi0unrpmm3w/Group_1171275234_(10).png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Privacy policy\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/iwc9j9jcjldv/Group_1171275234_(2).png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Terms & conditions\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/3hczsh3lrkvp/Group_1171275234_(3).png\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Log out\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/olm2cqz3llmu/Group_1171275234_(11).png\"}'))
-  ];
-  List<FilterModelStruct> get guestPofile1 => _guestPofile1;
-  set guestPofile1(List<FilterModelStruct> value) {
-    _guestPofile1 = value;
-  }
-
-  void addToGuestPofile1(FilterModelStruct value) {
-    guestPofile1.add(value);
-  }
-
-  void removeFromGuestPofile1(FilterModelStruct value) {
-    guestPofile1.remove(value);
-  }
-
-  void removeAtIndexFromGuestPofile1(int index) {
-    guestPofile1.removeAt(index);
-  }
-
-  void updateGuestPofile1AtIndex(
-    int index,
-    FilterModelStruct Function(FilterModelStruct) updateFn,
-  ) {
-    guestPofile1[index] = updateFn(_guestPofile1[index]);
-  }
-
-  void insertAtIndexInGuestPofile1(int index, FilterModelStruct value) {
-    guestPofile1.insert(index, value);
-  }
-
   int _select = 0;
   int get select => _select;
   set select(int value) {
@@ -651,252 +148,6 @@ class FFAppState extends ChangeNotifier {
   int get selectedIndex => _selectedIndex;
   set selectedIndex(int value) {
     _selectedIndex = value;
-  }
-
-  bool _profile = false;
-  bool get profile => _profile;
-  set profile(bool value) {
-    _profile = value;
-    prefs.setBool('ff_profile', value);
-  }
-
-  List<SearchResultModelStruct> _favouriteList = [
-    SearchResultModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/8400pkatk3fc/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(2).png\",\"name\":\"Classified table\",\"price\":\"\$50.00\"}')),
-    SearchResultModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/uyknp4mosnri/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(3).png\",\"name\":\"Simple table\",\"price\":\"\$20.00\"}')),
-    SearchResultModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/i1u6w40e9wuo/Group_1171275474_(1).png\",\"name\":\"Coffee table\",\"price\":\"\$70.00\"}')),
-    SearchResultModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/fcex3vpate5b/Group_1171275474_(2).png\",\"name\":\"Rectangular table\",\"price\":\"\$95.00\"}')),
-    SearchResultModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/jf4lf53fnjyc/beautiful-shot-stylish-grey-chair-isolated-white-background_1.png\",\"name\":\"Adirondack chair\",\"price\":\"\$120.00\"}')),
-    SearchResultModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/xu26bxit2rjl/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(8).png\",\"name\":\"Comfort creation\",\"price\":\"\$35.00\"}'))
-  ];
-  List<SearchResultModelStruct> get favouriteList => _favouriteList;
-  set favouriteList(List<SearchResultModelStruct> value) {
-    _favouriteList = value;
-  }
-
-  void addToFavouriteList(SearchResultModelStruct value) {
-    favouriteList.add(value);
-  }
-
-  void removeFromFavouriteList(SearchResultModelStruct value) {
-    favouriteList.remove(value);
-  }
-
-  void removeAtIndexFromFavouriteList(int index) {
-    favouriteList.removeAt(index);
-  }
-
-  void updateFavouriteListAtIndex(
-    int index,
-    SearchResultModelStruct Function(SearchResultModelStruct) updateFn,
-  ) {
-    favouriteList[index] = updateFn(_favouriteList[index]);
-  }
-
-  void insertAtIndexInFavouriteList(int index, SearchResultModelStruct value) {
-    favouriteList.insert(index, value);
-  }
-
-  List<ChatmodelStruct> _chatList = [
-    ChatmodelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/furniture-app-project-7xakkg/assets/j6sxf3xrdjrc/chat-1.svg\",\"title\":\"Basinah Quraishi\",\"description\":\"Hello sir\",\"time\":\"27 Min\"}')),
-    ChatmodelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/furniture-app-project-7xakkg/assets/ckaams54anto/chat-5.svg\",\"title\":\"Iftikar Buthayna\",\"description\":\"Good morning sir\",\"time\":\"27 Min\"}')),
-    ChatmodelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/furniture-app-project-7xakkg/assets/34pfdvtve4o8/chat-3.svg\",\"title\":\"Iftikar Buthayna\",\"description\":\"Good morning sir\",\"time\":\"27 Min\"}')),
-    ChatmodelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/furniture-app-project-7xakkg/assets/wyzats16ii9q/chat-4.svg\",\"title\":\"Radeyah Hawra\",\"description\":\"Potilies sir\",\"time\":\"17 Min\"}')),
-    ChatmodelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/furniture-app-project-7xakkg/assets/ckaams54anto/chat-5.svg\",\"title\":\"May Dunya\",\"description\":\"36154212\",\"time\":\"18 Min\"}')),
-    ChatmodelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/furniture-app-project-7xakkg/assets/f3b62nwuvdes/chat-6.svg\",\"title\":\"Fayruz Awad\",\"description\":\"Loadig\",\"time\":\"11 Min\"}')),
-    ChatmodelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/furniture-app-project-7xakkg/assets/wyzats16ii9q/chat-4.svg\",\"title\":\"Jala Rumaylah\",\"description\":\"Hello sir\",\"time\":\"12 Min\"}'))
-  ];
-  List<ChatmodelStruct> get chatList => _chatList;
-  set chatList(List<ChatmodelStruct> value) {
-    _chatList = value;
-  }
-
-  void addToChatList(ChatmodelStruct value) {
-    chatList.add(value);
-  }
-
-  void removeFromChatList(ChatmodelStruct value) {
-    chatList.remove(value);
-  }
-
-  void removeAtIndexFromChatList(int index) {
-    chatList.removeAt(index);
-  }
-
-  void updateChatListAtIndex(
-    int index,
-    ChatmodelStruct Function(ChatmodelStruct) updateFn,
-  ) {
-    chatList[index] = updateFn(_chatList[index]);
-  }
-
-  void insertAtIndexInChatList(int index, ChatmodelStruct value) {
-    chatList.insert(index, value);
-  }
-
-  List<PaymentmodelStruct> _paymentList = [
-    PaymentmodelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/t9zlcd4on141/Group_1171275512.png\",\"title\":\"Google pay\",\"description\":\"XXXX XXXX 125\",\"image1\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/hggxe08nf8y2/Radio_button_(2).png\"}')),
-    PaymentmodelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/gsp64qf63jgw/Group_1171275515.png\",\"title\":\"Paypal\",\"description\":\"XXXX XXXX 3698\",\"image1\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/3am7vdi1cpdg/Radio_button_(3).png\"}')),
-    PaymentmodelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/yjl8ui7h5tgg/Group_1171275518.png\",\"title\":\"Visa\",\"description\":\"XXXX XXXX 3698\",\"image1\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/3am7vdi1cpdg/Radio_button_(3).png\"}'))
-  ];
-  List<PaymentmodelStruct> get paymentList => _paymentList;
-  set paymentList(List<PaymentmodelStruct> value) {
-    _paymentList = value;
-  }
-
-  void addToPaymentList(PaymentmodelStruct value) {
-    paymentList.add(value);
-  }
-
-  void removeFromPaymentList(PaymentmodelStruct value) {
-    paymentList.remove(value);
-  }
-
-  void removeAtIndexFromPaymentList(int index) {
-    paymentList.removeAt(index);
-  }
-
-  void updatePaymentListAtIndex(
-    int index,
-    PaymentmodelStruct Function(PaymentmodelStruct) updateFn,
-  ) {
-    paymentList[index] = updateFn(_paymentList[index]);
-  }
-
-  void insertAtIndexInPaymentList(int index, PaymentmodelStruct value) {
-    paymentList.insert(index, value);
-  }
-
-  List<FilterModelStruct> _homeCategory = [
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Table\",\"image\":\"file:///Users/dreamworld/Desktop/dhruvika/Furniture%20image/Group%201171275473.svg\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Chair\",\"image\":\"file:///Users/dreamworld/Desktop/dhruvika/Furniture%20image/Group%201171275473%20(1).svg\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Bed\",\"image\":\"file:///Users/dreamworld/Desktop/dhruvika/Furniture%20image/Group%201171275473%20(2).svg\"}')),
-    FilterModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Lamp\",\"image\":\"file:///Users/dreamworld/Desktop/dhruvika/Furniture%20image/Group%201171275473%20(3).svg\"}'))
-  ];
-  List<FilterModelStruct> get homeCategory => _homeCategory;
-  set homeCategory(List<FilterModelStruct> value) {
-    _homeCategory = value;
-  }
-
-  void addToHomeCategory(FilterModelStruct value) {
-    homeCategory.add(value);
-  }
-
-  void removeFromHomeCategory(FilterModelStruct value) {
-    homeCategory.remove(value);
-  }
-
-  void removeAtIndexFromHomeCategory(int index) {
-    homeCategory.removeAt(index);
-  }
-
-  void updateHomeCategoryAtIndex(
-    int index,
-    FilterModelStruct Function(FilterModelStruct) updateFn,
-  ) {
-    homeCategory[index] = updateFn(_homeCategory[index]);
-  }
-
-  void insertAtIndexInHomeCategory(int index, FilterModelStruct value) {
-    homeCategory.insert(index, value);
-  }
-
-  List<MyOrderModelStruct> _myOrderList = [
-    MyOrderModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/qq1z7dgpsomk/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(5).png\",\"title\":\"Possibly table\",\"price\":\"\$30.00\",\"Cname\":\"Pending\",\"color\":\"#0000\"}')),
-    MyOrderModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/ihw0kblp626u/photo-modern-luxury-arm-chair-furniture-design_1.png\",\"title\":\"Bentwood Chair\",\"price\":\"\$80.00\",\"Cname\":\"Delivered\",\"color\":\"#0000\"}')),
-    MyOrderModelStruct.fromSerializableMap(jsonDecode(
-        '{\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/uyknp4mosnri/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(3).png\",\"title\":\"Simple table\",\"price\":\"\$20.00\",\"Cname\":\"Cancelled\",\"color\":\"#0000\"}'))
-  ];
-  List<MyOrderModelStruct> get myOrderList => _myOrderList;
-  set myOrderList(List<MyOrderModelStruct> value) {
-    _myOrderList = value;
-  }
-
-  void addToMyOrderList(MyOrderModelStruct value) {
-    myOrderList.add(value);
-  }
-
-  void removeFromMyOrderList(MyOrderModelStruct value) {
-    myOrderList.remove(value);
-  }
-
-  void removeAtIndexFromMyOrderList(int index) {
-    myOrderList.removeAt(index);
-  }
-
-  void updateMyOrderListAtIndex(
-    int index,
-    MyOrderModelStruct Function(MyOrderModelStruct) updateFn,
-  ) {
-    myOrderList[index] = updateFn(_myOrderList[index]);
-  }
-
-  void insertAtIndexInMyOrderList(int index, MyOrderModelStruct value) {
-    myOrderList.insert(index, value);
-  }
-
-  List<ExploreModelStruct> _itemList = [
-    ExploreModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Bentwood Chair\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/d7hf6s4wkc3a/photo-modern-luxury-arm-chair-furniture-design_1.png\",\"price\":\"\$80.00\"}')),
-    ExploreModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Possibly table\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/lmckllg15uqz/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(5).png\",\"price\":\"\$14.00\"}')),
-    ExploreModelStruct.fromSerializableMap(jsonDecode(
-        '{\"name\":\"Simple table\",\"image\":\"https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/newflutter-lb6jmq/assets/cu9nevaoepuf/beautiful-shot-stylish-grey-chair-isolated-white-background_1_(3).png\",\"price\":\"\$20.00\"}'))
-  ];
-  List<ExploreModelStruct> get itemList => _itemList;
-  set itemList(List<ExploreModelStruct> value) {
-    _itemList = value;
-  }
-
-  void addToItemList(ExploreModelStruct value) {
-    itemList.add(value);
-  }
-
-  void removeFromItemList(ExploreModelStruct value) {
-    itemList.remove(value);
-  }
-
-  void removeAtIndexFromItemList(int index) {
-    itemList.removeAt(index);
-  }
-
-  void updateItemListAtIndex(
-    int index,
-    ExploreModelStruct Function(ExploreModelStruct) updateFn,
-  ) {
-    itemList[index] = updateFn(_itemList[index]);
-  }
-
-  void insertAtIndexInItemList(int index, ExploreModelStruct value) {
-    itemList.insert(index, value);
-  }
-
-  int _CheckOutIndex = 0;
-  int get CheckOutIndex => _CheckOutIndex;
-  set CheckOutIndex(int value) {
-    _CheckOutIndex = value;
-    prefs.setInt('ff_CheckOutIndex', value);
   }
 
   int _selectHomeIndex = 0;
@@ -919,41 +170,6 @@ class FFAppState extends ChangeNotifier {
     prefs.setBool('ff_isOnboarding', value);
   }
 
-  List<String> _Interests = [];
-  List<String> get Interests => _Interests;
-  set Interests(List<String> value) {
-    _Interests = value;
-    prefs.setStringList('ff_Interests', value);
-  }
-
-  void addToInterests(String value) {
-    Interests.add(value);
-    prefs.setStringList('ff_Interests', _Interests);
-  }
-
-  void removeFromInterests(String value) {
-    Interests.remove(value);
-    prefs.setStringList('ff_Interests', _Interests);
-  }
-
-  void removeAtIndexFromInterests(int index) {
-    Interests.removeAt(index);
-    prefs.setStringList('ff_Interests', _Interests);
-  }
-
-  void updateInterestsAtIndex(
-    int index,
-    String Function(String) updateFn,
-  ) {
-    Interests[index] = updateFn(_Interests[index]);
-    prefs.setStringList('ff_Interests', _Interests);
-  }
-
-  void insertAtIndexInInterests(int index, String value) {
-    Interests.insert(index, value);
-    prefs.setStringList('ff_Interests', _Interests);
-  }
-
   bool _isAccountCreated = false;
   bool get isAccountCreated => _isAccountCreated;
   set isAccountCreated(bool value) {
@@ -965,6 +181,273 @@ class FFAppState extends ChangeNotifier {
   String get errorMessage => _errorMessage;
   set errorMessage(String value) {
     _errorMessage = value;
+  }
+
+  bool _UserIsReported = false;
+  bool get UserIsReported => _UserIsReported;
+  set UserIsReported(bool value) {
+    _UserIsReported = value;
+    prefs.setBool('ff_UserIsReported', value);
+  }
+
+  UserInfoStruct _userInfo =
+      UserInfoStruct.fromSerializableMap(jsonDecode('{\"Fav_List\":\"[]\"}'));
+  UserInfoStruct get userInfo => _userInfo;
+  set userInfo(UserInfoStruct value) {
+    _userInfo = value;
+    prefs.setString('ff_userInfo', value.serialize());
+  }
+
+  void updateUserInfoStruct(Function(UserInfoStruct) updateFn) {
+    updateFn(_userInfo);
+    prefs.setString('ff_userInfo', _userInfo.serialize());
+  }
+
+  MarketModelStruct _marketPlaceMeta = MarketModelStruct.fromSerializableMap(
+      jsonDecode(
+          '{\"Id\":\"1\",\"price_text\":\"\",\"likes\":\"0\",\"Images\":\"[]\",\"reported\":\"false\",\"is_open_to_exchange\":\"false\",\"exchange_description\":\"\",\"exchange_wish_list\":\"[]\",\"exchange_sub_cat_ids\":\"[]\"}'));
+  MarketModelStruct get marketPlaceMeta => _marketPlaceMeta;
+  set marketPlaceMeta(MarketModelStruct value) {
+    _marketPlaceMeta = value;
+    prefs.setString('ff_marketPlaceMeta', value.serialize());
+  }
+
+  void updateMarketPlaceMetaStruct(Function(MarketModelStruct) updateFn) {
+    updateFn(_marketPlaceMeta);
+    prefs.setString('ff_marketPlaceMeta', _marketPlaceMeta.serialize());
+  }
+
+  List<CategoriesDicStruct> _catList = [];
+  List<CategoriesDicStruct> get catList => _catList;
+  set catList(List<CategoriesDicStruct> value) {
+    _catList = value;
+  }
+
+  void addToCatList(CategoriesDicStruct value) {
+    catList.add(value);
+  }
+
+  void removeFromCatList(CategoriesDicStruct value) {
+    catList.remove(value);
+  }
+
+  void removeAtIndexFromCatList(int index) {
+    catList.removeAt(index);
+  }
+
+  void updateCatListAtIndex(
+    int index,
+    CategoriesDicStruct Function(CategoriesDicStruct) updateFn,
+  ) {
+    catList[index] = updateFn(_catList[index]);
+  }
+
+  void insertAtIndexInCatList(int index, CategoriesDicStruct value) {
+    catList.insert(index, value);
+  }
+
+  bool _postLike = false;
+  bool get postLike => _postLike;
+  set postLike(bool value) {
+    _postLike = value;
+    prefs.setBool('ff_postLike', value);
+  }
+
+  List<ReportedPostsStruct> _ReportedPosts = [];
+  List<ReportedPostsStruct> get ReportedPosts => _ReportedPosts;
+  set ReportedPosts(List<ReportedPostsStruct> value) {
+    _ReportedPosts = value;
+    prefs.setStringList(
+        'ff_ReportedPosts', value.map((x) => x.serialize()).toList());
+  }
+
+  void addToReportedPosts(ReportedPostsStruct value) {
+    ReportedPosts.add(value);
+    prefs.setStringList(
+        'ff_ReportedPosts', _ReportedPosts.map((x) => x.serialize()).toList());
+  }
+
+  void removeFromReportedPosts(ReportedPostsStruct value) {
+    ReportedPosts.remove(value);
+    prefs.setStringList(
+        'ff_ReportedPosts', _ReportedPosts.map((x) => x.serialize()).toList());
+  }
+
+  void removeAtIndexFromReportedPosts(int index) {
+    ReportedPosts.removeAt(index);
+    prefs.setStringList(
+        'ff_ReportedPosts', _ReportedPosts.map((x) => x.serialize()).toList());
+  }
+
+  void updateReportedPostsAtIndex(
+    int index,
+    ReportedPostsStruct Function(ReportedPostsStruct) updateFn,
+  ) {
+    ReportedPosts[index] = updateFn(_ReportedPosts[index]);
+    prefs.setStringList(
+        'ff_ReportedPosts', _ReportedPosts.map((x) => x.serialize()).toList());
+  }
+
+  void insertAtIndexInReportedPosts(int index, ReportedPostsStruct value) {
+    ReportedPosts.insert(index, value);
+    prefs.setStringList(
+        'ff_ReportedPosts', _ReportedPosts.map((x) => x.serialize()).toList());
+  }
+
+  String _searchError = '\"\"';
+  String get searchError => _searchError;
+  set searchError(String value) {
+    _searchError = value;
+  }
+
+  List<dynamic> _searchResults = [];
+  List<dynamic> get searchResults => _searchResults;
+  set searchResults(List<dynamic> value) {
+    _searchResults = value;
+  }
+
+  void addToSearchResults(dynamic value) {
+    searchResults.add(value);
+  }
+
+  void removeFromSearchResults(dynamic value) {
+    searchResults.remove(value);
+  }
+
+  void removeAtIndexFromSearchResults(int index) {
+    searchResults.removeAt(index);
+  }
+
+  void updateSearchResultsAtIndex(
+    int index,
+    dynamic Function(dynamic) updateFn,
+  ) {
+    searchResults[index] = updateFn(_searchResults[index]);
+  }
+
+  void insertAtIndexInSearchResults(int index, dynamic value) {
+    searchResults.insert(index, value);
+  }
+
+  bool _appendResults = false;
+  bool get appendResults => _appendResults;
+  set appendResults(bool value) {
+    _appendResults = value;
+  }
+
+  FilterModel2Struct _filterAppState = FilterModel2Struct.fromSerializableMap(
+      jsonDecode(
+          '{\"main_cat_id\":\"[]\",\"user_city\":\"[]\",\"cat_id\":\"[]\",\"cat_name\":\"[]\",\"sub_cat_id\":\"[]\",\"sub_cat_name\":\"[]\",\"exchange_wishlist_id\":\"[]\",\"YekjaVerified\":\"[]\",\"city_id\":\"[]\"}'));
+  FilterModel2Struct get filterAppState => _filterAppState;
+  set filterAppState(FilterModel2Struct value) {
+    _filterAppState = value;
+    prefs.setString('ff_filterAppState', value.serialize());
+  }
+
+  void updateFilterAppStateStruct(Function(FilterModel2Struct) updateFn) {
+    updateFn(_filterAppState);
+    prefs.setString('ff_filterAppState', _filterAppState.serialize());
+  }
+
+  String _alICsv =
+      '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,32,33,34,35,36,37,38,39,40';
+  String get alICsv => _alICsv;
+  set alICsv(String value) {
+    _alICsv = value;
+    prefs.setString('ff_alICsv', value);
+  }
+
+  bool _IsGust = false;
+  bool get IsGust => _IsGust;
+  set IsGust(bool value) {
+    _IsGust = value;
+    prefs.setBool('ff_IsGust', value);
+  }
+
+  List<TopCatModelStruct> _TopCatState = [];
+  List<TopCatModelStruct> get TopCatState => _TopCatState;
+  set TopCatState(List<TopCatModelStruct> value) {
+    _TopCatState = value;
+    prefs.setStringList(
+        'ff_TopCatState', value.map((x) => x.serialize()).toList());
+  }
+
+  void addToTopCatState(TopCatModelStruct value) {
+    TopCatState.add(value);
+    prefs.setStringList(
+        'ff_TopCatState', _TopCatState.map((x) => x.serialize()).toList());
+  }
+
+  void removeFromTopCatState(TopCatModelStruct value) {
+    TopCatState.remove(value);
+    prefs.setStringList(
+        'ff_TopCatState', _TopCatState.map((x) => x.serialize()).toList());
+  }
+
+  void removeAtIndexFromTopCatState(int index) {
+    TopCatState.removeAt(index);
+    prefs.setStringList(
+        'ff_TopCatState', _TopCatState.map((x) => x.serialize()).toList());
+  }
+
+  void updateTopCatStateAtIndex(
+    int index,
+    TopCatModelStruct Function(TopCatModelStruct) updateFn,
+  ) {
+    TopCatState[index] = updateFn(_TopCatState[index]);
+    prefs.setStringList(
+        'ff_TopCatState', _TopCatState.map((x) => x.serialize()).toList());
+  }
+
+  void insertAtIndexInTopCatState(int index, TopCatModelStruct value) {
+    TopCatState.insert(index, value);
+    prefs.setStringList(
+        'ff_TopCatState', _TopCatState.map((x) => x.serialize()).toList());
+  }
+
+  List<CitiesModelStruct> _citiesList = [];
+  List<CitiesModelStruct> get citiesList => _citiesList;
+  set citiesList(List<CitiesModelStruct> value) {
+    _citiesList = value;
+  }
+
+  void addToCitiesList(CitiesModelStruct value) {
+    citiesList.add(value);
+  }
+
+  void removeFromCitiesList(CitiesModelStruct value) {
+    citiesList.remove(value);
+  }
+
+  void removeAtIndexFromCitiesList(int index) {
+    citiesList.removeAt(index);
+  }
+
+  void updateCitiesListAtIndex(
+    int index,
+    CitiesModelStruct Function(CitiesModelStruct) updateFn,
+  ) {
+    citiesList[index] = updateFn(_citiesList[index]);
+  }
+
+  void insertAtIndexInCitiesList(int index, CitiesModelStruct value) {
+    citiesList.insert(index, value);
+  }
+
+  CitiesModelStruct _citiesRow = CitiesModelStruct();
+  CitiesModelStruct get citiesRow => _citiesRow;
+  set citiesRow(CitiesModelStruct value) {
+    _citiesRow = value;
+  }
+
+  void updateCitiesRowStruct(Function(CitiesModelStruct) updateFn) {
+    updateFn(_citiesRow);
+  }
+
+  int _sortByInt = 1;
+  int get sortByInt => _sortByInt;
+  set sortByInt(int value) {
+    _sortByInt = value;
   }
 }
 

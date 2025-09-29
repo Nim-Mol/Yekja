@@ -1,42 +1,53 @@
-import '/components_yekja/our_main_header/our_main_header_widget.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/shared_components/main_header/main_header_widget.dart';
+import '/shared_components/nav_bar/nav_bar_widget.dart';
+import '/shared_components/shout_out_card/shout_out_card_widget.dart';
 import '/index.dart';
 import 'home_page_widget.dart' show HomePageWidget;
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
-    show TutorialCoachMark;
 import 'package:flutter/material.dart';
 
 class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  TutorialCoachMark? homePageController;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode;
-  TextEditingController? textController;
-  String? Function(BuildContext, String?)? textControllerValidator;
+  // Stores action output result for [Backend Call - Query Rows] action in HomePage widget.
+  List<ViewTopSubcategoriesRow>? listOfCategories;
+  // Stores action output result for [Backend Call - Query Rows] action in HomePage widget.
+  List<UserExtRow>? user;
+  // Stores action output result for [Backend Call - Query Rows] action in HomePage widget.
+  List<UserFavoritesRow>? favs;
+  // Stores action output result for [Backend Call - Query Rows] action in HomePage widget.
+  List<ViewUnseenTotalsRow>? newMessages;
+  // State field(s) for searchField widget.
+  FocusNode? searchFieldFocusNode;
+  TextEditingController? searchFieldTextController;
+  String? Function(BuildContext, String?)? searchFieldTextControllerValidator;
   // State field(s) for Carousel widget.
-  CarouselSliderController? carouselController1;
-  int carouselCurrentIndex1 = 1;
+  CarouselSliderController? carouselController;
+  int carouselCurrentIndex = 1;
 
-  // State field(s) for Carousel widget.
-  CarouselSliderController? carouselController2;
-  int carouselCurrentIndex2 = 1;
-
-  // Model for OurMainHeader component.
-  late OurMainHeaderModel ourMainHeaderModel;
+  // Models for shoutOutCard dynamic component.
+  late FlutterFlowDynamicModels<ShoutOutCardModel> shoutOutCardModels;
+  // Model for MainHeader component.
+  late MainHeaderModel mainHeaderModel;
+  // Model for NavBar component.
+  late NavBarModel navBarModel;
 
   @override
   void initState(BuildContext context) {
-    ourMainHeaderModel = createModel(context, () => OurMainHeaderModel());
+    shoutOutCardModels = FlutterFlowDynamicModels(() => ShoutOutCardModel());
+    mainHeaderModel = createModel(context, () => MainHeaderModel());
+    navBarModel = createModel(context, () => NavBarModel());
   }
 
   @override
   void dispose() {
-    homePageController?.finish();
-    textFieldFocusNode?.dispose();
-    textController?.dispose();
+    searchFieldFocusNode?.dispose();
+    searchFieldTextController?.dispose();
 
-    ourMainHeaderModel.dispose();
+    shoutOutCardModels.dispose();
+    mainHeaderModel.dispose();
+    navBarModel.dispose();
   }
 }

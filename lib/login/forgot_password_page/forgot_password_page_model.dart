@@ -19,7 +19,8 @@ class ForgotPasswordPageModel
       );
     }
 
-    if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {
+    if (!RegExp('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}\$')
+        .hasMatch(val)) {
       return FFLocalizations.of(context).getText(
         'dxfpl9nd' /* please enter your email addres... */,
       );

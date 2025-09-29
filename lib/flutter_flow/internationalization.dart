@@ -144,149 +144,6 @@ bool _isSupportedLocale(Locale locale) {
 }
 
 final kTranslationsMap = <Map<String, Map<String, String>>>[
-  // FilterPage
-  {
-    'x657ak29': {
-      'en': 'Categories',
-      'fa': 'دسته‌ها',
-    },
-    '351c5gwm': {
-      'en': 'View all',
-      'fa': 'مشاهده همه',
-    },
-    'ksvb8tuc': {
-      'en': 'Age preference',
-      'fa': 'اولویت سنی',
-    },
-    '16hm6c3p': {
-      'en': '20-40',
-      'fa': '۲۰-۴۰',
-    },
-    '0wtgs91w': {
-      'en': 'Reset',
-      'fa': 'تنظیم مجدد',
-    },
-    '968w6phc': {
-      'en': 'Apply',
-      'fa': 'اعمال کردن',
-    },
-    'b0923dai': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // Checkout1Page
-  {
-    'gubfc5t4': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // AddnewaddressPage
-  {
-    'mff7d21e': {
-      'en': 'New address',
-      'fa': 'آدرس جدید',
-    },
-    '4br7f00z': {
-      'en': 'New address',
-      'fa': 'آدرس جدید',
-    },
-    '7hirru8b': {
-      'en': 'Select City',
-      'fa': 'شهر را انتخاب کنید',
-    },
-    'fyrtf1mr': {
-      'en': 'Select City',
-      'fa': 'شهر را انتخاب کنید',
-    },
-    '3slq5f42': {
-      'en': 'Surat',
-      'fa': 'سورات',
-    },
-    '3j4eh72z': {
-      'en': 'Ahemdabad',
-      'fa': 'احمدآباد',
-    },
-    '1yrygi96': {
-      'en': 'Street',
-      'fa': 'خیابان',
-    },
-    'jcy3n8gf': {
-      'en': 'Street',
-      'fa': 'خیابان',
-    },
-    'utcgziz3': {
-      'en': 'Please enter valid new address.',
-      'fa': 'لطفا آدرس جدید معتبری وارد کنید.',
-    },
-    '2fwgyluu': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    '5pdoazh1': {
-      'en': 'Please enter valid street.',
-      'fa': 'لطفا خیابان معتبری وارد کنید.',
-    },
-    '6231kvms': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    'qewp42n2': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // VerifyCodePage
-  {
-    '5tb8yf2m': {
-      'en': 'The confimation code was sent via email',
-      'fa': 'کد تایید از طریق ایمیل ارسال شد',
-    },
-    '0nkfanj2': {
-      'en': 'Pease enter  valid code',
-      'fa': 'لطفا کد معتبر را وارد کنید',
-    },
-    'vjvaogfy': {
-      'en': 'Resend',
-      'fa': 'اکنون تأیید کنید',
-    },
-    'hwnjny5a': {
-      'en': 'Verify now',
-      'fa': 'اکنون تأیید کنید',
-    },
-    'l60nokfp': {
-      'en': 'Verify code',
-      'fa': '',
-    },
-    'ker0wihq': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // FeedbackPage
-  {
-    'lif54gtt': {
-      'en': 'Write your feedback...',
-      'fa': 'نظرات خود را بنویسید...',
-    },
-    'jkpmczmx': {
-      'en': 'Please enter valid Feedback.',
-      'fa': 'لطفا بازخورد معتبر وارد کنید.',
-    },
-    'ou5zhxpi': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    'kjdnza70': {
-      'en': 'Submit',
-      'fa': 'ارسال',
-    },
-    'uxx92xm2': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
   // PrivacyPolicyPage
   {
     'et3v0xw9': {
@@ -324,1089 +181,198 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'خانه',
     },
   },
-  // Swipable_MA
+  // FAQ
   {
-    'c1pfqxt9': {
-      'en': 'Discover Local Offers & Events',
-      'fa': 'پیشنهادات و رویدادهای محلی را کشف کنید',
+    'dhbx92pr': {
+      'en': 'FAQ',
+      'fa': 'سوالات متداول',
     },
-    'z2x2a2db': {
+    '24c4afj9': {
+      'en': 'Whiat is Trust score?',
+      'fa': 'امتیاز اعتماد (Trust Score) چقدر است؟',
+    },
+    'l1qm6pea': {
       'en':
-          'Swipe through offerings, events, and exchanges from your community. When you both swipe right, you connect to trade, support, or join forces.',
+          'Trust Score System\nThe Trust Score would be a dynamic value (e.g., 0–100) that indicates how trustworthy a user is, based on various factors.\n\n🔸 Factors That Could Influence Trust Score:\nVerified Identity\nGovernment ID, business license, phone number, etc.\n\n🔸 Customer Reviews & Ratings\nHigh ratings and positive feedback increase the score.\n\n🔸 Completed Transactions\nNumber and consistency of successful sales or services.\n\n🔸 Response Time & Engagement\nHow fast and often a user responds to messages or inquiries.\n\n🔸 Dispute History\nFewer disputes or issues with orders mean a higher score.\n\n🔸 Account Age & Activity\nOlder, consistently active accounts tend to be more trusted.\n\n🔸 Admin Verification\nFor certain professionals (e.g. a dentist), manual verification by Our team.(Contact our team)',
       'fa':
-          'با کشیدن انگشت خود به سمت راست، از پیشنهادات، رویدادها و تبادلات جامعه خود مطلع شوید. وقتی هر دو انگشت خود را به راست بکشید، به تجارت، پشتیبانی یا اتحاد نیروها متصل می‌شوید.',
+          'سیستم امتیاز اعتماد\nامتیاز اعتماد یک مقدار پویا (مثلاً 0 تا 100) خواهد بود که بر اساس عوامل مختلف، میزان قابل اعتماد بودن کاربر را نشان می‌دهد.\n\n\n🔸 عواملی که می‌توانند بر امتیاز اعتماد تأثیر بگذارند:\n\nهویت تأیید شده\nشناسه دولتی، مجوز کسب و کار، شماره تلفن و غیره\n\n🔸 نظرات و رتبه‌بندی‌های مشتری\nرتبه‌بندی‌های بالا و بازخورد مثبت، امتیاز را افزایش می‌دهد.\n\n\n🔸 تراکنش‌های تکمیل‌شده\nتعداد و تداوم فروش یا خدمات موفق.\n\n\n🔸 زمان پاسخگویی و تعامل\nسرعت و دفعات پاسخگویی کاربر به پیام‌ها یا سوالات.\n\n\n🔸 سابقه اختلاف نظر\nاختلاف نظرها یا مشکلات کمتر در سفارشات به معنای امتیاز بالاتر است.\n\n\n🔸 سن و فعالیت حساب\nحساب‌های قدیمی‌تر و فعال‌تر، معمولاً قابل اعتمادتر هستند.\n\n\n🔸 تأیید مدیریت\nبرای برخی از متخصصان (مثلاً دندانپزشک)، تأیید دستی توسط تیم ما. (با تیم ما تماس بگیرید)',
     },
-    'wwubvgcu': {
+    'dtpcil6r': {
+      'en': 'How to become a Trust?',
+      'fa': 'چگونه به یک تراست تبدیل شویم؟',
+    },
+    'odjaij7e': {
+      'en':
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'fa':
+          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    },
+    'o9brjb3x': {
+      'en': 'What comes under furniture?',
+      'fa': 'زیر مبلمان چه چیزهایی قرار می‌گیرد؟',
+    },
+    'bkl59zgx': {
+      'en':
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'fa':
+          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    },
+    '95ksmw47': {
+      'en': 'Which furniture is best in India?',
+      'fa': 'کدام مبلمان در هند بهترین است؟',
+    },
+    'nu3cwjjm': {
+      'en':
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'fa':
+          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    },
+    'eks33xkk': {
+      'en': 'Are items in Amazon original?',
+      'fa': 'آیا کالاهای موجود در آمازون اصل هستند؟',
+    },
+    '21arpmnw': {
+      'en':
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'fa':
+          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    },
+    'aloc0wpz': {
+      'en': 'Does Amazon sell original items?',
+      'fa': 'آیا آمازون اقلام اورجینال می‌فروشد؟',
+    },
+    'sjaptzm1': {
+      'en':
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'fa':
+          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    },
+    'isn1j7jh': {
+      'en': 'Is it OK to buy from Amazon?',
+      'fa': 'آیا خرید از آمازون اشکالی ندارد؟',
+    },
+    'ncwlis4k': {
+      'en':
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'fa':
+          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    },
+    'gvdgmual': {
+      'en': 'Contact Yekja',
+      'fa': 'تماس با یکجا',
+    },
+    'xelooj4q': {
       'en': 'Home',
       'fa': 'خانه',
     },
   },
-  // HomePage
+  // Dashboard
   {
-    'ju1a70oo': {
-      'en': 'TextField',
-      'fa': '',
-    },
-    '29b8mvcw': {
-      'en': 'Search',
-      'fa': 'جستجو',
-    },
-    '558fzs8h': {
-      'en': 'What are you looking for today?',
-      'fa': 'امروز دنبال چی هستی؟',
-    },
-    'b6xasaj9': {
-      'en': 'IRAN-NL',
-      'fa': 'رویدادها',
-    },
-    '0vip22m0': {
-      'en': 'EVENTS',
-      'fa': 'رویدادها',
-    },
-    '3tz78yea': {
-      'en': 'COMMUNITY CARE',
-      'fa': 'مراقبت‌های اجتماعی',
-    },
-    'ib0ekrge': {
-      'en': 'MARKETPLACE',
-      'fa': 'مراقبت‌های اجتماعی',
-    },
-    'hmb7gki5': {
-      'en': 'Tranding Categories',
-      'fa': 'دسته بندی های ترندینگ',
-    },
-    '9s3kmnj6': {
-      'en': 'See all',
-      'fa': 'همه را ببینید',
-    },
-    '0tf02ybh': {
-      'en': 'Help Request',
-      'fa': 'درخواست کمک',
-    },
-    'lfk150vu': {
-      'en': '50 requests',
-      'fa': '۵۰ درخواست',
-    },
-    'fbxtj3am': {
-      'en': 'Need a Job',
-      'fa': 'نیاز به شغل',
-    },
-    'c9inkp2j': {
-      'en': '3 requests',
-      'fa': '۳ درخواست',
-    },
-    't2z7olia': {
-      'en': 'Help Offer',
-      'fa': 'پیشنهاد کمک',
-    },
-    'w4ta04kv': {
-      'en': '10 requests',
-      'fa': '۱۰ درخواست',
-    },
-    'cjy59qdz': {
-      'en': 'New Events',
-      'fa': 'رویدادهای جدید',
-    },
-    'z5ktm6xn': {
-      'en': '2 requests',
-      'fa': '۲ درخواست',
-    },
-    'pshx57tg': {
-      'en': 'What’s Around You? Swipe to See',
-      'fa': 'چه چیزهایی در اطراف شما وجود دارد؟ برای دیدن، صفحه را بکشید',
-    },
-    'nl42s9kh': {
-      'en': 'Swipe through a world of existing \nproducts, services and events',
-      'fa': 'در دنیایی از محصولات، خدمات و رویدادهای موجود جستجو کنید',
-    },
-    '1ydrd3oe': {
-      'en': 'Swipe through a world of existing products, services and events',
-      'fa': 'در دنیایی از محصولات، خدمات و رویدادهای موجود جستجو کنید',
-    },
-    '45nxx23g': {
-      'en': 'Start',
-      'fa': 'دکمه',
-    },
-    '607mveb5': {
-      'en': 'Community Shoutouts',
-      'fa': 'فریادهای جامعه',
-    },
-    '3e2bxvtz': {
-      'en': 'Thank you Ali ',
-      'fa': 'ممنون علی.',
-    },
-    'hzf4lfor': {
-      'en':
-          'For your Community support, we can make it abette world with indviduals like you.',
-      'fa':
-          'برای حمایت اجتماعی شما، می‌توانیم با افرادی مثل شما، دنیا را به دنیایی بهتر تبدیل کنیم.',
-    },
-    'ei09liyp': {
-      'en': 'Thank you Ali ',
-      'fa': 'ممنون علی.',
-    },
-    'gjeiq4pf': {
-      'en':
-          'For your Community support, we can make it abette world with indviduals like you.',
-      'fa':
-          'برای حمایت اجتماعی شما، می‌توانیم با افرادی مثل شما، دنیا را به دنیایی بهتر تبدیل کنیم.',
-    },
-    'd1hvqyow': {
-      'en': 'Thank you Ali ',
-      'fa': 'ممنون علی.',
-    },
-    'celsaycw': {
-      'en':
-          'For your Community support, we can make it abette world with indviduals like you.',
-      'fa':
-          'برای حمایت اجتماعی شما، می‌توانیم با افرادی مثل شما، دنیا را به دنیایی بهتر تبدیل کنیم.',
-    },
-    '6lyr5um7': {
-      'en': 'your community',
-      'fa': '',
-    },
-    'qv3strvd': {
-      'en': 'Home',
-      'fa': '',
-    },
-  },
-  // WriteReviewPage
-  {
-    'gr9w4vot': {
-      'en': 'Would you like write anything about|',
-      'fa': 'دوست دارید چیزی در موردش بنویسید؟',
-    },
-    'fdz15yw2': {
-      'en': '350 Characters remaining',
-      'fa': '۳۵۰ کاراکتر باقی مانده',
-    },
-    'amnv5cpz': {
-      'en': 'Please entre valid write a review.',
-      'fa': 'لطفا یک نقد معتبر بنویسید.',
-    },
-    'nvwwgpqy': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    'lxmt4ut6': {
-      'en': 'Submit review',
-      'fa': 'ارسال نقد و بررسی',
-    },
-    'fzdiiauy': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // ProfilePage
-  {
-    'qa6tsx7c': {
-      'en': 'Tom Hanks',
-      'fa': '',
-    },
-    '05h3rmcf': {
-      'en': 'Amsterdam',
-      'fa': '',
-    },
-    '9l28yn87': {
-      'en': '45',
-      'fa': '',
-    },
-    '6uo9r8ha': {
-      'en': 'Likes',
-      'fa': '',
-    },
-    '37p2ppm3': {
-      'en': '674',
-      'fa': '',
-    },
-    'pjj7ywj8': {
-      'en': 'Trust Score',
-      'fa': '',
-    },
-    'n2e8hgo3': {
-      'en': '4.5',
-      'fa': '',
-    },
-    '41pq3bn9': {
-      'en': 'Review',
-      'fa': '',
-    },
-    '6qe3ahve': {
-      'en':
-          'Hi, I’m Tom Hanks. I love storytelling, old typewriters, and baseball. When I’m not acting, I’m reading history, writing, or enjoying a good cup of coffee. Life’s short—be kind, stay curious, and always say yes to adventure.',
-      'fa': '',
-    },
-    '4sl9g7bt': {
-      'en': 'Posts',
-      'fa': '',
-    },
-    'csirqns1': {
-      'en': 'Events',
-      'fa': '',
-    },
-    'j2w2ssrk': {
-      'en': 'Game Night',
-      'fa': '',
-    },
-    'nsnjjx9n': {
-      'en': 'Utrecht',
-      'fa': '',
-    },
-    's8iulkb6': {
-      'en': 'Mafia',
-      'fa': '',
-    },
-    'y2l4c7gc': {
-      'en': 'agust 23, 05:00 PM',
-      'fa': '',
-    },
-    '5aa49ubc': {
-      'en': '4.8',
-      'fa': '',
-    },
-    'owf4s8qy': {
-      'en': 'Marketplace',
-      'fa': '',
-    },
-    'tlappe9y': {
-      'en': 'Rentals',
-      'fa': '',
-    },
-    'o9l0r3xn': {
-      'en': 'Utrecht',
-      'fa': '',
-    },
-    'ra5h6xlu': {
-      'en': 'Mafia',
-      'fa': '',
-    },
-    'ki2ry3fw': {
-      'en': 'agust 23, 05:00 PM',
-      'fa': '',
-    },
-    '4zv72f0x': {
-      'en': '4.8',
-      'fa': '',
-    },
-    '30k1rzvm': {
-      'en': 'Events',
-      'fa': '',
-    },
-    'q62mhner': {
-      'en': 'Social',
-      'fa': '',
-    },
-    'tspock34': {
-      'en': 'Amsterdam',
-      'fa': '',
-    },
-    'hhsce8au': {
-      'en': 'Book Club',
-      'fa': '',
-    },
-    'wznowx7k': {
-      'en': 'agust 23, 05:00 PM',
-      'fa': '',
-    },
-    '18saa002': {
-      'en': '4.8',
-      'fa': '',
-    },
-    'wbr2dbqe': {
-      'en': 'Community Care',
-      'fa': '',
-    },
-    'i53lovf6': {
-      'en': 'BBQ',
-      'fa': '',
-    },
-    '4bce450q': {
-      'en': 'Amstelven,Amsterdam\'s Bos',
-      'fa': '',
-    },
-    'gzw3hrtx': {
-      'en': 'Picnic Lovers',
-      'fa': '',
-    },
-    'c6p921jg': {
-      'en': 'agust 23, 05:00 PM',
-      'fa': '',
-    },
-    '0tmp22me': {
-      'en': '4.8',
-      'fa': '',
-    },
-    '6jnfb6ls': {
-      'en': 'Favorites',
-      'fa': '',
-    },
-    'sc4mo5ms': {
-      'en': 'Amsterdam, Ziggo Dome',
-      'fa': 'آمستردام، گنبد زیگو',
-    },
-    'r18xyi45': {
-      'en': 'Summer Party',
-      'fa': 'مهمانی تابستانی',
-    },
-    'rlyyg4by': {
-      'en': 'agust 23, 05:00 PM',
-      'fa': '۲۳ آگوست، ساعت ۱۷:۰۰',
-    },
-    '5ipe6543': {
-      'en': 'Amsterdam, Ziggo Dome',
-      'fa': 'آمستردام، گنبد زیگو',
-    },
-    'wpbjnp95': {
-      'en': 'Summer Party',
-      'fa': 'مهمانی تابستانی',
-    },
-    'qtap45w8': {
-      'en': 'agust 23, 05:00 PM',
-      'fa': '۲۳ آگوست، ساعت ۱۷:۰۰',
-    },
-    'xpzf7d5z': {
-      'en': 'Amstelven, Amsterdam\'sBos',
-      'fa': 'آمستلون، آمستردام بوس',
-    },
-    'ytijevrm': {
-      'en': 'Summer BBQ',
-      'fa': 'باربیکیو تابستانی',
-    },
-    '87v28q18': {
-      'en': 'juli 23, 05:00 PM',
-      'fa': '۲۳ ژوئیه، ساعت ۱۷:۰۰',
-    },
-    'mlu812pp': {
-      'en': 'Reviews',
-      'fa': '',
-    },
-    'jpye0lqv': {
-      'en': 'Sam  sung',
-      'fa': '',
-    },
-    'vc4e99t9': {
-      'en': '(5)',
-      'fa': '',
-    },
-    'q077mst8': {
-      'en':
-          'I attended the Sunset Sounds Music Festival 2025 last weekend, and it was absolutely incredible! From start to finish, the experience was seamless and full of energy. ',
-      'fa': '',
-    },
-    '2ljvna72': {
-      'en': 'agust 23, 05:00 PM',
-      'fa': '',
-    },
-    'r06mfbpv': {
-      'en': 'Sam  sung',
-      'fa': 'اوترخت',
-    },
-    'tfg51enn': {
-      'en': '(4.5)',
-      'fa': '',
-    },
-    '2axs82xx': {
-      'en':
-          'I attended the Sunset Sounds Music Festival 2025 last weekend, and it was absolutely incredible! From start to finish, the experience was seamless and full of energy. ',
-      'fa': 'مافیا',
-    },
-    'f4j4dk9l': {
-      'en': 'agust 23, 05:00 PM',
-      'fa': '۲۳ آگوست، ساعت ۱۷:۰۰',
-    },
-    'tq2ulkz6': {
-      'en': 'Sam  sung',
-      'fa': 'اوترخت',
-    },
-    'shtj1vh5': {
-      'en': '(3)',
-      'fa': '',
-    },
-    'x3mzc2rk': {
-      'en':
-          'I attended the Sunset Sounds Music Festival 2025 last weekend, and it was absolutely incredible! From start to finish, the experience was seamless and full of energy. ',
-      'fa': 'مافیا',
-    },
-    'y9zyaw1r': {
-      'en': 'agust 23, 05:00 PM',
-      'fa': '۲۳ آگوست، ساعت ۱۷:۰۰',
-    },
-    'yq4fqtye': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // ChangePasswordPage
-  {
-    '13hkjxzm': {
-      'en': 'Change Password',
-      'fa': '',
-    },
-    'vihtivjk': {
-      'en': 'New password',
-      'fa': 'رمز عبور جدید',
-    },
-    'yp6inssm': {
-      'en': 'New password',
-      'fa': 'رمز عبور جدید',
-    },
-    'ao0xte64': {
-      'en': 'Confirm password',
-      'fa': 'تأیید رمز عبور',
-    },
-    'lwkof6wj': {
-      'en': 'Confirm password',
-      'fa': 'تأیید رمز عبور',
-    },
-    'kmgxcfsd': {
-      'en': 'Save',
-      'fa': 'ذخیره',
-    },
-    '8jck5xal': {
-      'en': 'Please  enter valid new password.',
-      'fa': 'لطفا رمز عبور جدید معتبری وارد کنید.',
-    },
-    '9amewow5': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    'w5i7eiux': {
-      'en': 'Please  enter valid confirm password.',
-      'fa': 'لطفا رمز عبور معتبر را وارد کنید.',
-    },
-    'zcnl34nd': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    'q1jzr6vg': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // ForgotPasswordPage
-  {
-    '7cx2kxrk': {
-      'en': 'Type your email, we will send you verification code via email',
-      'fa':
-          'ایمیل خود را وارد کنید، ما کد تأیید را از طریق ایمیل برای شما ارسال خواهیم کرد',
-    },
-    'ukwsa1lg': {
-      'en': 'Email address',
-      'fa': 'آدرس ایمیل',
-    },
-    'b9qhzbmh': {
-      'en': 'Email address',
-      'fa': 'آدرس ایمیل',
-    },
-    'tx1anksc': {
-      'en': 'please enter valid your email address.',
-      'fa': 'لطفا آدرس ایمیل معتبر خود را وارد کنید.',
-    },
-    'dxfpl9nd': {
-      'en': 'please enter your email address.',
-      'fa': 'لطفا آدرس ایمیل خود را وارد کنید.',
-    },
-    'zwux5wuv': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    'pn42p7ja': {
-      'en': 'Continue',
-      'fa': 'ادامه',
-    },
-    'ouc203vm': {
-      'en': 'Forgot Pssword',
-      'fa': '',
-    },
-    'ns7bgfpq': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // OrderDetailPage
-  {
-    'lkihf97e': {
-      'en': 'Order ID :',
-      'fa': 'شناسه سفارش:',
-    },
-    'lmnac4b8': {
-      'en': ' #123654',
-      'fa': '#۱۲۳۶۵۴',
-    },
-    'iwcovqks': {
-      'en': 'Order at 6:35 PM|',
-      'fa': 'سفارش ساعت ۶:۳۵ بعد از ظهر|',
-    },
-    '4lch27s7': {
-      'en': '4 March',
-      'fa': '۴ مارس',
-    },
-    'fe4sg29t': {
-      'en': 'Pending',
-      'fa': 'در حال بررسی',
-    },
-    'omxtm18b': {
-      'en': 'Customer',
-      'fa': 'مشتری',
-    },
-    'mg2c1r5j': {
-      'en': 'Jane cooper',
-      'fa': 'جین کوپر',
-    },
-    'dxaqlq2j': {
-      'en': 'Office Address',
-      'fa': 'آدرس دفتر',
-    },
-    'unwaqbh6': {
-      'en': '4517 washington ave. manchester, kentucky 39495',
-      'fa': '۴۵۱۷ خیابان واشنگتن، منچستر، کنتاکی ۳۹۴۹۵',
-    },
-    '2ma6y8t7': {
-      'en': 'Home Address',
-      'fa': 'آدرس منزل',
-    },
-    'zielytrq': {
-      'en': '2118 thornridge cir. syracuse, connecticut 35624',
-      'fa': '۲۱۱۸، سیراکیوز، کنتیکت، کد پستی ۳۵۶۲۴، تورنریج',
-    },
-    '8yhu29y4': {
-      'en': 'Order note',
-      'fa': 'یادداشت سفارش',
-    },
-    't7fk7jbv': {
-      'en': 'I need the best one',
-      'fa': 'من به بهترینش نیاز دارم',
-    },
-    '74yuid8d': {
-      'en': 'Possibly table',
-      'fa': 'احتمالاً میز',
-    },
-    '2ubn5vod': {
-      'en': '\$30.00',
-      'fa': '۳۰٫۰۰ دلار',
-    },
-    'xohpj1u6': {
-      'en': 'Payment summary',
-      'fa': 'خلاصه پرداخت',
-    },
-    'caes7d6g': {
-      'en': 'Subtotal',
-      'fa': 'جمع جزئی',
-    },
-    '1evrjq0h': {
-      'en': 'Shipping',
-      'fa': 'حمل و نقل',
-    },
-    '3s5du8oj': {
-      'en': 'Total',
-      'fa': 'مجموع',
-    },
-    '7ftwu6e0': {
-      'en': '\$114.00',
-      'fa': '۱۱۴٫۰۰ دلار',
-    },
-    'tisru0s4': {
-      'en': '\$10.00',
-      'fa': '۱۰٫۰۰ دلار',
-    },
-    'jr9qinm5': {
-      'en': '\$124.00',
-      'fa': '۱۲۴٫۰۰ دلار',
-    },
-    'bi9jcpvo': {
-      'en': 'Cancel order',
-      'fa': 'لغو سفارش',
-    },
-    'jtm8hzgg': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // ResetPasswordPage
-  {
-    '6baohfcj': {
-      'en': 'Create your new password to log in',
-      'fa': 'رمز عبور جدید خود را برای ورود ایجاد کنید',
-    },
-    '7qj4jthi': {
-      'en': 'New password',
-      'fa': 'رمز عبور جدید',
-    },
-    'hd56x034': {
-      'en': 'New password',
-      'fa': 'رمز عبور جدید',
-    },
-    'ssuipl8e': {
-      'en': 'Confirm password',
-      'fa': 'تأیید رمز عبور',
-    },
-    'duge37vu': {
-      'en': 'Confirm password',
-      'fa': 'تأیید رمز عبور',
-    },
-    'j3fkaqso': {
-      'en': 'Reset password',
-      'fa': 'بازنشانی رمز عبور',
-    },
-    '7fzxxs8j': {
-      'en': 'Please enter valid new password.',
-      'fa': 'لطفا رمز عبور جدید معتبری وارد کنید.',
-    },
-    'lo4zqx7s': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    '71vw82ef': {
-      'en': 'please enter valid confirm passsword.',
-      'fa': 'لطفا رمز عبور معتبر وارد کنید.',
-    },
-    'elie794q': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    'ezuq28f4': {
-      'en': 'Reset password',
-      'fa': '',
-    },
-    'yp5q6x4q': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // chatsearch
-  {
-    'nx5r36vm': {
-      'en': '',
-      'fa': '',
-    },
-    'heyv0y7l': {
-      'en': 'Search',
-      'fa': 'جستجو',
-    },
-    'it1vxbnl': {
-      'en': '',
-      'fa': '',
-    },
-    '9c2yt8y7': {
-      'en': 'People',
-      'fa': 'مردم',
-    },
-    'e12a7uxc': {
-      'en': 'Fariq Azhar',
-      'fa': 'فارق ازهر',
-    },
-    'ysc1jits': {
-      'en': 'Ok sir',
-      'fa': 'باشه آقا',
-    },
-    'qkm0spa9': {
-      'en': '27 Min',
-      'fa': '۲۷ دقیقه',
-    },
-    'udn2jkxq': {
-      'en': 'Messages',
-      'fa': 'پیام‌ها',
-    },
-    '83da51ga': {
-      'en': 'Jane cooper',
-      'fa': 'جین کوپر',
-    },
-    'dufjtrv0': {
-      'en': 'Ghusna she for new',
-      'fa': 'غصنا او را برای جدید',
-    },
-    'x19rkdf7': {
-      'en': '20/03/2023',
-      'fa': '۲۰/۰۳/۲۰۲۳',
-    },
-    '8birqyxf': {
-      'en': 'Fariq Azhar',
-      'fa': 'فارق ازهر',
-    },
-    'b0qavx0w': {
-      'en': 'Ok sir',
-      'fa': 'باشه آقا',
-    },
-    'qiswl4cd': {
-      'en': '16/03/2020',
-      'fa': '۱۶/۰۳/۲۰۲۰',
-    },
-    'm9oyildy': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // CallPage
-  {
-    'y3o5jfkv': {
-      'en': 'Jane cooper',
-      'fa': 'جین کوپر',
-    },
-    'vgemo2vv': {
-      'en': '20:12',
-      'fa': '۲۰:۱۲',
-    },
-    'ttesvk8r': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // TermsConditionsPage
-  {
-    'h07847j4': {
-      'en': 'Last update:',
-      'fa': 'آخرین به‌روزرسانی:',
-    },
-    'gt5ezvts': {
-      'en': ' 27/12/2023',
-      'fa': '۲۷/۱۲/۲۰۲۳',
-    },
-    'ymkkp0xc': {
-      'en':
-          'Please read these terms of service, carefully before using our app operated by us.',
-      'fa':
-          'لطفاً قبل از استفاده از برنامه‌ای که توسط ما اداره می‌شود، این شرایط خدمات را با دقت مطالعه کنید.',
-    },
-    'qtiz5odk': {
-      'en': 'Conditions of Uses',
-      'fa': 'شرایط استفاده',
-    },
-    'n6b25ynm': {
-      'en':
-          'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. \n\nMany desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).',
-      'fa':
-          'این یک واقعیت دیرینه است که خواننده هنگام نگاه کردن به طرح‌بندی یک صفحه، حواسش به محتوای خوانای آن پرت می‌شود. نکته استفاده از لورم ایپسوم این است که برخلاف استفاده از «محتوا اینجا، محتوا اینجا» توزیع حروف کم و بیش نرمالی دارد و باعث می‌شود مانند انگلیسی خوانا به نظر برسد.\n\nبسیاری از بسته‌های نشر رومیزی و ویرایشگرهای صفحات وب اکنون از لورم ایپسوم به عنوان متن مدل پیش‌فرض خود استفاده می‌کنند و جستجوی «لورم ایپسوم» بسیاری از وب‌سایت‌ها را که هنوز در مراحل ابتدایی خود هستند، آشکار می‌کند. نسخه‌های مختلفی در طول سال‌ها تکامل یافته‌اند، گاهی به طور تصادفی، گاهی به طور هدفمند (تزریق طنز و موارد مشابه).',
-    },
-    '0t1hw5zn': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // ReviewsPage
-  {
-    '66ku3mjd': {
-      'en': '4.0',
-      'fa': '۴.۰',
-    },
-    'x7iif5up': {
-      'en': 'Based on 23 reviews',
-      'fa': 'بر اساس ۲۳ نظر',
-    },
-    'rxtq9yyu': {
-      'en': 'Leslie Alexander',
-      'fa': 'لسلی الکساندر',
-    },
-    'f30piew6': {
-      'en': '5 Min',
-      'fa': '۵ دقیقه',
-    },
-    '57j93ako': {
-      'en':
-          'Good service and I\'m happy with the service,best value plant nursery in my area.',
-      'fa':
-          'خدمات خوبی ارائه می‌دهد و من از خدمات راضی هستم، بهترین گلخانه با بهترین قیمت در منطقه من است.',
-    },
-    'v6ofv7vn': {
-      'en': 'Raji Fakhr',
-      'fa': 'راجی فخر',
-    },
-    '4d0vdy4g': {
-      'en': '10 Min',
-      'fa': '۱۰ دقیقه',
-    },
-    'g48zhywg': {
-      'en':
-          'Formal assessment of something with the intention of change if necessary.',
-      'fa': 'ارزیابی رسمی چیزی با هدف تغییر در صورت لزوم.',
-    },
-    'wxbaqwac': {
-      'en': 'Thuwaybah Issa',
-      'fa': 'ثویبه عیسی',
-    },
-    'hjca21i3': {
-      'en': '15 Min',
-      'fa': '۱۵ دقیقه',
-    },
-    '78kxzikd': {
-      'en':
-          'Good service and I\'m happy with the service,best value plant nursery in my area.',
-      'fa':
-          'خدمات خوبی ارائه می‌دهد و من از خدمات راضی هستم، بهترین گلخانه با بهترین قیمت در منطقه من است.',
-    },
-    'e1b2lub2': {
-      'en': 'Nuhaid Rihab',
-      'fa': 'نوحید رحاب',
-    },
-    'ivvsfbyu': {
-      'en': '20 Min',
-      'fa': '۲۰ دقیقه',
-    },
-    'wd1f2mqj': {
-      'en':
-          'Review of the latest book on Chaucer. A criticism is a judgment, usually in an article, either favorable.',
-      'fa':
-          'نقد و بررسی آخرین کتاب درباره چاسر. نقد، قضاوتی است که معمولاً در یک مقاله، چه به صورت مثبت و چه به صورت منفی، صورت می‌گیرد.',
-    },
-    'qksj5snf': {
-      'en': 'Nuhaid Rihab',
-      'fa': 'نوحید رحاب',
-    },
-    'iliqi8ae': {
-      'en': '20 Min',
-      'fa': '۲۰ دقیقه',
-    },
-    'ho7wedwq': {
-      'en':
-          'Review of the latest book on Chaucer. A criticism is a judgment, usually in an article, either favorable.',
-      'fa':
-          'نقد و بررسی آخرین کتاب درباره چاسر. نقد، قضاوتی است که معمولاً در یک مقاله، چه به صورت مثبت و چه به صورت منفی، صورت می‌گیرد.',
-    },
-    'wcyttu8x': {
-      'en': 'Write a review',
-      'fa': 'نقد بنویسید',
-    },
-    '42yne5o9': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // EditProfilePage
-  {
-    '0s0oq8lm': {
-      'en': 'Personal',
-      'fa': '',
-    },
-    'tttjt5vi': {
-      'en': 'John Abram',
-      'fa': 'جان آبرام',
-    },
-    '4xa9vb8h': {
-      'en': 'johnabram@gmail.com',
-      'fa': 'johnabram@gmail.com',
-    },
-    'ajz4jud6': {
-      'en': 'First name',
-      'fa': '',
-    },
-    'eftvagcn': {
-      'en': 'First name',
-      'fa': '',
-    },
-    'qhflssql': {
-      'en': 'Name',
-      'fa': '',
-    },
-    '6ko0lmu7': {
-      'en': 'Last name',
-      'fa': 'نام خانوادگی',
-    },
-    'gqjiokb0': {
-      'en': 'Last name',
-      'fa': 'نام خانوادگی',
-    },
-    '7pspadti': {
-      'en': 'Last Name',
-      'fa': 'ایکس وای زد',
-    },
-    'qesx3ssd': {
-      'en': 'Email',
-      'fa': 'نام خانوادگی',
-    },
-    'i3byp893': {
-      'en': 'Email',
-      'fa': 'نام خانوادگی',
-    },
-    '76yap4yl': {
-      'en': 'email@email.com',
-      'fa': 'ایکس وای زد',
-    },
-    'rvgsvj77': {
-      'en': 'PhoneNumber',
-      'fa': 'نام خانوادگی',
-    },
-    '19di0w5p': {
-      'en': 'PhonrNumber',
-      'fa': 'نام خانوادگی',
-    },
-    'mb8nyqzi': {
-      'en': '0612345678',
-      'fa': 'ایکس وای زد',
-    },
-    'dstarzca': {
-      'en': 'Biography',
-      'fa': 'نام خانوادگی',
-    },
-    'd7253m78': {
-      'en': 'Email',
-      'fa': 'نام خانوادگی',
-    },
-    '70gf5yhz': {
-      'en': 'Let everyone know about you.',
-      'fa': '',
-    },
-    'a3u6xako': {
-      'en': 'Please enter valid first name.',
-      'fa': 'لطفا نام و نام خانوادگی معتبر وارد کنید.',
-    },
-    'qv5r7ztk': {
-      'en': 'Minimum 4 letters are required.',
-      'fa': '',
-    },
-    'dl7s6888': {
-      'en': 'Too lang.',
-      'fa': '',
-    },
-    'ktttbjpc': {
-      'en': 'Only letter(A-Z) are valid.',
-      'fa': '',
-    },
-    'cdh9zhru': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    'evx6tw37': {
-      'en': 'LastName is required',
-      'fa': '',
-    },
-    'su2elewf': {
-      'en': 'Only letter\'s and space are allowed.',
-      'fa': '',
-    },
-    '9c7hli0h': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    'dn67pzsa': {
-      'en': 'Please enter valid Email address.',
-      'fa': 'لطفا نام خانوادگی معتبر وارد کنید.',
-    },
-    '6tsrcuds': {
-      'en': 'Please enter valid Email address.',
-      'fa': '',
-    },
-    'qchb1jhd': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    'dk5fo1dm': {
-      'en': 'email@email.com is required',
-      'fa': '',
-    },
-    '74oi7dkd': {
-      'en': 'Use a valid phone number.  follow the suggestion 0612345678',
-      'fa': '',
-    },
-    '76m0a5y9': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    '31v134g5': {
-      'en': 'Too many characters.',
-      'fa': '',
-    },
-    '8w6ysc3w': {
-      'en': 'Invalid structure, please follow the suggestion 0612345678',
-      'fa': '',
-    },
-    'h76wjrvt': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    'hwnil7yj': {
-      'en': 'Change password',
-      'fa': '',
-    },
-    '2rhbv0f2': {
-      'en': 'Save',
-      'fa': '',
-    },
-    'oayetdci': {
-      'en': 'Privacy Setting',
-      'fa': '',
-    },
-    'yagsy89e': {
-      'en': 'Email notification',
-      'fa': '',
-    },
-    'j4c6boy0': {
-      'en': 'App notification',
-      'fa': '',
-    },
-    '0j95yesk': {
-      'en': 'Show profile biography',
-      'fa': '',
-    },
-    'ww3yseu2': {
-      'en': 'Show profile photo',
-      'fa': '',
-    },
-    'dcfzdej6': {
-      'en': 'Allow users to message me.',
-      'fa': '',
-    },
-    '31c1xk41': {
-      'en': 'Terms&Privacy',
-      'fa': '',
-    },
-    'ctjxfbis': {
-      'en': 'Last update:',
-      'fa': 'آخرین به‌روزرسانی:',
-    },
-    'rrttthby': {
-      'en': ' 27/12/2023',
-      'fa': '۲۷/۱۲/۲۰۲۳',
-    },
-    '2a0i1twc': {
-      'en':
-          'Please read these terms of service, carefully before using our app operated by us.',
-      'fa':
-          'لطفاً قبل از استفاده از برنامه‌ای که توسط ما اداره می‌شود، این شرایط خدمات را با دقت مطالعه کنید.',
-    },
-    'vjketkqj': {
-      'en': 'Conditions of Uses',
-      'fa': 'شرایط استفاده',
-    },
-    'zg7rimqt': {
-      'en':
-          'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. \n\nMany desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).',
-      'fa':
-          'این یک واقعیت دیرینه است که خواننده هنگام نگاه کردن به طرح‌بندی یک صفحه، حواسش به محتوای خوانای آن پرت می‌شود. نکته استفاده از لورم ایپسوم این است که برخلاف استفاده از «محتوا اینجا، محتوا اینجا» توزیع حروف کم و بیش نرمالی دارد و باعث می‌شود مانند انگلیسی خوانا به نظر برسد.\n\nبسیاری از بسته‌های نشر رومیزی و ویرایشگرهای صفحات وب اکنون از لورم ایپسوم به عنوان متن مدل پیش‌فرض خود استفاده می‌کنند و جستجوی «لورم ایپسوم» بسیاری از وب‌سایت‌ها را که هنوز در مراحل ابتدایی خود هستند، آشکار می‌کند. نسخه‌های مختلفی در طول سال‌ها تکامل یافته‌اند، گاهی به طور تصادفی، گاهی به طور هدفمند (تزریق طنز و موارد مشابه).',
-    },
-    'j8q97d3v': {
-      'en': 'Types of data we collect',
-      'fa': 'انواع داده‌هایی که جمع‌آوری می‌کنیم',
-    },
-    '24o3rhph': {
-      'en':
-          'Torem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum ',
-      'fa':
-          'Torem ipsum dolor sit amet، consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim، metus nec fringilla accumsan، risus sem sollicitudin lacus، ut interdum',
-    },
-    'zny8u66d': {
-      'en': 'Use of your personal data',
-      'fa': 'استفاده از داده‌های شخصی شما',
-    },
-    '9196e67i': {
-      'en':
-          'Torem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum ',
-      'fa':
-          'Torem ipsum dolor sit amet، consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim، metus nec fringilla accumsan، risus sem sollicitudin lacus، ut interdum',
-    },
-    'agq5tly5': {
-      'en': 'Disclosure of your data',
-      'fa': 'افشای داده‌های شما',
-    },
-    '4jf3c8pv': {
-      'en':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec ac odio tempor orci dapibus ultrices in iaculis lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec ac odio tempor orci dapibus ultrices in iaculis Ac auctor augue mauris augue neque gravida. Velit ut tortor pretium viverra suspendisse. Volutpat commodo sed egestas egestas fringilla phasellus faucibus. ',
-      'fa':
-          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec ac odio tempor orci dapibus ultrices in iaculis lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec ac odio tempor orci dapibus ultrices in iaculis Ac auctor augue mauris augue neque gravida. تعلیق پرتیوم ویورا. Volutpat commodo sed egestas egestas fringillaphallus faucibus.',
-    },
-    'ye7an5vq': {
-      'en': 'Back',
-      'fa': '',
-    },
-    '2615xb3m': {
+    'y27rul3e': {
+      'en': 'Dashboard',
+      'fa': 'داشبورد',
+    },
+    '3r5gd90h': {
+      'en': 'Below is a summary of your day.',
+      'fa': 'خلاصه‌ای از روز شما در زیر آمده است.',
+    },
+    'honzj49s': {
+      'en': 'Reported Users',
+      'fa': 'کاربران گزارش شده',
+    },
+    'a8s0jq7n': {
+      'en': 'Reported Posts',
+      'fa': 'پست‌های گزارش‌شده',
+    },
+    'bqpm7nju': {
+      'en': '16',
+      'fa': '۱۶',
+    },
+    'xe9yy4xg': {
+      'en': 'Completed Tasks',
+      'fa': 'وظایف انجام شده',
+    },
+    'trib0otj': {
+      'en': 'User Acrivity',
+      'fa': 'فعالیت کاربر',
+    },
+    '4g3g78nc': {
+      'en': 'An overview of your route.',
+      'fa': 'نمای کلی از مسیر شما.',
+    },
+    '59i64ufn': {
+      'en': 'Route progress',
+      'fa': 'پیشرفت مسیر',
+    },
+    'luw7diah': {
+      'en': '12',
+      'fa': '۱۲',
+    },
+    '2bodtbq0': {
+      'en': 'Tasks to be completed',
+      'fa': 'وظایفی که باید تکمیل شوند',
+    },
+    'w3s1tswi': {
+      'en': 'Contact Messages',
+      'fa': 'پیام‌های تماس',
+    },
+    'v3keodxf': {
+      'en': 'Send at:',
+      'fa': 'ارسال به:',
+    },
+    'zt64g53o': {
+      'en': 'Task Type',
+      'fa': 'نوع وظیفه',
+    },
+    'wwwqvc73': {
+      'en': 'Task description here.',
+      'fa': 'شرح وظایف اینجا.',
+    },
+    '5babgypu': {
+      'en': 'Due:',
+      'fa': 'موعد:',
+    },
+    'se5sinyl': {
+      'en': 'Today, 6:20pm',
+      'fa': 'امروز، ساعت ۱۸:۲۰',
+    },
+    'xqf0f5nk': {
+      'en': 'Update',
+      'fa': 'به‌روزرسانی',
+    },
+    'kcmsvvgv': {
+      'en': '1',
+      'fa': '۱',
+    },
+    'l5ch9txr': {
+      'en': 'Recent Activity',
+      'fa': 'فعالیت اخیر',
+    },
+    'zh98zvo3': {
+      'en': 'Below is an overview of tasks & activity completed.',
+      'fa': 'در زیر خلاصه‌ای از وظایف و فعالیت‌های انجام شده آمده است.',
+    },
+    'vhkxh9nm': {
+      'en': 'Tasks',
+      'fa': 'وظایف',
+    },
+    'htjdxa0n': {
+      'en': 'Completed',
+      'fa': 'تکمیل شده',
+    },
+    'vh94losf': {
+      'en': 'Launches',
+      'fa': 'پرتاب‌ها',
+    },
+    '5rr1rii1': {
+      'en': 'Last 30 Days',
+      'fa': '۳۰ روز گذشته',
+    },
+    'd6pa0tus': {
+      'en': 'Avg. Grade',
+      'fa': 'میانگین درجه',
+    },
+    'ittjsdyx': {
       'en': 'Home',
       'fa': 'خانه',
     },
@@ -1476,18 +442,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'fppuf54e': {
       'en': 'See all',
       'fa': 'همه را ببینید',
-    },
-    'sfaqm5h0': {
-      'en': 'Game Night',
-      'fa': 'شب بازی',
-    },
-    'v6fucuhz': {
-      'en': 'Sport',
-      'fa': 'ورزش',
-    },
-    'cpfbz0wo': {
-      'en': 'BBQ',
-      'fa': 'باربیکیو',
     },
     '7qvgei9i': {
       'en': 'New Shows',
@@ -1606,206 +560,21 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'خانه',
     },
   },
-  // AboutPage
+  // ReportedPost
   {
-    'sj2ejwyi': {
-      'en': 'Traditional indian soup lentils.',
-      'fa': 'سوپ عدس سنتی هندی.',
+    'fn7rbuop': {
+      'en': 'Reported Posts',
+      'fa': 'پست‌های گزارش‌شده',
     },
-    'eyopgro8': {
-      'en':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. ',
-      'fa':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim، metus nec fringilla accumsan، risus sem sollicitudin lacus، ut interdum tellus elit sed risus.',
+    'v4bgkf53': {
+      'en': 'Make sure the users don\'t stay in reported state too long',
+      'fa': 'مطمئن شوید که کاربران مدت زیادی در حالت گزارش‌شده نمی‌مانند.',
     },
-    'v0leq08k': {
-      'en':
-          'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.',
-      'fa':
-          'آمت مینیم مولیت غیر دسرونت اولامکو است سیت آلیکا دولور دو آمت سینت. Velit officia consequat duis enim velit mollit. ورزش veniam consequat sunt nostrud amet.',
+    'yhwpofu5': {
+      'en': 'Unblock',
+      'fa': 'رفع انسداد',
     },
-    'u4cub474': {
-      'en':
-          'In a laoreet purus. Integer turpis quam, laoreet id orci nec, ultrices lacinia nunc. Aliquam erat volutpat. Curabitur fringilla in purus eget egestas. Etiam quis.',
-      'fa':
-          'در purus laoreet. عدد صحیح turpis quam، laoreet id orci nec، ultrices lacinia nunc. الیکوام ارات ولوتپات. Curabitur fringilla در purus eget egestas. اتیام کویس.',
-    },
-    'wm4znpuc': {
-      'en':
-          'IVorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. ',
-      'fa':
-          'IVorem ipsum dolor sit amet، consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim، metus nec fringilla accumsan، risus sem sollicitudin lacus، ut interdum tellus elit sed risus.',
-    },
-    'wk5x7m62': {
-      'en':
-          'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. ',
-      'fa':
-          'آمت مینیم مولیت غیر دسرونت اولامکو است سیت آلیکا دولور دو آمت سینت.',
-    },
-    '822wmebl': {
-      'en':
-          'IVorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. ',
-      'fa':
-          'IVorem ipsum dolor sit amet، consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim، metus nec fringilla accumsan، risus sem sollicitudin lacus، ut interdum tellus elit sed risus.',
-    },
-    'kwobyyc8': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // chatdetail
-  {
-    '71xw6t33': {
-      'en': 'Basinah Quraishi',
-      'fa': 'بصینه قریشی',
-    },
-    'zuqg8tu7': {
-      'en': 'Hello sir',
-      'fa': 'سلام آقا',
-    },
-    '6wmoc6n8': {
-      'en': 'Yesterday',
-      'fa': 'دیروز',
-    },
-    'mdu1w55m': {
-      'en': 'Hello, brother',
-      'fa': 'سلام برادر',
-    },
-    'hqpnggeo': {
-      'en': 'Language is a means of the new communication',
-      'fa': 'زبان وسیله‌ای برای ارتباط نوین است',
-    },
-    'q19l9lfr': {
-      'en': 'Today',
-      'fa': 'امروز',
-    },
-    'svwgmjd7': {
-      'en': 'Good morning, brother',
-      'fa': 'صبح بخیر، برادر',
-    },
-    'glbyizlc': {
-      'en': 'Instruction in a prompt and provide a detailed response',
-      'fa': 'دستورالعمل در یک سوال و ارائه پاسخ دقیق',
-    },
-    'k4p1738l': {
-      'en': '',
-      'fa': '',
-    },
-    'ztyst9mh': {
-      'en': 'Type here',
-      'fa': 'اینجا تایپ کنید',
-    },
-    'ixvb7rf1': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // SettingPage
-  {
-    'x0kdsaqy': {
-      'en': 'About us',
-      'fa': 'درباره ما',
-    },
-    'ic8q7mg9': {
-      'en': 'Help',
-      'fa': 'کمک',
-    },
-    'bh7jxmp0': {
-      'en': 'Feedback',
-      'fa': 'بازخورد',
-    },
-    'rpo1gjxd': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // AddnewcardPage
-  {
-    '9q7to6hw': {
-      'en': 'Select card type',
-      'fa': 'انتخاب نوع کارت',
-    },
-    'alhqzign': {
-      'en': 'Search for an item...',
-      'fa': 'جستجوی یک مورد...',
-    },
-    '7d3970t0': {
-      'en': 'Credit Card',
-      'fa': 'کارت اعتباری',
-    },
-    '95owi1am': {
-      'en': 'Debit Card',
-      'fa': 'کارت بدهی',
-    },
-    'xhhcf1za': {
-      'en': 'Card holder name',
-      'fa': 'نام دارنده کارت',
-    },
-    'kld2c2oq': {
-      'en': 'Card holder name',
-      'fa': 'نام دارنده کارت',
-    },
-    '760jsitm': {
-      'en': 'Card number',
-      'fa': 'شماره کارت',
-    },
-    'wwzr3c68': {
-      'en': 'Card number',
-      'fa': 'شماره کارت',
-    },
-    'cg1dui74': {
-      'en': 'Expiray date',
-      'fa': 'تاریخ انقضا',
-    },
-    '8sjf5i61': {
-      'en': 'Expiray date',
-      'fa': 'تاریخ انقضا',
-    },
-    'x9q220lh': {
-      'en': 'CVV',
-      'fa': 'سی وی وی',
-    },
-    'c8tmxcop': {
-      'en': 'CVV',
-      'fa': 'سی وی وی',
-    },
-    '4qezr8e5': {
-      'en': 'Add',
-      'fa': 'اضافه کردن',
-    },
-    '69wy7hnc': {
-      'en': 'Please enter valid card holder name.',
-      'fa': 'لطفا نام دارنده کارت معتبر را وارد کنید.',
-    },
-    'uemj7vsm': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    'fp8h98zh': {
-      'en': 'Please enter valid card number.',
-      'fa': 'لطفا شماره کارت معتبر وارد کنید.',
-    },
-    '8tnlq6y2': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    '01vkoiox': {
-      'en': 'Please enter valid expiray date.',
-      'fa': 'لطفا تاریخ انقضای معتبر وارد کنید.',
-    },
-    'byrvmfq9': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    '1gtoud41': {
-      'en': 'Please enter valid cvv.',
-      'fa': 'لطفا cvv معتبر وارد کنید.',
-    },
-    'u4kll9wd': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    '2aedvv87': {
+    'djmc2ax5': {
       'en': 'Home',
       'fa': 'خانه',
     },
@@ -1814,508 +583,685 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'fvqou22z': {
       'en': 'OFFER HELP, GET CLOSER',
-      'fa': '',
+      'fa': 'پیشنهاد کمک بدهید، نزدیک‌تر شوید',
     },
     'x5ipfs17': {
       'en':
           'Need help moving, repairing, or learning? Your community steps in — no pressure, just help.',
-      'fa': '',
+      'fa':
+          'برای اسباب‌کشی، تعمیر یا یادگیری به کمک نیاز دارید؟ جامعه شما وارد عمل می‌شود - بدون هیچ فشاری، فقط کمک کنید.',
     },
     'dq5yb1i0': {
-      'en': 'EXCHANGE FREELY',
-      'fa': '',
+      'en': 'SWAP FREELY',
+      'fa': 'آزادانه تعویض کنید',
     },
     'e8ck1z6d': {
       'en':
-          'Swap items or services — old-school style. Get what you need while passing along what you don’t.',
-      'fa': '',
-    },
-    'mc82p32c': {
-      'en': 'ORGANISE OR JOIN EVENTS',
-      'fa': '',
-    },
-    '6hct3poo': {
-      'en':
-          'Host your own or join others — from cozy game nights to creative workshops. It’s your space to connect.',
-      'fa': '',
-    },
-    '77oebv9d': {
-      'en': 'NEVER FAR FROM IRAN',
-      'fa': '',
-    },
-    '2lvwirso': {
-      'en':
-          'Need something from someone trusted in Iran? Income for them, ease for you.',
-      'fa': '',
+          'Swap items, skills or services — old-school style. Get what you need while passing along what you don’t.',
+      'fa':
+          'اقلام، مهارت‌ها یا خدمات را با هم عوض کنید - به سبک قدیمی. آنچه را که نیاز دارید، دریافت کنید و آنچه را که نیاز ندارید، به اشتراک بگذارید.',
     },
     'b8gufi8a': {
       'en': 'Home',
       'fa': 'خانه',
     },
   },
-  // SignInPage
+  // ImageGalleryPage
   {
-    '3yjo0udr': {
-      'en': 'Welcome Back',
-      'fa': '',
-    },
-    '9amiwbff': {
-      'en':
-          'Sign in to find trusted people, exchanges, and opportunities near you.',
-      'fa': '',
-    },
-    'sdree3ti': {
-      'en': 'Email',
-      'fa': '',
-    },
-    'xpgw6kd9': {
-      'en': 'Password',
-      'fa': '',
-    },
-    'nxmvn4ld': {
-      'en': 'Forgot password? ',
-      'fa': '',
-    },
-    'btvjsow4': {
-      'en': 'Click here',
-      'fa': '',
-    },
-    'c0foq102': {
-      'en': 'OR',
-      'fa': '',
-    },
-    'qqhkk63r': {
-      'en': 'No account yet? ',
-      'fa': '',
-    },
-    'oc6h6d27': {
-      'en': 'Sign Up here',
-      'fa': '',
-    },
-    '0rujztpm': {
-      'en': 'Home',
-      'fa': '',
-    },
-  },
-  // QuestionairPage
-  {
-    'nbdummsk': {
-      'en': 'Where are you located?',
-      'fa': '',
-    },
-    'y5itzz6t': {
-      'en':
-          'So we can better match you with nearby events, services, and users.',
-      'fa': '',
-    },
-    '1295uiwr': {
-      'en': 'Select Location',
-      'fa': '',
-    },
-    'tpkopas3': {
-      'en': 'How do you want to use Yekja?',
-      'fa': '',
-    },
-    'jetsdu3f': {
-      'en':
-          'Select all the ways you\'d like to use the app — find help, exchange, trade, or connect with people.',
-      'fa': '',
-    },
-    'g5kggsww': {
-      'en': 'Ready to swap?',
-      'fa': '',
-    },
-    'eng9z0mt': {
-      'en':
-          'Got something others could use? Swap what you have for what you need — you agree together how it works.',
-      'fa': '',
-    },
-    'nro0no3y': {
-      'en': 'What would you host or attend?',
-      'fa': '',
-    },
-    '8p8vwszd': {
-      'en':
-          'Host your own or join others — from cozy game nights to creative workshops. It’s your space to connect.',
-      'fa': '',
-    },
-    'z05zz2bf': {
-      'en': 'Home',
-      'fa': '',
-    },
-  },
-  // SignUpPage
-  {
-    'w51ndrcz': {
-      'en': 'Create an account',
-      'fa': '',
-    },
-    '4z21d4lm': {
-      'en': 'Let\'s get started by filling out the form below.',
-      'fa': '',
-    },
-    '7256pz7h': {
-      'en': 'First Name',
-      'fa': '',
-    },
-    'l59oh5jc': {
-      'en': 'Email',
-      'fa': '',
-    },
-    '17880f1u': {
-      'en': 'Password',
-      'fa': '',
-    },
-    '1256s0cp': {
-      'en': 'Confirm Password',
-      'fa': '',
-    },
-    'rl6es88l': {
-      'en': 'Password dosen\'t match.',
-      'fa': '',
-    },
-    'nwrf2xzf': {
-      'en': 'First Name is required',
-      'fa': '',
-    },
-    '9yvyvlpk': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': '',
-    },
-    'yomt8b8f': {
-      'en': 'Email is required',
-      'fa': '',
-    },
-    '5gfprwht': {
-      'en': 'Please enter valid Email address.',
-      'fa': '',
-    },
-    'szbz780w': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': '',
-    },
-    '0ndzc1mz': {
-      'en': 'Password is required',
-      'fa': '',
-    },
-    'ckanrmbh': {
-      'en': 'Minimum 6 characters are required.',
-      'fa': '',
-    },
-    'h40f5p5q': {
-      'en':
-          '- At least one uppercase letter\n\n- At least one digit\n\n- At least 8 characters ',
-      'fa': '',
-    },
-    'uqmqpy8n': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': '',
-    },
-    '8me73vdb': {
-      'en': 'Confirm Password is required',
-      'fa': '',
-    },
-    '1nu2760r': {
-      'en': 'Minimum 6 characters are required.',
-      'fa': '',
-    },
-    '1ges8uvu': {
-      'en':
-          '- At least one uppercase letter\n\n- At least one digit\n\n- At least 8 characters ',
-      'fa': '',
-    },
-    'mebfhwgq': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': '',
-    },
-    'q3xjm17v': {
-      'en': 'OR',
-      'fa': '',
-    },
-    'er6ptcif': {
-      'en': 'Continue as a Gust',
-      'fa': '',
-    },
-    'eo7evm6p': {
-      'en': 'Already have an account? ',
-      'fa': '',
-    },
-    'vk8yd8no': {
-      'en': ' Sign In here',
-      'fa': '',
-    },
-    'gdw0qcl7': {
-      'en': 'Terms of Service',
-      'fa': '',
-    },
-    'os16i96x': {
-      'en': 'Privacy Policy',
-      'fa': '',
-    },
-    '2g978126': {
-      'en': 'Home',
-      'fa': '',
-    },
-  },
-  // contactUS
-  {
-    'z0sazu0u': {
-      'en': 'Email',
-      'fa': 'نام خانوادگی',
-    },
-    '5q3k1rt7': {
-      'en': 'Email',
-      'fa': 'نام خانوادگی',
-    },
-    'xpl7q84t': {
-      'en': 'email@email.com',
-      'fa': 'ایکس وای زد',
-    },
-    '3gudmp3j': {
-      'en': 'Selec a subject ...',
-      'fa': '',
-    },
-    '5uhc3bbc': {
-      'en': 'Search...',
-      'fa': '',
-    },
-    'mo50cxbo': {
-      'en': 'Question about the Plattpform',
-      'fa': '',
-    },
-    'c6b7yfsx': {
-      'en': 'Issue with the plattform',
-      'fa': '',
-    },
-    'kut4wzrx': {
-      'en': 'Suggestion about the platform',
-      'fa': '',
-    },
-    'bi8szr71': {
-      'en': 'Advertisment',
-      'fa': '',
-    },
-    '256h8ngn': {
-      'en': 'Note',
-      'fa': 'نام خانوادگی',
-    },
-    '6asv4851': {
-      'en': 'Email',
-      'fa': 'نام خانوادگی',
-    },
-    '2rd89igt': {
-      'en': 'Let everyone know about you.',
-      'fa': '',
-    },
-    'erqkv95q': {
-      'en': 'Button',
-      'fa': '',
-    },
-    '1fxews6h': {
+    'jzavtjcg': {
       'en': 'Home',
       'fa': 'خانه',
     },
   },
-  // EventPlannerPage
+  // EventItmePage
   {
-    'fueaz9te': {
-      'en': 'EVENT Planner',
+    'ihq6z2l7': {
+      'en': 'New Comers Welcome Tour – Zaandam',
+      'fa': 'تور خوش آمد گویی به تازه واردان – Zaandam',
+    },
+    '4b47z512': {
+      'en': '230',
+      'fa': '۲۳۰',
+    },
+    '8uuwoih6': {
+      'en': '16',
+      'fa': '۱۶',
+    },
+    'jyez8hqg': {
+      'en': 'Every Friday, June 10 - Sept 30, 2025',
+      'fa': 'هر جمعه، ۱۰ ژوئن - ۳۰ سپتامبر ۲۰۲۵',
+    },
+    'zgzw8om6': {
+      'en': '14:00 - 16:00 ',
+      'fa': '۱۴:۰۰ - ۱۶:۰۰',
+    },
+    '2p2vzywc': {
+      'en': 'Windmill De Zoeker',
+      'fa': 'آسیاب بادی دی زوکر',
+    },
+    '7055pg69': {
+      'en': 'Kattenburgerstraat5, Zaandaam, NL',
+      'fa': 'Kattenburgerstraat5، Zaandaam، NL',
+    },
+    'p3hgu7bk': {
+      'en': 'Participate for',
+      'fa': 'شرکت برای',
+    },
+    'sad49kdo': {
+      'en': ' €15 ',
+      'fa': '۱۵ یورو',
+    },
+    '36lo1k10': {
+      'en': 'per person',
+      'fa': 'به ازای هر نفر',
+    },
+    '7pq64pbr': {
+      'en': ' €95 ',
+      'fa': '۹۵ یورو',
+    },
+    'x0pefp0a': {
+      'en': 'per group',
+      'fa': 'به ازای هر گروه',
+    },
+    'dlcfidw0': {
+      'en': 'Tom Hanks',
+      'fa': 'تام هنکس',
+    },
+    'msy42f2i': {
+      'en': 'Top Exchanger',
+      'fa': 'صرافی برتر',
+    },
+    'vq33vbsn': {
+      'en': 'DESCRIPTION',
+      'fa': 'شرح',
+    },
+    '80mpb4qk': {
+      'en':
+          'Welcome to NL! If you live neaby (or have a plan to),  here is a chance to discover the charm of the Dutch countryside on this guided tour in Zaandam. Visit iconic windmills, explore traditional villages, and enjoy scenic views along the way. During the tour, we’ll stop for a relaxing break with authentic Turkish tea and fresh baklava — a sweet moment to enjoy and connect. Perfect for travelers seeking culture, nature, and local hospitality in one unforgettable experience.',
+      'fa':
+          'به هلند شمالی خوش آمدید! اگر در نزدیکی اینجا زندگی می‌کنید (یا قصد دارید به آنجا بروید)، این فرصتی است تا جذابیت‌های حومه هلند را در این تور با راهنما در زاندام کشف کنید. از آسیاب‌های بادی نمادین دیدن کنید، روستاهای سنتی را کشف کنید و از مناظر زیبا در طول مسیر لذت ببرید. در طول تور، برای استراحتی آرامش‌بخش با چای اصیل ترکی و باقلوا تازه توقف خواهیم کرد - لحظه‌ای شیرین برای لذت بردن و ارتباط برقرار کردن. ایده‌آل برای مسافرانی که به دنبال فرهنگ، طبیعت و مهمان‌نوازی محلی در یک تجربه فراموش‌نشدنی هستند.',
+    },
+    'cg9bonua': {
+      'en': 'EVENT PARTICIPANTS',
+      'fa': 'شرکت‌کنندگان رویداد',
+    },
+    'aec3sulw': {
+      'en': 'Join others with shared interests and good vibes.',
+      'fa': 'به دیگران با علایق مشترک و حس خوب بپیوندید.',
+    },
+    'yydu55h7': {
+      'en': '45',
+      'fa': '۴۵',
+    },
+    'dzuyi66h': {
+      'en': 'Joining',
+      'fa': 'پیوستن',
+    },
+    '7viwxc64': {
+      'en': '3',
+      'fa': '۳',
+    },
+    '3jbk7hbi': {
+      'en': 'Min p',
+      'fa': 'حداقل پ',
+    },
+    '7oom526x': {
+      'en': '50',
+      'fa': '۵۰',
+    },
+    'jj2j0c0t': {
+      'en': 'Max p',
+      'fa': 'حداکثر پ',
+    },
+    '04idx21p': {
+      'en': 'Guests',
+      'fa': 'مهمانان',
+    },
+    'cr7gr22a': {
+      'en': 'Hosts',
+      'fa': 'میزبان‌ها',
+    },
+    's2ptf6g9': {
+      'en': '+ 13',
+      'fa': '+ ۱۳',
+    },
+    '9vh06prn': {
+      'en': 'See who\'s coming',
+      'fa': 'ببین کی میاد؟',
+    },
+    '0713cvoi': {
+      'en': '4.6',
+      'fa': '۴.۶',
+    },
+    'cu24ges8': {
+      'en': 'Based on 32 reviews',
+      'fa': 'بر اساس ۳۲ نقد و بررسی',
+    },
+    'zvci263d': {
+      'en': 'Olivia M.',
+      'fa': 'اولیویا م.',
+    },
+    'asot8dz4': {
+      'en': 'June 2023',
+      'fa': 'ژوئن ۲۰۲۳',
+    },
+    'qgsst55e': {
+      'en':
+          'Tom Hanks is a natural storyteller. His warmth, humor, and sincerity made every moment engaging. I could listen to him for hours!  I could listen to him for hours! I could listen to him for hours!',
+      'fa':
+          'تام هنکس یک قصه‌گوی ذاتی است. گرمی، شوخ‌طبعی و صداقت او هر لحظه را جذاب می‌کرد. می‌توانستم ساعت‌ها به حرف‌هایش گوش بدهم! می‌توانستم ساعت‌ها به حرف‌هایش گوش بدهم!',
+    },
+    'd0127ycu': {
+      'en': 'Olivia M.',
+      'fa': 'اولیویا م.',
+    },
+    'whnl4div': {
+      'en': 'June 2023',
+      'fa': 'ژوئن ۲۰۲۳',
+    },
+    'aqmzn95o': {
+      'en':
+          'Tom Hanks is a natural storyteller. His warmth, humor, and sincerity made every moment engaging. I could listen to him for hours!  I could listen to him for hours! I could listen to him for hours!',
+      'fa':
+          'تام هنکس یک قصه‌گوی ذاتی است. گرمی، شوخ‌طبعی و صداقت او هر لحظه را جذاب می‌کرد. می‌توانستم ساعت‌ها به حرف‌هایش گوش بدهم! می‌توانستم ساعت‌ها به حرف‌هایش گوش بدهم!',
+    },
+    'sm5qfpl0': {
+      'en': 'Olivia M.',
+      'fa': 'اولیویا م.',
+    },
+    'p80zp1s8': {
+      'en': 'June 2023',
+      'fa': 'ژوئن ۲۰۲۳',
+    },
+    'tbneab98': {
+      'en':
+          'Tom Hanks is a natural storyteller. His warmth, humor, and sincerity made every moment engaging. I could listen to him for hours!  I could listen to him for hours! I could listen to him for hours!',
+      'fa':
+          'تام هنکس یک قصه‌گوی ذاتی است. گرمی، شوخ‌طبعی و صداقت او هر لحظه را جذاب می‌کرد. می‌توانستم ساعت‌ها به حرف‌هایش گوش بدهم! می‌توانستم ساعت‌ها به حرف‌هایش گوش بدهم!',
+    },
+    'ww1g39y6': {
+      'en': '',
       'fa': '',
     },
-    'pmeyyea3': {
-      'en': 'Last name',
-      'fa': 'نام خانوادگی',
-    },
-    '77dmic2j': {
-      'en': 'Last name',
-      'fa': 'نام خانوادگی',
-    },
-    'd5vclro2': {
-      'en': 'abc',
-      'fa': 'ایکس وای زد',
-    },
-    'kh5e2big': {
-      'en': 'Last name',
-      'fa': 'نام خانوادگی',
-    },
-    'b4whf5u0': {
-      'en': 'Last name',
-      'fa': 'نام خانوادگی',
-    },
-    'z3txx20g': {
-      'en': 'abc',
-      'fa': 'ایکس وای زد',
-    },
-    'nl8akwdv': {
-      'en': 'Upload event images',
+    'wybu2q8n': {
+      'en': '',
       'fa': '',
     },
-    'zkxvnfgr': {
-      'en': 'City',
-      'fa': 'نام خانوادگی',
-    },
-    '2xqo7hs9': {
-      'en': 'Last name',
-      'fa': 'نام خانوادگی',
-    },
-    'ue5fizg0': {
-      'en': 'abc',
-      'fa': 'ایکس وای زد',
-    },
-    'o73adl38': {
-      'en': 'Postcode',
-      'fa': 'نام خانوادگی',
-    },
-    'jwwbwoz0': {
-      'en': 'Last name',
-      'fa': 'نام خانوادگی',
-    },
-    'c928rmmi': {
-      'en': 'abc',
-      'fa': 'ایکس وای زد',
-    },
-    'j9j5yo1z': {
-      'en': 'Street',
-      'fa': 'نام خانوادگی',
-    },
-    'qyhmr20m': {
-      'en': 'Last name',
-      'fa': 'نام خانوادگی',
-    },
-    'tdt6wqds': {
-      'en': 'abc',
-      'fa': 'ایکس وای زد',
-    },
-    'lg2wgooq': {
-      'en': 'abc is required',
+    't0gx5yvn': {
+      'en': '',
       'fa': '',
     },
-    'cy2op59q': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    'evnr9xle': {
-      'en': 'abc is required',
-      'fa': '',
-    },
-    'dzw2xk45': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    '9jsas965': {
-      'en': 'abc is required',
-      'fa': '',
-    },
-    '9l1nfwp9': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    'z0lkglcm': {
-      'en': 'abc is required',
-      'fa': '',
-    },
-    'm0y8j0ob': {
-      'en': 'Please use a valide Dutch postcode.',
-      'fa': '',
-    },
-    '4wa3jltb': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    'cdlju6nh': {
-      'en': 'abc is required',
-      'fa': '',
-    },
-    'wj5jhy3i': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': '',
-    },
-    'sf4e1hbe': {
+    '9okx54k2': {
       'en': 'Home',
       'fa': 'خانه',
     },
   },
-  // FAQ
+  // IranNLItemPage
   {
-    'dhbx92pr': {
+    '698d8u6a': {
+      'en': ' Biweekly Iran-NL Service',
+      'fa': 'سرویس دوهفته‌ای ایران-هلند',
+    },
+    '9odoo7oj': {
+      'en': '230',
+      'fa': '۲۳۰',
+    },
+    'j1b3lfmx': {
+      'en': '16',
+      'fa': '۱۶',
+    },
+    'spgn74x5': {
+      'en': 'Tehran',
+      'fa': 'تهران',
+    },
+    '64c2tgov': {
+      'en': 'Next shipment: Thursday, July 11, 2025',
+      'fa': 'ارسال بعدی: پنجشنبه، ۱۱ جولای ۲۰۲۵',
+    },
+    'n3x0m4u8': {
+      'en': 'Every 2 weeks',
+      'fa': 'هر ۲ هفته',
+    },
+    '62g6ozol': {
+      'en':
+          'Cost depends on item price, weight, and volume. Final quote shared after your request',
+      'fa':
+          'هزینه بستگی به قیمت، وزن و حجم کالا دارد. قیمت نهایی پس از درخواست شما اعلام می‌شود.',
+    },
+    'r6wsjh6h': {
+      'en':
+          'I live in Tehran and offer a personal service to deliver what you need from Iran. I can also buy items from any Iranian store, market, or seller and send them to you in the Netherlands. \n\nYou send me your request, I buy it, pack it, and get it to you within 10–14 days.',
+      'fa':
+          'من در تهران زندگی می‌کنم و خدمات شخصی برای تحویل آنچه شما از ایران نیاز دارید ارائه می‌دهم. همچنین می‌توانم اقلامی را از هر فروشگاه، بازار یا فروشنده ایرانی خریداری کنم و آنها را برای شما در هلند ارسال کنم.\n\nشما درخواست خود را برای من ارسال می‌کنید، من آن را می‌خرم، بسته‌بندی می‌کنم و ظرف 10 تا 14 روز به شما تحویل می‌دهم.',
+    },
+    '5uv0g00r': {
+      'en': 'What I Offer ',
+      'fa': 'آنچه من ارائه می‌دهم',
+    },
+    '0t7y9vso': {
+      'en': 'What You Submit',
+      'fa': 'آنچه ارسال می‌کنید',
+    },
+    'bquhmqtu': {
+      'en': 'Buy anything (legally allowed to ship)',
+      'fa': 'هر چیزی بخرید (از نظر قانونی مجاز به ارسال است)',
+    },
+    '94sv7rn8': {
+      'en': 'Pack items carefully',
+      'fa': 'وسایل را با دقت بسته بندی کنید',
+    },
+    'z1kkdrjm': {
+      'en': 'Propose the most cost-effective shipping methods',
+      'fa': 'ارائه مقرون به صرفه ترین روش های حمل و نقل',
+    },
+    'scec8ibf': {
+      'en': 'Budget estimate',
+      'fa': 'برآورد بودجه',
+    },
+    '51327tnm': {
+      'en': 'Notify you upon shipment',
+      'fa': 'هنگام ارسال به شما اطلاع داده شود',
+    },
+    '14apyni8': {
+      'en': 'A detailed description of what you need from Iran',
+      'fa': 'شرح مفصلی از آنچه از ایران نیاز دارید',
+    },
+    'tscvf8mx': {
+      'en': 'Online store link or pickup location',
+      'fa': 'لینک فروشگاه آنلاین یا محل تحویل',
+    },
+    'jqrjrfpd': {
+      'en': 'Quantity needed',
+      'fa': 'مقدار مورد نیاز',
+    },
+    'nxzul2ll': {
+      'en': 'Any special handling notes',
+      'fa': 'هرگونه یادداشت ویژه در مورد نحوه‌ی جابجایی',
+    },
+    'tlwrqqe8': {
+      'en': 'Your preferred delivery options',
+      'fa': 'گزینه‌های تحویل ترجیحی شما',
+    },
+    '8pl0bxyw': {
+      'en': 'How It Works',
+      'fa': 'چگونه کار می‌کند؟',
+    },
+    '99hfqf63': {
+      'en': '1',
+      'fa': '۱',
+    },
+    'uw2ahlv2': {
+      'en': 'Submit your request',
+      'fa': 'درخواست خود را ارسال کنید',
+    },
+    'sh0ze098': {
+      'en': '2',
+      'fa': '۲',
+    },
+    'i6u59zgo': {
+      'en': 'Get a cost estimate',
+      'fa': 'برآورد هزینه دریافت کنید',
+    },
+    'qy1ukspa': {
+      'en': '3',
+      'fa': '۳',
+    },
+    '71e8esdk': {
+      'en': 'Item purchased or collected in Iran',
+      'fa': 'کالای خریداری شده یا جمع‌آوری شده در ایران',
+    },
+    'dpobm9vq': {
+      'en': '4',
+      'fa': '۴',
+    },
+    'ajpur35e': {
+      'en': 'Confirmation & coordination',
+      'fa': 'تایید و هماهنگی',
+    },
+    'es6w28rw': {
+      'en': '5',
+      'fa': '۵',
+    },
+    'ri59f6mb': {
+      'en': 'Shipped on schedule',
+      'fa': 'طبق برنامه ارسال شد',
+    },
+    '2pwt8h6f': {
+      'en': '6',
+      'fa': '۶',
+    },
+    'es5ev518': {
+      'en': 'Customs & tracking update',
+      'fa': 'به‌روزرسانی گمرک و ردیابی',
+    },
+    'o3i78q1l': {
+      'en': '7',
+      'fa': '۷',
+    },
+    'u007m8jl': {
+      'en': 'Receive your item',
+      'fa': 'کالای خود را دریافت کنید',
+    },
+    'bxpa1yr9': {
+      'en': 'Get a free quote',
+      'fa': 'یک نقل قول رایگان دریافت کنید',
+    },
+    '6mmu21ba': {
+      'en': '4.9',
+      'fa': '۴.۹',
+    },
+    'q7yoc0u8': {
+      'en': 'Based on 88 reviews',
+      'fa': 'بر اساس ۸۸ نظر',
+    },
+    'dkc514fo': {
+      'en': 'Fatemeh',
+      'fa': 'فاطمه',
+    },
+    'k8e7utvx': {
+      'en': 'June 2023',
+      'fa': 'ژوئن ۲۰۲۳',
+    },
+    'ovvoj9iq': {
+      'en': 'My mother’s documents arrived safely – life saver!',
+      'fa': 'مدارک مادرم به سلامت رسید - نجات‌بخش!',
+    },
+    'fwtj7adj': {
+      'en': 'Olivia M.',
+      'fa': 'اولیویا م.',
+    },
+    'dunaq5y5': {
+      'en': 'June 2023',
+      'fa': 'ژوئن ۲۰۲۳',
+    },
+    '6895axsg': {
+      'en':
+          'Tom Hanks is a natural storyteller. His warmth, humor, and sincerity made every moment engaging. I could listen to him for hours!  I could listen to him for hours! I could listen to him for hours!',
+      'fa':
+          'تام هنکس یک قصه‌گوی ذاتی است. گرمی، شوخ‌طبعی و صداقت او هر لحظه را جذاب می‌کرد. می‌توانستم ساعت‌ها به حرف‌هایش گوش بدهم! می‌توانستم ساعت‌ها به حرف‌هایش گوش بدهم!',
+    },
+    'oeux0bgg': {
+      'en': 'Olivia M.',
+      'fa': 'اولیویا م.',
+    },
+    'yqigj1s8': {
+      'en': 'June 2023',
+      'fa': 'ژوئن ۲۰۲۳',
+    },
+    'udmofxx0': {
+      'en':
+          'Tom Hanks is a natural storyteller. His warmth, humor, and sincerity made every moment engaging. I could listen to him for hours!  I could listen to him for hours! I could listen to him for hours!',
+      'fa':
+          'تام هنکس یک قصه‌گوی ذاتی است. گرمی، شوخ‌طبعی و صداقت او هر لحظه را جذاب می‌کرد. می‌توانستم ساعت‌ها به حرف‌هایش گوش بدهم! می‌توانستم ساعت‌ها به حرف‌هایش گوش بدهم!',
+    },
+    's3b9m6yo': {
       'en': 'FAQ',
+      'fa': 'سوالات متداول',
+    },
+    '7ysebiyq': {
+      'en': 'What items can be shipped?',
+      'fa': 'چه اقلامی قابل ارسال هستند؟',
+    },
+    'thp1tfjk': {
+      'en': 'How long does shipping take?',
+      'fa': 'ارسال چقدر طول می‌کشد؟',
+    },
+    'wgckb9bk': {
+      'en': 'What are the shipping costs?',
+      'fa': 'هزینه‌های ارسال چقدر است؟',
+    },
+    'tz49t8iw': {
+      'en': 'How do I track my order?',
+      'fa': 'چگونه سفارش خود را پیگیری کنم؟',
+    },
+    '6uvnbyn8': {
+      'en': 'What if my item doesn’t arrive?',
+      'fa': 'اگر کالای من نرسد چه؟',
+    },
+    'pb9rabm4': {
+      'en': 'Where will I receive my item?',
+      'fa': 'کالای خود را از کجا دریافت خواهم کرد؟',
+    },
+    '0qauqxhu': {
+      'en': 'Do I have to pay in advance?',
+      'fa': 'آیا باید از قبل پرداخت کنم؟',
+    },
+    '1jkqiqoa': {
+      'en': 'Is door-to-door delivery available?',
+      'fa': 'آیا امکان تحویل درب منزل وجود دارد؟',
+    },
+    'agsj9qjo': {
+      'en': 'Terms & Conditions',
+      'fa': 'شرایط و ضوابط',
+    },
+    'jkcipc8d': {
+      'en': '',
       'fa': '',
     },
-    '24c4afj9': {
-      'en': 'Whiat is Trust score?',
-      'fa': 'کدام شرکت برای مبلمان بهتر است؟',
-    },
-    'l1qm6pea': {
-      'en':
-          'Trust Score System\nThe Trust Score would be a dynamic value (e.g., 0–100) that indicates how trustworthy a user is, based on various factors.\n\n🔸 Factors That Could Influence Trust Score:\nVerified Identity\nGovernment ID, business license, phone number, etc.\n\n🔸 Customer Reviews & Ratings\nHigh ratings and positive feedback increase the score.\n\n🔸 Completed Transactions\nNumber and consistency of successful sales or services.\n\n🔸 Response Time & Engagement\nHow fast and often a user responds to messages or inquiries.\n\n🔸 Dispute History\nFewer disputes or issues with orders mean a higher score.\n\n🔸 Account Age & Activity\nOlder, consistently active accounts tend to be more trusted.\n\n🔸 Admin Verification\nFor certain professionals (e.g. a dentist), manual verification by Our team.(Contact our team)',
-      'fa':
-          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    'dtpcil6r': {
-      'en': 'How to become a Trust?',
-      'fa': 'کدام خرید آنلاین بهتر است؟',
-    },
-    'odjaij7e': {
-      'en':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      'fa':
-          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    'o9brjb3x': {
-      'en': 'What comes under furniture?',
-      'fa': 'زیر مبلمان چه چیزهایی قرار می‌گیرد؟',
-    },
-    'bkl59zgx': {
-      'en':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      'fa':
-          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    '95ksmw47': {
-      'en': 'Which furniture is best in India?',
-      'fa': 'کدام مبلمان در هند بهترین است؟',
-    },
-    'nu3cwjjm': {
-      'en':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      'fa':
-          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    'eks33xkk': {
-      'en': 'Are items in Amazon original?',
-      'fa': 'آیا کالاهای موجود در آمازون اصل هستند؟',
-    },
-    '21arpmnw': {
-      'en':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      'fa':
-          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    'aloc0wpz': {
-      'en': 'Does Amazon sell original items?',
-      'fa': 'آیا آمازون اقلام اورجینال می‌فروشد؟',
-    },
-    'sjaptzm1': {
-      'en':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      'fa':
-          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    'isn1j7jh': {
-      'en': 'Is it OK to buy from Amazon?',
-      'fa': 'آیا خرید از آمازون اشکالی ندارد؟',
-    },
-    'ncwlis4k': {
-      'en':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      'fa':
-          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    'gvdgmual': {
-      'en': 'Contact Yekja',
+    'k0dtzaoo': {
+      'en': '',
       'fa': '',
     },
-    'xelooj4q': {
+    'pnbxgmfu': {
+      'en': '',
+      'fa': '',
+    },
+    'oclkzflx': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // CreateItemSubCat
+  {
+    'sj1zehgy': {
+      'en': 'Sub Category',
+      'fa': 'زیر دسته',
+    },
+    'lf6kvle5': {
+      'en': '3 of 6',
+      'fa': '۳ از ۶',
+    },
+    'g8kc7wvh': {
+      'en': 'Which category\nfits your post best?',
+      'fa': 'کدام دسته بندی بیشتر با پست شما مطابقت دارد؟',
+    },
+    '5tosy1lm': {
+      'en': 'Helps others find your post',
+      'fa': 'به دیگران کمک می‌کند تا پست شما را پیدا کنند',
+    },
+    'csirahyr': {
+      'en': 'Next',
+      'fa': 'بعدی',
+    },
+    'jedx2nxp': {
+      'en': 'Post',
+      'fa': 'پست',
+    },
+  },
+  // CreateWishlist
+  {
+    'rbmqy5fa': {
+      'en': 'Wishlist',
+      'fa': 'لیست علاقه‌مندی‌ها',
+    },
+    'u8pq7w6y': {
+      'en': '5 of 6',
+      'fa': '۵ از ۶',
+    },
+    '987ihbyw': {
+      'en': 'In a few lines, say what you need (items, services, or skills)',
+      'fa':
+          'در چند خط، آنچه را که نیاز دارید (اقلام، خدمات یا مهارت‌ها) بیان کنید.',
+    },
+    'ljhvx2e6': {
+      'en': 'Your wishlist',
+      'fa': 'لیست علاقه‌مندی‌های شما',
+    },
+    '70un5i6a': {
+      'en':
+          'E.g. Happy to trade for music (Setar) tutoring, Farsi books or a coffee maker.',
+      'fa':
+          'مثلاً: حاضرم با تدریس خصوصی موسیقی (سه‌تار)، کتاب فارسی یا قهوه‌ساز معاوضه کنم.',
+    },
+    'i2ffk8nn': {
+      'en': 'Want more visibility?',
+      'fa': 'می‌خواهید بیشتر دیده شوید؟',
+    },
+    'n7broe87': {
+      'en': 'Add categories to help your post get found',
+      'fa': 'برای کمک به دیده شدن پست خود، دسته بندی اضافه کنید',
+    },
+    'tjzx8b9z': {
+      'en': 'Next',
+      'fa': 'بعدی',
+    },
+    'pegwryhf': {
+      'en': 'Post',
+      'fa': 'پست',
+    },
+  },
+  // SignInConfirm
+  {
+    'm5qvsqog': {
+      'en': 'Confirm Email',
+      'fa': 'تأیید ایمیل',
+    },
+    '5rnnni2k': {
+      'en': 'Please enter a username and email to continue',
+      'fa': 'لطفا برای ادامه، نام کاربری و ایمیل خود را وارد کنید',
+    },
+    'h8nwoxdn': {
+      'en': '',
+      'fa': '',
+    },
+    'ep9mmsq3': {
+      'en': 'Username',
+      'fa': 'نام کاربری',
+    },
+    '0jzr1v97': {
+      'en': 'Email',
+      'fa': 'ایمیل',
+    },
+    'f9e65zx9': {
+      'en': 'Password',
+      'fa': 'رمز عبور',
+    },
+    'xhzqr4bk': {
+      'en': 'Username is required',
+      'fa': 'نام کاربری الزامی است',
+    },
+    'mm8x2xit': {
+      'en': 'At least 4 characters are required',
+      'fa': 'حداقل ۴ کاراکتر مورد نیاز است',
+    },
+    'c1vrjuyc': {
+      'en': 'Max 12 characters are required',
+      'fa': 'حداکثر ۱۲ کاراکتر مورد نیاز است',
+    },
+    'fqqtjta3': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    '77e8urzk': {
+      'en': 'Email is required',
+      'fa': 'ایمیل الزامی است',
+    },
+    'ed0qiknp': {
+      'en': 'Please enter a valid email address',
+      'fa': 'لطفا یک آدرس ایمیل معتبر وارد کنید',
+    },
+    '2wawja0q': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    '5vqq1v8g': {
+      'en': 'Next',
+      'fa': 'بعدی',
+    },
+    'c1473phw': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // ForgotPasswordPage
+  {
+    's3o2ku59': {
+      'en': 'Forgot Password',
+      'fa': 'رمز عبور را فراموش کرده‌ام',
+    },
+    '7cx2kxrk': {
+      'en': 'Type your email, we will send you verification code via email',
+      'fa':
+          'ایمیل خود را وارد کنید، ما کد تأیید را از طریق ایمیل برای شما ارسال خواهیم کرد',
+    },
+    'ukwsa1lg': {
+      'en': 'Email address',
+      'fa': 'آدرس ایمیل',
+    },
+    'b9qhzbmh': {
+      'en': 'Email address',
+      'fa': 'آدرس ایمیل',
+    },
+    'tx1anksc': {
+      'en': 'please enter valid your email address.',
+      'fa': 'لطفا آدرس ایمیل معتبر خود را وارد کنید.',
+    },
+    'dxfpl9nd': {
+      'en': 'please enter your email address.',
+      'fa': 'لطفا آدرس ایمیل خود را وارد کنید.',
+    },
+    'zwux5wuv': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'pn42p7ja': {
+      'en': 'Continue',
+      'fa': 'ادامه',
+    },
+    'ns7bgfpq': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // PreviewPost
+  {
+    'f3ldau17': {
+      'en': 'This is a Preview',
+      'fa': 'این یک پیش‌نمایش است',
+    },
+    'pk7ai9ce': {
+      'en': 'Value hint ',
+      'fa': 'اشاره به ارزش',
+    },
+    'jf6laf3h': {
+      'en': '(check here)',
+      'fa': '(اینجا را بررسی کنید)',
+    },
+    'qzvhf54q': {
+      'en': 'Value hint',
+      'fa': 'اشاره به ارزش',
+    },
+    '8m5rehpy': {
+      'en': 'DESCRIPTION',
+      'fa': 'شرح',
+    },
+    'mst2auf9': {
+      'en': 'your review score',
+      'fa': 'امتیاز بررسی شما',
+    },
+    'ceeh9fb2': {
+      'en': 'MY EXCHANGE WISH',
+      'fa': 'آرزوی تبادل من',
+    },
+    'iwovhce9': {
+      'en': 'Fresh start',
+      'fa': 'شروع تازه',
+    },
+    'cga41mte': {
+      'en': 'Publish',
+      'fa': 'منتشر کردن',
+    },
+    '0tsng2mu': {
       'en': 'Home',
       'fa': 'خانه',
     },
@@ -2327,479 +1273,1381 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'خانه',
     },
   },
-  // ProductComponent
+  // CreateItemCat
   {
-    'zcmv3e6u': {
-      'en': 'Item Title',
-      'fa': 'عنوان کالا',
+    '3kfvdqz3': {
+      'en': 'Listing type',
+      'fa': 'نوع آگهی',
     },
-    '2bfqa5n2': {
-      'en': 'Price',
-      'fa': 'قیمت',
+    '44ke00e3': {
+      'en': '2 of 6',
+      'fa': '۲ از ۶',
     },
-    '0zssz39y': {
-      'en': 'Amsterdam',
-      'fa': 'آمستردام',
+    '40tnrzir': {
+      'en': 'What would you\nlike to do?',
+      'fa': 'دوست داری چه کار کنی؟',
     },
-    'yl913sc3': {
-      'en': 'Hello World',
+    'vewqt7ds': {
+      'en': 'Next',
+      'fa': 'بعدی',
+    },
+    '01wcpyj1': {
+      'en': 'Post',
+      'fa': 'پست',
+    },
+  },
+  // CreateItemImages
+  {
+    'l4dfx6wn': {
+      'en': 'Images',
+      'fa': 'تصاویر',
+    },
+    'ubh8qc5e': {
+      'en': '6 of 6',
+      'fa': '۶ از ۶',
+    },
+    'nnd68vi1': {
+      'en': 'Upload photos',
+      'fa': 'آپلود عکس',
+    },
+    's1qkdor4': {
+      'en': 'Add up to 4 photos',
+      'fa': 'حداکثر ۴ عکس اضافه کنید',
+    },
+    'klkdc69y': {
+      'en': 'See Preview',
+      'fa': 'پیش‌نمایش را ببینید',
+    },
+    'dd7lcje3': {
+      'en': 'Post',
+      'fa': 'پست',
+    },
+  },
+  // ChangePasswordPage
+  {
+    '13hkjxzm': {
+      'en': 'Change Password',
+      'fa': 'تغییر رمز عبور',
+    },
+    'vihtivjk': {
+      'en': 'New password',
+      'fa': 'رمز عبور جدید',
+    },
+    'yp6inssm': {
+      'en': 'New password',
+      'fa': 'رمز عبور جدید',
+    },
+    'ao0xte64': {
+      'en': 'Confirm password',
+      'fa': 'تأیید رمز عبور',
+    },
+    'lwkof6wj': {
+      'en': 'Confirm password',
+      'fa': 'تأیید رمز عبور',
+    },
+    'kmgxcfsd': {
+      'en': 'Save',
+      'fa': 'ذخیره',
+    },
+    '8jck5xal': {
+      'en': 'Please  enter valid new password.',
+      'fa': 'لطفا رمز عبور جدید معتبری وارد کنید.',
+    },
+    '9amewow5': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'w5i7eiux': {
+      'en': 'Please  enter valid confirm password.',
+      'fa': 'لطفا رمز عبور معتبر را وارد کنید.',
+    },
+    'zcnl34nd': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'q1jzr6vg': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // EditPost
+  {
+    'l0rjslcm': {
+      'en': 'Value hint ',
+      'fa': 'اشاره به ارزش',
+    },
+    '84zk9qfq': {
+      'en': '(check here)',
+      'fa': '(اینجا را بررسی کنید)',
+    },
+    'v5u8iq07': {
+      'en': 'Value hint',
+      'fa': 'اشاره به ارزش',
+    },
+    'ivb2hdm4': {
+      'en': 'DESCRIPTION',
+      'fa': 'شرح',
+    },
+    '31zmlj3e': {
+      'en': 'your review score',
+      'fa': 'امتیاز بررسی شما',
+    },
+    'ys4fo4tl': {
+      'en': 'MY EXCHANGE WISH',
+      'fa': 'آرزوی تبادل من',
+    },
+    'rwziirc6': {
+      'en': 'Delete',
+      'fa': 'حذف',
+    },
+    '077lbh5r': {
+      'en': 'Update',
+      'fa': 'به‌روزرسانی',
+    },
+    'ru8iak45': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // OverviewMarket
+  {
+    '1suwvi7l': {
+      'en': 'Items for Exchange',
+      'fa': 'اقلام برای تبادل',
+    },
+    'qg11nzfg': {
+      'en': 'Borrow\nRequests',
+      'fa': 'درخواست‌های امانت',
+    },
+    '75la51ou': {
+      'en': 'Give Away',
+      'fa': 'هدیه دهید',
+    },
+    'enirg6xf': {
+      'en': '(Free Items)',
+      'fa': '(اقلام رایگان)',
+    },
+    'ws4n3vf5': {
+      'en': 'Items for\nRent',
+      'fa': 'اقلام برای اجاره',
+    },
+    'ck9c21g1': {
+      'en': 'Job\nOffers',
+      'fa': 'پیشنهادهای شغلی',
+    },
+    'v8cw56zz': {
+      'en': 'Top Categories',
+      'fa': 'دسته بندی های برتر',
+    },
+    'x72ccop9': {
+      'en': 'Categories members like the most',
+      'fa': 'دسته بندی هایی که اعضا بیشتر دوست دارند',
+    },
+    '4sc0hale': {
+      'en': 'Popular Posts',
+      'fa': 'پست‌های محبوب',
+    },
+    '3s3e80l6': {
+      'en': 'See all',
+      'fa': 'همه را ببینید',
+    },
+    'pyjczjre': {
+      'en': 'Most liked posts by  the community members',
+      'fa': 'پست‌های پربازدید توسط اعضای انجمن',
+    },
+    '52evyl8t': {
+      'en': 'New Exchanges',
+      'fa': 'صرافی‌های جدید',
+    },
+    'ntlanv5q': {
+      'en': 'See all',
+      'fa': 'همه را ببینید',
+    },
+    'j289ikv7': {
+      'en': 'Most recent items offered for exchange',
+      'fa': 'جدیدترین اقلام ارائه شده برای تعویض',
+    },
+    '9q0v7x9a': {
+      'en': 'New Free Items',
+      'fa': 'موارد رایگان جدید',
+    },
+    'ov2ewz6k': {
+      'en': 'See all',
+      'fa': 'همه را ببینید',
+    },
+    'f6nhbrbx': {
+      'en': 'Most recent items to give away for free ',
+      'fa': 'جدیدترین اقلام برای اهدای رایگان',
+    },
+    'qd2gnjro': {
+      'en': 'Community Market',
+      'fa': 'بازار محلی',
+    },
+    'acanui6t': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // OverviewCare
+  {
+    '4f31r95c': {
+      'en': 'Help\nRequests',
+      'fa': 'درخواست‌های کمک',
+    },
+    'wrgp7a0a': {
+      'en': 'Help\nOffers',
+      'fa': 'کمک\nپیشنهادات',
+    },
+    '037amlyc': {
+      'en': 'Top Categories',
+      'fa': 'دسته بندی های برتر',
+    },
+    '3b4w4odm': {
+      'en': 'Categories members like the most',
+      'fa': 'دسته بندی هایی که اعضا بیشتر دوست دارند',
+    },
+    'tlwgczrq': {
+      'en': 'Popular Posts',
+      'fa': 'پست‌های محبوب',
+    },
+    'vktu3546': {
+      'en': 'See all',
+      'fa': 'همه را ببینید',
+    },
+    'sxc6153h': {
+      'en': 'Most liked posts by  the community members',
+      'fa': 'پست‌های پربازدید توسط اعضای انجمن',
+    },
+    'h01izxww': {
+      'en': 'New Help Requests',
+      'fa': 'درخواست‌های کمک جدید',
+    },
+    'vuta9zjn': {
+      'en': 'See all',
+      'fa': 'همه را ببینید',
+    },
+    '8dcnikak': {
+      'en': 'Most recent posts asking for help',
+      'fa': 'جدیدترین پست‌ها درخواست کمک',
+    },
+    'qdios0ta': {
+      'en': 'New Help Offers',
+      'fa': 'پیشنهادات جدید کمک',
+    },
+    'jkkdwa93': {
+      'en': 'See all',
+      'fa': 'همه را ببینید',
+    },
+    'monqa5zf': {
+      'en': 'Most recent posts offering help',
+      'fa': 'جدیدترین پست‌های ارائه دهنده کمک',
+    },
+    '60czvw6q': {
+      'en': 'Community Care',
+      'fa': 'مراقبت‌های اجتماعی',
+    },
+    'o0cqrexj': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // ResetPasswordPage
+  {
+    'qvyltjge': {
+      'en': 'Reset Password',
+      'fa': 'بازنشانی رمز عبور',
+    },
+    '6baohfcj': {
+      'en': 'Create a new password to log in',
+      'fa': 'برای ورود به سیستم، رمز عبور جدیدی ایجاد کنید',
+    },
+    '7qj4jthi': {
+      'en': 'New password',
+      'fa': 'رمز عبور جدید',
+    },
+    'hd56x034': {
+      'en': 'New password',
+      'fa': 'رمز عبور جدید',
+    },
+    'ssuipl8e': {
+      'en': 'Confirm password',
+      'fa': 'تأیید رمز عبور',
+    },
+    'duge37vu': {
+      'en': 'Confirm password',
+      'fa': 'تأیید رمز عبور',
+    },
+    'j3fkaqso': {
+      'en': 'Reset password',
+      'fa': 'بازنشانی رمز عبور',
+    },
+    '7fzxxs8j': {
+      'en': 'Please enter valid new password.',
+      'fa': 'لطفا رمز عبور جدید معتبری وارد کنید.',
+    },
+    'lo4zqx7s': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    '71vw82ef': {
+      'en': 'please enter valid confirm passsword.',
+      'fa': 'لطفا رمز عبور معتبر وارد کنید.',
+    },
+    'elie794q': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'yp5q6x4q': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // TermsConditionsPage
+  {
+    'h07847j4': {
+      'en': 'Last update:',
+      'fa': 'آخرین به‌روزرسانی:',
+    },
+    'gt5ezvts': {
+      'en': ' 27/12/2023',
+      'fa': '۲۷/۱۲/۲۰۲۳',
+    },
+    'ymkkp0xc': {
+      'en':
+          'Please read these terms of service, carefully before using our app operated by us.',
+      'fa':
+          'لطفاً قبل از استفاده از برنامه‌ای که توسط ما اداره می‌شود، این شرایط خدمات را با دقت مطالعه کنید.',
+    },
+    'qtiz5odk': {
+      'en': 'Conditions of Uses',
+      'fa': 'شرایط استفاده',
+    },
+    'n6b25ynm': {
+      'en':
+          'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. \n\nMany desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).',
+      'fa':
+          'این یک واقعیت دیرینه است که خواننده هنگام نگاه کردن به طرح‌بندی یک صفحه، حواسش به محتوای خوانای آن پرت می‌شود. نکته استفاده از لورم ایپسوم این است که برخلاف استفاده از «محتوا اینجا، محتوا اینجا» توزیع حروف کم و بیش نرمالی دارد و باعث می‌شود مانند انگلیسی خوانا به نظر برسد.\n\nبسیاری از بسته‌های نشر رومیزی و ویرایشگرهای صفحات وب اکنون از لورم ایپسوم به عنوان متن مدل پیش‌فرض خود استفاده می‌کنند و جستجوی «لورم ایپسوم» بسیاری از وب‌سایت‌ها را که هنوز در مراحل ابتدایی خود هستند، آشکار می‌کند. نسخه‌های مختلفی در طول سال‌ها تکامل یافته‌اند، گاهی به طور تصادفی، گاهی به طور هدفمند (تزریق طنز و موارد مشابه).',
+    },
+    '0t1hw5zn': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // CreateItemDetail
+  {
+    '5twehhys': {
+      'en': 'Details',
+      'fa': 'جزئیات',
+    },
+    'h8xmok6d': {
+      'en': '4 of 6',
+      'fa': '۴ از ۶',
+    },
+    'jawfthpq': {
+      'en': 'Complete the details\nof your post',
+      'fa': 'جزئیات پست خود را تکمیل کنید',
+    },
+    'zjl6s1j8': {
+      'en': 'Helps others understand your post',
+      'fa': 'به دیگران کمک می‌کند تا پست شما را درک کنند',
+    },
+    'zf1aquhr': {
+      'en': 'Title',
+      'fa': 'عنوان',
+    },
+    'gm5k303k': {
+      'en': 'Description',
+      'fa': 'توضیحات',
+    },
+    'dm49jmti': {
+      'en': 'Value',
+      'fa': 'ارزش',
+    },
+    'z5jh6nb5': {
+      'en': 'Delivery',
+      'fa': 'تحویل',
+    },
+    'csa7xqlk': {
+      'en': 'Next',
+      'fa': 'بعدی',
+    },
+    'k1h2s54o': {
+      'en': 'Post',
+      'fa': 'پست',
+    },
+  },
+  // ProfileExtended
+  {
+    'fweal07j': {
+      'en': 'Posts',
+      'fa': 'پست‌ها',
+    },
+    'srw7h0cy': {
+      'en': 'Favorites',
+      'fa': 'موارد دلخواه',
+    },
+    '3tbjy6b8': {
+      'en': 'Reviews',
+      'fa': 'نقد و بررسی‌ها',
+    },
+    '47ohilj6': {
+      'en': 'Chats',
+      'fa': 'چت‌ها',
+    },
+    '296bw0rg': {
+      'en': '',
+      'fa': 'خانه',
+    },
+  },
+  // SignUpPage
+  {
+    'w51ndrcz': {
+      'en': 'Create an account',
+      'fa': 'ایجاد حساب کاربری',
+    },
+    '4z21d4lm': {
+      'en': 'Let\'s get started by filling out the form below.',
+      'fa': 'بیایید با پر کردن فرم زیر شروع کنیم.',
+    },
+    '7256pz7h': {
+      'en': 'Username',
+      'fa': 'نام کاربری',
+    },
+    'l59oh5jc': {
+      'en': 'Email',
+      'fa': 'ایمیل',
+    },
+    '17880f1u': {
+      'en': 'Password',
+      'fa': 'رمز عبور',
+    },
+    '1256s0cp': {
+      'en': 'Confirm Password',
+      'fa': 'تأیید رمز عبور',
+    },
+    'rl6es88l': {
+      'en': 'Password dosen\'t match.',
+      'fa': 'رمز عبور مطابقت ندارد.',
+    },
+    'ae4rvotw': {
+      'en': 'User name is invalid',
+      'fa': 'نام کاربری نامعتبر است',
+    },
+    '9yvyvlpk': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    '5gfprwht': {
+      'en': 'Please enter a valid email address.',
+      'fa': 'لطفا یک آدرس ایمیل معتبر وارد کنید.',
+    },
+    'szbz780w': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'ckanrmbh': {
+      'en': 'Minimum 6 characters are required.',
+      'fa': 'حداقل ۶ کاراکتر مورد نیاز است.',
+    },
+    'h40f5p5q': {
+      'en':
+          '- At least one uppercase letter\n- At least one digit\n- At least 8 characters ',
+      'fa': '- حداقل یک حرف بزرگ\n- حداقل یک رقم\n- حداقل ۸ کاراکتر',
+    },
+    'uqmqpy8n': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    '1nu2760r': {
+      'en': 'Minimum 6 characters are required.',
+      'fa': 'حداقل ۶ کاراکتر مورد نیاز است.',
+    },
+    '1ges8uvu': {
+      'en':
+          '- At least one uppercase letter\n\n- At least one digit\n\n- At least 8 characters ',
+      'fa': '- حداقل یک حرف بزرگ\n\n- حداقل یک رقم\n\n- حداقل ۸ کاراکتر',
+    },
+    'mebfhwgq': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'q3xjm17v': {
+      'en': 'OR',
+      'fa': 'یا',
+    },
+    'er6ptcif': {
+      'en': 'Continue as a Gust',
+      'fa': 'به عنوان یک تندباد ادامه دهید',
+    },
+    'eo7evm6p': {
+      'en': 'Already have an account? ',
+      'fa': 'قبلاً حساب کاربری دارید؟',
+    },
+    'vk8yd8no': {
+      'en': ' Sign In here',
+      'fa': 'اینجا وارد شوید',
+    },
+    '2g978126': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // ReportedUser
+  {
+    '3z4oqpvn': {
+      'en': 'Reported Users',
+      'fa': 'کاربران گزارش شده',
+    },
+    'z0xpmlax': {
+      'en': 'Make sure the users don\'t stay in reported state too long',
+      'fa': 'مطمئن شوید که کاربران مدت زیادی در حالت گزارش‌شده نمی‌مانند.',
+    },
+    '5dcfcmeh': {
+      'en': 'Unblock',
+      'fa': 'رفع انسداد',
+    },
+    '48c96pal': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // SignInPage
+  {
+    '3yjo0udr': {
+      'en': 'Welcome Back',
+      'fa': 'خوش آمدید',
+    },
+    '61yuoo32': {
+      'en': 'If your email isn’t verified, ',
+      'fa': 'اگر ایمیل شما تأیید نشده است،',
+    },
+    '1pylrdnu': {
+      'en': 'click here.',
+      'fa': 'اینجا کلیک کنید.',
+    },
+    '9amiwbff': {
+      'en': '',
+      'fa': '',
+    },
+    'sdree3ti': {
+      'en': 'Email',
+      'fa': 'ایمیل',
+    },
+    'xpgw6kd9': {
+      'en': 'Password',
+      'fa': 'رمز عبور',
+    },
+    'i3al17a9': {
+      'en': 'Sign In',
+      'fa': 'ورود',
+    },
+    'nxmvn4ld': {
+      'en': 'Forgot password? ',
+      'fa': 'رمز عبور را فراموش کرده‌اید؟',
+    },
+    'btvjsow4': {
+      'en': 'Click here',
+      'fa': 'اینجا کلیک کنید',
+    },
+    'c0foq102': {
+      'en': 'OR',
+      'fa': 'یا',
+    },
+    'qqhkk63r': {
+      'en': 'No account yet? ',
+      'fa': 'هنوز حساب کاربری ندارید؟',
+    },
+    'oc6h6d27': {
+      'en': 'Sign Up',
+      'fa': 'ثبت نام',
+    },
+    't4mxpixd': {
+      'en': 'Continute as a ',
+      'fa': 'ادامه به عنوان',
+    },
+    'c1gzecba': {
+      'en': 'Guest user',
+      'fa': 'کاربر مهمان',
+    },
+    '0rujztpm': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // ProductDetail
+  {
+    '2rqgmz8p': {
+      'en': 'Value hint ',
+      'fa': 'اشاره به ارزش',
+    },
+    'vmm70xk5': {
+      'en': '(check here)',
+      'fa': '(اینجا را بررسی کنید)',
+    },
+    'lfzko40i': {
+      'en': 'Value hint',
+      'fa': 'اشاره به ارزش',
+    },
+    'ajx9fsxv': {
+      'en': 'DESCRIPTION',
+      'fa': 'شرح',
+    },
+    'lbvm96he': {
+      'en': '4.3',
+      'fa': '۴.۳',
+    },
+    'lo8jmg0v': {
+      'en': 'MY EXCHANGE WISH',
+      'fa': 'آرزوی تبادل من',
+    },
+    '6g2h5fom': {
+      'en': 'REVIEWS',
+      'fa': 'نقد و بررسی‌ها',
+    },
+    'ptcsx6q0': {
+      'en': 'Olivia M.',
+      'fa': 'اولیویا م.',
+    },
+    '3p6focx2': {
+      'en': 'June 2023',
+      'fa': 'ژوئن ۲۰۲۳',
+    },
+    'fpajv90g': {
+      'en':
+          'Tom Hanks is a natural storyteller. His warmth, humor, and sincerity made every moment engaging. I could listen to him for hours!  I could listen to him for hours! I could listen to him for hours!',
+      'fa':
+          'تام هنکس یک قصه‌گوی ذاتی است. گرمی، شوخ‌طبعی و صداقت او هر لحظه را جذاب می‌کرد. می‌توانستم ساعت‌ها به حرف‌هایش گوش بدهم! می‌توانستم ساعت‌ها به حرف‌هایش گوش بدهم!',
+    },
+    'h9wvx9b7': {
+      'en': 'Olivia M.',
+      'fa': 'اولیویا م.',
+    },
+    'sxmf1q6b': {
+      'en': 'June 2023',
+      'fa': 'ژوئن ۲۰۲۳',
+    },
+    '09p29kmm': {
+      'en':
+          'Tom Hanks is a natural storyteller. His warmth, humor, and sincerity made every moment engaging. I could listen to him for hours!  I could listen to him for hours! I could listen to him for hours!',
+      'fa':
+          'تام هنکس یک قصه‌گوی ذاتی است. گرمی، شوخ‌طبعی و صداقت او هر لحظه را جذاب می‌کرد. می‌توانستم ساعت‌ها به حرف‌هایش گوش بدهم! می‌توانستم ساعت‌ها به حرف‌هایش گوش بدهم!',
+    },
+    '1pz8zgqt': {
+      'en': 'Olivia M.',
+      'fa': 'اولیویا م.',
+    },
+    'cywr18k4': {
+      'en': 'June 2023',
+      'fa': 'ژوئن ۲۰۲۳',
+    },
+    'xi1ch7sr': {
+      'en':
+          'Tom Hanks is a natural storyteller. His warmth, humor, and sincerity made every moment engaging. I could listen to him for hours!  I could listen to him for hours! I could listen to him for hours!',
+      'fa':
+          'تام هنکس یک قصه‌گوی ذاتی است. گرمی، شوخ‌طبعی و صداقت او هر لحظه را جذاب می‌کرد. می‌توانستم ساعت‌ها به حرف‌هایش گوش بدهم! می‌توانستم ساعت‌ها به حرف‌هایش گوش بدهم!',
+    },
+    'onhh13rd': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // ScoringSystem
+  {
+    'o0gdhtwy': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // ContactYEKJA
+  {
+    'uaue3xf2': {
+      'en': 'Welcome to support ',
+      'fa': 'به پشتیبانی خوش آمدید',
+    },
+    'b3om7lkw': {
+      'en': 'Make sure you check our FAQ',
+      'fa': 'حتماً سوالات متداول ما را بررسی کنید',
+    },
+    'ydnrk5zy': {
+      'en': 'Call Us',
+      'fa': 'با ما تماس بگیرید',
+    },
+    'ofdaiisb': {
+      'en': 'Search FAQs',
+      'fa': 'سوالات متداول جستجو',
+    },
+    'zlr86zaw': {
+      'en': '',
+      'fa': '',
+    },
+    'uy7ff9ps': {
+      'en': 'Choose a relevant subject',
+      'fa': 'یک موضوع انتخاب کنید',
+    },
+    'ol3f2ple': {
+      'en': 'Search...',
+      'fa': 'جستجو...',
+    },
+    'rhw1og4g': {
+      'en': 'Option 1',
+      'fa': 'گزینه ۱',
+    },
+    '9ptgnueo': {
+      'en': 'Option 2',
+      'fa': 'گزینه ۲',
+    },
+    '1jg9wm4c': {
+      'en': 'Option 3',
+      'fa': 'گزینه ۳',
+    },
+    '7p9q5poi': {
+      'en':
+          'Please provide description of your inquiry here. We will do our best to come back to you as soon as possible. ',
+      'fa': 'شرح مختصری از نحوه کمک رسانی ما...',
+    },
+    'qc3iypvs': {
+      'en': 'Upload image',
+      'fa': 'آپلود تصویر',
+    },
+    'ziper6ve': {
+      'en': 'Submit ',
+      'fa': 'ارسال',
+    },
+    'md9u0vgx': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // chatdetail
+  {
+    'v838atpy': {
+      'en': ' Request a review',
+      'fa': 'درخواست بررسی',
+    },
+    'swnn4nwr': {
+      'en': '',
+      'fa': '',
+    },
+    'm04p2p42': {
+      'en': 'Type here',
+      'fa': 'اینجا تایپ کنید',
+    },
+    'ixvb7rf1': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // CreateItemMainCat
+  {
+    's59m0mxv': {
+      'en': 'Main Category',
+      'fa': 'دسته اصلی',
+    },
+    'cisjybuu': {
+      'en': '1 of 6',
+      'fa': '۱ از ۶',
+    },
+    '5ih7nup2': {
+      'en': 'What’s your\nnew post about?',
+      'fa': 'پست جدیدت در مورد چیه؟',
+    },
+    'k4ql5elb': {
+      'en': 'Community Care',
+      'fa': 'مراقبت‌های اجتماعی',
+    },
+    'errx5eou': {
+      'en': 'Exchange, trade, rent',
+      'fa': 'معاوضه، تجارت، اجاره',
+    },
+    '4qyffrty': {
+      'en': 'Community Market',
+      'fa': 'بازار محلی',
+    },
+    '9exgqc2a': {
+      'en': 'Offer or ask for help',
+      'fa': 'پیشنهاد یا درخواست کمک',
+    },
+    'beewftzt': {
+      'en': 'Next',
+      'fa': 'بعدی',
+    },
+    'kg4285e0': {
+      'en': 'Home',
       'fa': '',
     },
   },
-  // FavouriteEmpty
+  // Swipable
   {
-    'lveqe3uo': {
-      'en': 'No favorite yet!',
-      'fa': 'هنوز مورد علاقه‌ای پیدا نشده!',
+    'c9tbt5vm': {
+      'en': 'Discover Local \nOffers & Requests',
+      'fa': 'پیشنهادات و درخواست‌های محلی را کشف کنید',
     },
-    'prk2a2pn': {
-      'en': 'Like a product you see save them here to your favourites.',
+    '507gxblh': {
+      'en': 'Swipe to explore — tap any to learn more',
       'fa':
-          'مانند محصولی که می‌بینید، آنها را اینجا در لیست علاقه‌مندی‌هایتان ذخیره کنید.',
+          'برای کاوش، انگشت خود را بکشید - برای کسب اطلاعات بیشتر، روی هر کدام ضربه بزنید',
     },
-  },
-  // MyOrderEmpty
-  {
-    '3x5ajroo': {
-      'en': 'No order yet!',
-      'fa': 'هنوز سفارشی ثبت نشده!',
-    },
-    '87ki34ez': {
-      'en': 'Explore and shortlist somelist some product',
-      'fa': 'برخی از محصولات را بررسی و فهرست کوتاه کنید',
-    },
-  },
-  // ChatEmpty
-  {
-    'okhx9o9y': {
-      'en': 'No message yet!',
-      'fa': 'هنوز پیامی نیومده!',
-    },
-    '6fy47ivq': {
-      'en':
-          'No messages in your inboxa yet!\n start chatting with your neighbours.',
-      'fa': 'هنوز پیامی در صندوق ورودی شما نیست!\nبا همسایه‌هایتان چت کنید.',
-    },
-  },
-  // ChatComopnet
-  {
-    'yehk8rq2': {
-      'en': 'Chat',
-      'fa': 'چت',
-    },
-    'urkkzuba': {
-      'en': 'Search',
-      'fa': 'جستجو',
-    },
-    'fmgb2ksa': {
-      'en': 'Basinah Quraishi',
-      'fa': 'بصینه قریشی',
-    },
-    'r5mk7tsj': {
-      'en': 'Hello sir',
-      'fa': 'سلام آقا',
-    },
-    'wn55w6ba': {
-      'en': '27 Min',
-      'fa': '۲۷ دقیقه',
-    },
-    'fun81ire': {
-      'en': 'Iftikar Buthayna',
-      'fa': 'افتخار بثینه',
-    },
-    'yl1sgi2i': {
-      'en': 'Good morning sir',
-      'fa': 'صبح بخیر آقا',
-    },
-    'z20s1lgm': {
-      'en': '27 Min',
-      'fa': '۲۷ دقیقه',
-    },
-    'dd3hm7oy': {
-      'en': 'Fariq Azhar',
-      'fa': 'فارق ازهر',
-    },
-    '43ingyh1': {
-      'en': 'Ok sir',
-      'fa': 'باشه آقا',
-    },
-    'k8mjufht': {
-      'en': '27 Min',
-      'fa': '۲۷ دقیقه',
-    },
-    'qyo2p7fb': {
-      'en': 'Radeyah Hawra',
-      'fa': 'راضیه حوراء',
-    },
-    'qlu2aawv': {
-      'en': 'Potilies sir',
-      'fa': 'آقایان، آقایان',
-    },
-    'xbfoad3b': {
-      'en': '27 Min',
-      'fa': '۲۷ دقیقه',
-    },
-    'a5hpjage': {
-      'en': 'May Dunya',
-      'fa': 'می دنیا',
-    },
-    'grxah90a': {
-      'en': '36154212',
-      'fa': '۳۶۱۸-۰۶-۱۱T۲۲:۰۰:۰۰Z',
-    },
-    'f15cfbbp': {
-      'en': '27 Min',
-      'fa': '۲۷ دقیقه',
-    },
-    'm4b3rd8t': {
-      'en': 'Fayruz Awad',
-      'fa': 'فیروز عوض',
-    },
-    'adsei9sc': {
-      'en': 'Loadig',
-      'fa': 'لودیگ',
-    },
-    'gpw4nj3k': {
-      'en': '27 Min',
-      'fa': '۲۷ دقیقه',
-    },
-  },
-  // Addresscomponent
-  {
-    'p5v6bsuz': {
-      'en': 'Office',
-      'fa': 'دفتر',
-    },
-    'gufgipto': {
-      'en': '4517 washington ave. manchester, kentucky\n39495',
-      'fa': 'خیابان واشنگتن ۴۵۱۷، منچستر، کنتاکی\n۳۹۴۹۵',
-    },
-    'swclfvsw': {
-      'en': 'Home ',
+    'bifytvxz': {
+      'en': 'Home',
       'fa': 'خانه',
     },
-    'crmg12jy': {
-      'en': '2118 thornridge cir. syracuse, connecticut \n35624',
-      'fa': '۲۱۱۸ ثورنریج سیراکیوز، کنتیکت\n۳۵۶۲۴',
-    },
-    'nuzt4ojt': {
-      'en': '+ Add new address',
-      'fa': '+ اضافه کردن آدرس جدید',
-    },
   },
-  // PasswordChange
+  // HomePage
   {
-    '6jzbzlmu': {
-      'en': 'Password changed!',
-      'fa': 'رمز عبور تغییر کرد!',
-    },
-    't68uvs2f': {
-      'en':
-          'Your password has been changed successfull use your new password to login',
-      'fa':
-          'رمز عبور شما با موفقیت تغییر یافت. از رمز عبور جدید خود برای ورود استفاده کنید.',
-    },
-    '9z1whymb': {
-      'en': 'Ok',
-      'fa': 'باشه',
-    },
-  },
-  // NotificationEmpty
-  {
-    '0qkduv6z': {
-      'en': 'No notifications yet!',
-      'fa': 'هنوز هیچ اطلاعیه‌ای ارسال نشده!',
-    },
-    'n1mo3i4f': {
-      'en': 'We did not found any notification let’s \nstart exploring',
-      'fa': 'ما هیچ اعلانی پیدا نکردیم، بیایید بررسی را شروع کنیم',
-    },
-  },
-  // DropDownStandard
-  {
-    'ovads50a': {
-      'en': 'I need help',
-      'fa': 'من به کمک نیاز دارم',
-    },
-    'eij263gg': {
-      'en': 'I want to offer help',
-      'fa': 'می‌خواهم پیشنهاد کمک بدهم',
-    },
-    'pm50e711': {
-      'en': 'I want to organize an event',
-      'fa': 'می‌خواهم یک رویداد ترتیب بدهم',
-    },
-    'a1bonwie': {
-      'en': 'I\'m giving away something ',
-      'fa': 'دارم یه چیزی رو هدیه میدم',
-    },
-    '08ke4dvj': {
-      'en': 'I\'m selling something',
-      'fa': 'دارم یه چیزی میفروشم',
-    },
-    'jzwl48uh': {
-      'en': 'I want to borrow',
-      'fa': 'می‌خواهم قرض بگیرم',
-    },
-    'dnz0n838': {
-      'en': 'I\'m lending something',
-      'fa': 'من چیزی قرض می‌دهم',
-    },
-    '2q1acdpn': {
-      'en': 'I\'m looking to buy (from Iran)',
-      'fa': 'من به دنبال خرید (از ایران) هستم.',
-    },
-    'lfeu1v7l': {
-      'en': 'I\'m looking to buy (from NL)',
-      'fa': 'من به دنبال خرید هستم (از هلند)',
-    },
-    'j17b5y90': {
-      'en': 'I need a professional (in Iran)',
-      'fa': 'من به یک متخصص (در ایران) نیاز دارم',
-    },
-    'ipyqmw60': {
-      'en': 'I need a professional (in NL)',
-      'fa': 'من به یک متخصص (در هلند) نیاز دارم',
-    },
-  },
-  // FavComponet
-  {
-    'jbhbbeak': {
-      'en': 'Favorite',
-      'fa': 'مورد علاقه',
-    },
-  },
-  // OrderConfirm
-  {
-    'hs2wmnjg': {
-      'en': 'Order successfull!',
-      'fa': 'سفارش با موفقیت انجام شد!',
-    },
-    '6xiootek': {
-      'en': 'Thank you so much for your order.',
-      'fa': 'از دستور شما بسیار سپاسگزارم.',
-    },
-    '9bjkjlo7': {
-      'en': 'Back to home',
-      'fa': 'بازگشت به خانه',
-    },
-  },
-  // OurMainHeader
-  {
-    'ryl4p4ag': {
-      'en': '55',
-      'fa': '۵۵',
-    },
-    'qu52uqkl': {
-      'en': 'Trust score',
-      'fa': 'امتیاز اعتماد',
-    },
-  },
-  // PaymentComponent
-  {
-    '9ykaq9tl': {
-      'en': 'Google pay',
-      'fa': 'گوگل پی',
-    },
-    '7mhwa2bz': {
-      'en': 'XXXX XXXX 125',
-      'fa': 'XXXX XXXX 125',
-    },
-    '9y0ue7f4': {
-      'en': 'Paypal',
-      'fa': 'پی‌پال',
-    },
-    '6fnq4b68': {
-      'en': 'XXXX XXXX 3698',
-      'fa': 'XXXX XXXX ۳۶۹۸',
-    },
-    'uunvzk5e': {
-      'en': 'Visa',
-      'fa': 'ویزا',
-    },
-    'lgow3bp1': {
-      'en': 'XXXX XXXX 3698',
-      'fa': 'XXXX XXXX ۳۶۹۸',
-    },
-    'kvs22ls9': {
-      'en': '+ Add new card',
-      'fa': '+ اضافه کردن کارت جدید',
-    },
-  },
-  // HomeComponet
-  {
-    '8xoxm2um': {
-      'en': 'Find best one \nfurniture',
-      'fa': 'بهترین مبلمان را پیدا کنید',
-    },
-    'xhm4wha5': {
+    'md4unc80': {
       'en': 'Search',
       'fa': 'جستجو',
     },
-    'oryz01sr': {
-      'en': 'Furniture  in unique \nstyle',
-      'fa': 'مبلمان با سبکی منحصر به فرد',
+    'uecq8i6w': {
+      'en': 'What are you looking for today?',
+      'fa': 'امروز چی می‌خوای پیدا کنی؟',
     },
-    'jfnoilsc': {
-      'en': 'Order Now',
-      'fa': 'همین حالا سفارش دهید',
+    'rj83omaj': {
+      'en': 'COMMUNITY CARE',
+      'fa': 'همیاری  رایگان',
     },
-    'epj8ectn': {
-      'en': 'Categories',
-      'fa': 'دسته‌ها',
+    'c8a9ytss': {
+      'en': 'COMMUNITY MARKET',
+      'fa': 'دادو ستد محلی',
     },
-    'uumrfpkp': {
-      'en': 'View all',
-      'fa': 'مشاهده همه',
+    '9c4zv4ey': {
+      'en': 'Hang tight! This feature is launching soon.',
+      'fa': ' این ویژگی به زودی راه‌اندازی می‌شود.',
     },
-    'm04ntfua': {
-      'en': 'Trending products',
-      'fa': 'محصولات پرطرفدار',
+    'w0qwb82n': {
+      'en': 'IRAN – NL',
+      'fa': 'خدمات ایران – هلند',
     },
-    'jn9vdulr': {
-      'en': 'View all',
-      'fa': 'مشاهده همه',
+    'clpmwr0u': {
+      'en': 'Hang tight! This feature is launching soon.',
+      'fa': ' این ویژگی به زودی راه‌اندازی می‌شود.',
     },
-    'rt4qvee4': {
-      'en': 'Explore more',
-      'fa': 'بیشتر کاوش کنید',
+    'abmw58ok': {
+      'en': 'EVENTS',
+      'fa': 'رویدادها',
     },
-    'mvrq885a': {
-      'en': 'View all',
-      'fa': 'مشاهده همه',
+    'hmb7gki5': {
+      'en': 'Trending Categories',
+      'fa': 'دسته بندی های پرطرفدار',
     },
-  },
-  // DoneDialog
-  {
-    '57mfnl2n': {
-      'en': 'Are you sure?',
-      'fa': 'مطمئنی؟',
+    'f6xt57yr': {
+      'en': 'See all',
+      'fa': 'همه را ببینید',
     },
-    '2pbw2a4y': {
-      'en': 'Are you sure you would like to remove this item from this order? ',
-      'fa': 'آیا مطمئن هستید که می‌خواهید این مورد را از این سفارش حذف کنید؟',
+    'lnqdg5mp': {
+      'en': 'Swap in 4 Easy Steps',
+      'fa': 'تعویض در ۴ مرحله آسان',
     },
-    '3desyw8s': {
-      'en': 'No',
-      'fa': 'خیر',
+    'fsf3mcvr': {
+      'en': 'Choose where your post belongs',
+      'fa': 'انتخاب کنید که پست شما به کجا تعلق دارد',
     },
-    '1iycfzbj': {
-      'en': 'Yes',
-      'fa': 'بله',
+    'xvibk9g9': {
+      'en': 'Add details and pics',
+      'fa': 'جزئیات و تصاویر را اضافه کنید',
     },
-  },
-  // Logout
-  {
-    'spvj04pz': {
-      'en': 'Logout',
-      'fa': 'خروج',
+    '6jcii098': {
+      'en': 'Say what you want in return',
+      'fa': 'در عوض هرچی دلت میخواد بگو',
     },
-    'ia1pz9go': {
-      'en': 'Are you sure you want to logout?',
-      'fa': 'آیا مطمئن هستید که می‌خواهید از سیستم خارج شوید؟',
+    'o4t933ga': {
+      'en': 'Your post is live!',
+      'fa': 'پست شما زنده است!',
     },
-    'ugwbxf2n': {
-      'en': 'No',
-      'fa': 'خیر',
+    'pfhno2h7': {
+      'en': '1. Share an item, skill, or service',
+      'fa': '۱. یک کالا، مهارت یا خدمات را به اشتراک بگذارید',
     },
-    '9nmqr467': {
-      'en': 'Yes',
-      'fa': 'بله',
-    },
-  },
-  // CartDialog
-  {
-    'gnyel4cc': {
-      'en': 'Are you sure?',
-      'fa': 'مطمئنی؟',
-    },
-    'ouwm4k95': {
+    'v9eb6c1w': {
       'en':
-          'Are you sure you would like to delete this item from the shoping cart?',
-      'fa': 'آیا از حذف این کالا از سبد خرید مطمئن هستید؟',
+          'E.g. Post to exchange  your bike, language lessons, or home repairs.',
+      'fa': 'من یه کوله و چنتا کتاب دارم میدم و دنبال یکییم ساز یادم بده',
     },
-    '6a9plz8m': {
-      'en': 'No',
-      'fa': 'خیر',
-    },
-    'fshk6jm2': {
-      'en': 'Yes',
-      'fa': 'بله',
-    },
-  },
-  // EmptyData
-  {
-    '81n0qewt': {
-      'en': 'No results found',
-      'fa': 'هیچ نتیجه‌ای یافت نشد',
-    },
-    'ap9226j5': {
-      'en':
-          'Try using simpler search terms and then \nfiltering the correct tog',
+    '6s56pbb1': {
+      'en': '2. Receive offers & discuss',
       'fa':
-          'سعی کنید از عبارات جستجوی ساده‌تر استفاده کنید و سپس تگ صحیح را فیلتر کنید',
+          '۲. تو پیام میدی:  «ساز بلد نیستم، ولی می‌تونم زبان یا طراحی یاد بدم.',
+    },
+    '0n59oasi': {
+      'en':
+          'E.g.  check if they have what you need. If not, suggest other items until you both agree.',
+      'fa': 'با هم حرف می‌زنیم، می‌بینیم چی به کارمون میاد',
+    },
+    'h0ay052s': {
+      'en': '3. Meet up in person & swap ',
+      'fa': '۳. اگه شد حضوری ملاقات میکنیم',
+    },
+    'iiu0tp23': {
+      'en':
+          'It’s always nice to get out, meet in person, swap your items, and end the exchange with a smile.',
+      'fa':
+          'اگه شد حضوری ملاقات میکنیم و به توافق میرسیم اگرم  نشد کمی پول اضافه می‌کنیم ',
+    },
+    '2mbe77a2': {
+      'en': '4. Leave a review ',
+      'fa': '۴. امتیاز و نظر میدیم',
+    },
+    'r365vlqj': {
+      'en': 'Build trust and make it easier for others to find you both.',
+      'fa': 'اینطوری بقیه توی یکجا راحت‌تر ما رو پیدا می‌کنن',
+    },
+    'gpiujku4': {
+      'en': 'What’s Around You?',
+      'fa': 'اطراف شما چه خبر است؟',
+    },
+    '353k0b4j': {
+      'en': 'Start',
+      'fa': 'شروع',
+    },
+    'a23ujna3': {
+      'en': 'Community Shoutouts',
+      'fa': 'قدردانی ها',
+    },
+    '6lyr5um7': {
+      'en': 'the community',
+      'fa': 'خانواده‌ی بزرگ ما',
+    },
+    'qv3strvd': {
+      'en': '',
+      'fa': '',
     },
   },
-  // SureDialog
+  // SearchPage
   {
-    'et2uvphw': {
-      'en': 'Are you sure?',
-      'fa': 'مطمئنی؟',
+    'qlxrtif2': {
+      'en': 'Help\nRequests',
+      'fa': 'درخواست‌های \nکمک',
     },
-    'x1dv3mze': {
-      'en': 'Are you sure you would like to remove this item from this order? ',
-      'fa': 'آیا مطمئن هستید که می‌خواهید این مورد را از این سفارش حذف کنید؟',
+    'zxm6qhi3': {
+      'en': 'Help\nOffers',
+      'fa': 'پیشنهادهای\nکمک',
     },
-    '62uhuxkp': {
-      'en': 'No',
-      'fa': 'خیر',
+    '7kdb5dt1': {
+      'en': 'Items for Exchange',
+      'fa': 'کالاها یا خدمات\nبرای تبادل',
     },
-    'muma8cun': {
-      'en': 'Yes',
-      'fa': 'بله',
+    'iqukbo0v': {
+      'en': 'Borrow\nRequests',
+      'fa': 'درخواست‌های \nامانت',
+    },
+    'ix9u3yl7': {
+      'en': 'Items for\nFree',
+      'fa': 'اقلام موجود\nرایگان',
+    },
+    'h96yelv3': {
+      'en': 'Searh Results',
+      'fa': 'نتایج جستجو',
+    },
+    '1je8wpdn': {
+      'en': 'Filter',
+      'fa': 'فیلتر',
+    },
+    'qrvkaa77': {
+      'en': '',
+      'fa': '',
+    },
+    '7uu9uavl': {
+      'en': 'Search',
+      'fa': 'جستجو',
+    },
+    'q4ar00pn': {
+      'en': 'Option 1',
+      'fa': 'گزینه ۱',
+    },
+    '0dfm2rcn': {
+      'en': '',
+      'fa': '',
+    },
+    'kd5mjjjg': {
+      'en': 'Search',
+      'fa': 'جستجو',
+    },
+    '8b3no9i7': {
+      'en': 'Option 1',
+      'fa': 'گزینه ۱',
+    },
+    'gak00fpr': {
+      'en': 'Home',
+      'fa': 'خانه',
     },
   },
-  // ProfileComponet
+  // ChatPage
   {
-    'en780gdf': {
-      'en': 'Profile',
-      'fa': 'پروفایل',
+    'au6wzutq': {
+      'en': 'Chats',
+      'fa': '',
     },
-    'j4w08s29': {
-      'en': 'John Abram',
-      'fa': 'جان آبرام',
+    'cyoqgt88': {
+      'en': 'All',
+      'fa': '',
     },
-    'ejlbbjsx': {
-      'en': 'johnabram@gmail.com',
-      'fa': 'johnabram@gmail.com',
+    'ktmh8zc4': {
+      'en': 'My Posts',
+      'fa': '',
     },
-    'l7mt0wn3': {
-      'en': 'My profile',
-      'fa': 'پروفایل من',
+    's5akc9nm': {
+      'en': 'Other\'s Posts',
+      'fa': '',
     },
-    'xfxg5sbj': {
-      'en': 'Security',
-      'fa': 'امنیت',
+    'o9qneast': {
+      'en': 'Yekja Help',
+      'fa': '',
     },
-    'z4l11x34': {
-      'en': 'Settings',
-      'fa': 'تنظیمات',
+    'fyic4jxi': {
+      'en': 'All',
+      'fa': '',
     },
-    'pf1s4yua': {
-      'en': 'My orders',
-      'fa': 'سفارش‌های من',
+    '5g28h2j2': {
+      'en': 'Home',
+      'fa': '',
     },
-    '17oytv6v': {
-      'en': 'Privacy policy',
-      'fa': 'سیاست حفظ حریم خصوصی',
+  },
+  // ProfilePage
+  {
+    'wi68hahy': {
+      'en': 'Likes',
+      'fa': 'لایک‌ها',
     },
-    'utisgn27': {
-      'en': 'Terms & conditions',
+    'jzc0o03k': {
+      'en': '3',
+      'fa': '۳',
+    },
+    'yhmczqlg': {
+      'en': '12 points to reach level 4',
+      'fa': '۱۲ امتیاز برای رسیدن به سطح ۴',
+    },
+    '9ey4rtob': {
+      'en': '',
+      'fa': '',
+    },
+    'dcb0abt1': {
+      'en': 'Reviews',
+      'fa': 'نقد و بررسی‌ها',
+    },
+    '2808vfr9': {
+      'en': 'Posts',
+      'fa': 'پست‌ها',
+    },
+    'xt0uhk7r': {
+      'en': 'See All',
+      'fa': 'همه را ببینید',
+    },
+    'oq2hc9vq': {
+      'en': 'Favorites',
+      'fa': 'موارد دلخواه',
+    },
+    'fd2re1c8': {
+      'en': 'See All',
+      'fa': 'همه را ببینید',
+    },
+    'h7butxb7': {
+      'en': 'Reviews',
+      'fa': 'نقد و بررسی‌ها',
+    },
+    '9wndti6n': {
+      'en': 'See All',
+      'fa': 'همه را ببینید',
+    },
+    'c9j6hm84': {
+      'en': 'Chats',
+      'fa': 'چت‌ها',
+    },
+    'j6r5bq14': {
+      'en': 'See All',
+      'fa': 'همه را ببینید',
+    },
+    'yq4fqtye': {
+      'en': '',
+      'fa': 'خانه',
+    },
+  },
+  // EditProfilePage
+  {
+    'iw57ng60': {
+      'en': 'Personal',
+      'fa': 'شخصی',
+    },
+    '186mo8c0': {
+      'en': 'User name',
+      'fa': 'نام کاربری',
+    },
+    '2kb0q1ca': {
+      'en': 'A unique name to  display on your profile.',
+      'fa': 'یک نام منحصر به فرد برای نمایش در پروفایل شما.',
+    },
+    'z131ngdr': {
+      'en': 'First name',
+      'fa': 'نام کوچک',
+    },
+    'd7mg7u6o': {
+      'en': 'First name',
+      'fa': 'نام کوچک',
+    },
+    'y5vpec7k': {
+      'en': 'Last name',
+      'fa': 'نام خانوادگی',
+    },
+    'iy6cw8jd': {
+      'en': 'Last name',
+      'fa': 'نام خانوادگی',
+    },
+    'gw29664w': {
+      'en': 'Email',
+      'fa': 'ایمیل',
+    },
+    'juviv350': {
+      'en': 'example@example.com',
+      'fa': 'example@example.com',
+    },
+    'vztgezxv': {
+      'en': 'PhoneNumber',
+      'fa': 'شماره تلفن',
+    },
+    'jhyzm45r': {
+      'en': '0612345678',
+      'fa': '۰۶۱۲۳۴۵۶۷۸',
+    },
+    'au2l0z07': {
+      'en': 'City',
+      'fa': 'شهر',
+    },
+    'ogj0tpug': {
+      'en': 'City',
+      'fa': 'شهر',
+    },
+    'v1s90rdp': {
+      'en': 'Biography',
+      'fa': 'زندگینامه',
+    },
+    'tf0ul5ip': {
+      'en': 'Let everyone know about you.',
+      'fa': 'بگذارید همه از شما خبر داشته باشند.',
+    },
+    'kzqn68ob': {
+      'en': 'This field is required.',
+      'fa': 'این فیلد الزامی است.',
+    },
+    'x0qbl9nx': {
+      'en': 'Minimum 3 letters are required.',
+      'fa': 'حداقل ۳ حرف الزامی است.',
+    },
+    '5w04aalv': {
+      'en': 'user name is too lang.',
+      'fa': 'نام کاربری خیلی طولانی است.',
+    },
+    '3jdly5te': {
+      'en': 'Only letter(A-Z) are valid.',
+      'fa': 'فقط حروف (A-Z) معتبر هستند.',
+    },
+    '7pbg3zwd': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'uuho7t2x': {
+      'en': 'firstName is required',
+      'fa': 'نام و نام خانوادگی الزامی است',
+    },
+    'vck7587e': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'ysa8o678': {
+      'en': 'This field is required',
+      'fa': 'این فیلد الزامی است',
+    },
+    '9mmnqcod': {
+      'en': 'Please only user letter.',
+      'fa': 'لطفا فقط نامه کاربر.',
+    },
+    '2dya79z6': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'xm54x3n1': {
+      'en': 'Please enter valid Email address.',
+      'fa': 'لطفا آدرس ایمیل معتبری وارد کنید.',
+    },
+    'cjui5wmm': {
+      'en': 'This field is required',
+      'fa': 'این فیلد الزامی است',
+    },
+    'bzz1mpym': {
+      'en': 'Please enter valid Email address.',
+      'fa': 'لطفا آدرس ایمیل معتبری وارد کنید.',
+    },
+    'pfi2e7s4': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'n8h9b885': {
+      'en': 'This field is required.',
+      'fa': 'این فیلد الزامی است.',
+    },
+    '45tsdecd': {
+      'en': 'Use a valid phone number. e.g 0612345678',
+      'fa': 'از یک شماره تلفن معتبر استفاده کنید. مثلاً 0612345678',
+    },
+    '59crfj9j': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'f0jb91p1': {
+      'en': 'user_city is required',
+      'fa': 'user_city الزامی است',
+    },
+    'rkk7ejjr': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    '4z0aqe0c': {
+      'en': 'Too many characters.',
+      'fa': 'تعداد کاراکترها خیلی زیاده.',
+    },
+    'pxidjvnl': {
+      'en': 'Invalid structure, please follow the suggestion 0612345678',
+      'fa': 'ساختار نامعتبر است، لطفاً پیشنهاد 0612345678 را دنبال کنید.',
+    },
+    'iosy9ppm': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    '7ob5ecaq': {
+      'en': 'Save',
+      'fa': 'ذخیره',
+    },
+    '91y7tx26': {
+      'en': 'Change password',
+      'fa': 'تغییر رمز عبور',
+    },
+    'q6g1oauj': {
+      'en': 'To delete your account, ',
+      'fa': 'برای حذف حساب کاربری خود،',
+    },
+    'r5ao7kba': {
+      'en': 'click here.',
+      'fa': 'اینجا کلیک کنید.',
+    },
+    '7dpr3o6q': {
+      'en': 'Are you sure you want to delete your account?',
+      'fa': 'آیا مطمئن هستید که می‌خواهید حساب کاربری خود را حذف کنید؟',
+    },
+    'jfkgqpi8': {
+      'en':
+          'By confirming you cannot revive your account anymore. Would you confirm this?',
+      'fa':
+          'با تأیید اینکه دیگر نمی‌توانید حساب خود را احیا کنید، آیا این را تأیید می‌کنید؟',
+    },
+    '4erb0ghk': {
+      'en': 'Privacy Setting',
+      'fa': 'تنظیمات حریم خصوصی',
+    },
+    'o6m9um7k': {
+      'en': 'Allow users to see my profile photo.',
+      'fa': 'اعلان ایمیل',
+    },
+    'o1cxr5mo': {
+      'en': 'Allow  users to see my social media link.',
+      'fa': 'اعلان برنامه',
+    },
+    '5ct1ipp7': {
+      'en': 'Allow  users to see my favorits.',
+      'fa': 'به کاربران اجازه دهید به من پیام بدهند.',
+    },
+    '99v5cfwr': {
+      'en': 'Allow  users to Call me.',
+      'fa': 'نمایش بیوگرافی پروفایل',
+    },
+    'd7sz5zwn': {
+      'en': 'Allow  users to Message me.',
+      'fa': 'به کاربران اجازه دهید به من پیام بدهند.',
+    },
+    'bcc012tm': {
+      'en': 'Save ',
+      'fa': 'ذخیره',
+    },
+    'n0wh7xpu': {
+      'en': 'Terms & Conditions',
       'fa': 'شرایط و ضوابط',
     },
-    '4ym96u4p': {
-      'en': 'Log out',
-      'fa': 'خروج از سیستم',
+    'tjb626e7': {
+      'en': 'Last update:',
+      'fa': 'آخرین به‌روزرسانی:',
+    },
+    '5e4ycz9l': {
+      'en': ' 27/12/2023',
+      'fa': '۲۷/۱۲/۲۰۲۳',
+    },
+    's985kdhj': {
+      'en':
+          'Please read these terms of service, carefully before using our app operated by us.',
+      'fa':
+          'لطفاً قبل از استفاده از برنامه‌ای که توسط ما اداره می‌شود، این شرایط خدمات را با دقت مطالعه کنید.',
+    },
+    'lmfc5v7f': {
+      'en': 'Conditions of Uses',
+      'fa': 'شرایط استفاده',
+    },
+    '4m7c0svb': {
+      'en':
+          'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. \n\nMany desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).',
+      'fa':
+          'این یک واقعیت دیرینه است که خواننده هنگام نگاه کردن به طرح‌بندی یک صفحه، حواسش به محتوای خوانای آن پرت می‌شود. نکته استفاده از لورم ایپسوم این است که برخلاف استفاده از «محتوا اینجا، محتوا اینجا» توزیع حروف کم و بیش نرمالی دارد و باعث می‌شود مانند انگلیسی خوانا به نظر برسد.\n\nبسیاری از بسته‌های نشر رومیزی و ویرایشگرهای صفحات وب اکنون از لورم ایپسوم به عنوان متن مدل پیش‌فرض خود استفاده می‌کنند و جستجوی «لورم ایپسوم» بسیاری از وب‌سایت‌ها را که هنوز در مراحل ابتدایی خود هستند، آشکار می‌کند. نسخه‌های مختلفی در طول سال‌ها تکامل یافته‌اند، گاهی به طور تصادفی، گاهی به طور هدفمند (تزریق طنز و موارد مشابه).',
+    },
+    'qs6w5v52': {
+      'en': 'Types of data we collect',
+      'fa': 'انواع داده‌هایی که جمع‌آوری می‌کنیم',
+    },
+    'dpq02zvf': {
+      'en':
+          'Torem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum ',
+      'fa':
+          'Torem ipsum dolor sit amet، consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim، metus nec fringilla accumsan، risus sem sollicitudin lacus، ut interdum',
+    },
+    '9a8xasa6': {
+      'en': 'Use of your personal data',
+      'fa': 'استفاده از داده‌های شخصی شما',
+    },
+    'p7k9qd47': {
+      'en':
+          'Torem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum ',
+      'fa':
+          'Torem ipsum dolor sit amet، consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim، metus nec fringilla accumsan، risus sem sollicitudin lacus، ut interdum',
+    },
+    'qkcnqh30': {
+      'en': 'Disclosure of your data',
+      'fa': 'افشای داده‌های شما',
+    },
+    '33b9u8a9': {
+      'en':
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec ac odio tempor orci dapibus ultrices in iaculis lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec ac odio tempor orci dapibus ultrices in iaculis Ac auctor augue mauris augue neque gravida. Velit ut tortor pretium viverra suspendisse. Volutpat commodo sed egestas egestas fringilla phasellus faucibus. ',
+      'fa':
+          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec ac odio tempor orci dapibus ultrices in iaculis lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec ac odio tempor orci dapibus ultrices in iaculis Ac auctor augue mauris augue neque gravida. تعلیق پرتیوم ویورا. Volutpat commodo sed egestas egestas fringillaphallus faucibus.',
+    },
+    '2615xb3m': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // profileCardComp
+  {
+    '600ony37': {
+      'en': 'Trusted by 88 users',
+      'fa': 'مورد اعتماد ۸۸ کاربر',
+    },
+  },
+  // Chat_delete_Archive
+  {
+    'd723qvl3': {
+      'en': 'Archive Chat',
+      'fa': 'بایگانی گفتگو',
+    },
+    'l9et7p23': {
+      'en': 'Delete Chat',
+      'fa': 'حذف چت',
+    },
+    'sa505oyx': {
+      'en': 'Cancel',
+      'fa': 'لغو',
     },
   },
   // FeedBack
@@ -2817,31 +2665,588 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'باشه',
     },
   },
+  // OurMainHeaderCopy
+  {
+    'khe3lt6k': {
+      'en': '55',
+      'fa': '۵۵',
+    },
+    '5qt3mxse': {
+      'en': 'Trust score',
+      'fa': 'امتیاز اعتماد',
+    },
+  },
+  // PopUpTitle
+  {
+    '6ic7t8mm': {
+      'en': 'Give your post short a title',
+      'fa': 'برای پست کوتاه خود عنوان انتخاب کنید',
+    },
+    'y2fp32ac': {
+      'en': 'E.g. Second-hand carpet from Tabriz',
+      'fa': 'مثلاً فرش دست دوم تبریز',
+    },
+    'ol4g5aou': {
+      'en': 'Save',
+      'fa': 'ذخیره',
+    },
+  },
+  // PopUpDesc
+  {
+    'y55bc5uf': {
+      'en': 'Give your post a clear description',
+      'fa': 'برای پست خود توضیح واضحی بنویسید',
+    },
+    '0luhlo2r': {
+      'en': 'Write here...',
+      'fa': 'اینجا بنویس...',
+    },
+    'v2g5s1bb': {
+      'en': 'Save',
+      'fa': 'ذخیره',
+    },
+  },
+  // PopUpPrice
+  {
+    'kppj9j1v': {
+      'en': 'Indicate a value (Optional)',
+      'fa': 'یک مقدار را مشخص کنید (اختیاری)',
+    },
+    'wfbfu6bv': {
+      'en':
+          'Set a value to guide fair swaps—others can add items/services to match or pay the balance.',
+      'fa':
+          'برای هدایت مبادلات منصفانه، مقداری تعیین کنید - دیگران می‌توانند اقلام/خدماتی را برای مطابقت اضافه کنند یا مانده را پرداخت کنند.',
+    },
+    'qv6dk8tp': {
+      'en': 'Roughly, what’s it worth?',
+      'fa': 'تقریباً، ارزشش چقدر است؟',
+    },
+    '9mrhepn3': {
+      'en': 'Enter your price',
+      'fa': 'قیمت خود را وارد کنید',
+    },
+    'm9b17chr': {
+      'en': 'Time-based? (e.g. per hour)',
+      'fa': 'بر اساس زمان؟ (مثلاً به ازای هر ساعت)',
+    },
+    'l0xn8r9d': {
+      'en': 'Select',
+      'fa': 'انتخاب کنید',
+    },
+    'aantg5c1': {
+      'en': 'Search...',
+      'fa': 'جستجو...',
+    },
+    'xqm0nvxx': {
+      'en': 'None',
+      'fa': 'هیچکدام',
+    },
+    'qkhkyi2d': {
+      'en': 'Per day',
+      'fa': 'در هر روز',
+    },
+    '5pz6t0ec': {
+      'en': 'Per night',
+      'fa': 'به ازای هر شب',
+    },
+    'cnghpb6c': {
+      'en': 'Per week',
+      'fa': 'در هر هفته',
+    },
+    'zt4a0vsx': {
+      'en': 'Per month',
+      'fa': 'در هر ماه',
+    },
+    'zjcyvx2u': {
+      'en': 'Per year',
+      'fa': 'در هر سال',
+    },
+    '89tnbwmo': {
+      'en': 'Save',
+      'fa': 'ذخیره',
+    },
+  },
+  // PopUpDelivery
+  {
+    'hfiypjxf': {
+      'en': 'Set your delivery options',
+      'fa': 'گزینه‌های تحویل خود را تنظیم کنید',
+    },
+    'nh0pws5w': {
+      'en': 'Does delivery apply?',
+      'fa': 'آیا تحویل اعمال می‌شود؟',
+    },
+    'fqknrw4a': {
+      'en': 'What is your preferred delivery option?',
+      'fa': 'گزینه تحویل مورد نظر شما چیست؟',
+    },
+    'wzk88een': {
+      'en': 'Free Delivery',
+      'fa': 'تحویل رایگان',
+    },
+    'qwds3g6m': {
+      'en': 'Send by PostNL',
+      'fa': 'ارسال از طریق PostNL',
+    },
+    'blxf3obc': {
+      'en': 'Pick-up only',
+      'fa': 'فقط تحویل حضوری',
+    },
+    'csy436p7': {
+      'en': 'By agreement',
+      'fa': 'طبق توافق',
+    },
+    'u30ejxny': {
+      'en': 'Save',
+      'fa': 'ذخیره',
+    },
+  },
+  // Wishlist
+  {
+    'rv1lw8l8': {
+      'en': 'In a few lines, say what you need (items, services, or skills)',
+      'fa':
+          'در چند خط، آنچه را که نیاز دارید (اقلام، خدمات یا مهارت‌ها) بیان کنید.',
+    },
+    'pdvv7tmt': {
+      'en': 'Your wishlist',
+      'fa': 'لیست علاقه‌مندی‌های شما',
+    },
+    'p1qwyas9': {
+      'en':
+          'E.g. Happy to trade for music (Setar) tutoring, Farsi books or a coffee maker.',
+      'fa':
+          'مثلاً: حاضرم با تدریس خصوصی موسیقی (سه‌تار)، کتاب فارسی یا قهوه‌ساز معاوضه کنم.',
+    },
+    'jzfihyic': {
+      'en': 'Want more visibility?',
+      'fa': 'می‌خواهید بیشتر دیده شوید؟',
+    },
+    'e49swj77': {
+      'en': 'Add categories to help your post get found',
+      'fa': 'برای کمک به دیده شدن پست خود، دسته بندی اضافه کنید',
+    },
+    '0m1g2bxm': {
+      'en': 'Confirm',
+      'fa': 'تأیید',
+    },
+  },
+  // valuePopup
+  {
+    'qkh0ickm': {
+      'en': 'Estimated Value',
+      'fa': 'ارزش تخمینی',
+    },
+    'h88bplqv': {
+      'en':
+          'This is only a  guide to the item or service’s worth—exchanges are welcome, and money is just one way to agree.',
+      'fa':
+          'این فقط راهنمایی برای ارزش کالا یا خدمات است - تبادل کالا مجاز است و پول فقط یکی از راه‌های توافق است.',
+    },
+  },
+  // shoutOutCard
+  {
+    'r6m3h1jr': {
+      'en': '+10 Points',
+      'fa': '+۱۰ امتیاز',
+    },
+    '9n1g8cal': {
+      'en': '4.9',
+      'fa': '۴.۹',
+    },
+    'akk1rip2': {
+      'en': 'Thank You!',
+      'fa': 'نیما این هفته به ۳ نفر کمک کرده! مرسی نیما!',
+    },
+  },
+  // Cat
+  {
+    '2qgj645y': {
+      'en': 'How do you\nwant to trade?',
+      'fa': 'چطور می‌خواهی معامله کنی؟',
+    },
+    '3cyvz1yl': {
+      'en': 'Confirm',
+      'fa': 'تأیید',
+    },
+  },
+  // Images
+  {
+    '4leye1wv': {
+      'en': 'Upload photos',
+      'fa': 'آپلود عکس',
+    },
+    'qnqqsif9': {
+      'en': 'Selectup to 4 images',
+      'fa': 'انتخاب تا ۴ تصویر',
+    },
+    'pxk31e3x': {
+      'en': 'Save',
+      'fa': 'ذخیره',
+    },
+  },
+  // SubCat
+  {
+    'bsnulsdb': {
+      'en': 'Which category\nfits your post best?',
+      'fa': 'کدام دسته بندی بیشتر با پست شما مطابقت دارد؟',
+    },
+    '66bqg7gc': {
+      'en': 'Cofirm',
+      'fa': 'کوفرم',
+    },
+  },
+  // Reporting_popup
+  {
+    'kg3w5j6w': {
+      'en': 'You are about to report ',
+      'fa': 'شما در شرف گزارش دادن هستید',
+    },
+    '2pjit2x3': {
+      'en': '. Please provide your reason below.',
+      'fa': 'لطفا دلیل خود را در زیر ارائه دهید.',
+    },
+    '68d6jx0a': {
+      'en': '',
+      'fa': '',
+    },
+    '8r0yy5sr': {
+      'en': 'Reason',
+      'fa': 'دلیل',
+    },
+    '2iknl0nt': {
+      'en': 'I would like to report this post/profile because..',
+      'fa': 'من می‌خواهم این پست/پروفایل را گزارش کنم زیرا..',
+    },
+    'fq4r8mbk': {
+      'en': 'Cancel',
+      'fa': 'لغو',
+    },
+    '4f0rzqyy': {
+      'en': 'Report',
+      'fa': 'گزارش',
+    },
+  },
   // Profile_setting
   {
     'uc7ythtx': {
       'en': 'Edit Profile',
-      'fa': '',
+      'fa': 'ویرایش پروفایل',
     },
     'ux5iqynl': {
       'en': 'Terms & Conditions',
-      'fa': '',
+      'fa': 'شرایط و ضوابط',
     },
     'ks3vswcp': {
       'en': 'Share Profile',
-      'fa': '',
+      'fa': 'اشتراک‌گذاری پروفایل',
     },
     'ha2x8rnw': {
-      'en': 'Help Center!',
-      'fa': '',
+      'en': 'Contact Us',
+      'fa': 'تماس با ما',
     },
     '81n9awh1': {
       'en': 'Log Out',
+      'fa': 'خروج',
+    },
+    '5r4wo0co': {
+      'en': 'Cancel',
+      'fa': 'لغو',
+    },
+  },
+  // verifyCode
+  {
+    'hy8t8fp9': {
+      'en': 'A confimation code was sent via email.',
+      'fa': 'یک کد تایید از طریق ایمیل ارسال شد.',
+    },
+    're93hvjq': {
+      'en': 'Pease enter  valid code',
+      'fa': 'لطفا کد معتبر را وارد کنید',
+    },
+    'vra2s4j2': {
+      'en': 'Resend',
+      'fa': 'ارسال مجدد',
+    },
+    '62qr2zha': {
+      'en': 'Verify now',
+      'fa': 'اکنون تأیید کنید',
+    },
+  },
+  // ReviewAndRating
+  {
+    'bc2ugybz': {
+      'en': 'Communication',
+      'fa': 'ارتباطات',
+    },
+    '1wffczog': {
+      'en': 'Reliability',
+      'fa': 'قابلیت اطمینان',
+    },
+    '3hk4ajr8': {
+      'en': 'Quality',
+      'fa': 'کیفیت',
+    },
+    '69tqvojl': {
+      'en': 'Fairness',
+      'fa': 'انصاف',
+    },
+    'ixl4pva7': {
+      'en': 'Review note',
+      'fa': 'یادداشت بررسی',
+    },
+    'q9biojw1': {
+      'en': 'Submit',
+      'fa': 'ارسال',
+    },
+  },
+  // ReviewCard
+  {
+    'wdd96ugv': {
+      'en': 'Comunication',
+      'fa': 'ارتباطات',
+    },
+    'qc660x4w': {
+      'en': 'Quality',
+      'fa': 'کیفیت',
+    },
+    'igw49v8r': {
+      'en': 'Reliability',
+      'fa': 'قابلیت اطمینان',
+    },
+    'fnbjhk24': {
+      'en': 'Fairness',
+      'fa': 'انصاف',
+    },
+  },
+  // filterComp
+  {
+    '39m80n6c': {
+      'en': 'Sort by',
+      'fa': 'مرتب سازی بر اساس',
+    },
+    'rmxru5tr': {
+      'en': 'Recent first',
+      'fa': 'تازه‌ترین‌ها اول',
+    },
+    'e5ksnrbu': {
+      'en': 'Popularity',
+      'fa': 'پرطرفدارها اول',
+    },
+    '6mlgkdcp': {
+      'en': 'Main Category',
+      'fa': 'دسته اصلی',
+    },
+    'wyeesjpx': {
+      'en': 'Help\nRequests',
+      'fa': 'درخواست‌های\n کمک',
+    },
+    '4v5j6x7d': {
+      'en': 'Help\nOffers',
+      'fa': 'پیشنهادات\n کمک',
+    },
+    'dizhta1q': {
+      'en': 'Items for\nExchange',
+      'fa': 'اقلام برای\nمبادله',
+    },
+    '6k23jjcj': {
+      'en': 'Borrow\nRequests',
+      'fa': 'درخواست‌های\nامانت',
+    },
+    'ms5wvss5': {
+      'en': 'Items for \nFree',
+      'fa': 'اقلام\nرایگان',
+    },
+    'vomy1zvs': {
+      'en': 'Category',
+      'fa': 'دسته بندی',
+    },
+    'oxm7whsh': {
+      'en': 'Prefrences',
+      'fa': 'اولویت‌ها',
+    },
+    '049of0yw': {
+      'en': 'Has Images',
+      'fa': 'دارای تصاویر',
+    },
+    'z1n4754v': {
+      'en': 'Yekja Certified',
+      'fa': 'دارای گواهینامه یکجا',
+    },
+    '1k0o4qcd': {
+      'en': 'Highly Rated Users',
+      'fa': 'کاربران با امتیاز بالا',
+    },
+    'znbsze95': {
+      'en': 'Location',
+      'fa': 'مکان',
+    },
+    'ba1i6j7a': {
+      'en': '',
       'fa': '',
     },
-    'pqjay962': {
-      'en': 'Cancel',
+    'eawvpykz': {
+      'en': 'Anywhere in NL   ',
+      'fa': 'هر کجای هلند',
+    },
+    'uvve2iu3': {
+      'en': 'Search...',
+      'fa': 'جستجو...',
+    },
+    'w34s76kb': {
+      'en': 'Search',
+      'fa': 'جستجو',
+    },
+    'qq5pvrob': {
+      'en': 'Clear all filters',
+      'fa': 'پاک کردن همه فیلترها',
+    },
+  },
+  // YekjaScorePopUp
+  {
+    'x4t1poso': {
+      'en': 'Yekja Level',
+      'fa': 'سطح یکجا',
+    },
+    'tccfkwh8': {
+      'en': 'Total Points',
+      'fa': 'مجموع امتیازات',
+    },
+    'rg6yq5rd': {
+      'en': '10',
+      'fa': '۱۰',
+    },
+    '1fgfwxor': {
+      'en': '90 pts to next level',
+      'fa': '۹۰ امتیاز تا مرحله بعد',
+    },
+    'hyrcnjok': {
+      'en': 'Dena',
+      'fa': 'دنا',
+    },
+    '8oqhe5wf': {
+      'en': 'Sabalan',
+      'fa': 'سبلان',
+    },
+    '3l2wyu39': {
+      'en': 'Alam Kooh',
+      'fa': 'علم کوه',
+    },
+    'rrsp4xfp': {
+      'en': 'T-Soleyman',
+      'fa': 'تی-سلیمان',
+    },
+    'l5cmvc2h': {
+      'en': 'O-Kooh',
+      'fa': 'او-کوه',
+    },
+    'xda20r4w': {
+      'en': 'Damavand',
+      'fa': 'دماوند',
+    },
+    'riofot9y': {
+      'en': 'Welcome onboard ',
+      'fa': 'به داخل خوش آمدید',
+    },
+    '0ydazef5': {
+      'en':
+          'You\'ve just joined Yekja! Start by completing your profile, creating your first listing or offering help to earn points.',
+      'fa':
+          'شما همین الان به یکجا پیوستید! با تکمیل پروفایل خود، ایجاد اولین آگهی یا ارائه کمک برای کسب امتیاز شروع کنید.',
+    },
+    'pm8axn5i': {
+      'en': 'Complete profile (+5)',
+      'fa': 'مشخصات کامل (+5)',
+    },
+    '8rbjz4a2': {
+      'en': 'Create first post (+3)',
+      'fa': 'ایجاد اولین پست (+3)',
+    },
+    'm274lwcs': {
+      'en': 'Recent Contributions',
+      'fa': 'مشارکت‌های اخیر',
+    },
+    'jwv0s37y': {
+      'en': '+10 ',
+      'fa': '+10',
+    },
+    'c85wa8iq': {
+      'en': 'Welcome points',
+      'fa': 'نقاط خوشامدگویی',
+    },
+    'si2ij889': {
+      'en': '2h ago',
+      'fa': '۲ ساعت پیش',
+    },
+    'll3tfsg2': {
+      'en': '+20 (Locked)',
+      'fa': '+۲۰ (قفل شده)',
+    },
+    'k9no7per': {
+      'en': ' Early Adopter',
+      'fa': 'پذیرنده اولیه',
+    },
+    'xsrkjudl': {
+      'en': '2h ago',
+      'fa': '۲ ساعت پیش',
+    },
+    'bomwqsri': {
+      'en': 'See how points work',
+      'fa': 'ببینید امتیازها چگونه کار می‌کنند',
+    },
+  },
+  // Comunication_Bar
+  {
+    'kign2ryz': {
+      'en': '',
       'fa': '',
+    },
+    'cehxi79j': {
+      'en': '',
+      'fa': '',
+    },
+    '8f99d8cs': {
+      'en': '',
+      'fa': '',
+    },
+  },
+  // MainHeader
+  {
+    'xpzlwcmx': {
+      'en': '10',
+      'fa': '۱۰',
+    },
+    'awxu5n57': {
+      'en': '10',
+      'fa': '۴۵',
+    },
+  },
+  // NavBar
+  {
+    'h84rq3rh': {
+      'en': 'Confirm  email',
+      'fa': 'ایمیل را تأیید کنید',
+    },
+    'guin220b': {
+      'en': 'Please confirm your email first in order to create a post.',
+      'fa': 'برای ایجاد پست، ابتدا ایمیل خود را تأیید کنید.',
+    },
+    'b4rlpy84': {
+      'en': 'Confirm Email',
+      'fa': 'تأیید ایمیل',
+    },
+    's2xla0yd': {
+      'en': 'Confirm  email',
+      'fa': 'ایمیل را تأیید کنید',
+    },
+    '93xbz86m': {
+      'en': 'Please confirm your email first in order to create a post.',
+      'fa': 'برای ایجاد پست، ابتدا ایمیل خود را تأیید کنید.',
+    },
+    'hg7wba0t': {
+      'en': 'Confirm Email',
+      'fa': 'تأیید ایمیل',
     },
   },
   // Miscellaneous
@@ -2889,10 +3294,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'rw2ih3s4': {
       'en': 'Headline2',
       'fa': 'تیتر۲',
-    },
-    'wk295irs': {
-      'en': 'Home',
-      'fa': 'خانه',
     },
     'hmubrdhh': {
       'en': '',
@@ -3001,54 +3402,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'v8tch3nt': {
       'en': '',
       'fa': '',
-    },
-    '6w0ugb2r': {
-      'en':
-          'You can find your profile and your trust score here. We appreciate you communitty help and you will recive trust score from us as athank you. ',
-      'fa':
-          'شما می‌توانید پروفایل و امتیاز اعتماد خود را اینجا پیدا کنید. ما از کمک شما در انجمن قدردانی می‌کنیم و به عنوان تشکر، امتیاز اعتماد خود را از ما دریافت خواهید کرد.',
-    },
-    'susr9n4n': {
-      'en': 'Welcome',
-      'fa': 'خوش آمدید',
-    },
-    'd3f2b03m': {
-      'en': 'Please select any of our main categories to start exploring.',
-      'fa': 'لطفا برای شروع کاوش، هر یک از دسته‌های اصلی ما را انتخاب کنید.',
-    },
-    '12fyqovo': {
-      'en': 'Main Categories',
-      'fa': 'دسته‌های اصلی',
-    },
-    'ntdruu4f': {
-      'en':
-          'Make sure you check the tranding categories, We garentie you will find it intrsting. ',
-      'fa':
-          'حتماً دسته‌بندی‌های ترندینگ را بررسی کنید، ما تضمین می‌کنیم که آن را جذاب خواهید یافت.',
-    },
-    'b07jqo59': {
-      'en': 'Don\'t Miss it',
-      'fa': 'از دستش نده',
-    },
-    'irh58ss5': {
-      'en':
-          'This is a swip game which give you a fun expreiance buy going over all the items and events based on your intrest. ',
-      'fa':
-          'این یک بازی کشیدن انگشت است که به شما یک تجربه سرگرم کننده برای خرید می‌دهد و بر اساس علاقه شما، تمام اقلام و رویدادها را بررسی می‌کند.',
-    },
-    'jf2p2iby': {
-      'en': 'Fun and easy way to swip through ',
-      'fa': 'روشی سرگرم‌کننده و آسان برای ورق زدن صفحات',
-    },
-    't26my4kz': {
-      'en':
-          'Well we want everyone to know you helped the community. Make sure you like others to show appreciation.',
-      'fa':
-          'خب، ما می‌خواهیم همه بدانند که شما به جامعه کمک کرده‌اید. مطمئن شوید که دوست دارید دیگران قدردانی خود را نشان دهند.',
-    },
-    'weu704dt': {
-      'en': 'Community Care',
-      'fa': 'مراقبت‌های اجتماعی',
     },
   },
 ].reduce((a, b) => a..addAll(b));

@@ -73,19 +73,22 @@ class AppStateNotifier extends ChangeNotifier {
   }
 }
 
-GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
+GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
+    GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
-      errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? HomePageWidget() : SplashWidget(),
+      errorBuilder: (context, state) => appStateNotifier.loggedIn
+          ? entryPage ?? HomePageWidget()
+          : SplashWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) =>
-              appStateNotifier.loggedIn ? HomePageWidget() : SplashWidget(),
+          builder: (context, _) => appStateNotifier.loggedIn
+              ? entryPage ?? HomePageWidget()
+              : SplashWidget(),
         ),
         FFRoute(
           name: PrivacyPolicyPageWidget.routeName,
@@ -163,11 +166,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ForgotPasswordPageWidget(),
         ),
         FFRoute(
-          name: PreviewPostWidget.routeName,
-          path: PreviewPostWidget.routePath,
-          builder: (context, params) => PreviewPostWidget(),
-        ),
-        FFRoute(
           name: SplashWidget.routeName,
           path: SplashWidget.routePath,
           builder: (context, params) => SplashWidget(),
@@ -234,11 +232,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: SignUpPageWidget.routeName,
-          path: SignUpPageWidget.routePath,
-          builder: (context, params) => SignUpPageWidget(),
-        ),
-        FFRoute(
           name: ReportedUserWidget.routeName,
           path: ReportedUserWidget.routePath,
           builder: (context, params) => ReportedUserWidget(),
@@ -247,6 +240,45 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: SignInPageWidget.routeName,
           path: SignInPageWidget.routePath,
           builder: (context, params) => SignInPageWidget(),
+        ),
+        FFRoute(
+          name: ScoringSystemWidget.routeName,
+          path: ScoringSystemWidget.routePath,
+          builder: (context, params) => ScoringSystemWidget(),
+        ),
+        FFRoute(
+          name: ContactYEKJAWidget.routeName,
+          path: ContactYEKJAWidget.routePath,
+          builder: (context, params) => ContactYEKJAWidget(),
+        ),
+        FFRoute(
+          name: CreateItemMainCatWidget.routeName,
+          path: CreateItemMainCatWidget.routePath,
+          builder: (context, params) => CreateItemMainCatWidget(),
+        ),
+        FFRoute(
+          name: SwipableWidget.routeName,
+          path: SwipableWidget.routePath,
+          builder: (context, params) => SwipableWidget(),
+        ),
+        FFRoute(
+          name: SearchPageWidget.routeName,
+          path: SearchPageWidget.routePath,
+          builder: (context, params) => SearchPageWidget(
+            searchTermParam: params.getParam(
+              'searchTermParam',
+              ParamType.String,
+            ),
+            navigateBackTo: params.getParam(
+              'navigateBackTo',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: SignUpPageWidget.routeName,
+          path: SignUpPageWidget.routePath,
+          builder: (context, params) => SignUpPageWidget(),
         ),
         FFRoute(
           name: ProductDetailWidget.routeName,
@@ -263,14 +295,69 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: ScoringSystemWidget.routeName,
-          path: ScoringSystemWidget.routePath,
-          builder: (context, params) => ScoringSystemWidget(),
+          name: HomePageWidget.routeName,
+          path: HomePageWidget.routePath,
+          builder: (context, params) => HomePageWidget(),
         ),
         FFRoute(
-          name: ContactYEKJAWidget.routeName,
-          path: ContactYEKJAWidget.routePath,
-          builder: (context, params) => ContactYEKJAWidget(),
+          name: EditProfilePageWidget.routeName,
+          path: EditProfilePageWidget.routePath,
+          builder: (context, params) => EditProfilePageWidget(),
+        ),
+        FFRoute(
+          name: ChatdetailCopyWidget.routeName,
+          path: ChatdetailCopyWidget.routePath,
+          requireAuth: true,
+          builder: (context, params) => ChatdetailCopyWidget(
+            chatId: params.getParam(
+              'chatId',
+              ParamType.int,
+            ),
+            ownerID: params.getParam(
+              'ownerID',
+              ParamType.String,
+            ),
+            postID: params.getParam(
+              'postID',
+              ParamType.String,
+            ),
+            ownerUserName: params.getParam(
+              'ownerUserName',
+              ParamType.String,
+            ),
+            ownerAvatar: params.getParam(
+              'ownerAvatar',
+              ParamType.String,
+            ),
+            senderID: params.getParam(
+              'senderID',
+              ParamType.String,
+            ),
+            senderUserName: params.getParam(
+              'senderUserName',
+              ParamType.String,
+            ),
+            senderAvatar: params.getParam(
+              'senderAvatar',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: PreviewPostWidget.routeName,
+          path: PreviewPostWidget.routePath,
+          builder: (context, params) => PreviewPostWidget(),
+        ),
+        FFRoute(
+          name: ProfilePageWidget.routeName,
+          path: ProfilePageWidget.routePath,
+          requireAuth: true,
+          builder: (context, params) => ProfilePageWidget(
+            profileId: params.getParam(
+              'profileId',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: ChatdetailWidget.routeName,
@@ -312,35 +399,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: CreateItemMainCatWidget.routeName,
-          path: CreateItemMainCatWidget.routePath,
-          builder: (context, params) => CreateItemMainCatWidget(),
-        ),
-        FFRoute(
-          name: SwipableWidget.routeName,
-          path: SwipableWidget.routePath,
-          builder: (context, params) => SwipableWidget(),
-        ),
-        FFRoute(
-          name: HomePageWidget.routeName,
-          path: HomePageWidget.routePath,
-          builder: (context, params) => HomePageWidget(),
-        ),
-        FFRoute(
-          name: SearchPageWidget.routeName,
-          path: SearchPageWidget.routePath,
-          builder: (context, params) => SearchPageWidget(
-            searchTermParam: params.getParam(
-              'searchTermParam',
-              ParamType.String,
-            ),
-            navigateBackTo: params.getParam(
-              'navigateBackTo',
-              ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
           name: ChatPageWidget.routeName,
           path: ChatPageWidget.routePath,
           builder: (context, params) => ChatPageWidget(
@@ -351,20 +409,38 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: ProfilePageWidget.routeName,
-          path: ProfilePageWidget.routePath,
+          name: ChatdetailWithYekjaWidget.routeName,
+          path: ChatdetailWithYekjaWidget.routePath,
           requireAuth: true,
-          builder: (context, params) => ProfilePageWidget(
-            profileId: params.getParam(
-              'profileId',
+          builder: (context, params) => ChatdetailWithYekjaWidget(
+            chatId: params.getParam(
+              'chatId',
+              ParamType.int,
+            ),
+            postID: params.getParam(
+              'postID',
+              ParamType.String,
+            ),
+            ownerUserName: params.getParam(
+              'ownerUserName',
+              ParamType.String,
+            ),
+            ownerID: params.getParam(
+              'ownerID',
               ParamType.String,
             ),
           ),
         ),
         FFRoute(
-          name: EditProfilePageWidget.routeName,
-          path: EditProfilePageWidget.routePath,
-          builder: (context, params) => EditProfilePageWidget(),
+          name: ProfilePageCopyWidget.routeName,
+          path: ProfilePageCopyWidget.routePath,
+          requireAuth: true,
+          builder: (context, params) => ProfilePageCopyWidget(
+            profileId: params.getParam(
+              'profileId',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

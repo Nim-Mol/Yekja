@@ -52,9 +52,6 @@ class UserExtArchiveRow extends SupabaseDataRow {
   String get userName => getField<String>('userName')!;
   set userName(String value) => setField<String>('userName', value);
 
-  bool get reported => getField<bool>('reported')!;
-  set reported(bool value) => setField<bool>('reported', value);
-
   int? get totalLikes => getField<int>('total_likes');
   set totalLikes(int? value) => setField<int>('total_likes', value);
 
@@ -64,20 +61,23 @@ class UserExtArchiveRow extends SupabaseDataRow {
   bool get yekjaVerified => getField<bool>('YekjaVerified')!;
   set yekjaVerified(bool value) => setField<bool>('YekjaVerified', value);
 
-  List<String> get favorities => getListField<String>('favorities');
-  set favorities(List<String>? value) =>
-      setListField<String>('favorities', value);
-
-  bool get online => getField<bool>('online')!;
-  set online(bool value) => setField<bool>('online', value);
-
-  List<String> get userReported => getListField<String>('user_reported');
-  set userReported(List<String>? value) =>
-      setListField<String>('user_reported', value);
-
   List<String> get userReviewedIds => getListField<String>('user_reviewed_ids');
   set userReviewedIds(List<String>? value) =>
       setListField<String>('user_reviewed_ids', value);
+
+  bool? get reported => getField<bool>('reported');
+  set reported(bool? value) => setField<bool>('reported', value);
+
+  dynamic get biographyI18n => getField<dynamic>('biography_i18n');
+  set biographyI18n(dynamic value) =>
+      setField<dynamic>('biography_i18n', value);
+
+  dynamic get userCityI18n => getField<dynamic>('user_city_i18n');
+  set userCityI18n(dynamic value) =>
+      setField<dynamic>('user_city_i18n', value);
+
+  String? get role => getField<String>('Role');
+  set role(String? value) => setField<String>('Role', value);
 
   DateTime get deletedAt => getField<DateTime>('deleted_at')!;
   set deletedAt(DateTime value) => setField<DateTime>('deleted_at', value);

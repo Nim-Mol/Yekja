@@ -7,7 +7,6 @@ import '/profile/review_card/review_card_widget.dart';
 import '/shared_components/item_card_horizental/item_card_horizental_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
 import '/index.dart';
-import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -126,7 +125,7 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                         ),
                         Tab(
                           text: FFLocalizations.of(context).getText(
-                            '47ohilj6' /* Chats */,
+                            '47ohilj6' /* Awards */,
                           ),
                         ),
                       ],
@@ -383,6 +382,10 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                                           'reviewed_user_id',
                                           widget.profileId,
                                         )
+                                        .eqOrNull(
+                                          'both_review_submitted',
+                                          true,
+                                        )
                                         .order('created_at'),
                                   ),
                                   builder: (context, snapshot) {
@@ -470,272 +473,26 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                if (widget.profileId == currentUserUid)
-                                  Builder(
-                                    builder: (context) {
-                                      final chatview =
-                                          _model.chatView?.toList() ?? [];
-
-                                      return ListView.builder(
-                                        padding: EdgeInsets.zero,
-                                        primary: false,
-                                        shrinkWrap: true,
-                                        scrollDirection: Axis.vertical,
-                                        itemCount: chatview.length,
-                                        itemBuilder: (context, chatviewIndex) {
-                                          final chatviewItem =
-                                              chatview[chatviewIndex];
-                                          return Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 13.5, 16.0, 13.5),
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                context.pushNamed(
-                                                  ChatdetailWidget.routeName,
-                                                  queryParameters: {
-                                                    'chatId': serializeParam(
-                                                      chatviewItem.chatId,
-                                                      ParamType.int,
-                                                    ),
-                                                    'ownerID': serializeParam(
-                                                      chatviewItem.postOwnerId,
-                                                      ParamType.String,
-                                                    ),
-                                                    'postID': serializeParam(
-                                                      chatviewItem.chatPostId,
-                                                      ParamType.String,
-                                                    ),
-                                                    'ownerUserName':
-                                                        serializeParam(
-                                                      chatviewItem
-                                                          .ownerUsername,
-                                                      ParamType.String,
-                                                    ),
-                                                    'ownerAvatar':
-                                                        serializeParam(
-                                                      chatviewItem.ownerAvatar,
-                                                      ParamType.String,
-                                                    ),
-                                                    'senderID': serializeParam(
-                                                      chatviewItem.chatSender,
-                                                      ParamType.String,
-                                                    ),
-                                                    'senderUserName':
-                                                        serializeParam(
-                                                      chatviewItem
-                                                          .chatSendername,
-                                                      ParamType.String,
-                                                    ),
-                                                    'senderAvatar':
-                                                        serializeParam(
-                                                      chatviewItem.senderAvatar,
-                                                      ParamType.String,
-                                                    ),
-                                                  }.withoutNulls,
-                                                );
-                                              },
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Container(
-                                                    constraints: BoxConstraints(
-                                                      maxWidth: 70.0,
-                                                      maxHeight: 60.0,
-                                                    ),
-                                                    decoration: BoxDecoration(),
-                                                    child: Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                      child: Stack(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        children: [
-                                                          ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                            child:
-                                                                Image.network(
-                                                              valueOrDefault<
-                                                                  String>(
-                                                                chatviewItem
-                                                                    .postImage,
-                                                                'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/default_image.jpg',
-                                                              ),
-                                                              width: 48.0,
-                                                              height: 48.0,
-                                                              fit: BoxFit.cover,
-                                                              alignment:
-                                                                  Alignment(
-                                                                      0.0, 0.0),
-                                                            ),
-                                                          ),
-                                                          if (chatviewItem
-                                                                  .unseenCount! >
-                                                              0)
-                                                            Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      1.0, 1.0),
-                                                              child:
-                                                                  badges.Badge(
-                                                                badgeContent:
-                                                                    Text(
-                                                                  chatviewItem
-                                                                      .unseenCount!
-                                                                      .toString(),
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .start,
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmall
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).bodySmallFamily,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        useGoogleFonts:
-                                                                            !FlutterFlowTheme.of(context).bodySmallIsCustom,
-                                                                      ),
-                                                                ),
-                                                                showBadge: true,
-                                                                shape: badges
-                                                                    .BadgeShape
-                                                                    .circle,
-                                                                badgeColor: Color(
-                                                                    0xFFC04049),
-                                                                elevation: 4.0,
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0),
-                                                                position: badges
-                                                                        .BadgePosition
-                                                                    .topEnd(),
-                                                                animationType:
-                                                                    badges
-                                                                        .BadgeAnimationType
-                                                                        .scale,
-                                                                toAnimate: true,
-                                                              ),
-                                                            ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Text(
-                                                            'About: ${chatviewItem.postTitle}',
-                                                            maxLines: 1,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Satoshi',
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                ),
-                                                          ),
-                                                        ].divide(SizedBox(
-                                                            width: 4.0)),
-                                                      ),
-                                                      Text(
-                                                        'From: ${chatviewItem.postOwnerId == currentUserUid ? chatviewItem.chatSendername : chatviewItem.ownerUsername}',
-                                                        textAlign:
-                                                            TextAlign.start,
-                                                        maxLines: 1,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Satoshi',
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                            ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Expanded(
-                                                    child: Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              1.0, 0.0),
-                                                      child: Text(
-                                                        dateTimeFormat(
-                                                          "MEd",
-                                                          chatviewItem
-                                                              .chatCreatedAt!,
-                                                          locale:
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .languageCode,
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.justify,
-                                                        maxLines: 1,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Satoshi',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ].divide(SizedBox(width: 8.0)),
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                      );
-                                    },
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 24.0, 0.0, 0.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'hgewwtg0' /* Not received an award yet.  */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMediumFamily,
+                                          letterSpacing: 0.0,
+                                          useGoogleFonts:
+                                              !FlutterFlowTheme.of(context)
+                                                  .bodyMediumIsCustom,
+                                        ),
                                   ),
+                                ),
                               ],
                             ),
                           ),

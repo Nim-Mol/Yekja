@@ -66,17 +66,7 @@ class _ItemCardVerticalWidgetState extends State<ItemCardVerticalWidget> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.network(
-                        () {
-                          if (widget.itemData?.mainImagePath != null &&
-                              widget.itemData?.mainImagePath != '') {
-                            return widget.itemData!.mainImagePath;
-                          } else if (widget.itemData?.catID.toString() ==
-                              '4') {
-                            return 'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Borrow.png';
-                          } else {
-                            return 'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/EXCHANGE.png';
-                          }
-                        }(),
+                        widget.itemData!.mainImagePath,
                         width: 160.0,
                         height: 160.0,
                         fit: BoxFit.cover,

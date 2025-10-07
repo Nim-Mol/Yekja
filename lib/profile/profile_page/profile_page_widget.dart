@@ -11,7 +11,6 @@ import '/shared_components/item_card_horizental/item_card_horizental_widget.dart
 import '/shared_components/nav_bar/nav_bar_widget.dart';
 import '/shared_components/reporting_popup/reporting_popup_widget.dart';
 import '/index.dart';
-import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -316,8 +315,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                 size: 24.0,
                                               ),
                                               onPressed: () async {
-                                                context.pushNamed(
-                                                    HomePageWidget.routeName);
+                                                context.safePop();
                                               },
                                             ),
                                           ),
@@ -640,22 +638,35 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                               ?.toString(),
                                                           '0',
                                                         ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .displaySmall
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displaySmall
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .displaySmall
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .displaySmall
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  fontSize:
+                                                                      24.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .displaySmallFamily,
-                                                              fontSize: 24.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
+                                                                      .displaySmall
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .displaySmallIsCustom,
-                                                            ),
+                                                                      .displaySmall
+                                                                      .fontStyle,
+                                                                ),
                                                       ),
                                                       Text(
                                                         FFLocalizations.of(
@@ -680,8 +691,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                       .labelLargeIsCustom,
                                                             ),
                                                       ),
-                                                    ].addToStart(
-                                                        SizedBox(height: 24.0)),
+                                                    ],
                                                   ),
                                                   Opacity(
                                                     opacity: 0.5,
@@ -843,29 +853,75 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      Text(
-                                                        valueOrDefault<String>(
-                                                          profilePageUserExtRow
-                                                              ?.review
-                                                              .toString(),
-                                                          '0',
-                                                        ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .displaySmall
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .displaySmallFamily,
-                                                              fontSize: 24.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .displaySmallIsCustom,
+                                                      RichText(
+                                                        textScaler:
+                                                            MediaQuery.of(
+                                                                    context)
+                                                                .textScaler,
+                                                        text: TextSpan(
+                                                          children: [
+                                                            TextSpan(
+                                                              text:
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                profilePageUserExtRow
+                                                                    ?.review
+                                                                    .toString(),
+                                                                'R',
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .headlineSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .headlineSmallFamily,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    useGoogleFonts:
+                                                                        !FlutterFlowTheme.of(context)
+                                                                            .headlineSmallIsCustom,
+                                                                  ),
                                                             ),
+                                                            TextSpan(
+                                                              text:
+                                                                  ' (${profilePageUserExtRow?.ratings.toString()})',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    useGoogleFonts:
+                                                                        !FlutterFlowTheme.of(context)
+                                                                            .bodyMediumIsCustom,
+                                                                  ),
+                                                            )
+                                                          ],
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
+                                                        ),
                                                       ),
                                                       Text(
                                                         FFLocalizations.of(
@@ -891,7 +947,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                             ),
                                                       ),
                                                     ].addToStart(
-                                                        SizedBox(height: 24.0)),
+                                                        SizedBox(height: 10.0)),
                                                   ),
                                                 ],
                                               ),
@@ -1140,7 +1196,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                 text:
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                  'c9j6hm84' /* Chats */,
+                                                  'c9j6hm84' /* Awards */,
                                                 ),
                                               ),
                                             ],
@@ -1579,108 +1635,200 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                   ),
                                                 ),
                                               ),
+                                              SingleChildScrollView(
+                                                primary: false,
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  16.0,
+                                                                  8.0,
+                                                                  16.0,
+                                                                  0.0),
+                                                      child: FutureBuilder<
+                                                          List<
+                                                              ViewUserReviewsRow>>(
+                                                        future:
+                                                            ViewUserReviewsTable()
+                                                                .queryRows(
+                                                          queryFn: (q) => q
+                                                              .eqOrNull(
+                                                                'reviewed_user_id',
+                                                                widget
+                                                                    .profileId,
+                                                              )
+                                                              .eqOrNull(
+                                                                'both_review_submitted',
+                                                                true,
+                                                              )
+                                                              .order(
+                                                                  'created_at'),
+                                                          limit: 2,
+                                                        ),
+                                                        builder: (context,
+                                                            snapshot) {
+                                                          // Customize what your widget looks like when it's loading.
+                                                          if (!snapshot
+                                                              .hasData) {
+                                                            return Center(
+                                                              child: SizedBox(
+                                                                width: 50.0,
+                                                                height: 50.0,
+                                                                child:
+                                                                    SpinKitChasingDots(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .greenInit,
+                                                                  size: 50.0,
+                                                                ),
+                                                              ),
+                                                            );
+                                                          }
+                                                          List<ViewUserReviewsRow>
+                                                              listViewViewUserReviewsRowList =
+                                                              snapshot.data!;
+
+                                                          return ListView
+                                                              .separated(
+                                                            padding:
+                                                                EdgeInsets.zero,
+                                                            primary: false,
+                                                            shrinkWrap: true,
+                                                            scrollDirection:
+                                                                Axis.vertical,
+                                                            itemCount:
+                                                                listViewViewUserReviewsRowList
+                                                                    .length,
+                                                            separatorBuilder:
+                                                                (_, __) =>
+                                                                    SizedBox(
+                                                                        height:
+                                                                            4.0),
+                                                            itemBuilder: (context,
+                                                                listViewIndex) {
+                                                              final listViewViewUserReviewsRow =
+                                                                  listViewViewUserReviewsRowList[
+                                                                      listViewIndex];
+                                                              return ReviewCardWidget(
+                                                                key: Key(
+                                                                    'Key4jh_${listViewIndex}_of_${listViewViewUserReviewsRowList.length}'),
+                                                                reviewData:
+                                                                    ReviewCardDataStruct(
+                                                                  userName:
+                                                                      listViewViewUserReviewsRow
+                                                                          .usernameWriter,
+                                                                  userAvatar:
+                                                                      listViewViewUserReviewsRow
+                                                                          .profileAvatarWriter,
+                                                                  comunicationScore:
+                                                                      listViewViewUserReviewsRow
+                                                                          .comunicationScore,
+                                                                  qualitScore:
+                                                                      listViewViewUserReviewsRow
+                                                                          .qualityScsore,
+                                                                  reliabilityScore:
+                                                                      listViewViewUserReviewsRow
+                                                                          .reliabilityScore,
+                                                                  note:
+                                                                      listViewViewUserReviewsRow
+                                                                          .note,
+                                                                  createAt:
+                                                                      listViewViewUserReviewsRow
+                                                                          .createdAt,
+                                                                  avarageScore:
+                                                                      listViewViewUserReviewsRow
+                                                                          .avgReviewScore,
+                                                                  fairnessScore:
+                                                                      listViewViewUserReviewsRow
+                                                                          .fairnessScore,
+                                                                  reviewerId:
+                                                                      listViewViewUserReviewsRow
+                                                                          .writerId,
+                                                                ),
+                                                              );
+                                                            },
+                                                          );
+                                                        },
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  16.0,
+                                                                  16.0,
+                                                                  0.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .end,
+                                                        children: [
+                                                          InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              context.pushNamed(
+                                                                ProfileExtendedWidget
+                                                                    .routeName,
+                                                                queryParameters:
+                                                                    {
+                                                                  'profileId':
+                                                                      serializeParam(
+                                                                    profilePageUserExtRow
+                                                                        ?.id,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                              );
+                                                            },
+                                                            child: Text(
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                                '9wndti6n' /* See All */,
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    useGoogleFonts:
+                                                                        !FlutterFlowTheme.of(context)
+                                                                            .bodyMediumIsCustom,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
                                               Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(16.0, 0.0,
-                                                                16.0, 0.0),
-                                                    child: FutureBuilder<
-                                                        List<
-                                                            ViewUserReviewsRow>>(
-                                                      future:
-                                                          ViewUserReviewsTable()
-                                                              .queryRows(
-                                                        queryFn: (q) => q
-                                                            .eqOrNull(
-                                                              'reviewed_user_id',
-                                                              widget.profileId,
-                                                            )
-                                                            .order(
-                                                                'created_at'),
-                                                        limit: 2,
-                                                      ),
-                                                      builder:
-                                                          (context, snapshot) {
-                                                        // Customize what your widget looks like when it's loading.
-                                                        if (!snapshot.hasData) {
-                                                          return Center(
-                                                            child: SizedBox(
-                                                              width: 50.0,
-                                                              height: 50.0,
-                                                              child:
-                                                                  SpinKitChasingDots(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .greenInit,
-                                                                size: 50.0,
-                                                              ),
-                                                            ),
-                                                          );
-                                                        }
-                                                        List<ViewUserReviewsRow>
-                                                            listViewViewUserReviewsRowList =
-                                                            snapshot.data!;
-
-                                                        return ListView.builder(
-                                                          padding:
-                                                              EdgeInsets.zero,
-                                                          primary: false,
-                                                          shrinkWrap: true,
-                                                          scrollDirection:
-                                                              Axis.vertical,
-                                                          itemCount:
-                                                              listViewViewUserReviewsRowList
-                                                                  .length,
-                                                          itemBuilder: (context,
-                                                              listViewIndex) {
-                                                            final listViewViewUserReviewsRow =
-                                                                listViewViewUserReviewsRowList[
-                                                                    listViewIndex];
-                                                            return ReviewCardWidget(
-                                                              key: Key(
-                                                                  'Key4jh_${listViewIndex}_of_${listViewViewUserReviewsRowList.length}'),
-                                                              reviewData:
-                                                                  ReviewCardDataStruct(
-                                                                userName:
-                                                                    listViewViewUserReviewsRow
-                                                                        .usernameWriter,
-                                                                userAvatar:
-                                                                    listViewViewUserReviewsRow
-                                                                        .profileAvatarWriter,
-                                                                comunicationScore:
-                                                                    listViewViewUserReviewsRow
-                                                                        .comunicationScore,
-                                                                qualitScore:
-                                                                    listViewViewUserReviewsRow
-                                                                        .qualityScsore,
-                                                                reliabilityScore:
-                                                                    listViewViewUserReviewsRow
-                                                                        .reliabilityScore,
-                                                                note:
-                                                                    listViewViewUserReviewsRow
-                                                                        .note,
-                                                                createAt:
-                                                                    listViewViewUserReviewsRow
-                                                                        .createdAt,
-                                                                avarageScore:
-                                                                    listViewViewUserReviewsRow
-                                                                        .avgReviewScore,
-                                                                fairnessScore:
-                                                                    listViewViewUserReviewsRow
-                                                                        .fairnessScore,
-                                                                reviewerId:
-                                                                    listViewViewUserReviewsRow
-                                                                        .writerId,
-                                                              ),
-                                                            );
-                                                          },
-                                                        );
-                                                      },
-                                                    ),
-                                                  ),
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -1692,381 +1840,29 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                       mainAxisAlignment:
                                                           MainAxisAlignment.end,
                                                       children: [
-                                                        InkWell(
-                                                          splashColor: Colors
-                                                              .transparent,
-                                                          focusColor: Colors
-                                                              .transparent,
-                                                          hoverColor: Colors
-                                                              .transparent,
-                                                          highlightColor: Colors
-                                                              .transparent,
-                                                          onTap: () async {
-                                                            context.pushNamed(
-                                                              ProfileExtendedWidget
-                                                                  .routeName,
-                                                              queryParameters: {
-                                                                'profileId':
-                                                                    serializeParam(
-                                                                  profilePageUserExtRow
-                                                                      ?.id,
-                                                                  ParamType
-                                                                      .String,
-                                                                ),
-                                                              }.withoutNulls,
-                                                            );
-                                                          },
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              '9wndti6n' /* See All */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMediumIsCustom,
-                                                                ),
+                                                        Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'j6r5bq14' /* See All */,
                                                           ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  if (currentUserUid ==
-                                                      widget.profileId)
-                                                    Builder(
-                                                      builder: (context) {
-                                                        final chatview = (_model
-                                                                    .chatView
-                                                                    ?.toList() ??
-                                                                [])
-                                                            .take(6)
-                                                            .toList();
-
-                                                        return ListView.builder(
-                                                          padding:
-                                                              EdgeInsets.zero,
-                                                          primary: false,
-                                                          shrinkWrap: true,
-                                                          scrollDirection:
-                                                              Axis.vertical,
-                                                          itemCount:
-                                                              chatview.length,
-                                                          itemBuilder: (context,
-                                                              chatviewIndex) {
-                                                            final chatviewItem =
-                                                                chatview[
-                                                                    chatviewIndex];
-                                                            return Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          12.0,
-                                                                          13.5,
-                                                                          16.0,
-                                                                          13.5),
-                                                              child: InkWell(
-                                                                splashColor: Colors
-                                                                    .transparent,
-                                                                focusColor: Colors
-                                                                    .transparent,
-                                                                hoverColor: Colors
-                                                                    .transparent,
-                                                                highlightColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                onTap:
-                                                                    () async {
-                                                                  context
-                                                                      .pushNamed(
-                                                                    ChatdetailWidget
-                                                                        .routeName,
-                                                                    queryParameters:
-                                                                        {
-                                                                      'chatId':
-                                                                          serializeParam(
-                                                                        chatviewItem
-                                                                            .chatId,
-                                                                        ParamType
-                                                                            .int,
-                                                                      ),
-                                                                      'ownerID':
-                                                                          serializeParam(
-                                                                        chatviewItem
-                                                                            .postOwnerId,
-                                                                        ParamType
-                                                                            .String,
-                                                                      ),
-                                                                      'postID':
-                                                                          serializeParam(
-                                                                        chatviewItem
-                                                                            .chatPostId,
-                                                                        ParamType
-                                                                            .String,
-                                                                      ),
-                                                                      'ownerUserName':
-                                                                          serializeParam(
-                                                                        chatviewItem
-                                                                            .ownerUsername,
-                                                                        ParamType
-                                                                            .String,
-                                                                      ),
-                                                                      'ownerAvatar':
-                                                                          serializeParam(
-                                                                        chatviewItem
-                                                                            .ownerAvatar,
-                                                                        ParamType
-                                                                            .String,
-                                                                      ),
-                                                                      'senderID':
-                                                                          serializeParam(
-                                                                        chatviewItem
-                                                                            .chatSender,
-                                                                        ParamType
-                                                                            .String,
-                                                                      ),
-                                                                      'senderUserName':
-                                                                          serializeParam(
-                                                                        chatviewItem
-                                                                            .chatSendername,
-                                                                        ParamType
-                                                                            .String,
-                                                                      ),
-                                                                      'senderAvatar':
-                                                                          serializeParam(
-                                                                        chatviewItem
-                                                                            .senderAvatar,
-                                                                        ParamType
-                                                                            .String,
-                                                                      ),
-                                                                    }.withoutNulls,
-                                                                  );
-                                                                },
-                                                                child: Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  children: [
-                                                                    Container(
-                                                                      constraints:
-                                                                          BoxConstraints(
-                                                                        maxWidth:
-                                                                            70.0,
-                                                                        maxHeight:
-                                                                            60.0,
-                                                                      ),
-                                                                      decoration:
-                                                                          BoxDecoration(),
-                                                                      child:
-                                                                          Align(
-                                                                        alignment: AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Stack(
-                                                                          alignment: AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
-                                                                          children: [
-                                                                            ClipRRect(
-                                                                              borderRadius: BorderRadius.circular(8.0),
-                                                                              child: Image.network(
-                                                                                valueOrDefault<String>(
-                                                                                  chatviewItem.postImage,
-                                                                                  'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/default_image.jpg',
-                                                                                ),
-                                                                                width: 48.0,
-                                                                                height: 48.0,
-                                                                                fit: BoxFit.cover,
-                                                                                alignment: Alignment(0.0, 0.0),
-                                                                              ),
-                                                                            ),
-                                                                            if (chatviewItem.unseenCount! >
-                                                                                0)
-                                                                              Align(
-                                                                                alignment: AlignmentDirectional(1.0, 1.0),
-                                                                                child: badges.Badge(
-                                                                                  badgeContent: Text(
-                                                                                    chatviewItem.unseenCount!.toString(),
-                                                                                    textAlign: TextAlign.start,
-                                                                                    style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                          fontFamily: FlutterFlowTheme.of(context).bodySmallFamily,
-                                                                                          letterSpacing: 0.0,
-                                                                                          useGoogleFonts: !FlutterFlowTheme.of(context).bodySmallIsCustom,
-                                                                                        ),
-                                                                                  ),
-                                                                                  showBadge: true,
-                                                                                  shape: badges.BadgeShape.circle,
-                                                                                  badgeColor: Color(0xFFC04049),
-                                                                                  elevation: 4.0,
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                                                                                  position: badges.BadgePosition.topEnd(),
-                                                                                  animationType: badges.BadgeAnimationType.scale,
-                                                                                  toAnimate: true,
-                                                                                ),
-                                                                              ),
-                                                                          ],
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                    Column(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      crossAxisAlignment:
-                                                                          CrossAxisAlignment
-                                                                              .start,
-                                                                      children: [
-                                                                        Row(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          children:
-                                                                              [
-                                                                            Text(
-                                                                              'About: ${_model.chatView?.where((e) => e.chatId == chatviewItem.chatId).toList().firstOrNull?.postTitle}',
-                                                                              maxLines: 1,
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Satoshi',
-                                                                                    fontSize: 14.0,
-                                                                                    letterSpacing: 0.0,
-                                                                                    fontWeight: FontWeight.bold,
-                                                                                  ),
-                                                                            ),
-                                                                          ].divide(SizedBox(width: 4.0)),
-                                                                        ),
-                                                                        Text(
-                                                                          'From: ${chatviewItem.postOwnerId == currentUserUid ? chatviewItem.chatSendername : chatviewItem.ownerUsername}',
-                                                                          textAlign:
-                                                                              TextAlign.start,
-                                                                          maxLines:
-                                                                              1,
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Satoshi',
-                                                                                fontSize: 14.0,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.bold,
-                                                                              ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                    Expanded(
-                                                                      child:
-                                                                          Align(
-                                                                        alignment: AlignmentDirectional(
-                                                                            1.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Text(
-                                                                          dateTimeFormat(
-                                                                            "MEd",
-                                                                            chatviewItem.chatCreatedAt!,
-                                                                            locale:
-                                                                                FFLocalizations.of(context).languageCode,
-                                                                          ),
-                                                                          textAlign:
-                                                                              TextAlign.justify,
-                                                                          maxLines:
-                                                                              1,
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .titleSmall
-                                                                              .override(
-                                                                                fontFamily: 'Satoshi',
-                                                                                color: FlutterFlowTheme.of(context).primary,
-                                                                                fontSize: 14.0,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.normal,
-                                                                              ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ].divide(SizedBox(
-                                                                      width:
-                                                                          8.0)),
-                                                                ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
                                                               ),
-                                                            );
-                                                          },
-                                                        );
-                                                      },
-                                                    ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                16.0, 0.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment.end,
-                                                      children: [
-                                                        InkWell(
-                                                          splashColor: Colors
-                                                              .transparent,
-                                                          focusColor: Colors
-                                                              .transparent,
-                                                          hoverColor: Colors
-                                                              .transparent,
-                                                          highlightColor: Colors
-                                                              .transparent,
-                                                          onTap: () async {
-                                                            context.pushNamed(
-                                                              ProfileExtendedWidget
-                                                                  .routeName,
-                                                              queryParameters: {
-                                                                'profileId':
-                                                                    serializeParam(
-                                                                  profilePageUserExtRow
-                                                                      ?.id,
-                                                                  ParamType
-                                                                      .String,
-                                                                ),
-                                                              }.withoutNulls,
-                                                            );
-                                                          },
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'j6r5bq14' /* See All */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMediumIsCustom,
-                                                                ),
-                                                          ),
                                                         ),
                                                       ],
                                                     ),

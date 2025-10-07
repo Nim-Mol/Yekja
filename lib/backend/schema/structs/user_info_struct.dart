@@ -18,6 +18,7 @@ class UserInfoStruct extends BaseStruct {
     List<String>? reviewedList,
     int? unseenChats,
     int? unseenMessages,
+    String? role,
   })  : _userId = userId,
         _userName = userName,
         _name = name,
@@ -28,7 +29,8 @@ class UserInfoStruct extends BaseStruct {
         _reportedList = reportedList,
         _reviewedList = reviewedList,
         _unseenChats = unseenChats,
-        _unseenMessages = unseenMessages;
+        _unseenMessages = unseenMessages,
+        _role = role;
 
   // "userId" field.
   String? _userId;
@@ -124,6 +126,13 @@ class UserInfoStruct extends BaseStruct {
 
   bool hasUnseenMessages() => _unseenMessages != null;
 
+  // "Role" field.
+  String? _role;
+  String get role => _role ?? '';
+  set role(String? val) => _role = val;
+
+  bool hasRole() => _role != null;
+
   static UserInfoStruct fromMap(Map<String, dynamic> data) => UserInfoStruct(
         userId: data['userId'] as String?,
         userName: data['userName'] as String?,
@@ -136,6 +145,7 @@ class UserInfoStruct extends BaseStruct {
         reviewedList: getDataList(data['reviewedList']),
         unseenChats: castToType<int>(data['unseen_chats']),
         unseenMessages: castToType<int>(data['unseen_messages']),
+        role: data['Role'] as String?,
       );
 
   static UserInfoStruct? maybeFromMap(dynamic data) =>
@@ -153,6 +163,7 @@ class UserInfoStruct extends BaseStruct {
         'reviewedList': _reviewedList,
         'unseen_chats': _unseenChats,
         'unseen_messages': _unseenMessages,
+        'Role': _role,
       }.withoutNulls;
 
   @override
@@ -203,6 +214,10 @@ class UserInfoStruct extends BaseStruct {
         'unseen_messages': serializeParam(
           _unseenMessages,
           ParamType.int,
+        ),
+        'Role': serializeParam(
+          _role,
+          ParamType.String,
         ),
       }.withoutNulls;
 
@@ -263,6 +278,11 @@ class UserInfoStruct extends BaseStruct {
           ParamType.int,
           false,
         ),
+        role: deserializeParam(
+          data['Role'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -282,7 +302,8 @@ class UserInfoStruct extends BaseStruct {
         listEquality.equals(reportedList, other.reportedList) &&
         listEquality.equals(reviewedList, other.reviewedList) &&
         unseenChats == other.unseenChats &&
-        unseenMessages == other.unseenMessages;
+        unseenMessages == other.unseenMessages &&
+        role == other.role;
   }
 
   @override
@@ -297,7 +318,8 @@ class UserInfoStruct extends BaseStruct {
         reportedList,
         reviewedList,
         unseenChats,
-        unseenMessages
+        unseenMessages,
+        role
       ]);
 }
 
@@ -310,6 +332,7 @@ UserInfoStruct createUserInfoStruct({
   String? city,
   int? unseenChats,
   int? unseenMessages,
+  String? role,
 }) =>
     UserInfoStruct(
       userId: userId,
@@ -320,4 +343,5 @@ UserInfoStruct createUserInfoStruct({
       city: city,
       unseenChats: unseenChats,
       unseenMessages: unseenMessages,
+      role: role,
     );

@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_language_selector.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
-import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -229,50 +228,11 @@ class _MainHeaderWidgetState extends State<MainHeaderWidget> {
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
-                                    valueOrDefault<String>(
-                                      FFAppState().userInfo.avatar,
-                                      'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/anonymous.jpg',
-                                    ),
+                                    FFAppState().userInfo.avatar,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
                               ),
-                              if (FFAppState().userInfo.unseenChats > 0)
-                                Align(
-                                  alignment: AlignmentDirectional(1.0, -1.0),
-                                  child: badges.Badge(
-                                    badgeContent: Text(
-                                      FFAppState()
-                                          .userInfo
-                                          .unseenChats
-                                          .toString(),
-                                      textAlign: TextAlign.center,
-                                      style: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmallFamily,
-                                            color: Colors.white,
-                                            fontSize: 12.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w500,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .titleSmallIsCustom,
-                                          ),
-                                    ),
-                                    showBadge: true,
-                                    shape: badges.BadgeShape.circle,
-                                    badgeColor: Color(0xFFE6282F),
-                                    elevation: 4.0,
-                                    padding: EdgeInsets.all(5.0),
-                                    position: badges.BadgePosition.topEnd(),
-                                    animationType:
-                                        badges.BadgeAnimationType.scale,
-                                    toAnimate: true,
-                                  ),
-                                ),
                             ],
                           ),
                         ),
@@ -341,50 +301,11 @@ class _MainHeaderWidgetState extends State<MainHeaderWidget> {
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
-                                    valueOrDefault<String>(
-                                      FFAppState().userInfo.avatar,
-                                      'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/anonymous.jpg',
-                                    ),
+                                    widget.userAvatar!,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
                               ),
-                              if (FFAppState().userInfo.unseenChats > 0)
-                                Align(
-                                  alignment: AlignmentDirectional(1.0, -1.0),
-                                  child: badges.Badge(
-                                    badgeContent: Text(
-                                      FFAppState()
-                                          .userInfo
-                                          .unseenChats
-                                          .toString(),
-                                      textAlign: TextAlign.center,
-                                      style: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmallFamily,
-                                            color: Colors.white,
-                                            fontSize: 12.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w500,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .titleSmallIsCustom,
-                                          ),
-                                    ),
-                                    showBadge: true,
-                                    shape: badges.BadgeShape.circle,
-                                    badgeColor: Color(0xFFE6282F),
-                                    elevation: 4.0,
-                                    padding: EdgeInsets.all(5.0),
-                                    position: badges.BadgePosition.topEnd(),
-                                    animationType:
-                                        badges.BadgeAnimationType.scale,
-                                    toAnimate: true,
-                                  ),
-                                ),
                             ],
                           ),
                         ),

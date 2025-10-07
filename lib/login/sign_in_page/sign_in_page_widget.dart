@@ -1,8 +1,10 @@
 import '/auth/supabase_auth/auth_util.dart';
+import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/shared_components/botton_standard/botton_standard_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -227,6 +229,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                     Container(
                                       width: 200.0,
                                       child: TextFormField(
+                                        key: ValueKey('emailAddress_r11m'),
                                         controller:
                                             _model.emailAddressTextController,
                                         focusNode: _model.emailAddressFocusNode,
@@ -336,6 +339,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                     Container(
                                       width: 200.0,
                                       child: TextFormField(
+                                        key: ValueKey('PassWord_fyan'),
                                         controller:
                                             _model.passWordTextController,
                                         focusNode: _model.passWordFocusNode,
@@ -478,6 +482,47 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                       'user_id': currentUserUid,
                                       'action': 'SingedIn',
                                     });
+                                    if (loggedIn) {
+                                      // Get user_ext
+                                      _model.user =
+                                          await UserExtTable().queryRows(
+                                        queryFn: (q) => q.eqOrNull(
+                                          'id',
+                                          currentUserUid,
+                                        ),
+                                      );
+                                      // Get user fav
+                                      _model.userFav =
+                                          await UserFavoritesTable().queryRows(
+                                        queryFn: (q) => q.eqOrNull(
+                                          'user_id',
+                                          currentUserUid,
+                                        ),
+                                      );
+                                      _model.userRole =
+                                          await actions.decodeJwtRole();
+                                      // Update UserInfo global object
+                                      FFAppState().userInfo = UserInfoStruct(
+                                        userId: currentUserUid,
+                                        userName:
+                                            _model.user?.firstOrNull?.userName,
+                                        name:
+                                            _model.user?.firstOrNull?.firstName,
+                                        lastName:
+                                            _model.user?.firstOrNull?.lastName,
+                                        avatar: _model
+                                            .user?.firstOrNull?.profileAvatar,
+                                        city:
+                                            _model.user?.firstOrNull?.userCity,
+                                        userFavs: _model.userFav
+                                            ?.map((e) => e.postId)
+                                            .toList(),
+                                        reviewedList: _model
+                                            .user?.firstOrNull?.userReviewedIds,
+                                        role: _model.userRole,
+                                      );
+                                      safeSetState(() {});
+                                    }
 
                                     safeSetState(() {});
                                   },
@@ -485,6 +530,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                     model: _model.bottonStandardModel,
                                     updateCallback: () => safeSetState(() {}),
                                     child: BottonStandardWidget(
+                                      key: ValueKey('BottonStandard_cjw3'),
                                       buttontext:
                                           FFLocalizations.of(context).getText(
                                         'i3al17a9' /* Sign In */,

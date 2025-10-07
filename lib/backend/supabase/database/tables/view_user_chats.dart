@@ -35,6 +35,12 @@ class ViewUserChatsRow extends SupabaseDataRow {
   set chatSendername(String? value) =>
       setField<String>('chat_sendername', value);
 
+  String? get postSource => getField<String>('post_source');
+  set postSource(String? value) => setField<String>('post_source', value);
+
+  bool? get deletedPost => getField<bool>('deleted_post');
+  set deletedPost(bool? value) => setField<bool>('deleted_post', value);
+
   String? get postOwnerId => getField<String>('post_owner_id');
   set postOwnerId(String? value) => setField<String>('post_owner_id', value);
 
@@ -55,4 +61,14 @@ class ViewUserChatsRow extends SupabaseDataRow {
 
   String? get postTitle => getField<String>('post_title');
   set postTitle(String? value) => setField<String>('post_title', value);
+
+  DateTime? get lastSenderMessageAt =>
+      getField<DateTime>('last_sender_message_at');
+  set lastSenderMessageAt(DateTime? value) =>
+      setField<DateTime>('last_sender_message_at', value);
+
+  String? get lastSenderMessageText =>
+      getField<String>('last_sender_message_text');
+  set lastSenderMessageText(String? value) =>
+      setField<String>('last_sender_message_text', value);
 }

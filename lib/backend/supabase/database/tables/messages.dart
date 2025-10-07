@@ -64,4 +64,11 @@ class MessagesRow extends SupabaseDataRow {
 
   bool? get recipientOnline => getField<bool>('recipient_online');
   set recipientOnline(bool? value) => setField<bool>('recipient_online', value);
+
+  String? get postOwnerId => getField<String>('post_owner_id');
+  set postOwnerId(String? value) => setField<String>('post_owner_id', value);
+
+  String? get postCustomerId => getField<String>('post_customer_id');
+  set postCustomerId(String? value) =>
+      setField<String>('post_customer_id', value);
 }

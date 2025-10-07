@@ -1223,49 +1223,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'خانه',
     },
   },
-  // PreviewPost
-  {
-    'f3ldau17': {
-      'en': 'This is a Preview',
-      'fa': 'این یک پیش‌نمایش است',
-    },
-    'pk7ai9ce': {
-      'en': 'Value hint ',
-      'fa': 'اشاره به ارزش',
-    },
-    'jf6laf3h': {
-      'en': '(check here)',
-      'fa': '(اینجا را بررسی کنید)',
-    },
-    'qzvhf54q': {
-      'en': 'Value hint',
-      'fa': 'اشاره به ارزش',
-    },
-    '8m5rehpy': {
-      'en': 'DESCRIPTION',
-      'fa': 'شرح',
-    },
-    'mst2auf9': {
-      'en': 'your review score',
-      'fa': 'امتیاز بررسی شما',
-    },
-    'ceeh9fb2': {
-      'en': 'MY EXCHANGE WISH',
-      'fa': 'آرزوی تبادل من',
-    },
-    'iwovhce9': {
-      'en': 'Fresh start',
-      'fa': 'شروع تازه',
-    },
-    'cga41mte': {
-      'en': 'Publish',
-      'fa': 'منتشر کردن',
-    },
-    '0tsng2mu': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
   // Splash
   {
     'twp4gkdv': {
@@ -1691,11 +1648,278 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'نقد و بررسی‌ها',
     },
     '47ohilj6': {
-      'en': 'Chats',
+      'en': 'Awards',
       'fa': 'چت‌ها',
+    },
+    'hgewwtg0': {
+      'en': 'Not received an award yet. ',
+      'fa': '',
     },
     '296bw0rg': {
       'en': '',
+      'fa': 'خانه',
+    },
+  },
+  // ReportedUser
+  {
+    '3z4oqpvn': {
+      'en': 'Reported Users',
+      'fa': 'کاربران گزارش شده',
+    },
+    'z0xpmlax': {
+      'en': 'Make sure the users don\'t stay in reported state too long',
+      'fa': 'مطمئن شوید که کاربران مدت زیادی در حالت گزارش‌شده نمی‌مانند.',
+    },
+    '5dcfcmeh': {
+      'en': 'Unblock',
+      'fa': 'رفع انسداد',
+    },
+    '48c96pal': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // SignInPage
+  {
+    '3yjo0udr': {
+      'en': 'Welcome Back',
+      'fa': 'خوش آمدید',
+    },
+    '61yuoo32': {
+      'en': 'If your email isn’t verified, ',
+      'fa': 'اگر ایمیل شما تأیید نشده است،',
+    },
+    '1pylrdnu': {
+      'en': 'click here.',
+      'fa': 'اینجا کلیک کنید.',
+    },
+    '9amiwbff': {
+      'en': '',
+      'fa': '',
+    },
+    'sdree3ti': {
+      'en': 'Email',
+      'fa': 'ایمیل',
+    },
+    'xpgw6kd9': {
+      'en': 'Password',
+      'fa': 'رمز عبور',
+    },
+    'i3al17a9': {
+      'en': 'Sign In',
+      'fa': 'ورود',
+    },
+    'nxmvn4ld': {
+      'en': 'Forgot password? ',
+      'fa': 'رمز عبور را فراموش کرده‌اید؟',
+    },
+    'btvjsow4': {
+      'en': 'Click here',
+      'fa': 'اینجا کلیک کنید',
+    },
+    'c0foq102': {
+      'en': 'OR',
+      'fa': 'یا',
+    },
+    'qqhkk63r': {
+      'en': 'No account yet? ',
+      'fa': 'هنوز حساب کاربری ندارید؟',
+    },
+    'oc6h6d27': {
+      'en': 'Sign Up',
+      'fa': 'ثبت نام',
+    },
+    't4mxpixd': {
+      'en': 'Continute as a ',
+      'fa': 'ادامه به عنوان',
+    },
+    'c1gzecba': {
+      'en': 'Guest user',
+      'fa': 'کاربر مهمان',
+    },
+    '0rujztpm': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // ScoringSystem
+  {
+    'o0gdhtwy': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // ContactYEKJA
+  {
+    'uaue3xf2': {
+      'en': 'Welcome to support ',
+      'fa': 'به پشتیبانی خوش آمدید',
+    },
+    'b3om7lkw': {
+      'en': 'Make sure you check our FAQ',
+      'fa': 'حتماً سوالات متداول ما را بررسی کنید',
+    },
+    'ydnrk5zy': {
+      'en': 'Call Us',
+      'fa': 'با ما تماس بگیرید',
+    },
+    'ofdaiisb': {
+      'en': 'Search FAQs',
+      'fa': 'سوالات متداول جستجو',
+    },
+    'zlr86zaw': {
+      'en': '',
+      'fa': '',
+    },
+    'uy7ff9ps': {
+      'en': 'Choose a relevant subject',
+      'fa': 'یک موضوع انتخاب کنید',
+    },
+    'ol3f2ple': {
+      'en': 'Search...',
+      'fa': 'جستجو...',
+    },
+    'rhw1og4g': {
+      'en': 'Option 1',
+      'fa': 'گزینه ۱',
+    },
+    '9ptgnueo': {
+      'en': 'Option 2',
+      'fa': 'گزینه ۲',
+    },
+    '1jg9wm4c': {
+      'en': 'Option 3',
+      'fa': 'گزینه ۳',
+    },
+    '7p9q5poi': {
+      'en':
+          'Please provide description of your inquiry here. We will do our best to come back to you as soon as possible. ',
+      'fa': 'شرح مختصری از نحوه کمک رسانی ما...',
+    },
+    'qc3iypvs': {
+      'en': 'Upload image',
+      'fa': 'آپلود تصویر',
+    },
+    'ziper6ve': {
+      'en': 'Submit ',
+      'fa': 'ارسال',
+    },
+    'md9u0vgx': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // CreateItemMainCat
+  {
+    's59m0mxv': {
+      'en': 'Main Category',
+      'fa': 'دسته اصلی',
+    },
+    'cisjybuu': {
+      'en': '1 of 6',
+      'fa': '۱ از ۶',
+    },
+    '5ih7nup2': {
+      'en': 'What’s your\nnew post about?',
+      'fa': 'پست جدیدت در مورد چیه؟',
+    },
+    'k4ql5elb': {
+      'en': 'Community Care',
+      'fa': 'مراقبت‌های اجتماعی',
+    },
+    'errx5eou': {
+      'en': 'Exchange, trade, rent',
+      'fa': 'معاوضه، تجارت، اجاره',
+    },
+    '4qyffrty': {
+      'en': 'Community Market',
+      'fa': 'بازار محلی',
+    },
+    '9exgqc2a': {
+      'en': 'Offer or ask for help',
+      'fa': 'پیشنهاد یا درخواست کمک',
+    },
+    'beewftzt': {
+      'en': 'Next',
+      'fa': 'بعدی',
+    },
+    'kg4285e0': {
+      'en': 'Home',
+      'fa': '',
+    },
+  },
+  // Swipable
+  {
+    'c9tbt5vm': {
+      'en': 'Discover Local \nOffers & Requests',
+      'fa': 'پیشنهادات و درخواست‌های محلی را کشف کنید',
+    },
+    '507gxblh': {
+      'en': 'Swipe to explore — tap any to learn more',
+      'fa':
+          'برای کاوش، انگشت خود را بکشید - برای کسب اطلاعات بیشتر، روی هر کدام ضربه بزنید',
+    },
+    'bifytvxz': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // SearchPage
+  {
+    'qlxrtif2': {
+      'en': 'Help\nRequests',
+      'fa': 'درخواست‌های \nکمک',
+    },
+    'zxm6qhi3': {
+      'en': 'Help\nOffers',
+      'fa': 'پیشنهادهای\nکمک',
+    },
+    '7kdb5dt1': {
+      'en': 'Items for Exchange',
+      'fa': 'کالاها یا خدمات\nبرای تبادل',
+    },
+    'iqukbo0v': {
+      'en': 'Borrow\nRequests',
+      'fa': 'درخواست‌های \nامانت',
+    },
+    'ix9u3yl7': {
+      'en': 'Items for\nFree',
+      'fa': 'اقلام موجود\nرایگان',
+    },
+    'h96yelv3': {
+      'en': 'Searh Results',
+      'fa': 'نتایج جستجو',
+    },
+    '1je8wpdn': {
+      'en': 'Filter',
+      'fa': 'فیلتر',
+    },
+    'qrvkaa77': {
+      'en': '',
+      'fa': '',
+    },
+    '7uu9uavl': {
+      'en': 'Search',
+      'fa': 'جستجو',
+    },
+    'q4ar00pn': {
+      'en': 'Option 1',
+      'fa': 'گزینه ۱',
+    },
+    '0dfm2rcn': {
+      'en': '',
+      'fa': '',
+    },
+    'kd5mjjjg': {
+      'en': 'Search',
+      'fa': 'جستجو',
+    },
+    '8b3no9i7': {
+      'en': 'Option 1',
+      'fa': 'گزینه ۱',
+    },
+    'gak00fpr': {
+      'en': 'Home',
       'fa': 'خانه',
     },
   },
@@ -1792,88 +2016,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'خانه',
     },
   },
-  // ReportedUser
-  {
-    '3z4oqpvn': {
-      'en': 'Reported Users',
-      'fa': 'کاربران گزارش شده',
-    },
-    'z0xpmlax': {
-      'en': 'Make sure the users don\'t stay in reported state too long',
-      'fa': 'مطمئن شوید که کاربران مدت زیادی در حالت گزارش‌شده نمی‌مانند.',
-    },
-    '5dcfcmeh': {
-      'en': 'Unblock',
-      'fa': 'رفع انسداد',
-    },
-    '48c96pal': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // SignInPage
-  {
-    '3yjo0udr': {
-      'en': 'Welcome Back',
-      'fa': 'خوش آمدید',
-    },
-    '61yuoo32': {
-      'en': 'If your email isn’t verified, ',
-      'fa': 'اگر ایمیل شما تأیید نشده است،',
-    },
-    '1pylrdnu': {
-      'en': 'click here.',
-      'fa': 'اینجا کلیک کنید.',
-    },
-    '9amiwbff': {
-      'en': '',
-      'fa': '',
-    },
-    'sdree3ti': {
-      'en': 'Email',
-      'fa': 'ایمیل',
-    },
-    'xpgw6kd9': {
-      'en': 'Password',
-      'fa': 'رمز عبور',
-    },
-    'i3al17a9': {
-      'en': 'Sign In',
-      'fa': 'ورود',
-    },
-    'nxmvn4ld': {
-      'en': 'Forgot password? ',
-      'fa': 'رمز عبور را فراموش کرده‌اید؟',
-    },
-    'btvjsow4': {
-      'en': 'Click here',
-      'fa': 'اینجا کلیک کنید',
-    },
-    'c0foq102': {
-      'en': 'OR',
-      'fa': 'یا',
-    },
-    'qqhkk63r': {
-      'en': 'No account yet? ',
-      'fa': 'هنوز حساب کاربری ندارید؟',
-    },
-    'oc6h6d27': {
-      'en': 'Sign Up',
-      'fa': 'ثبت نام',
-    },
-    't4mxpixd': {
-      'en': 'Continute as a ',
-      'fa': 'ادامه به عنوان',
-    },
-    'c1gzecba': {
-      'en': 'Guest user',
-      'fa': 'کاربر مهمان',
-    },
-    '0rujztpm': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
   // ProductDetail
   {
     '2rqgmz8p': {
@@ -1904,190 +2046,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'REVIEWS',
       'fa': 'نقد و بررسی‌ها',
     },
-    'ptcsx6q0': {
-      'en': 'Olivia M.',
-      'fa': 'اولیویا م.',
-    },
-    '3p6focx2': {
-      'en': 'June 2023',
-      'fa': 'ژوئن ۲۰۲۳',
-    },
-    'fpajv90g': {
-      'en':
-          'Tom Hanks is a natural storyteller. His warmth, humor, and sincerity made every moment engaging. I could listen to him for hours!  I could listen to him for hours! I could listen to him for hours!',
-      'fa':
-          'تام هنکس یک قصه‌گوی ذاتی است. گرمی، شوخ‌طبعی و صداقت او هر لحظه را جذاب می‌کرد. می‌توانستم ساعت‌ها به حرف‌هایش گوش بدهم! می‌توانستم ساعت‌ها به حرف‌هایش گوش بدهم!',
-    },
-    'h9wvx9b7': {
-      'en': 'Olivia M.',
-      'fa': 'اولیویا م.',
-    },
-    'sxmf1q6b': {
-      'en': 'June 2023',
-      'fa': 'ژوئن ۲۰۲۳',
-    },
-    '09p29kmm': {
-      'en':
-          'Tom Hanks is a natural storyteller. His warmth, humor, and sincerity made every moment engaging. I could listen to him for hours!  I could listen to him for hours! I could listen to him for hours!',
-      'fa':
-          'تام هنکس یک قصه‌گوی ذاتی است. گرمی، شوخ‌طبعی و صداقت او هر لحظه را جذاب می‌کرد. می‌توانستم ساعت‌ها به حرف‌هایش گوش بدهم! می‌توانستم ساعت‌ها به حرف‌هایش گوش بدهم!',
-    },
-    '1pz8zgqt': {
-      'en': 'Olivia M.',
-      'fa': 'اولیویا م.',
-    },
-    'cywr18k4': {
-      'en': 'June 2023',
-      'fa': 'ژوئن ۲۰۲۳',
-    },
-    'xi1ch7sr': {
-      'en':
-          'Tom Hanks is a natural storyteller. His warmth, humor, and sincerity made every moment engaging. I could listen to him for hours!  I could listen to him for hours! I could listen to him for hours!',
-      'fa':
-          'تام هنکس یک قصه‌گوی ذاتی است. گرمی، شوخ‌طبعی و صداقت او هر لحظه را جذاب می‌کرد. می‌توانستم ساعت‌ها به حرف‌هایش گوش بدهم! می‌توانستم ساعت‌ها به حرف‌هایش گوش بدهم!',
-    },
     'onhh13rd': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // ScoringSystem
-  {
-    'o0gdhtwy': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // ContactYEKJA
-  {
-    'uaue3xf2': {
-      'en': 'Welcome to support ',
-      'fa': 'به پشتیبانی خوش آمدید',
-    },
-    'b3om7lkw': {
-      'en': 'Make sure you check our FAQ',
-      'fa': 'حتماً سوالات متداول ما را بررسی کنید',
-    },
-    'ydnrk5zy': {
-      'en': 'Call Us',
-      'fa': 'با ما تماس بگیرید',
-    },
-    'ofdaiisb': {
-      'en': 'Search FAQs',
-      'fa': 'سوالات متداول جستجو',
-    },
-    'zlr86zaw': {
-      'en': '',
-      'fa': '',
-    },
-    'uy7ff9ps': {
-      'en': 'Choose a relevant subject',
-      'fa': 'یک موضوع انتخاب کنید',
-    },
-    'ol3f2ple': {
-      'en': 'Search...',
-      'fa': 'جستجو...',
-    },
-    'rhw1og4g': {
-      'en': 'Option 1',
-      'fa': 'گزینه ۱',
-    },
-    '9ptgnueo': {
-      'en': 'Option 2',
-      'fa': 'گزینه ۲',
-    },
-    '1jg9wm4c': {
-      'en': 'Option 3',
-      'fa': 'گزینه ۳',
-    },
-    '7p9q5poi': {
-      'en':
-          'Please provide description of your inquiry here. We will do our best to come back to you as soon as possible. ',
-      'fa': 'شرح مختصری از نحوه کمک رسانی ما...',
-    },
-    'qc3iypvs': {
-      'en': 'Upload image',
-      'fa': 'آپلود تصویر',
-    },
-    'ziper6ve': {
-      'en': 'Submit ',
-      'fa': 'ارسال',
-    },
-    'md9u0vgx': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // chatdetail
-  {
-    'v838atpy': {
-      'en': ' Request a review',
-      'fa': 'درخواست بررسی',
-    },
-    'swnn4nwr': {
-      'en': '',
-      'fa': '',
-    },
-    'm04p2p42': {
-      'en': 'Type here',
-      'fa': 'اینجا تایپ کنید',
-    },
-    'ixvb7rf1': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // CreateItemMainCat
-  {
-    's59m0mxv': {
-      'en': 'Main Category',
-      'fa': 'دسته اصلی',
-    },
-    'cisjybuu': {
-      'en': '1 of 6',
-      'fa': '۱ از ۶',
-    },
-    '5ih7nup2': {
-      'en': 'What’s your\nnew post about?',
-      'fa': 'پست جدیدت در مورد چیه؟',
-    },
-    'k4ql5elb': {
-      'en': 'Community Care',
-      'fa': 'مراقبت‌های اجتماعی',
-    },
-    'errx5eou': {
-      'en': 'Exchange, trade, rent',
-      'fa': 'معاوضه، تجارت، اجاره',
-    },
-    '4qyffrty': {
-      'en': 'Community Market',
-      'fa': 'بازار محلی',
-    },
-    '9exgqc2a': {
-      'en': 'Offer or ask for help',
-      'fa': 'پیشنهاد یا درخواست کمک',
-    },
-    'beewftzt': {
-      'en': 'Next',
-      'fa': 'بعدی',
-    },
-    'kg4285e0': {
-      'en': 'Home',
-      'fa': '',
-    },
-  },
-  // Swipable
-  {
-    'c9tbt5vm': {
-      'en': 'Discover Local \nOffers & Requests',
-      'fa': 'پیشنهادات و درخواست‌های محلی را کشف کنید',
-    },
-    '507gxblh': {
-      'en': 'Swipe to explore — tap any to learn more',
-      'fa':
-          'برای کاوش، انگشت خود را بکشید - برای کسب اطلاعات بیشتر، روی هر کدام ضربه بزنید',
-    },
-    'bifytvxz': {
       'en': 'Home',
       'fa': 'خانه',
     },
@@ -2210,155 +2169,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'qv3strvd': {
       'en': '',
       'fa': '',
-    },
-  },
-  // SearchPage
-  {
-    'qlxrtif2': {
-      'en': 'Help\nRequests',
-      'fa': 'درخواست‌های \nکمک',
-    },
-    'zxm6qhi3': {
-      'en': 'Help\nOffers',
-      'fa': 'پیشنهادهای\nکمک',
-    },
-    '7kdb5dt1': {
-      'en': 'Items for Exchange',
-      'fa': 'کالاها یا خدمات\nبرای تبادل',
-    },
-    'iqukbo0v': {
-      'en': 'Borrow\nRequests',
-      'fa': 'درخواست‌های \nامانت',
-    },
-    'ix9u3yl7': {
-      'en': 'Items for\nFree',
-      'fa': 'اقلام موجود\nرایگان',
-    },
-    'h96yelv3': {
-      'en': 'Searh Results',
-      'fa': 'نتایج جستجو',
-    },
-    '1je8wpdn': {
-      'en': 'Filter',
-      'fa': 'فیلتر',
-    },
-    'qrvkaa77': {
-      'en': '',
-      'fa': '',
-    },
-    '7uu9uavl': {
-      'en': 'Search',
-      'fa': 'جستجو',
-    },
-    'q4ar00pn': {
-      'en': 'Option 1',
-      'fa': 'گزینه ۱',
-    },
-    '0dfm2rcn': {
-      'en': '',
-      'fa': '',
-    },
-    'kd5mjjjg': {
-      'en': 'Search',
-      'fa': 'جستجو',
-    },
-    '8b3no9i7': {
-      'en': 'Option 1',
-      'fa': 'گزینه ۱',
-    },
-    'gak00fpr': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // ChatPage
-  {
-    'au6wzutq': {
-      'en': 'Chats',
-      'fa': '',
-    },
-    'cyoqgt88': {
-      'en': 'All',
-      'fa': '',
-    },
-    'ktmh8zc4': {
-      'en': 'My Posts',
-      'fa': '',
-    },
-    's5akc9nm': {
-      'en': 'Other\'s Posts',
-      'fa': '',
-    },
-    'o9qneast': {
-      'en': 'Yekja Help',
-      'fa': '',
-    },
-    'fyic4jxi': {
-      'en': 'All',
-      'fa': '',
-    },
-    '5g28h2j2': {
-      'en': 'Home',
-      'fa': '',
-    },
-  },
-  // ProfilePage
-  {
-    'wi68hahy': {
-      'en': 'Likes',
-      'fa': 'لایک‌ها',
-    },
-    'jzc0o03k': {
-      'en': '3',
-      'fa': '۳',
-    },
-    'yhmczqlg': {
-      'en': '12 points to reach level 4',
-      'fa': '۱۲ امتیاز برای رسیدن به سطح ۴',
-    },
-    '9ey4rtob': {
-      'en': '',
-      'fa': '',
-    },
-    'dcb0abt1': {
-      'en': 'Reviews',
-      'fa': 'نقد و بررسی‌ها',
-    },
-    '2808vfr9': {
-      'en': 'Posts',
-      'fa': 'پست‌ها',
-    },
-    'xt0uhk7r': {
-      'en': 'See All',
-      'fa': 'همه را ببینید',
-    },
-    'oq2hc9vq': {
-      'en': 'Favorites',
-      'fa': 'موارد دلخواه',
-    },
-    'fd2re1c8': {
-      'en': 'See All',
-      'fa': 'همه را ببینید',
-    },
-    'h7butxb7': {
-      'en': 'Reviews',
-      'fa': 'نقد و بررسی‌ها',
-    },
-    '9wndti6n': {
-      'en': 'See All',
-      'fa': 'همه را ببینید',
-    },
-    'c9j6hm84': {
-      'en': 'Chats',
-      'fa': 'چت‌ها',
-    },
-    'j6r5bq14': {
-      'en': 'See All',
-      'fa': 'همه را ببینید',
-    },
-    'yq4fqtye': {
-      'en': '',
-      'fa': 'خانه',
     },
   },
   // EditProfilePage
@@ -2550,15 +2360,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'اعلان برنامه',
     },
     '5ct1ipp7': {
-      'en': 'Allow  users to see my favorits.',
+      'en': 'Allow users to see my favorites.',
       'fa': 'به کاربران اجازه دهید به من پیام بدهند.',
     },
     '99v5cfwr': {
-      'en': 'Allow  users to Call me.',
+      'en': 'Allow  users to call me.',
       'fa': 'نمایش بیوگرافی پروفایل',
     },
     'd7sz5zwn': {
-      'en': 'Allow  users to Message me.',
+      'en': 'Allow  users to message me.',
       'fa': 'به کاربران اجازه دهید به من پیام بدهند.',
     },
     'bcc012tm': {
@@ -2625,6 +2435,247 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '2615xb3m': {
       'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // chatdetailCopy
+  {
+    'ooczm4dv': {
+      'en': 'Mark as Completed!',
+      'fa': 'درخواست بررسی',
+    },
+    'hacqz5kz': {
+      'en': '',
+      'fa': '',
+    },
+    'zt7n2yew': {
+      'en': 'Type here',
+      'fa': 'اینجا تایپ کنید',
+    },
+    'z86nyu9q': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // PreviewPost
+  {
+    'f3ldau17': {
+      'en': 'This is a Preview',
+      'fa': 'این یک پیش‌نمایش است',
+    },
+    'pk7ai9ce': {
+      'en': 'Value hint ',
+      'fa': 'اشاره به ارزش',
+    },
+    'jf6laf3h': {
+      'en': '(check here)',
+      'fa': '(اینجا را بررسی کنید)',
+    },
+    'qzvhf54q': {
+      'en': 'Value hint',
+      'fa': 'اشاره به ارزش',
+    },
+    '8m5rehpy': {
+      'en': 'DESCRIPTION',
+      'fa': 'شرح',
+    },
+    'mst2auf9': {
+      'en': 'your review score',
+      'fa': 'امتیاز بررسی شما',
+    },
+    'ceeh9fb2': {
+      'en': 'MY EXCHANGE WISH',
+      'fa': 'آرزوی تبادل من',
+    },
+    'iwovhce9': {
+      'en': 'Fresh start',
+      'fa': 'شروع تازه',
+    },
+    'cga41mte': {
+      'en': 'Publish',
+      'fa': 'منتشر کردن',
+    },
+    '0tsng2mu': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // ProfilePage
+  {
+    'wi68hahy': {
+      'en': 'Likes',
+      'fa': 'لایک‌ها',
+    },
+    'jzc0o03k': {
+      'en': '3',
+      'fa': '۳',
+    },
+    'yhmczqlg': {
+      'en': '12 points to reach level 4',
+      'fa': '۱۲ امتیاز برای رسیدن به سطح ۴',
+    },
+    '9ey4rtob': {
+      'en': '',
+      'fa': '',
+    },
+    'dcb0abt1': {
+      'en': 'Reviews',
+      'fa': 'نقد و بررسی‌ها',
+    },
+    '2808vfr9': {
+      'en': 'Posts',
+      'fa': 'پست‌ها',
+    },
+    'xt0uhk7r': {
+      'en': 'See All',
+      'fa': 'همه را ببینید',
+    },
+    'oq2hc9vq': {
+      'en': 'Favorites',
+      'fa': 'موارد دلخواه',
+    },
+    'fd2re1c8': {
+      'en': 'See All',
+      'fa': 'همه را ببینید',
+    },
+    'h7butxb7': {
+      'en': 'Reviews',
+      'fa': 'نقد و بررسی‌ها',
+    },
+    '9wndti6n': {
+      'en': 'See All',
+      'fa': 'همه را ببینید',
+    },
+    'c9j6hm84': {
+      'en': 'Awards',
+      'fa': 'چت‌ها',
+    },
+    'j6r5bq14': {
+      'en': 'See All',
+      'fa': 'همه را ببینید',
+    },
+    'yq4fqtye': {
+      'en': '',
+      'fa': 'خانه',
+    },
+  },
+  // chatdetail
+  {
+    'v838atpy': {
+      'en': 'Mark as Completed!',
+      'fa': 'درخواست بررسی',
+    },
+    'swnn4nwr': {
+      'en': '',
+      'fa': '',
+    },
+    'm04p2p42': {
+      'en': 'Type here',
+      'fa': 'اینجا تایپ کنید',
+    },
+    'ixvb7rf1': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // ChatPage
+  {
+    'au6wzutq': {
+      'en': 'Chats',
+      'fa': '',
+    },
+    'cyoqgt88': {
+      'en': 'All',
+      'fa': '',
+    },
+    'ktmh8zc4': {
+      'en': 'My Posts',
+      'fa': '',
+    },
+    's5akc9nm': {
+      'en': 'Other\'s Posts',
+      'fa': '',
+    },
+    'o9qneast': {
+      'en': 'Yekja',
+      'fa': '',
+    },
+    'fyic4jxi': {
+      'en': 'All',
+      'fa': '',
+    },
+    '5g28h2j2': {
+      'en': 'Home',
+      'fa': '',
+    },
+  },
+  // chatdetailWithYekja
+  {
+    '8v33985q': {
+      'en': 'Yekja team',
+      'fa': 'بصینه قریشی',
+    },
+    'a9aw2hjl': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // ProfilePageCopy
+  {
+    'dehjlzqd': {
+      'en': 'Likes',
+      'fa': 'لایک‌ها',
+    },
+    '0xblbllt': {
+      'en': '3',
+      'fa': '۳',
+    },
+    'kr4e72hp': {
+      'en': '12 points to reach level 4',
+      'fa': '۱۲ امتیاز برای رسیدن به سطح ۴',
+    },
+    'c729t5i3': {
+      'en': '',
+      'fa': '',
+    },
+    'venfz1h8': {
+      'en': 'Reviews',
+      'fa': 'نقد و بررسی‌ها',
+    },
+    '49iflaf8': {
+      'en': 'Posts',
+      'fa': 'پست‌ها',
+    },
+    '4913lo64': {
+      'en': 'See All',
+      'fa': 'همه را ببینید',
+    },
+    'bj5zcq2l': {
+      'en': 'Favorites',
+      'fa': 'موارد دلخواه',
+    },
+    'ff1jiitb': {
+      'en': 'See All',
+      'fa': 'همه را ببینید',
+    },
+    'i6v1fg9j': {
+      'en': 'Reviews',
+      'fa': 'نقد و بررسی‌ها',
+    },
+    'mcm4xdjn': {
+      'en': 'See All',
+      'fa': 'همه را ببینید',
+    },
+    'f6z1j0un': {
+      'en': 'Awards',
+      'fa': 'چت‌ها',
+    },
+    'jw18ejxj': {
+      'en': 'See All',
+      'fa': 'همه را ببینید',
+    },
+    'dgodxt8l': {
+      'en': '',
       'fa': 'خانه',
     },
   },
@@ -2955,27 +3006,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'لغو',
     },
   },
-  // verifyCode
-  {
-    'hy8t8fp9': {
-      'en': 'A confimation code was sent via email.',
-      'fa': 'یک کد تایید از طریق ایمیل ارسال شد.',
-    },
-    're93hvjq': {
-      'en': 'Pease enter  valid code',
-      'fa': 'لطفا کد معتبر را وارد کنید',
-    },
-    'vra2s4j2': {
-      'en': 'Resend',
-      'fa': 'ارسال مجدد',
-    },
-    '62qr2zha': {
-      'en': 'Verify now',
-      'fa': 'اکنون تأیید کنید',
-    },
-  },
   // ReviewAndRating
   {
+    'bgtfx9oz': {
+      'en': 'Would you like to share your experience about this member?',
+      'fa': '',
+    },
     'bc2ugybz': {
       'en': 'Communication',
       'fa': 'ارتباطات',
@@ -2999,25 +3035,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'q9biojw1': {
       'en': 'Submit',
       'fa': 'ارسال',
-    },
-  },
-  // ReviewCard
-  {
-    'wdd96ugv': {
-      'en': 'Comunication',
-      'fa': 'ارتباطات',
-    },
-    'qc660x4w': {
-      'en': 'Quality',
-      'fa': 'کیفیت',
-    },
-    'igw49v8r': {
-      'en': 'Reliability',
-      'fa': 'قابلیت اطمینان',
-    },
-    'fnbjhk24': {
-      'en': 'Fairness',
-      'fa': 'انصاف',
     },
   },
   // filterComp
@@ -3103,6 +3120,78 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'پاک کردن همه فیلترها',
     },
   },
+  // Comunication_Bar
+  {
+    'kign2ryz': {
+      'en': '',
+      'fa': '',
+    },
+    'cehxi79j': {
+      'en': '',
+      'fa': '',
+    },
+    '8f99d8cs': {
+      'en': '',
+      'fa': '',
+    },
+  },
+  // NavBar
+  {
+    'h84rq3rh': {
+      'en': 'Confirm  email',
+      'fa': 'ایمیل را تأیید کنید',
+    },
+    'guin220b': {
+      'en': 'Please confirm your email first in order to create a post.',
+      'fa': 'برای ایجاد پست، ابتدا ایمیل خود را تأیید کنید.',
+    },
+    'b4rlpy84': {
+      'en': 'Confirm Email',
+      'fa': 'تأیید ایمیل',
+    },
+    's2xla0yd': {
+      'en': 'Confirm  email',
+      'fa': 'ایمیل را تأیید کنید',
+    },
+    '93xbz86m': {
+      'en': 'Please confirm your email first in order to create a post.',
+      'fa': 'برای ایجاد پست، ابتدا ایمیل خود را تأیید کنید.',
+    },
+    'hg7wba0t': {
+      'en': 'Confirm Email',
+      'fa': 'تأیید ایمیل',
+    },
+  },
+  // verifyCode
+  {
+    'hy8t8fp9': {
+      'en': 'A confimation code was sent via email.',
+      'fa': 'یک کد تایید از طریق ایمیل ارسال شد.',
+    },
+    're93hvjq': {
+      'en': 'Pease enter  valid code',
+      'fa': 'لطفا کد معتبر را وارد کنید',
+    },
+    'vra2s4j2': {
+      'en': 'Resend',
+      'fa': 'ارسال مجدد',
+    },
+    '62qr2zha': {
+      'en': 'Verify now',
+      'fa': 'اکنون تأیید کنید',
+    },
+  },
+  // MainHeader
+  {
+    'xpzlwcmx': {
+      'en': '10',
+      'fa': '۱۰',
+    },
+    'awxu5n57': {
+      'en': '10',
+      'fa': '۴۵',
+    },
+  },
   // YekjaScorePopUp
   {
     'x4t1poso': {
@@ -3132,14 +3221,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '3l2wyu39': {
       'en': 'Alam Kooh',
       'fa': 'علم کوه',
-    },
-    'rrsp4xfp': {
-      'en': 'T-Soleyman',
-      'fa': 'تی-سلیمان',
-    },
-    'l5cmvc2h': {
-      'en': 'O-Kooh',
-      'fa': 'او-کوه',
     },
     'xda20r4w': {
       'en': 'Damavand',
@@ -3196,57 +3277,58 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'ببینید امتیازها چگونه کار می‌کنند',
     },
   },
-  // Comunication_Bar
+  // ReviewCard
   {
-    'kign2ryz': {
-      'en': '',
+    'wdd96ugv': {
+      'en': 'Comunication',
+      'fa': 'ارتباطات',
+    },
+    'qc660x4w': {
+      'en': 'Quality',
+      'fa': 'کیفیت',
+    },
+    'igw49v8r': {
+      'en': 'Reliability',
+      'fa': 'قابلیت اطمینان',
+    },
+    'fnbjhk24': {
+      'en': 'Fairness',
+      'fa': 'انصاف',
+    },
+    '3i80oi0s': {
+      'en': 'Read more',
       'fa': '',
     },
-    'cehxi79j': {
-      'en': '',
-      'fa': '',
-    },
-    '8f99d8cs': {
-      'en': '',
+    'eltqwsfe': {
+      'en': 'Read less',
       'fa': '',
     },
   },
-  // MainHeader
+  // ReviewCard_small
   {
-    'xpzlwcmx': {
-      'en': '10',
-      'fa': '۱۰',
+    'd6l96odj': {
+      'en': 'Comunication',
+      'fa': 'ارتباطات',
     },
-    'awxu5n57': {
-      'en': '10',
-      'fa': '۴۵',
+    'p9fq8o0p': {
+      'en': 'Quality',
+      'fa': 'کیفیت',
     },
-  },
-  // NavBar
-  {
-    'h84rq3rh': {
-      'en': 'Confirm  email',
-      'fa': 'ایمیل را تأیید کنید',
+    'vv9ma3w1': {
+      'en': 'Reliability',
+      'fa': 'قابلیت اطمینان',
     },
-    'guin220b': {
-      'en': 'Please confirm your email first in order to create a post.',
-      'fa': 'برای ایجاد پست، ابتدا ایمیل خود را تأیید کنید.',
+    'j4xtcwnz': {
+      'en': 'Fairness',
+      'fa': 'انصاف',
     },
-    'b4rlpy84': {
-      'en': 'Confirm Email',
-      'fa': 'تأیید ایمیل',
+    'c6g53hr2': {
+      'en': 'Read more',
+      'fa': '',
     },
-    's2xla0yd': {
-      'en': 'Confirm  email',
-      'fa': 'ایمیل را تأیید کنید',
-    },
-    '93xbz86m': {
-      'en': 'Please confirm your email first in order to create a post.',
-      'fa': 'برای ایجاد پست، ابتدا ایمیل خود را تأیید کنید.',
-    },
-    'hg7wba0t': {
-      'en': 'Confirm Email',
-      'fa': 'تأیید ایمیل',
+    'dehvy8to': {
+      'en': 'Read less',
+      'fa': '',
     },
   },
   // Miscellaneous

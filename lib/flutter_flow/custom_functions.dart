@@ -13,10 +13,6 @@ import '/backend/schema/enums/enums.dart';
 import '/backend/supabase/supabase.dart';
 import '/auth/supabase_auth/auth_util.dart';
 
-String? widgetStateLog(List<String>? widgetState) {
-  return widgetState.toString();
-}
-
 bool isNull(List<String>? widgetState) {
   if (widgetState == null || widgetState.isEmpty) {
     return true;
@@ -150,4 +146,12 @@ bool routeStartsWithPrefix(
 
 bool isPresentAndPositive(int? value) {
   return (value ?? 0) > 0;
+}
+
+bool isNullSingleImage(String? imageVar) {
+  if (imageVar == null) {
+    return true;
+  } else {
+    return false;
+  }
 }

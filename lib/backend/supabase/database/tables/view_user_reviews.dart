@@ -47,6 +47,17 @@ class ViewUserReviewsRow extends SupabaseDataRow {
   String? get postownerId => getField<String>('postowner_id');
   set postownerId(String? value) => setField<String>('postowner_id', value);
 
+  bool? get ownerSubmitted => getField<bool>('owner_submitted');
+  set ownerSubmitted(bool? value) => setField<bool>('owner_submitted', value);
+
+  bool? get customerSubmitted => getField<bool>('customer_submitted');
+  set customerSubmitted(bool? value) =>
+      setField<bool>('customer_submitted', value);
+
+  bool? get bothReviewSubmitted => getField<bool>('both_review_submitted');
+  set bothReviewSubmitted(bool? value) =>
+      setField<bool>('both_review_submitted', value);
+
   String? get profileAvatarWriter => getField<String>('profile_avatar_writer');
   set profileAvatarWriter(String? value) =>
       setField<String>('profile_avatar_writer', value);

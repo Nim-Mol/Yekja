@@ -1,6 +1,5 @@
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/profile/review_and_rating/review_and_rating_widget.dart';
 import '/index.dart';
 import 'chatdetail_widget.dart' show ChatdetailWidget;
 import 'package:flutter/material.dart';
@@ -20,25 +19,31 @@ class ChatdetailModel extends FlutterFlowModel<ChatdetailWidget> {
 
   // Stores action output result for [Backend Call - Query Rows] action in chatdetail widget.
   List<UserExtRow>? recipient;
+  // Stores action output result for [Backend Call - Query Rows] action in chatdetail widget.
+  List<ViewUserChatsVisibleRow>? viewChatWithOwner;
   // Stores action output result for [Backend Call - Update Row(s)] action in chatdetail widget.
   List<MessagesRow>? userOffline;
   // State field(s) for Chats-ListView widget.
   ScrollController? chatsListViewScrollController;
   Stream<List<MessagesRow>>? chatsListViewSupabaseStream;
-  // Models for ReviewAndRating dynamic component.
-  late FlutterFlowDynamicModels<ReviewAndRatingModel> reviewAndRatingModels;
-  bool isDataUploading_inMemImg = false;
-  FFUploadedFile uploadedLocalFile_inMemImg =
+  // Stores action output result for [Backend Call - Query Rows] action in Row widget.
+  List<ViewPostSearchRow>? viewPost;
+  // Stores action output result for [Backend Call - Insert Row] action in Row widget.
+  ChatsRow? yekjaChat2Customer;
+  // Stores action output result for [Backend Call - Insert Row] action in Row widget.
+  ChatsRow? yekjaChat2Owner;
+  bool isDataUploading_inMemImg1 = false;
+  FFUploadedFile uploadedLocalFile_inMemImg1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  bool isDataUploading_uploadToDB = false;
-  FFUploadedFile uploadedLocalFile_uploadToDB =
+  bool isDataUploading_uploadToDB1 = false;
+  FFUploadedFile uploadedLocalFile_uploadToDB1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl_uploadToDB = '';
+  String uploadedFileUrl_uploadToDB1 = '';
 
   // Stores action output result for [Backend Call - Insert Row] action in IconButton widget.
   MessagesRow? imgMessage;
@@ -48,14 +53,11 @@ class ChatdetailModel extends FlutterFlowModel<ChatdetailWidget> {
   @override
   void initState(BuildContext context) {
     chatsListViewScrollController = ScrollController();
-    reviewAndRatingModels =
-        FlutterFlowDynamicModels(() => ReviewAndRatingModel());
   }
 
   @override
   void dispose() {
     chatsListViewScrollController?.dispose();
-    reviewAndRatingModels.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }

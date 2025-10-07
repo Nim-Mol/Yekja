@@ -48,4 +48,12 @@ class ReviewsRow extends SupabaseDataRow {
   String? get reviewedUserId => getField<String>('reviewed_user_id');
   set reviewedUserId(String? value) =>
       setField<String>('reviewed_user_id', value);
+
+  bool? get submittedPostCustomer => getField<bool>('submitted_post_customer');
+  set submittedPostCustomer(bool? value) =>
+      setField<bool>('submitted_post_customer', value);
+
+  bool? get submittedPostOwner => getField<bool>('submitted_post_owner');
+  set submittedPostOwner(bool? value) =>
+      setField<bool>('submitted_post_owner', value);
 }

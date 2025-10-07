@@ -494,18 +494,28 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
 
                                                                                 if (_model.uploadedFileUrl_newAvatarImg != '') {
                                                                                   if (columnUserExtRow?.profileAvatar != _model.uploadedFileUrl_newAvatarImg) {
-                                                                                    _model.updatedAvatar = await UserExtTable().update(
-                                                                                      data: {
-                                                                                        'profile_avatar': _model.uploadedFileUrl_newAvatarImg,
-                                                                                      },
-                                                                                      matchingRows: (rows) => rows.eqOrNull(
-                                                                                        'id',
-                                                                                        currentUserUid,
-                                                                                      ),
-                                                                                      returnRows: true,
-                                                                                    );
-                                                                                    _shouldSetState = true;
                                                                                     await deleteSupabaseFileFromPublicUrl(columnUserExtRow!.profileAvatar!);
+                                                                                    await Future.wait([
+                                                                                      Future(() async {
+                                                                                        _model.updatedAvatar = await UserExtTable().update(
+                                                                                          data: {
+                                                                                            'profile_avatar': _model.uploadedFileUrl_newAvatarImg,
+                                                                                          },
+                                                                                          matchingRows: (rows) => rows.eqOrNull(
+                                                                                            'id',
+                                                                                            currentUserUid,
+                                                                                          ),
+                                                                                          returnRows: true,
+                                                                                        );
+                                                                                        _shouldSetState = true;
+                                                                                      }),
+                                                                                      Future(() async {
+                                                                                        FFAppState().updateUserInfoStruct(
+                                                                                          (e) => e..avatar = _model.uploadedFileUrl_newAvatarImg,
+                                                                                        );
+                                                                                        safeSetState(() {});
+                                                                                      }),
+                                                                                    ]);
                                                                                     ScaffoldMessenger.of(context).showSnackBar(
                                                                                       SnackBar(
                                                                                         content: Text(
@@ -2676,7 +2686,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        '5ct1ipp7' /* Allow  users to see my favorit... */,
+                                                        '5ct1ipp7' /* Allow users to see my favorite... */,
                                                       ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
@@ -2746,7 +2756,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        '99v5cfwr' /* Allow  users to Call me. */,
+                                                        '99v5cfwr' /* Allow  users to call me. */,
                                                       ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
@@ -2816,7 +2826,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'd7sz5zwn' /* Allow  users to Message me. */,
+                                                        'd7sz5zwn' /* Allow  users to message me. */,
                                                       ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
@@ -2969,7 +2979,8 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                                         ),
                                                         options:
                                                             FFButtonOptions(
-                                                          width: 300.0,
+                                                          width:
+                                                              double.infinity,
                                                           height: 40.0,
                                                           padding:
                                                               EdgeInsetsDirectional

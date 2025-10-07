@@ -54,8 +54,8 @@ class UserExtRow extends SupabaseDataRow {
   int? get totalLikes => getField<int>('total_likes');
   set totalLikes(int? value) => setField<int>('total_likes', value);
 
-  double? get review => getField<double>('review');
-  set review(double? value) => setField<double>('review', value);
+  double get review => getField<double>('review')!;
+  set review(double value) => setField<double>('review', value);
 
   bool get yekjaVerified => getField<bool>('YekjaVerified')!;
   set yekjaVerified(bool value) => setField<bool>('YekjaVerified', value);
@@ -66,4 +66,10 @@ class UserExtRow extends SupabaseDataRow {
 
   bool? get reported => getField<bool>('reported');
   set reported(bool? value) => setField<bool>('reported', value);
+
+  String? get role => getField<String>('Role');
+  set role(String? value) => setField<String>('Role', value);
+
+  int get ratings => getField<int>('ratings')!;
+  set ratings(int value) => setField<int>('ratings', value);
 }

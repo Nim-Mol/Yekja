@@ -100,7 +100,7 @@ class _PreviewPostWidgetState extends State<PreviewPostWidget>
                                             .images
                                             .isNotEmpty)
                                         ? [
-                                            'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/default_image.jpg'
+                                            'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Icons/default_post_image.jpg'
                                           ]
                                         : FFAppState().marketPlaceMeta.images,
                                   ),
@@ -436,19 +436,21 @@ class _PreviewPostWidgetState extends State<PreviewPostWidget>
                                         Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
-                                            Container(
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .warning,
-                                                borderRadius:
-                                                    BorderRadius.circular(4.0),
-                                              ),
+                                            Align(
                                               alignment: AlignmentDirectional(
                                                   0.0, 0.0),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          4.0),
+                                                  border: Border.all(
+                                                    color: Color(0x890F9970),
+                                                  ),
+                                                ),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -466,6 +468,8 @@ class _PreviewPostWidgetState extends State<PreviewPostWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodySmallFamily,
+                                                          color:
+                                                              Color(0xFF1DD6A1),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts:
@@ -1539,6 +1543,7 @@ class _PreviewPostWidgetState extends State<PreviewPostWidget>
                                                       'time_unit': FFAppState()
                                                           .marketPlaceMeta
                                                           .timeUnit,
+                                                      'post_likes': 0,
                                                     });
                                                     await Future.delayed(
                                                       Duration(
@@ -1574,8 +1579,16 @@ class _PreviewPostWidgetState extends State<PreviewPostWidget>
                                                     safeSetState(() {});
 
                                                     context.pushNamed(
-                                                        HomePageWidget
-                                                            .routeName);
+                                                      ProfilePageWidget
+                                                          .routeName,
+                                                      queryParameters: {
+                                                        'profileId':
+                                                            serializeParam(
+                                                          currentUserUid,
+                                                          ParamType.String,
+                                                        ),
+                                                      }.withoutNulls,
+                                                    );
                                                   } else {
                                                     await CareTable().insert({
                                                       'user_id': currentUserUid,
@@ -1592,6 +1605,7 @@ class _PreviewPostWidgetState extends State<PreviewPostWidget>
                                                       'images': FFAppState()
                                                           .marketPlaceMeta
                                                           .images,
+                                                      'post_likes': 0,
                                                     });
                                                     await Future.delayed(
                                                       Duration(
@@ -1627,8 +1641,16 @@ class _PreviewPostWidgetState extends State<PreviewPostWidget>
                                                     safeSetState(() {});
 
                                                     context.pushNamed(
-                                                        HomePageWidget
-                                                            .routeName);
+                                                      ProfilePageWidget
+                                                          .routeName,
+                                                      queryParameters: {
+                                                        'profileId':
+                                                            serializeParam(
+                                                          currentUserUid,
+                                                          ParamType.String,
+                                                        ),
+                                                      }.withoutNulls,
+                                                    );
                                                   }
                                                 },
                                                 onCancelAction: () async {

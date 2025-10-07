@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/shared_components/main_header/main_header_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
 import '/shared_components/shout_out_card/shout_out_card_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -68,46 +69,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       if (loggedIn) {
         FFAppState().IsGust = false;
         safeSetState(() {});
-        // Get user_ext
-        _model.user = await UserExtTable().queryRows(
-          queryFn: (q) => q.eqOrNull(
-            'id',
-            currentUserUid,
-          ),
-        );
-        _model.favs = await UserFavoritesTable().queryRows(
-          queryFn: (q) => q.eqOrNull(
-            'user_id',
-            currentUserUid,
-          ),
-        );
-        // Update UserInfo global object
-        FFAppState().userInfo = UserInfoStruct(
-          userId: _model.user?.firstOrNull?.id,
-          userName: _model.user?.firstOrNull?.userName,
-          avatar: _model.user?.firstOrNull?.profileAvatar,
-          city: _model.user?.firstOrNull?.userCity,
-          userFavs: _model.favs?.map((e) => e.postId).toList(),
-          reviewedList: _model.user?.firstOrNull?.userReviewedIds,
-        );
-        safeSetState(() {});
-        await Future.delayed(
-          Duration(
-            milliseconds: 400,
-          ),
-        );
         _model.newMessages = await ViewUnseenTotalsTable().queryRows(
           queryFn: (q) => q.eqOrNull(
             'user_id',
             currentUserUid,
           ),
         );
-        // Update UserInfo global object
-        FFAppState().updateUserInfoStruct(
-          (e) =>
-              e..unseenChats = _model.newMessages?.firstOrNull?.chatsWithUnseen,
-        );
-        safeSetState(() {});
       } else {
         FFAppState().IsGust = true;
         safeSetState(() {});
@@ -293,40 +260,69 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Flexible(
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'uecq8i6w' /* What are you looking for today... */,
-                                    ),
-                                    textAlign: TextAlign.start,
-                                    style: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .override(
-                                          font: GoogleFonts.poppins(
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              await actions.debugDecoder();
+                              _model.toplevelRole =
+                                  await actions.decodeJwtRole();
+                              await showDialog(
+                                context: context,
+                                builder: (alertDialogContext) {
+                                  return AlertDialog(
+                                    title: Text(FFAppState().userInfo.role),
+                                    content: Text(_model.toplevelRole!),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(alertDialogContext),
+                                        child: Text('Ok'),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+
+                              safeSetState(() {});
+                            },
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Flexible(
+                                  child: Align(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        'uecq8i6w' /* What are you looking for today... */,
+                                      ),
+                                      textAlign: TextAlign.start,
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleLarge
+                                          .override(
+                                            font: GoogleFonts.poppins(
+                                              fontWeight: FontWeight.w500,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleLarge
+                                                      .fontStyle,
+                                            ),
+                                            fontSize: 20.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                             fontStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .titleLarge
                                                     .fontStyle,
                                           ),
-                                          fontSize: 20.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleLarge
-                                                  .fontStyle,
-                                        ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                         Container(
@@ -2431,7 +2427,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         model: _model.mainHeaderModel,
                         updateCallback: () => safeSetState(() {}),
                         child: MainHeaderWidget(
-                          userAvatar: FFAppState().userInfo.avatar,
+                          userAvatar: FFAppState().userInfo.avatar == ''
+                              ? FFAppState().userInfo.avatar
+                              : FFAppConstants.DefultProfilePhoto,
                         ),
                       ),
                     if (loggedIn ? false : true)

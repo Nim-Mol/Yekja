@@ -214,7 +214,7 @@ class _YekjaScorePopUpWidgetState extends State<YekjaScorePopUpWidget>
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(4.0, 16.0, 8.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -229,24 +229,6 @@ class _YekjaScorePopUpWidgetState extends State<YekjaScorePopUpWidget>
                                 size: 20.0,
                               ).animateOnPageLoad(
                                   animationsMap['iconOnPageLoadAnimation']!),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 6.0),
-                              child: Icon(
-                                Icons.landscape,
-                                color: FlutterFlowTheme.of(context).darkgray,
-                                size: 24.0,
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 5.0),
-                              child: Icon(
-                                Icons.landscape,
-                                color: FlutterFlowTheme.of(context).darkgray,
-                                size: 28.0,
-                              ),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
@@ -313,38 +295,6 @@ class _YekjaScorePopUpWidgetState extends State<YekjaScorePopUpWidget>
                           Text(
                             FFLocalizations.of(context).getText(
                               '3l2wyu39' /* Alam Kooh */,
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily,
-                                  color: FlutterFlowTheme.of(context).darkgray,
-                                  fontSize: 12.0,
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .bodyMediumIsCustom,
-                                ),
-                          ),
-                          Text(
-                            FFLocalizations.of(context).getText(
-                              'rrsp4xfp' /* T-Soleyman */,
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily,
-                                  color: FlutterFlowTheme.of(context).darkgray,
-                                  fontSize: 12.0,
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .bodyMediumIsCustom,
-                                ),
-                          ),
-                          Text(
-                            FFLocalizations.of(context).getText(
-                              'l5cmvc2h' /* O-Kooh */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium

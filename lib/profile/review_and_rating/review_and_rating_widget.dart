@@ -17,8 +17,7 @@ class ReviewAndRatingWidget extends StatefulWidget {
     required this.writerName,
     required this.chatId,
     this.postOwnerId,
-    required this.recepientName,
-    required this.recepientID,
+    required this.postCustomerID,
   });
 
   final String? writerId;
@@ -26,8 +25,7 @@ class ReviewAndRatingWidget extends StatefulWidget {
   final String? writerName;
   final int? chatId;
   final String? postOwnerId;
-  final String? recepientName;
-  final String? recepientID;
+  final String? postCustomerID;
 
   @override
   State<ReviewAndRatingWidget> createState() => _ReviewAndRatingWidgetState();
@@ -96,18 +94,25 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Flexible(
-                          child: Text(
-                            '${widget.recepientName} hopes you can share a review.  ',
-                            style: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .titleSmallFamily,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w500,
-                                  useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .titleSmallIsCustom,
-                                ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 8.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                'bgtfx9oz' /* Would you like to share your e... */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .titleSmallFamily,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                    useGoogleFonts:
+                                        !FlutterFlowTheme.of(context)
+                                            .titleSmallIsCustom,
+                                  ),
+                            ),
                           ),
                         ),
                       ],
@@ -553,7 +558,7 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                                       .labelMediumIsCustom,
                                 ),
                             hintText:
-                                'Tell  everyone about your experience with ${widget.recepientName}. For example, start with what went right and what they can improve.',
+                                'Tell  everyone about your experience. For example, start with what went right and what they can improve.',
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -637,26 +642,16 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                                   'quality_scsore':
                                       _model.qualityScoreValue?.round(),
                                   'postowner_id': widget.postOwnerId,
-                                  'reviewed_user_id': widget.recepientID,
+                                  'reviewed_user_id': widget.postCustomerID,
+                                  'submitted_post_owner': true,
                                 });
-                                await MessagesTable().update(
-                                  data: {
-                                    'post_owner_Review_submited': true,
-                                  },
-                                  matchingRows: (rows) => rows
-                                      .eqOrNull(
-                                        'chat_id',
-                                        widget.chatId,
-                                      )
-                                      .eqOrNull(
-                                        'recipient',
-                                        widget.postOwnerId,
-                                      )
-                                      .eqOrNull(
-                                        'is_review',
-                                        true,
-                                      ),
-                                );
+                                await MessagesTable().insert({
+                                  'chat_id': widget.chatId,
+                                  'message_text':
+                                      'Thank your for your feedback! We wish you many more succussful exchanges :)',
+                                  'sentBy': FFAppConstants.YekjaAdminID,
+                                  'recipient': widget.postOwnerId,
+                                });
                               } else {
                                 await ReviewsTable().insert({
                                   'postItem_id': widget.postItemId,
@@ -671,26 +666,16 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                                   'quality_scsore':
                                       _model.qualityScoreValue?.round(),
                                   'postowner_id': widget.postOwnerId,
-                                  'reviewed_user_id': widget.recepientID,
+                                  'reviewed_user_id': widget.postOwnerId,
+                                  'submitted_post_customer': true,
                                 });
-                                await MessagesTable().update(
-                                  data: {
-                                    'customer_Review_submited': true,
-                                  },
-                                  matchingRows: (rows) => rows
-                                      .eqOrNull(
-                                        'chat_id',
-                                        widget.chatId,
-                                      )
-                                      .eqOrNull(
-                                        'sentBy',
-                                        widget.postOwnerId,
-                                      )
-                                      .eqOrNull(
-                                        'is_review',
-                                        true,
-                                      ),
-                                );
+                                await MessagesTable().insert({
+                                  'chat_id': widget.chatId,
+                                  'message_text':
+                                      'Thank your for your feedback! We wish you many more succussful exchanges :)',
+                                  'sentBy': FFAppConstants.YekjaAdminID,
+                                  'recipient': widget.postCustomerID,
+                                });
                               }
 
                               _model.submited = true;

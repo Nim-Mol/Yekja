@@ -41,6 +41,12 @@ class DeletedCareRow extends SupabaseDataRow {
   int get postLikes => getField<int>('post_likes')!;
   set postLikes(int value) => setField<int>('post_likes', value);
 
+  String? get sourceLang => getField<String>('source_lang');
+  set sourceLang(String? value) => setField<String>('source_lang', value);
+
+  String? get sourceHash => getField<String>('source_hash');
+  set sourceHash(String? value) => setField<String>('source_hash', value);
+
   DateTime get deletedAt => getField<DateTime>('deleted_at')!;
   set deletedAt(DateTime value) => setField<DateTime>('deleted_at', value);
 }

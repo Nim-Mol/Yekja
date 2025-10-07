@@ -32,6 +32,21 @@ class DeletedChatsRow extends SupabaseDataRow {
   String get senderName => getField<String>('senderName')!;
   set senderName(String value) => setField<String>('senderName', value);
 
+  bool? get recipientOnline => getField<bool>('recipient_online');
+  set recipientOnline(bool? value) => setField<bool>('recipient_online', value);
+
   DateTime get deletedAt => getField<DateTime>('deleted_at')!;
   set deletedAt(DateTime value) => setField<DateTime>('deleted_at', value);
+
+  DateTime? get senderDeletedAt => getField<DateTime>('sender_deleted_at');
+  set senderDeletedAt(DateTime? value) =>
+      setField<DateTime>('sender_deleted_at', value);
+
+  DateTime? get recipientDeletedAt =>
+      getField<DateTime>('recipient_deleted_at');
+  set recipientDeletedAt(DateTime? value) =>
+      setField<DateTime>('recipient_deleted_at', value);
+
+  DateTime? get bumpedAt => getField<DateTime>('bumped_at');
+  set bumpedAt(DateTime? value) => setField<DateTime>('bumped_at', value);
 }

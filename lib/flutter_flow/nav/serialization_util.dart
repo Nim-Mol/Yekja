@@ -220,12 +220,16 @@ dynamic deserializeParam<T>(
       case ParamType.SupabaseRow:
         final data = json.decode(param) as Map<String, dynamic>;
         switch (T) {
+          case TranslationsRow:
+            return TranslationsRow(data);
           case UserExtRow:
             return UserExtRow(data);
           case TriggerLogRow:
             return TriggerLogRow(data);
           case ViewPopularMarketPostsRow:
             return ViewPopularMarketPostsRow(data);
+          case VPostLookupRow:
+            return VPostLookupRow(data);
           case ConsentsRow:
             return ConsentsRow(data);
           case MonitoringLogsRow:
@@ -236,22 +240,28 @@ dynamic deserializeParam<T>(
             return UserExtArchiveRow(data);
           case ChatsRow:
             return ChatsRow(data);
+          case ViewUserChatsVisibleRow:
+            return ViewUserChatsVisibleRow(data);
           case MarketRow:
             return MarketRow(data);
           case SubCategoriesRow:
             return SubCategoriesRow(data);
+          case AdminMissingTranslationsCareDescriptionRow:
+            return AdminMissingTranslationsCareDescriptionRow(data);
           case ViewCarePostDetailsRow:
             return ViewCarePostDetailsRow(data);
           case DeletedCareRow:
             return DeletedCareRow(data);
           case ViewUserChatsRow:
             return ViewUserChatsRow(data);
-          case MessagesDeleteRow:
-            return MessagesDeleteRow(data);
+          case AdminMissingTranslationsMarketDescriptionRow:
+            return AdminMissingTranslationsMarketDescriptionRow(data);
           case ViewRecentHelpRequestsRow:
             return ViewRecentHelpRequestsRow(data);
           case ContactYekjaRow:
             return ContactYekjaRow(data);
+          case AdminMissingTranslationsReviewsNoteRow:
+            return AdminMissingTranslationsReviewsNoteRow(data);
           case ViewRecentExchangeRow:
             return ViewRecentExchangeRow(data);
           case ViewRecentHelpOffersRow:
@@ -270,6 +280,8 @@ dynamic deserializeParam<T>(
             return PostLikeRelationRow(data);
           case MarketLikesRow:
             return MarketLikesRow(data);
+          case UserRolesRow:
+            return UserRolesRow(data);
           case ViewPopularCarePostsRow:
             return ViewPopularCarePostsRow(data);
           case ViewUserPostsRow:
@@ -286,6 +298,8 @@ dynamic deserializeParam<T>(
             return ViewTopSubcategoriesRow(data);
           case ViewSwipablePostsRow:
             return ViewSwipablePostsRow(data);
+          case RolesRow:
+            return RolesRow(data);
           case ViewUserFavoritesRow:
             return ViewUserFavoritesRow(data);
           case ViewMarketPostDetailsRow:

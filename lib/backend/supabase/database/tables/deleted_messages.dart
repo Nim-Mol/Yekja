@@ -39,9 +39,6 @@ class DeletedMessagesRow extends SupabaseDataRow {
   bool get seen => getField<bool>('seen')!;
   set seen(bool value) => setField<bool>('seen', value);
 
-  bool get userOnline => getField<bool>('userOnline')!;
-  set userOnline(bool value) => setField<bool>('userOnline', value);
-
   String get recipient => getField<String>('recipient')!;
   set recipient(String value) => setField<String>('recipient', value);
 
@@ -66,6 +63,16 @@ class DeletedMessagesRow extends SupabaseDataRow {
   set customerReviewSent(bool? value) =>
       setField<bool>('customer_Review_sent', value);
 
+  bool? get recipientOnline => getField<bool>('recipient_online');
+  set recipientOnline(bool? value) => setField<bool>('recipient_online', value);
+
   DateTime get deletedAt => getField<DateTime>('deleted_at')!;
   set deletedAt(DateTime value) => setField<DateTime>('deleted_at', value);
+
+  String? get postOwnerId => getField<String>('post_owner_id');
+  set postOwnerId(String? value) => setField<String>('post_owner_id', value);
+
+  String? get postCustomerId => getField<String>('post_customer_id');
+  set postCustomerId(String? value) =>
+      setField<String>('post_customer_id', value);
 }

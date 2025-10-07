@@ -1,8 +1,10 @@
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
 import '/index.dart';
 import 'chat_page_widget.dart' show ChatPageWidget;
+import 'dart:async';
 import 'package:flutter/material.dart';
 
 class ChatPageModel extends FlutterFlowModel<ChatPageWidget> {
@@ -14,6 +16,7 @@ class ChatPageModel extends FlutterFlowModel<ChatPageWidget> {
       choiceChipsValueController?.value?.firstOrNull;
   set choiceChipsValue(String? val) =>
       choiceChipsValueController?.value = val != null ? [val] : [];
+  Completer<List<ViewUserChatsVisibleRow>>? requestCompleter;
   // Model for NavBar component.
   late NavBarModel navBarModel;
 
@@ -25,5 +28,21 @@ class ChatPageModel extends FlutterFlowModel<ChatPageWidget> {
   @override
   void dispose() {
     navBarModel.dispose();
+  }
+
+  /// Additional helper methods.
+  Future waitForRequestCompleted({
+    double minWait = 0,
+    double maxWait = double.infinity,
+  }) async {
+    final stopwatch = Stopwatch()..start();
+    while (true) {
+      await Future.delayed(Duration(milliseconds: 50));
+      final timeElapsed = stopwatch.elapsedMilliseconds;
+      final requestComplete = requestCompleter?.isCompleted ?? false;
+      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
+        break;
+      }
+    }
   }
 }

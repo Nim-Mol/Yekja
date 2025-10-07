@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/mommunity_market/value_popup/value_popup_widget.dart';
+import '/profile/review_card_small/review_card_small_widget.dart';
 import '/shared_components/comunication_bar/comunication_bar_widget.dart';
 import '/shared_components/photo_gallary/photo_gallary_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -15,7 +16,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -183,7 +183,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                               !(productDetailViewPostSearchRow!
                                                       .images.isNotEmpty)
                                                   ? [
-                                                      'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/default_image.jpg'
+                                                      'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Icons/default_image.jpg'
                                                     ]
                                                   : productDetailViewPostSearchRow
                                                       .images
@@ -1647,476 +1647,82 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                 ],
                               ),
                             ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 16.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Flexible(
-                                    child: Container(
-                                      height: 160.0,
-                                      decoration: BoxDecoration(),
-                                      child: ListView(
-                                        padding: EdgeInsets.zero,
-                                        primary: false,
-                                        scrollDirection: Axis.horizontal,
-                                        children: [
-                                          SingleChildScrollView(
-                                            scrollDirection: Axis.horizontal,
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsets.all(8.0),
-                                                  child: Container(
-                                                    width: 240.0,
-                                                    height: 180.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              12.0),
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsets.all(8.0),
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Align(
-                                                                    alignment:
-                                                                        AlignmentDirectional(
-                                                                            -1.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      FFLocalizations.of(
-                                                                              context)
-                                                                          .getText(
-                                                                        'ptcsx6q0' /* Olivia M. */,
-                                                                      ),
-                                                                      textAlign:
-                                                                          TextAlign
-                                                                              .start,
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .labelLarge
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).labelLargeFamily,
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryText,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            useGoogleFonts:
-                                                                                !FlutterFlowTheme.of(context).labelLargeIsCustom,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                  Text(
-                                                                    FFLocalizations.of(
-                                                                            context)
-                                                                        .getText(
-                                                                      '3p6focx2' /* June 2023 */,
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryText,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          useGoogleFonts:
-                                                                              !FlutterFlowTheme.of(context).bodyMediumIsCustom,
-                                                                        ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                              RatingBarIndicator(
-                                                                itemBuilder:
-                                                                    (context,
-                                                                            index) =>
-                                                                        Icon(
-                                                                  Icons
-                                                                      .star_rounded,
-                                                                  color: Color(
-                                                                      0xFFFFA130),
-                                                                ),
-                                                                direction: Axis
-                                                                    .horizontal,
-                                                                rating: 4.6,
-                                                                unratedColor: Color(
-                                                                    0xFF95A1AC),
-                                                                itemCount: 5,
-                                                                itemSize: 22.0,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          AutoSizeText(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'fpajv90g' /* Tom Hanks is a natural storyte... */,
-                                                            ),
-                                                            maxLines: 4,
-                                                            minFontSize: 12.0,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodySmall
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmallFamily,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodySmallIsCustom,
-                                                                ),
-                                                          ),
-                                                        ].divide(SizedBox(
-                                                            height: 12.0)),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsets.all(8.0),
-                                                  child: Container(
-                                                    width: 240.0,
-                                                    height: 180.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              12.0),
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsets.all(8.0),
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Align(
-                                                                    alignment:
-                                                                        AlignmentDirectional(
-                                                                            -1.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      FFLocalizations.of(
-                                                                              context)
-                                                                          .getText(
-                                                                        'h9wvx9b7' /* Olivia M. */,
-                                                                      ),
-                                                                      textAlign:
-                                                                          TextAlign
-                                                                              .start,
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .labelLarge
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).labelLargeFamily,
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryText,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            useGoogleFonts:
-                                                                                !FlutterFlowTheme.of(context).labelLargeIsCustom,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                  Text(
-                                                                    FFLocalizations.of(
-                                                                            context)
-                                                                        .getText(
-                                                                      'sxmf1q6b' /* June 2023 */,
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryText,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          useGoogleFonts:
-                                                                              !FlutterFlowTheme.of(context).bodyMediumIsCustom,
-                                                                        ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                              RatingBarIndicator(
-                                                                itemBuilder:
-                                                                    (context,
-                                                                            index) =>
-                                                                        Icon(
-                                                                  Icons
-                                                                      .star_rounded,
-                                                                  color: Color(
-                                                                      0xFFFFA130),
-                                                                ),
-                                                                direction: Axis
-                                                                    .horizontal,
-                                                                rating: 3.0,
-                                                                unratedColor: Color(
-                                                                    0xFF95A1AC),
-                                                                itemCount: 5,
-                                                                itemSize: 22.0,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          AutoSizeText(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              '09p29kmm' /* Tom Hanks is a natural storyte... */,
-                                                            ),
-                                                            maxLines: 4,
-                                                            minFontSize: 12.0,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodySmall
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmallFamily,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodySmallIsCustom,
-                                                                ),
-                                                          ),
-                                                        ].divide(SizedBox(
-                                                            height: 12.0)),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsets.all(8.0),
-                                                  child: Container(
-                                                    width: 240.0,
-                                                    height: 180.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              12.0),
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsets.all(8.0),
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Align(
-                                                                    alignment:
-                                                                        AlignmentDirectional(
-                                                                            -1.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      FFLocalizations.of(
-                                                                              context)
-                                                                          .getText(
-                                                                        '1pz8zgqt' /* Olivia M. */,
-                                                                      ),
-                                                                      textAlign:
-                                                                          TextAlign
-                                                                              .start,
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .labelLarge
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).labelLargeFamily,
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryText,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                            useGoogleFonts:
-                                                                                !FlutterFlowTheme.of(context).labelLargeIsCustom,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                  Text(
-                                                                    FFLocalizations.of(
-                                                                            context)
-                                                                        .getText(
-                                                                      'cywr18k4' /* June 2023 */,
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryText,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          useGoogleFonts:
-                                                                              !FlutterFlowTheme.of(context).bodyMediumIsCustom,
-                                                                        ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                              RatingBarIndicator(
-                                                                itemBuilder:
-                                                                    (context,
-                                                                            index) =>
-                                                                        Icon(
-                                                                  Icons
-                                                                      .star_rounded,
-                                                                  color: Color(
-                                                                      0xFFFFA130),
-                                                                ),
-                                                                direction: Axis
-                                                                    .horizontal,
-                                                                rating: 4.6,
-                                                                unratedColor: Color(
-                                                                    0xFF95A1AC),
-                                                                itemCount: 5,
-                                                                itemSize: 22.0,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          AutoSizeText(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'xi1ch7sr' /* Tom Hanks is a natural storyte... */,
-                                                            ),
-                                                            maxLines: 4,
-                                                            minFontSize: 12.0,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodySmall
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmallFamily,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodySmallIsCustom,
-                                                                ),
-                                                          ),
-                                                        ].divide(SizedBox(
-                                                            height: 12.0)),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
+                            FutureBuilder<List<ViewUserReviewsRow>>(
+                              future: ViewUserReviewsTable().queryRows(
+                                queryFn: (q) => q
+                                    .eqOrNull(
+                                      'reviewed_user_id',
+                                      productDetailViewPostSearchRow.userId,
+                                    )
+                                    .eqOrNull(
+                                      'both_review_submitted',
+                                      true,
+                                    )
+                                    .order('created_at'),
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: SpinKitChasingDots(
+                                        color: FlutterFlowTheme.of(context)
+                                            .greenInit,
+                                        size: 50.0,
                                       ),
                                     ),
+                                  );
+                                }
+                                List<ViewUserReviewsRow>
+                                    rowViewUserReviewsRowList = snapshot.data!;
+
+                                return SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: List.generate(
+                                            rowViewUserReviewsRowList.length,
+                                            (rowIndex) {
+                                      final rowViewUserReviewsRow =
+                                          rowViewUserReviewsRowList[rowIndex];
+                                      return ReviewCardSmallWidget(
+                                        key: Key(
+                                            'Keyepz_${rowIndex}_of_${rowViewUserReviewsRowList.length}'),
+                                        reviewData: ReviewCardDataStruct(
+                                          userName: rowViewUserReviewsRow
+                                              .usernameWriter,
+                                          comunicationScore:
+                                              rowViewUserReviewsRow
+                                                  .comunicationScore,
+                                          qualitScore: rowViewUserReviewsRow
+                                              .qualityScsore,
+                                          reliabilityScore:
+                                              rowViewUserReviewsRow
+                                                  .reliabilityScore,
+                                          note: rowViewUserReviewsRow.note,
+                                          avarageScore: rowViewUserReviewsRow
+                                              .avgReviewScore,
+                                          fairnessScore: rowViewUserReviewsRow
+                                              .fairnessScore,
+                                          createAt:
+                                              rowViewUserReviewsRow.createdAt,
+                                          reviewerId:
+                                              rowViewUserReviewsRow.writerId,
+                                          userAvatar: rowViewUserReviewsRow
+                                              .profileAvatarWriter,
+                                        ),
+                                      );
+                                    })
+                                        .divide(SizedBox(width: 12.0))
+                                        .addToStart(SizedBox(width: 16.0))
+                                        .addToEnd(SizedBox(width: 16.0)),
                                   ),
-                                ].addToEnd(SizedBox(width: 1.0)),
-                              ),
-                            ),
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Container(
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(),
-                                ),
-                              ],
+                                );
+                              },
                             ),
                           ].addToEnd(SizedBox(height: 100.0)),
                         ),

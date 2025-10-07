@@ -395,6 +395,7 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                       EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 20.0, 24.0),
                   child: FFButtonWidget(
                     onPressed: () async {
+                      await authManager.refreshUser();
                       var _shouldSetState = false;
                       _model.verificationMessage =
                           await actions.verifyEmailWithToken(
@@ -402,7 +403,7 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                         _model.pinCodeController!.text,
                       );
                       _shouldSetState = true;
-                      if (_model.verificationMessage == true) {
+                      if (currentUserEmailVerified) {
                         await Future.wait([
                           Future(() async {
                             _model.errorMessage = await UserExtTable().insert({
@@ -412,6 +413,11 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                               'IsVerified': true,
                             });
                             _shouldSetState = true;
+                            FFAppState().updateUserInfoStruct(
+                              (e) =>
+                                  e..avatar = FFAppConstants.DefultProfilePhoto,
+                            );
+                            safeSetState(() {});
                           }),
                           Future(() async {
                             context.pushNamed(HomePageWidget.routeName);
@@ -419,6 +425,11 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                           Future(() async {
                             FFAppState().isOnboarding = true;
                             safeSetState(() {});
+                          }),
+                          Future(() async {
+                            await ConsentsTable().insert({
+                              'user_id': currentUserUid,
+                            });
                           }),
                         ]);
                         if (_shouldSetState) safeSetState(() {});

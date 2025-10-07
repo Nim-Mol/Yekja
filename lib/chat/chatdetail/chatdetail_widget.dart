@@ -4,16 +4,13 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/upload_data.dart';
-import '/profile/review_and_rating/review_and_rating_widget.dart';
 import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.dart';
-import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 import 'chatdetail_model.dart';
 export 'chatdetail_model.dart';
 
@@ -58,17 +55,6 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.recipient = await UserExtTable().queryRows(
-        queryFn: (q) => q.eqOrNull(
-          'id',
-          currentUserUid,
-        ),
-      );
-      await _model.chatsListViewScrollController?.animateTo(
-        _model.chatsListViewScrollController!.position.maxScrollExtent,
-        duration: Duration(milliseconds: 100),
-        curve: Curves.ease,
-      );
       await MessagesTable().update(
         data: {
           'recipient_online': true,
@@ -83,6 +69,23 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
               'recipient',
               currentUserUid,
             ),
+      );
+      _model.recipient = await UserExtTable().queryRows(
+        queryFn: (q) => q.eqOrNull(
+          'id',
+          currentUserUid,
+        ),
+      );
+      await _model.chatsListViewScrollController?.animateTo(
+        _model.chatsListViewScrollController!.position.maxScrollExtent,
+        duration: Duration(milliseconds: 100),
+        curve: Curves.ease,
+      );
+      _model.viewChatWithOwner = await ViewUserChatsVisibleTable().queryRows(
+        queryFn: (q) => q.eqOrNull(
+          'chat_id',
+          widget.chatId,
+        ),
       );
       _model.online = true;
       safeSetState(() {});
@@ -101,6 +104,7 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
       await MessagesTable().update(
         data: {
           'recipient_online': false,
+          'seen': true,
         },
         matchingRows: (rows) => rows
             .eqOrNull(
@@ -123,8 +127,6 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Scaffold(
       key: scaffoldKey,
       resizeToAvoidBottomInset: false,
@@ -149,9 +151,9 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                       highlightColor: Colors.transparent,
                       onTap: () async {
                         context.pushNamed(
-                          ProfilePageWidget.routeName,
+                          ChatPageWidget.routeName,
                           queryParameters: {
-                            'profileId': serializeParam(
+                            'profileid': serializeParam(
                               currentUserUid,
                               ParamType.String,
                             ),
@@ -276,186 +278,160 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                               builder: (context) {
                                 if (chatsListViewMessagesRow.sentBy !=
                                     currentUserUid) {
-                                  return Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 8.0, 8.0, 0.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        if ((chatsListViewMessagesRow.isImg ==
-                                                false) &&
-                                            (chatsListViewMessagesRow
-                                                    .isReview ==
-                                                false))
-                                          Align(
-                                            alignment: AlignmentDirectional(
-                                                -1.0, -1.0),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 4.0),
-                                              child: Container(
-                                                constraints: BoxConstraints(
-                                                  minWidth: 80.0,
-                                                ),
-                                                decoration: BoxDecoration(
-                                                  color: Color(0xFF232426),
-                                                  borderRadius:
-                                                      BorderRadius.only(
-                                                    bottomLeft:
-                                                        Radius.circular(16.0),
-                                                    bottomRight:
-                                                        Radius.circular(16.0),
-                                                    topLeft:
-                                                        Radius.circular(0.0),
-                                                    topRight:
-                                                        Radius.circular(16.0),
+                                  return Align(
+                                    alignment: AlignmentDirectional(-1.0, -1.0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 2.0, 12.0, 0.0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          if ((chatsListViewMessagesRow.isImg ==
+                                                  false) &&
+                                              (chatsListViewMessagesRow
+                                                      .isReview ==
+                                                  false))
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  -1.0, -1.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 4.0),
+                                                child: Container(
+                                                  constraints: BoxConstraints(
+                                                    minWidth: 80.0,
                                                   ),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          16.0, 8.0, 12.0, 8.0),
-                                                  child: AutoSizeText(
-                                                    valueOrDefault<String>(
-                                                      chatsListViewMessagesRow
-                                                          .messageText,
-                                                      'Hellooo',
+                                                  decoration: BoxDecoration(
+                                                    color: Color(0xFF232426),
+                                                    borderRadius:
+                                                        BorderRadius.only(
+                                                      bottomLeft:
+                                                          Radius.circular(16.0),
+                                                      bottomRight:
+                                                          Radius.circular(16.0),
+                                                      topLeft:
+                                                          Radius.circular(0.0),
+                                                      topRight:
+                                                          Radius.circular(16.0),
                                                     ),
-                                                    textAlign: TextAlign.start,
-                                                    maxLines: 10,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily: 'Satoshi',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(16.0, 8.0,
+                                                                12.0, 8.0),
+                                                    child: AutoSizeText(
+                                                      valueOrDefault<String>(
+                                                        chatsListViewMessagesRow
+                                                            .messageText,
+                                                        'Hellooo',
+                                                      ),
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      maxLines: 10,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Satoshi',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                fontSize: 16.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                        if (chatsListViewMessagesRow.isImg)
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: Image.network(
-                                              chatsListViewMessagesRow
-                                                  .imgMessage!,
-                                              fit: BoxFit.cover,
-                                              cacheWidth: 300,
-                                              cacheHeight: 350,
-                                            ),
-                                          ),
-                                        if (chatsListViewMessagesRow
-                                                .createdAt ==
-                                            _model.message?.createdAt)
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 4.0, 0.0),
-                                            child: Text(
-                                              '${dateTimeFormat(
-                                                "MMMEd",
-                                                chatsListViewMessagesRow
-                                                    .createdAt,
-                                                locale:
-                                                    FFLocalizations.of(context)
-                                                        .languageCode,
-                                              )} at ${dateTimeFormat(
-                                                "Hm",
-                                                chatsListViewMessagesRow
-                                                    .createdAt,
-                                                locale:
-                                                    FFLocalizations.of(context)
-                                                        .languageCode,
-                                              )}',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                    fontSize: 12.0,
-                                                    letterSpacing: 0.0,
-                                                    useGoogleFonts:
-                                                        !FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumIsCustom,
+                                          if (chatsListViewMessagesRow.isImg)
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  -1.0, -1.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 4.0),
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  child: Image.network(
+                                                    chatsListViewMessagesRow
+                                                        .imgMessage!,
+                                                    fit: BoxFit.cover,
+                                                    cacheWidth: 300,
+                                                    cacheHeight: 350,
                                                   ),
+                                                ),
+                                              ),
                                             ),
-                                          ),
-                                        if (((currentUserUid !=
+                                          if (chatsListViewMessagesRow
+                                                  .createdAt ==
+                                              _model.message?.createdAt)
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  -1.0, -1.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 4.0, 0.0),
+                                                child: Text(
+                                                  '${dateTimeFormat(
+                                                    "MMMEd",
                                                     chatsListViewMessagesRow
-                                                        .sentBy) &&
-                                                chatsListViewMessagesRow
-                                                    .postOwnerReviewSent! &&
-                                                !chatsListViewMessagesRow
-                                                    .customerReviewSubmited!) ||
-                                            ((currentUserUid !=
+                                                        .createdAt,
+                                                    locale: FFLocalizations.of(
+                                                            context)
+                                                        .languageCode,
+                                                  )} at ${dateTimeFormat(
+                                                    "Hm",
                                                     chatsListViewMessagesRow
-                                                        .sentBy) &&
-                                                chatsListViewMessagesRow
-                                                    .customerReviewSent! &&
-                                                !chatsListViewMessagesRow
-                                                    .postOwnerReviewSubmited!))
-                                          wrapWithModel(
-                                            model: _model.reviewAndRatingModels
-                                                .getModel(
-                                              widget.chatId!.toString(),
-                                              chatsListViewIndex,
-                                            ),
-                                            updateCallback: () =>
-                                                safeSetState(() {}),
-                                            child: ReviewAndRatingWidget(
-                                              key: Key(
-                                                'Keyut8_${widget.chatId!.toString()}',
-                                              ),
-                                              writerId: currentUserUid,
-                                              postItemId: widget.postID!,
-                                              writerName: FFAppState()
-                                                  .userInfo
-                                                  .userName,
-                                              chatId: widget.chatId!,
-                                              postOwnerId: widget.ownerID,
-                                              recepientName:
-                                                  valueOrDefault<String>(
-                                                widget.ownerID ==
-                                                        currentUserUid
-                                                    ? widget.senderUserName
-                                                    : widget.ownerUserName,
-                                                'user name',
-                                              ),
-                                              recepientID:
-                                                  valueOrDefault<String>(
-                                                widget.ownerID ==
-                                                        currentUserUid
-                                                    ? widget.senderID
-                                                    : widget.ownerID,
-                                                'user name',
+                                                        .createdAt,
+                                                    locale: FFLocalizations.of(
+                                                            context)
+                                                        .languageCode,
+                                                  )}',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        fontSize: 12.0,
+                                                        letterSpacing: 0.0,
+                                                        useGoogleFonts:
+                                                            !FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMediumIsCustom,
+                                                      ),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   );
                                 } else {
                                   return Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
+                                        12.0, 2.0, 0.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -475,70 +451,63 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                                                   alignment:
                                                       AlignmentDirectional(
                                                           1.0, -1.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 4.0),
-                                                    child: Container(
-                                                      constraints:
-                                                          BoxConstraints(
-                                                        minWidth: 80.0,
+                                                  child: Container(
+                                                    constraints: BoxConstraints(
+                                                      minWidth: 80.0,
+                                                    ),
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0x4125C4A4),
+                                                      borderRadius:
+                                                          BorderRadius.only(
+                                                        bottomLeft:
+                                                            Radius.circular(
+                                                                12.0),
+                                                        bottomRight:
+                                                            Radius.circular(
+                                                                0.0),
+                                                        topLeft:
+                                                            Radius.circular(
+                                                                12.0),
+                                                        topRight:
+                                                            Radius.circular(
+                                                                12.0),
                                                       ),
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0x4125C4A4),
-                                                        borderRadius:
-                                                            BorderRadius.only(
-                                                          bottomLeft:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          bottomRight:
-                                                              Radius.circular(
-                                                                  0.0),
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          topRight:
-                                                              Radius.circular(
-                                                                  12.0),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  12.0,
+                                                                  8.0,
+                                                                  30.0,
+                                                                  8.0),
+                                                      child: AutoSizeText(
+                                                        valueOrDefault<String>(
+                                                          chatsListViewMessagesRow
+                                                              .messageText,
+                                                          'Hellooo',
                                                         ),
-                                                      ),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    8.0,
-                                                                    30.0,
-                                                                    8.0),
-                                                        child: AutoSizeText(
-                                                          valueOrDefault<
-                                                              String>(
-                                                            chatsListViewMessagesRow
-                                                                .messageText,
-                                                            'Hellooo',
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.start,
-                                                          maxLines: 10,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleSmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Satoshi',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
-                                                                fontSize: 16.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
-                                                        ),
+                                                        textAlign:
+                                                            TextAlign.start,
+                                                        maxLines: 10,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Satoshi',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                ),
                                                       ),
                                                     ),
                                                   ),
@@ -574,45 +543,38 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                                             alignment:
                                                 AlignmentDirectional(1.0, 1.0),
                                             children: [
-                                              if (chatsListViewMessagesRow
-                                                      .isImg ==
-                                                  false)
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          1.0, -1.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 4.0),
-                                                    child: Container(
-                                                      constraints:
-                                                          BoxConstraints(
-                                                        minWidth: 80.0,
-                                                      ),
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0x4125C4A4),
-                                                        borderRadius:
-                                                            BorderRadius.only(
-                                                          bottomLeft:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          bottomRight:
-                                                              Radius.circular(
-                                                                  0.0),
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          topRight:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                        ),
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    1.0, -1.0),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 4.0),
+                                                  child: Container(
+                                                    constraints: BoxConstraints(
+                                                      minWidth: 80.0,
+                                                    ),
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0x4125C4A4),
+                                                      borderRadius:
+                                                          BorderRadius.only(
+                                                        bottomLeft:
+                                                            Radius.circular(
+                                                                12.0),
+                                                        bottomRight:
+                                                            Radius.circular(
+                                                                0.0),
+                                                        topLeft:
+                                                            Radius.circular(
+                                                                12.0),
+                                                        topRight:
+                                                            Radius.circular(
+                                                                12.0),
                                                       ),
                                                     ),
                                                   ),
                                                 ),
+                                              ),
                                             ],
                                           ),
                                         if (chatsListViewMessagesRow.isImg)
@@ -733,7 +695,7 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
                   child: Container(
-                    width: 145.0,
+                    width: 160.0,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(8.0),
@@ -743,9 +705,9 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                       ),
                     ),
                     child: Visibility(
-                      visible: !functions.listContainsString(
-                          FFAppState().userInfo.reviewedList.toList(),
-                          widget.postID!),
+                      visible: (currentUserUid == widget.ownerID) &&
+                          (_model.viewChatWithOwner?.lastOrNull?.deletedPost ==
+                              false),
                       child: Builder(
                         builder: (context) => Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -766,123 +728,139 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                                     alignment: AlignmentDirectional(0.0, 0.0)
                                         .resolve(Directionality.of(context)),
                                     child: ConfirmCancelPopUpWidget(
-                                      header: 'Send Review Request?',
+                                      header: 'All done?',
                                       hintText:
-                                          'Are you sure you want to ask this user for a review? They’ll be notified and can choose to respond',
+                                          'Ready to close this post and collect your Yekja points?',
                                       onConfirmAction: () async {
-                                        if (functions.listContainsString(
-                                            FFAppState()
-                                                .userInfo
-                                                .reviewedList
-                                                .toList(),
-                                            widget.postID!)) {
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                            SnackBar(
-                                              content: Text(
-                                                'You have already made a review request for this post!',
-                                                style: TextStyle(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                              ),
-                                              duration:
-                                                  Duration(milliseconds: 4000),
-                                              backgroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .error,
+                                        await Future.wait([
+                                          Future(() async {
+                                            _model.yekjaChat2Customer =
+                                                await ChatsTable().insert({
+                                              'sender':
+                                                  FFAppConstants.YekjaAdminID,
+                                              'post_id': widget.postID,
+                                              'senderName': 'Yekja',
+                                              'recipient': widget.senderID,
+                                            });
+                                            await MessagesTable().insert({
+                                              'sentBy':
+                                                  FFAppConstants.YekjaAdminID,
+                                              'chat_id':
+                                                  _model.yekjaChat2Customer?.id,
+                                              'message_text':
+                                                  'Congratulations!! The post owner decided to go with you and close this post.   Please take a moment to review them to strengthen our community trust.',
+                                              'recipient': widget.senderID,
+                                            });
+                                            await MessagesTable().insert({
+                                              'sentBy':
+                                                  FFAppConstants.YekjaAdminID,
+                                              'chat_id':
+                                                  _model.yekjaChat2Customer?.id,
+                                              'recipient': widget.senderID,
+                                              'is_review': true,
+                                              'message_text':
+                                                  'Congrats! Quick review for their post?',
+                                              'post_customer_id':
+                                                  widget.senderID,
+                                              'post_owner_id': widget.ownerID,
+                                            });
+                                          }),
+                                          Future(() async {
+                                            _model.yekjaChat2Owner =
+                                                await ChatsTable().insert({
+                                              'sender':
+                                                  FFAppConstants.YekjaAdminID,
+                                              'post_id': widget.postID,
+                                              'senderName': 'Yekja',
+                                              'recipient': widget.ownerID,
+                                            });
+                                            await MessagesTable().insert({
+                                              'sentBy':
+                                                  FFAppConstants.YekjaAdminID,
+                                              'chat_id':
+                                                  _model.yekjaChat2Owner?.id,
+                                              'message_text':
+                                                  'Congratulations you just sealed the deal! Your post is closed now successfully.  Please leave a quick review for the member you connected with to help build trust.',
+                                              'recipient': widget.ownerID,
+                                            });
+                                            await MessagesTable().insert({
+                                              'sentBy':
+                                                  FFAppConstants.YekjaAdminID,
+                                              'chat_id':
+                                                  _model.yekjaChat2Owner?.id,
+                                              'recipient': widget.ownerID,
+                                              'is_review': true,
+                                              'message_text':
+                                                  'Congrats! Quick review how this went with the other member?',
+                                              'post_customer_id':
+                                                  widget.senderID,
+                                              'post_owner_id': widget.ownerID,
+                                            });
+                                          }),
+                                        ]);
+                                        _model.viewPost =
+                                            await ViewPostSearchTable()
+                                                .queryRows(
+                                          queryFn: (q) => q.eqOrNull(
+                                            'source_id',
+                                            widget.postID,
+                                          ),
+                                        );
+                                        if (_model.viewPost?.firstOrNull
+                                                ?.mainCatId ==
+                                            1) {
+                                          await CareTable().delete(
+                                            matchingRows: (rows) =>
+                                                rows.eqOrNull(
+                                              'care_id',
+                                              widget.postID,
                                             ),
                                           );
                                         } else {
-                                          await MessagesTable().insert({
-                                            'is_review': true,
-                                            'sentBy': currentUserUid,
-                                            'chat_id': widget.chatId,
-                                            'recipient': widget.ownerID ==
-                                                    currentUserUid
-                                                ? widget.senderID
-                                                : widget.ownerID,
-                                          });
-                                          if (widget.ownerID ==
-                                              currentUserUid) {
-                                            await MessagesTable().update(
-                                              data: {
-                                                'post_owner_Review_sent': true,
-                                              },
-                                              matchingRows: (rows) => rows
-                                                  .eqOrNull(
-                                                    'sentBy',
-                                                    widget.ownerID,
-                                                  )
-                                                  .eqOrNull(
-                                                    'is_review',
-                                                    true,
-                                                  ),
-                                            );
-                                          } else {
-                                            await MessagesTable().update(
-                                              data: {
-                                                'customer_Review_sent': true,
-                                              },
-                                              matchingRows: (rows) => rows
-                                                  .eqOrNull(
-                                                    'sentBy',
-                                                    widget.senderID,
-                                                  )
-                                                  .eqOrNull(
-                                                    'is_review',
-                                                    true,
-                                                  ),
-                                            );
-                                          }
-
-                                          FFAppState().updateUserInfoStruct(
-                                            (e) => e
-                                              ..updateReviewedList(
-                                                (e) => e.add(widget.postID!),
-                                              ),
-                                          );
-                                          safeSetState(() {});
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                            SnackBar(
-                                              content: Text(
-                                                'Your review request was successfully sent.',
-                                                style: TextStyle(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondary,
-                                                ),
-                                              ),
-                                              duration:
-                                                  Duration(milliseconds: 4000),
-                                              backgroundColor:
-                                                  Color(0x4340C057),
-                                            ),
-                                          );
-                                          Navigator.pop(context);
-                                          await UserExtTable().update(
-                                            data: {
-                                              'user_reviewed_ids': FFAppState()
-                                                  .userInfo
-                                                  .reviewedList,
-                                            },
+                                          await MarketTable().delete(
                                             matchingRows: (rows) =>
                                                 rows.eqOrNull(
-                                              'id',
-                                              currentUserUid,
+                                              'market_id',
+                                              widget.postID,
                                             ),
                                           );
-                                          return;
                                         }
+
+                                        Navigator.pop(context);
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Your post is closed sussuccfully!',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 4000),
+                                            backgroundColor: Color(0x4340C057),
+                                          ),
+                                        );
+
+                                        context.pushNamed(
+                                          ChatPageWidget.routeName,
+                                          queryParameters: {
+                                            'profileid': serializeParam(
+                                              currentUserUid,
+                                              ParamType.String,
+                                            ),
+                                          }.withoutNulls,
+                                        );
                                       },
                                       onCancelAction: () async {},
                                     ),
                                   );
                                 },
                               );
+
+                              safeSetState(() {});
                             },
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -895,7 +873,7 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                                 ),
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'v838atpy' /*  Request a review */,
+                                    'v838atpy' /* Mark as Completed! */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -908,7 +886,7 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                                                 .bodyMediumIsCustom,
                                       ),
                                 ),
-                              ],
+                              ].divide(SizedBox(width: 4.0)),
                             ),
                           ),
                         ),
@@ -916,349 +894,363 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                     ),
                   ),
                 ),
-                Align(
-                  alignment: AlignmentDirectional(0.0, 1.0),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 32.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 8.0, 0.0),
-                            child: FlutterFlowIconButton(
-                              borderRadius: 8.0,
-                              buttonSize: 40.0,
-                              icon: Icon(
-                                Icons.image_outlined,
-                                color: FlutterFlowTheme.of(context).info,
-                                size: 30.0,
+                if (widget.senderID != FFAppConstants.YekjaAdminID)
+                  Align(
+                    alignment: AlignmentDirectional(0.0, 1.0),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 32.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 8.0, 0.0),
+                              child: FlutterFlowIconButton(
+                                borderRadius: 8.0,
+                                buttonSize: 40.0,
+                                icon: Icon(
+                                  Icons.image_outlined,
+                                  color: FlutterFlowTheme.of(context).info,
+                                  size: 30.0,
+                                ),
+                                onPressed: () async {
+                                  final selectedMedia =
+                                      await selectMediaWithSourceBottomSheet(
+                                    context: context,
+                                    maxWidth: 200.00,
+                                    maxHeight: 200.00,
+                                    allowPhoto: true,
+                                  );
+                                  if (selectedMedia != null &&
+                                      selectedMedia.every((m) =>
+                                          validateFileFormat(
+                                              m.storagePath, context))) {
+                                    safeSetState(() => _model
+                                        .isDataUploading_inMemImg1 = true);
+                                    var selectedUploadedFiles =
+                                        <FFUploadedFile>[];
+
+                                    try {
+                                      selectedUploadedFiles = selectedMedia
+                                          .map((m) => FFUploadedFile(
+                                                name: m.storagePath
+                                                    .split('/')
+                                                    .last,
+                                                bytes: m.bytes,
+                                                height: m.dimensions?.height,
+                                                width: m.dimensions?.width,
+                                                blurHash: m.blurHash,
+                                              ))
+                                          .toList();
+                                    } finally {
+                                      _model.isDataUploading_inMemImg1 = false;
+                                    }
+                                    if (selectedUploadedFiles.length ==
+                                        selectedMedia.length) {
+                                      safeSetState(() {
+                                        _model.uploadedLocalFile_inMemImg1 =
+                                            selectedUploadedFiles.first;
+                                      });
+                                    } else {
+                                      safeSetState(() {});
+                                      return;
+                                    }
+                                  }
+
+                                  _model.isImage = true;
+                                  safeSetState(() {});
+                                },
                               ),
-                              onPressed: () async {
-                                final selectedMedia =
-                                    await selectMediaWithSourceBottomSheet(
-                                  context: context,
-                                  maxWidth: 200.00,
-                                  maxHeight: 200.00,
-                                  allowPhoto: true,
-                                );
-                                if (selectedMedia != null &&
-                                    selectedMedia.every((m) =>
-                                        validateFileFormat(
-                                            m.storagePath, context))) {
-                                  safeSetState(() =>
-                                      _model.isDataUploading_inMemImg = true);
-                                  var selectedUploadedFiles =
-                                      <FFUploadedFile>[];
-
-                                  try {
-                                    selectedUploadedFiles = selectedMedia
-                                        .map((m) => FFUploadedFile(
-                                              name:
-                                                  m.storagePath.split('/').last,
-                                              bytes: m.bytes,
-                                              height: m.dimensions?.height,
-                                              width: m.dimensions?.width,
-                                              blurHash: m.blurHash,
-                                            ))
-                                        .toList();
-                                  } finally {
-                                    _model.isDataUploading_inMemImg = false;
-                                  }
-                                  if (selectedUploadedFiles.length ==
-                                      selectedMedia.length) {
-                                    safeSetState(() {
-                                      _model.uploadedLocalFile_inMemImg =
-                                          selectedUploadedFiles.first;
-                                    });
-                                  } else {
-                                    safeSetState(() {});
-                                    return;
-                                  }
-                                }
-
-                                _model.isImage = true;
-                                safeSetState(() {});
-                              },
                             ),
                           ),
-                        ),
-                        Expanded(
-                          child: Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
-                            child: Stack(
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              children: [
-                                TextFormField(
-                                  controller: _model.textController,
-                                  focusNode: _model.textFieldFocusNode,
-                                  autofocus: false,
-                                  obscureText: false,
-                                  decoration: InputDecoration(
-                                    isDense: false,
-                                    labelStyle: FlutterFlowTheme.of(context)
+                          Expanded(
+                            child: Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Stack(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                children: [
+                                  TextFormField(
+                                    controller: _model.textController,
+                                    focusNode: _model.textFieldFocusNode,
+                                    autofocus: false,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      isDense: false,
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Satoshi',
+                                            fontSize: 16.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                      hintText:
+                                          FFLocalizations.of(context).getText(
+                                        'm04p2p42' /* Type here */,
+                                      ),
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMediumFamily,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts:
+                                                !FlutterFlowTheme.of(context)
+                                                    .labelMediumIsCustom,
+                                          ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFFF5F5F5),
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(16.0),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(16.0),
+                                      ),
+                                      errorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(16.0),
+                                      ),
+                                      focusedErrorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(16.0),
+                                      ),
+                                      filled: true,
+                                      fillColor: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Satoshi',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
                                           fontSize: 16.0,
                                           letterSpacing: 0.0,
                                         ),
-                                    hintText:
-                                        FFLocalizations.of(context).getText(
-                                      'm04p2p42' /* Type here */,
-                                    ),
-                                    hintStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMediumFamily,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts:
-                                              !FlutterFlowTheme.of(context)
-                                                  .labelMediumIsCustom,
-                                        ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFF5F5F5),
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(16.0),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(16.0),
-                                    ),
-                                    errorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(16.0),
-                                    ),
-                                    focusedErrorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(16.0),
-                                    ),
-                                    filled: true,
-                                    fillColor: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
+                                    cursorColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    validator: _model.textControllerValidator
+                                        .asValidator(context),
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Satoshi',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                      ),
-                                  cursorColor:
-                                      FlutterFlowTheme.of(context).primary,
-                                  validator: _model.textControllerValidator
-                                      .asValidator(context),
-                                ),
-                                if (_model.isImage == true)
-                                  Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 0.0, 0.0),
-                                      child: Container(
-                                        width: 70.0,
-                                        height: 40.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                        ),
-                                        alignment:
-                                            AlignmentDirectional(-1.0, 0.0),
-                                        child: Stack(
-                                          children: [
-                                            if (_model.isImage == true)
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    -1.0, 0.0),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          8.0, 8.0, 0.0, 0.0),
-                                                  child: ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                    child: Image.memory(
-                                                      _model.uploadedLocalFile_inMemImg
-                                                              .bytes ??
-                                                          Uint8List.fromList(
-                                                              []),
-                                                      width: 40.0,
-                                                      height: 40.0,
-                                                      fit: BoxFit.cover,
+                                  if (_model.isImage == true)
+                                    Align(
+                                      alignment:
+                                          AlignmentDirectional(-1.0, 0.0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
+                                        child: Container(
+                                          width: 70.0,
+                                          height: 40.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                          ),
+                                          alignment:
+                                              AlignmentDirectional(-1.0, 0.0),
+                                          child: Stack(
+                                            children: [
+                                              if (_model.isImage == true)
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          -1.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(8.0, 8.0,
+                                                                0.0, 0.0),
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                      child: Image.memory(
+                                                        _model.uploadedLocalFile_inMemImg1
+                                                                .bytes ??
+                                                            Uint8List.fromList(
+                                                                []),
+                                                        width: 40.0,
+                                                        height: 40.0,
+                                                        fit: BoxFit.cover,
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
-                                              ),
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  1.0, -1.0),
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  _model.isImage = false;
-                                                  safeSetState(() {});
-                                                },
-                                                child: Icon(
-                                                  Icons.close_sharp,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  size: 15.0,
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    1.0, -1.0),
+                                                child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    _model.isImage = false;
+                                                    safeSetState(() {});
+                                                  },
+                                                  child: Icon(
+                                                    Icons.close_sharp,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                    size: 15.0,
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                Align(
-                                  alignment: AlignmentDirectional(1.0, 0.0),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 5.0, 0.0),
-                                    child: FlutterFlowIconButton(
-                                      borderRadius: 8.0,
-                                      buttonSize: 40.0,
-                                      icon: Icon(
-                                        Icons.send,
-                                        color:
-                                            FlutterFlowTheme.of(context).info,
-                                        size: 24.0,
-                                      ),
-                                      onPressed: () async {
-                                        var _shouldSetState = false;
-                                        if (_model.isImage) {
-                                          {
-                                            safeSetState(() => _model
-                                                    .isDataUploading_uploadToDB =
-                                                true);
-                                            var selectedUploadedFiles =
-                                                <FFUploadedFile>[];
-                                            var selectedMedia =
-                                                <SelectedFile>[];
-                                            var downloadUrls = <String>[];
-                                            try {
-                                              selectedUploadedFiles = _model
-                                                      .uploadedLocalFile_inMemImg
-                                                      .bytes!
-                                                      .isNotEmpty
-                                                  ? [
-                                                      _model
-                                                          .uploadedLocalFile_inMemImg
-                                                    ]
-                                                  : <FFUploadedFile>[];
-                                              selectedMedia =
-                                                  selectedFilesFromUploadedFiles(
-                                                selectedUploadedFiles,
-                                                storageFolderPath:
-                                                    'MessagesImg',
-                                              );
-                                              downloadUrls =
-                                                  await uploadSupabaseStorageFiles(
-                                                bucketName: 'yekja',
-                                                selectedFiles: selectedMedia,
-                                              );
-                                            } finally {
-                                              _model.isDataUploading_uploadToDB =
-                                                  false;
+                                  Align(
+                                    alignment: AlignmentDirectional(1.0, 0.0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 5.0, 0.0),
+                                      child: FlutterFlowIconButton(
+                                        borderRadius: 8.0,
+                                        buttonSize: 40.0,
+                                        icon: Icon(
+                                          Icons.send,
+                                          color:
+                                              FlutterFlowTheme.of(context).info,
+                                          size: 24.0,
+                                        ),
+                                        onPressed: () async {
+                                          var _shouldSetState = false;
+                                          if (_model.isImage) {
+                                            {
+                                              safeSetState(() => _model
+                                                      .isDataUploading_uploadToDB1 =
+                                                  true);
+                                              var selectedUploadedFiles =
+                                                  <FFUploadedFile>[];
+                                              var selectedMedia =
+                                                  <SelectedFile>[];
+                                              var downloadUrls = <String>[];
+                                              try {
+                                                selectedUploadedFiles = _model
+                                                        .uploadedLocalFile_inMemImg1
+                                                        .bytes!
+                                                        .isNotEmpty
+                                                    ? [
+                                                        _model
+                                                            .uploadedLocalFile_inMemImg1
+                                                      ]
+                                                    : <FFUploadedFile>[];
+                                                selectedMedia =
+                                                    selectedFilesFromUploadedFiles(
+                                                  selectedUploadedFiles,
+                                                  storageFolderPath:
+                                                      'MessagesImg',
+                                                );
+                                                downloadUrls =
+                                                    await uploadSupabaseStorageFiles(
+                                                  bucketName: 'yekja',
+                                                  selectedFiles: selectedMedia,
+                                                );
+                                              } finally {
+                                                _model.isDataUploading_uploadToDB1 =
+                                                    false;
+                                              }
+                                              if (selectedUploadedFiles
+                                                          .length ==
+                                                      selectedMedia.length &&
+                                                  downloadUrls.length ==
+                                                      selectedMedia.length) {
+                                                safeSetState(() {
+                                                  _model.uploadedLocalFile_uploadToDB1 =
+                                                      selectedUploadedFiles
+                                                          .first;
+                                                  _model.uploadedFileUrl_uploadToDB1 =
+                                                      downloadUrls.first;
+                                                });
+                                              } else {
+                                                safeSetState(() {});
+                                                return;
+                                              }
                                             }
-                                            if (selectedUploadedFiles.length ==
-                                                    selectedMedia.length &&
-                                                downloadUrls.length ==
-                                                    selectedMedia.length) {
-                                              safeSetState(() {
-                                                _model.uploadedLocalFile_uploadToDB =
-                                                    selectedUploadedFiles.first;
-                                                _model.uploadedFileUrl_uploadToDB =
-                                                    downloadUrls.first;
-                                              });
-                                            } else {
+
+                                            _model.isImage = false;
+                                            safeSetState(() {});
+                                            _model.imgMessage =
+                                                await MessagesTable().insert({
+                                              'chat_id': widget.chatId,
+                                              'sentBy': currentUserUid,
+                                              'img_message': _model
+                                                  .uploadedFileUrl_uploadToDB1,
+                                              'is_img': true,
+                                              'message_text': '',
+                                              'recipient': widget.ownerID,
+                                            });
+                                            _shouldSetState = true;
+                                            _model.isImage = false;
+                                            safeSetState(() {});
+                                          } else {
+                                            _model.message =
+                                                await MessagesTable().insert({
+                                              'chat_id': widget.chatId,
+                                              'sentBy': currentUserUid,
+                                              'message_text':
+                                                  _model.textController.text,
+                                              'recipient': widget.ownerID ==
+                                                      currentUserUid
+                                                  ? widget.senderID
+                                                  : widget.ownerID,
+                                            });
+                                            _shouldSetState = true;
+                                            safeSetState(() {
+                                              _model.textController?.clear();
+                                            });
+
+                                            safeSetState(() {});
+                                            if (_shouldSetState)
                                               safeSetState(() {});
-                                              return;
-                                            }
+                                            return;
                                           }
 
-                                          _model.isImage = false;
-                                          safeSetState(() {});
-                                          _model.imgMessage =
-                                              await MessagesTable().insert({
-                                            'chat_id': widget.chatId,
-                                            'sentBy': currentUserUid,
-                                            'img_message': _model
-                                                .uploadedFileUrl_uploadToDB,
-                                            'is_img': true,
-                                            'message_text': '',
-                                            'recipient': widget.ownerID,
-                                          });
-                                          _shouldSetState = true;
-                                          _model.isImage = false;
-                                          safeSetState(() {});
-                                        } else {
-                                          _model.message =
-                                              await MessagesTable().insert({
-                                            'chat_id': widget.chatId,
-                                            'sentBy': currentUserUid,
-                                            'message_text':
-                                                _model.textController.text,
-                                            'recipient': widget.ownerID ==
-                                                    currentUserUid
-                                                ? widget.senderID
-                                                : widget.ownerID,
-                                          });
-                                          _shouldSetState = true;
-                                          safeSetState(() {
-                                            _model.textController?.clear();
-                                          });
-
-                                          safeSetState(() {});
                                           if (_shouldSetState)
                                             safeSetState(() {});
-                                          return;
-                                        }
-
-                                        if (_shouldSetState)
-                                          safeSetState(() {});
-                                      },
+                                        },
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                      ].divide(SizedBox(width: 1.0)),
+                        ].divide(SizedBox(width: 1.0)),
+                      ),
                     ),
                   ),
-                ),
               ],
             ),
           ],

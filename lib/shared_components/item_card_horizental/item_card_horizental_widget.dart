@@ -62,7 +62,7 @@ class _ItemCardHorizentalWidgetState extends State<ItemCardHorizentalWidget> {
             child: Image.network(
               valueOrDefault<String>(
                 widget.itemData?.mainImagePath,
-                'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/days_to_go.png',
+                'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Icons/default_image.jpg',
               ),
               width: 80.0,
               height: 80.0,

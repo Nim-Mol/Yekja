@@ -35,4 +35,8 @@ class CommunityShoutoutRow extends SupabaseDataRow {
 
   String get userLastNmae => getField<String>('UserLastNmae')!;
   set userLastNmae(String value) => setField<String>('UserLastNmae', value);
+
+  dynamic get descriptionI18n => getField<dynamic>('description_i18n');
+  set descriptionI18n(dynamic value) =>
+      setField<dynamic>('description_i18n', value);
 }

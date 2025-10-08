@@ -470,90 +470,95 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 16.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    _model.singedIn =
-                                        await MonitoringLogsTable().insert({
-                                      'scrren_name': 'SignIn',
-                                      'user_id': currentUserUid,
-                                      'action': 'SingedIn',
-                                    });
-                                    if (loggedIn) {
-                                      // Get user_ext
-                                      _model.user =
-                                          await UserExtTable().queryRows(
-                                        queryFn: (q) => q.eqOrNull(
-                                          'id',
-                                          currentUserUid,
-                                        ),
-                                      );
-                                      // Get user fav
-                                      _model.userFav =
-                                          await UserFavoritesTable().queryRows(
-                                        queryFn: (q) => q.eqOrNull(
-                                          'user_id',
-                                          currentUserUid,
-                                        ),
-                                      );
-                                      _model.userRole =
-                                          await actions.decodeJwtRole();
-                                      // Update UserInfo global object
-                                      FFAppState().userInfo = UserInfoStruct(
-                                        userId: currentUserUid,
-                                        userName:
-                                            _model.user?.firstOrNull?.userName,
-                                        name:
-                                            _model.user?.firstOrNull?.firstName,
-                                        lastName:
-                                            _model.user?.firstOrNull?.lastName,
-                                        avatar: _model
-                                            .user?.firstOrNull?.profileAvatar,
-                                        city:
-                                            _model.user?.firstOrNull?.userCity,
-                                        userFavs: _model.userFav
-                                            ?.map((e) => e.postId)
-                                            .toList(),
-                                        reviewedList: _model
-                                            .user?.firstOrNull?.userReviewedIds,
-                                        role: _model.userRole,
-                                      );
-                                      safeSetState(() {});
-                                    }
-
-                                    safeSetState(() {});
-                                  },
-                                  child: wrapWithModel(
-                                    model: _model.bottonStandardModel,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: BottonStandardWidget(
-                                      key: ValueKey('BottonStandard_cjw3'),
-                                      buttontext:
-                                          FFLocalizations.of(context).getText(
-                                        'i3al17a9' /* Sign In */,
-                                      ),
-                                      onPressed: () async {
-                                        GoRouter.of(context).prepareAuthEvent();
-
-                                        final user =
-                                            await authManager.signInWithEmail(
-                                          context,
-                                          _model
-                                              .emailAddressTextController.text,
-                                          _model.passWordTextController.text,
-                                        );
-                                        if (user == null) {
-                                          return;
-                                        }
-
-                                        context.pushNamedAuth(
-                                            HomePageWidget.routeName,
-                                            context.mounted);
-                                      },
+                                child: wrapWithModel(
+                                  model: _model.bottonStandardModel,
+                                  updateCallback: () => safeSetState(() {}),
+                                  child: BottonStandardWidget(
+                                    key: ValueKey('BottonStandard_cjw3'),
+                                    buttontext:
+                                        FFLocalizations.of(context).getText(
+                                      'i3al17a9' /* Sign In */,
                                     ),
+                                    onPressed: () async {
+                                      var _shouldSetState = false;
+                                      Function() _navigate = () {};
+                                      GoRouter.of(context).prepareAuthEvent();
+
+                                      final user =
+                                          await authManager.signInWithEmail(
+                                        context,
+                                        _model.emailAddressTextController.text,
+                                        _model.passWordTextController.text,
+                                      );
+                                      if (user == null) {
+                                        return;
+                                      }
+
+                                      _navigate = () => context.goNamedAuth(
+                                          HomePageWidget.routeName,
+                                          context.mounted);
+                                      // Monitoring
+                                      _model.monitoringOut =
+                                          await MonitoringLogsTable().insert({
+                                        'scrren_name': 'SignIn',
+                                        'user_id': currentUserUid,
+                                        'action': 'SingedIn',
+                                      });
+                                      _shouldSetState = true;
+                                      if (loggedIn) {
+                                        // Get user_ext
+                                        _model.user =
+                                            await UserExtTable().queryRows(
+                                          queryFn: (q) => q.eqOrNull(
+                                            'id',
+                                            currentUserUid,
+                                          ),
+                                        );
+                                        _shouldSetState = true;
+                                        // Get user fav
+                                        _model.userFav =
+                                            await UserFavoritesTable()
+                                                .queryRows(
+                                          queryFn: (q) => q.eqOrNull(
+                                            'user_id',
+                                            currentUserUid,
+                                          ),
+                                        );
+                                        _shouldSetState = true;
+                                        _model.userRole =
+                                            await actions.decodeJwtRole();
+                                        _shouldSetState = true;
+                                        // Update UserInfo global object
+                                        FFAppState().userInfo = UserInfoStruct(
+                                          userId: currentUserUid,
+                                          userName: _model
+                                              .user?.firstOrNull?.userName,
+                                          name: _model
+                                              .user?.firstOrNull?.firstName,
+                                          lastName: _model
+                                              .user?.firstOrNull?.lastName,
+                                          avatar: _model
+                                              .user?.firstOrNull?.profileAvatar,
+                                          city: _model
+                                              .user?.firstOrNull?.userCity,
+                                          userFavs: _model.userFav
+                                              ?.map((e) => e.postId)
+                                              .toList(),
+                                          reviewedList: _model.user?.firstOrNull
+                                              ?.userReviewedIds,
+                                          role: _model.userRole,
+                                        );
+                                        safeSetState(() {});
+                                      } else {
+                                        _navigate();
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
+
+                                      _navigate();
+                                      if (_shouldSetState) safeSetState(() {});
+                                    },
                                   ),
                                 ),
                               ),

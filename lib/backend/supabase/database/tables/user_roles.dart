@@ -17,12 +17,6 @@ class UserRolesRow extends SupabaseDataRow {
   String get userId => getField<String>('user_id')!;
   set userId(String value) => setField<String>('user_id', value);
 
-  String get roleId => getField<String>('role_id')!;
-  set roleId(String value) => setField<String>('role_id', value);
-
-  DateTime get createdAt => getField<DateTime>('created_at')!;
-  set createdAt(DateTime value) => setField<DateTime>('created_at', value);
-
-  DateTime get updatedAt => getField<DateTime>('updated_at')!;
-  set updatedAt(DateTime value) => setField<DateTime>('updated_at', value);
+  String get role => getField<String>('role')!;
+  set role(String value) => setField<String>('role', value);
 }

@@ -15,16 +15,20 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
   String? Function(BuildContext, String?)? userNameTextControllerValidator;
   String? _userNameTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return FFLocalizations.of(context).getText(
+        '206yhyd6' /* User name is invalid! */,
+      );
     }
 
-    if (val.length < 1) {
-      return 'Requires at least 1 characters.';
+    if (val.length < 3) {
+      return FFLocalizations.of(context).getText(
+        'p0w37jdu' /* 3 */,
+      );
     }
 
     if (!RegExp(kTextValidatorUsernameRegex).hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        'ae4rvotw' /* User name is invalid */,
+        'ae4rvotw' /* User name is invalid! */,
       );
     }
     return null;
@@ -99,6 +103,8 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
 
   // Model for BottonStandard component.
   late BottonStandardModel bottonStandardModel;
+  // Stores action output result for [Validate Form] action in BottonStandard widget.
+  bool? validationOut;
   // Stores action output result for [Custom Action - customSignUpWithEmail] action in BottonStandard widget.
   String? authonticationError;
   // Stores action output result for [Backend Call - Insert Row] action in BottonStandard widget.

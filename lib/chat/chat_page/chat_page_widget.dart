@@ -1,5 +1,6 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/supabase/supabase.dart';
+import '/components/undo_widget.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -145,10 +146,6 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .greenInit,
                                           shape: BoxShape.circle,
-                                          border: Border.all(
-                                            color: FlutterFlowTheme.of(context)
-                                                .darkgray,
-                                          ),
                                         ),
                                         child: Align(
                                           alignment:
@@ -161,25 +158,6 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 35.0,
-                                    height: 35.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      shape: BoxShape.circle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .darkgray,
-                                      ),
-                                    ),
-                                    child: Icon(
-                                      Icons.settings,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 24.0,
                                     ),
                                   ),
                                   InkWell(
@@ -227,104 +205,93 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                           thickness: 1.0,
                           color: FlutterFlowTheme.of(context).darkgray,
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Expanded(
-                                child: FlutterFlowChoiceChips(
-                                  options: [
-                                    ChipData(
-                                        FFLocalizations.of(context).getText(
-                                      'cyoqgt88' /* All */,
-                                    )),
-                                    ChipData(
-                                        FFLocalizations.of(context).getText(
-                                      'ktmh8zc4' /* My Posts */,
-                                    )),
-                                    ChipData(
-                                        FFLocalizations.of(context).getText(
-                                      's5akc9nm' /* Other's Posts */,
-                                    )),
-                                    ChipData(
-                                        FFLocalizations.of(context).getText(
-                                      'o9qneast' /* Yekja */,
-                                    ))
-                                  ],
-                                  onChanged: (val) => safeSetState(() => _model
-                                      .choiceChipsValue = val?.firstOrNull),
-                                  selectedChipStyle: ChipStyle(
-                                    backgroundColor:
-                                        FlutterFlowTheme.of(context).greenInit,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          fontSize: 14.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                          useGoogleFonts:
-                                              !FlutterFlowTheme.of(context)
-                                                  .bodyMediumIsCustom,
-                                        ),
-                                    iconColor:
-                                        FlutterFlowTheme.of(context).primary,
-                                    iconSize: 16.0,
-                                    elevation: 0.0,
-                                    borderRadius: BorderRadius.circular(6.0),
-                                  ),
-                                  unselectedChipStyle: ChipStyle(
-                                    backgroundColor:
-                                        FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                          useGoogleFonts:
-                                              !FlutterFlowTheme.of(context)
-                                                  .bodyMediumIsCustom,
-                                        ),
-                                    iconColor:
-                                        FlutterFlowTheme.of(context).primary,
-                                    iconSize: 16.0,
-                                    elevation: 0.0,
-                                    borderColor:
-                                        FlutterFlowTheme.of(context).darkgray,
-                                    borderRadius: BorderRadius.circular(6.0),
-                                  ),
-                                  chipSpacing: 10.0,
-                                  rowSpacing: 8.0,
-                                  multiselect: false,
-                                  initialized: _model.choiceChipsValue != null,
-                                  alignment: WrapAlignment.center,
-                                  controller:
-                                      _model.choiceChipsValueController ??=
-                                          FormFieldController<List<String>>(
-                                    [
-                                      FFLocalizations.of(context).getText(
-                                        'fyic4jxi' /* All */,
-                                      )
-                                    ],
-                                  ),
-                                  wrapped: true,
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              child: FlutterFlowChoiceChips(
+                                options: [
+                                  ChipData(FFLocalizations.of(context).getText(
+                                    'cyoqgt88' /* All */,
+                                  )),
+                                  ChipData(FFLocalizations.of(context).getText(
+                                    'ktmh8zc4' /* My Posts */,
+                                  )),
+                                  ChipData(FFLocalizations.of(context).getText(
+                                    's5akc9nm' /* Other's Posts */,
+                                  )),
+                                  ChipData(FFLocalizations.of(context).getText(
+                                    'o9qneast' /* Yekja */,
+                                  ))
+                                ],
+                                onChanged: (val) => safeSetState(() =>
+                                    _model.choiceChipsValue = val?.firstOrNull),
+                                selectedChipStyle: ChipStyle(
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).greenInit,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .bodyMediumFamily,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        fontSize: 14.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w500,
+                                        useGoogleFonts:
+                                            !FlutterFlowTheme.of(context)
+                                                .bodyMediumIsCustom,
+                                      ),
+                                  iconColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                  iconSize: 16.0,
+                                  elevation: 0.0,
+                                  borderRadius: BorderRadius.circular(6.0),
                                 ),
+                                unselectedChipStyle: ChipStyle(
+                                  backgroundColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .bodyMediumFamily,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w500,
+                                        useGoogleFonts:
+                                            !FlutterFlowTheme.of(context)
+                                                .bodyMediumIsCustom,
+                                      ),
+                                  iconColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                  iconSize: 16.0,
+                                  elevation: 0.0,
+                                  borderColor:
+                                      FlutterFlowTheme.of(context).darkgray,
+                                  borderRadius: BorderRadius.circular(6.0),
+                                ),
+                                chipSpacing: 10.0,
+                                rowSpacing: 8.0,
+                                multiselect: false,
+                                initialized: _model.choiceChipsValue != null,
+                                alignment: WrapAlignment.center,
+                                controller:
+                                    _model.choiceChipsValueController ??=
+                                        FormFieldController<List<String>>(
+                                  [
+                                    FFLocalizations.of(context).getText(
+                                      'fyic4jxi' /* All */,
+                                    )
+                                  ],
+                                ),
+                                wrapped: true,
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                         Divider(
                           thickness: 1.0,
@@ -348,239 +315,235 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                 itemCount: chatview.length,
                                 itemBuilder: (context, chatviewIndex) {
                                   final chatviewItem = chatview[chatviewIndex];
-                                  return Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 13.5, 16.0, 13.5),
-                                    child: GestureDetector(
-                                      onTap: () async {
-                                        context.pushNamed(
-                                          ChatdetailWidget.routeName,
-                                          queryParameters: {
-                                            'chatId': serializeParam(
-                                              chatviewItem.chatId,
-                                              ParamType.int,
-                                            ),
-                                            'ownerID': serializeParam(
-                                              chatviewItem.postOwnerId,
-                                              ParamType.String,
-                                            ),
-                                            'postID': serializeParam(
-                                              chatviewItem.chatPostId,
-                                              ParamType.String,
-                                            ),
-                                            'ownerUserName': serializeParam(
-                                              chatviewItem.ownerUsername,
-                                              ParamType.String,
-                                            ),
-                                            'ownerAvatar': serializeParam(
-                                              chatviewItem.ownerAvatar,
-                                              ParamType.String,
-                                            ),
-                                            'senderID': serializeParam(
-                                              chatviewItem.chatSender,
-                                              ParamType.String,
-                                            ),
-                                            'senderUserName': serializeParam(
-                                              chatviewItem.chatSendername,
-                                              ParamType.String,
-                                            ),
-                                            'senderAvatar': serializeParam(
-                                              chatviewItem.senderAvatar,
-                                              ParamType.String,
-                                            ),
-                                          }.withoutNulls,
-                                        );
-                                      },
-                                      onHorizontalDragStart: (details) async {
-                                        if (currentUserUid ==
-                                            chatviewItem.chatSender) {
-                                          await ChatsTable().update(
-                                            data: {
-                                              'sender_deleted_at':
-                                                  supaSerialize<DateTime>(
-                                                      getCurrentTimestamp),
-                                            },
-                                            matchingRows: (rows) => rows
-                                                .eqOrNull(
-                                                  'id',
-                                                  chatviewItem.chatId,
-                                                )
-                                                .eqOrNull(
-                                                  'sender',
-                                                  chatviewItem.chatSender,
-                                                ),
+                                  return Builder(
+                                    builder: (context) => Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 13.5, 16.0, 13.5),
+                                      child: GestureDetector(
+                                        onTap: () async {
+                                          context.pushNamed(
+                                            ChatdetailWidget.routeName,
+                                            queryParameters: {
+                                              'chatId': serializeParam(
+                                                chatviewItem.chatId,
+                                                ParamType.int,
+                                              ),
+                                              'ownerID': serializeParam(
+                                                chatviewItem.postOwnerId,
+                                                ParamType.String,
+                                              ),
+                                              'postID': serializeParam(
+                                                chatviewItem.chatPostId,
+                                                ParamType.String,
+                                              ),
+                                              'ownerUserName': serializeParam(
+                                                chatviewItem.ownerUsername,
+                                                ParamType.String,
+                                              ),
+                                              'ownerAvatar': serializeParam(
+                                                chatviewItem.ownerAvatar,
+                                                ParamType.String,
+                                              ),
+                                              'senderID': serializeParam(
+                                                chatviewItem.chatSender,
+                                                ParamType.String,
+                                              ),
+                                              'senderUserName': serializeParam(
+                                                chatviewItem.chatSendername,
+                                                ParamType.String,
+                                              ),
+                                              'senderAvatar': serializeParam(
+                                                chatviewItem.senderAvatar,
+                                                ParamType.String,
+                                              ),
+                                            }.withoutNulls,
                                           );
-                                        } else {
-                                          await ChatsTable().update(
-                                            data: {
-                                              'recipient_deleted_at':
-                                                  supaSerialize<DateTime>(
-                                                      getCurrentTimestamp),
-                                            },
-                                            matchingRows: (rows) => rows
-                                                .eqOrNull(
-                                                  'id',
-                                                  chatviewItem.chatId,
-                                                )
-                                                .eqOrNull(
-                                                  'recipient',
-                                                  chatviewItem.chatRecipient,
-                                                ),
-                                          );
-                                        }
+                                        },
+                                        onHorizontalDragStart: (details) async {
+                                          if (currentUserUid ==
+                                              chatviewItem.chatSender) {
+                                            await ChatsTable().update(
+                                              data: {
+                                                'sender_deleted_at':
+                                                    supaSerialize<DateTime>(
+                                                        getCurrentTimestamp),
+                                              },
+                                              matchingRows: (rows) => rows
+                                                  .eqOrNull(
+                                                    'id',
+                                                    chatviewItem.chatId,
+                                                  )
+                                                  .eqOrNull(
+                                                    'sender',
+                                                    chatviewItem.chatSender,
+                                                  ),
+                                            );
+                                          } else {
+                                            await ChatsTable().update(
+                                              data: {
+                                                'recipient_deleted_at':
+                                                    supaSerialize<DateTime>(
+                                                        getCurrentTimestamp),
+                                              },
+                                              matchingRows: (rows) => rows
+                                                  .eqOrNull(
+                                                    'id',
+                                                    chatviewItem.chatId,
+                                                  )
+                                                  .eqOrNull(
+                                                    'recipient',
+                                                    chatviewItem.chatRecipient,
+                                                  ),
+                                            );
+                                          }
 
-                                        safeSetState(() =>
-                                            _model.requestCompleter = null);
-                                        await _model.waitForRequestCompleted();
-                                      },
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Container(
-                                            constraints: BoxConstraints(
-                                              maxWidth: 60.0,
-                                              maxHeight: 60.0,
-                                            ),
-                                            decoration: BoxDecoration(),
-                                            child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: Stack(
+                                          await showDialog(
+                                            context: context,
+                                            builder: (dialogContext) {
+                                              return Dialog(
+                                                elevation: 0,
+                                                insetPadding: EdgeInsets.zero,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                alignment: AlignmentDirectional(
+                                                        0.0, 0.0)
+                                                    .resolve(Directionality.of(
+                                                        context)),
+                                                child: GestureDetector(
+                                                  onTap: () {
+                                                    FocusScope.of(dialogContext)
+                                                        .unfocus();
+                                                    FocusManager
+                                                        .instance.primaryFocus
+                                                        ?.unfocus();
+                                                  },
+                                                  child: UndoWidget(
+                                                    chatId: chatviewItem.chatId,
+                                                    recepient: chatviewItem
+                                                        .chatRecipient,
+                                                    sender:
+                                                        chatviewItem.chatSender,
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                          );
+
+                                          safeSetState(() =>
+                                              _model.requestCompleter = null);
+                                          await _model
+                                              .waitForRequestCompleted();
+                                        },
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Container(
+                                              constraints: BoxConstraints(
+                                                maxWidth: 60.0,
+                                                maxHeight: 60.0,
+                                              ),
+                                              decoration: BoxDecoration(),
+                                              child: Align(
                                                 alignment: AlignmentDirectional(
                                                     0.0, 0.0),
-                                                children: [
-                                                  ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            12.0),
-                                                    child: Image.network(
-                                                      chatviewItem.deletedPost!
-                                                          ? FFAppConstants
-                                                              .PostNotAvailableIMG
-                                                          : chatviewItem
-                                                              .postImage!,
-                                                      width: 55.0,
-                                                      height: 55.0,
-                                                      fit: BoxFit.cover,
-                                                      alignment:
-                                                          Alignment(0.0, 0.0),
-                                                    ),
-                                                  ),
-                                                  if (functions
-                                                      .isPresentAndPositive(
-                                                          chatviewItem
-                                                              .unseenCount))
-                                                    Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              1.0, 1.0),
-                                                      child: badges.Badge(
-                                                        badgeContent: Text(
-                                                          chatviewItem
-                                                              .unseenCount!
-                                                              .toString(),
-                                                          textAlign:
-                                                              TextAlign.start,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodySmall
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmallFamily,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                useGoogleFonts:
-                                                                    !FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodySmallIsCustom,
-                                                              ),
-                                                        ),
-                                                        showBadge: true,
-                                                        shape: badges
-                                                            .BadgeShape.circle,
-                                                        badgeColor:
-                                                            Color(0xFFED232B),
-                                                        elevation: 0.0,
-                                                        padding:
-                                                            EdgeInsets.all(5.0),
-                                                        position:
-                                                            badges.BadgePosition
-                                                                .topEnd(),
-                                                        animationType: badges
-                                                            .BadgeAnimationType
-                                                            .scale,
-                                                        toAnimate: true,
+                                                child: Stack(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  children: [
+                                                    ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              12.0),
+                                                      child: Image.network(
+                                                        chatviewItem
+                                                                .deletedPost!
+                                                            ? FFAppConstants
+                                                                .PostNotAvailableIMG
+                                                            : chatviewItem
+                                                                .postImage!,
+                                                        width: 55.0,
+                                                        height: 55.0,
+                                                        fit: BoxFit.cover,
+                                                        alignment:
+                                                            Alignment(0.0, 0.0),
                                                       ),
                                                     ),
-                                                ],
+                                                    if (functions
+                                                        .isPresentAndPositive(
+                                                            chatviewItem
+                                                                .unseenCount))
+                                                      Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                1.0, 1.0),
+                                                        child: badges.Badge(
+                                                          badgeContent: Text(
+                                                            chatviewItem
+                                                                .unseenCount!
+                                                                .toString(),
+                                                            textAlign:
+                                                                TextAlign.start,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmallFamily,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodySmallIsCustom,
+                                                                ),
+                                                          ),
+                                                          showBadge: true,
+                                                          shape: badges
+                                                              .BadgeShape
+                                                              .circle,
+                                                          badgeColor:
+                                                              Color(0xFFED232B),
+                                                          elevation: 0.0,
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  5.0),
+                                                          position: badges
+                                                                  .BadgePosition
+                                                              .topEnd(),
+                                                          animationType: badges
+                                                              .BadgeAnimationType
+                                                              .scale,
+                                                          toAnimate: true,
+                                                        ),
+                                                      ),
+                                                  ],
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                          Flexible(
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Text(
-                                                      valueOrDefault<String>(
-                                                        chatviewItem.postTitle,
-                                                        'This post is no longer available!',
-                                                      ),
-                                                      maxLines: 1,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Satoshi',
-                                                            color: chatviewItem
-                                                                        .unseenCount! >
-                                                                    0
-                                                                ? FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary
-                                                                : Color(
-                                                                    0xFFBFBBBB),
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                          ),
-                                                    ),
-                                                  ].divide(
-                                                      SizedBox(width: 4.0)),
-                                                ),
-                                                if (!functions
-                                                    .isNullSingleString(
-                                                        chatviewItem.unseenCount
-                                                            ?.toString()))
+                                            Flexible(
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
                                                   Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
                                                     children: [
                                                       Text(
-                                                        '${valueOrDefault<String>(
+                                                        valueOrDefault<String>(
                                                           chatviewItem
-                                                              .lastMessagePrefix,
-                                                          'from',
-                                                        )}: ',
-                                                        textAlign:
-                                                            TextAlign.start,
+                                                              .postTitle,
+                                                          'This post is no longer available!',
+                                                        ),
                                                         maxLines: 1,
                                                         style: FlutterFlowTheme
                                                                 .of(context)
@@ -604,20 +567,30 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                       .bold,
                                                             ),
                                                       ),
-                                                      Flexible(
-                                                        child: Text(
-                                                          valueOrDefault<
-                                                              String>(
+                                                    ].divide(
+                                                        SizedBox(width: 4.0)),
+                                                  ),
+                                                  if (!functions
+                                                      .isNullSingleString(
+                                                          chatviewItem
+                                                              .unseenCount
+                                                              ?.toString()))
+                                                    Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          '${valueOrDefault<String>(
                                                             chatviewItem
-                                                                .lastMessageText,
-                                                            'chat opened',
-                                                          ).maybeHandleOverflow(
-                                                            maxChars: 70,
-                                                            replacement: '…',
-                                                          ),
+                                                                .lastMessagePrefix,
+                                                            'from',
+                                                          )}: ',
                                                           textAlign:
                                                               TextAlign.start,
-                                                          maxLines: 2,
+                                                          maxLines: 1,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -629,55 +602,93 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                         0
                                                                     ? FlutterFlowTheme.of(
                                                                             context)
-                                                                        .secondaryText
-                                                                    : FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .textfiled,
+                                                                        .primary
+                                                                    : Color(
+                                                                        0xFFBFBBBB),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
                                                                     FontWeight
-                                                                        .w200,
+                                                                        .bold,
                                                               ),
                                                         ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                              ],
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(1.0, 0.0),
-                                            child: Text(
-                                              dateTimeFormat(
-                                                "MEd",
-                                                chatviewItem.chatCreatedAt!,
-                                                locale:
-                                                    FFLocalizations.of(context)
-                                                        .languageCode,
+                                                        Flexible(
+                                                          child: Text(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              chatviewItem
+                                                                  .lastMessageText,
+                                                              'chat opened',
+                                                            ).maybeHandleOverflow(
+                                                              maxChars: 70,
+                                                              replacement: '…',
+                                                            ),
+                                                            textAlign:
+                                                                TextAlign.start,
+                                                            maxLines: 2,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Satoshi',
+                                                                  color: chatviewItem
+                                                                              .unseenCount! >
+                                                                          0
+                                                                      ? FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText
+                                                                      : FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .textfiled,
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w200,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                ],
                                               ),
-                                              textAlign: TextAlign.justify,
-                                              maxLines: 1,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily: 'Satoshi',
-                                                        color: chatviewItem
-                                                                    .unseenCount! >
-                                                                0
-                                                            ? Color(0xFF17C995)
-                                                            : Color(0xFFBFBBBB),
-                                                        fontSize: 12.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w300,
-                                                      ),
                                             ),
-                                          ),
-                                        ].divide(SizedBox(width: 8.0)),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  1.0, 0.0),
+                                              child: Text(
+                                                dateTimeFormat(
+                                                  "MEd",
+                                                  chatviewItem.chatCreatedAt!,
+                                                  locale: FFLocalizations.of(
+                                                          context)
+                                                      .languageCode,
+                                                ),
+                                                textAlign: TextAlign.justify,
+                                                maxLines: 1,
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily: 'Satoshi',
+                                                      color: chatviewItem
+                                                                  .unseenCount! >
+                                                              0
+                                                          ? Color(0xFF17C995)
+                                                          : Color(0xFFBFBBBB),
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w300,
+                                                    ),
+                                              ),
+                                            ),
+                                          ].divide(SizedBox(width: 8.0)),
+                                        ),
                                       ),
                                     ),
                                   );

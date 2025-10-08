@@ -39,7 +39,7 @@ class VerifyCodeModel extends FlutterFlowModel<VerifyCodeWidget> {
   // Stores action output result for [Custom Action - verifyEmailWithToken] action in Button widget.
   bool? verificationMessage;
   // Stores action output result for [Backend Call - Insert Row] action in Button widget.
-  UserExtRow? errorMessage;
+  UserExtRow? userExt;
 
   @override
   void initState(BuildContext context) {

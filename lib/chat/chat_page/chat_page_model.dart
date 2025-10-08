@@ -8,6 +8,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class ChatPageModel extends FlutterFlowModel<ChatPageWidget> {
+  ///  Local state fields for this page.
+
+  int? lastHiddenChatId;
+
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for ChoiceChips widget.

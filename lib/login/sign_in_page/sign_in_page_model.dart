@@ -25,7 +25,7 @@ class SignInPageModel extends FlutterFlowModel<SignInPageWidget> {
   // Model for BottonStandard component.
   late BottonStandardModel bottonStandardModel;
   // Stores action output result for [Backend Call - Insert Row] action in BottonStandard widget.
-  MonitoringLogsRow? singedIn;
+  MonitoringLogsRow? monitoringOut;
   // Stores action output result for [Backend Call - Query Rows] action in BottonStandard widget.
   List<UserExtRow>? user;
   // Stores action output result for [Backend Call - Query Rows] action in BottonStandard widget.

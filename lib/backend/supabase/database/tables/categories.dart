@@ -25,4 +25,11 @@ class CategoriesRow extends SupabaseDataRow {
 
   String get mainCatName => getField<String>('main_cat_name')!;
   set mainCatName(String value) => setField<String>('main_cat_name', value);
+
+  dynamic get catNameI18n => getField<dynamic>('cat_name_i18n');
+  set catNameI18n(dynamic value) => setField<dynamic>('cat_name_i18n', value);
+
+  dynamic get mainCatNameI18n => getField<dynamic>('main_cat_name_i18n');
+  set mainCatNameI18n(dynamic value) =>
+      setField<dynamic>('main_cat_name_i18n', value);
 }

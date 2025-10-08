@@ -19,16 +19,32 @@ class OnboardingPageModel extends FlutterFlowModel<OnboardingPageWidget> {
   late BottonStandardModel bottonStandardModel1;
   // Model for BottonStandard component.
   late BottonStandardModel bottonStandardModel2;
+  // Model for BottonStandard component.
+  late BottonStandardModel bottonStandardModel3;
+  // Model for BottonStandard component.
+  late BottonStandardModel bottonStandardModel4;
+  // Model for BottonStandard component.
+  late BottonStandardModel bottonStandardModel5;
+  // Model for BottonStandard component.
+  late BottonStandardModel bottonStandardModel6;
 
   @override
   void initState(BuildContext context) {
     bottonStandardModel1 = createModel(context, () => BottonStandardModel());
     bottonStandardModel2 = createModel(context, () => BottonStandardModel());
+    bottonStandardModel3 = createModel(context, () => BottonStandardModel());
+    bottonStandardModel4 = createModel(context, () => BottonStandardModel());
+    bottonStandardModel5 = createModel(context, () => BottonStandardModel());
+    bottonStandardModel6 = createModel(context, () => BottonStandardModel());
   }
 
   @override
   void dispose() {
     bottonStandardModel1.dispose();
     bottonStandardModel2.dispose();
+    bottonStandardModel3.dispose();
+    bottonStandardModel4.dispose();
+    bottonStandardModel5.dispose();
+    bottonStandardModel6.dispose();
   }
 }

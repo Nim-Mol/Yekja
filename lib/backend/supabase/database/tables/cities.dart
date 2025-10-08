@@ -25,4 +25,10 @@ class CitiesRow extends SupabaseDataRow {
 
   String? get province => getField<String>('province');
   set province(String? value) => setField<String>('province', value);
+
+  dynamic get nameI18n => getField<dynamic>('name_i18n');
+  set nameI18n(dynamic value) => setField<dynamic>('name_i18n', value);
+
+  dynamic get provinceI18n => getField<dynamic>('province_i18n');
+  set provinceI18n(dynamic value) => setField<dynamic>('province_i18n', value);
 }

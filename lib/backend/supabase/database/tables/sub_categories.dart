@@ -38,4 +38,15 @@ class SubCategoriesRow extends SupabaseDataRow {
 
   int? get uniqueSubcatId => getField<int>('unique_subcat_id');
   set uniqueSubcatId(int? value) => setField<int>('unique_subcat_id', value);
+
+  dynamic get subCatNameI18n => getField<dynamic>('sub_cat_name_i18n');
+  set subCatNameI18n(dynamic value) =>
+      setField<dynamic>('sub_cat_name_i18n', value);
+
+  dynamic get catNameI18n => getField<dynamic>('cat_name_i18n');
+  set catNameI18n(dynamic value) => setField<dynamic>('cat_name_i18n', value);
+
+  dynamic get mainCatNameI18n => getField<dynamic>('main_cat_name_i18n');
+  set mainCatNameI18n(dynamic value) =>
+      setField<dynamic>('main_cat_name_i18n', value);
 }

@@ -17,9 +17,6 @@ void main() async {
   GoRouter.optionURLReflectsImperativeAPIs = true;
   usePathUrlStrategy();
 
-  final environmentValues = FFDevEnvironmentValues();
-  await environmentValues.initialize();
-
   await SupaFlow.initialize();
 
   await FFLocalizations.initialize();

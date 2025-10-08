@@ -159,79 +159,85 @@ class _ComunicationBarWidgetState extends State<ComunicationBarWidget>
                                 if (_shouldSetState) safeSetState(() {});
                                 return;
                               } else {
-                                _model.chat = await ChatsTable().insert({
-                                  'sender': currentUserUid,
-                                  'recipient': widget.recipient,
-                                  'post_id': widget.postId,
-                                  'senderName': FFAppState().userInfo.userName,
-                                });
-                                _shouldSetState = true;
-                                await Future.delayed(
-                                  Duration(
-                                    milliseconds: 2000,
-                                  ),
-                                );
-                                _model.chatCreated =
-                                    await ViewUserChatsTable().queryRows(
-                                  queryFn: (q) => q
-                                      .eqOrNull(
-                                        'chat_sender',
-                                        currentUserUid,
-                                      )
-                                      .eqOrNull(
-                                        'chat_post_id',
-                                        widget.postId,
+                                if (widget.recipient != currentUserUid) {
+                                  _model.chat = await ChatsTable().insert({
+                                    'sender': currentUserUid,
+                                    'recipient': widget.recipient,
+                                    'post_id': widget.postId,
+                                    'senderName':
+                                        FFAppState().userInfo.userName,
+                                  });
+                                  _shouldSetState = true;
+                                  await Future.delayed(
+                                    Duration(
+                                      milliseconds: 2000,
+                                    ),
+                                  );
+                                  _model.chatCreated =
+                                      await ViewUserChatsTable().queryRows(
+                                    queryFn: (q) => q
+                                        .eqOrNull(
+                                          'chat_sender',
+                                          currentUserUid,
+                                        )
+                                        .eqOrNull(
+                                          'chat_post_id',
+                                          widget.postId,
+                                        ),
+                                  );
+                                  _shouldSetState = true;
+
+                                  context.pushNamed(
+                                    ChatdetailWidget.routeName,
+                                    queryParameters: {
+                                      'chatId': serializeParam(
+                                        _model.chatCreated?.firstOrNull?.chatId,
+                                        ParamType.int,
                                       ),
-                                );
-                                _shouldSetState = true;
+                                      'ownerID': serializeParam(
+                                        _model.chatCreated?.firstOrNull
+                                            ?.chatRecipient,
+                                        ParamType.String,
+                                      ),
+                                      'postID': serializeParam(
+                                        _model.chatCreated?.firstOrNull
+                                            ?.chatPostId,
+                                        ParamType.String,
+                                      ),
+                                      'ownerUserName': serializeParam(
+                                        _model.chatCreated?.firstOrNull
+                                            ?.ownerUsername,
+                                        ParamType.String,
+                                      ),
+                                      'ownerAvatar': serializeParam(
+                                        _model.chatCreated?.firstOrNull
+                                            ?.ownerAvatar,
+                                        ParamType.String,
+                                      ),
+                                      'senderID': serializeParam(
+                                        _model.chatCreated?.firstOrNull
+                                            ?.chatSender,
+                                        ParamType.String,
+                                      ),
+                                      'senderUserName': serializeParam(
+                                        _model.chatCreated?.firstOrNull
+                                            ?.chatSendername,
+                                        ParamType.String,
+                                      ),
+                                      'senderAvatar': serializeParam(
+                                        _model.chatCreated?.firstOrNull
+                                            ?.senderAvatar,
+                                        ParamType.String,
+                                      ),
+                                    }.withoutNulls,
+                                  );
 
-                                context.pushNamed(
-                                  ChatdetailWidget.routeName,
-                                  queryParameters: {
-                                    'chatId': serializeParam(
-                                      _model.chatCreated?.firstOrNull?.chatId,
-                                      ParamType.int,
-                                    ),
-                                    'ownerID': serializeParam(
-                                      _model.chatCreated?.firstOrNull
-                                          ?.chatRecipient,
-                                      ParamType.String,
-                                    ),
-                                    'postID': serializeParam(
-                                      _model
-                                          .chatCreated?.firstOrNull?.chatPostId,
-                                      ParamType.String,
-                                    ),
-                                    'ownerUserName': serializeParam(
-                                      _model.chatCreated?.firstOrNull
-                                          ?.ownerUsername,
-                                      ParamType.String,
-                                    ),
-                                    'ownerAvatar': serializeParam(
-                                      _model.chatCreated?.firstOrNull
-                                          ?.ownerAvatar,
-                                      ParamType.String,
-                                    ),
-                                    'senderID': serializeParam(
-                                      _model
-                                          .chatCreated?.firstOrNull?.chatSender,
-                                      ParamType.String,
-                                    ),
-                                    'senderUserName': serializeParam(
-                                      _model.chatCreated?.firstOrNull
-                                          ?.chatSendername,
-                                      ParamType.String,
-                                    ),
-                                    'senderAvatar': serializeParam(
-                                      _model.chatCreated?.firstOrNull
-                                          ?.senderAvatar,
-                                      ParamType.String,
-                                    ),
-                                  }.withoutNulls,
-                                );
-
-                                if (_shouldSetState) safeSetState(() {});
-                                return;
+                                  if (_shouldSetState) safeSetState(() {});
+                                  return;
+                                } else {
+                                  if (_shouldSetState) safeSetState(() {});
+                                  return;
+                                }
                               }
 
                               if (_shouldSetState) safeSetState(() {});

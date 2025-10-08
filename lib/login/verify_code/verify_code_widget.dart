@@ -180,16 +180,17 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                           ),
                         ),
                       ),
-                      if (_model.verificationMessage != null)
+                      if ((_model.verificationMessage == false) &&
+                          (_model.verificationMessage != null))
                         Align(
                           alignment: AlignmentDirectional(-1.0, 0.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 16.0, 0.0, 0.0),
                             child: Text(
-                              _model.verificationMessage!
-                                  ? 'false'
-                                  : 'Wrong or expired code!',
+                              FFLocalizations.of(context).getText(
+                                'unuifogx' /* Wrong or expired code! */,
+                              ),
                               textAlign: TextAlign.start,
                               style: FlutterFlowTheme.of(context)
                                   .labelLarge
@@ -403,32 +404,26 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                       );
                       _shouldSetState = true;
                       if (_model.verificationMessage == true) {
-                        // Very important without it it will fail
                         await Future.delayed(
                           Duration(
-                            milliseconds: 7000,
+                            milliseconds: 10000,
                           ),
                         );
-                        _model.errorMessage = await UserExtTable().insert({
-                          'email': widget.userEmail,
-                          'userName': widget.userName,
+                        _model.userExt = await UserExtTable().insert({
                           'id': currentUserUid,
-                          'IsVerified': true,
+                          'email': currentUserEmail,
+                          'userName': widget.userName,
                         });
                         _shouldSetState = true;
-                        FFAppState().updateUserInfoStruct(
-                          (e) => e..avatar = FFAppConstants.DefultProfilePhoto,
-                        );
-                        safeSetState(() {});
-                      } else {
-                        safeSetState(() {
-                          _model.pinCodeController?.clear();
+                        await ConsentsTable().insert({
+                          'user_id': currentUserUid,
                         });
+                      } else {
                         if (_shouldSetState) safeSetState(() {});
                         return;
                       }
 
-                      context.pushNamed(HomePageWidget.routeName);
+                      context.pushNamed(SignInPageWidget.routeName);
 
                       if (_shouldSetState) safeSetState(() {});
                     },

@@ -265,15 +265,15 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                           BorderRadius.circular(
                                                               8.0),
                                                       child: Image.network(
-                                                        (profilePageUserExtRow
+                                                        (columnConsentsRow
+                                                                        ?.showProfileImage ==
+                                                                    true) &&
+                                                                (profilePageUserExtRow
                                                                             ?.profileAvatar !=
                                                                         null &&
                                                                     profilePageUserExtRow
                                                                             ?.profileAvatar !=
-                                                                        '') &&
-                                                                (columnConsentsRow
-                                                                        ?.showProfileImage ==
-                                                                    true)
+                                                                        '')
                                                             ? profilePageUserExtRow!
                                                                 .profileAvatar!
                                                             : FFAppConstants

@@ -648,7 +648,7 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                                 await MessagesTable().insert({
                                   'chat_id': widget.chatId,
                                   'message_text':
-                                      'Thank your for your feedback! We wish you many more succussful exchanges :)',
+                                      'Thanks for leaving a review! It’ll show up once the other member submits theirs. Here’s to many more great exchanges on Yekja! 🎉',
                                   'sentBy': FFAppConstants.YekjaAdminID,
                                   'recipient': widget.postOwnerId,
                                 });
@@ -672,7 +672,7 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                                 await MessagesTable().insert({
                                   'chat_id': widget.chatId,
                                   'message_text':
-                                      'Thank your for your feedback! We wish you many more succussful exchanges :)',
+                                      'Thanks for leaving a review! It’ll show up once the other member submits theirs. Here’s to many more great exchanges on Yekja! 🎉',
                                   'sentBy': FFAppConstants.YekjaAdminID,
                                   'recipient': widget.postCustomerID,
                                 });

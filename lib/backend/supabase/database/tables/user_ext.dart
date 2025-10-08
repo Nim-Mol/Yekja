@@ -67,6 +67,14 @@ class UserExtRow extends SupabaseDataRow {
   bool? get reported => getField<bool>('reported');
   set reported(bool? value) => setField<bool>('reported', value);
 
+  dynamic get biographyI18n => getField<dynamic>('biography_i18n');
+  set biographyI18n(dynamic value) =>
+      setField<dynamic>('biography_i18n', value);
+
+  dynamic get userCityI18n => getField<dynamic>('user_city_i18n');
+  set userCityI18n(dynamic value) =>
+      setField<dynamic>('user_city_i18n', value);
+
   String? get role => getField<String>('Role');
   set role(String? value) => setField<String>('Role', value);
 

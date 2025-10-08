@@ -6,5 +6,5 @@ export 'verify_email_with_token.dart' show verifyEmailWithToken;
 export 'initialize_shared_preferences_for_testing.dart'
     show initializeSharedPreferencesForTesting;
 export 'soft_delete_chat.dart' show softDeleteChat;
-export 'debug_decoder.dart' show debugDecoder;
 export 'decode_jwt_role.dart' show decodeJwtRole;
+export 'debug_decoder.dart' show debugDecoder;

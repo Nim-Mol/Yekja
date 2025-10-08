@@ -803,6 +803,18 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                 child: BottonStandardWidget(
                                                   buttontext: 'Create Account',
                                                   onPressed: () async {
+                                                    _model.validationOut = true;
+                                                    if (_model.formKey
+                                                                .currentState ==
+                                                            null ||
+                                                        !_model.formKey
+                                                            .currentState!
+                                                            .validate()) {
+                                                      safeSetState(() =>
+                                                          _model.validationOut =
+                                                              false);
+                                                      return;
+                                                    }
                                                     _model.authonticationError =
                                                         await actions
                                                             .customSignUpWithEmail(

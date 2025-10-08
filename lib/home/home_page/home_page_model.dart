@@ -13,14 +13,10 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
 
   // Stores action output result for [Backend Call - Query Rows] action in HomePage widget.
   List<ViewTopSubcategoriesRow>? listOfCategories;
-  // Stores action output result for [Backend Call - Query Rows] action in HomePage widget.
-  List<ViewUnseenTotalsRow>? newMessages;
   // State field(s) for searchField widget.
   FocusNode? searchFieldFocusNode;
   TextEditingController? searchFieldTextController;
   String? Function(BuildContext, String?)? searchFieldTextControllerValidator;
-  // Stores action output result for [Custom Action - decodeJwtRole] action in Header widget.
-  String? toplevelRole;
   // State field(s) for Carousel widget.
   CarouselSliderController? carouselController;
   int carouselCurrentIndex = 1;

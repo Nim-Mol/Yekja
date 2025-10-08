@@ -49,6 +49,9 @@ class ReviewsRow extends SupabaseDataRow {
   set reviewedUserId(String? value) =>
       setField<String>('reviewed_user_id', value);
 
+  dynamic get noteI18n => getField<dynamic>('note_i18n');
+  set noteI18n(dynamic value) => setField<dynamic>('note_i18n', value);
+
   bool? get submittedPostCustomer => getField<bool>('submitted_post_customer');
   set submittedPostCustomer(bool? value) =>
       setField<bool>('submitted_post_customer', value);

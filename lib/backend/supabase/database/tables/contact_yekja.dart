@@ -34,4 +34,10 @@ class ContactYekjaRow extends SupabaseDataRow {
 
   String get status => getField<String>('status')!;
   set status(String value) => setField<String>('status', value);
+
+  dynamic get subjectI18n => getField<dynamic>('subject_i18n');
+  set subjectI18n(dynamic value) => setField<dynamic>('subject_i18n', value);
+
+  dynamic get messageI18n => getField<dynamic>('message_i18n');
+  set messageI18n(dynamic value) => setField<dynamic>('message_i18n', value);
 }

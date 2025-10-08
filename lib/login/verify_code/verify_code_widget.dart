@@ -395,7 +395,6 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                       EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 20.0, 24.0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      await authManager.refreshUser();
                       var _shouldSetState = false;
                       _model.verificationMessage =
                           await actions.verifyEmailWithToken(
@@ -403,37 +402,24 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                         _model.pinCodeController!.text,
                       );
                       _shouldSetState = true;
-                      if (currentUserEmailVerified) {
-                        await Future.wait([
-                          Future(() async {
-                            _model.errorMessage = await UserExtTable().insert({
-                              'email': widget.userEmail,
-                              'userName': widget.userName,
-                              'id': currentUserUid,
-                              'IsVerified': true,
-                            });
-                            _shouldSetState = true;
-                            FFAppState().updateUserInfoStruct(
-                              (e) =>
-                                  e..avatar = FFAppConstants.DefultProfilePhoto,
-                            );
-                            safeSetState(() {});
-                          }),
-                          Future(() async {
-                            context.pushNamed(HomePageWidget.routeName);
-                          }),
-                          Future(() async {
-                            FFAppState().isOnboarding = true;
-                            safeSetState(() {});
-                          }),
-                          Future(() async {
-                            await ConsentsTable().insert({
-                              'user_id': currentUserUid,
-                            });
-                          }),
-                        ]);
-                        if (_shouldSetState) safeSetState(() {});
-                        return;
+                      if (_model.verificationMessage == true) {
+                        // Very important without it it will fail
+                        await Future.delayed(
+                          Duration(
+                            milliseconds: 7000,
+                          ),
+                        );
+                        _model.errorMessage = await UserExtTable().insert({
+                          'email': widget.userEmail,
+                          'userName': widget.userName,
+                          'id': currentUserUid,
+                          'IsVerified': true,
+                        });
+                        _shouldSetState = true;
+                        FFAppState().updateUserInfoStruct(
+                          (e) => e..avatar = FFAppConstants.DefultProfilePhoto,
+                        );
+                        safeSetState(() {});
                       } else {
                         safeSetState(() {
                           _model.pinCodeController?.clear();
@@ -441,6 +427,8 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                         if (_shouldSetState) safeSetState(() {});
                         return;
                       }
+
+                      context.pushNamed(HomePageWidget.routeName);
 
                       if (_shouldSetState) safeSetState(() {});
                     },

@@ -14,8 +14,8 @@ class RolesRow extends SupabaseDataRow {
   @override
   SupabaseTable get table => RolesTable();
 
-  int get id => getField<int>('id')!;
-  set id(int value) => setField<int>('id', value);
+  String get id => getField<String>('id')!;
+  set id(String value) => setField<String>('id', value);
 
   String get key => getField<String>('key')!;
   set key(String value) => setField<String>('key', value);

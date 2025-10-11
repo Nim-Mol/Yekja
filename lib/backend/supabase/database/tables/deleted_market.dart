@@ -62,17 +62,6 @@ class DeletedMarketRow extends SupabaseDataRow {
   String get marketId => getField<String>('market_id')!;
   set marketId(String value) => setField<String>('market_id', value);
 
-  dynamic get titleI18n => getField<dynamic>('title_i18n');
-  set titleI18n(dynamic value) => setField<dynamic>('title_i18n', value);
-
-  dynamic get descriptionI18n => getField<dynamic>('description_i18n');
-  set descriptionI18n(dynamic value) =>
-      setField<dynamic>('description_i18n', value);
-
-  dynamic get wishlistTextI18n => getField<dynamic>('wishlist_text_i18n');
-  set wishlistTextI18n(dynamic value) =>
-      setField<dynamic>('wishlist_text_i18n', value);
-
   String? get sourceLang => getField<String>('source_lang');
   set sourceLang(String? value) => setField<String>('source_lang', value);
 

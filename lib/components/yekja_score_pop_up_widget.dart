@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'yekja_score_pop_up_model.dart';
 export 'yekja_score_pop_up_model.dart';
@@ -32,16 +31,6 @@ class _YekjaScorePopUpWidgetState extends State<YekjaScorePopUpWidget>
     super.initState();
     _model = createModel(context, () => YekjaScorePopUpModel());
 
-    // On component load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await Future.delayed(
-        Duration(
-          milliseconds: 10000,
-        ),
-      );
-      Navigator.pop(context);
-    });
-
     animationsMap.addAll({
       'containerOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -49,13 +38,13 @@ class _YekjaScorePopUpWidgetState extends State<YekjaScorePopUpWidget>
           ScaleEffect(
             curve: Curves.easeInOutQuint,
             delay: 0.0.ms,
-            duration: 2000.0.ms,
+            duration: 1040.0.ms,
             begin: Offset(-5.0, -5.0),
             end: Offset(1.0, 1.0),
           ),
           ScaleEffect(
             curve: Curves.easeOut,
-            delay: 2000.0.ms,
+            delay: 540.0.ms,
             duration: 1320.0.ms,
             begin: Offset(1.2, 1.2),
             end: Offset(1.0, 1.0),

@@ -1,6 +1,5 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/shared_components/item_card_horizental/item_card_horizental_widget.dart';
-import '/shared_components/item_card_vertical/item_card_vertical_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
 import '/index.dart';
 import 'overview_market_widget.dart' show OverviewMarketWidget;
@@ -15,8 +14,6 @@ class OverviewMarketModel extends FlutterFlowModel<OverviewMarketWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  // Models for ItemCard_Vertical dynamic component.
-  late FlutterFlowDynamicModels<ItemCardVerticalModel> itemCardVerticalModels;
   // Models for ItemCard_Horizental dynamic component.
   late FlutterFlowDynamicModels<ItemCardHorizentalModel>
       itemCardHorizentalModels1;
@@ -28,8 +25,6 @@ class OverviewMarketModel extends FlutterFlowModel<OverviewMarketWidget> {
 
   @override
   void initState(BuildContext context) {
-    itemCardVerticalModels =
-        FlutterFlowDynamicModels(() => ItemCardVerticalModel());
     itemCardHorizentalModels1 =
         FlutterFlowDynamicModels(() => ItemCardHorizentalModel());
     itemCardHorizentalModels2 =
@@ -39,7 +34,6 @@ class OverviewMarketModel extends FlutterFlowModel<OverviewMarketWidget> {
 
   @override
   void dispose() {
-    itemCardVerticalModels.dispose();
     itemCardHorizentalModels1.dispose();
     itemCardHorizentalModels2.dispose();
     navBarModel.dispose();

@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/shared_components/item_card_horizental/item_card_horizental_widget.dart';
 import '/shared_components/item_card_vertical/item_card_vertical_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -1396,61 +1397,46 @@ Offers */
                                                         }.withoutNulls,
                                                       );
                                                     },
-                                                    child: wrapWithModel(
-                                                      model: _model
-                                                          .itemCardVerticalModels
-                                                          .getModel(
-                                                        popularItem.marketId!,
-                                                        popularIndex,
-                                                      ),
-                                                      updateCallback: () =>
-                                                          safeSetState(() {}),
-                                                      child:
-                                                          ItemCardVerticalWidget(
-                                                        key: Key(
-                                                          'Key2eb_${popularItem.marketId!}',
-                                                        ),
-                                                        itemData:
-                                                            ItemCardVerticalStruct(
-                                                          title: valueOrDefault<
-                                                              String>(
-                                                            popularItem.title,
-                                                            'Title',
+                                                    child: Container(
+                                                      width: 160.0,
+                                                      height: 270.0,
+                                                      child: custom_widgets
+                                                          .LtrWrapper(
+                                                        width: 160.0,
+                                                        height: 270.0,
+                                                        builder: () =>
+                                                            ItemCardVerticalWidget(
+                                                          itemData:
+                                                              ItemCardVerticalStruct(
+                                                            title: popularItem
+                                                                .title,
+                                                            itemLikes:
+                                                                popularItem
+                                                                    .postLikes,
+                                                            category:
+                                                                popularItem
+                                                                    .catName,
+                                                            subCategory:
+                                                                popularItem
+                                                                    .subCatName,
+                                                            price: popularItem
+                                                                .price,
+                                                            mainImagePath:
+                                                                popularItem
+                                                                    .images
+                                                                    .firstOrNull,
+                                                            priceTxt:
+                                                                popularItem
+                                                                    .priceText,
+                                                            itemLocation:
+                                                                popularItem
+                                                                    .userCity,
+                                                            timeUnit:
+                                                                popularItem
+                                                                    .timeUnit,
+                                                            catID: popularItem
+                                                                .catId,
                                                           ),
-                                                          itemLikes:
-                                                              valueOrDefault<
-                                                                  int>(
-                                                            popularItem
-                                                                .postLikes,
-                                                            0,
-                                                          ),
-                                                          category:
-                                                              valueOrDefault<
-                                                                  String>(
-                                                            popularItem.catName,
-                                                            'category',
-                                                          ),
-                                                          subCategory:
-                                                              valueOrDefault<
-                                                                  String>(
-                                                            popularItem
-                                                                .subCatName,
-                                                            'Sub category',
-                                                          ),
-                                                          price:
-                                                              popularItem.price,
-                                                          mainImagePath:
-                                                              popularItem.images
-                                                                  .firstOrNull,
-                                                          priceTxt: popularItem
-                                                              .priceText,
-                                                          itemLocation:
-                                                              popularItem
-                                                                  .userCity,
-                                                          timeUnit: popularItem
-                                                              .timeUnit,
-                                                          catID:
-                                                              popularItem.catId,
                                                         ),
                                                       ),
                                                     ),

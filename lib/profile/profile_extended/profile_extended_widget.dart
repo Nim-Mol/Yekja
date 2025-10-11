@@ -145,6 +145,7 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                       controller: _model.tabBarController,
                       children: [
                         SingleChildScrollView(
+                          primary: false,
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -262,7 +263,7 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                                   },
                                 ),
                               ),
-                            ],
+                            ].addToEnd(SizedBox(height: 80.0)),
                           ),
                         ),
                         Padding(
@@ -308,6 +309,7 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                                         0,
                                         0,
                                       ),
+                                      primary: false,
                                       shrinkWrap: true,
                                       scrollDirection: Axis.vertical,
                                       itemCount:
@@ -363,7 +365,7 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                                     );
                                   },
                                 ),
-                              ],
+                              ].addToEnd(SizedBox(height: 80.0)),
                             ),
                           ),
                         ),
@@ -414,6 +416,7 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                                         0,
                                         0,
                                       ),
+                                      primary: false,
                                       shrinkWrap: true,
                                       scrollDirection: Axis.vertical,
                                       itemCount:
@@ -455,13 +458,15 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                                             reviewerId:
                                                 listViewViewUserReviewsRow
                                                     .writerId,
+                                            reviewId: listViewViewUserReviewsRow
+                                                .reviewId,
                                           ),
                                         );
                                       },
                                     );
                                   },
                                 ),
-                              ],
+                              ].addToEnd(SizedBox(height: 80.0)),
                             ),
                           ),
                         ),
@@ -493,7 +498,7 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                                         ),
                                   ),
                                 ),
-                              ],
+                              ].addToEnd(SizedBox(height: 80.0)),
                             ),
                           ),
                         ),

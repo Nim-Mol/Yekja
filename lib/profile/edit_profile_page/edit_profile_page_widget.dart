@@ -8,11 +8,13 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'edit_profile_page_model.dart';
 export 'edit_profile_page_model.dart';
 
@@ -2446,16 +2448,32 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                                                                   'jfkgqpi8' /* By confirming you cannot reviv... */,
                                                                                 ),
                                                                                 onConfirmAction: () async {
-                                                                                  await UserExtTable().delete(
-                                                                                    matchingRows: (rows) => rows.eqOrNull(
-                                                                                      'id',
-                                                                                      currentUserUid,
-                                                                                    ),
-                                                                                  );
-                                                                                  FFAppState().userInfo = UserInfoStruct.fromSerializableMap(jsonDecode('{\"Fav_List\":\"[]\"}'));
-                                                                                  safeSetState(() {});
-
-                                                                                  context.goNamed(SignInPageWidget.routeName);
+                                                                                  // CompeleteSoft Delete
+                                                                                  _model.succes = await actions.userSoftDelete();
+                                                                                  if (_model.succes!) {
+                                                                                    await launchUrl(Uri(
+                                                                                        scheme: 'mailto',
+                                                                                        path: currentUserEmail,
+                                                                                        query: {
+                                                                                          'subject': 'Delete account',
+                                                                                          'body': 'We are sorry that you decided to remove your account. We hope to see you back soon.',
+                                                                                        }.entries.map((MapEntry<String, String> e) => '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}').join('&')));
+                                                                                    FFAppState().userInfo = UserInfoStruct.fromSerializableMap(jsonDecode('{\"Fav_List\":\"[]\"}'));
+                                                                                    safeSetState(() {});
+                                                                                  } else {
+                                                                                    ScaffoldMessenger.of(context).showSnackBar(
+                                                                                      SnackBar(
+                                                                                        content: Text(
+                                                                                          'Sorry! something went wrong. please try  again later.',
+                                                                                          style: TextStyle(
+                                                                                            color: FlutterFlowTheme.of(context).primaryText,
+                                                                                          ),
+                                                                                        ),
+                                                                                        duration: Duration(milliseconds: 4000),
+                                                                                        backgroundColor: Color(0x75EA1713),
+                                                                                      ),
+                                                                                    );
+                                                                                  }
                                                                                 },
                                                                                 onCancelAction: () async {},
                                                                               ),
@@ -2463,6 +2481,9 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                                                           );
                                                                         },
                                                                       );
+
+                                                                      safeSetState(
+                                                                          () {});
                                                                     },
                                                             )
                                                           ],

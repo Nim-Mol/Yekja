@@ -1748,6 +1748,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                   reviewerId:
                                                                       listViewViewUserReviewsRow
                                                                           .writerId,
+                                                                  reviewId:
+                                                                      listViewViewUserReviewsRow
+                                                                          .reviewId,
                                                                 ),
                                                               );
                                                             },

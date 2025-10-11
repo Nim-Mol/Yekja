@@ -220,6 +220,8 @@ dynamic deserializeParam<T>(
       case ParamType.SupabaseRow:
         final data = json.decode(param) as Map<String, dynamic>;
         switch (T) {
+          case TranslationsRow:
+            return TranslationsRow(data);
           case UserExtRow:
             return UserExtRow(data);
           case TriggerLogRow:
@@ -244,16 +246,22 @@ dynamic deserializeParam<T>(
             return MarketRow(data);
           case SubCategoriesRow:
             return SubCategoriesRow(data);
+          case AdminMissingTranslationsCareDescriptionRow:
+            return AdminMissingTranslationsCareDescriptionRow(data);
           case ViewCarePostDetailsRow:
             return ViewCarePostDetailsRow(data);
           case DeletedCareRow:
             return DeletedCareRow(data);
           case ViewUserChatsRow:
             return ViewUserChatsRow(data);
+          case AdminMissingTranslationsMarketDescriptionRow:
+            return AdminMissingTranslationsMarketDescriptionRow(data);
           case ViewRecentHelpRequestsRow:
             return ViewRecentHelpRequestsRow(data);
           case ContactYekjaRow:
             return ContactYekjaRow(data);
+          case AdminMissingTranslationsReviewsNoteRow:
+            return AdminMissingTranslationsReviewsNoteRow(data);
           case ViewRecentExchangeRow:
             return ViewRecentExchangeRow(data);
           case ViewRecentHelpOffersRow:
@@ -290,6 +298,8 @@ dynamic deserializeParam<T>(
             return ViewTopSubcategoriesRow(data);
           case ViewSwipablePostsRow:
             return ViewSwipablePostsRow(data);
+          case RolesRow:
+            return RolesRow(data);
           case ViewUserFavoritesRow:
             return ViewUserFavoritesRow(data);
           case ViewMarketPostDetailsRow:

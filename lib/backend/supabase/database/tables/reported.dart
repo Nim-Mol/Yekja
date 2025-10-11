@@ -34,7 +34,4 @@ class ReportedRow extends SupabaseDataRow {
 
   String? get postId => getField<String>('post_id');
   set postId(String? value) => setField<String>('post_id', value);
-
-  dynamic get reasonI18n => getField<dynamic>('reason_i18n');
-  set reasonI18n(dynamic value) => setField<dynamic>('reason_i18n', value);
 }

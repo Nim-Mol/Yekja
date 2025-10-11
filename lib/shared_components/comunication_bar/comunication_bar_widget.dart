@@ -113,48 +113,121 @@ class _ComunicationBarWidgetState extends State<ComunicationBarWidget>
                               _shouldSetState = true;
                               if (_model.chatExist != null &&
                                   (_model.chatExist)!.isNotEmpty) {
-                                context.pushNamed(
-                                  ChatdetailWidget.routeName,
-                                  queryParameters: {
-                                    'chatId': serializeParam(
-                                      _model.chatExist?.firstOrNull?.chatId,
-                                      ParamType.int,
-                                    ),
-                                    'ownerID': serializeParam(
-                                      _model
-                                          .chatExist?.firstOrNull?.postOwnerId,
-                                      ParamType.String,
-                                    ),
-                                    'postID': serializeParam(
-                                      _model.chatExist?.firstOrNull?.chatPostId,
-                                      ParamType.String,
-                                    ),
-                                    'ownerUserName': serializeParam(
-                                      _model.chatExist?.firstOrNull
-                                          ?.ownerUsername,
-                                      ParamType.String,
-                                    ),
-                                    'ownerAvatar': serializeParam(
-                                      _model
-                                          .chatExist?.firstOrNull?.ownerAvatar,
-                                      ParamType.String,
-                                    ),
-                                    'senderID': serializeParam(
-                                      _model.chatExist?.firstOrNull?.chatSender,
-                                      ParamType.String,
-                                    ),
-                                    'senderUserName': serializeParam(
-                                      _model.chatExist?.firstOrNull
-                                          ?.chatSendername,
-                                      ParamType.String,
-                                    ),
-                                    'senderAvatar': serializeParam(
-                                      _model
-                                          .chatExist?.firstOrNull?.senderAvatar,
-                                      ParamType.String,
-                                    ),
-                                  }.withoutNulls,
-                                );
+                                if ((_model.chatExist?.firstOrNull
+                                            ?.senderDeletedAt !=
+                                        null) ||
+                                    (_model.chatExist?.firstOrNull
+                                            ?.recipientDeletedAt !=
+                                        null)) {
+                                  await ChatsTable().update(
+                                    data: {
+                                      'sender_deleted_at':
+                                          supaSerialize<DateTime>(null),
+                                      'recipient_deleted_at':
+                                          supaSerialize<DateTime>(null),
+                                    },
+                                    matchingRows: (rows) => rows
+                                        .eqOrNull(
+                                          'id',
+                                          _model.chatExist?.firstOrNull?.chatId,
+                                        )
+                                        .eqOrNull(
+                                          'sender',
+                                          currentUserUid,
+                                        ),
+                                  );
+                                  _shouldSetState = true;
+
+                                  context.pushNamed(
+                                    ChatdetailWidget.routeName,
+                                    queryParameters: {
+                                      'chatId': serializeParam(
+                                        _model.chatExist?.firstOrNull?.chatId,
+                                        ParamType.int,
+                                      ),
+                                      'ownerID': serializeParam(
+                                        _model.chatExist?.firstOrNull
+                                            ?.postOwnerId,
+                                        ParamType.String,
+                                      ),
+                                      'postID': serializeParam(
+                                        _model
+                                            .chatExist?.firstOrNull?.chatPostId,
+                                        ParamType.String,
+                                      ),
+                                      'ownerUserName': serializeParam(
+                                        _model.chatExist?.firstOrNull
+                                            ?.ownerUsername,
+                                        ParamType.String,
+                                      ),
+                                      'ownerAvatar': serializeParam(
+                                        _model.chatExist?.firstOrNull
+                                            ?.ownerAvatar,
+                                        ParamType.String,
+                                      ),
+                                      'senderID': serializeParam(
+                                        _model
+                                            .chatExist?.firstOrNull?.chatSender,
+                                        ParamType.String,
+                                      ),
+                                      'senderUserName': serializeParam(
+                                        _model.chatExist?.firstOrNull
+                                            ?.chatSendername,
+                                        ParamType.String,
+                                      ),
+                                      'senderAvatar': serializeParam(
+                                        _model.chatExist?.firstOrNull
+                                            ?.senderAvatar,
+                                        ParamType.String,
+                                      ),
+                                    }.withoutNulls,
+                                  );
+                                } else {
+                                  context.pushNamed(
+                                    ChatdetailWidget.routeName,
+                                    queryParameters: {
+                                      'chatId': serializeParam(
+                                        _model.chatExist?.firstOrNull?.chatId,
+                                        ParamType.int,
+                                      ),
+                                      'ownerID': serializeParam(
+                                        _model.chatExist?.firstOrNull
+                                            ?.postOwnerId,
+                                        ParamType.String,
+                                      ),
+                                      'postID': serializeParam(
+                                        _model
+                                            .chatExist?.firstOrNull?.chatPostId,
+                                        ParamType.String,
+                                      ),
+                                      'ownerUserName': serializeParam(
+                                        _model.chatExist?.firstOrNull
+                                            ?.ownerUsername,
+                                        ParamType.String,
+                                      ),
+                                      'ownerAvatar': serializeParam(
+                                        _model.chatExist?.firstOrNull
+                                            ?.ownerAvatar,
+                                        ParamType.String,
+                                      ),
+                                      'senderID': serializeParam(
+                                        _model
+                                            .chatExist?.firstOrNull?.chatSender,
+                                        ParamType.String,
+                                      ),
+                                      'senderUserName': serializeParam(
+                                        _model.chatExist?.firstOrNull
+                                            ?.chatSendername,
+                                        ParamType.String,
+                                      ),
+                                      'senderAvatar': serializeParam(
+                                        _model.chatExist?.firstOrNull
+                                            ?.senderAvatar,
+                                        ParamType.String,
+                                      ),
+                                    }.withoutNulls,
+                                  );
+                                }
 
                                 if (_shouldSetState) safeSetState(() {});
                                 return;

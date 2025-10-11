@@ -8,3 +8,5 @@ export 'initialize_shared_preferences_for_testing.dart'
 export 'soft_delete_chat.dart' show softDeleteChat;
 export 'decode_jwt_role.dart' show decodeJwtRole;
 export 'debug_decoder.dart' show debugDecoder;
+export 'user_soft_delete.dart' show userSoftDelete;
+export 'call_translate_cache.dart' show callTranslateCache;

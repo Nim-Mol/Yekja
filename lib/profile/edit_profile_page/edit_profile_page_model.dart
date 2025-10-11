@@ -175,6 +175,8 @@ class EditProfilePageModel extends FlutterFlowModel<EditProfilePageWidget> {
 
   // Stores action output result for [Validate Form] action in ChangePassword widget.
   bool? valid;
+  // Stores action output result for [Custom Action - userSoftDelete] action in RichTextSpan widget.
+  bool? succes;
   // State field(s) for AllowProfilePhoto widget.
   bool? allowProfilePhotoValue;
   // State field(s) for AllowSocialMedia widget.

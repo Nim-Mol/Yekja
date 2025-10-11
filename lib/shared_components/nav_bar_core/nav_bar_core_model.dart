@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'our_main_header_copy_widget.dart' show OurMainHeaderCopyWidget;
+import 'nav_bar_core_widget.dart' show NavBarCoreWidget;
 import 'package:flutter/material.dart';
 
-class OurMainHeaderCopyModel extends FlutterFlowModel<OurMainHeaderCopyWidget> {
+class NavBarCoreModel extends FlutterFlowModel<NavBarCoreWidget> {
   @override
   void initState(BuildContext context) {}
 

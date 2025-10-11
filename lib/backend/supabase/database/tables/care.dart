@@ -40,17 +40,4 @@ class CareRow extends SupabaseDataRow {
 
   int get postLikes => getField<int>('post_likes')!;
   set postLikes(int value) => setField<int>('post_likes', value);
-
-  dynamic get titleI18n => getField<dynamic>('title_i18n');
-  set titleI18n(dynamic value) => setField<dynamic>('title_i18n', value);
-
-  dynamic get descriptionI18n => getField<dynamic>('description_i18n');
-  set descriptionI18n(dynamic value) =>
-      setField<dynamic>('description_i18n', value);
-
-  String? get sourceLang => getField<String>('source_lang');
-  set sourceLang(String? value) => setField<String>('source_lang', value);
-
-  String? get sourceHash => getField<String>('source_hash');
-  set sourceHash(String? value) => setField<String>('source_hash', value);
 }

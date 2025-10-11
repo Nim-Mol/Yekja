@@ -8,6 +8,8 @@ class ComunicationBarModel extends FlutterFlowModel<ComunicationBarWidget> {
 
   // Stores action output result for [Backend Call - Query Rows] action in Button widget.
   List<ViewUserChatsRow>? chatExist;
+  // Stores action output result for [Backend Call - Update Row(s)] action in Button widget.
+  List<ChatsRow>? chatSoftDeleted;
   // Stores action output result for [Backend Call - Insert Row] action in Button widget.
   ChatsRow? chat;
   // Stores action output result for [Backend Call - Query Rows] action in Button widget.

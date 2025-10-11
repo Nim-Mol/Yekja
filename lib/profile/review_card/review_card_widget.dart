@@ -2,6 +2,7 @@ import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -427,128 +428,273 @@ class _ReviewCardWidgetState extends State<ReviewCardWidget> {
                       ],
                     ),
                   ),
-                  Align(
-                    alignment: AlignmentDirectional(-1.0, 0.0),
-                    child: Text(
-                      valueOrDefault<String>(
-                        widget.reviewData?.note,
-                        '...',
-                      ),
-                      maxLines: _model.isExtend == false ? 1 : 30,
-                      style: FlutterFlowTheme.of(context).bodySmall.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).bodySmallFamily,
-                            fontSize: 14.0,
-                            letterSpacing: 0.0,
-                            useGoogleFonts:
-                                !FlutterFlowTheme.of(context).bodySmallIsCustom,
-                          ),
-                    ),
-                  ),
-                  if (_model.isExtend == false)
-                    Align(
-                      alignment: AlignmentDirectional(1.0, 1.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Align(
-                            alignment: AlignmentDirectional(1.0, 1.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 4.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  if (_model.isExtend) {
-                                    _model.isExtend = false;
-                                    safeSetState(() {});
-                                  } else {
-                                    _model.isExtend = true;
-                                    safeSetState(() {});
-                                  }
-                                },
-                                child: AnimatedDefaultTextStyle(
-                                  style: FlutterFlowTheme.of(context)
-                                      .labelSmall
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .labelSmallFamily,
-                                        letterSpacing: 0.0,
-                                        useGoogleFonts:
-                                            !FlutterFlowTheme.of(context)
-                                                .labelSmallIsCustom,
-                                      ),
-                                  duration: Duration(milliseconds: 600),
-                                  curve: Curves.easeIn,
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      '3i80oi0s' /* Read more */,
-                                    ),
-                                  ),
-                                ),
-                              ),
+                  Stack(
+                    children: [
+                      if (!_model.isFarsi)
+                        Align(
+                          alignment: AlignmentDirectional(-1.0, 0.0),
+                          child: Text(
+                            valueOrDefault<String>(
+                              widget.reviewData?.note,
+                              '...',
                             ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  if (_model.isExtend == true)
-                    Align(
-                      alignment: AlignmentDirectional(1.0, 1.0),
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Align(
-                              alignment: AlignmentDirectional(1.0, 1.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  if (_model.isExtend) {
-                                    _model.isExtend = false;
-                                    safeSetState(() {});
-                                  } else {
-                                    _model.isExtend = true;
-                                    safeSetState(() {});
-                                  }
-                                },
-                                child: AnimatedDefaultTextStyle(
-                                  style: FlutterFlowTheme.of(context)
-                                      .labelSmall
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .labelSmallFamily,
-                                        letterSpacing: 0.0,
-                                        useGoogleFonts:
-                                            !FlutterFlowTheme.of(context)
-                                                .labelSmallIsCustom,
-                                      ),
-                                  duration: Duration(milliseconds: 600),
-                                  curve: Curves.easeIn,
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'eltqwsfe' /* Read less */,
-                                    ),
-                                  ),
+                            maxLines: _model.isExtend == false ? 1 : 30,
+                            style: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .bodySmallFamily,
+                                  fontSize: 14.0,
+                                  letterSpacing: 0.0,
+                                  useGoogleFonts: !FlutterFlowTheme.of(context)
+                                      .bodySmallIsCustom,
                                 ),
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
-                      ),
-                    ),
+                      if (_model.isFarsi)
+                        Align(
+                          alignment: AlignmentDirectional(-1.0, 0.0),
+                          child: Text(
+                            valueOrDefault<String>(
+                              _model.translationOut,
+                              'farsi note',
+                            ),
+                            maxLines: _model.isExtend == false ? 1 : 30,
+                            style: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .bodySmallFamily,
+                                  fontSize: 14.0,
+                                  letterSpacing: 0.0,
+                                  useGoogleFonts: !FlutterFlowTheme.of(context)
+                                      .bodySmallIsCustom,
+                                ),
+                          ),
+                        ),
+                    ],
+                  ),
+                  Stack(
+                    children: [
+                      if (_model.isExtend == false)
+                        Align(
+                          alignment: AlignmentDirectional(1.0, 1.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Align(
+                                alignment: AlignmentDirectional(1.0, 1.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 4.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      if (_model.isExtend) {
+                                        _model.isExtend = false;
+                                        safeSetState(() {});
+                                      } else {
+                                        _model.isExtend = true;
+                                        safeSetState(() {});
+                                      }
+                                    },
+                                    child: AnimatedDefaultTextStyle(
+                                      style: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelSmallFamily,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts:
+                                                !FlutterFlowTheme.of(context)
+                                                    .labelSmallIsCustom,
+                                          ),
+                                      duration: Duration(milliseconds: 600),
+                                      curve: Curves.easeIn,
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          '3i80oi0s' /* Read more */,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      if (_model.isExtend == true)
+                        Align(
+                          alignment: AlignmentDirectional(1.0, 1.0),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 8.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Align(
+                                  alignment: AlignmentDirectional(1.0, 1.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      if (_model.isExtend) {
+                                        _model.isExtend = false;
+                                        safeSetState(() {});
+                                      } else {
+                                        _model.isExtend = true;
+                                        safeSetState(() {});
+                                      }
+                                    },
+                                    child: AnimatedDefaultTextStyle(
+                                      style: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelSmallFamily,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts:
+                                                !FlutterFlowTheme.of(context)
+                                                    .labelSmallIsCustom,
+                                          ),
+                                      duration: Duration(milliseconds: 600),
+                                      curve: Curves.easeIn,
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          'qlrzst3v' /* Read less */,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                  Stack(
+                    children: [
+                      if (!_model.isFarsi)
+                        Align(
+                          alignment: AlignmentDirectional(1.0, 1.0),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 8.0),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                _model.translationOut =
+                                    await actions.callTranslateCache(
+                                  'reviews',
+                                  'review_id',
+                                  widget.reviewData!.reviewId,
+                                  'note',
+                                  widget.reviewData!.note,
+                                  'fa',
+                                );
+                                _model.isFarsi = true;
+                                safeSetState(() {});
+
+                                safeSetState(() {});
+                              },
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Align(
+                                    alignment: AlignmentDirectional(1.0, 1.0),
+                                    child: AnimatedDefaultTextStyle(
+                                      style: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelSmallFamily,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts:
+                                                !FlutterFlowTheme.of(context)
+                                                    .labelSmallIsCustom,
+                                          ),
+                                      duration: Duration(milliseconds: 600),
+                                      curve: Curves.easeIn,
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          'eltqwsfe' /* See translation */,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      if (_model.isFarsi)
+                        Align(
+                          alignment: AlignmentDirectional(1.0, 1.0),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 8.0),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                _model.isFarsi = false;
+                                safeSetState(() {});
+                              },
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Align(
+                                    alignment: AlignmentDirectional(1.0, 1.0),
+                                    child: AnimatedDefaultTextStyle(
+                                      style: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelSmallFamily,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts:
+                                                !FlutterFlowTheme.of(context)
+                                                    .labelSmallIsCustom,
+                                          ),
+                                      duration: Duration(milliseconds: 600),
+                                      curve: Curves.easeIn,
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          '3hcoov24' /* See original */,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
                 ]
                     .divide(SizedBox(height: 5.0))
                     .addToEnd(SizedBox(height: 10.0)),

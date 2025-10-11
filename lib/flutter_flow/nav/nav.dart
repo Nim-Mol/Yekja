@@ -161,11 +161,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => SignInConfirmWidget(),
         ),
         FFRoute(
-          name: ForgotPasswordPageWidget.routeName,
-          path: ForgotPasswordPageWidget.routePath,
-          builder: (context, params) => ForgotPasswordPageWidget(),
-        ),
-        FFRoute(
           name: PreviewPostWidget.routeName,
           path: PreviewPostWidget.routePath,
           builder: (context, params) => PreviewPostWidget(),
@@ -226,17 +221,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => CreateItemDetailWidget(),
         ),
         FFRoute(
-          name: ProfileExtendedWidget.routeName,
-          path: ProfileExtendedWidget.routePath,
-          requireAuth: true,
-          builder: (context, params) => ProfileExtendedWidget(
-            profileId: params.getParam(
-              'profileId',
-              ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
           name: ReportedUserWidget.routeName,
           path: ReportedUserWidget.routePath,
           builder: (context, params) => ReportedUserWidget(),
@@ -276,6 +260,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
             ),
             navigateBackTo: params.getParam(
               'navigateBackTo',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: ProfilePageWidget.routeName,
+          path: ProfilePageWidget.routePath,
+          requireAuth: true,
+          builder: (context, params) => ProfilePageWidget(
+            profileId: params.getParam(
+              'profileId',
               ParamType.String,
             ),
           ),
@@ -339,19 +334,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           ),
         ),
         FFRoute(
-          name: ChatPageWidget.routeName,
-          path: ChatPageWidget.routePath,
-          builder: (context, params) => ChatPageWidget(
-            profileid: params.getParam(
-              'profileid',
-              ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: EditProfilePageWidget.routeName,
-          path: EditProfilePageWidget.routePath,
-          builder: (context, params) => EditProfilePageWidget(),
+          name: HomePageWidget.routeName,
+          path: HomePageWidget.routePath,
+          builder: (context, params) => HomePageWidget(),
         ),
         FFRoute(
           name: ChatdetailCopyWidget.routeName,
@@ -427,10 +412,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           ),
         ),
         FFRoute(
-          name: ProfilePageWidget.routeName,
-          path: ProfilePageWidget.routePath,
+          name: ForgotPasswordPageWidget.routeName,
+          path: ForgotPasswordPageWidget.routePath,
+          builder: (context, params) => ForgotPasswordPageWidget(),
+        ),
+        FFRoute(
+          name: ProfileExtendedWidget.routeName,
+          path: ProfileExtendedWidget.routePath,
           requireAuth: true,
-          builder: (context, params) => ProfilePageWidget(
+          builder: (context, params) => ProfileExtendedWidget(
             profileId: params.getParam(
               'profileId',
               ParamType.String,
@@ -438,9 +428,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           ),
         ),
         FFRoute(
-          name: HomePageWidget.routeName,
-          path: HomePageWidget.routePath,
-          builder: (context, params) => HomePageWidget(),
+          name: ChatPageWidget.routeName,
+          path: ChatPageWidget.routePath,
+          builder: (context, params) => ChatPageWidget(
+            profileid: params.getParam(
+              'profileid',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: EditProfilePageWidget.routeName,
+          path: EditProfilePageWidget.routePath,
+          builder: (context, params) => EditProfilePageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

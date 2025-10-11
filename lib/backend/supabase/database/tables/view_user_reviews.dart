@@ -15,6 +15,9 @@ class ViewUserReviewsRow extends SupabaseDataRow {
   @override
   SupabaseTable get table => ViewUserReviewsTable();
 
+  String? get reviewId => getField<String>('review_id');
+  set reviewId(String? value) => setField<String>('review_id', value);
+
   String? get postItemId => getField<String>('postItem_id');
   set postItemId(String? value) => setField<String>('postItem_id', value);
 

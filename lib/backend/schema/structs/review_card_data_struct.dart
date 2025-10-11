@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class ReviewCardDataStruct extends BaseStruct {
   ReviewCardDataStruct({
+    String? reviewId,
     String? userName,
     String? userAvatar,
     int? comunicationScore,
@@ -17,7 +18,8 @@ class ReviewCardDataStruct extends BaseStruct {
     double? avarageScore,
     int? fairnessScore,
     String? reviewerId,
-  })  : _userName = userName,
+  })  : _reviewId = reviewId,
+        _userName = userName,
         _userAvatar = userAvatar,
         _comunicationScore = comunicationScore,
         _qualitScore = qualitScore,
@@ -27,6 +29,13 @@ class ReviewCardDataStruct extends BaseStruct {
         _avarageScore = avarageScore,
         _fairnessScore = fairnessScore,
         _reviewerId = reviewerId;
+
+  // "review_id" field.
+  String? _reviewId;
+  String get reviewId => _reviewId ?? '';
+  set reviewId(String? val) => _reviewId = val;
+
+  bool hasReviewId() => _reviewId != null;
 
   // "userName" field.
   String? _userName;
@@ -114,6 +123,7 @@ class ReviewCardDataStruct extends BaseStruct {
 
   static ReviewCardDataStruct fromMap(Map<String, dynamic> data) =>
       ReviewCardDataStruct(
+        reviewId: data['review_id'] as String?,
         userName: data['userName'] as String?,
         userAvatar: data['userAvatar'] as String?,
         comunicationScore: castToType<int>(data['comunicationScore']),
@@ -131,6 +141,7 @@ class ReviewCardDataStruct extends BaseStruct {
       : null;
 
   Map<String, dynamic> toMap() => {
+        'review_id': _reviewId,
         'userName': _userName,
         'userAvatar': _userAvatar,
         'comunicationScore': _comunicationScore,
@@ -145,6 +156,10 @@ class ReviewCardDataStruct extends BaseStruct {
 
   @override
   Map<String, dynamic> toSerializableMap() => {
+        'review_id': serializeParam(
+          _reviewId,
+          ParamType.String,
+        ),
         'userName': serializeParam(
           _userName,
           ParamType.String,
@@ -189,6 +204,11 @@ class ReviewCardDataStruct extends BaseStruct {
 
   static ReviewCardDataStruct fromSerializableMap(Map<String, dynamic> data) =>
       ReviewCardDataStruct(
+        reviewId: deserializeParam(
+          data['review_id'],
+          ParamType.String,
+          false,
+        ),
         userName: deserializeParam(
           data['userName'],
           ParamType.String,
@@ -247,6 +267,7 @@ class ReviewCardDataStruct extends BaseStruct {
   @override
   bool operator ==(Object other) {
     return other is ReviewCardDataStruct &&
+        reviewId == other.reviewId &&
         userName == other.userName &&
         userAvatar == other.userAvatar &&
         comunicationScore == other.comunicationScore &&
@@ -261,6 +282,7 @@ class ReviewCardDataStruct extends BaseStruct {
 
   @override
   int get hashCode => const ListEquality().hash([
+        reviewId,
         userName,
         userAvatar,
         comunicationScore,
@@ -275,6 +297,7 @@ class ReviewCardDataStruct extends BaseStruct {
 }
 
 ReviewCardDataStruct createReviewCardDataStruct({
+  String? reviewId,
   String? userName,
   String? userAvatar,
   int? comunicationScore,
@@ -287,6 +310,7 @@ ReviewCardDataStruct createReviewCardDataStruct({
   String? reviewerId,
 }) =>
     ReviewCardDataStruct(
+      reviewId: reviewId,
       userName: userName,
       userAvatar: userAvatar,
       comunicationScore: comunicationScore,

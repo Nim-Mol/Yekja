@@ -7,6 +7,13 @@ class ReviewCardModel extends FlutterFlowModel<ReviewCardWidget> {
 
   bool isExtend = false;
 
+  bool isFarsi = false;
+
+  ///  State fields for stateful widgets in this component.
+
+  // Stores action output result for [Custom Action - callTranslateCache] action in Row widget.
+  String? translationOut;
+
   @override
   void initState(BuildContext context) {}
 

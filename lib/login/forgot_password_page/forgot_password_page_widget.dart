@@ -233,6 +233,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                       await authManager.resetPassword(
                         email: _model.emailTextController.text,
                         context: context,
+                        redirectTo: "yekja://resetPasswordPage",
                       );
                     },
                     text: FFLocalizations.of(context).getText(

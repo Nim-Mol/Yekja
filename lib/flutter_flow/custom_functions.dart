@@ -155,3 +155,101 @@ bool isNullSingleImage(String? imageVar) {
     return false;
   }
 }
+
+Color hexToColor(
+  String? hex,
+  Color? fallback,
+) {
+  if (hex == null) return fallback ?? const Color(0xFF12B886);
+  var s = hex.trim();
+  if (s.startsWith('#')) s = s.substring(1);
+  // Accept 6 or 8 hex digits. If 6, assume opaque.
+  if (s.length == 6) s = 'FF$s';
+  if (s.length != 8) return fallback ?? const Color(0xFF12B886);
+  final val = int.tryParse(s, radix: 16);
+  if (val == null) return fallback ?? const Color(0xFF12B886);
+  return Color(int.parse(s, radix: 16));
+}
+
+bool isInSetInt(
+  int? value,
+  List<int>? set,
+) {
+  if (value == null || set == null) {
+    return false;
+  }
+  return set.contains(value);
+}
+
+DateTime? parseIsoToLocal(String isoString) {
+  if (isoString.isEmpty) return null;
+
+  // Try ISO-8601 / RFC3339 first (your format: 2025-10-17T15:35:02.381067+00:00)
+  try {
+    final dt = DateTime.parse(isoString);
+    // DateTime.parse respects the offset; convert to device local time if you prefer:
+    return dt.toLocal();
+  } catch (_) {
+    // Fallbacks: try epoch millis or seconds if your API ever changes
+    try {
+      // Try epoch milliseconds in string form
+      final millis = int.parse(isoString);
+      return DateTime.fromMillisecondsSinceEpoch(millis).toLocal();
+    } catch (_) {
+      // Try epoch seconds
+      try {
+        final secs = int.parse(isoString);
+        return DateTime.fromMillisecondsSinceEpoch(secs * 1000).toLocal();
+      } catch (_) {
+        return null;
+      }
+    }
+  }
+}
+
+String intToCsvString(
+  int? x,
+  String allcsv,
+) {
+  if (x == null) {
+    return allcsv;
+  }
+  return x.toString();
+}
+
+String eqIntOrEmpty(int? x) {
+  if (x == null) return '';
+  return 'eq.$x';
+}
+
+String intToCsvsingle(int? value) {
+  return value.toString();
+}
+
+dynamic jsonDecodeDynamic(dynamic raw) {
+  if (raw == null) return {};
+  if (raw is Map<String, dynamic>) return raw;
+  if (raw is String && raw.isNotEmpty) {
+    try {
+      return json.decode(raw);
+    } catch (_) {}
+  }
+  return {};
+}
+
+String stringifyAny(dynamic v) {
+  try {
+    return jsonEncode(v);
+  } catch (_) {
+    return v?.toString() ?? '';
+  }
+}
+
+dynamic decodeDetails(String raw) {
+  if (raw.isEmpty) return {};
+  try {
+    return json.decode(raw);
+  } catch (_) {
+    return {};
+  }
+}

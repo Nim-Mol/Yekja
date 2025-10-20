@@ -13,12 +13,7 @@ import 'nav_bar_core_model.dart';
 export 'nav_bar_core_model.dart';
 
 class NavBarCoreWidget extends StatefulWidget {
-  const NavBarCoreWidget({
-    super.key,
-    this.userAvatar,
-  });
-
-  final String? userAvatar;
+  const NavBarCoreWidget({super.key});
 
   @override
   State<NavBarCoreWidget> createState() => _NavBarCoreWidgetState();
@@ -155,44 +150,10 @@ class _NavBarCoreWidgetState extends State<NavBarCoreWidget> {
                               size: 28.0,
                             ),
                             onPressed: () async {
-                              await authManager.refreshUser();
-                              if (loggedIn) {
-                                if (currentUserEmailVerified == true) {
-                                  if (FFAppState().userInfo.city != '') {
-                                    context.pushNamed(
-                                        CreateItemMainCatWidget.routeName);
-                                  } else {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (dialogContext) {
-                                        return Dialog(
-                                          elevation: 0,
-                                          insetPadding: EdgeInsets.zero,
-                                          backgroundColor: Colors.transparent,
-                                          alignment: AlignmentDirectional(
-                                                  0.0, 0.0)
-                                              .resolve(
-                                                  Directionality.of(context)),
-                                          child: ConfirmCancelPopUpWidget(
-                                            header:
-                                                'Complete profile before posting',
-                                            hintText:
-                                                'Take 2 minutes to add your info and start posting with maximum visibility.',
-                                            cancelText: 'Cancel',
-                                            confirmText: 'Go ',
-                                            onConfirmAction: () async {
-                                              context.pushNamed(
-                                                  EditProfilePageWidget
-                                                      .routeName);
-                                            },
-                                            onCancelAction: () async {
-                                              Navigator.pop(context);
-                                            },
-                                          ),
-                                        );
-                                      },
-                                    );
-                                  }
+                              if (FFAppState().userInfo.role != '') {
+                                if (FFAppState().userInfo.city != '') {
+                                  context
+                                      .pushNamed(PostMainCatWidget.routeName);
                                 } else {
                                   await showDialog(
                                     context: context,
@@ -206,48 +167,41 @@ class _NavBarCoreWidgetState extends State<NavBarCoreWidget> {
                                                 .resolve(
                                                     Directionality.of(context)),
                                         child: ConfirmCancelPopUpWidget(
-                                          header: FFLocalizations.of(context)
-                                              .getText(
-                                            '5alzvd58' /* Confirm  email */,
-                                          ),
-                                          hintText: FFLocalizations.of(context)
-                                              .getText(
-                                            'vg0nbvjv' /* Please confirm your email firs... */,
-                                          ),
-                                          confirmText:
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                            'v7z0usuk' /* Confirm Email */,
-                                          ),
+                                          header:
+                                              'Complete profile before posting',
+                                          hintText:
+                                              'Take 2 minutes to add your info and start posting with maximum visibility.',
+                                          cancelText: 'Cancel',
+                                          confirmText: 'Go ',
                                           onConfirmAction: () async {
                                             context.pushNamed(
-                                                SignInConfirmWidget.routeName);
+                                                ProfileEditWidget.routeName);
                                           },
-                                          onCancelAction: () async {},
+                                          onCancelAction: () async {
+                                            Navigator.pop(context);
+                                          },
                                         ),
                                       );
                                     },
                                   );
-
-                                  return;
                                 }
                               } else {
-                                context.pushNamed(SignInPageWidget.routeName);
-
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     content: Text(
-                                      'please login or  signup before ',
+                                      'Please login or signup if you wat to enable post creation.  ',
                                       style: TextStyle(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
+                                        fontWeight: FontWeight.w600,
                                       ),
+                                      textAlign: TextAlign.center,
                                     ),
-                                    duration: Duration(milliseconds: 4000),
-                                    backgroundColor:
-                                        FlutterFlowTheme.of(context).secondary,
+                                    duration: Duration(milliseconds: 5000),
+                                    backgroundColor: Color(0xFFBA8D08),
                                   ),
                                 );
+                                return;
                               }
                             },
                           ),
@@ -266,7 +220,7 @@ class _NavBarCoreWidgetState extends State<NavBarCoreWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  if (loggedIn) {
+                                  if (FFAppState().userInfo.role != '') {
                                     context.pushNamed(
                                       ChatPageWidget.routeName,
                                       queryParameters: {
@@ -277,15 +231,22 @@ class _NavBarCoreWidgetState extends State<NavBarCoreWidget> {
                                       }.withoutNulls,
                                     );
                                   } else {
-                                    context.goNamed(
-                                      SignInPageWidget.routeName,
-                                      extra: <String, dynamic>{
-                                        kTransitionInfoKey: TransitionInfo(
-                                          hasTransition: true,
-                                          transitionType:
-                                              PageTransitionType.fade,
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'Please sing in or sign up to use this function.',
+                                          style: TextStyle(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                          textAlign: TextAlign.center,
                                         ),
-                                      },
+                                        duration: Duration(milliseconds: 5000),
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .warning,
+                                      ),
                                     );
                                   }
                                 },

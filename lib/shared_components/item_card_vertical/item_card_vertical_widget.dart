@@ -46,7 +46,7 @@ class _ItemCardVerticalWidgetState extends State<ItemCardVerticalWidget> {
     return Align(
       alignment: AlignmentDirectional(-1.0, -1.0),
       child: Container(
-        width: 160.0,
+        width: 170.0,
         height: 270.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
@@ -66,7 +66,10 @@ class _ItemCardVerticalWidgetState extends State<ItemCardVerticalWidget> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.network(
-                        widget.itemData!.mainImagePath,
+                        valueOrDefault<String>(
+                          widget.itemData?.mainImagePath,
+                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg',
+                        ),
                         width: 160.0,
                         height: 160.0,
                         fit: BoxFit.cover,
@@ -122,7 +125,7 @@ class _ItemCardVerticalWidgetState extends State<ItemCardVerticalWidget> {
                       Icon(
                         Icons.favorite_rounded,
                         color: Color(0xFFCD0808),
-                        size: 24.0,
+                        size: 18.0,
                       ),
                       Text(
                         valueOrDefault<String>(
@@ -133,7 +136,7 @@ class _ItemCardVerticalWidgetState extends State<ItemCardVerticalWidget> {
                               fontFamily:
                                   FlutterFlowTheme.of(context).bodyMediumFamily,
                               color: FlutterFlowTheme.of(context).primaryText,
-                              fontSize: 14.0,
+                              fontSize: 12.0,
                               letterSpacing: 0.0,
                               useGoogleFonts: !FlutterFlowTheme.of(context)
                                   .bodyMediumIsCustom,

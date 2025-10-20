@@ -68,7 +68,7 @@ class _ProfileSettingWidgetState extends State<ProfileSettingWidget>
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: AlignmentDirectional(-1.0, 1.0),
+      alignment: AlignmentDirectional(0.0, 1.0),
       child: SafeArea(
         child: Container(
           width: double.infinity,
@@ -118,7 +118,7 @@ class _ProfileSettingWidgetState extends State<ProfileSettingWidget>
                           onTap: () async {
                             Navigator.pop(context);
 
-                            context.pushNamed(EditProfilePageWidget.routeName);
+                            context.pushNamed(ProfileEditWidget.routeName);
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,

@@ -53,9 +53,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
             child: custom_widgets.LtrWrapper(
               width: 5000.0,
               height: 60.0,
-              builder: () => NavBarCoreWidget(
-                userAvatar: widget.userAvatar,
-              ),
+              builder: () => NavBarCoreWidget(),
             ),
           ),
         ),

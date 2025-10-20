@@ -447,7 +447,7 @@ class _YekjaScorePopUpWidgetState extends State<YekjaScorePopUpWidget>
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             context.goNamed(
-                                              EditProfilePageWidget.routeName,
+                                              ProfileEditWidget.routeName,
                                               extra: <String, dynamic>{
                                                 kTransitionInfoKey:
                                                     TransitionInfo(

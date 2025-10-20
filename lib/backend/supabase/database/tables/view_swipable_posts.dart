@@ -33,15 +33,38 @@ class ViewSwipablePostsRow extends SupabaseDataRow {
   int? get mainCatId => getField<int>('main_cat_id');
   set mainCatId(int? value) => setField<int>('main_cat_id', value);
 
-  String? get catName => getField<String>('cat_name');
-  set catName(String? value) => setField<String>('cat_name', value);
+  String? get mainCatName => getField<String>('main_cat_name');
+  set mainCatName(String? value) => setField<String>('main_cat_name', value);
 
   int? get catId => getField<int>('cat_id');
   set catId(int? value) => setField<int>('cat_id', value);
+
+  String? get catName => getField<String>('cat_name');
+  set catName(String? value) => setField<String>('cat_name', value);
+
+  String? get detailTable => getField<String>('detail_table');
+  set detailTable(String? value) => setField<String>('detail_table', value);
+
+  String? get effectiveColorHex => getField<String>('effective_color_hex');
+  set effectiveColorHex(String? value) =>
+      setField<String>('effective_color_hex', value);
+
+  String? get effectiveIconImage => getField<String>('effective_icon_image');
+  set effectiveIconImage(String? value) =>
+      setField<String>('effective_icon_image', value);
+
+  String? get ownerId => getField<String>('owner_id');
+  set ownerId(String? value) => setField<String>('owner_id', value);
+
+  String? get userName => getField<String>('user_name');
+  set userName(String? value) => setField<String>('user_name', value);
 
   String? get profileAvatar => getField<String>('profile_avatar');
   set profileAvatar(String? value) => setField<String>('profile_avatar', value);
 
   String? get userCity => getField<String>('user_city');
   set userCity(String? value) => setField<String>('user_city', value);
+
+  bool? get yekjaVerified => getField<bool>('yekja_verified');
+  set yekjaVerified(bool? value) => setField<bool>('yekja_verified', value);
 }

@@ -1,4 +1,3 @@
-import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/shared_components/botton_standard/botton_standard_widget.dart';
 import '/index.dart';
@@ -26,9 +25,10 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
       );
     }
 
-    if (!RegExp(kTextValidatorUsernameRegex).hasMatch(val)) {
+    if (!RegExp('^[\\u0600-\\u06FF\\s_\\u0660-\\u06690-9a-zA-Z]+\$')
+        .hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        'ae4rvotw' /* User name is invalid! */,
+        'ae4rvotw' /* Please use only letters (Engli... */,
       );
     }
     return null;
@@ -107,10 +107,6 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
   bool? validationOut;
   // Stores action output result for [Custom Action - customSignUpWithEmail] action in BottonStandard widget.
   String? authonticationError;
-  // Stores action output result for [Backend Call - Insert Row] action in BottonStandard widget.
-  MonitoringLogsRow? newRegister;
-  // Stores action output result for [Backend Call - Insert Row] action in Button widget.
-  MonitoringLogsRow? gustUser;
 
   @override
   void initState(BuildContext context) {

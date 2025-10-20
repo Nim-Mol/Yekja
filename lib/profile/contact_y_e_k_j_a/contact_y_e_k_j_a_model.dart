@@ -19,6 +19,7 @@ class ContactYEKJAModel extends FlutterFlowModel<ContactYEKJAWidget> {
 
   ///  State fields for stateful widgets in this page.
 
+  final formKey = GlobalKey<FormState>();
   // Stores action output result for [Backend Call - Insert Row] action in Container widget.
   MonitoringLogsRow? fAQClicked;
   // State field(s) for DropDown widget.
@@ -28,6 +29,20 @@ class ContactYEKJAModel extends FlutterFlowModel<ContactYEKJAWidget> {
   FocusNode? messageFocusNode;
   TextEditingController? messageTextController;
   String? Function(BuildContext, String?)? messageTextControllerValidator;
+  String? _messageTextControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    if (!RegExp('^[\\u0600-\\u06FF\\s_\\u0660-\\u06690-9a-zA-Z]+\$')
+        .hasMatch(val)) {
+      return FFLocalizations.of(context).getText(
+        'n246spdb' /* Please use only letters (Engli... */,
+      );
+    }
+    return null;
+  }
+
   bool isDataUploading_uploadImages = false;
   List<FFUploadedFile> uploadedLocalFiles_uploadImages = [];
 
@@ -42,7 +57,9 @@ class ContactYEKJAModel extends FlutterFlowModel<ContactYEKJAWidget> {
   ContactYekjaRow? submitedContact;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    messageTextControllerValidator = _messageTextControllerValidator;
+  }
 
   @override
   void dispose() {

@@ -222,58 +222,66 @@ dynamic deserializeParam<T>(
         switch (T) {
           case TranslationsRow:
             return TranslationsRow(data);
+          case DetailsTicketSwapRow:
+            return DetailsTicketSwapRow(data);
+          case DetailsEventsRow:
+            return DetailsEventsRow(data);
           case UserExtRow:
             return UserExtRow(data);
+          case ViewSubcategoriesRow:
+            return ViewSubcategoriesRow(data);
           case TriggerLogRow:
             return TriggerLogRow(data);
-          case ViewPopularMarketPostsRow:
-            return ViewPopularMarketPostsRow(data);
           case VPostLookupRow:
             return VPostLookupRow(data);
+          case MainCategoriesRow:
+            return MainCategoriesRow(data);
           case ConsentsRow:
             return ConsentsRow(data);
           case MonitoringLogsRow:
             return MonitoringLogsRow(data);
           case ReportedRow:
             return ReportedRow(data);
-          case UserExtArchiveRow:
-            return UserExtArchiveRow(data);
           case ChatsRow:
             return ChatsRow(data);
+          case DetailsSwapItemsRow:
+            return DetailsSwapItemsRow(data);
           case ViewUserChatsVisibleRow:
             return ViewUserChatsVisibleRow(data);
-          case MarketRow:
-            return MarketRow(data);
+          case DetailsPeerSupportRow:
+            return DetailsPeerSupportRow(data);
           case SubCategoriesRow:
             return SubCategoriesRow(data);
-          case AdminMissingTranslationsCareDescriptionRow:
-            return AdminMissingTranslationsCareDescriptionRow(data);
-          case ViewCarePostDetailsRow:
-            return ViewCarePostDetailsRow(data);
-          case DeletedCareRow:
-            return DeletedCareRow(data);
+          case DetailsCurrencyExchangeRow:
+            return DetailsCurrencyExchangeRow(data);
+          case DetailsRentalsRow:
+            return DetailsRentalsRow(data);
+          case DetailsSalesRow:
+            return DetailsSalesRow(data);
+          case ViewWhoamiRow:
+            return ViewWhoamiRow(data);
+          case ViewPostFilterRow:
+            return ViewPostFilterRow(data);
           case ViewUserChatsRow:
             return ViewUserChatsRow(data);
-          case AdminMissingTranslationsMarketDescriptionRow:
-            return AdminMissingTranslationsMarketDescriptionRow(data);
-          case ViewRecentHelpRequestsRow:
-            return ViewRecentHelpRequestsRow(data);
+          case PostsRow:
+            return PostsRow(data);
           case ContactYekjaRow:
             return ContactYekjaRow(data);
-          case AdminMissingTranslationsReviewsNoteRow:
-            return AdminMissingTranslationsReviewsNoteRow(data);
-          case ViewRecentExchangeRow:
-            return ViewRecentExchangeRow(data);
-          case ViewRecentHelpOffersRow:
-            return ViewRecentHelpOffersRow(data);
-          case DeletedMessagesRow:
-            return DeletedMessagesRow(data);
-          case CareRow:
-            return CareRow(data);
+          case DeletionQueueRow:
+            return DeletionQueueRow(data);
+          case DetailsCareAndAssistanceRow:
+            return DetailsCareAndAssistanceRow(data);
+          case SubcatVocabRow:
+            return SubcatVocabRow(data);
           case ViewPostSearchRow:
             return ViewPostSearchRow(data);
-          case DeletedChatsRow:
-            return DeletedChatsRow(data);
+          case DetailsCareersRow:
+            return DetailsCareersRow(data);
+          case DetailsTransferRow:
+            return DetailsTransferRow(data);
+          case PostCreateMuxTblRow:
+            return PostCreateMuxTblRow(data);
           case CommunityShoutoutRow:
             return CommunityShoutoutRow(data);
           case PostLikeRelationRow:
@@ -282,16 +290,16 @@ dynamic deserializeParam<T>(
             return MarketLikesRow(data);
           case UserRolesRow:
             return UserRolesRow(data);
-          case ViewPopularCarePostsRow:
-            return ViewPopularCarePostsRow(data);
           case ViewUserPostsRow:
             return ViewUserPostsRow(data);
           case CitiesRow:
             return CitiesRow(data);
           case MessagesRow:
             return MessagesRow(data);
-          case DeletedMarketRow:
-            return DeletedMarketRow(data);
+          case DetailsGiveAwayRow:
+            return DetailsGiveAwayRow(data);
+          case DetailsSkillsAndExpertiseRow:
+            return DetailsSkillsAndExpertiseRow(data);
           case ViewUnseenTotalsRow:
             return ViewUnseenTotalsRow(data);
           case ViewTopSubcategoriesRow:
@@ -302,10 +310,6 @@ dynamic deserializeParam<T>(
             return RolesRow(data);
           case ViewUserFavoritesRow:
             return ViewUserFavoritesRow(data);
-          case ViewMarketPostDetailsRow:
-            return ViewMarketPostDetailsRow(data);
-          case ViewRecentFreeRow:
-            return ViewRecentFreeRow(data);
           case UserFavoritesRow:
             return UserFavoritesRow(data);
           case CategoriesRow:

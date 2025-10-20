@@ -21,8 +21,8 @@ class PostLikeRelationRow extends SupabaseDataRow {
   DateTime get createdAt => getField<DateTime>('created_at')!;
   set createdAt(DateTime value) => setField<DateTime>('created_at', value);
 
-  String get likedBy => getField<String>('likedBy')!;
-  set likedBy(String value) => setField<String>('likedBy', value);
+  String get likedBy => getField<String>('liked_by')!;
+  set likedBy(String value) => setField<String>('liked_by', value);
 
   int get shoutoutId => getField<int>('shoutout_id')!;
   set shoutoutId(int value) => setField<int>('shoutout_id', value);

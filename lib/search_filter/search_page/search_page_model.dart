@@ -74,17 +74,17 @@ class SearchPageModel extends FlutterFlowModel<SearchPageWidget> {
   // Model for NavBar component.
   late NavBarModel navBarModel;
   // State field(s) for searchwidget widget.
-  final searchwidgetKey1 = GlobalKey();
-  FocusNode? searchwidgetFocusNode1;
-  TextEditingController? searchwidgetTextController1;
-  String? searchwidgetSelectedOption1;
-  String? Function(BuildContext, String?)? searchwidgetTextController1Validator;
-  // State field(s) for searchwidget widget.
-  final searchwidgetKey2 = GlobalKey();
-  FocusNode? searchwidgetFocusNode2;
-  TextEditingController? searchwidgetTextController2;
-  String? searchwidgetSelectedOption2;
-  String? Function(BuildContext, String?)? searchwidgetTextController2Validator;
+  final searchwidgetKey = GlobalKey();
+  FocusNode? searchwidgetFocusNode;
+  TextEditingController? searchwidgetTextController;
+  String? searchwidgetSelectedOption;
+  String? Function(BuildContext, String?)? searchwidgetTextControllerValidator;
+  // State field(s) for searchwidget_2 widget.
+  final searchwidget2Key = GlobalKey();
+  FocusNode? searchwidget2FocusNode;
+  TextEditingController? searchwidget2TextController;
+  String? searchwidget2SelectedOption;
+  String? Function(BuildContext, String?)? searchwidget2TextControllerValidator;
 
   @override
   void initState(BuildContext context) {
@@ -95,9 +95,9 @@ class SearchPageModel extends FlutterFlowModel<SearchPageWidget> {
   void dispose() {
     listViewSearchPagingController?.dispose();
     navBarModel.dispose();
-    searchwidgetFocusNode1?.dispose();
+    searchwidgetFocusNode?.dispose();
 
-    searchwidgetFocusNode2?.dispose();
+    searchwidget2FocusNode?.dispose();
   }
 
   /// Additional helper methods.

@@ -30,9 +30,9 @@ class CommunityShoutoutRow extends SupabaseDataRow {
   int? get likes => getField<int>('likes');
   set likes(int? value) => setField<int>('likes', value);
 
-  String get userName => getField<String>('UserName')!;
-  set userName(String value) => setField<String>('UserName', value);
+  String get username => getField<String>('username')!;
+  set username(String value) => setField<String>('username', value);
 
-  String get userLastNmae => getField<String>('UserLastNmae')!;
-  set userLastNmae(String value) => setField<String>('UserLastNmae', value);
+  String get userLastName => getField<String>('user_last_name')!;
+  set userLastName(String value) => setField<String>('user_last_name', value);
 }

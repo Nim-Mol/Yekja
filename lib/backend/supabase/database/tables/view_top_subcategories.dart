@@ -27,6 +27,9 @@ class ViewTopSubcategoriesRow extends SupabaseDataRow {
   String? get catName => getField<String>('cat_name');
   set catName(String? value) => setField<String>('cat_name', value);
 
+  String? get detailTable => getField<String>('detail_table');
+  set detailTable(String? value) => setField<String>('detail_table', value);
+
   int? get subCatId => getField<int>('sub_cat_id');
   set subCatId(int? value) => setField<int>('sub_cat_id', value);
 
@@ -36,6 +39,9 @@ class ViewTopSubcategoriesRow extends SupabaseDataRow {
   String? get subCatName => getField<String>('sub_cat_name');
   set subCatName(String? value) => setField<String>('sub_cat_name', value);
 
+  int? get subPostCount => getField<int>('sub_post_count');
+  set subPostCount(int? value) => setField<int>('sub_post_count', value);
+
   int? get totalLikes => getField<int>('total_likes');
   set totalLikes(int? value) => setField<int>('total_likes', value);
 
@@ -44,4 +50,12 @@ class ViewTopSubcategoriesRow extends SupabaseDataRow {
 
   int? get catPostLikes => getField<int>('cat_post_likes');
   set catPostLikes(int? value) => setField<int>('cat_post_likes', value);
+
+  String? get effectiveColorHex => getField<String>('effective_color_hex');
+  set effectiveColorHex(String? value) =>
+      setField<String>('effective_color_hex', value);
+
+  String? get effectiveIconImage => getField<String>('effective_icon_image');
+  set effectiveIconImage(String? value) =>
+      setField<String>('effective_icon_image', value);
 }

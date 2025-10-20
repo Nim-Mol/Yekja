@@ -26,8 +26,8 @@ class ReviewsRow extends SupabaseDataRow {
   String? get postownerId => getField<String>('postowner_id');
   set postownerId(String? value) => setField<String>('postowner_id', value);
 
-  String? get postItemId => getField<String>('postItem_id');
-  set postItemId(String? value) => setField<String>('postItem_id', value);
+  String? get postId => getField<String>('post_id');
+  set postId(String? value) => setField<String>('post_id', value);
 
   String? get note => getField<String>('note');
   set note(String? value) => setField<String>('note', value);

@@ -55,7 +55,7 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
               widget.shoutOutId,
             )
             .eqOrNull(
-              'likedBy',
+              'liked_by',
               currentUserUid,
             ),
       );
@@ -211,39 +211,8 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                                       Text(
                                         valueOrDefault<String>(
                                           containerCommunityShoutoutRow
-                                              ?.userName,
+                                              ?.username,
                                           'Name',
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              font: GoogleFonts.poppins(
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                              fontSize: 12.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                      Text(
-                                        valueOrDefault<String>(
-                                          containerCommunityShoutoutRow
-                                              ?.userLastNmae,
-                                          'LastName',
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -408,7 +377,7 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                                 if (loggedIn) {
                                   if (_model.isLiked!) {
                                     await PostLikeRelationTable().insert({
-                                      'likedBy': currentUserUid,
+                                      'liked_by': currentUserUid,
                                       'shoutout_id': widget.shoutOutId,
                                     });
                                   } else {
@@ -419,7 +388,7 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                                             widget.shoutOutId,
                                           )
                                           .eqOrNull(
-                                            'likedBy',
+                                            'liked_by',
                                             currentUserUid,
                                           ),
                                     );

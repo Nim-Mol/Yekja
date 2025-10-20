@@ -33,8 +33,10 @@ class SignInConfirmModel extends FlutterFlowModel<SignInConfirmWidget> {
         'c1vrjuyc' /* Max 12 characters are required */,
       );
     }
-    if (!RegExp(kTextValidatorUsernameRegex).hasMatch(val)) {
-      return 'Must start with a letter and can only contain letters, digits and - or _.';
+    if (!RegExp('^[\\u0600-\\u06FF\\s_\\u0660-\\u06690-9]+\$').hasMatch(val)) {
+      return FFLocalizations.of(context).getText(
+        'xcdq956e' /* Please use only letters (Engli... */,
+      );
     }
     return null;
   }

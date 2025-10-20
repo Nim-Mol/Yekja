@@ -237,7 +237,7 @@ class _ComunicationBarWidgetState extends State<ComunicationBarWidget>
                                     'sender': currentUserUid,
                                     'recipient': widget.recipient,
                                     'post_id': widget.postId,
-                                    'senderName':
+                                    'sender_name':
                                         FFAppState().userInfo.userName,
                                   });
                                   _shouldSetState = true;

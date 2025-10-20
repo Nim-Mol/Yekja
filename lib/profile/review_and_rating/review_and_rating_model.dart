@@ -9,6 +9,7 @@ class ReviewAndRatingModel extends FlutterFlowModel<ReviewAndRatingWidget> {
 
   ///  State fields for stateful widgets in this component.
 
+  final formKey = GlobalKey<FormState>();
   // State field(s) for Communication-score widget.
   double? communicationScoreValue;
   // State field(s) for Reliability-score widget.
@@ -21,9 +22,24 @@ class ReviewAndRatingModel extends FlutterFlowModel<ReviewAndRatingWidget> {
   FocusNode? noteFocusNode;
   TextEditingController? noteTextController;
   String? Function(BuildContext, String?)? noteTextControllerValidator;
+  String? _noteTextControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    if (!RegExp('^[\\u0600-\\u06FF\\s_\\u0660-\\u06690-9a-zA-Z\\.]+\$')
+        .hasMatch(val)) {
+      return FFLocalizations.of(context).getText(
+        'tfvvwgse' /* Please use only letters (Engli... */,
+      );
+    }
+    return null;
+  }
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    noteTextControllerValidator = _noteTextControllerValidator;
+  }
 
   @override
   void dispose() {

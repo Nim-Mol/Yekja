@@ -29,8 +29,8 @@ class ChatsRow extends SupabaseDataRow {
   String get postId => getField<String>('post_id')!;
   set postId(String value) => setField<String>('post_id', value);
 
-  String get senderName => getField<String>('senderName')!;
-  set senderName(String value) => setField<String>('senderName', value);
+  String get senderName => getField<String>('sender_name')!;
+  set senderName(String value) => setField<String>('sender_name', value);
 
   bool? get recipientOnline => getField<bool>('recipient_online');
   set recipientOnline(bool? value) => setField<bool>('recipient_online', value);

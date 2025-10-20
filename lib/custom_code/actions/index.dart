@@ -8,5 +8,8 @@ export 'initialize_shared_preferences_for_testing.dart'
 export 'soft_delete_chat.dart' show softDeleteChat;
 export 'decode_jwt_role.dart' show decodeJwtRole;
 export 'debug_decoder.dart' show debugDecoder;
-export 'user_soft_delete.dart' show userSoftDelete;
+export 'user_soft_delete_async.dart' show userSoftDeleteAsync;
 export 'call_translate_cache.dart' show callTranslateCache;
+export 'create_guest_session.dart' show createGuestSession;
+export 'clean_up_auth_session_state.dart' show cleanUpAuthSessionState;
+export 'get_jwt.dart' show getJwt;

@@ -66,6 +66,7 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
         alignment: AlignmentDirectional(0.0, 0.0),
         child: Container(
           constraints: BoxConstraints(
+            maxWidth: 480.0,
             maxHeight: 540.0,
           ),
           decoration: BoxDecoration(
@@ -534,89 +535,97 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                   Flexible(
                     child: Align(
                       alignment: AlignmentDirectional(0.0, -1.0),
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                        child: TextFormField(
-                          controller: _model.noteTextController,
-                          focusNode: _model.noteFocusNode,
-                          autofocus: false,
-                          readOnly: _model.submited,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            isDense: true,
-                            labelText: FFLocalizations.of(context).getText(
-                              'ixl4pva7' /* Review note */,
+                      child: Form(
+                        key: _model.formKey,
+                        autovalidateMode: AutovalidateMode.disabled,
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 16.0, 0.0, 0.0),
+                          child: TextFormField(
+                            controller: _model.noteTextController,
+                            focusNode: _model.noteFocusNode,
+                            autofocus: false,
+                            readOnly: _model.submited,
+                            obscureText: false,
+                            decoration: InputDecoration(
+                              isDense: true,
+                              labelText: FFLocalizations.of(context).getText(
+                                'ixl4pva7' /* Review note */,
+                              ),
+                              labelStyle: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .labelMediumFamily,
+                                    letterSpacing: 0.0,
+                                    useGoogleFonts:
+                                        !FlutterFlowTheme.of(context)
+                                            .labelMediumIsCustom,
+                                  ),
+                              hintText:
+                                  'Tell  everyone about your experience. For example, start with what went right and what they can improve.',
+                              hintStyle: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .labelMediumFamily,
+                                    letterSpacing: 0.0,
+                                    useGoogleFonts:
+                                        !FlutterFlowTheme.of(context)
+                                            .labelMediumIsCustom,
+                                  ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).textfiled,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).error,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).error,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              filled: true,
+                              fillColor: Color(0xFF181D03),
                             ),
-                            labelStyle: FlutterFlowTheme.of(context)
-                                .labelMedium
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
-                                      .labelMediumFamily,
+                                      .bodyMediumFamily,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
                                   letterSpacing: 0.0,
                                   useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .labelMediumIsCustom,
+                                      .bodyMediumIsCustom,
                                 ),
-                            hintText:
-                                'Tell  everyone about your experience. For example, start with what went right and what they can improve.',
-                            hintStyle: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .labelMediumFamily,
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .labelMediumIsCustom,
-                                ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).textfiled,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).error,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).error,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            filled: true,
-                            fillColor: Color(0xFF181D03),
+                            textAlign: TextAlign.start,
+                            maxLines: 12,
+                            maxLength: 650,
+                            maxLengthEnforcement: MaxLengthEnforcement.enforced,
+                            cursorColor:
+                                FlutterFlowTheme.of(context).primaryText,
+                            enableInteractiveSelection: true,
+                            validator: _model.noteTextControllerValidator
+                                .asValidator(context),
                           ),
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyMediumFamily,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                letterSpacing: 0.0,
-                                useGoogleFonts: !FlutterFlowTheme.of(context)
-                                    .bodyMediumIsCustom,
-                              ),
-                          textAlign: TextAlign.start,
-                          maxLines: 12,
-                          maxLength: 650,
-                          maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                          cursorColor: FlutterFlowTheme.of(context).primaryText,
-                          enableInteractiveSelection: true,
-                          validator: _model.noteTextControllerValidator
-                              .asValidator(context),
                         ),
                       ),
                     ),
@@ -630,7 +639,7 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                           : () async {
                               if (widget.postOwnerId == currentUserUid) {
                                 await ReviewsTable().insert({
-                                  'postItem_id': widget.postItemId,
+                                  'post_id': widget.postItemId,
                                   'note': _model.noteTextController.text,
                                   'writer_id': currentUserUid,
                                   'comunication_score':
@@ -649,12 +658,12 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                                   'chat_id': widget.chatId,
                                   'message_text':
                                       'Thanks for leaving a review! It’ll show up once the other member submits theirs. Here’s to many more great exchanges on Yekja! 🎉',
-                                  'sentBy': FFAppConstants.YekjaAdminID,
+                                  'sent_by': FFAppConstants.YekjaAdminID,
                                   'recipient': widget.postOwnerId,
                                 });
                               } else {
                                 await ReviewsTable().insert({
-                                  'postItem_id': widget.postItemId,
+                                  'post_id': widget.postItemId,
                                   'note': _model.noteTextController.text,
                                   'writer_id': currentUserUid,
                                   'comunication_score':
@@ -673,7 +682,7 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                                   'chat_id': widget.chatId,
                                   'message_text':
                                       'Thanks for leaving a review! It’ll show up once the other member submits theirs. Here’s to many more great exchanges on Yekja! 🎉',
-                                  'sentBy': FFAppConstants.YekjaAdminID,
+                                  'sent_by': FFAppConstants.YekjaAdminID,
                                   'recipient': widget.postCustomerID,
                                 });
                               }

@@ -24,16 +24,18 @@ class SignInPageModel extends FlutterFlowModel<SignInPageWidget> {
   String? Function(BuildContext, String?)? passWordTextControllerValidator;
   // Model for BottonStandard component.
   late BottonStandardModel bottonStandardModel;
-  // Stores action output result for [Backend Call - Insert Row] action in BottonStandard widget.
-  MonitoringLogsRow? monitoringOut;
   // Stores action output result for [Backend Call - Query Rows] action in BottonStandard widget.
   List<UserExtRow>? user;
   // Stores action output result for [Backend Call - Query Rows] action in BottonStandard widget.
   List<UserFavoritesRow>? userFav;
   // Stores action output result for [Custom Action - decodeJwtRole] action in BottonStandard widget.
   String? userRole;
-  // Stores action output result for [Backend Call - Insert Row] action in RichText widget.
-  MonitoringLogsRow? gustUser;
+  // Stores action output result for [Backend Call - Query Rows] action in BottonStandard widget.
+  List<ViewTopSubcategoriesRow>? topsubcatOutput;
+  // Stores action output result for [Backend Call - Query Rows] action in BottonStandard widget.
+  List<CitiesRow>? citiesOutput;
+  // Stores action output result for [Custom Action - createGuestSession] action in RichText widget.
+  String? result;
 
   @override
   void initState(BuildContext context) {

@@ -26,8 +26,8 @@ class MessagesRow extends SupabaseDataRow {
   String? get messageText => getField<String>('message_text');
   set messageText(String? value) => setField<String>('message_text', value);
 
-  String? get sentBy => getField<String>('sentBy');
-  set sentBy(String? value) => setField<String>('sentBy', value);
+  String? get sentBy => getField<String>('sent_by');
+  set sentBy(String? value) => setField<String>('sent_by', value);
 
   bool get isImg => getField<bool>('is_img')!;
   set isImg(bool value) => setField<bool>('is_img', value);
@@ -45,22 +45,22 @@ class MessagesRow extends SupabaseDataRow {
   set isReview(bool value) => setField<bool>('is_review', value);
 
   bool? get postOwnerReviewSubmited =>
-      getField<bool>('post_owner_Review_submited');
+      getField<bool>('post_owner_review_submited');
   set postOwnerReviewSubmited(bool? value) =>
-      setField<bool>('post_owner_Review_submited', value);
+      setField<bool>('post_owner_review_submited', value);
 
   bool? get customerReviewSubmited =>
-      getField<bool>('customer_Review_submited');
+      getField<bool>('customer_review_submited');
   set customerReviewSubmited(bool? value) =>
-      setField<bool>('customer_Review_submited', value);
+      setField<bool>('customer_review_submited', value);
 
-  bool? get postOwnerReviewSent => getField<bool>('post_owner_Review_sent');
+  bool? get postOwnerReviewSent => getField<bool>('post_owner_review_sent');
   set postOwnerReviewSent(bool? value) =>
-      setField<bool>('post_owner_Review_sent', value);
+      setField<bool>('post_owner_review_sent', value);
 
-  bool? get customerReviewSent => getField<bool>('customer_Review_sent');
+  bool? get customerReviewSent => getField<bool>('customer_review_sent');
   set customerReviewSent(bool? value) =>
-      setField<bool>('customer_Review_sent', value);
+      setField<bool>('customer_review_sent', value);
 
   bool? get recipientOnline => getField<bool>('recipient_online');
   set recipientOnline(bool? value) => setField<bool>('recipient_online', value);

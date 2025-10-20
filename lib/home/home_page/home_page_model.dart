@@ -1,4 +1,3 @@
-import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/shared_components/main_header/main_header_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
@@ -11,12 +10,27 @@ import 'package:flutter/material.dart';
 class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // Stores action output result for [Backend Call - Query Rows] action in HomePage widget.
-  List<ViewTopSubcategoriesRow>? listOfCategories;
+  final formKey = GlobalKey<FormState>();
   // State field(s) for searchField widget.
   FocusNode? searchFieldFocusNode;
   TextEditingController? searchFieldTextController;
   String? Function(BuildContext, String?)? searchFieldTextControllerValidator;
+  String? _searchFieldTextControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return FFLocalizations.of(context).getText(
+        'qv9q21jt' /* Search is required */,
+      );
+    }
+
+    if (!RegExp('^[\\u0600-\\u06FF\\s_\\u0660-\\u06690-9]+\$').hasMatch(val)) {
+      return FFLocalizations.of(context).getText(
+        'vzxdrsnm' /* Please use only letters (Engli... */,
+      );
+    }
+    return null;
+  }
+
   // State field(s) for Carousel widget.
   CarouselSliderController? carouselController;
   int carouselCurrentIndex = 1;
@@ -30,6 +44,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
 
   @override
   void initState(BuildContext context) {
+    searchFieldTextControllerValidator = _searchFieldTextControllerValidator;
     shoutOutCardModels = FlutterFlowDynamicModels(() => ShoutOutCardModel());
     mainHeaderModel = createModel(context, () => MainHeaderModel());
     navBarModel = createModel(context, () => NavBarModel());

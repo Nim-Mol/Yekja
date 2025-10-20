@@ -1,11 +1,11 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
-import '/components/item_card_horizontal2_widget.dart';
 import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/search_filter/filter_comp/filter_comp_widget.dart';
+import '/shared_components/item_card_horizontal_2/item_card_horizontal2_widget.dart';
 import '/shared_components/loading_comp/loading_comp_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
@@ -59,10 +59,10 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
       }
     });
 
-    _model.searchwidgetTextController1 ??=
+    _model.searchwidgetTextController ??=
         TextEditingController(text: FFAppState().filterAppState.searchTerm);
 
-    _model.searchwidgetTextController2 ??=
+    _model.searchwidget2TextController ??=
         TextEditingController(text: FFAppState().filterAppState.searchTerm);
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
@@ -979,10 +979,16 @@ Free */
                                     FFAppState().alICsv),
                                 cityIdsCsv: functions.csvIntOrNull(
                                     FFAppState().filterAppState.cityId.toList(),
-                                    FFAppState().alICsv),
+                                    valueOrDefault<String>(
+                                      FFAppState().alICsv,
+                                      '5000',
+                                    )),
                                 verifiedCsv: functions.csvBoolorNull(
                                     FFAppState().filterAppState.yekjaVerified),
-                                likes: FFAppState().filterAppState.likes,
+                                likes: functions.isNullSingleInt(
+                                        FFAppState().filterAppState.likes)
+                                    ? 0
+                                    : FFAppState().filterAppState.likes,
                                 hasimg: functions.csvBoolorNull(
                                     FFAppState().filterAppState.yekjaVerified),
                               ),
@@ -1014,17 +1020,23 @@ Free */
                                     builder: () => ItemCardHorizontal2Widget(
                                       mainCatID: searchResultsItem.mainCatId,
                                       image: getJsonField(
-                                        searchResultsItem.toMap(),
-                                        r'''$.images[0]''',
-                                      ).toString(),
+                                                searchResultsItem.toMap(),
+                                                r'''$.images[0]''',
+                                              ) !=
+                                              null
+                                          ? getJsonField(
+                                              searchResultsItem.toMap(),
+                                              r'''$.images[0]''',
+                                            ).toString()
+                                          : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg',
                                       catName: searchResultsItem.catName,
                                       subCatName: searchResultsItem.subCatName,
                                       title: searchResultsItem.title,
                                       description:
                                           searchResultsItem.description,
-                                      city: searchResultsItem.userCity,
+                                      city: searchResultsItem.city,
                                       likes: searchResultsItem.postLikes,
-                                      postID: searchResultsItem.sourceId,
+                                      postID: searchResultsItem.postId,
                                     ),
                                   ),
                                 );
@@ -1084,8 +1096,7 @@ Free */
                                             if (widget.navigateBackTo ==
                                                 'overviewMarket') {
                                               context.pushNamed(
-                                                  OverviewMarketWidget
-                                                      .routeName);
+                                                  MarketWidget.routeName);
                                             } else {
                                               if (widget.navigateBackTo ==
                                                   'overviewCare') {
@@ -1160,9 +1171,9 @@ Free */
                                                     onSelected, options) {
                                                   return AutocompleteOptionsList(
                                                     textFieldKey:
-                                                        _model.searchwidgetKey1,
+                                                        _model.searchwidgetKey,
                                                     textController: _model
-                                                        .searchwidgetTextController1!,
+                                                        .searchwidgetTextController!,
                                                     options: options.toList(),
                                                     onSelected: onSelected,
                                                     textStyle:
@@ -1197,7 +1208,7 @@ Free */
                                                 },
                                                 onSelected: (String selection) {
                                                   safeSetState(() => _model
-                                                          .searchwidgetSelectedOption1 =
+                                                          .searchwidgetSelectedOption =
                                                       selection);
                                                   FocusScope.of(context)
                                                       .unfocus();
@@ -1208,14 +1219,13 @@ Free */
                                                   focusNode,
                                                   onEditingComplete,
                                                 ) {
-                                                  _model.searchwidgetFocusNode1 =
+                                                  _model.searchwidgetFocusNode =
                                                       focusNode;
 
-                                                  _model.searchwidgetTextController1 =
+                                                  _model.searchwidgetTextController =
                                                       textEditingController;
                                                   return TextFormField(
-                                                    key:
-                                                        _model.searchwidgetKey1,
+                                                    key: _model.searchwidgetKey,
                                                     controller:
                                                         textEditingController,
                                                     focusNode: focusNode,
@@ -1382,7 +1392,7 @@ Free */
                                                                 context)
                                                             .primaryText,
                                                     validator: _model
-                                                        .searchwidgetTextController1Validator
+                                                        .searchwidgetTextControllerValidator
                                                         .asValidator(context),
                                                   );
                                                 },
@@ -1407,7 +1417,7 @@ Free */
                                                       .updateFilterAppStateStruct(
                                                     (e) => e
                                                       ..searchTerm = _model
-                                                          .searchwidgetTextController1
+                                                          .searchwidgetTextController
                                                           .text,
                                                   );
                                                   safeSetState(() {});
@@ -1448,7 +1458,7 @@ Free */
                                                       '{\"main_cat_id\":\"[]\",\"user_city\":\"[]\",\"cat_id\":\"[]\",\"cat_name\":\"[]\",\"sub_cat_id\":\"[]\",\"sub_cat_name\":\"[]\",\"exchange_wishlist_id\":\"[]\",\"YekjaVerified\":\"[]\",\"city_id\":\"[]\"}'));
                                           safeSetState(() {});
                                           safeSetState(() {
-                                            _model.searchwidgetTextController1
+                                            _model.searchwidgetTextController
                                                     ?.text =
                                                 FFAppState()
                                                     .filterAppState
@@ -1529,7 +1539,7 @@ Free */
                                                       '{\"main_cat_id\":\"[]\",\"user_city\":\"[]\",\"cat_id\":\"[]\",\"cat_name\":\"[]\",\"sub_cat_id\":\"[]\",\"sub_cat_name\":\"[]\",\"exchange_wishlist_id\":\"[]\",\"YekjaVerified\":\"[]\",\"city_id\":\"[]\"}'));
                                           safeSetState(() {});
                                           safeSetState(() {
-                                            _model.searchwidgetTextController2
+                                            _model.searchwidget2TextController
                                                     ?.text =
                                                 FFAppState()
                                                     .filterAppState
@@ -1608,9 +1618,9 @@ Free */
                                                     onSelected, options) {
                                                   return AutocompleteOptionsList(
                                                     textFieldKey:
-                                                        _model.searchwidgetKey2,
+                                                        _model.searchwidget2Key,
                                                     textController: _model
-                                                        .searchwidgetTextController2!,
+                                                        .searchwidget2TextController!,
                                                     options: options.toList(),
                                                     onSelected: onSelected,
                                                     textStyle:
@@ -1645,7 +1655,7 @@ Free */
                                                 },
                                                 onSelected: (String selection) {
                                                   safeSetState(() => _model
-                                                          .searchwidgetSelectedOption2 =
+                                                          .searchwidget2SelectedOption =
                                                       selection);
                                                   FocusScope.of(context)
                                                       .unfocus();
@@ -1656,14 +1666,14 @@ Free */
                                                   focusNode,
                                                   onEditingComplete,
                                                 ) {
-                                                  _model.searchwidgetFocusNode2 =
+                                                  _model.searchwidget2FocusNode =
                                                       focusNode;
 
-                                                  _model.searchwidgetTextController2 =
+                                                  _model.searchwidget2TextController =
                                                       textEditingController;
                                                   return TextFormField(
                                                     key:
-                                                        _model.searchwidgetKey2,
+                                                        _model.searchwidget2Key,
                                                     controller:
                                                         textEditingController,
                                                     focusNode: focusNode,
@@ -1830,7 +1840,7 @@ Free */
                                                                 context)
                                                             .primaryText,
                                                     validator: _model
-                                                        .searchwidgetTextController2Validator
+                                                        .searchwidget2TextControllerValidator
                                                         .asValidator(context),
                                                   );
                                                 },
@@ -1855,7 +1865,7 @@ Free */
                                                       .updateFilterAppStateStruct(
                                                     (e) => e
                                                       ..searchTerm = _model
-                                                          .searchwidgetTextController2
+                                                          .searchwidget2TextController
                                                           .text,
                                                   );
                                                   safeSetState(() {});
@@ -1893,8 +1903,7 @@ Free */
                                             if (widget.navigateBackTo ==
                                                 'overviewMarket') {
                                               context.pushNamed(
-                                                  OverviewMarketWidget
-                                                      .routeName);
+                                                  MarketWidget.routeName);
                                             } else {
                                               if (widget.navigateBackTo ==
                                                   'overviewCare') {

@@ -18,8 +18,8 @@ class ViewUserReviewsRow extends SupabaseDataRow {
   String? get reviewId => getField<String>('review_id');
   set reviewId(String? value) => setField<String>('review_id', value);
 
-  String? get postItemId => getField<String>('postItem_id');
-  set postItemId(String? value) => setField<String>('postItem_id', value);
+  String? get postId => getField<String>('post_id');
+  set postId(String? value) => setField<String>('post_id', value);
 
   int? get comunicationScore => getField<int>('comunication_score');
   set comunicationScore(int? value) =>

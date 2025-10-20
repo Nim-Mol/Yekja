@@ -8,35 +8,47 @@ import '/flutter_flow/flutter_flow_util.dart';
 class FilterModelStruct extends BaseStruct {
   FilterModelStruct({
     int? mainCatId,
-    String? userCity,
-    int? catId,
+    String? postId,
     String? catName,
+    String? city,
+    int? catId,
     int? subCatId,
+    int? cityId,
     String? subCatName,
     bool? hasImages,
-    List<int>? exchangeWishlistId,
     bool? yekjaVerified,
-    String? searchVec,
     String? title,
     String? description,
     int? postLikes,
     List<String>? images,
-    String? sourceId,
+    String? detailTable,
+    String? userId,
+    String? userName,
+    int? uniqueSubcatId,
+    String? mainCatName,
+    bool? reported,
+    String? createdAt,
   })  : _mainCatId = mainCatId,
-        _userCity = userCity,
-        _catId = catId,
+        _postId = postId,
         _catName = catName,
+        _city = city,
+        _catId = catId,
         _subCatId = subCatId,
+        _cityId = cityId,
         _subCatName = subCatName,
         _hasImages = hasImages,
-        _exchangeWishlistId = exchangeWishlistId,
         _yekjaVerified = yekjaVerified,
-        _searchVec = searchVec,
         _title = title,
         _description = description,
         _postLikes = postLikes,
         _images = images,
-        _sourceId = sourceId;
+        _detailTable = detailTable,
+        _userId = userId,
+        _userName = userName,
+        _uniqueSubcatId = uniqueSubcatId,
+        _mainCatName = mainCatName,
+        _reported = reported,
+        _createdAt = createdAt;
 
   // "main_cat_id" field.
   int? _mainCatId;
@@ -47,12 +59,26 @@ class FilterModelStruct extends BaseStruct {
 
   bool hasMainCatId() => _mainCatId != null;
 
-  // "user_city" field.
-  String? _userCity;
-  String get userCity => _userCity ?? '';
-  set userCity(String? val) => _userCity = val;
+  // "post_id" field.
+  String? _postId;
+  String get postId => _postId ?? '';
+  set postId(String? val) => _postId = val;
 
-  bool hasUserCity() => _userCity != null;
+  bool hasPostId() => _postId != null;
+
+  // "cat_name" field.
+  String? _catName;
+  String get catName => _catName ?? '';
+  set catName(String? val) => _catName = val;
+
+  bool hasCatName() => _catName != null;
+
+  // "city" field.
+  String? _city;
+  String get city => _city ?? '';
+  set city(String? val) => _city = val;
+
+  bool hasCity() => _city != null;
 
   // "cat_id" field.
   int? _catId;
@@ -63,13 +89,6 @@ class FilterModelStruct extends BaseStruct {
 
   bool hasCatId() => _catId != null;
 
-  // "cat_name" field.
-  String? _catName;
-  String get catName => _catName ?? '';
-  set catName(String? val) => _catName = val;
-
-  bool hasCatName() => _catName != null;
-
   // "sub_cat_id" field.
   int? _subCatId;
   int get subCatId => _subCatId ?? 0;
@@ -78,6 +97,15 @@ class FilterModelStruct extends BaseStruct {
   void incrementSubCatId(int amount) => subCatId = subCatId + amount;
 
   bool hasSubCatId() => _subCatId != null;
+
+  // "city_id" field.
+  int? _cityId;
+  int get cityId => _cityId ?? 0;
+  set cityId(int? val) => _cityId = val;
+
+  void incrementCityId(int amount) => cityId = cityId + amount;
+
+  bool hasCityId() => _cityId != null;
 
   // "sub_cat_name" field.
   String? _subCatName;
@@ -93,30 +121,12 @@ class FilterModelStruct extends BaseStruct {
 
   bool hasHasImages() => _hasImages != null;
 
-  // "exchange_wishlist_id" field.
-  List<int>? _exchangeWishlistId;
-  List<int> get exchangeWishlistId => _exchangeWishlistId ?? const [];
-  set exchangeWishlistId(List<int>? val) => _exchangeWishlistId = val;
-
-  void updateExchangeWishlistId(Function(List<int>) updateFn) {
-    updateFn(_exchangeWishlistId ??= []);
-  }
-
-  bool hasExchangeWishlistId() => _exchangeWishlistId != null;
-
-  // "YekjaVerified" field.
+  // "yekja_verified" field.
   bool? _yekjaVerified;
   bool get yekjaVerified => _yekjaVerified ?? true;
   set yekjaVerified(bool? val) => _yekjaVerified = val;
 
   bool hasYekjaVerified() => _yekjaVerified != null;
-
-  // "search_vec" field.
-  String? _searchVec;
-  String get searchVec => _searchVec ?? '';
-  set searchVec(String? val) => _searchVec = val;
-
-  bool hasSearchVec() => _searchVec != null;
 
   // "title" field.
   String? _title;
@@ -152,30 +162,81 @@ class FilterModelStruct extends BaseStruct {
 
   bool hasImagesField() => _images != null;
 
-  // "source_id" field.
-  String? _sourceId;
-  String get sourceId => _sourceId ?? '';
-  set sourceId(String? val) => _sourceId = val;
+  // "detail_table" field.
+  String? _detailTable;
+  String get detailTable => _detailTable ?? '';
+  set detailTable(String? val) => _detailTable = val;
 
-  bool hasSourceId() => _sourceId != null;
+  bool hasDetailTable() => _detailTable != null;
+
+  // "user_id" field.
+  String? _userId;
+  String get userId => _userId ?? '';
+  set userId(String? val) => _userId = val;
+
+  bool hasUserId() => _userId != null;
+
+  // "user_name" field.
+  String? _userName;
+  String get userName => _userName ?? '';
+  set userName(String? val) => _userName = val;
+
+  bool hasUserName() => _userName != null;
+
+  // "unique_subcat_id" field.
+  int? _uniqueSubcatId;
+  int get uniqueSubcatId => _uniqueSubcatId ?? 0;
+  set uniqueSubcatId(int? val) => _uniqueSubcatId = val;
+
+  void incrementUniqueSubcatId(int amount) =>
+      uniqueSubcatId = uniqueSubcatId + amount;
+
+  bool hasUniqueSubcatId() => _uniqueSubcatId != null;
+
+  // "main_cat_name" field.
+  String? _mainCatName;
+  String get mainCatName => _mainCatName ?? '';
+  set mainCatName(String? val) => _mainCatName = val;
+
+  bool hasMainCatName() => _mainCatName != null;
+
+  // "reported" field.
+  bool? _reported;
+  bool get reported => _reported ?? false;
+  set reported(bool? val) => _reported = val;
+
+  bool hasReported() => _reported != null;
+
+  // "created_at" field.
+  String? _createdAt;
+  String get createdAt => _createdAt ?? '';
+  set createdAt(String? val) => _createdAt = val;
+
+  bool hasCreatedAt() => _createdAt != null;
 
   static FilterModelStruct fromMap(Map<String, dynamic> data) =>
       FilterModelStruct(
         mainCatId: castToType<int>(data['main_cat_id']),
-        userCity: data['user_city'] as String?,
-        catId: castToType<int>(data['cat_id']),
+        postId: data['post_id'] as String?,
         catName: data['cat_name'] as String?,
+        city: data['city'] as String?,
+        catId: castToType<int>(data['cat_id']),
         subCatId: castToType<int>(data['sub_cat_id']),
+        cityId: castToType<int>(data['city_id']),
         subCatName: data['sub_cat_name'] as String?,
         hasImages: data['has_images'] as bool?,
-        exchangeWishlistId: getDataList(data['exchange_wishlist_id']),
-        yekjaVerified: data['YekjaVerified'] as bool?,
-        searchVec: data['search_vec'] as String?,
+        yekjaVerified: data['yekja_verified'] as bool?,
         title: data['title'] as String?,
         description: data['description'] as String?,
         postLikes: castToType<int>(data['post_likes']),
         images: getDataList(data['images']),
-        sourceId: data['source_id'] as String?,
+        detailTable: data['detail_table'] as String?,
+        userId: data['user_id'] as String?,
+        userName: data['user_name'] as String?,
+        uniqueSubcatId: castToType<int>(data['unique_subcat_id']),
+        mainCatName: data['main_cat_name'] as String?,
+        reported: data['reported'] as bool?,
+        createdAt: data['created_at'] as String?,
       );
 
   static FilterModelStruct? maybeFromMap(dynamic data) => data is Map
@@ -184,20 +245,26 @@ class FilterModelStruct extends BaseStruct {
 
   Map<String, dynamic> toMap() => {
         'main_cat_id': _mainCatId,
-        'user_city': _userCity,
-        'cat_id': _catId,
+        'post_id': _postId,
         'cat_name': _catName,
+        'city': _city,
+        'cat_id': _catId,
         'sub_cat_id': _subCatId,
+        'city_id': _cityId,
         'sub_cat_name': _subCatName,
         'has_images': _hasImages,
-        'exchange_wishlist_id': _exchangeWishlistId,
-        'YekjaVerified': _yekjaVerified,
-        'search_vec': _searchVec,
+        'yekja_verified': _yekjaVerified,
         'title': _title,
         'description': _description,
         'post_likes': _postLikes,
         'images': _images,
-        'source_id': _sourceId,
+        'detail_table': _detailTable,
+        'user_id': _userId,
+        'user_name': _userName,
+        'unique_subcat_id': _uniqueSubcatId,
+        'main_cat_name': _mainCatName,
+        'reported': _reported,
+        'created_at': _createdAt,
       }.withoutNulls;
 
   @override
@@ -206,20 +273,28 @@ class FilterModelStruct extends BaseStruct {
           _mainCatId,
           ParamType.int,
         ),
-        'user_city': serializeParam(
-          _userCity,
+        'post_id': serializeParam(
+          _postId,
+          ParamType.String,
+        ),
+        'cat_name': serializeParam(
+          _catName,
+          ParamType.String,
+        ),
+        'city': serializeParam(
+          _city,
           ParamType.String,
         ),
         'cat_id': serializeParam(
           _catId,
           ParamType.int,
         ),
-        'cat_name': serializeParam(
-          _catName,
-          ParamType.String,
-        ),
         'sub_cat_id': serializeParam(
           _subCatId,
+          ParamType.int,
+        ),
+        'city_id': serializeParam(
+          _cityId,
           ParamType.int,
         ),
         'sub_cat_name': serializeParam(
@@ -230,18 +305,9 @@ class FilterModelStruct extends BaseStruct {
           _hasImages,
           ParamType.bool,
         ),
-        'exchange_wishlist_id': serializeParam(
-          _exchangeWishlistId,
-          ParamType.int,
-          isList: true,
-        ),
-        'YekjaVerified': serializeParam(
+        'yekja_verified': serializeParam(
           _yekjaVerified,
           ParamType.bool,
-        ),
-        'search_vec': serializeParam(
-          _searchVec,
-          ParamType.String,
         ),
         'title': serializeParam(
           _title,
@@ -260,8 +326,32 @@ class FilterModelStruct extends BaseStruct {
           ParamType.String,
           isList: true,
         ),
-        'source_id': serializeParam(
-          _sourceId,
+        'detail_table': serializeParam(
+          _detailTable,
+          ParamType.String,
+        ),
+        'user_id': serializeParam(
+          _userId,
+          ParamType.String,
+        ),
+        'user_name': serializeParam(
+          _userName,
+          ParamType.String,
+        ),
+        'unique_subcat_id': serializeParam(
+          _uniqueSubcatId,
+          ParamType.int,
+        ),
+        'main_cat_name': serializeParam(
+          _mainCatName,
+          ParamType.String,
+        ),
+        'reported': serializeParam(
+          _reported,
+          ParamType.bool,
+        ),
+        'created_at': serializeParam(
+          _createdAt,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -273,8 +363,18 @@ class FilterModelStruct extends BaseStruct {
           ParamType.int,
           false,
         ),
-        userCity: deserializeParam(
-          data['user_city'],
+        postId: deserializeParam(
+          data['post_id'],
+          ParamType.String,
+          false,
+        ),
+        catName: deserializeParam(
+          data['cat_name'],
+          ParamType.String,
+          false,
+        ),
+        city: deserializeParam(
+          data['city'],
           ParamType.String,
           false,
         ),
@@ -283,13 +383,13 @@ class FilterModelStruct extends BaseStruct {
           ParamType.int,
           false,
         ),
-        catName: deserializeParam(
-          data['cat_name'],
-          ParamType.String,
-          false,
-        ),
         subCatId: deserializeParam(
           data['sub_cat_id'],
+          ParamType.int,
+          false,
+        ),
+        cityId: deserializeParam(
+          data['city_id'],
           ParamType.int,
           false,
         ),
@@ -303,19 +403,9 @@ class FilterModelStruct extends BaseStruct {
           ParamType.bool,
           false,
         ),
-        exchangeWishlistId: deserializeParam<int>(
-          data['exchange_wishlist_id'],
-          ParamType.int,
-          true,
-        ),
         yekjaVerified: deserializeParam(
-          data['YekjaVerified'],
+          data['yekja_verified'],
           ParamType.bool,
-          false,
-        ),
-        searchVec: deserializeParam(
-          data['search_vec'],
-          ParamType.String,
           false,
         ),
         title: deserializeParam(
@@ -338,8 +428,38 @@ class FilterModelStruct extends BaseStruct {
           ParamType.String,
           true,
         ),
-        sourceId: deserializeParam(
-          data['source_id'],
+        detailTable: deserializeParam(
+          data['detail_table'],
+          ParamType.String,
+          false,
+        ),
+        userId: deserializeParam(
+          data['user_id'],
+          ParamType.String,
+          false,
+        ),
+        userName: deserializeParam(
+          data['user_name'],
+          ParamType.String,
+          false,
+        ),
+        uniqueSubcatId: deserializeParam(
+          data['unique_subcat_id'],
+          ParamType.int,
+          false,
+        ),
+        mainCatName: deserializeParam(
+          data['main_cat_name'],
+          ParamType.String,
+          false,
+        ),
+        reported: deserializeParam(
+          data['reported'],
+          ParamType.bool,
+          false,
+        ),
+        createdAt: deserializeParam(
+          data['created_at'],
           ParamType.String,
           false,
         ),
@@ -353,69 +473,95 @@ class FilterModelStruct extends BaseStruct {
     const listEquality = ListEquality();
     return other is FilterModelStruct &&
         mainCatId == other.mainCatId &&
-        userCity == other.userCity &&
-        catId == other.catId &&
+        postId == other.postId &&
         catName == other.catName &&
+        city == other.city &&
+        catId == other.catId &&
         subCatId == other.subCatId &&
+        cityId == other.cityId &&
         subCatName == other.subCatName &&
         hasImages == other.hasImages &&
-        listEquality.equals(exchangeWishlistId, other.exchangeWishlistId) &&
         yekjaVerified == other.yekjaVerified &&
-        searchVec == other.searchVec &&
         title == other.title &&
         description == other.description &&
         postLikes == other.postLikes &&
         listEquality.equals(images, other.images) &&
-        sourceId == other.sourceId;
+        detailTable == other.detailTable &&
+        userId == other.userId &&
+        userName == other.userName &&
+        uniqueSubcatId == other.uniqueSubcatId &&
+        mainCatName == other.mainCatName &&
+        reported == other.reported &&
+        createdAt == other.createdAt;
   }
 
   @override
   int get hashCode => const ListEquality().hash([
         mainCatId,
-        userCity,
-        catId,
+        postId,
         catName,
+        city,
+        catId,
         subCatId,
+        cityId,
         subCatName,
         hasImages,
-        exchangeWishlistId,
         yekjaVerified,
-        searchVec,
         title,
         description,
         postLikes,
         images,
-        sourceId
+        detailTable,
+        userId,
+        userName,
+        uniqueSubcatId,
+        mainCatName,
+        reported,
+        createdAt
       ]);
 }
 
 FilterModelStruct createFilterModelStruct({
   int? mainCatId,
-  String? userCity,
-  int? catId,
+  String? postId,
   String? catName,
+  String? city,
+  int? catId,
   int? subCatId,
+  int? cityId,
   String? subCatName,
   bool? hasImages,
   bool? yekjaVerified,
-  String? searchVec,
   String? title,
   String? description,
   int? postLikes,
-  String? sourceId,
+  String? detailTable,
+  String? userId,
+  String? userName,
+  int? uniqueSubcatId,
+  String? mainCatName,
+  bool? reported,
+  String? createdAt,
 }) =>
     FilterModelStruct(
       mainCatId: mainCatId,
-      userCity: userCity,
-      catId: catId,
+      postId: postId,
       catName: catName,
+      city: city,
+      catId: catId,
       subCatId: subCatId,
+      cityId: cityId,
       subCatName: subCatName,
       hasImages: hasImages,
       yekjaVerified: yekjaVerified,
-      searchVec: searchVec,
       title: title,
       description: description,
       postLikes: postLikes,
-      sourceId: sourceId,
+      detailTable: detailTable,
+      userId: userId,
+      userName: userName,
+      uniqueSubcatId: uniqueSubcatId,
+      mainCatName: mainCatName,
+      reported: reported,
+      createdAt: createdAt,
     );

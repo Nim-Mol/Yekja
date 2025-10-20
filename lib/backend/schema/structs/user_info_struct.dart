@@ -15,7 +15,6 @@ class UserInfoStruct extends BaseStruct {
     String? city,
     List<String>? userFavs,
     List<String>? reportedList,
-    List<String>? reviewedList,
     int? unseenChats,
     int? unseenMessages,
     String? role,
@@ -27,7 +26,6 @@ class UserInfoStruct extends BaseStruct {
         _city = city,
         _userFavs = userFavs,
         _reportedList = reportedList,
-        _reviewedList = reviewedList,
         _unseenChats = unseenChats,
         _unseenMessages = unseenMessages,
         _role = role;
@@ -96,17 +94,6 @@ class UserInfoStruct extends BaseStruct {
 
   bool hasReportedList() => _reportedList != null;
 
-  // "reviewedList" field.
-  List<String>? _reviewedList;
-  List<String> get reviewedList => _reviewedList ?? const [];
-  set reviewedList(List<String>? val) => _reviewedList = val;
-
-  void updateReviewedList(Function(List<String>) updateFn) {
-    updateFn(_reviewedList ??= []);
-  }
-
-  bool hasReviewedList() => _reviewedList != null;
-
   // "unseen_chats" field.
   int? _unseenChats;
   int get unseenChats => _unseenChats ?? 0;
@@ -142,7 +129,6 @@ class UserInfoStruct extends BaseStruct {
         city: data['city'] as String?,
         userFavs: getDataList(data['userFavs']),
         reportedList: getDataList(data['reportedList']),
-        reviewedList: getDataList(data['reviewedList']),
         unseenChats: castToType<int>(data['unseen_chats']),
         unseenMessages: castToType<int>(data['unseen_messages']),
         role: data['Role'] as String?,
@@ -160,7 +146,6 @@ class UserInfoStruct extends BaseStruct {
         'city': _city,
         'userFavs': _userFavs,
         'reportedList': _reportedList,
-        'reviewedList': _reviewedList,
         'unseen_chats': _unseenChats,
         'unseen_messages': _unseenMessages,
         'Role': _role,
@@ -199,11 +184,6 @@ class UserInfoStruct extends BaseStruct {
         ),
         'reportedList': serializeParam(
           _reportedList,
-          ParamType.String,
-          isList: true,
-        ),
-        'reviewedList': serializeParam(
-          _reviewedList,
           ParamType.String,
           isList: true,
         ),
@@ -263,11 +243,6 @@ class UserInfoStruct extends BaseStruct {
           ParamType.String,
           true,
         ),
-        reviewedList: deserializeParam<String>(
-          data['reviewedList'],
-          ParamType.String,
-          true,
-        ),
         unseenChats: deserializeParam(
           data['unseen_chats'],
           ParamType.int,
@@ -300,7 +275,6 @@ class UserInfoStruct extends BaseStruct {
         city == other.city &&
         listEquality.equals(userFavs, other.userFavs) &&
         listEquality.equals(reportedList, other.reportedList) &&
-        listEquality.equals(reviewedList, other.reviewedList) &&
         unseenChats == other.unseenChats &&
         unseenMessages == other.unseenMessages &&
         role == other.role;
@@ -316,7 +290,6 @@ class UserInfoStruct extends BaseStruct {
         city,
         userFavs,
         reportedList,
-        reviewedList,
         unseenChats,
         unseenMessages,
         role

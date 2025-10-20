@@ -20,17 +20,17 @@ class UserExtRow extends SupabaseDataRow {
   DateTime get createdAt => getField<DateTime>('created_at')!;
   set createdAt(DateTime value) => setField<DateTime>('created_at', value);
 
-  String? get firstName => getField<String>('firstName');
-  set firstName(String? value) => setField<String>('firstName', value);
+  String? get firstName => getField<String>('first_name');
+  set firstName(String? value) => setField<String>('first_name', value);
 
   String get email => getField<String>('email')!;
   set email(String value) => setField<String>('email', value);
 
-  bool get isVerified => getField<bool>('IsVerified')!;
-  set isVerified(bool value) => setField<bool>('IsVerified', value);
+  bool get isVerified => getField<bool>('is_verified')!;
+  set isVerified(bool value) => setField<bool>('is_verified', value);
 
-  String? get lastName => getField<String>('lastName');
-  set lastName(String? value) => setField<String>('lastName', value);
+  String? get lastName => getField<String>('last_name');
+  set lastName(String? value) => setField<String>('last_name', value);
 
   String? get biography => getField<String>('biography');
   set biography(String? value) => setField<String>('biography', value);
@@ -48,8 +48,8 @@ class UserExtRow extends SupabaseDataRow {
   String? get userCity => getField<String>('user_city');
   set userCity(String? value) => setField<String>('user_city', value);
 
-  String get userName => getField<String>('userName')!;
-  set userName(String value) => setField<String>('userName', value);
+  String get userName => getField<String>('user_name')!;
+  set userName(String value) => setField<String>('user_name', value);
 
   int? get totalLikes => getField<int>('total_likes');
   set totalLikes(int? value) => setField<int>('total_likes', value);
@@ -57,12 +57,8 @@ class UserExtRow extends SupabaseDataRow {
   double get review => getField<double>('review')!;
   set review(double value) => setField<double>('review', value);
 
-  bool get yekjaVerified => getField<bool>('YekjaVerified')!;
-  set yekjaVerified(bool value) => setField<bool>('YekjaVerified', value);
-
-  List<String> get userReviewedIds => getListField<String>('user_reviewed_ids');
-  set userReviewedIds(List<String>? value) =>
-      setListField<String>('user_reviewed_ids', value);
+  bool get yekjaVerified => getField<bool>('yekja_verified')!;
+  set yekjaVerified(bool value) => setField<bool>('yekja_verified', value);
 
   bool? get reported => getField<bool>('reported');
   set reported(bool? value) => setField<bool>('reported', value);

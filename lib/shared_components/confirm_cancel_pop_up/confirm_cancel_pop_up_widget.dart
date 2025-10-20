@@ -178,6 +178,7 @@ class _ConfirmCancelPopUpWidgetState extends State<ConfirmCancelPopUpWidget> {
                       child: FFButtonWidget(
                         onPressed: () async {
                           await widget.onConfirmAction?.call();
+                          Navigator.pop(context);
                         },
                         text: widget.confirmText,
                         options: FFButtonOptions(

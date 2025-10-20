@@ -8,7 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 class FilterModel2Struct extends BaseStruct {
   FilterModel2Struct({
     List<int>? mainCatId,
-    List<String>? userCity,
+    List<String>? city,
     List<int>? catId,
     List<String>? catName,
     List<int>? subCatId,
@@ -23,7 +23,7 @@ class FilterModel2Struct extends BaseStruct {
     String? sortBy,
     String? sortByText,
   })  : _mainCatId = mainCatId,
-        _userCity = userCity,
+        _city = city,
         _catId = catId,
         _catName = catName,
         _subCatId = subCatId,
@@ -49,16 +49,16 @@ class FilterModel2Struct extends BaseStruct {
 
   bool hasMainCatId() => _mainCatId != null;
 
-  // "user_city" field.
-  List<String>? _userCity;
-  List<String> get userCity => _userCity ?? const [];
-  set userCity(List<String>? val) => _userCity = val;
+  // "city" field.
+  List<String>? _city;
+  List<String> get city => _city ?? const [];
+  set city(List<String>? val) => _city = val;
 
-  void updateUserCity(Function(List<String>) updateFn) {
-    updateFn(_userCity ??= []);
+  void updateCity(Function(List<String>) updateFn) {
+    updateFn(_city ??= []);
   }
 
-  bool hasUserCity() => _userCity != null;
+  bool hasCity() => _city != null;
 
   // "cat_id" field.
   List<int>? _catId;
@@ -180,7 +180,7 @@ class FilterModel2Struct extends BaseStruct {
   static FilterModel2Struct fromMap(Map<String, dynamic> data) =>
       FilterModel2Struct(
         mainCatId: getDataList(data['main_cat_id']),
-        userCity: getDataList(data['user_city']),
+        city: getDataList(data['city']),
         catId: getDataList(data['cat_id']),
         catName: getDataList(data['cat_name']),
         subCatId: getDataList(data['sub_cat_id']),
@@ -202,7 +202,7 @@ class FilterModel2Struct extends BaseStruct {
 
   Map<String, dynamic> toMap() => {
         'main_cat_id': _mainCatId,
-        'user_city': _userCity,
+        'city': _city,
         'cat_id': _catId,
         'cat_name': _catName,
         'sub_cat_id': _subCatId,
@@ -225,8 +225,8 @@ class FilterModel2Struct extends BaseStruct {
           ParamType.int,
           isList: true,
         ),
-        'user_city': serializeParam(
-          _userCity,
+        'city': serializeParam(
+          _city,
           ParamType.String,
           isList: true,
         ),
@@ -297,8 +297,8 @@ class FilterModel2Struct extends BaseStruct {
           ParamType.int,
           true,
         ),
-        userCity: deserializeParam<String>(
-          data['user_city'],
+        city: deserializeParam<String>(
+          data['city'],
           ParamType.String,
           true,
         ),
@@ -377,7 +377,7 @@ class FilterModel2Struct extends BaseStruct {
     const listEquality = ListEquality();
     return other is FilterModel2Struct &&
         listEquality.equals(mainCatId, other.mainCatId) &&
-        listEquality.equals(userCity, other.userCity) &&
+        listEquality.equals(city, other.city) &&
         listEquality.equals(catId, other.catId) &&
         listEquality.equals(catName, other.catName) &&
         listEquality.equals(subCatId, other.subCatId) &&
@@ -396,7 +396,7 @@ class FilterModel2Struct extends BaseStruct {
   @override
   int get hashCode => const ListEquality().hash([
         mainCatId,
-        userCity,
+        city,
         catId,
         catName,
         subCatId,

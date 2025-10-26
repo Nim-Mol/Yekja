@@ -243,11 +243,11 @@ Offers & Reque... */
                                                               ),
                                                               child:
                                                                   Image.network(
-                                                                swipeableStackViewSwipablePostsRow
-                                                                            .images
-                                                                            .length ==
-                                                                        0
-                                                                    ? 'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/default_image.jpg'
+                                                                swipeableStackViewSwipablePostsRow.images.firstOrNull ==
+                                                                            null ||
+                                                                        swipeableStackViewSwipablePostsRow.images.firstOrNull ==
+                                                                            ''
+                                                                    ? 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg'
                                                                     : swipeableStackViewSwipablePostsRow
                                                                         .images
                                                                         .firstOrNull!,

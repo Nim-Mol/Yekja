@@ -29,6 +29,7 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
     bool? reported,
     String? createdAt,
     String? detailsText,
+    String? profileAvatar,
   })  : _mainCatId = mainCatId,
         _postId = postId,
         _catName = catName,
@@ -50,7 +51,8 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
         _mainCatName = mainCatName,
         _reported = reported,
         _createdAt = createdAt,
-        _detailsText = detailsText;
+        _detailsText = detailsText,
+        _profileAvatar = profileAvatar;
 
   // "main_cat_id" field.
   int? _mainCatId;
@@ -223,6 +225,13 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
 
   bool hasDetailsText() => _detailsText != null;
 
+  // "profile_avatar" field.
+  String? _profileAvatar;
+  String get profileAvatar => _profileAvatar ?? '';
+  set profileAvatar(String? val) => _profileAvatar = val;
+
+  bool hasProfileAvatar() => _profileAvatar != null;
+
   static FilterModelwithDetailsTableStruct fromMap(Map<String, dynamic> data) =>
       FilterModelwithDetailsTableStruct(
         mainCatId: castToType<int>(data['main_cat_id']),
@@ -247,6 +256,7 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
         reported: data['reported'] as bool?,
         createdAt: data['created_at'] as String?,
         detailsText: data['details_text'] as String?,
+        profileAvatar: data['profile_avatar'] as String?,
       );
 
   static FilterModelwithDetailsTableStruct? maybeFromMap(dynamic data) => data
@@ -277,6 +287,7 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
         'reported': _reported,
         'created_at': _createdAt,
         'details_text': _detailsText,
+        'profile_avatar': _profileAvatar,
       }.withoutNulls;
 
   @override
@@ -368,6 +379,10 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
         ),
         'details_text': serializeParam(
           _detailsText,
+          ParamType.String,
+        ),
+        'profile_avatar': serializeParam(
+          _profileAvatar,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -485,6 +500,11 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        profileAvatar: deserializeParam(
+          data['profile_avatar'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -515,7 +535,8 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
         mainCatName == other.mainCatName &&
         reported == other.reported &&
         createdAt == other.createdAt &&
-        detailsText == other.detailsText;
+        detailsText == other.detailsText &&
+        profileAvatar == other.profileAvatar;
   }
 
   @override
@@ -541,7 +562,8 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
         mainCatName,
         reported,
         createdAt,
-        detailsText
+        detailsText,
+        profileAvatar
       ]);
 }
 
@@ -567,6 +589,7 @@ FilterModelwithDetailsTableStruct createFilterModelwithDetailsTableStruct({
   bool? reported,
   String? createdAt,
   String? detailsText,
+  String? profileAvatar,
 }) =>
     FilterModelwithDetailsTableStruct(
       mainCatId: mainCatId,
@@ -590,4 +613,5 @@ FilterModelwithDetailsTableStruct createFilterModelwithDetailsTableStruct({
       reported: reported,
       createdAt: createdAt,
       detailsText: detailsText,
+      profileAvatar: profileAvatar,
     );

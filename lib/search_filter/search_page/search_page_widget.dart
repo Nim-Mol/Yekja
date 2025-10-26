@@ -10,7 +10,6 @@ import '/shared_components/loading_comp/loading_comp_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
-import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -1093,21 +1092,7 @@ Free */
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            if (widget.navigateBackTo ==
-                                                'overviewMarket') {
-                                              context.pushNamed(
-                                                  MarketWidget.routeName);
-                                            } else {
-                                              if (widget.navigateBackTo ==
-                                                  'overviewCare') {
-                                                context.pushNamed(
-                                                    OverviewCareWidget
-                                                        .routeName);
-                                              } else {
-                                                context.pushNamed(
-                                                    HomePageWidget.routeName);
-                                              }
-                                            }
+                                            context.safePop();
                                           },
                                           child: Container(
                                             width: 44.0,
@@ -1900,21 +1885,7 @@ Free */
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            if (widget.navigateBackTo ==
-                                                'overviewMarket') {
-                                              context.pushNamed(
-                                                  MarketWidget.routeName);
-                                            } else {
-                                              if (widget.navigateBackTo ==
-                                                  'overviewCare') {
-                                                context.pushNamed(
-                                                    OverviewCareWidget
-                                                        .routeName);
-                                              } else {
-                                                context.pushNamed(
-                                                    HomePageWidget.routeName);
-                                              }
-                                            }
+                                            context.safePop();
                                           },
                                           child: Container(
                                             width: 44.0,

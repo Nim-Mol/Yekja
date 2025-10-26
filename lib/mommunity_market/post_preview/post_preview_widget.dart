@@ -1053,7 +1053,7 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                                                   FFAppState()
                                                                       .userInfo
                                                                       .avatar,
-                                                                  'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/anonymous.jpg',
+                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/n2imhdlvogb3/profile_avatar_circular.png',
                                                                 ),
                                                                 fit: BoxFit
                                                                     .cover,
@@ -1302,65 +1302,6 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                           ),
                                         ],
                                       ),
-                                    ),
-                                    Builder(
-                                      builder: (context) {
-                                        final wishlist = getJsonField(
-                                          FFAppState().postDetailJSON,
-                                          r'''$.exchange_wishlist_names''',
-                                        ).toList();
-
-                                        return Wrap(
-                                          spacing: 8.0,
-                                          runSpacing: 8.0,
-                                          alignment: WrapAlignment.start,
-                                          crossAxisAlignment:
-                                              WrapCrossAlignment.start,
-                                          direction: Axis.horizontal,
-                                          runAlignment: WrapAlignment.start,
-                                          verticalDirection:
-                                              VerticalDirection.down,
-                                          clipBehavior: Clip.none,
-                                          children: List.generate(
-                                              wishlist.length, (wishlistIndex) {
-                                            final wishlistItem =
-                                                wishlist[wishlistIndex];
-                                            return Container(
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                borderRadius:
-                                                    BorderRadius.circular(4.0),
-                                              ),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        8.0, 4.0, 8.0, 4.0),
-                                                child: Text(
-                                                  wishlistItem.toString(),
-                                                  style:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
-                                                            fontSize: 16.0,
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumIsCustom,
-                                                          ),
-                                                ),
-                                              ),
-                                            );
-                                          }),
-                                        );
-                                      },
                                     ),
                                   ]
                                       .divide(SizedBox(height: 8.0))

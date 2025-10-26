@@ -30,7 +30,7 @@ class ReviewAndRatingModel extends FlutterFlowModel<ReviewAndRatingWidget> {
     if (!RegExp('^[\\u0600-\\u06FF\\s_\\u0660-\\u06690-9a-zA-Z\\.]+\$')
         .hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        'tfvvwgse' /* Please use only letters (Engli... */,
+        'sc2b19jg' /* Please use only letters (Engli... */,
       );
     }
     return null;

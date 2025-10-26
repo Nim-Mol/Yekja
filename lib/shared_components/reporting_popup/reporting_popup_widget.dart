@@ -1,3 +1,4 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -246,11 +247,10 @@ class _ReportingPopupWidgetState extends State<ReportingPopupWidget> {
                     onPressed: () async {
                       if (_model.textController.text != '') {
                         _model.reported = await ReportedTable().insert({
-                          'reporter': widget.reportingData?.reporterId,
+                          'reporter': currentUserUid,
                           'post_id': widget.reportingData?.postId,
                           'reason': _model.textController.text,
                           'isprofile': false,
-                          'userprofile_id': widget.reportingData?.profileId,
                         });
                         FFAppState().updateUserInfoStruct(
                           (e) => e
@@ -258,6 +258,7 @@ class _ReportingPopupWidgetState extends State<ReportingPopupWidget> {
                               (e) => e.add(widget.reportingData!.postId),
                             ),
                         );
+                        _model.updatePage(() {});
                         Navigator.pop(context);
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(

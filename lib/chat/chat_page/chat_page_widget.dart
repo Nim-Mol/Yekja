@@ -517,8 +517,12 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                     .deletedPost!
                                                                 ? FFAppConstants
                                                                     .PostNotAvailableIMG
-                                                                : chatviewItem
-                                                                    .postImage!,
+                                                                : valueOrDefault<
+                                                                    String>(
+                                                                    chatviewItem
+                                                                        .postImage,
+                                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg',
+                                                                  ),
                                                             width: 55.0,
                                                             height: 55.0,
                                                             fit: BoxFit.cover,
@@ -961,8 +965,12 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                     .deletedPost!
                                                                 ? FFAppConstants
                                                                     .PostNotAvailableIMG
-                                                                : chatviewItem
-                                                                    .postImage!,
+                                                                : valueOrDefault<
+                                                                    String>(
+                                                                    chatviewItem
+                                                                        .postImage,
+                                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg',
+                                                                  ),
                                                             width: 55.0,
                                                             height: 55.0,
                                                             fit: BoxFit.cover,
@@ -1406,8 +1414,12 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                     .deletedPost!
                                                                 ? FFAppConstants
                                                                     .PostNotAvailableIMG
-                                                                : chatviewItem
-                                                                    .postImage!,
+                                                                : valueOrDefault<
+                                                                    String>(
+                                                                    chatviewItem
+                                                                        .postImage,
+                                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg',
+                                                                  ),
                                                             width: 55.0,
                                                             height: 55.0,
                                                             fit: BoxFit.cover,

@@ -1,10 +1,10 @@
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
-import 'profile_edit_widget.dart' show ProfileEditWidget;
+import 'profile_edit_copy_widget.dart' show ProfileEditCopyWidget;
 import 'package:flutter/material.dart';
 
-class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
+class ProfileEditCopyModel extends FlutterFlowModel<ProfileEditCopyWidget> {
   ///  Local state fields for this page.
 
   FFUploadedFile? newAvatar;
@@ -21,9 +21,17 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
 
   bool phoneNumberChanged = false;
 
+  bool isPersonalOpen = false;
+
+  bool isContactOpen = false;
+
+  bool isSocialOpen = false;
+
   ///  State fields for stateful widgets in this page.
 
-  final formKey = GlobalKey<FormState>();
+  final formKey2 = GlobalKey<FormState>();
+  final formKey3 = GlobalKey<FormState>();
+  final formKey1 = GlobalKey<FormState>();
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
@@ -33,17 +41,17 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
 
   // Stores action output result for [Backend Call - Update Row(s)] action in Remove widget.
   List<UserExtRow>? defultAvatar;
-  bool isDataUploading_newAvatarImg = false;
-  FFUploadedFile uploadedLocalFile_newAvatarImg =
+  bool isDataUploading_newAvatar = false;
+  FFUploadedFile uploadedLocalFile_newAvatar =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl_newAvatarImg = '';
+  String uploadedFileUrl_newAvatar = '';
 
   // Stores action output result for [Backend Call - Update Row(s)] action in Edit widget.
   List<UserExtRow>? updatedAvatar;
-  bool isDataUploading_backgroundImg = false;
-  FFUploadedFile uploadedLocalFile_backgroundImg =
+  bool isDataUploading_newBackground = false;
+  FFUploadedFile uploadedLocalFile_newBackground =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl_backgroundImg = '';
+  String uploadedFileUrl_newBackground = '';
 
   // Stores action output result for [Backend Call - Update Row(s)] action in IconButton widget.
   List<UserExtRow>? newwalpaper;
@@ -56,24 +64,24 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
   String? _userNameTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'kzqn68ob' /* This field is required. */,
+        '4f5fv6ht' /* This field is required. */,
       );
     }
 
     if (val.length < 3) {
       return FFLocalizations.of(context).getText(
-        'x0qbl9nx' /* Minimum 3 letters are required... */,
+        '0a376pzj' /* Minimum 3 letters are required... */,
       );
     }
     if (val.length > 15) {
       return FFLocalizations.of(context).getText(
-        '5w04aalv' /* user name is too lang. */,
+        'ca30mi4r' /* user name is too lang. */,
       );
     }
     if (!RegExp('^[\\u0600-\\u06FF\\s_\\u0660-\\u06690-9a-zA-Z]+\$')
         .hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        '3jdly5te' /* Please use only letters (Engli... */,
+        'uwnfnwxd' /* Please use only letters (Engli... */,
       );
     }
     return null;
@@ -86,14 +94,14 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
   String? _firstNameTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'uuho7t2x' /* firstName is required */,
+        'hly9yj28' /* firstName is required */,
       );
     }
 
     if (!RegExp('^[\\u0600-\\u06FF\\u0660-\\u06690-9a-zA-Z]+\$')
         .hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        'jb5e9dly' /* Please use only letters (Engli... */,
+        'veo7h5we' /* Please use only letters (Engli... */,
       );
     }
     return null;
@@ -106,7 +114,7 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
   String? _lastNameTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'ysa8o678' /* This field is required */,
+        'c89tv1b8' /* This field is required */,
       );
     }
 
@@ -119,7 +127,30 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
     if (!RegExp('^[\\u0600-\\u06FF\\u0660-\\u06690-9a-zA-Z]+\$')
         .hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        '9mmnqcod' /* Please use only letters (Engli... */,
+        'mlp0lwnh' /* Please use only letters (Engli... */,
+      );
+    }
+    return null;
+  }
+
+  // State field(s) for Biography widget.
+  FocusNode? biographyFocusNode;
+  TextEditingController? biographyTextController;
+  String? Function(BuildContext, String?)? biographyTextControllerValidator;
+  String? _biographyTextControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    if (val.length > 250) {
+      return FFLocalizations.of(context).getText(
+        'alzr2t5y' /* Too many characters. */,
+      );
+    }
+    if (!RegExp('^[\\u0600-\\u06FF\\s_\\u0660-\\u06690-9a-zA-Z\\.]+\$')
+        .hasMatch(val)) {
+      return FFLocalizations.of(context).getText(
+        'fkcs1o4e' /* Please use only letters (Engli... */,
       );
     }
     return null;
@@ -132,20 +163,20 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
   String? _emailTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'xm54x3n1' /* Please enter valid Email addre... */,
+        '2mnrvw91' /* Please enter valid Email addre... */,
       );
     }
 
     if (val.length < 7) {
       return FFLocalizations.of(context).getText(
-        'cjui5wmm' /* This field is required */,
+        'hbbj80ns' /* This field is required */,
       );
     }
 
     if (!RegExp('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}\$')
         .hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        'bzz1mpym' /* Please use a valid email addre... */,
+        'nveeeqqf' /* Please use a valid email addre... */,
       );
     }
     return null;
@@ -159,13 +190,13 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'n8h9b885' /* This field is required. */,
+        'iwm4ef5q' /* This field is required. */,
       );
     }
 
     if (!RegExp('^06\\d{8}\$').hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        '45tsdecd' /* Use a valid phone number. e.g ... */,
+        'w3quzm39' /* Use a valid phone number. e.g ... */,
       );
     }
     return null;
@@ -175,29 +206,10 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
   FocusNode? cityFocusNode;
   TextEditingController? cityTextController;
   String? Function(BuildContext, String?)? cityTextControllerValidator;
-  // State field(s) for Biography widget.
-  FocusNode? biographyFocusNode;
-  TextEditingController? biographyTextController;
-  String? Function(BuildContext, String?)? biographyTextControllerValidator;
-  String? _biographyTextControllerValidator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return 'Field is required';
-    }
-
-    if (val.length > 250) {
-      return FFLocalizations.of(context).getText(
-        '4z0aqe0c' /* Too many characters. */,
-      );
-    }
-    if (!RegExp('^[\\u0600-\\u06FF\\s_\\u0660-\\u06690-9a-zA-Z\\.]+\$')
-        .hasMatch(val)) {
-      return FFLocalizations.of(context).getText(
-        'pxidjvnl' /* Please use only letters (Engli... */,
-      );
-    }
-    return null;
-  }
-
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController7;
+  String? Function(BuildContext, String?)? textController7Validator;
   // Stores action output result for [Validate Form] action in Save widget.
   bool? valid;
   // Stores action output result for [Custom Action - userSoftDeleteAsync] action in RichTextSpan widget.
@@ -220,9 +232,9 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
     userNameTextControllerValidator = _userNameTextControllerValidator;
     firstNameTextControllerValidator = _firstNameTextControllerValidator;
     lastNameTextControllerValidator = _lastNameTextControllerValidator;
+    biographyTextControllerValidator = _biographyTextControllerValidator;
     emailTextControllerValidator = _emailTextControllerValidator;
     phoneNumberTextControllerValidator = _phoneNumberTextControllerValidator;
-    biographyTextControllerValidator = _biographyTextControllerValidator;
   }
 
   @override
@@ -237,6 +249,9 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
     lastNameFocusNode?.dispose();
     lastNameTextController?.dispose();
 
+    biographyFocusNode?.dispose();
+    biographyTextController?.dispose();
+
     emailFocusNode?.dispose();
     emailTextController?.dispose();
 
@@ -246,7 +261,7 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
     cityFocusNode?.dispose();
     cityTextController?.dispose();
 
-    biographyFocusNode?.dispose();
-    biographyTextController?.dispose();
+    textFieldFocusNode?.dispose();
+    textController7?.dispose();
   }
 }

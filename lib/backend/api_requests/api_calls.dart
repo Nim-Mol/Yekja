@@ -115,99 +115,6 @@ class SearchfilerapiCall {
           .toList();
 }
 
-class FilterApiCall {
-  static Future<ApiCallResponse> call({
-    int? offset,
-    int? limit,
-    int? mainCatId = 2,
-    int? catId = 4,
-  }) async {
-    return ApiManager.instance.makeApiCall(
-      callName: 'filterApi',
-      apiUrl:
-          'https://bkygphvuuqmpmcfrncpm.supabase.co/rest/v1/view_post_search?select=*&main_cat_id=eq.${mainCatId}&cat_id=eq.${catId}',
-      callType: ApiCallType.GET,
-      headers: {
-        'apikey':
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJreWdwaHZ1dXFtcG1jZnJuY3BtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA1MjI3NjIsImV4cCI6MjA2NjA5ODc2Mn0.XHXZMXvuTQBe6vjI0xs-m8ztvxhmIImd8JJpV-LYAds',
-        'Authorization':
-            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJreWdwaHZ1dXFtcG1jZnJuY3BtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA1MjI3NjIsImV4cCI6MjA2NjA5ODc2Mn0.XHXZMXvuTQBe6vjI0xs-m8ztvxhmIImd8JJpV-LYAds',
-        'Content-Type': 'application/json',
-      },
-      params: {
-        'offset': offset,
-        'limit': limit,
-      },
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      isStreamingApi: false,
-      alwaysAllowBody: false,
-    );
-  }
-
-  static List<int>? maincatid(dynamic response) => (getJsonField(
-        response,
-        r'''$[:].main_cat_id''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<int>(x))
-          .withoutNulls
-          .toList();
-  static List<int>? subcatid(dynamic response) => (getJsonField(
-        response,
-        r'''$[:].sub_cat_id''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<int>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? maincatname(dynamic response) => (getJsonField(
-        response,
-        r'''$[:].main_cat_name''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<int>? catid(dynamic response) => (getJsonField(
-        response,
-        r'''$[:].cat_id''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<int>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? catname(dynamic response) => (getJsonField(
-        response,
-        r'''$[:].cat_name''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? images(dynamic response) => (getJsonField(
-        response,
-        r'''$[:].images''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? details(dynamic response) => getJsonField(
-        response,
-        r'''$[:].details''',
-        true,
-      ) as List?;
-}
-
 class FilterApiCopyCall {
   static Future<ApiCallResponse> call({
     int? offset,
@@ -380,6 +287,100 @@ class WhoamICall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+}
+
+class FilterApiCall {
+  static Future<ApiCallResponse> call({
+    int? offset,
+    int? limit,
+    int? mainCatId = 2,
+    int? catId = 4,
+    String? sortby = 'created_at.desc.nullslast',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'filterApi',
+      apiUrl:
+          'https://bkygphvuuqmpmcfrncpm.supabase.co/rest/v1/view_post_search?select=*&main_cat_id=eq.${mainCatId}&cat_id=eq.${catId}&order=${sortby}',
+      callType: ApiCallType.GET,
+      headers: {
+        'apikey':
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJreWdwaHZ1dXFtcG1jZnJuY3BtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA1MjI3NjIsImV4cCI6MjA2NjA5ODc2Mn0.XHXZMXvuTQBe6vjI0xs-m8ztvxhmIImd8JJpV-LYAds',
+        'Authorization':
+            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJreWdwaHZ1dXFtcG1jZnJuY3BtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA1MjI3NjIsImV4cCI6MjA2NjA5ODc2Mn0.XHXZMXvuTQBe6vjI0xs-m8ztvxhmIImd8JJpV-LYAds',
+        'Content-Type': 'application/json',
+      },
+      params: {
+        'offset': offset,
+        'limit': limit,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List<int>? maincatid(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].main_cat_id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  static List<int>? subcatid(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].sub_cat_id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? maincatname(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].main_cat_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<int>? catid(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].cat_id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? catname(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].cat_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? images(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].images''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? details(dynamic response) => getJsonField(
+        response,
+        r'''$[:].details''',
+        true,
+      ) as List?;
 }
 
 class ApiPagingParams {

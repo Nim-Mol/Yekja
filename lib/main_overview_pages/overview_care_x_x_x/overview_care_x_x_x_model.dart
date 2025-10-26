@@ -3,10 +3,10 @@ import '/shared_components/item_card_horizental/item_card_horizental_widget.dart
 import '/shared_components/item_card_vertical/item_card_vertical_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
 import '/index.dart';
-import 'overview_care_widget.dart' show OverviewCareWidget;
+import 'overview_care_x_x_x_widget.dart' show OverviewCareXXXWidget;
 import 'package:flutter/material.dart';
 
-class OverviewCareModel extends FlutterFlowModel<OverviewCareWidget> {
+class OverviewCareXXXModel extends FlutterFlowModel<OverviewCareXXXWidget> {
   ///  Local state fields for this page.
 
   int selectedSubCat = 1;

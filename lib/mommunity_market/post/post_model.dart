@@ -26,10 +26,12 @@ class PostModel extends FlutterFlowModel<PostWidget> {
 
   bool isFav = false;
 
+  bool isClose = true;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - Query Rows] action in Post widget.
-  List<MarketLikesRow>? liked;
+  List<PostsLikesRow>? liked;
   // Model for Photo_gallary component.
   late PhotoGallaryModel photoGallaryModel;
   Completer<List<ViewPostSearchRow>>? requestCompleter;

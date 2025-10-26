@@ -1,18 +1,15 @@
 import '/auth/base_auth_user_provider.dart';
 import '/backend/schema/structs/index.dart';
-import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/shared_components/main_header/main_header_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
-import '/shared_components/shout_out_card/shout_out_card_widget.dart';
 import '/index.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -257,14 +254,23 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          await PostCreateMuxTblTable().insert({
-                                            'post_id': null,
-                                            'title': 'smoke test',
-                                            'description': 'xyz',
-                                            'detail_table': 'rentals',
-                                            'sub_cat_id': 50,
-                                            'city': '',
-                                          });
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return AlertDialog(
+                                                title: Text(
+                                                    FFAppState().userInfo.role),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          );
                                         },
                                         child: Text(
                                           FFLocalizations.of(context).getText(
@@ -329,8 +335,22 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   0.0, 0.0, 0.0, 24.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
+                                              FFAppState().filterSmall =
+                                                  FilterSmallModelStruct(
+                                                mainCatId: 1,
+                                                catId: 8,
+                                              );
+                                              safeSetState(() {});
+
                                               context.pushNamed(
-                                                  OverviewCareWidget.routeName);
+                                                MarketWidget.routeName,
+                                                queryParameters: {
+                                                  'selectedTab': serializeParam(
+                                                    1,
+                                                    ParamType.int,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
                                             },
                                             text: FFLocalizations.of(context)
                                                 .getText(
@@ -423,8 +443,22 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   0.0, 0.0, 0.0, 24.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
+                                              FFAppState().filterSmall =
+                                                  FilterSmallModelStruct(
+                                                mainCatId: 2,
+                                                catId: 1,
+                                              );
+                                              safeSetState(() {});
+
                                               context.pushNamed(
-                                                  MarketWidget.routeName);
+                                                MarketWidget.routeName,
+                                                queryParameters: {
+                                                  'selectedTab': serializeParam(
+                                                    0,
+                                                    ParamType.int,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
                                             },
                                             text: FFLocalizations.of(context)
                                                 .getText(
@@ -518,7 +552,21 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           child: FFButtonWidget(
                                             onPressed: () async {
                                               context.pushNamed(
-                                                  MarketWidget.routeName);
+                                                MarketWidget.routeName,
+                                                queryParameters: {
+                                                  'selectedTab': serializeParam(
+                                                    2,
+                                                    ParamType.int,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+
+                                              FFAppState().filterSmall =
+                                                  FilterSmallModelStruct(
+                                                mainCatId: 3,
+                                                catId: 10,
+                                              );
+                                              safeSetState(() {});
                                             },
                                             text: FFLocalizations.of(context)
                                                 .getText(
@@ -612,8 +660,23 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   38.0, 0.0, 38.0, 24.0),
                                           child: FFButtonWidget(
-                                            onPressed: () {
-                                              print('Button pressed ...');
+                                            onPressed: () async {
+                                              context.pushNamed(
+                                                MarketWidget.routeName,
+                                                queryParameters: {
+                                                  'selectedTab': serializeParam(
+                                                    3,
+                                                    ParamType.int,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+
+                                              FFAppState().filterSmall =
+                                                  FilterSmallModelStruct(
+                                                mainCatId: 4,
+                                                catId: 16,
+                                              );
+                                              safeSetState(() {});
                                             },
                                             text: FFLocalizations.of(context)
                                                 .getText(
@@ -706,11 +769,18 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           child: FFButtonWidget(
                                             onPressed: () async {
                                               context.pushNamed(
-                                                  MarketWidget.routeName);
+                                                MarketWidget.routeName,
+                                                queryParameters: {
+                                                  'selectedTab': serializeParam(
+                                                    4,
+                                                    ParamType.int,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
                                             },
                                             text: FFLocalizations.of(context)
                                                 .getText(
-                                              'pmzri2ub' /* SKILLS & EXPERTISE */,
+                                              'pmzri2ub' /* Careers & Networking */,
                                             ),
                                             options: FFButtonOptions(
                                               width: 220.0,
@@ -848,8 +918,16 @@ launching soo... */
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 24.0),
                                           child: FFButtonWidget(
-                                            onPressed: () {
-                                              print('Button pressed ...');
+                                            onPressed: () async {
+                                              context.pushNamed(
+                                                MarketWidget.routeName,
+                                                queryParameters: {
+                                                  'selectedTab': serializeParam(
+                                                    5,
+                                                    ParamType.int,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
                                             },
                                             text: FFLocalizations.of(context)
                                                 .getText(
@@ -1188,16 +1266,41 @@ launching soo... */
                                                           CrossAxisAlignment
                                                               .center,
                                                       children: [
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                          child: Image.network(
-                                                            'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Temp/p1.jpeg',
-                                                            width: 80.0,
-                                                            height: 80.0,
-                                                            fit: BoxFit.contain,
+                                                        Container(
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                            shape: BoxShape
+                                                                .rectangle,
+                                                            border: Border.all(
+                                                              color: FFAppState()
+                                                                          .filterSmall
+                                                                          .catId ==
+                                                                      8
+                                                                  ? FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText
+                                                                  : FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBackground,
+                                                              width: 1.0,
+                                                            ),
+                                                          ),
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        0.0),
+                                                            child:
+                                                                Image.network(
+                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/7alx2zdgj1ln/assistance.png',
+                                                              width: 80.0,
+                                                              height: 80.0,
+                                                              fit: BoxFit.cover,
+                                                            ),
                                                           ),
                                                         ),
                                                         Padding(
@@ -1212,8 +1315,8 @@ launching soo... */
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              'gc98fhb2' /* Transfer 
-to Iran */
+                                                              'gcaiv1cc' /* Care &
+Assistance */
                                                               ,
                                                             ),
                                                             textAlign: TextAlign
@@ -1234,7 +1337,7 @@ to Iran */
                                                                   ),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primary,
+                                                                      .secondaryText,
                                                                   fontSize:
                                                                       14.0,
                                                                   letterSpacing:
@@ -1286,8 +1389,8 @@ to Iran */
                                                               BorderRadius
                                                                   .circular(
                                                                       8.0),
-                                                          child: Image.network(
-                                                            'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Temp/p2.jpeg',
+                                                          child: Image.asset(
+                                                            'assets/images/Rent.png',
                                                             width: 80.0,
                                                             height: 80.0,
                                                             fit: BoxFit.fill,
@@ -1305,12 +1408,12 @@ to Iran */
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              '6wfq8m1t' /* Personal
-support */
+                                                              '6wfq8m1t' /* Home &
+Rentals */
                                                               ,
                                                             ),
-                                                            textAlign:
-                                                                TextAlign.start,
+                                                            textAlign: TextAlign
+                                                                .center,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .titleMedium
@@ -1374,16 +1477,41 @@ support */
                                                           CrossAxisAlignment
                                                               .center,
                                                       children: [
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                          child: Image.network(
-                                                            'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Temp/p3.jpeg',
-                                                            width: 80.0,
-                                                            height: 80.0,
-                                                            fit: BoxFit.contain,
+                                                        Container(
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                            shape: BoxShape
+                                                                .rectangle,
+                                                            border: Border.all(
+                                                              color: FFAppState()
+                                                                          .filterSmall
+                                                                          .catId ==
+                                                                      17
+                                                                  ? FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText
+                                                                  : FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBackground,
+                                                              width: 1.0,
+                                                            ),
+                                                          ),
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        0.0),
+                                                            child:
+                                                                Image.network(
+                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/9mwcf0csxbkl/concert_(1).png',
+                                                              width: 80.0,
+                                                              height: 80.0,
+                                                              fit: BoxFit.cover,
+                                                            ),
                                                           ),
                                                         ),
                                                         Padding(
@@ -1398,8 +1526,8 @@ support */
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              '7h8pyuh1' /* Hire
-from Iran */
+                                                              'd8j2douw' /* Concerts
+& Shows */
                                                               ,
                                                             ),
                                                             textAlign: TextAlign
@@ -1420,7 +1548,7 @@ from Iran */
                                                                   ),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primary,
+                                                                      .secondaryText,
                                                                   fontSize:
                                                                       14.0,
                                                                   letterSpacing:
@@ -1480,16 +1608,40 @@ from Iran */
                                                           CrossAxisAlignment
                                                               .center,
                                                       children: [
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                          child: Image.network(
-                                                            'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Temp/p4.jpeg',
-                                                            width: 80.0,
-                                                            height: 80.0,
-                                                            fit: BoxFit.contain,
+                                                        Container(
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                            shape: BoxShape
+                                                                .rectangle,
+                                                            border: Border.all(
+                                                              color: FFAppState()
+                                                                          .filterSmall
+                                                                          .catId ==
+                                                                      14
+                                                                  ? FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText
+                                                                  : FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBackground,
+                                                              width: 1.0,
+                                                            ),
+                                                          ),
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        0.0),
+                                                            child: Image.asset(
+                                                              'assets/images/home&services.png',
+                                                              width: 80.0,
+                                                              height: 80.0,
+                                                              fit: BoxFit.cover,
+                                                            ),
                                                           ),
                                                         ),
                                                         Padding(
@@ -1504,8 +1656,8 @@ from Iran */
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              '1dtj55s0' /* Transfer 
-to Iran */
+                                                              'yhr2oplg' /* Personal
+Services */
                                                               ,
                                                             ),
                                                             textAlign: TextAlign
@@ -1526,7 +1678,7 @@ to Iran */
                                                                   ),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primary,
+                                                                      .secondaryText,
                                                                   fontSize:
                                                                       14.0,
                                                                   letterSpacing:
@@ -1579,7 +1731,7 @@ to Iran */
                                                                   .circular(
                                                                       8.0),
                                                           child: Image.network(
-                                                            'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Temp/p5.jpeg',
+                                                            'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Temp/nima/skills.png',
                                                             width: 80.0,
                                                             height: 80.0,
                                                             fit: BoxFit.contain,
@@ -1597,12 +1749,12 @@ to Iran */
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              'eaca440q' /* Personal
-support */
+                                                              'eaca440q' /* Job
+Offers */
                                                               ,
                                                             ),
-                                                            textAlign:
-                                                                TextAlign.start,
+                                                            textAlign: TextAlign
+                                                                .center,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .titleMedium
@@ -1671,8 +1823,8 @@ support */
                                                               BorderRadius
                                                                   .circular(
                                                                       8.0),
-                                                          child: Image.network(
-                                                            'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Temp/p6.jpeg',
+                                                          child: Image.asset(
+                                                            'assets/images/shops.png',
                                                             width: 80.0,
                                                             height: 80.0,
                                                             fit: BoxFit.contain,
@@ -1690,222 +1842,12 @@ support */
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              'qokg5eno' /* Hire
-from Iran */
+                                                              'qokg5eno' /* Stores
+& Shops */
                                                               ,
                                                             ),
                                                             textAlign: TextAlign
                                                                 .center,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ].addToEnd(SizedBox(
-                                                          height: 10.0)),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ].divide(SizedBox(width: 12.0)),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 16.0, 0.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Expanded(
-                                                  child: Container(
-                                                    height: 150.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .primaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                      border: Border.all(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .textfiled,
-                                                        width: 0.3,
-                                                      ),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.min,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment.end,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                          child: Image.network(
-                                                            'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Temp/dark-blue.png',
-                                                            width: 80.0,
-                                                            height: 80.0,
-                                                            fit: BoxFit.contain,
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      2.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: AutoSizeText(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'rq7wqf7f' /* Transfer 
-to Iran */
-                                                              ,
-                                                            ),
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ].addToEnd(SizedBox(
-                                                          height: 10.0)),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Expanded(
-                                                  child: Container(
-                                                    height: 150.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .primaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                      border: Border.all(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .textfiled,
-                                                        width: 0.3,
-                                                      ),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment.end,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      3.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                            child:
-                                                                Image.network(
-                                                              'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Temp/nima/skills.png',
-                                                              width: 100.0,
-                                                              height: 100.0,
-                                                              fit: BoxFit
-                                                                  .contain,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      2.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: AutoSizeText(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'k3meta0v' /* Personal
-support */
-                                                              ,
-                                                            ),
-                                                            textAlign:
-                                                                TextAlign.start,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .titleMedium
@@ -1923,434 +1865,6 @@ support */
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryText,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ].addToEnd(SizedBox(
-                                                          height: 10.0)),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Expanded(
-                                                  child: Container(
-                                                    height: 150.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .primaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                      border: Border.all(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .textfiled,
-                                                        width: 0.3,
-                                                      ),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.min,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment.end,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      3.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                            child:
-                                                                Image.network(
-                                                              'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Temp/nima/care400.png',
-                                                              width: 100.0,
-                                                              height: 100.0,
-                                                              fit: BoxFit
-                                                                  .contain,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      2.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: AutoSizeText(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'hyj9eay4' /* Hire
-from Iran */
-                                                              ,
-                                                            ),
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ].addToEnd(SizedBox(
-                                                          height: 10.0)),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ].divide(SizedBox(width: 12.0)),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 16.0, 0.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Expanded(
-                                                  child: Container(
-                                                    height: 150.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .primaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                      border: Border.all(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .textfiled,
-                                                        width: 0.3,
-                                                      ),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.min,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment.end,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      3.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                            child:
-                                                                Image.network(
-                                                              'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Temp/nima/network.png',
-                                                              width: 100.0,
-                                                              height: 100.0,
-                                                              fit: BoxFit
-                                                                  .contain,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      2.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: AutoSizeText(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              '5l0jhe2x' /* Transfer 
-to Iran */
-                                                              ,
-                                                            ),
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ].addToEnd(SizedBox(
-                                                          height: 10.0)),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Expanded(
-                                                  child: Container(
-                                                    height: 150.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .primaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                      border: Border.all(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .textfiled,
-                                                        width: 0.3,
-                                                      ),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment.end,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      3.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                            child:
-                                                                Image.network(
-                                                              'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Temp/nima/Market100.png',
-                                                              width: 100.0,
-                                                              height: 100.0,
-                                                              fit: BoxFit
-                                                                  .contain,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      2.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: AutoSizeText(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              '44voaul6' /* Personal
-support */
-                                                              ,
-                                                            ),
-                                                            textAlign:
-                                                                TextAlign.start,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ].addToEnd(SizedBox(
-                                                          height: 10.0)),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Expanded(
-                                                  child: Container(
-                                                    height: 150.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .primaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                      border: Border.all(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .textfiled,
-                                                        width: 0.3,
-                                                      ),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.min,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment.end,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      3.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                            child:
-                                                                Image.network(
-                                                              'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Temp/nima/event-3.png',
-                                                              width: 100.0,
-                                                              height: 100.0,
-                                                              fit: BoxFit.fill,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      2.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: AutoSizeText(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'de6jbdgo' /* Hire
-from Iran */
-                                                              ,
-                                                            ),
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
                                                                   fontSize:
                                                                       14.0,
                                                                   letterSpacing:
@@ -2399,20 +1913,25 @@ from Iran */
                                     16.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'lnqdg5mp' /* Swap in 4 Easy Steps */,
+                                    'lnqdg5mp' /* How It Works? */,
                                   ),
                                   textAlign: TextAlign.start,
                                   style: FlutterFlowTheme.of(context)
                                       .titleLarge
                                       .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .titleLargeFamily,
+                                        font: GoogleFonts.poppins(
+                                          fontWeight: FontWeight.w500,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleLarge
+                                                  .fontStyle,
+                                        ),
                                         fontSize: 20.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
-                                        useGoogleFonts:
-                                            !FlutterFlowTheme.of(context)
-                                                .titleLargeIsCustom,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleLarge
+                                            .fontStyle,
                                       ),
                                 ),
                               ),
@@ -2420,7 +1939,7 @@ from Iran */
                           ),
                         ),
                         Column(
-                          mainAxisSize: MainAxisSize.max,
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
@@ -2453,7 +1972,7 @@ from Iran */
                                                 alignment: AlignmentDirectional(
                                                     -1.0, -1.0),
                                                 child: Container(
-                                                  height: 280.0,
+                                                  height: 300.0,
                                                   decoration: BoxDecoration(),
                                                   child: Column(
                                                     mainAxisSize:
@@ -2745,7 +2264,7 @@ from Iran */
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              'v9eb6c1w' /* E.g. Post to exchange  your bi... */,
+                                                              'v9eb6c1w' /* For example, request or offer ... */,
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
@@ -2833,7 +2352,7 @@ from Iran */
                                                             child:
                                                                 Image.network(
                                                               'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Animations/step2_6.png',
-                                                              height: 150.0,
+                                                              height: 170.0,
                                                               fit: BoxFit
                                                                   .contain,
                                                               alignment:
@@ -2890,7 +2409,7 @@ from Iran */
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              '0n59oasi' /* E.g.  check if they have what ... */,
+                                                              '0n59oasi' /* If you receive an offer, discu... */,
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
@@ -2941,7 +2460,6 @@ from Iran */
                                           children: [
                                             Container(
                                               width: 250.0,
-                                              height: 280.0,
                                               decoration: BoxDecoration(),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.min,
@@ -2973,41 +2491,30 @@ from Iran */
                                                       ),
                                                     ),
                                                   ),
-                                                  Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'h0ay052s' /* 3. Meet up in person & swap  */,
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 44.0,
+                                                                0.0, 0.0),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'h0ay052s' /* 3. Meet up in person & finaliz... */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .poppins(
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -3016,34 +2523,48 @@ from Iran */
                                                                       .bodyMedium
                                                                       .fontStyle,
                                                                 ),
-                                                      ),
-                                                      Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'iiu0tp23' /* It’s always nice to get out, m... */,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
                                                         ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMediumIsCustom,
-                                                                ),
-                                                      ),
-                                                    ].divide(
-                                                        SizedBox(height: 4.0)),
+                                                        Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'iiu0tp23' /* It’s always nice to meet in pe... */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
+                                                        ),
+                                                      ].divide(SizedBox(
+                                                          height: 4.0)),
+                                                    ),
                                                   ),
                                                 ],
                                               ),
@@ -3054,7 +2575,6 @@ from Iran */
                                     ),
                                     Container(
                                       width: 260.0,
-                                      height: 300.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
@@ -3308,128 +2828,6 @@ from Iran */
                               ],
                             ),
                           ),
-                        ),
-                        Divider(
-                          thickness: 2.0,
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Expanded(
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 16.0, 0.0, 16.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          width: 40.0,
-                                          height: 40.0,
-                                          decoration: BoxDecoration(
-                                            color: Color(0x4240C057),
-                                            shape: BoxShape.circle,
-                                          ),
-                                          child: Icon(
-                                            Icons.handshake_outlined,
-                                            color: FlutterFlowTheme.of(context)
-                                                .customColor1,
-                                            size: 24.0,
-                                          ),
-                                        ),
-                                        Text(
-                                          FFLocalizations.of(context).getText(
-                                            'a23ujna3' /* Community Shoutouts */,
-                                          ),
-                                          textAlign: TextAlign.start,
-                                          style: FlutterFlowTheme.of(context)
-                                              .titleLarge
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleLargeFamily,
-                                                fontSize: 20.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w500,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleLargeIsCustom,
-                                              ),
-                                        ),
-                                      ].divide(SizedBox(width: 10.0)),
-                                    ),
-                                  ),
-                                  FutureBuilder<List<CommunityShoutoutRow>>(
-                                    future: CommunityShoutoutTable().queryRows(
-                                      queryFn: (q) => q.order('created_at'),
-                                    ),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 50.0,
-                                            height: 50.0,
-                                            child: SpinKitChasingDots(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .greenInit,
-                                              size: 50.0,
-                                            ),
-                                          ),
-                                        );
-                                      }
-                                      List<CommunityShoutoutRow>
-                                          rowCommunityShoutoutRowList =
-                                          snapshot.data!;
-
-                                      return SingleChildScrollView(
-                                        scrollDirection: Axis.horizontal,
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: List.generate(
-                                                  rowCommunityShoutoutRowList
-                                                      .length, (rowIndex) {
-                                            final rowCommunityShoutoutRow =
-                                                rowCommunityShoutoutRowList[
-                                                    rowIndex];
-                                            return wrapWithModel(
-                                              model: _model.shoutOutCardModels
-                                                  .getModel(
-                                                rowCommunityShoutoutRow.id
-                                                    .toString(),
-                                                rowIndex,
-                                              ),
-                                              updateCallback: () =>
-                                                  safeSetState(() {}),
-                                              child: ShoutOutCardWidget(
-                                                key: Key(
-                                                  'Keypw9_${rowCommunityShoutoutRow.id.toString()}',
-                                                ),
-                                                shoutOutId:
-                                                    rowCommunityShoutoutRow.id,
-                                              ),
-                                            );
-                                          })
-                                              .divide(SizedBox(width: 16.0))
-                                              .addToStart(SizedBox(width: 16.0))
-                                              .addToEnd(SizedBox(width: 16.0)),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
                         ),
                       ]
                           .addToStart(SizedBox(height: 86.0))

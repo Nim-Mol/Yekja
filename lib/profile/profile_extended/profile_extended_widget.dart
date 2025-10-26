@@ -17,9 +17,11 @@ class ProfileExtendedWidget extends StatefulWidget {
   const ProfileExtendedWidget({
     super.key,
     this.profileId,
+    required this.selectedTab,
   });
 
   final String? profileId;
+  final int? selectedTab;
 
   static String routeName = 'ProfileExtended';
   static String routePath = '/profileExtended';
@@ -46,6 +48,13 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
             .or("chat_sender.eq.${currentUserUid}, chat_recipient.eq.${currentUserUid}")
             .order('chat_created_at'),
       );
+      safeSetState(() {
+        _model.tabBarController!.animateTo(
+          widget.selectedTab!,
+          duration: Duration(milliseconds: 300),
+          curve: Curves.ease,
+        );
+      });
     });
 
     _model.tabBarController = TabController(

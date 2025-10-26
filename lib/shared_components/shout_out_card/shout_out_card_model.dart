@@ -13,7 +13,7 @@ class ShoutOutCardModel extends FlutterFlowModel<ShoutOutCardWidget> {
 
   // Stores action output result for [Backend Call - Query Rows] action in shoutOutCard widget.
   List<PostLikeRelationRow>? liked;
-  Completer<List<CommunityShoutoutRow>>? requestCompleter;
+  Completer<List<ViewShoutoutRow>>? requestCompleter;
 
   @override
   void initState(BuildContext context) {}

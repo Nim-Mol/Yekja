@@ -1372,120 +1372,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'خانه',
     },
   },
-  // Market
-  {
-    '51wwddju': {
-      'en': 'Community\nTransfer',
-      'fa': '',
-    },
-    'ivv993d3': {
-      'en': 'Currency\nExchange',
-      'fa': '',
-    },
-    'pzhoiz6a': {
-      'en': 'Ticket\nSwap',
-      'fa': '',
-    },
-    'k5dw2m8u': {
-      'en': 'Buy &\nSell',
-      'fa': '',
-    },
-    'z6eo8gix': {
-      'en': 'Give\nAway',
-      'fa': '',
-    },
-    'ds1uc0x8': {
-      'en': 'Swap\nItems',
-      'fa': '',
-    },
-    '0vjkf0b5': {
-      'en': 'Categories members like the most',
-      'fa': 'دسته بندی هایی که اعضا بیشتر دوست دارند',
-    },
-    'c522vsw7': {
-      'en': 'Recent Listings',
-      'fa': 'صرافی‌های جدید',
-    },
-    'orjki431': {
-      'en': 'Sort by',
-      'fa': 'همه را ببینید',
-    },
-    'oofcfzvv': {
-      'en': 'Most recent offers or requests',
-      'fa': 'جدیدترین اقلام ارائه شده برای تعویض',
-    },
-    'mrv4gt1y': {
-      'en': 'Community Market',
-      'fa': 'بازار محلی',
-    },
-    'acanui6t': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // OverviewCare
-  {
-    '4f31r95c': {
-      'en': 'Help\nRequests',
-      'fa': 'درخواست‌های کمک',
-    },
-    'wrgp7a0a': {
-      'en': 'Help\nOffers',
-      'fa': 'کمک\nپیشنهادات',
-    },
-    '037amlyc': {
-      'en': 'Top Categories',
-      'fa': 'دسته بندی های برتر',
-    },
-    '3b4w4odm': {
-      'en': 'Categories members like the most',
-      'fa': 'دسته بندی هایی که اعضا بیشتر دوست دارند',
-    },
-    'tlwgczrq': {
-      'en': 'Popular Posts',
-      'fa': 'پست‌های محبوب',
-    },
-    'vktu3546': {
-      'en': 'See all',
-      'fa': 'همه را ببینید',
-    },
-    'sxc6153h': {
-      'en': 'Most liked posts by  the community members',
-      'fa': 'پست‌های پربازدید توسط اعضای انجمن',
-    },
-    'h01izxww': {
-      'en': 'New Help Requests',
-      'fa': 'درخواست‌های کمک جدید',
-    },
-    'vuta9zjn': {
-      'en': 'See all',
-      'fa': 'همه را ببینید',
-    },
-    '8dcnikak': {
-      'en': 'Most recent posts asking for help',
-      'fa': 'جدیدترین پست‌ها درخواست کمک',
-    },
-    'qdios0ta': {
-      'en': 'New Help Offers',
-      'fa': 'پیشنهادات جدید کمک',
-    },
-    'jkkdwa93': {
-      'en': 'See all',
-      'fa': 'همه را ببینید',
-    },
-    'monqa5zf': {
-      'en': 'Most recent posts offering help',
-      'fa': 'جدیدترین پست‌های ارائه دهنده کمک',
-    },
-    '60czvw6q': {
-      'en': 'Community Care',
-      'fa': 'مراقبت‌های اجتماعی',
-    },
-    'o0cqrexj': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
   // ResetPasswordPage
   {
     'qvyltjge': {
@@ -1637,75 +1523,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'خانه',
     },
   },
-  // ContactYEKJA
-  {
-    'uaue3xf2': {
-      'en': 'Welcome to support ',
-      'fa': 'به پشتیبانی خوش آمدید',
-    },
-    'b3om7lkw': {
-      'en': 'Make sure you check our FAQ',
-      'fa': 'حتماً سوالات متداول ما را بررسی کنید',
-    },
-    'ydnrk5zy': {
-      'en': 'Call Us',
-      'fa': 'با ما تماس بگیرید',
-    },
-    'ofdaiisb': {
-      'en': 'Search FAQs',
-      'fa': 'سوالات متداول جستجو',
-    },
-    'zlr86zaw': {
-      'en': '',
-      'fa': '',
-    },
-    'uy7ff9ps': {
-      'en': 'Choose a relevant subject',
-      'fa': 'یک موضوع انتخاب کنید',
-    },
-    'ol3f2ple': {
-      'en': 'Search...',
-      'fa': 'جستجو...',
-    },
-    'rhw1og4g': {
-      'en': 'Option 1',
-      'fa': 'گزینه ۱',
-    },
-    '9ptgnueo': {
-      'en': 'Option 2',
-      'fa': 'گزینه ۲',
-    },
-    '1jg9wm4c': {
-      'en': 'Option 3',
-      'fa': 'گزینه ۳',
-    },
-    '7p9q5poi': {
-      'en':
-          'Please provide description of your inquiry here. We will do our best to come back to you as soon as possible. ',
-      'fa': 'شرح مختصری از نحوه کمک رسانی ما...',
-    },
-    'n246spdb': {
-      'en':
-          'Please use only letters (English/Persian), spaces, a dot or underscore.',
-      'fa': '',
-    },
-    'vflwt5pj': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': '',
-    },
-    'qc3iypvs': {
-      'en': 'Upload image',
-      'fa': 'آپلود تصویر',
-    },
-    'ziper6ve': {
-      'en': 'Submit ',
-      'fa': 'ارسال',
-    },
-    'md9u0vgx': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
   // PostMainCat
   {
     's59m0mxv': {
@@ -1773,65 +1590,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           'برای کاوش، انگشت خود را بکشید - برای کسب اطلاعات بیشتر، روی هر کدام ضربه بزنید',
     },
     'bifytvxz': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // SearchPage
-  {
-    'qlxrtif2': {
-      'en': 'Help\nRequests',
-      'fa': 'درخواست‌های \nکمک',
-    },
-    'zxm6qhi3': {
-      'en': 'Help\nOffers',
-      'fa': 'پیشنهادهای\nکمک',
-    },
-    '7kdb5dt1': {
-      'en': 'Items for Exchange',
-      'fa': 'کالاها یا خدمات\nبرای تبادل',
-    },
-    'iqukbo0v': {
-      'en': 'Borrow\nRequests',
-      'fa': 'درخواست‌های \nامانت',
-    },
-    'ix9u3yl7': {
-      'en': 'Items for\nFree',
-      'fa': 'اقلام موجود\nرایگان',
-    },
-    'h96yelv3': {
-      'en': 'Searh Results',
-      'fa': 'نتایج جستجو',
-    },
-    '1je8wpdn': {
-      'en': 'Filter',
-      'fa': 'فیلتر',
-    },
-    'qrvkaa77': {
-      'en': '',
-      'fa': '',
-    },
-    '7uu9uavl': {
-      'en': 'Search',
-      'fa': 'جستجو',
-    },
-    'q4ar00pn': {
-      'en': 'Option 1',
-      'fa': 'گزینه ۱',
-    },
-    '0dfm2rcn': {
-      'en': '',
-      'fa': '',
-    },
-    'kd5mjjjg': {
-      'en': 'Search',
-      'fa': 'جستجو',
-    },
-    '8b3no9i7': {
-      'en': 'Option 1',
-      'fa': 'گزینه ۱',
-    },
-    'gak00fpr': {
       'en': 'Home',
       'fa': 'خانه',
     },
@@ -1932,226 +1690,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '2g978126': {
       'en': 'Home',
       'fa': 'خانه',
-    },
-  },
-  // Post
-  {
-    '2rqgmz8p': {
-      'en': 'Value hint ',
-      'fa': 'اشاره به ارزش',
-    },
-    'vmm70xk5': {
-      'en': '(check here)',
-      'fa': '(اینجا را بررسی کنید)',
-    },
-    'lfzko40i': {
-      'en': 'Value hint',
-      'fa': 'اشاره به ارزش',
-    },
-    'ajx9fsxv': {
-      'en': 'DESCRIPTION',
-      'fa': 'شرح',
-    },
-    'lbvm96he': {
-      'en': '4.3',
-      'fa': '۴.۳',
-    },
-    'lo8jmg0v': {
-      'en': 'MY EXCHANGE WISH',
-      'fa': 'آرزوی تبادل من',
-    },
-    '6g2h5fom': {
-      'en': 'REVIEWS',
-      'fa': 'نقد و بررسی‌ها',
-    },
-    'onhh13rd': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
-  // HomePage
-  {
-    'md4unc80': {
-      'en': 'Search',
-      'fa': 'جستجو',
-    },
-    'qv9q21jt': {
-      'en': 'Search is required',
-      'fa': '',
-    },
-    'vzxdrsnm': {
-      'en':
-          'Please use only letters (English/Persian), spaces, a dot or underscore.',
-      'fa': '',
-    },
-    '4gjdl0io': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': '',
-    },
-    'uecq8i6w': {
-      'en': 'What are you looking for today?',
-      'fa': 'امروز چی می‌خوای پیدا کنی؟',
-    },
-    'rj83omaj': {
-      'en': 'VOLUNTARY SUPPORT',
-      'fa': 'همیاری  رایگان',
-    },
-    'c8a9ytss': {
-      'en': 'COMMUNITY MARKET',
-      'fa': 'دادو ستد محلی',
-    },
-    'yvetgowh': {
-      'en': 'SKILLS & EXPERTISE',
-      'fa': 'دادو ستد محلی',
-    },
-    'abmw58ok': {
-      'en': 'EVENTS & ANNOUNCMENTS',
-      'fa': 'رویدادها',
-    },
-    'pmzri2ub': {
-      'en': 'SKILLS & EXPERTISE',
-      'fa': 'دادو ستد محلی',
-    },
-    'j3hbpsji': {
-      'en': 'This feature is \nlaunching soon!',
-      'fa': ' این ویژگی به زودی راه‌اندازی می‌شود.',
-    },
-    's2nj1c3x': {
-      'en': 'Businesses',
-      'fa': 'خدمات ایران – هلند',
-    },
-    'usbpkb74': {
-      'en': 'Trending Categories',
-      'fa': 'دسته بندی های پرطرفدار',
-    },
-    'onqaufy9': {
-      'en': 'See all',
-      'fa': 'همه را ببینید',
-    },
-    'gc98fhb2': {
-      'en': 'Transfer \nto Iran',
-      'fa': '',
-    },
-    '6wfq8m1t': {
-      'en': 'Personal\nsupport',
-      'fa': '',
-    },
-    '7h8pyuh1': {
-      'en': 'Hire\nfrom Iran',
-      'fa': '',
-    },
-    '1dtj55s0': {
-      'en': 'Transfer \nto Iran',
-      'fa': '',
-    },
-    'eaca440q': {
-      'en': 'Personal\nsupport',
-      'fa': '',
-    },
-    'qokg5eno': {
-      'en': 'Hire\nfrom Iran',
-      'fa': '',
-    },
-    'rq7wqf7f': {
-      'en': 'Transfer \nto Iran',
-      'fa': '',
-    },
-    'k3meta0v': {
-      'en': 'Personal\nsupport',
-      'fa': '',
-    },
-    'hyj9eay4': {
-      'en': 'Hire\nfrom Iran',
-      'fa': '',
-    },
-    '5l0jhe2x': {
-      'en': 'Transfer \nto Iran',
-      'fa': '',
-    },
-    '44voaul6': {
-      'en': 'Personal\nsupport',
-      'fa': '',
-    },
-    'de6jbdgo': {
-      'en': 'Hire\nfrom Iran',
-      'fa': '',
-    },
-    'lnqdg5mp': {
-      'en': 'Swap in 4 Easy Steps',
-      'fa': 'تعویض در ۴ مرحله آسان',
-    },
-    'fsf3mcvr': {
-      'en': 'Choose where your post belongs',
-      'fa': 'انتخاب کنید که پست شما به کجا تعلق دارد',
-    },
-    'xvibk9g9': {
-      'en': 'Add details and pics',
-      'fa': 'جزئیات و تصاویر را اضافه کنید',
-    },
-    '6jcii098': {
-      'en': 'Say what you want in return',
-      'fa': 'در عوض هرچی دلت میخواد بگو',
-    },
-    'o4t933ga': {
-      'en': 'Your post is live!',
-      'fa': 'پست شما زنده است!',
-    },
-    'pfhno2h7': {
-      'en': '1. Share an item, skill, or service',
-      'fa': '۱. یک کالا، مهارت یا خدمات را به اشتراک بگذارید',
-    },
-    'v9eb6c1w': {
-      'en':
-          'E.g. Post to exchange  your bike, language lessons, or home repairs.',
-      'fa': 'من یه کوله و چنتا کتاب دارم میدم و دنبال یکییم ساز یادم بده',
-    },
-    '6s56pbb1': {
-      'en': '2. Receive offers & discuss',
-      'fa':
-          '۲. تو پیام میدی:  «ساز بلد نیستم، ولی می‌تونم زبان یا طراحی یاد بدم.',
-    },
-    '0n59oasi': {
-      'en':
-          'E.g.  check if they have what you need. If not, suggest other items until you both agree.',
-      'fa': 'با هم حرف می‌زنیم، می‌بینیم چی به کارمون میاد',
-    },
-    'h0ay052s': {
-      'en': '3. Meet up in person & swap ',
-      'fa': '۳. اگه شد حضوری ملاقات میکنیم',
-    },
-    'iiu0tp23': {
-      'en':
-          'It’s always nice to get out, meet in person, swap your items, and end the exchange with a smile.',
-      'fa':
-          'اگه شد حضوری ملاقات میکنیم و به توافق میرسیم اگرم  نشد کمی پول اضافه می‌کنیم ',
-    },
-    '2mbe77a2': {
-      'en': '4. Leave a review ',
-      'fa': '۴. امتیاز و نظر میدیم',
-    },
-    'r365vlqj': {
-      'en': 'Build trust and make it easier for others to find you both.',
-      'fa': 'اینطوری بقیه توی یکجا راحت‌تر ما رو پیدا می‌کنن',
-    },
-    'gpiujku4': {
-      'en': 'What’s Around You?',
-      'fa': 'اطراف شما چه خبر است؟',
-    },
-    '353k0b4j': {
-      'en': 'Start',
-      'fa': 'شروع',
-    },
-    'a23ujna3': {
-      'en': 'Community Shoutouts',
-      'fa': 'قدردانی ها',
-    },
-    '6lyr5um7': {
-      'en': 'the community',
-      'fa': 'خانواده‌ی بزرگ ما',
-    },
-    'qv3strvd': {
-      'en': '',
-      'fa': '',
     },
   },
   // ForgotPasswordPage
@@ -2315,84 +1853,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'خانه',
     },
   },
-  // ProfilePage
-  {
-    'wi68hahy': {
-      'en': 'Likes',
-      'fa': 'لایک‌ها',
-    },
-    'jzc0o03k': {
-      'en': '3',
-      'fa': '۳',
-    },
-    'yhmczqlg': {
-      'en': '12 points to reach level 4',
-      'fa': '۱۲ امتیاز برای رسیدن به سطح ۴',
-    },
-    '9ey4rtob': {
-      'en': '',
-      'fa': '',
-    },
-    'dcb0abt1': {
-      'en': 'Reviews',
-      'fa': 'نقد و بررسی‌ها',
-    },
-    '2808vfr9': {
-      'en': 'Posts',
-      'fa': 'پست‌ها',
-    },
-    'xt0uhk7r': {
-      'en': 'See All',
-      'fa': 'همه را ببینید',
-    },
-    'oq2hc9vq': {
-      'en': 'Favorites',
-      'fa': 'موارد دلخواه',
-    },
-    'fd2re1c8': {
-      'en': 'See All',
-      'fa': 'همه را ببینید',
-    },
-    'h7butxb7': {
-      'en': 'Reviews',
-      'fa': 'نقد و بررسی‌ها',
-    },
-    '9wndti6n': {
-      'en': 'See All',
-      'fa': 'همه را ببینید',
-    },
-    'c9j6hm84': {
-      'en': 'Awards',
-      'fa': 'چت‌ها',
-    },
-    'j6r5bq14': {
-      'en': 'See All',
-      'fa': 'همه را ببینید',
-    },
-    'yq4fqtye': {
-      'en': '',
-      'fa': 'خانه',
-    },
-  },
-  // chatdetail
-  {
-    'v838atpy': {
-      'en': 'Mark as Completed!',
-      'fa': 'درخواست بررسی',
-    },
-    'swnn4nwr': {
-      'en': '',
-      'fa': '',
-    },
-    'm04p2p42': {
-      'en': 'Type here',
-      'fa': 'اینجا تایپ کنید',
-    },
-    'ixvb7rf1': {
-      'en': 'Home',
-      'fa': 'خانه',
-    },
-  },
   // chatdetailWithYekja
   {
     '8v33985q': {
@@ -2402,6 +1862,382 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'a9aw2hjl': {
       'en': 'Home',
       'fa': 'خانه',
+    },
+  },
+  // PostIntend
+  {
+    '7mtlj6c6': {
+      'en': 'Action type',
+      'fa': 'لیست علاقه‌مندی‌ها',
+    },
+    'dpphxml4': {
+      'en': '4 of 6',
+      'fa': '۵ از ۶',
+    },
+    'c9keog06': {
+      'en': 'Offer or Request?',
+      'fa': '',
+    },
+    'db94mecz': {
+      'en': 'Select the action you intend to take concerning this post:',
+      'fa':
+          'در چند خط، آنچه را که نیاز دارید (اقلام، خدمات یا مهارت‌ها) بیان کنید.',
+    },
+    'fmcypfvm': {
+      'en': 'Next',
+      'fa': 'بعدی',
+    },
+    'xoqgud4d': {
+      'en': 'Post',
+      'fa': 'پست',
+    },
+  },
+  // OverviewCare_XXX
+  {
+    '4f31r95c': {
+      'en': 'Help\nRequests',
+      'fa': 'درخواست‌های کمک',
+    },
+    'wrgp7a0a': {
+      'en': 'Help\nOffers',
+      'fa': 'کمک\nپیشنهادات',
+    },
+    '037amlyc': {
+      'en': 'Top Categories',
+      'fa': 'دسته بندی های برتر',
+    },
+    '3b4w4odm': {
+      'en': 'Categories members like the most',
+      'fa': 'دسته بندی هایی که اعضا بیشتر دوست دارند',
+    },
+    'tlwgczrq': {
+      'en': 'Popular Posts',
+      'fa': 'پست‌های محبوب',
+    },
+    'vktu3546': {
+      'en': 'See all',
+      'fa': 'همه را ببینید',
+    },
+    'sxc6153h': {
+      'en': 'Most liked posts by  the community members',
+      'fa': 'پست‌های پربازدید توسط اعضای انجمن',
+    },
+    'h01izxww': {
+      'en': 'New Help Requests',
+      'fa': 'درخواست‌های کمک جدید',
+    },
+    'vuta9zjn': {
+      'en': 'See all',
+      'fa': 'همه را ببینید',
+    },
+    '8dcnikak': {
+      'en': 'Most recent posts asking for help',
+      'fa': 'جدیدترین پست‌ها درخواست کمک',
+    },
+    'qdios0ta': {
+      'en': 'New Help Offers',
+      'fa': 'پیشنهادات جدید کمک',
+    },
+    'jkkdwa93': {
+      'en': 'See all',
+      'fa': 'همه را ببینید',
+    },
+    'monqa5zf': {
+      'en': 'Most recent posts offering help',
+      'fa': 'جدیدترین پست‌های ارائه دهنده کمک',
+    },
+    '60czvw6q': {
+      'en': 'Community Care',
+      'fa': 'مراقبت‌های اجتماعی',
+    },
+    'o0cqrexj': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // ContactYEKJA
+  {
+    'uaue3xf2': {
+      'en': 'Welcome to support ',
+      'fa': 'به پشتیبانی خوش آمدید',
+    },
+    'b3om7lkw': {
+      'en': 'Make sure you check our FAQ',
+      'fa': 'حتماً سوالات متداول ما را بررسی کنید',
+    },
+    'ydnrk5zy': {
+      'en': 'Call Us',
+      'fa': 'با ما تماس بگیرید',
+    },
+    'ofdaiisb': {
+      'en': 'Search FAQs',
+      'fa': 'سوالات متداول جستجو',
+    },
+    'zlr86zaw': {
+      'en': '',
+      'fa': '',
+    },
+    'uy7ff9ps': {
+      'en': 'Choose a relevant subject',
+      'fa': 'یک موضوع انتخاب کنید',
+    },
+    'ol3f2ple': {
+      'en': 'Search...',
+      'fa': 'جستجو...',
+    },
+    'rhw1og4g': {
+      'en': 'Option 1',
+      'fa': 'گزینه ۱',
+    },
+    '9ptgnueo': {
+      'en': 'Option 2',
+      'fa': 'گزینه ۲',
+    },
+    '1jg9wm4c': {
+      'en': 'Option 3',
+      'fa': 'گزینه ۳',
+    },
+    '7p9q5poi': {
+      'en':
+          'Please provide description of your inquiry here. We will do our best to come back to you as soon as possible. ',
+      'fa': 'شرح مختصری از نحوه کمک رسانی ما...',
+    },
+    'n246spdb': {
+      'en':
+          'Please use only letters (English/Persian), spaces, a dot or underscore.',
+      'fa': '',
+    },
+    'u1tki64s': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': '',
+    },
+    'qc3iypvs': {
+      'en': 'Upload image',
+      'fa': 'آپلود تصویر',
+    },
+    'ziper6ve': {
+      'en': 'Submit ',
+      'fa': 'ارسال',
+    },
+    'md9u0vgx': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // SearchPage
+  {
+    'qlxrtif2': {
+      'en': 'Help\nRequests',
+      'fa': 'درخواست‌های \nکمک',
+    },
+    'zxm6qhi3': {
+      'en': 'Help\nOffers',
+      'fa': 'پیشنهادهای\nکمک',
+    },
+    '7kdb5dt1': {
+      'en': 'Items for Exchange',
+      'fa': 'کالاها یا خدمات\nبرای تبادل',
+    },
+    'iqukbo0v': {
+      'en': 'Borrow\nRequests',
+      'fa': 'درخواست‌های \nامانت',
+    },
+    'ix9u3yl7': {
+      'en': 'Items for\nFree',
+      'fa': 'اقلام موجود\nرایگان',
+    },
+    'h96yelv3': {
+      'en': 'Searh Results',
+      'fa': 'نتایج جستجو',
+    },
+    '1je8wpdn': {
+      'en': 'Filter',
+      'fa': 'فیلتر',
+    },
+    'qrvkaa77': {
+      'en': '',
+      'fa': '',
+    },
+    '7uu9uavl': {
+      'en': 'Search',
+      'fa': 'جستجو',
+    },
+    'q4ar00pn': {
+      'en': 'Option 1',
+      'fa': 'گزینه ۱',
+    },
+    '0dfm2rcn': {
+      'en': '',
+      'fa': '',
+    },
+    'kd5mjjjg': {
+      'en': 'Search',
+      'fa': 'جستجو',
+    },
+    '8b3no9i7': {
+      'en': 'Option 1',
+      'fa': 'گزینه ۱',
+    },
+    'gak00fpr': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // HomePage
+  {
+    'md4unc80': {
+      'en': 'Search',
+      'fa': 'جستجو',
+    },
+    'qv9q21jt': {
+      'en': 'Search is required',
+      'fa': '',
+    },
+    'vzxdrsnm': {
+      'en':
+          'Please use only letters (English/Persian), spaces, a dot or underscore.',
+      'fa': '',
+    },
+    'invzk7d6': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': '',
+    },
+    'uecq8i6w': {
+      'en': 'What are you looking for today?',
+      'fa': 'امروز چی می‌خوای پیدا کنی؟',
+    },
+    'rj83omaj': {
+      'en': 'VOLUNTARY SUPPORT',
+      'fa': 'همیاری  رایگان',
+    },
+    'c8a9ytss': {
+      'en': 'COMMUNITY MARKET',
+      'fa': 'دادو ستد محلی',
+    },
+    'yvetgowh': {
+      'en': 'SKILLS & EXPERTISE',
+      'fa': 'دادو ستد محلی',
+    },
+    'abmw58ok': {
+      'en': 'EVENTS & ANNOUNCMENTS',
+      'fa': 'رویدادها',
+    },
+    'pmzri2ub': {
+      'en': 'Careers & Networking',
+      'fa': 'دادو ستد محلی',
+    },
+    'j3hbpsji': {
+      'en': 'This feature is \nlaunching soon!',
+      'fa': ' این ویژگی به زودی راه‌اندازی می‌شود.',
+    },
+    's2nj1c3x': {
+      'en': 'Businesses',
+      'fa': 'خدمات ایران – هلند',
+    },
+    'usbpkb74': {
+      'en': 'Trending Categories',
+      'fa': 'دسته بندی های پرطرفدار',
+    },
+    'onqaufy9': {
+      'en': 'See all',
+      'fa': 'همه را ببینید',
+    },
+    'gcaiv1cc': {
+      'en': 'Care &\nAssistance',
+      'fa': '',
+    },
+    '6wfq8m1t': {
+      'en': 'Home &\nRentals',
+      'fa': '',
+    },
+    'd8j2douw': {
+      'en': 'Concerts\n& Shows',
+      'fa': '',
+    },
+    'yhr2oplg': {
+      'en': 'Personal\nServices',
+      'fa': '',
+    },
+    'eaca440q': {
+      'en': 'Job\nOffers',
+      'fa': '',
+    },
+    'qokg5eno': {
+      'en': 'Stores\n& Shops',
+      'fa': '',
+    },
+    'lnqdg5mp': {
+      'en': 'How It Works?',
+      'fa': 'تعویض در ۴ مرحله آسان',
+    },
+    'fsf3mcvr': {
+      'en': 'Choose where your post belongs',
+      'fa': 'انتخاب کنید که پست شما به کجا تعلق دارد',
+    },
+    'xvibk9g9': {
+      'en': 'Add details and pics',
+      'fa': 'جزئیات و تصاویر را اضافه کنید',
+    },
+    '6jcii098': {
+      'en': 'Say what you want in return',
+      'fa': 'در عوض هرچی دلت میخواد بگو',
+    },
+    'o4t933ga': {
+      'en': 'Your post is live!',
+      'fa': 'پست شما زنده است!',
+    },
+    'pfhno2h7': {
+      'en': '1. Share an item, skill, or service',
+      'fa': '۱. یک کالا، مهارت یا خدمات را به اشتراک بگذارید',
+    },
+    'v9eb6c1w': {
+      'en':
+          'For example, request or offer a room for rent, bike to sell, an expert to hire, announce an event, and so on.',
+      'fa': 'من یه کوله و چنتا کتاب دارم میدم و دنبال یکییم ساز یادم بده',
+    },
+    '6s56pbb1': {
+      'en': '2. Receive offers & discuss',
+      'fa':
+          '۲. تو پیام میدی:  «ساز بلد نیستم، ولی می‌تونم زبان یا طراحی یاد بدم.',
+    },
+    '0n59oasi': {
+      'en':
+          'If you receive an offer, discuss the details, clarify expectations, timing, and conditions until you both agree.',
+      'fa': 'با هم حرف می‌زنیم، می‌بینیم چی به کارمون میاد',
+    },
+    'h0ay052s': {
+      'en': '3. Meet up in person & finalize ',
+      'fa': '۳. اگه شد حضوری ملاقات میکنیم',
+    },
+    'iiu0tp23': {
+      'en':
+          'It’s always nice to meet in person, complete the exchange, and end it with a smile.',
+      'fa':
+          'اگه شد حضوری ملاقات میکنیم و به توافق میرسیم اگرم  نشد کمی پول اضافه می‌کنیم ',
+    },
+    '2mbe77a2': {
+      'en': '4. Leave a review ',
+      'fa': '۴. امتیاز و نظر میدیم',
+    },
+    'r365vlqj': {
+      'en': 'Build trust and make it easier for others to find you both.',
+      'fa': 'اینطوری بقیه توی یکجا راحت‌تر ما رو پیدا می‌کنن',
+    },
+    'gpiujku4': {
+      'en': 'What’s Around You?',
+      'fa': 'اطراف شما چه خبر است؟',
+    },
+    '353k0b4j': {
+      'en': 'Start',
+      'fa': 'شروع',
+    },
+    '6lyr5um7': {
+      'en': 'the community',
+      'fa': 'خانواده‌ی بزرگ ما',
+    },
+    'qv3strvd': {
+      'en': '',
+      'fa': '',
     },
   },
   // ProfileEdit
@@ -2490,7 +2326,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'firstName is required',
       'fa': 'نام و نام خانوادگی الزامی است',
     },
-    's4x8snvq': {
+    'jb5e9dly': {
       'en': 'Please use only letters (English/Persian), spaces.',
       'fa': '',
     },
@@ -2676,85 +2512,866 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'خانه',
     },
   },
-  // PostIntend
+  // chatdetail
   {
-    '7mtlj6c6': {
-      'en': 'Action type',
-      'fa': 'لیست علاقه‌مندی‌ها',
+    'v838atpy': {
+      'en': 'Mark as Completed!',
+      'fa': 'درخواست بررسی',
     },
-    'dpphxml4': {
-      'en': '4 of 6',
-      'fa': '۵ از ۶',
-    },
-    'c9keog06': {
-      'en': 'Offer or Request?',
+    'swnn4nwr': {
+      'en': '',
       'fa': '',
     },
-    'db94mecz': {
-      'en': 'Select the action you intend to take concerning this post:',
-      'fa':
-          'در چند خط، آنچه را که نیاز دارید (اقلام، خدمات یا مهارت‌ها) بیان کنید.',
+    'm04p2p42': {
+      'en': 'Type here',
+      'fa': 'اینجا تایپ کنید',
     },
-    'fmcypfvm': {
-      'en': 'Next',
-      'fa': 'بعدی',
-    },
-    'xoqgud4d': {
-      'en': 'Post',
-      'fa': 'پست',
+    'ixvb7rf1': {
+      'en': 'Home',
+      'fa': 'خانه',
     },
   },
-  // MarketCopy
+  // Market
   {
-    '6xvyo72x': {
-      'en': 'Community\nTransfer',
+    'q6o9bjar': {
+      'en': 'Community Market',
       'fa': '',
     },
-    'wm9er71t': {
-      'en': 'Currency\nExchange',
+    'lhv4rbl0': {
+      'en': 'Transfer\nParcels',
       'fa': '',
     },
-    'lbnwyxxh': {
-      'en': 'Ticket\nSwap',
+    'e75me3ra': {
+      'en': 'Currency\nExchanges',
       'fa': '',
     },
-    'bfbc9erh': {
-      'en': 'Buy &\nSell',
+    '7nejfzx6': {
+      'en': 'Ticket\nSwaps',
       'fa': '',
     },
-    'c8wsa8c0': {
+    'upzdzqfj': {
+      'en': 'Selling\nItems',
+      'fa': '',
+    },
+    '0a5argz8': {
       'en': 'Give\nAway',
       'fa': '',
     },
-    '4k24dhq9': {
-      'en': 'Swap\nItems',
+    'fez7bxzs': {
+      'en': 'Exchange\nItems',
       'fa': '',
     },
-    'kcom6g5u': {
-      'en': 'Top Categories',
-      'fa': 'دسته بندی های برتر',
+    '445vvqa5': {
+      'en': 'Homes &\nRentals',
+      'fa': '',
     },
-    'crcofdig': {
-      'en': 'Categories members like the most',
-      'fa': 'دسته بندی هایی که اعضا بیشتر دوست دارند',
-    },
-    'uki9srzc': {
-      'en': 'Recent Listings',
-      'fa': 'صرافی‌های جدید',
-    },
-    'n1teotq4': {
+    'z03svtjd': {
       'en': 'Sort by',
+      'fa': '',
+    },
+    'etjsqje0': {
+      'en': 'Search...',
+      'fa': '',
+    },
+    'dvxs0iu7': {
+      'en': 'Recent',
+      'fa': '',
+    },
+    'x8u4gjyb': {
+      'en': 'Popular',
+      'fa': '',
+    },
+    '7w4oeybw': {
+      'en': 'Voluntary Support',
+      'fa': '',
+    },
+    'xvimr1m0': {
+      'en': 'Care &\nAssistance',
+      'fa': '',
+    },
+    'to4790zt': {
+      'en': 'Peer-\nSupport',
+      'fa': '',
+    },
+    'czt2og66': {
+      'en': 'Sort by',
+      'fa': '',
+    },
+    '2lmf4r3c': {
+      'en': 'Search...',
+      'fa': '',
+    },
+    'q09sh78q': {
+      'en': 'Recent',
+      'fa': '',
+    },
+    'c6z26gh2': {
+      'en': 'Popular',
+      'fa': '',
+    },
+    'jbbatmul': {
+      'en': 'Community Shoutouts',
+      'fa': 'قدردانی ها',
+    },
+    '1y5mye93': {
+      'en': 'Skills & Expertise',
+      'fa': '',
+    },
+    'kccxuk3b': {
+      'en': 'Transport\n& Logistics',
+      'fa': '',
+    },
+    'gzwc3wn6': {
+      'en': 'Home\n& Services',
+      'fa': '',
+    },
+    'es9rzsh2': {
+      'en': 'Education\n& Coaching',
+      'fa': '',
+    },
+    'tro57wlg': {
+      'en': 'Body\n& Care',
+      'fa': '',
+    },
+    'zzoozb1b': {
+      'en': 'Arts, Culture\nCommunity',
+      'fa': '',
+    },
+    'aq6ocaqj': {
+      'en': 'Creative \n& Digital',
+      'fa': '',
+    },
+    'yivcsxxp': {
+      'en': 'Exchange\nItems',
+      'fa': '',
+    },
+    'ibapwag9': {
+      'en': 'Exchange\nItems',
+      'fa': '',
+    },
+    'rr93b4j7': {
+      'en': 'Sort by',
+      'fa': '',
+    },
+    's73tbhgg': {
+      'en': 'Search...',
+      'fa': '',
+    },
+    'c9jgszbk': {
+      'en': 'Recent',
+      'fa': '',
+    },
+    'vs677ope': {
+      'en': 'Popular',
+      'fa': '',
+    },
+    'ijphs52w': {
+      'en': 'Events & Announcements',
+      'fa': '',
+    },
+    '58nv5tei': {
+      'en': 'Cultural\n& Social',
+      'fa': '',
+    },
+    'xip09fov': {
+      'en': 'Concerts\n& Shows',
+      'fa': '',
+    },
+    'c655fk0g': {
+      'en': 'Art &\nExhibition',
+      'fa': '',
+    },
+    'y85mmnsr': {
+      'en': 'Workshop\n& Training',
+      'fa': '',
+    },
+    'm4l7xo2j': {
+      'en': 'Game Nights',
+      'fa': '',
+    },
+    '39npjjn8': {
+      'en': 'Sport\nEvents',
+      'fa': '',
+    },
+    '6bc1921m': {
+      'en': 'Homes &\nRentals',
+      'fa': '',
+    },
+    '9hhtvn8g': {
+      'en': 'Homes &\nRentals',
+      'fa': '',
+    },
+    'borgvgtn': {
+      'en': 'Sort by',
+      'fa': '',
+    },
+    'bfohq53i': {
+      'en': 'Search...',
+      'fa': '',
+    },
+    'dc06nkgi': {
+      'en': 'Recent',
+      'fa': '',
+    },
+    'i3smswcl': {
+      'en': 'Popular',
+      'fa': '',
+    },
+    '40jyx1y4': {
+      'en': 'Careers & Networking',
+      'fa': '',
+    },
+    '1rno7sox': {
+      'en': 'FEATURE COMING SOON!',
+      'fa': '',
+    },
+    '75r1mvgw': {
+      'en': 'Careers Hub',
+      'fa': '',
+    },
+    'skml1g5k': {
+      'en':
+          'Explore diverse possibilities and connect with professionals and partners',
+      'fa': '',
+    },
+    '28cuze9u': {
+      'en': 'WANT EARLY ACCESS?',
+      'fa': '',
+    },
+    '0tjf9rxi': {
+      'en': 'Contact us to be among the first to explore:',
+      'fa': '',
+    },
+    'btc0b3mg': {
+      'en': 'Advertise a job',
+      'fa': '',
+    },
+    't2g7q2vk': {
+      'en': 'Request a job',
+      'fa': '',
+    },
+    'oo1boqiv': {
+      'en': 'Join or organize networking events',
+      'fa': '',
+    },
+    's26idz17': {
+      'en': 'Start-up partnership and investment',
+      'fa': '',
+    },
+    '6r3xblu7': {
+      'en': 'Set up recruiters profiles',
+      'fa': '',
+    },
+    'r7268ko2': {
+      'en': 'JOIN THE WAITLLIST',
+      'fa': '',
+    },
+    'aadqle57': {
+      'en': 'Learn more about this feature',
+      'fa': '',
+    },
+    'n10nwwc2': {
+      'en': 'Businesses ',
+      'fa': '',
+    },
+    'e2d4ut8h': {
+      'en': 'FEATURE COMING SOON!',
+      'fa': '',
+    },
+    'zp7vejy9': {
+      'en': 'Business Profiles',
+      'fa': '',
+    },
+    'b3gzlga0': {
+      'en':
+          'We\'re working hard to bring you enhanced business profiles that will elevate your presence to connect with more customers.',
+      'fa': '',
+    },
+    'kw9kshu4': {
+      'en': 'WANT TO BE AMONG THE FIRST?',
+      'fa': '',
+    },
+    'ybvnqjpe': {
+      'en': 'Contact us to set up your profile',
+      'fa': '',
+    },
+    'tztmvy08': {
+      'en': 'CONTACT SUPPORT',
+      'fa': '',
+    },
+    '2ipt83o6': {
+      'en': 'See an example business profile',
+      'fa': '',
+    },
+    'acanui6t': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // Post
+  {
+    '2rqgmz8p': {
+      'en': 'Value hint ',
+      'fa': 'اشاره به ارزش',
+    },
+    'vmm70xk5': {
+      'en': '(check here)',
+      'fa': '(اینجا را بررسی کنید)',
+    },
+    'lfzko40i': {
+      'en': 'Value hint',
+      'fa': 'اشاره به ارزش',
+    },
+    'ajx9fsxv': {
+      'en': 'DESCRIPTION',
+      'fa': 'شرح',
+    },
+    'lbvm96he': {
+      'en': '4.3',
+      'fa': '۴.۳',
+    },
+    'lo8jmg0v': {
+      'en': 'MY EXCHANGE WISH',
+      'fa': 'آرزوی تبادل من',
+    },
+    '6g2h5fom': {
+      'en': 'REVIEWS',
+      'fa': 'نقد و بررسی‌ها',
+    },
+    'onhh13rd': {
+      'en': 'Home',
+      'fa': 'خانه',
+    },
+  },
+  // ProfilePage
+  {
+    'wi68hahy': {
+      'en': 'Likes',
+      'fa': 'لایک‌ها',
+    },
+    'jzc0o03k': {
+      'en': '3',
+      'fa': '۳',
+    },
+    'yhmczqlg': {
+      'en': '12 points to reach level 4',
+      'fa': '۱۲ امتیاز برای رسیدن به سطح ۴',
+    },
+    '9ey4rtob': {
+      'en': '',
+      'fa': '',
+    },
+    'dcb0abt1': {
+      'en': 'Reviews',
+      'fa': 'نقد و بررسی‌ها',
+    },
+    '2808vfr9': {
+      'en': 'Posts',
+      'fa': 'پست‌ها',
+    },
+    'xt0uhk7r': {
+      'en': 'See All',
       'fa': 'همه را ببینید',
     },
-    'dmtc5rhg': {
-      'en': 'Most recent offers or requests',
-      'fa': 'جدیدترین اقلام ارائه شده برای تعویض',
+    'oq2hc9vq': {
+      'en': 'Favorites',
+      'fa': 'موارد دلخواه',
     },
-    'nb07l7ss': {
-      'en': 'Community Market',
-      'fa': 'بازار محلی',
+    'fd2re1c8': {
+      'en': 'See All',
+      'fa': 'همه را ببینید',
     },
-    'aa5cbdfw': {
+    'h7butxb7': {
+      'en': 'Reviews',
+      'fa': 'نقد و بررسی‌ها',
+    },
+    '9wndti6n': {
+      'en': 'See All',
+      'fa': 'همه را ببینید',
+    },
+    'c9j6hm84': {
+      'en': 'Awards',
+      'fa': 'چت‌ها',
+    },
+    'j6r5bq14': {
+      'en': 'See All',
+      'fa': 'همه را ببینید',
+    },
+    'yq4fqtye': {
+      'en': '',
+      'fa': 'خانه',
+    },
+  },
+  // ProfileEditCopy
+  {
+    '1tg5n8be': {
+      'en': 'Personal',
+      'fa': 'شخصی',
+    },
+    'h7fniol8': {
+      'en': 'Personal Information',
+      'fa': '',
+    },
+    'cvaamy7b': {
+      'en': 'User name',
+      'fa': 'نام کاربری',
+    },
+    '7k120zgx': {
+      'en': 'A unique name to  display on your profile.',
+      'fa': 'یک نام منحصر به فرد برای نمایش در پروفایل شما.',
+    },
+    '8tcrkg6x': {
+      'en': 'First name',
+      'fa': 'نام کوچک',
+    },
+    'jerwzmin': {
+      'en': 'First name',
+      'fa': 'نام کوچک',
+    },
+    '56hadqzv': {
+      'en': 'Last name',
+      'fa': 'نام خانوادگی',
+    },
+    'rdmygcc3': {
+      'en': 'Last name',
+      'fa': 'نام خانوادگی',
+    },
+    'w47payda': {
+      'en': 'Biography',
+      'fa': 'زندگینامه',
+    },
+    '8ly2mjo6': {
+      'en': 'Let everyone know about you.',
+      'fa': 'بگذارید همه از شما خبر داشته باشند.',
+    },
+    '4f5fv6ht': {
+      'en': 'This field is required.',
+      'fa': 'این فیلد الزامی است.',
+    },
+    '0a376pzj': {
+      'en': 'Minimum 3 letters are required.',
+      'fa': 'حداقل ۳ حرف الزامی است.',
+    },
+    'ca30mi4r': {
+      'en': 'user name is too lang.',
+      'fa': 'نام کاربری خیلی طولانی است.',
+    },
+    'uwnfnwxd': {
+      'en': 'Please use only letters (English/Persian), spaces, or underscore.',
+      'fa': 'فقط حروف (A-Z) معتبر هستند.',
+    },
+    'qt28ucqq': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'hly9yj28': {
+      'en': 'firstName is required',
+      'fa': 'نام و نام خانوادگی الزامی است',
+    },
+    'veo7h5we': {
+      'en': 'Please use only letters (English/Persian), spaces.',
+      'fa': '',
+    },
+    'fswtkr89': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'c89tv1b8': {
+      'en': 'This field is required',
+      'fa': 'این فیلد الزامی است',
+    },
+    'mlp0lwnh': {
+      'en': 'Please use only letters (English/Persian), spaces.',
+      'fa': 'لطفا فقط نامه کاربر.',
+    },
+    'u028sh8a': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    '8owjkb4m': {
+      'en': 'Please enter valid Email address.',
+      'fa': 'لطفا آدرس ایمیل معتبری وارد کنید.',
+    },
+    'v89ban71': {
+      'en': 'This field is required',
+      'fa': 'این فیلد الزامی است',
+    },
+    'hummuay9': {
+      'en': 'Please use a valid email address.',
+      'fa': 'لطفا آدرس ایمیل معتبری وارد کنید.',
+    },
+    'zgch8rn5': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'ax1x4v8s': {
+      'en': 'This field is required.',
+      'fa': 'این فیلد الزامی است.',
+    },
+    'ldyfq6g1': {
+      'en': 'Use a valid phone number. e.g 0612345678',
+      'fa': 'از یک شماره تلفن معتبر استفاده کنید. مثلاً 0612345678',
+    },
+    '8rlkabc0': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'pah965dt': {
+      'en': 'user_city is required',
+      'fa': 'user_city الزامی است',
+    },
+    't9yh6x64': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'alzr2t5y': {
+      'en': 'Too many characters.',
+      'fa': 'تعداد کاراکترها خیلی زیاده.',
+    },
+    'fkcs1o4e': {
+      'en':
+          'Please use only letters (English/Persian), spaces, underscore or dot.',
+      'fa': 'ساختار نامعتبر است، لطفاً پیشنهاد 0612345678 را دنبال کنید.',
+    },
+    'j9vogjx6': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    '5pfrztdf': {
+      'en': 'Contact Information',
+      'fa': '',
+    },
+    't6s9cqze': {
+      'en': 'Email',
+      'fa': 'ایمیل',
+    },
+    'gi17gnux': {
+      'en': 'example@example.com',
+      'fa': 'example@example.com',
+    },
+    'ox2embbc': {
+      'en': 'PhoneNumber',
+      'fa': 'شماره تلفن',
+    },
+    'ksiuoujt': {
+      'en': '0612345678',
+      'fa': '۰۶۱۲۳۴۵۶۷۸',
+    },
+    '6219s91p': {
+      'en': 'City',
+      'fa': 'شهر',
+    },
+    'xawejehs': {
+      'en': 'City',
+      'fa': 'شهر',
+    },
+    'uc7fehim': {
+      'en': 'This field is required.',
+      'fa': 'این فیلد الزامی است.',
+    },
+    'dosjsz9o': {
+      'en': 'Minimum 3 letters are required.',
+      'fa': 'حداقل ۳ حرف الزامی است.',
+    },
+    'ucftow3e': {
+      'en': 'user name is too lang.',
+      'fa': 'نام کاربری خیلی طولانی است.',
+    },
+    '7gci1oxh': {
+      'en': 'Please use only letters (English/Persian), spaces, or underscore.',
+      'fa': 'فقط حروف (A-Z) معتبر هستند.',
+    },
+    '118gxzyf': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'riw4y0dv': {
+      'en': 'firstName is required',
+      'fa': 'نام و نام خانوادگی الزامی است',
+    },
+    '1t2xbpyh': {
+      'en': 'Please use only letters (English/Persian), spaces.',
+      'fa': '',
+    },
+    'mvvwgnlt': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    '4k60vpew': {
+      'en': 'This field is required',
+      'fa': 'این فیلد الزامی است',
+    },
+    'g9njyuxl': {
+      'en': 'Please use only letters (English/Persian), spaces.',
+      'fa': 'لطفا فقط نامه کاربر.',
+    },
+    '2iv3hfqt': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    '2mnrvw91': {
+      'en': 'Please enter valid Email address.',
+      'fa': 'لطفا آدرس ایمیل معتبری وارد کنید.',
+    },
+    'hbbj80ns': {
+      'en': 'This field is required',
+      'fa': 'این فیلد الزامی است',
+    },
+    'nveeeqqf': {
+      'en': 'Please use a valid email address.',
+      'fa': 'لطفا آدرس ایمیل معتبری وارد کنید.',
+    },
+    'wxmnto7k': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'iwm4ef5q': {
+      'en': 'This field is required.',
+      'fa': 'این فیلد الزامی است.',
+    },
+    'w3quzm39': {
+      'en': 'Use a valid phone number. e.g 0612345678',
+      'fa': 'از یک شماره تلفن معتبر استفاده کنید. مثلاً 0612345678',
+    },
+    'dtjy2f2n': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    '5vobltzb': {
+      'en': 'user_city is required',
+      'fa': 'user_city الزامی است',
+    },
+    's0n3i62b': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'ne2e18a0': {
+      'en': 'Too many characters.',
+      'fa': 'تعداد کاراکترها خیلی زیاده.',
+    },
+    'tdzu0zze': {
+      'en':
+          'Please use only letters (English/Persian), spaces, underscore or dot.',
+      'fa': 'ساختار نامعتبر است، لطفاً پیشنهاد 0612345678 را دنبال کنید.',
+    },
+    '030ez7hz': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'ltcjo159': {
+      'en': 'Social Media',
+      'fa': '',
+    },
+    'lg5sehnw': {
+      'en': 'TextField',
+      'fa': '',
+    },
+    'dicxn44a': {
+      'en': 'This field is required.',
+      'fa': 'این فیلد الزامی است.',
+    },
+    '1eppca3a': {
+      'en': 'Minimum 3 letters are required.',
+      'fa': 'حداقل ۳ حرف الزامی است.',
+    },
+    'f5ccyolk': {
+      'en': 'user name is too lang.',
+      'fa': 'نام کاربری خیلی طولانی است.',
+    },
+    '980rw6yr': {
+      'en': 'Please use only letters (English/Persian), spaces, or underscore.',
+      'fa': 'فقط حروف (A-Z) معتبر هستند.',
+    },
+    '604u4w71': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'd13gr7rd': {
+      'en': 'firstName is required',
+      'fa': 'نام و نام خانوادگی الزامی است',
+    },
+    'oagjwo1v': {
+      'en': 'Please use only letters (English/Persian), spaces.',
+      'fa': '',
+    },
+    'ne7mo6bm': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    's1bj8aiy': {
+      'en': 'This field is required',
+      'fa': 'این فیلد الزامی است',
+    },
+    '9kpgusg7': {
+      'en': 'Please use only letters (English/Persian), spaces.',
+      'fa': 'لطفا فقط نامه کاربر.',
+    },
+    'n9778bcq': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'a3lrwfo0': {
+      'en': 'Please enter valid Email address.',
+      'fa': 'لطفا آدرس ایمیل معتبری وارد کنید.',
+    },
+    'ou3gtevy': {
+      'en': 'This field is required',
+      'fa': 'این فیلد الزامی است',
+    },
+    'nryrdgfm': {
+      'en': 'Please use a valid email address.',
+      'fa': 'لطفا آدرس ایمیل معتبری وارد کنید.',
+    },
+    '458daemi': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'acfapk81': {
+      'en': 'This field is required.',
+      'fa': 'این فیلد الزامی است.',
+    },
+    'wpvvzqf3': {
+      'en': 'Use a valid phone number. e.g 0612345678',
+      'fa': 'از یک شماره تلفن معتبر استفاده کنید. مثلاً 0612345678',
+    },
+    'f5op2316': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'hg78612y': {
+      'en': 'user_city is required',
+      'fa': 'user_city الزامی است',
+    },
+    'bgpa91a2': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'pr4zbq4i': {
+      'en': 'Too many characters.',
+      'fa': 'تعداد کاراکترها خیلی زیاده.',
+    },
+    'lzng4qx4': {
+      'en':
+          'Please use only letters (English/Persian), spaces, underscore or dot.',
+      'fa': 'ساختار نامعتبر است، لطفاً پیشنهاد 0612345678 را دنبال کنید.',
+    },
+    'q0akrcrf': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+    },
+    'mb8qxwm3': {
+      'en': 'Save',
+      'fa': 'ذخیره',
+    },
+    'nbv3szt9': {
+      'en': 'Change password',
+      'fa': 'تغییر رمز عبور',
+    },
+    'j2hj0yzw': {
+      'en': 'To delete your account, ',
+      'fa': 'برای حذف حساب کاربری خود،',
+    },
+    'ayyq9da0': {
+      'en': 'click here.',
+      'fa': 'اینجا کلیک کنید.',
+    },
+    'c1ajh2vc': {
+      'en': 'Are you sure you want to delete your account?',
+      'fa': 'آیا مطمئن هستید که می‌خواهید حساب کاربری خود را حذف کنید؟',
+    },
+    'cpxsrki1': {
+      'en':
+          'By confirming you cannot revive your account anymore. Would you confirm this?',
+      'fa':
+          'با تأیید اینکه دیگر نمی‌توانید حساب خود را احیا کنید، آیا این را تأیید می‌کنید؟',
+    },
+    '6a2fziro': {
+      'en': 'Privacy Setting',
+      'fa': 'تنظیمات حریم خصوصی',
+    },
+    '9gnchgjf': {
+      'en': 'Allow users to see my profile photo.',
+      'fa': 'اعلان ایمیل',
+    },
+    'nnxca66f': {
+      'en': 'Allow  users to see my social media link.',
+      'fa': 'اعلان برنامه',
+    },
+    '1g8re0aj': {
+      'en': 'Allow users to see my favorites.',
+      'fa': 'به کاربران اجازه دهید به من پیام بدهند.',
+    },
+    'qa16wop5': {
+      'en': 'Allow  users to call me.',
+      'fa': 'نمایش بیوگرافی پروفایل',
+    },
+    'i62uuxwh': {
+      'en': 'Allow  users to message me.',
+      'fa': 'به کاربران اجازه دهید به من پیام بدهند.',
+    },
+    'niqgbb33': {
+      'en': 'Save ',
+      'fa': 'ذخیره',
+    },
+    '9w8zjkix': {
+      'en': 'Terms & Conditions',
+      'fa': 'شرایط و ضوابط',
+    },
+    '0eqbpyfb': {
+      'en': 'Last update:',
+      'fa': 'آخرین به‌روزرسانی:',
+    },
+    '86b9dl0z': {
+      'en': ' 27/12/2023',
+      'fa': '۲۷/۱۲/۲۰۲۳',
+    },
+    '5rxx4eqd': {
+      'en':
+          'Please read these terms of service, carefully before using our app operated by us.',
+      'fa':
+          'لطفاً قبل از استفاده از برنامه‌ای که توسط ما اداره می‌شود، این شرایط خدمات را با دقت مطالعه کنید.',
+    },
+    'z6oq407a': {
+      'en': 'Conditions of Uses',
+      'fa': 'شرایط استفاده',
+    },
+    '4hmiyku9': {
+      'en':
+          'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. \n\nMany desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).',
+      'fa':
+          'این یک واقعیت دیرینه است که خواننده هنگام نگاه کردن به طرح‌بندی یک صفحه، حواسش به محتوای خوانای آن پرت می‌شود. نکته استفاده از لورم ایپسوم این است که برخلاف استفاده از «محتوا اینجا، محتوا اینجا» توزیع حروف کم و بیش نرمالی دارد و باعث می‌شود مانند انگلیسی خوانا به نظر برسد.\n\nبسیاری از بسته‌های نشر رومیزی و ویرایشگرهای صفحات وب اکنون از لورم ایپسوم به عنوان متن مدل پیش‌فرض خود استفاده می‌کنند و جستجوی «لورم ایپسوم» بسیاری از وب‌سایت‌ها را که هنوز در مراحل ابتدایی خود هستند، آشکار می‌کند. نسخه‌های مختلفی در طول سال‌ها تکامل یافته‌اند، گاهی به طور تصادفی، گاهی به طور هدفمند (تزریق طنز و موارد مشابه).',
+    },
+    'bugt9s1t': {
+      'en': 'Types of data we collect',
+      'fa': 'انواع داده‌هایی که جمع‌آوری می‌کنیم',
+    },
+    '7nzis5rd': {
+      'en':
+          'Torem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum ',
+      'fa':
+          'Torem ipsum dolor sit amet، consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim، metus nec fringilla accumsan، risus sem sollicitudin lacus، ut interdum',
+    },
+    'fiujz5ly': {
+      'en': 'Use of your personal data',
+      'fa': 'استفاده از داده‌های شخصی شما',
+    },
+    '874gf5jc': {
+      'en':
+          'Torem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum ',
+      'fa':
+          'Torem ipsum dolor sit amet، consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim، metus nec fringilla accumsan، risus sem sollicitudin lacus، ut interdum',
+    },
+    'stvk2rzm': {
+      'en': 'Disclosure of your data',
+      'fa': 'افشای داده‌های شما',
+    },
+    'gbbs7qhx': {
+      'en':
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec ac odio tempor orci dapibus ultrices in iaculis lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec ac odio tempor orci dapibus ultrices in iaculis Ac auctor augue mauris augue neque gravida. Velit ut tortor pretium viverra suspendisse. Volutpat commodo sed egestas egestas fringilla phasellus faucibus. ',
+      'fa':
+          'Lorem ipsum dolor sit amet، consectetur adipiscing elit، sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec ac odio tempor orci dapibus ultrices in iaculis lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec ac odio tempor orci dapibus ultrices in iaculis Ac auctor augue mauris augue neque gravida. تعلیق پرتیوم ویورا. Volutpat commodo sed egestas egestas fringillaphallus faucibus.',
+    },
+    '0ojqhq3i': {
       'en': 'Home',
       'fa': 'خانه',
     },
@@ -3347,77 +3964,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '+10 Points',
       'fa': '+۱۰ امتیاز',
     },
-    '9n1g8cal': {
-      'en': '4.9',
-      'fa': '۴.۹',
-    },
-    'akk1rip2': {
-      'en': 'Thank You!',
-      'fa': 'نیما این هفته به ۳ نفر کمک کرده! مرسی نیما!',
-    },
-  },
-  // ReviewAndRating
-  {
-    'bgtfx9oz': {
-      'en': 'Would you like to share your experience about this member?',
-      'fa': '',
-    },
-    'bc2ugybz': {
-      'en': 'Communication',
-      'fa': 'ارتباطات',
-    },
-    '1wffczog': {
-      'en': 'Reliability',
-      'fa': 'قابلیت اطمینان',
-    },
-    '3hk4ajr8': {
-      'en': 'Quality',
-      'fa': 'کیفیت',
-    },
-    '69tqvojl': {
-      'en': 'Fairness',
-      'fa': 'انصاف',
-    },
-    'ixl4pva7': {
-      'en': 'Review note',
-      'fa': 'یادداشت بررسی',
-    },
-    'tfvvwgse': {
-      'en':
-          'Please use only letters (English/Persian), spaces, dot or underscore.',
-      'fa': '',
-    },
-    'x9yhqtds': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': '',
-    },
-    'q9biojw1': {
-      'en': 'Submit',
-      'fa': 'ارسال',
-    },
-  },
-  // verifyCode
-  {
-    'hy8t8fp9': {
-      'en': 'A confimation code was sent via email.',
-      'fa': 'یک کد تایید از طریق ایمیل ارسال شد.',
-    },
-    'unuifogx': {
-      'en': 'Wrong or expired code!',
-      'fa': '',
-    },
-    're93hvjq': {
-      'en': 'Pease enter  valid code',
-      'fa': 'لطفا کد معتبر را وارد کنید',
-    },
-    'vra2s4j2': {
-      'en': 'Resend',
-      'fa': 'ارسال مجدد',
-    },
-    '62qr2zha': {
-      'en': 'Verify now',
-      'fa': 'اکنون تأیید کنید',
-    },
   },
   // City
   {
@@ -3471,30 +4017,300 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'ذخیره',
     },
   },
+  // More_Menu
+  {
+    'gqwl0yb6': {
+      'en': 'Bookmark',
+      'fa': '',
+    },
+    'mn4jxoun': {
+      'en': 'Report',
+      'fa': '',
+    },
+  },
+  // ReviewAndRating
+  {
+    'bgtfx9oz': {
+      'en': 'Would you like to share your experience about this member?',
+      'fa': '',
+    },
+    'bc2ugybz': {
+      'en': 'Communication',
+      'fa': 'ارتباطات',
+    },
+    '1wffczog': {
+      'en': 'Reliability',
+      'fa': 'قابلیت اطمینان',
+    },
+    '3hk4ajr8': {
+      'en': 'Quality',
+      'fa': 'کیفیت',
+    },
+    '69tqvojl': {
+      'en': 'Fairness',
+      'fa': 'انصاف',
+    },
+    'ixl4pva7': {
+      'en': 'Review note',
+      'fa': 'یادداشت بررسی',
+    },
+    'sc2b19jg': {
+      'en':
+          'Please use only letters (English/Persian), spaces, dot or underscore.',
+      'fa': '',
+    },
+    'duslkxf6': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': '',
+    },
+    'q9biojw1': {
+      'en': 'Submit',
+      'fa': 'ارسال',
+    },
+  },
+  // verifyCode
+  {
+    'hy8t8fp9': {
+      'en': 'A confimation code was sent via email.',
+      'fa': 'یک کد تایید از طریق ایمیل ارسال شد.',
+    },
+    'unuifogx': {
+      'en': 'Wrong or expired code!',
+      'fa': '',
+    },
+    're93hvjq': {
+      'en': 'Pease enter  valid code',
+      'fa': 'لطفا کد معتبر را وارد کنید',
+    },
+    'vra2s4j2': {
+      'en': 'Resend',
+      'fa': 'ارسال مجدد',
+    },
+    '62qr2zha': {
+      'en': 'Verify now',
+      'fa': 'اکنون تأیید کنید',
+    },
+  },
   // ItemCard_Global
   {
-    '6ijrls3b': {
-      'en': 'IRAN TO NL',
+    '0r3hbw90': {
+      'en': 'Sarah-2025',
       'fa': '',
     },
-    'zyugz237': {
-      'en': 'Transfer Request',
+    '4ylk73oy': {
+      'en': 'Professional Cleaner',
       'fa': '',
     },
-    'dc7nxpt5': {
-      'en': 'Deadline: 2025-12-01',
+    '2gp7hg22': {
+      'en': '4.1/5 (11 Reviews) ',
       'fa': '',
     },
-    'j5ykc13p': {
+    '85wspi9i': {
+      'en': '5 years of experience',
+      'fa': '',
+    },
+    'f17dj9hc': {
+      'en': 'Certified',
+      'fa': '',
+    },
+    '6h0218xd': {
+      'en': 'Deadline: ',
+      'fa': '',
+    },
+    'dgo49be0': {
+      'en': '2025-12-01',
+      'fa': '',
+    },
+    '42itygvy': {
+      'en': 'Does not expect compensation',
+      'fa': '',
+    },
+    'tdw1ixid': {
+      'en': 'To be sent before: ',
+      'fa': '',
+    },
+    'd8k2mdeh': {
+      'en': '2025-12-01',
+      'fa': '',
+    },
+    'w1lzd7oh': {
       'en': 'Luggaes',
       'fa': '',
     },
-    'h2ivahyc': {
+    '7qfr50le': {
       'en': '2kg',
       'fa': '',
     },
-    'm7i411mx': {
+    'n5rcmmrx': {
       'en': '28 x 32 cm',
+      'fa': '',
+    },
+    '5vumx5q3': {
+      'en': 'Currency Exchange',
+      'fa': '',
+    },
+    'amr3rys9': {
+      'en': 'Accepts Only Reviewed Users',
+      'fa': '',
+    },
+    'w8lgua34': {
+      'en': 'Partial Allowed',
+      'fa': '',
+    },
+    'qspk7l3a': {
+      'en': 'From:       ',
+      'fa': '',
+    },
+    'bf4t8r9e': {
+      'en': 'To:              ',
+      'fa': '',
+    },
+    'jzq5a1x5': {
+      'en': 'Amount Offered:        ',
+      'fa': '',
+    },
+    'rf84atg7': {
+      'en': 'Amount Requested:        ',
+      'fa': '',
+    },
+    't95g2iei': {
+      'en': 'Toman (IRR)',
+      'fa': '',
+    },
+    'ihia8nim': {
+      'en': 'Euro (EUR)',
+      'fa': '',
+    },
+    'z1ybhjes': {
+      'en': '1,000,000 Toman',
+      'fa': '',
+    },
+    'n23gmz40': {
+      'en': '100 Euro',
+      'fa': '',
+    },
+    'l8sazv7r': {
+      'en': 'Proposed Rate: ',
+      'fa': '',
+    },
+    '5wkuiyke': {
+      'en': '1 Euro = 100,000 Toman',
+      'fa': '',
+    },
+    'ykij0tpn': {
+      'en': 'Offers Multiple Tickets',
+      'fa': '',
+    },
+    'j5q3ybk0': {
+      'en': 'Available',
+      'fa': '',
+    },
+    '2k91pgy8': {
+      'en': 'Location:       ',
+      'fa': '',
+    },
+    'cdy0xm72': {
+      'en': 'Date:              ',
+      'fa': '',
+    },
+    '096r0ued': {
+      'en': 'Quanitty:        ',
+      'fa': '',
+    },
+    'xse4c2z2': {
+      'en': 'Price (per ticket):        ',
+      'fa': '',
+    },
+    'e00bht04': {
+      'en': 'Rotterdam',
+      'fa': '',
+    },
+    '6u4cggbt': {
+      'en': 'Dec 30, 2025',
+      'fa': '',
+    },
+    'rad9e0nx': {
+      'en': '2 (Standing)',
+      'fa': '',
+    },
+    '2jghk6wf': {
+      'en': '100 Euro',
+      'fa': '',
+    },
+    'efh2ofye': {
+      'en': 'Events',
+      'fa': '',
+    },
+    '796dhf44': {
+      'en': 'FREE EVENT',
+      'fa': '',
+    },
+    'x3f5blyy': {
+      'en': 'City:',
+      'fa': '',
+    },
+    'ivh9ys6v': {
+      'en': 'Date:',
+      'fa': '',
+    },
+    'f5zqpax6': {
+      'en': 'Dec 30, 2025',
+      'fa': '',
+    },
+    '86r4dt9c': {
+      'en': 'Capacity:',
+      'fa': '',
+    },
+    '8d8miq1v': {
+      'en': '15',
+      'fa': '',
+    },
+    'zvhrqe6j': {
+      'en': 'Deadline:',
+      'fa': '',
+    },
+    '30glqfcl': {
+      'en': '2025-01',
+      'fa': '',
+    },
+    'p28zzr1z': {
+      'en': 'For Sale',
+      'fa': '',
+    },
+    'c72unnyx': {
+      'en': 'To Give Away',
+      'fa': '',
+    },
+    '5lefcyn7': {
+      'en': 'To Swap',
+      'fa': '',
+    },
+    '0oelzvli': {
+      'en': ', North-Holland',
+      'fa': '',
+    },
+    'td99e5h0': {
+      'en': 'Temporary Accomocations',
+      'fa': '',
+    },
+    'uwqltxzh': {
+      'en': 'Available Date: ',
+      'fa': '',
+    },
+    'xrofvzmb': {
+      'en': 'Dec 01, 2025',
+      'fa': '',
+    },
+    'wm3lx553': {
+      'en': 'Total Area: ',
+      'fa': '',
+    },
+    'je98paur': {
+      'en': '48 m2',
+      'fa': '',
+    },
+    'd6y9n6yv': {
+      'en': 'Registration Possible',
       'fa': '',
     },
   },

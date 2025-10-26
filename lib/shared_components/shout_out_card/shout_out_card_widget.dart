@@ -97,17 +97,16 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: AlignmentDirectional(0.0, 0.0),
-      child: FutureBuilder<List<CommunityShoutoutRow>>(
-        future:
-            (_model.requestCompleter ??= Completer<List<CommunityShoutoutRow>>()
-                  ..complete(CommunityShoutoutTable().querySingleRow(
-                    queryFn: (q) => q.eqOrNull(
-                      'id',
-                      widget.shoutOutId,
-                    ),
-                  )))
-                .future,
+      alignment: AlignmentDirectional(-1.0, -1.0),
+      child: FutureBuilder<List<ViewShoutoutRow>>(
+        future: (_model.requestCompleter ??= Completer<List<ViewShoutoutRow>>()
+              ..complete(ViewShoutoutTable().querySingleRow(
+                queryFn: (q) => q.eqOrNull(
+                  'id',
+                  widget.shoutOutId,
+                ),
+              )))
+            .future,
         builder: (context, snapshot) {
           // Customize what your widget looks like when it's loading.
           if (!snapshot.hasData) {
@@ -122,17 +121,18 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
               ),
             );
           }
-          List<CommunityShoutoutRow> containerCommunityShoutoutRowList =
-              snapshot.data!;
+          List<ViewShoutoutRow> containerViewShoutoutRowList = snapshot.data!;
 
-          final containerCommunityShoutoutRow =
-              containerCommunityShoutoutRowList.isNotEmpty
-                  ? containerCommunityShoutoutRowList.first
+          final containerViewShoutoutRow =
+              containerViewShoutoutRowList.isNotEmpty
+                  ? containerViewShoutoutRowList.first
                   : null;
 
           return Container(
-            width: 220.0,
-            height: 159.0,
+            constraints: BoxConstraints(
+              minHeight: 190.0,
+              maxWidth: 300.0,
+            ),
             decoration: BoxDecoration(
               color: Color(0x42587858),
               borderRadius: BorderRadius.only(
@@ -142,50 +142,128 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                 topRight: Radius.circular(10.0),
               ),
             ),
-            child: Align(
-              alignment: AlignmentDirectional(0.0, 0.0),
-              child: Stack(
-                alignment: AlignmentDirectional(1.0, -1.0),
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Column(
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(1.0),
+                        child: Container(
+                          width: 55.0,
+                          height: 55.0,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                          ),
+                          child: Image.network(
+                            containerViewShoutoutRow?.profileAvatar != null &&
+                                    containerViewShoutoutRow?.profileAvatar !=
+                                        ''
+                                ? containerViewShoutoutRow!.profileAvatar!
+                                : FFAppConstants.profileAvatarCircular,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 2.0, 0.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                'r6m3h1jr' /* +10 Points */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily,
+                                    color: FlutterFlowTheme.of(context).warning,
+                                    fontSize: 12.0,
+                                    letterSpacing: 0.0,
+                                    useGoogleFonts:
+                                        !FlutterFlowTheme.of(context)
+                                            .bodyMediumIsCustom,
+                                  ),
+                            ).animateOnPageLoad(
+                                animationsMap['textOnPageLoadAnimation']!),
+                          ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Padding(
-                                padding: EdgeInsets.all(1.0),
-                                child: Container(
-                                  width: 55.0,
-                                  height: 55.0,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.asset(
-                                    'assets/images/Screenshot_2025-06-27_023329.png',
-                                    fit: BoxFit.cover,
-                                  ),
+                              Text(
+                                valueOrDefault<String>(
+                                  containerViewShoutoutRow?.username,
+                                  'Name',
                                 ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.poppins(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      fontSize: 12.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                               ),
-                              Column(
+                            ].divide(SizedBox(width: 4.0)),
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Row(
                                 mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
+                                  Align(
+                                    alignment: AlignmentDirectional(0.0, 1.0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 6.0, 0.0),
+                                      child: RatingBarIndicator(
+                                        itemBuilder: (context, index) => Icon(
+                                          Icons.star_rounded,
+                                          color: Color(0xFFFFA130),
+                                        ),
+                                        direction: Axis.horizontal,
+                                        rating: containerViewShoutoutRow!
+                                            .reviewScore!,
+                                        unratedColor: Color(0xFF95A1AC),
+                                        itemCount: 5,
+                                        itemSize: 10.0,
+                                      ),
+                                    ),
+                                  ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 2.0, 0.0),
                                     child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'r6m3h1jr' /* +10 Points */,
+                                      valueOrDefault<String>(
+                                        containerViewShoutoutRow.reviewScore
+                                            ?.toString(),
+                                        '1',
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -193,233 +271,87 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMediumFamily,
-                                            color: FlutterFlowTheme.of(context)
-                                                .warning,
-                                            fontSize: 12.0,
+                                            fontSize: 10.0,
                                             letterSpacing: 0.0,
                                             useGoogleFonts:
                                                 !FlutterFlowTheme.of(context)
                                                     .bodyMediumIsCustom,
                                           ),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'textOnPageLoadAnimation']!),
+                                    ),
                                   ),
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        valueOrDefault<String>(
-                                          containerCommunityShoutoutRow
-                                              ?.username,
-                                          'Name',
+                                  Text(
+                                    '(${containerViewShoutoutRow.ratings?.toString()} reviews)',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMediumFamily,
+                                          fontSize: 10.0,
+                                          letterSpacing: 0.0,
+                                          useGoogleFonts:
+                                              !FlutterFlowTheme.of(context)
+                                                  .bodyMediumIsCustom,
                                         ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              font: GoogleFonts.poppins(
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                              fontSize: 12.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                    ].divide(SizedBox(width: 4.0)),
-                                  ),
-                                  Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 1.0),
-                                            child: RatingBarIndicator(
-                                              itemBuilder: (context, index) =>
-                                                  Icon(
-                                                Icons.star_rounded,
-                                                color: Color(0xFFFFA130),
-                                              ),
-                                              direction: Axis.horizontal,
-                                              rating: 4.6,
-                                              unratedColor: Color(0xFF95A1AC),
-                                              itemCount: 5,
-                                              itemSize: 10.0,
-                                            ),
-                                          ),
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              '9n1g8cal' /* 4.9 */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
-                                                  fontSize: 10.0,
-                                                  letterSpacing: 0.0,
-                                                  useGoogleFonts:
-                                                      !FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumIsCustom,
-                                                ),
-                                          ),
-                                        ],
-                                      ),
-                                    ].divide(SizedBox(width: 8.0)),
                                   ),
                                 ],
                               ),
                             ].divide(SizedBox(width: 8.0)),
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 8.0, 0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Align(
-                                  alignment: AlignmentDirectional(-1.0, 0.0),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 5.0, 2.0, 0.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'akk1rip2' /* Thank You! */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .displaySmall
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .displaySmallFamily,
-                                            fontSize: 12.0,
-                                            letterSpacing: 0.0,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .displaySmallIsCustom,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Flexible(
-                                  child: Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
-                                    child: Text(
-                                      valueOrDefault<String>(
-                                        containerCommunityShoutoutRow
-                                            ?.description,
-                                        'description',
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
-                                            fontSize: 12.0,
-                                            letterSpacing: 0.0,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .bodyMediumIsCustom,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
                         ],
                       ),
+                    ].divide(SizedBox(width: 8.0)),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Align(
+                          alignment: AlignmentDirectional(-1.0, 0.0),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 2.0, 0.0),
+                            child: Text(
+                              valueOrDefault<String>(
+                                containerViewShoutoutRow.header,
+                                'Thanks!',
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .displaySmall
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .displaySmallFamily,
+                                    fontSize: 12.0,
+                                    letterSpacing: 0.0,
+                                    useGoogleFonts:
+                                        !FlutterFlowTheme.of(context)
+                                            .displaySmallIsCustom,
+                                  ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  if (loggedIn == true)
-                    Align(
-                      alignment: AlignmentDirectional(1.0, 1.0),
-                      child: Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            ToggleIcon(
-                              onPressed: () async {
-                                safeSetState(
-                                    () => _model.isLiked = !_model.isLiked!);
-                                if (loggedIn) {
-                                  if (_model.isLiked!) {
-                                    await PostLikeRelationTable().insert({
-                                      'liked_by': currentUserUid,
-                                      'shoutout_id': widget.shoutOutId,
-                                    });
-                                  } else {
-                                    await PostLikeRelationTable().delete(
-                                      matchingRows: (rows) => rows
-                                          .eqOrNull(
-                                            'shoutout_id',
-                                            widget.shoutOutId,
-                                          )
-                                          .eqOrNull(
-                                            'liked_by',
-                                            currentUserUid,
-                                          ),
-                                    );
-                                  }
-
-                                  safeSetState(
-                                      () => _model.requestCompleter = null);
-                                  await _model.waitForRequestCompleted();
-                                  return;
-                                } else {
-                                  return;
-                                }
-                              },
-                              value: _model.isLiked!,
-                              onIcon: Icon(
-                                Icons.favorite,
-                                color: Color(0xFFBA0A0A),
-                                size: 18.0,
-                              ),
-                              offIcon: Icon(
-                                Icons.favorite_border,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 18.0,
-                              ),
-                            ),
-                            Text(
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Flexible(
+                          child: Align(
+                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            child: Text(
                               valueOrDefault<String>(
-                                containerCommunityShoutoutRow?.likes.toString(),
-                                '0',
+                                containerViewShoutoutRow.description,
+                                'description',
+                              ).maybeHandleOverflow(
+                                maxChars: 150,
+                                replacement: '…',
                               ),
+                              maxLines: 3,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -432,10 +364,84 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                                             .bodyMediumIsCustom,
                                   ),
                             ),
-                          ],
+                          ),
                         ),
+                      ],
+                    ),
+                  ),
+                  Align(
+                    alignment: AlignmentDirectional(1.0, 1.0),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          ToggleIcon(
+                            onPressed: () async {
+                              safeSetState(
+                                  () => _model.isLiked = !_model.isLiked!);
+                              if (loggedIn) {
+                                if (_model.isLiked!) {
+                                  await PostLikeRelationTable().insert({
+                                    'liked_by': currentUserUid,
+                                    'shoutout_id': widget.shoutOutId,
+                                  });
+                                } else {
+                                  await PostLikeRelationTable().delete(
+                                    matchingRows: (rows) => rows
+                                        .eqOrNull(
+                                          'shoutout_id',
+                                          widget.shoutOutId,
+                                        )
+                                        .eqOrNull(
+                                          'liked_by',
+                                          currentUserUid,
+                                        ),
+                                  );
+                                }
+
+                                safeSetState(
+                                    () => _model.requestCompleter = null);
+                                await _model.waitForRequestCompleted();
+                                return;
+                              } else {
+                                return;
+                              }
+                            },
+                            value: _model.isLiked!,
+                            onIcon: Icon(
+                              Icons.favorite,
+                              color: Color(0xFFBA0A0A),
+                              size: 18.0,
+                            ),
+                            offIcon: Icon(
+                              Icons.favorite_border,
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              size: 18.0,
+                            ),
+                          ),
+                          Text(
+                            valueOrDefault<String>(
+                              containerViewShoutoutRow.likes.toString(),
+                              '0',
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily,
+                                  fontSize: 12.0,
+                                  letterSpacing: 0.0,
+                                  useGoogleFonts: !FlutterFlowTheme.of(context)
+                                      .bodyMediumIsCustom,
+                                ),
+                          ),
+                        ],
                       ),
                     ),
+                  ),
                 ],
               ),
             ),

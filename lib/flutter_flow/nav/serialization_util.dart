@@ -246,6 +246,8 @@ dynamic deserializeParam<T>(
             return ChatsRow(data);
           case DetailsSwapItemsRow:
             return DetailsSwapItemsRow(data);
+          case PostsLikesRow:
+            return PostsLikesRow(data);
           case ViewUserChatsVisibleRow:
             return ViewUserChatsVisibleRow(data);
           case DetailsPeerSupportRow:
@@ -286,14 +288,14 @@ dynamic deserializeParam<T>(
             return CommunityShoutoutRow(data);
           case PostLikeRelationRow:
             return PostLikeRelationRow(data);
-          case MarketLikesRow:
-            return MarketLikesRow(data);
           case UserRolesRow:
             return UserRolesRow(data);
           case ViewUserPostsRow:
             return ViewUserPostsRow(data);
           case CitiesRow:
             return CitiesRow(data);
+          case ViewShoutoutRow:
+            return ViewShoutoutRow(data);
           case MessagesRow:
             return MessagesRow(data);
           case DetailsGiveAwayRow:

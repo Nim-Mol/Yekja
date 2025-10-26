@@ -1,18 +1,22 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/profile/profile_setting/profile_setting_widget.dart';
 import '/profile/review_card/review_card_widget.dart';
+import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.dart';
 import '/shared_components/item_card_horizental/item_card_horizental_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
 import '/shared_components/reporting_popup/reporting_popup_widget.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -42,6 +46,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  final animationsMap = <String, AnimationInfo>{};
+
   @override
   void initState() {
     super.initState();
@@ -61,6 +67,21 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
       length: 4,
       initialIndex: 0,
     )..addListener(() => safeSetState(() {}));
+
+    animationsMap.addAll({
+      'rowOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-41.0, -0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -292,8 +313,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                             '')
                                                                 ? profilePageUserExtRow!
                                                                     .profileAvatar!
-                                                                : FFAppConstants
-                                                                    .DefultProfilePhoto,
+                                                                : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/9zp5habce8h3/profile_avatar_1.png',
                                                             width: 99.3,
                                                             height: 200.0,
                                                             fit: BoxFit.cover,
@@ -337,100 +357,22 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                   },
                                                 ),
                                               ),
-                                              Stack(
-                                                children: [
-                                                  if (widget.profileId ==
-                                                      currentUserUid)
-                                                    Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              1.0, 0.0),
-                                                      child: Builder(
-                                                        builder: (context) =>
-                                                            Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      16.0,
-                                                                      0.0),
-                                                          child:
-                                                              FlutterFlowIconButton(
-                                                            borderRadius: 50.0,
-                                                            buttonSize: 40.0,
-                                                            fillColor: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryBackground,
-                                                            icon: Icon(
-                                                              Icons
-                                                                  .settings_sharp,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primary,
-                                                              size: 24.0,
-                                                            ),
-                                                            onPressed:
-                                                                () async {
-                                                              await showDialog(
-                                                                context:
-                                                                    context,
-                                                                builder:
-                                                                    (dialogContext) {
-                                                                  return Dialog(
-                                                                    elevation:
-                                                                        0,
-                                                                    insetPadding:
-                                                                        EdgeInsets
-                                                                            .zero,
-                                                                    backgroundColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    alignment: AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0)
-                                                                        .resolve(
-                                                                            Directionality.of(context)),
-                                                                    child:
-                                                                        GestureDetector(
-                                                                      onTap:
-                                                                          () {
-                                                                        FocusScope.of(dialogContext)
-                                                                            .unfocus();
-                                                                        FocusManager
-                                                                            .instance
-                                                                            .primaryFocus
-                                                                            ?.unfocus();
-                                                                      },
-                                                                      child:
-                                                                          ProfileSettingWidget(
-                                                                        profileUrl:
-                                                                            'https://app.flutterflow.io/project/4JrFL7AdymYZtlR8X9ly?tab=widgetTree&page=ProfilePage',
-                                                                      ),
-                                                                    ),
-                                                                  );
-                                                                },
-                                                              );
-                                                            },
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  if (currentUserUid !=
-                                                      widget.profileId)
-                                                    Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              1.0, 0.0),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    16.0,
-                                                                    0.0),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 16.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    if (!FFAppState().IsGust)
+                                                      Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                1.0, 0.0),
                                                         child: Container(
+                                                          width: 40.0,
+                                                          height: 40.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -439,111 +381,274 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                             shape:
                                                                 BoxShape.circle,
                                                           ),
-                                                          child: Visibility(
-                                                            visible: widget
-                                                                    .profileId !=
-                                                                currentUserUid,
-                                                            child: Builder(
-                                                              builder:
-                                                                  (context) =>
-                                                                      ToggleIcon(
-                                                                onPressed:
-                                                                    () async {
-                                                                  safeSetState(() => FFAppState()
-                                                                          .UserIsReported =
-                                                                      !FFAppState()
-                                                                          .UserIsReported);
-                                                                  if (FFAppState()
-                                                                      .UserIsReported) {
-                                                                    var confirmDialogResponse =
-                                                                        await showDialog<bool>(
-                                                                              context: context,
-                                                                              builder: (alertDialogContext) {
-                                                                                return AlertDialog(
-                                                                                  title: Text('Reporting'),
-                                                                                  content: Text('Are you sure you want to report this user?'),
-                                                                                  actions: [
-                                                                                    TextButton(
-                                                                                      onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                      child: Text('Cancel'),
-                                                                                    ),
-                                                                                    TextButton(
-                                                                                      onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                      child: Text('Confirm'),
-                                                                                    ),
-                                                                                  ],
-                                                                                );
-                                                                              },
-                                                                            ) ??
-                                                                            false;
-                                                                    if (confirmDialogResponse) {
-                                                                      await showDialog(
-                                                                        context:
-                                                                            context,
-                                                                        builder:
-                                                                            (dialogContext) {
-                                                                          return Dialog(
-                                                                            elevation:
-                                                                                0,
-                                                                            insetPadding:
-                                                                                EdgeInsets.zero,
-                                                                            backgroundColor:
-                                                                                Colors.transparent,
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                            child:
-                                                                                GestureDetector(
-                                                                              onTap: () {
-                                                                                FocusScope.of(dialogContext).unfocus();
-                                                                                FocusManager.instance.primaryFocus?.unfocus();
-                                                                              },
-                                                                              child: ReportingPopupWidget(
-                                                                                reportingData: ReportingDataStruct(),
-                                                                              ),
-                                                                            ),
-                                                                          );
-                                                                        },
-                                                                      );
-
-                                                                      FFAppState()
-                                                                              .UserIsReported =
-                                                                          true;
-                                                                      safeSetState(
-                                                                          () {});
-                                                                      return;
-                                                                    } else {
-                                                                      FFAppState()
-                                                                              .UserIsReported =
-                                                                          false;
-                                                                      safeSetState(
-                                                                          () {});
-                                                                      return;
-                                                                    }
-                                                                  }
-                                                                },
-                                                                value: FFAppState()
-                                                                    .UserIsReported,
-                                                                onIcon: Icon(
-                                                                  Icons.flag,
-                                                                  color: Color(
-                                                                      0xFFAE1010),
-                                                                  size: 15.0,
-                                                                ),
-                                                                offIcon: FaIcon(
-                                                                  FontAwesomeIcons
-                                                                      .flag,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  size: 15.0,
-                                                                ),
-                                                              ),
+                                                          child: ToggleIcon(
+                                                            onPressed:
+                                                                () async {
+                                                              safeSetState(() =>
+                                                                  _model.isClose =
+                                                                      !_model
+                                                                          .isClose);
+                                                            },
+                                                            value:
+                                                                _model.isClose,
+                                                            onIcon: FaIcon(
+                                                              FontAwesomeIcons
+                                                                  .ellipsisV,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primary,
+                                                              size: 14.0,
+                                                            ),
+                                                            offIcon: FaIcon(
+                                                              FontAwesomeIcons
+                                                                  .angleRight,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryText,
+                                                              size: 14.0,
                                                             ),
                                                           ),
                                                         ),
                                                       ),
-                                                    ),
-                                                ],
+                                                    if (!_model.isClose)
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          if (widget
+                                                                  .profileId ==
+                                                              currentUserUid)
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      1.0, 0.0),
+                                                              child: Container(
+                                                                width: 40.0,
+                                                                height: 40.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                                  shape: BoxShape
+                                                                      .circle,
+                                                                ),
+                                                                child: Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          1.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      Builder(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            FlutterFlowIconButton(
+                                                                      borderRadius:
+                                                                          50.0,
+                                                                      buttonSize:
+                                                                          40.0,
+                                                                      fillColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .primaryBackground,
+                                                                      icon:
+                                                                          Icon(
+                                                                        Icons
+                                                                            .settings_rounded,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        size:
+                                                                            20.0,
+                                                                      ),
+                                                                      onPressed:
+                                                                          () async {
+                                                                        await showDialog(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (dialogContext) {
+                                                                            return Dialog(
+                                                                              elevation: 0,
+                                                                              insetPadding: EdgeInsets.zero,
+                                                                              backgroundColor: Colors.transparent,
+                                                                              alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                              child: GestureDetector(
+                                                                                onTap: () {
+                                                                                  FocusScope.of(dialogContext).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
+                                                                                child: ProfileSettingWidget(
+                                                                                  profileUrl: 'https://app.flutterflow.io/project/4JrFL7AdymYZtlR8X9ly?tab=widgetTree&page=ProfilePage',
+                                                                                ),
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        );
+                                                                      },
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          if (widget
+                                                                  .profileId !=
+                                                              currentUserUid)
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      1.0, 0.0),
+                                                              child: Container(
+                                                                width: 40.0,
+                                                                height: 40.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBackground,
+                                                                  shape: BoxShape
+                                                                      .circle,
+                                                                ),
+                                                                child: Stack(
+                                                                  children: [
+                                                                    if (functions.listContainsString(
+                                                                        FFAppState()
+                                                                            .userInfo
+                                                                            .reportedList
+                                                                            .toList(),
+                                                                        widget
+                                                                            .profileId!))
+                                                                      Align(
+                                                                        alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            FaIcon(
+                                                                          FontAwesomeIcons
+                                                                              .solidFlag,
+                                                                          color:
+                                                                              Color(0xFFDC0D08),
+                                                                          size:
+                                                                              14.0,
+                                                                        ),
+                                                                      ),
+                                                                    if (!functions.listContainsString(
+                                                                        FFAppState()
+                                                                            .userInfo
+                                                                            .reportedList
+                                                                            .toList(),
+                                                                        widget
+                                                                            .profileId!))
+                                                                      Align(
+                                                                        alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Builder(
+                                                                          builder: (context) =>
+                                                                              InkWell(
+                                                                            splashColor:
+                                                                                Colors.transparent,
+                                                                            focusColor:
+                                                                                Colors.transparent,
+                                                                            hoverColor:
+                                                                                Colors.transparent,
+                                                                            highlightColor:
+                                                                                Colors.transparent,
+                                                                            onTap:
+                                                                                () async {
+                                                                              await showDialog(
+                                                                                context: context,
+                                                                                builder: (dialogContext) {
+                                                                                  return Dialog(
+                                                                                    elevation: 0,
+                                                                                    insetPadding: EdgeInsets.zero,
+                                                                                    backgroundColor: Colors.transparent,
+                                                                                    alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                    child: GestureDetector(
+                                                                                      onTap: () {
+                                                                                        FocusScope.of(dialogContext).unfocus();
+                                                                                        FocusManager.instance.primaryFocus?.unfocus();
+                                                                                      },
+                                                                                      child: ConfirmCancelPopUpWidget(
+                                                                                        header: 'Reporting ',
+                                                                                        hintText: 'Are you sure you want to report this profile?',
+                                                                                        cancelText: 'Cancel',
+                                                                                        confirmText: 'Report',
+                                                                                        onConfirmAction: () async {
+                                                                                          await showDialog(
+                                                                                            context: context,
+                                                                                            builder: (dialogContext) {
+                                                                                              return Dialog(
+                                                                                                elevation: 0,
+                                                                                                insetPadding: EdgeInsets.zero,
+                                                                                                backgroundColor: Colors.transparent,
+                                                                                                alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                                child: GestureDetector(
+                                                                                                  onTap: () {
+                                                                                                    FocusScope.of(dialogContext).unfocus();
+                                                                                                    FocusManager.instance.primaryFocus?.unfocus();
+                                                                                                  },
+                                                                                                  child: ReportingPopupWidget(
+                                                                                                    reportingData: ReportingDataStruct(
+                                                                                                      profileId: widget.profileId,
+                                                                                                      isProfile: true,
+                                                                                                      profileOwnerName: profilePageUserExtRow?.userName,
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ),
+                                                                                              );
+                                                                                            },
+                                                                                          );
+                                                                                        },
+                                                                                        onCancelAction: () async {},
+                                                                                      ),
+                                                                                    ),
+                                                                                  );
+                                                                                },
+                                                                              );
+
+                                                                              // Creat Chat ROOM
+                                                                              _model.yekjaChat2Customer = await ChatsTable().queryRows(
+                                                                                queryFn: (q) => q
+                                                                                    .eqOrNull(
+                                                                                      'sender',
+                                                                                      FFAppConstants.YekjaAdminID,
+                                                                                    )
+                                                                                    .eqOrNull(
+                                                                                      'recipient',
+                                                                                      widget.profileId,
+                                                                                    ),
+                                                                              );
+                                                                              // Send message
+                                                                              await MessagesTable().insert({
+                                                                                'message_text': 'Hi ${profilePageUserExtRow?.userName}We are writing to inform you that your profile has been reported to the Yekja team.We are currently investigating the matter and will get back to you with the results as soon as our review is complete.',
+                                                                                'recipient': currentUserUid,
+                                                                                'chat_id': _model.yekjaChat2Customer?.firstOrNull?.id,
+                                                                                'sent_by': 'Yekja',
+                                                                              });
+
+                                                                              safeSetState(() {});
+                                                                            },
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.flag,
+                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                              size: 16.0,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                        ].divide(SizedBox(
+                                                            width: 3.0)),
+                                                      ).animateOnPageLoad(
+                                                          animationsMap[
+                                                              'rowOnPageLoadAnimation']!),
+                                                  ].divide(
+                                                      SizedBox(width: 5.0)),
+                                                ),
                                               ),
                                             ],
                                           ),
@@ -1452,6 +1557,13 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                       ParamType
                                                                           .String,
                                                                     ),
+                                                                    'selectedTab':
+                                                                        serializeParam(
+                                                                      _model
+                                                                          .tabBarCurrentIndex,
+                                                                      ParamType
+                                                                          .int,
+                                                                    ),
                                                                   }.withoutNulls,
                                                                 );
                                                               },
@@ -1565,24 +1677,65 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                     final listViewViewUserFavoritesRow =
                                                                         listViewViewUserFavoritesRowList[
                                                                             listViewIndex];
-                                                                    return ItemCardHorizentalWidget(
-                                                                      key: Key(
-                                                                          'Key682_${listViewIndex}_of_${listViewViewUserFavoritesRowList.length}'),
-                                                                      itemData:
-                                                                          ItemCardHorizentalStruct(
-                                                                        title: listViewViewUserFavoritesRow
-                                                                            .title,
-                                                                        description:
-                                                                            listViewViewUserFavoritesRow.description,
-                                                                        itemLocation:
-                                                                            listViewViewUserFavoritesRow.city,
-                                                                        createdAt:
-                                                                            listViewViewUserFavoritesRow.postCreatedAt,
-                                                                        itemLikes:
-                                                                            listViewViewUserFavoritesRow.postLikes,
-                                                                        mainImagePath: listViewViewUserFavoritesRow
-                                                                            .images
-                                                                            .firstOrNull,
+                                                                    return InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        context
+                                                                            .pushNamed(
+                                                                          PostWidget
+                                                                              .routeName,
+                                                                          queryParameters:
+                                                                              {
+                                                                            'postID':
+                                                                                serializeParam(
+                                                                              listViewViewUserFavoritesRow.postId,
+                                                                              ParamType.String,
+                                                                            ),
+                                                                            'mainCatID':
+                                                                                serializeParam(
+                                                                              listViewViewUserFavoritesRow.mainCatId,
+                                                                              ParamType.int,
+                                                                            ),
+                                                                            'detailDataName':
+                                                                                serializeParam(
+                                                                              listViewViewUserFavoritesRow.detailTable,
+                                                                              ParamType.String,
+                                                                            ),
+                                                                          }.withoutNulls,
+                                                                        );
+                                                                      },
+                                                                      child:
+                                                                          ItemCardHorizentalWidget(
+                                                                        key: Key(
+                                                                            'Key682_${listViewIndex}_of_${listViewViewUserFavoritesRowList.length}'),
+                                                                        itemData:
+                                                                            ItemCardHorizentalStruct(
+                                                                          title:
+                                                                              listViewViewUserFavoritesRow.title,
+                                                                          description:
+                                                                              listViewViewUserFavoritesRow.description,
+                                                                          itemLocation:
+                                                                              listViewViewUserFavoritesRow.city,
+                                                                          createdAt:
+                                                                              listViewViewUserFavoritesRow.postCreatedAt,
+                                                                          itemLikes:
+                                                                              listViewViewUserFavoritesRow.postLikes,
+                                                                          mainImagePath: listViewViewUserFavoritesRow
+                                                                              .images
+                                                                              .firstOrNull,
+                                                                        ),
                                                                       ),
                                                                     );
                                                                   },
@@ -1630,6 +1783,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                               serializeParam(
                                                                             profilePageUserExtRow?.id,
                                                                             ParamType.String,
+                                                                          ),
+                                                                          'selectedTab':
+                                                                              serializeParam(
+                                                                            _model.tabBarCurrentIndex,
+                                                                            ParamType.int,
                                                                           ),
                                                                         }.withoutNulls,
                                                                       );
@@ -1832,6 +1990,13 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                             ?.id,
                                                                         ParamType
                                                                             .String,
+                                                                      ),
+                                                                      'selectedTab':
+                                                                          serializeParam(
+                                                                        _model
+                                                                            .tabBarCurrentIndex,
+                                                                        ParamType
+                                                                            .int,
                                                                       ),
                                                                     }.withoutNulls,
                                                                   );

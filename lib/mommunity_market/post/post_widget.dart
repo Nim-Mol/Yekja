@@ -1,6 +1,7 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_toggle_icon.dart';
@@ -8,7 +9,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/mommunity_market/value_popup/value_popup_widget.dart';
 import '/profile/review_card_small/review_card_small_widget.dart';
 import '/shared_components/comunication_bar/comunication_bar_widget.dart';
+import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.dart';
 import '/shared_components/photo_gallary/photo_gallary_widget.dart';
+import '/shared_components/reporting_popup/reporting_popup_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'dart:async';
@@ -16,6 +19,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -47,6 +51,8 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  final animationsMap = <String, AnimationInfo>{};
+
   @override
   void initState() {
     super.initState();
@@ -54,7 +60,7 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.liked = await MarketLikesTable().queryRows(
+      _model.liked = await PostsLikesTable().queryRows(
         queryFn: (q) => q
             .eqOrNull(
               'user_id',
@@ -87,6 +93,21 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
         _model.isFav = false;
         safeSetState(() {});
       }
+    });
+
+    animationsMap.addAll({
+      'rowOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-41.0, -0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
@@ -220,127 +241,85 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                   context.safePop();
                                                 },
                                               ),
-                                              Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  if ((postViewPostSearchRow
-                                                              .ownerId !=
-                                                          currentUserUid) &&
-                                                      !FFAppState().IsGust)
-                                                    Container(
-                                                      width: 40.0,
-                                                      height: 40.0,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        shape: BoxShape.circle,
-                                                      ),
-                                                      child: ToggleIcon(
-                                                        onPressed: () async {
-                                                          safeSetState(() =>
-                                                              _model.isLiked =
-                                                                  !_model
-                                                                      .isLiked);
-                                                          if (_model.isLiked ==
-                                                              true) {
-                                                            await MarketLikesTable()
-                                                                .insert({
-                                                              'user_id':
-                                                                  currentUserUid,
-                                                              'post_id': widget
-                                                                  .postID,
-                                                            });
-                                                          } else {
-                                                            await MarketLikesTable()
-                                                                .delete(
-                                                              matchingRows:
-                                                                  (rows) => rows
-                                                                      .eqOrNull(
-                                                                        'post_id',
-                                                                        widget
-                                                                            .postID,
-                                                                      )
-                                                                      .eqOrNull(
-                                                                        'user_id',
-                                                                        currentUserUid,
-                                                                      ),
-                                                            );
-                                                          }
-
-                                                          safeSetState(() =>
-                                                              _model.requestCompleter =
-                                                                  null);
-                                                          await _model
-                                                              .waitForRequestCompleted();
-                                                        },
-                                                        value: _model.isLiked,
-                                                        onIcon: Icon(
-                                                          Icons.favorite,
-                                                          color:
-                                                              Color(0xFFF10707),
-                                                          size: 24.0,
-                                                        ),
-                                                        offIcon: Icon(
-                                                          Icons.favorite_border,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primary,
-                                                          size: 24.0,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  Stack(
+                                              Flexible(
+                                                child: Container(
+                                                  decoration: BoxDecoration(),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.end,
                                                     children: [
                                                       if ((postViewPostSearchRow
-                                                                  .ownerId ==
+                                                                  .ownerId !=
                                                               currentUserUid) &&
                                                           !FFAppState().IsGust)
-                                                        Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  1.0, 0.0),
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        16.0,
-                                                                        0.0),
-                                                            child:
-                                                                FlutterFlowIconButton(
-                                                              borderRadius:
-                                                                  50.0,
-                                                              buttonSize: 40.0,
-                                                              fillColor: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                              icon: Icon(
-                                                                Icons.edit,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                                size: 20.0,
-                                                              ),
-                                                              onPressed:
-                                                                  () async {
-                                                                context
-                                                                    .pushNamed(
-                                                                  PostEditWidget
-                                                                      .routeName,
-                                                                  queryParameters:
-                                                                      {
-                                                                    'postId':
-                                                                        serializeParam(
+                                                        Container(
+                                                          width: 40.0,
+                                                          height: 40.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                            shape:
+                                                                BoxShape.circle,
+                                                          ),
+                                                          child: ToggleIcon(
+                                                            onPressed:
+                                                                () async {
+                                                              safeSetState(() =>
+                                                                  _model.isLiked =
+                                                                      !_model
+                                                                          .isLiked);
+                                                              if (_model
+                                                                      .isLiked ==
+                                                                  true) {
+                                                                await PostsLikesTable()
+                                                                    .insert({
+                                                                  'user_id':
+                                                                      currentUserUid,
+                                                                  'post_id':
                                                                       widget
                                                                           .postID,
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                  }.withoutNulls,
+                                                                });
+                                                              } else {
+                                                                await PostsLikesTable()
+                                                                    .delete(
+                                                                  matchingRows:
+                                                                      (rows) => rows
+                                                                          .eqOrNull(
+                                                                            'post_id',
+                                                                            widget.postID,
+                                                                          )
+                                                                          .eqOrNull(
+                                                                            'user_id',
+                                                                            currentUserUid,
+                                                                          ),
                                                                 );
-                                                              },
+                                                              }
+
+                                                              safeSetState(() =>
+                                                                  _model.requestCompleter =
+                                                                      null);
+                                                              await _model
+                                                                  .waitForRequestCompleted();
+                                                            },
+                                                            value:
+                                                                _model.isLiked,
+                                                            onIcon: Icon(
+                                                              Icons.favorite,
+                                                              color: Color(
+                                                                  0xFFF10707),
+                                                              size: 24.0,
+                                                            ),
+                                                            offIcon: Icon(
+                                                              Icons
+                                                                  .favorite_border,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primary,
+                                                              size: 24.0,
                                                             ),
                                                           ),
                                                         ),
@@ -353,6 +332,8 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                               AlignmentDirectional(
                                                                   1.0, 0.0),
                                                           child: Container(
+                                                            width: 40.0,
+                                                            height: 40.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FlutterFlowTheme
@@ -364,165 +345,322 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                             child: ToggleIcon(
                                                               onPressed:
                                                                   () async {
-                                                                safeSetState(
-                                                                  () => FFAppState()
-                                                                          .ReportedPosts
-                                                                          .contains(
-                                                                              ReportedPostsStruct(
-                                                                            postId:
-                                                                                widget.postID,
-                                                                            reported:
-                                                                                true,
-                                                                          ))
-                                                                      ? FFAppState()
-                                                                          .removeFromReportedPosts(
-                                                                              ReportedPostsStruct(
-                                                                          postId:
-                                                                              widget.postID,
-                                                                          reported:
-                                                                              true,
-                                                                        ))
-                                                                      : FFAppState()
-                                                                          .addToReportedPosts(
-                                                                              ReportedPostsStruct(
-                                                                          postId:
-                                                                              widget.postID,
-                                                                          reported:
-                                                                              true,
-                                                                        )),
-                                                                );
-                                                              },
-                                                              value: FFAppState()
-                                                                  .ReportedPosts
-                                                                  .contains(
-                                                                      ReportedPostsStruct(
-                                                                    postId: widget
-                                                                        .postID,
-                                                                    reported:
-                                                                        true,
-                                                                  )),
-                                                              onIcon: Icon(
-                                                                Icons.flag,
-                                                                color: Color(
-                                                                    0xFFAE1010),
-                                                                size: 20.0,
-                                                              ),
-                                                              offIcon: FaIcon(
-                                                                FontAwesomeIcons
-                                                                    .flag,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                                size: 15.0,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                    ],
-                                                  ),
-                                                  if ((currentUserUid !=
-                                                          postViewPostSearchRow
-                                                              .ownerId) &&
-                                                      !FFAppState().IsGust)
-                                                    Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              1.0, 0.0),
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                          shape:
-                                                              BoxShape.circle,
-                                                        ),
-                                                        child: ToggleIcon(
-                                                          onPressed: () async {
-                                                            safeSetState(() =>
-                                                                _model.isFav =
-                                                                    !_model
-                                                                        .isFav);
-                                                            if (functions
-                                                                .listContainsString(
+                                                                safeSetState(() =>
+                                                                    _model.isFav =
+                                                                        !_model
+                                                                            .isFav);
+                                                                if (functions.listContainsString(
                                                                     FFAppState()
                                                                         .userInfo
                                                                         .userFavs
                                                                         .toList(),
                                                                     widget
                                                                         .postID!)) {
-                                                              FFAppState()
-                                                                  .updateUserInfoStruct(
-                                                                (e) => e
-                                                                  ..updateUserFavs(
-                                                                    (e) => e.remove(
+                                                                  FFAppState()
+                                                                      .updateUserInfoStruct(
+                                                                    (e) => e
+                                                                      ..updateUserFavs(
+                                                                        (e) => e
+                                                                            .remove(widget.postID),
+                                                                      ),
+                                                                  );
+                                                                  await UserFavoritesTable()
+                                                                      .delete(
+                                                                    matchingRows:
+                                                                        (rows) => rows
+                                                                            .eqOrNull(
+                                                                              'user_id',
+                                                                              currentUserUid,
+                                                                            )
+                                                                            .eqOrNull(
+                                                                              'post_id',
+                                                                              widget.postID,
+                                                                            ),
+                                                                  );
+                                                                } else {
+                                                                  FFAppState()
+                                                                      .updateUserInfoStruct(
+                                                                    (e) => e
+                                                                      ..updateUserFavs(
+                                                                        (e) => e
+                                                                            .add(widget.postID!),
+                                                                      ),
+                                                                  );
+                                                                  await UserFavoritesTable()
+                                                                      .insert({
+                                                                    'user_id':
+                                                                        currentUserUid,
+                                                                    'post_id':
                                                                         widget
-                                                                            .postID),
-                                                                  ),
-                                                              );
-                                                              safeSetState(
-                                                                  () {});
-                                                              await UserFavoritesTable()
-                                                                  .delete(
-                                                                matchingRows:
-                                                                    (rows) => rows
-                                                                        .eqOrNull(
-                                                                          'user_id',
-                                                                          currentUserUid,
-                                                                        )
-                                                                        .eqOrNull(
-                                                                          'post_id',
-                                                                          widget
-                                                                              .postID,
-                                                                        ),
-                                                              );
-                                                            } else {
-                                                              FFAppState()
-                                                                  .updateUserInfoStruct(
-                                                                (e) => e
-                                                                  ..updateUserFavs(
-                                                                    (e) => e.add(
-                                                                        widget
-                                                                            .postID!),
-                                                                  ),
-                                                              );
-                                                              safeSetState(
-                                                                  () {});
-                                                              await UserFavoritesTable()
-                                                                  .insert({
-                                                                'user_id':
-                                                                    currentUserUid,
-                                                                'post_id':
-                                                                    widget
-                                                                        .postID,
-                                                              });
-                                                            }
+                                                                            .postID,
+                                                                  });
+                                                                }
 
-                                                            safeSetState(() =>
-                                                                _model.requestCompleter =
-                                                                    null);
-                                                          },
-                                                          value: _model.isFav,
-                                                          onIcon: Icon(
-                                                            Icons
-                                                                .bookmark_added,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .greenInit,
-                                                            size: 20.0,
-                                                          ),
-                                                          offIcon: Icon(
-                                                            Icons
-                                                                .bookmark_border,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primary,
-                                                            size: 20.0,
+                                                                safeSetState(() =>
+                                                                    _model.requestCompleter =
+                                                                        null);
+                                                              },
+                                                              value:
+                                                                  _model.isFav,
+                                                              onIcon: Icon(
+                                                                Icons
+                                                                    .bookmark_added,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .greenInit,
+                                                                size: 20.0,
+                                                              ),
+                                                              offIcon: Icon(
+                                                                Icons
+                                                                    .bookmark_border,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                                size: 20.0,
+                                                              ),
+                                                            ),
                                                           ),
                                                         ),
-                                                      ),
-                                                    ),
-                                                ].divide(SizedBox(width: 10.0)),
+                                                      if (!FFAppState().IsGust)
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, 0.0),
+                                                          child: Container(
+                                                            width: 40.0,
+                                                            height: 40.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                              shape: BoxShape
+                                                                  .circle,
+                                                            ),
+                                                            child: ToggleIcon(
+                                                              onPressed:
+                                                                  () async {
+                                                                safeSetState(() =>
+                                                                    _model.isClose =
+                                                                        !_model
+                                                                            .isClose);
+                                                              },
+                                                              value: _model
+                                                                  .isClose,
+                                                              onIcon: FaIcon(
+                                                                FontAwesomeIcons
+                                                                    .ellipsisV,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                                size: 14.0,
+                                                              ),
+                                                              offIcon: FaIcon(
+                                                                FontAwesomeIcons
+                                                                    .angleRight,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                                size: 14.0,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      if (!_model.isClose)
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            if ((postViewPostSearchRow
+                                                                        .ownerId ==
+                                                                    currentUserUid) &&
+                                                                !FFAppState()
+                                                                    .IsGust)
+                                                              Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        1.0,
+                                                                        0.0),
+                                                                child:
+                                                                    Container(
+                                                                  width: 40.0,
+                                                                  height: 40.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                    shape: BoxShape
+                                                                        .circle,
+                                                                  ),
+                                                                  child: Align(
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            1.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        FlutterFlowIconButton(
+                                                                      borderRadius:
+                                                                          50.0,
+                                                                      buttonSize:
+                                                                          40.0,
+                                                                      fillColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .secondaryBackground,
+                                                                      icon:
+                                                                          Icon(
+                                                                        Icons
+                                                                            .edit,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        size:
+                                                                            20.0,
+                                                                      ),
+                                                                      onPressed:
+                                                                          () async {
+                                                                        context
+                                                                            .pushNamed(
+                                                                          PostEditWidget
+                                                                              .routeName,
+                                                                          queryParameters:
+                                                                              {
+                                                                            'postId':
+                                                                                serializeParam(
+                                                                              widget.postID,
+                                                                              ParamType.String,
+                                                                            ),
+                                                                          }.withoutNulls,
+                                                                        );
+                                                                      },
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            if ((currentUserUid !=
+                                                                    postViewPostSearchRow
+                                                                        .ownerId) &&
+                                                                !FFAppState()
+                                                                    .IsGust)
+                                                              Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        1.0,
+                                                                        0.0),
+                                                                child:
+                                                                    Container(
+                                                                  width: 40.0,
+                                                                  height: 40.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                    shape: BoxShape
+                                                                        .circle,
+                                                                  ),
+                                                                  child: Stack(
+                                                                    children: [
+                                                                      if (functions.listContainsString(
+                                                                          FFAppState()
+                                                                              .userInfo
+                                                                              .reportedList
+                                                                              .toList(),
+                                                                          widget
+                                                                              .postID!))
+                                                                        Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidFlag,
+                                                                            color:
+                                                                                Color(0xFFDC0D08),
+                                                                            size:
+                                                                                16.0,
+                                                                          ),
+                                                                        ),
+                                                                      if (!functions.listContainsString(
+                                                                          FFAppState()
+                                                                              .userInfo
+                                                                              .reportedList
+                                                                              .toList(),
+                                                                          widget
+                                                                              .postID!))
+                                                                        Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Builder(
+                                                                            builder: (context) =>
+                                                                                InkWell(
+                                                                              splashColor: Colors.transparent,
+                                                                              focusColor: Colors.transparent,
+                                                                              hoverColor: Colors.transparent,
+                                                                              highlightColor: Colors.transparent,
+                                                                              onTap: () async {
+                                                                                await showDialog(
+                                                                                  context: context,
+                                                                                  builder: (dialogContext) {
+                                                                                    return Dialog(
+                                                                                      elevation: 0,
+                                                                                      insetPadding: EdgeInsets.zero,
+                                                                                      backgroundColor: Colors.transparent,
+                                                                                      alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                      child: ConfirmCancelPopUpWidget(
+                                                                                        header: 'Reporting ',
+                                                                                        hintText: 'Are you sure you want to report this post?',
+                                                                                        cancelText: 'Cancel',
+                                                                                        confirmText: 'Report',
+                                                                                        onConfirmAction: () async {
+                                                                                          await showDialog(
+                                                                                            context: context,
+                                                                                            builder: (dialogContext) {
+                                                                                              return Dialog(
+                                                                                                elevation: 0,
+                                                                                                insetPadding: EdgeInsets.zero,
+                                                                                                backgroundColor: Colors.transparent,
+                                                                                                alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                                child: ReportingPopupWidget(
+                                                                                                  reportingData: ReportingDataStruct(
+                                                                                                    postId: widget.postID,
+                                                                                                    postTitle: postViewPostSearchRow.title,
+                                                                                                    isProfile: false,
+                                                                                                    profileOwnerName: postViewPostSearchRow.userName,
+                                                                                                  ),
+                                                                                                ),
+                                                                                              );
+                                                                                            },
+                                                                                          );
+                                                                                        },
+                                                                                        onCancelAction: () async {},
+                                                                                      ),
+                                                                                    );
+                                                                                  },
+                                                                                );
+                                                                              },
+                                                                              child: FaIcon(
+                                                                                FontAwesomeIcons.flag,
+                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                size: 16.0,
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                          ].divide(SizedBox(
+                                                              width: 3.0)),
+                                                        ).animateOnPageLoad(
+                                                            animationsMap[
+                                                                'rowOnPageLoadAnimation1']!),
+                                                    ].divide(
+                                                        SizedBox(width: 10.0)),
+                                                  ),
+                                                ),
                                               ),
                                             ],
                                           ),
@@ -552,137 +690,86 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 20.0, 16.0, 16.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              context.pushNamed(
-                                                ImageGalleryPageWidget
-                                                    .routeName,
-                                                queryParameters: {
-                                                  'marketId': serializeParam(
-                                                    widget.postID,
-                                                    ParamType.String,
-                                                  ),
-                                                }.withoutNulls,
-                                              );
-                                            },
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.end,
-                                              children: [
-                                                Flexible(
-                                                  child: Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            -1.0, 1.0),
-                                                    child: InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        await showDialog(
-                                                          context: context,
-                                                          builder:
-                                                              (alertDialogContext) {
-                                                            return AlertDialog(
-                                                              title: Text(
-                                                                  FFAppState()
-                                                                      .userInfo
-                                                                      .userFavs
-                                                                      .length
-                                                                      .toString()),
-                                                              actions: [
-                                                                TextButton(
-                                                                  onPressed: () =>
-                                                                      Navigator.pop(
-                                                                          alertDialogContext),
-                                                                  child: Text(
-                                                                      'Ok'),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          },
-                                                        );
-                                                      },
-                                                      child: AutoSizeText(
-                                                        valueOrDefault<String>(
-                                                          postViewPostSearchRow
-                                                              .title,
-                                                          'This is a title which is quite long and all',
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.start,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .headlineMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(
-                                                                    fontWeight: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .headlineMedium
-                                                                        .fontWeight,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .headlineMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  fontSize:
-                                                                      26.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .headlineMedium
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .headlineMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                      ),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.end,
+                                            children: [
+                                              Flexible(
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          -1.0, 1.0),
+                                                  child: AutoSizeText(
+                                                    valueOrDefault<String>(
+                                                      postViewPostSearchRow
+                                                          .title,
+                                                      'This is a title which is quite long and all',
                                                     ),
-                                                  ),
-                                                ),
-                                                FlutterFlowIconButton(
-                                                  borderColor:
-                                                      Colors.transparent,
-                                                  borderRadius: 30.0,
-                                                  buttonSize: 40.0,
-                                                  icon: Icon(
-                                                    Icons.image_search,
-                                                    color: Colors.white,
-                                                    size: 20.0,
-                                                  ),
-                                                  onPressed: () async {
-                                                    context.pushNamed(
-                                                      ImageGalleryPageWidget
-                                                          .routeName,
-                                                      queryParameters: {
-                                                        'marketId':
-                                                            serializeParam(
-                                                          widget.postID,
-                                                          ParamType.String,
+                                                    textAlign: TextAlign.start,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .headlineMedium
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          fontSize: 26.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .headlineMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .headlineMedium
+                                                                  .fontStyle,
                                                         ),
-                                                      }.withoutNulls,
-                                                    );
-                                                  },
+                                                  ),
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                              FlutterFlowIconButton(
+                                                borderColor: Colors.transparent,
+                                                borderRadius: 30.0,
+                                                buttonSize: 40.0,
+                                                icon: Icon(
+                                                  Icons.image_search,
+                                                  color: Colors.white,
+                                                  size: 20.0,
+                                                ),
+                                                onPressed: () async {
+                                                  context.pushNamed(
+                                                    ImageGalleryPageWidget
+                                                        .routeName,
+                                                    queryParameters: {
+                                                      'previewImages':
+                                                          serializeParam(
+                                                        postViewPostSearchRow
+                                                            .images
+                                                            .map((e) => e)
+                                                            .toList(),
+                                                        ParamType.String,
+                                                        isList: true,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
+                                                },
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ),
@@ -807,10 +894,42 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceEvenly,
                                           children: [
-                                            Icon(
-                                              Icons.favorite,
-                                              color: Color(0xFFEC0B0B),
-                                              size: 24.0,
+                                            InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return AlertDialog(
+                                                      title: Text(_model.isFav
+                                                          .toString()),
+                                                      content: Text(FFAppState()
+                                                          .userInfo
+                                                          .userFavs
+                                                          .length
+                                                          .toString()),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    );
+                                                  },
+                                                );
+                                              },
+                                              child: Icon(
+                                                Icons.favorite,
+                                                color: Color(0xFFEC0B0B),
+                                                size: 24.0,
+                                              ),
                                             ),
                                             Text(
                                               valueOrDefault<String>(
@@ -1245,17 +1364,15 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                                   ),
                                                                   child: Image
                                                                       .network(
-                                                                    (valueOrDefault<String>(
-                                                                                      FFAppState().userInfo.avatar,
-                                                                                      'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/anonymous.jpg',
-                                                                                    ) !=
-                                                                                    '') &&
-                                                                            postViewPostSearchRow.showProfileImage!
-                                                                        ? valueOrDefault<String>(
-                                                                            FFAppState().userInfo.avatar,
-                                                                            'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/anonymous.jpg',
+                                                                    (postViewPostSearchRow.profileAvatar != null && postViewPostSearchRow.profileAvatar != '') &&
+                                                                            postViewPostSearchRow
+                                                                                .showProfileImage!
+                                                                        ? valueOrDefault<
+                                                                            String>(
+                                                                            postViewPostSearchRow.profileAvatar,
+                                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/n2imhdlvogb3/profile_avatar_circular.png',
                                                                           )
-                                                                        : FFAppConstants.DefultProfilePhoto,
+                                                                        : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/n2imhdlvogb3/profile_avatar_circular.png',
                                                                     fit: BoxFit
                                                                         .cover,
                                                                   ),
@@ -1553,71 +1670,6 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                               ),
                                             ],
                                           ),
-                                        ),
-                                        Builder(
-                                          builder: (context) {
-                                            final wishlist = getJsonField(
-                                              postViewPostSearchRow.details,
-                                              r'''$.exchange_wishlist_names''',
-                                            ).toList();
-
-                                            return Wrap(
-                                              spacing: 8.0,
-                                              runSpacing: 8.0,
-                                              alignment: WrapAlignment.start,
-                                              crossAxisAlignment:
-                                                  WrapCrossAlignment.start,
-                                              direction: Axis.horizontal,
-                                              runAlignment: WrapAlignment.start,
-                                              verticalDirection:
-                                                  VerticalDirection.down,
-                                              clipBehavior: Clip.none,
-                                              children:
-                                                  List.generate(wishlist.length,
-                                                      (wishlistIndex) {
-                                                final wishlistItem =
-                                                    wishlist[wishlistIndex];
-                                                return Container(
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            4.0),
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 4.0,
-                                                                8.0, 4.0),
-                                                    child: Text(
-                                                      wishlistItem.toString(),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
-                                                                fontSize: 16.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                useGoogleFonts:
-                                                                    !FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMediumIsCustom,
-                                                              ),
-                                                    ),
-                                                  ),
-                                                );
-                                              }),
-                                            );
-                                          },
                                         ),
                                       ].divide(SizedBox(height: 8.0)),
                                     ),

@@ -12,28 +12,28 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'overview_care_model.dart';
-export 'overview_care_model.dart';
+import 'overview_care_x_x_x_model.dart';
+export 'overview_care_x_x_x_model.dart';
 
-class OverviewCareWidget extends StatefulWidget {
-  const OverviewCareWidget({super.key});
+class OverviewCareXXXWidget extends StatefulWidget {
+  const OverviewCareXXXWidget({super.key});
 
-  static String routeName = 'OverviewCare';
-  static String routePath = '/overviewCare';
+  static String routeName = 'OverviewCare_XXX';
+  static String routePath = '/overviewCareXXX';
 
   @override
-  State<OverviewCareWidget> createState() => _OverviewCareWidgetState();
+  State<OverviewCareXXXWidget> createState() => _OverviewCareXXXWidgetState();
 }
 
-class _OverviewCareWidgetState extends State<OverviewCareWidget> {
-  late OverviewCareModel _model;
+class _OverviewCareXXXWidgetState extends State<OverviewCareXXXWidget> {
+  late OverviewCareXXXModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => OverviewCareModel());
+    _model = createModel(context, () => OverviewCareXXXModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -73,7 +73,7 @@ class _OverviewCareWidgetState extends State<OverviewCareWidget> {
             ),
           );
         }
-        List<ViewUserPostsRow> overviewCareViewUserPostsRowList =
+        List<ViewUserPostsRow> overviewCareXXXViewUserPostsRowList =
             snapshot.data!;
 
         return GestureDetector(
@@ -833,7 +833,7 @@ Offers */
                                         child: Builder(
                                           builder: (context) {
                                             final popular =
-                                                overviewCareViewUserPostsRowList
+                                                overviewCareXXXViewUserPostsRowList
                                                     .sortedList(
                                                         keyOf: (e) =>
                                                             e.createdAt!,

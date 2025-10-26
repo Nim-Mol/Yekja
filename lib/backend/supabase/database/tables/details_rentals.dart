@@ -42,8 +42,8 @@ class DetailsRentalsRow extends SupabaseDataRow {
   String? get depositText => getField<String>('deposit_text');
   set depositText(String? value) => setField<String>('deposit_text', value);
 
-  DateTime? get availableFrom => getField<DateTime>('available_from');
-  set availableFrom(DateTime? value) =>
+  DateTime get availableFrom => getField<DateTime>('available_from')!;
+  set availableFrom(DateTime value) =>
       setField<DateTime>('available_from', value);
 
   DateTime? get availableUntil => getField<DateTime>('available_until');
@@ -56,17 +56,17 @@ class DetailsRentalsRow extends SupabaseDataRow {
   int? get maxDays => getField<int>('max_days');
   set maxDays(int? value) => setField<int>('max_days', value);
 
-  bool get furnished => getField<bool>('furnished')!;
-  set furnished(bool value) => setField<bool>('furnished', value);
+  bool? get furnished => getField<bool>('furnished');
+  set furnished(bool? value) => setField<bool>('furnished', value);
 
-  bool get utilitiesIncluded => getField<bool>('utilities_included')!;
-  set utilitiesIncluded(bool value) =>
+  bool? get utilitiesIncluded => getField<bool>('utilities_included');
+  set utilitiesIncluded(bool? value) =>
       setField<bool>('utilities_included', value);
 
-  bool get billsIncluded => getField<bool>('bills_included')!;
-  set billsIncluded(bool value) => setField<bool>('bills_included', value);
+  bool? get billsIncluded => getField<bool>('bills_included');
+  set billsIncluded(bool? value) => setField<bool>('bills_included', value);
 
-  bool get registrationPossible => getField<bool>('registration_possible')!;
-  set registrationPossible(bool value) =>
+  bool? get registrationPossible => getField<bool>('registration_possible');
+  set registrationPossible(bool? value) =>
       setField<bool>('registration_possible', value);
 }

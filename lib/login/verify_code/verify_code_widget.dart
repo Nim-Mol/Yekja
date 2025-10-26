@@ -409,11 +409,6 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                         );
                         _shouldSetState = true;
                         if (_model.verificationMessage == true) {
-                          await Future.delayed(
-                            Duration(
-                              milliseconds: 5000,
-                            ),
-                          );
                           _model.userExt = await UserExtTable().insert({
                             'id': currentUserUid,
                             'email': currentUserEmail,
@@ -422,6 +417,22 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                           _shouldSetState = true;
                           await ConsentsTable().insert({
                             'user_id': currentUserUid,
+                          });
+                          // Creat Chat ROOM
+                          _model.yekjaChat2Customer =
+                              await ChatsTable().insert({
+                            'recipient': currentUserUid,
+                            'sender_name': 'Yekja',
+                            'sender': FFAppConstants.YekjaAdminID,
+                            'post_id': FFAppConstants.YekjaAdminID,
+                          });
+                          _shouldSetState = true;
+                          // Send message
+                          await MessagesTable().insert({
+                            'message_text': 'Hi Welcome to Yekja, ',
+                            'recipient': currentUserUid,
+                            'chat_id': _model.yekjaChat2Customer?.id,
+                            'sent_by': FFAppConstants.YekjaAdminID,
                           });
                         } else {
                           if (_shouldSetState) safeSetState(() {});

@@ -12,13 +12,11 @@ class ReportingDataStruct extends BaseStruct {
     bool? isProfile,
     String? profileId,
     String? profileOwnerName,
-    String? reporterId,
   })  : _postId = postId,
         _postTitle = postTitle,
         _isProfile = isProfile,
         _profileId = profileId,
-        _profileOwnerName = profileOwnerName,
-        _reporterId = reporterId;
+        _profileOwnerName = profileOwnerName;
 
   // "post_id" field.
   String? _postId;
@@ -55,13 +53,6 @@ class ReportingDataStruct extends BaseStruct {
 
   bool hasProfileOwnerName() => _profileOwnerName != null;
 
-  // "reporter_id" field.
-  String? _reporterId;
-  String get reporterId => _reporterId ?? '';
-  set reporterId(String? val) => _reporterId = val;
-
-  bool hasReporterId() => _reporterId != null;
-
   static ReportingDataStruct fromMap(Map<String, dynamic> data) =>
       ReportingDataStruct(
         postId: data['post_id'] as String?,
@@ -69,7 +60,6 @@ class ReportingDataStruct extends BaseStruct {
         isProfile: data['is_profile'] as bool?,
         profileId: data['profile_id'] as String?,
         profileOwnerName: data['profile_owner_name'] as String?,
-        reporterId: data['reporter_id'] as String?,
       );
 
   static ReportingDataStruct? maybeFromMap(dynamic data) => data is Map
@@ -82,7 +72,6 @@ class ReportingDataStruct extends BaseStruct {
         'is_profile': _isProfile,
         'profile_id': _profileId,
         'profile_owner_name': _profileOwnerName,
-        'reporter_id': _reporterId,
       }.withoutNulls;
 
   @override
@@ -105,10 +94,6 @@ class ReportingDataStruct extends BaseStruct {
         ),
         'profile_owner_name': serializeParam(
           _profileOwnerName,
-          ParamType.String,
-        ),
-        'reporter_id': serializeParam(
-          _reporterId,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -140,11 +125,6 @@ class ReportingDataStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
-        reporterId: deserializeParam(
-          data['reporter_id'],
-          ParamType.String,
-          false,
-        ),
       );
 
   @override
@@ -157,13 +137,12 @@ class ReportingDataStruct extends BaseStruct {
         postTitle == other.postTitle &&
         isProfile == other.isProfile &&
         profileId == other.profileId &&
-        profileOwnerName == other.profileOwnerName &&
-        reporterId == other.reporterId;
+        profileOwnerName == other.profileOwnerName;
   }
 
   @override
-  int get hashCode => const ListEquality().hash(
-      [postId, postTitle, isProfile, profileId, profileOwnerName, reporterId]);
+  int get hashCode => const ListEquality()
+      .hash([postId, postTitle, isProfile, profileId, profileOwnerName]);
 }
 
 ReportingDataStruct createReportingDataStruct({
@@ -172,7 +151,6 @@ ReportingDataStruct createReportingDataStruct({
   bool? isProfile,
   String? profileId,
   String? profileOwnerName,
-  String? reporterId,
 }) =>
     ReportingDataStruct(
       postId: postId,
@@ -180,5 +158,4 @@ ReportingDataStruct createReportingDataStruct({
       isProfile: isProfile,
       profileId: profileId,
       profileOwnerName: profileOwnerName,
-      reporterId: reporterId,
     );

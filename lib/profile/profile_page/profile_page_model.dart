@@ -7,10 +7,16 @@ import 'profile_page_widget.dart' show ProfilePageWidget;
 import 'package:flutter/material.dart';
 
 class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
+  ///  Local state fields for this page.
+
+  bool isClose = true;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - Query Rows] action in ProfilePage widget.
   List<ViewUserChatsRow>? chatView;
+  // Stores action output result for [Backend Call - Query Rows] action in Icon widget.
+  List<ChatsRow>? yekjaChat2Customer;
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>

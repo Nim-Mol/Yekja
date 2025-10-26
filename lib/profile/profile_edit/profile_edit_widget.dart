@@ -374,54 +374,79 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                             ),
                                                                             Align(
                                                                               alignment: AlignmentDirectional(-1.0, -1.0),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(3.0, 3.0, 0.0, 0.0),
-                                                                                child: InkWell(
-                                                                                  splashColor: Colors.transparent,
-                                                                                  focusColor: Colors.transparent,
-                                                                                  hoverColor: Colors.transparent,
-                                                                                  highlightColor: Colors.transparent,
-                                                                                  onTap: () async {
-                                                                                    var confirmDialogResponse = await showDialog<bool>(
-                                                                                          context: context,
-                                                                                          builder: (alertDialogContext) {
-                                                                                            return AlertDialog(
-                                                                                              title: Text('Remove Profile photo'),
-                                                                                              content: Text('Are You sure you want to Remove your profile photo? '),
-                                                                                              actions: [
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                                  child: Text('Cancel'),
-                                                                                                ),
-                                                                                                TextButton(
-                                                                                                  onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                                  child: Text('Remove'),
-                                                                                                ),
-                                                                                              ],
-                                                                                            );
-                                                                                          },
-                                                                                        ) ??
-                                                                                        false;
-                                                                                    if (confirmDialogResponse) {
-                                                                                      await deleteSupabaseFileFromPublicUrl(columnUserExtRow!.profileAvatar!);
-                                                                                      _model.defultAvatar = await UserExtTable().update(
-                                                                                        data: {
-                                                                                          'profile_avatar': 'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/anonymous.jpg',
+                                                                              child: Builder(
+                                                                                builder: (context) => Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(3.0, 3.0, 0.0, 0.0),
+                                                                                  child: InkWell(
+                                                                                    splashColor: Colors.transparent,
+                                                                                    focusColor: Colors.transparent,
+                                                                                    hoverColor: Colors.transparent,
+                                                                                    highlightColor: Colors.transparent,
+                                                                                    onTap: () async {
+                                                                                      var confirmDialogResponse = await showDialog<bool>(
+                                                                                            context: context,
+                                                                                            builder: (alertDialogContext) {
+                                                                                              return AlertDialog(
+                                                                                                title: Text('Remove Profile photo'),
+                                                                                                content: Text('Are You sure you want to Remove your profile photo? '),
+                                                                                                actions: [
+                                                                                                  TextButton(
+                                                                                                    onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                                    child: Text('Cancel'),
+                                                                                                  ),
+                                                                                                  TextButton(
+                                                                                                    onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                                    child: Text('Remove'),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              );
+                                                                                            },
+                                                                                          ) ??
+                                                                                          false;
+                                                                                      await showDialog(
+                                                                                        context: context,
+                                                                                        builder: (dialogContext) {
+                                                                                          return Dialog(
+                                                                                            elevation: 0,
+                                                                                            insetPadding: EdgeInsets.zero,
+                                                                                            backgroundColor: Colors.transparent,
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                            child: GestureDetector(
+                                                                                              onTap: () {
+                                                                                                FocusScope.of(dialogContext).unfocus();
+                                                                                                FocusManager.instance.primaryFocus?.unfocus();
+                                                                                              },
+                                                                                              child: ConfirmCancelPopUpWidget(
+                                                                                                header: 'Remove Profile photo',
+                                                                                                hintText: 'Are You sure you want to Remove your profile photo? ',
+                                                                                                confirmText: 'Remove',
+                                                                                                onConfirmAction: () async {
+                                                                                                  await deleteSupabaseFileFromPublicUrl(columnUserExtRow!.profileAvatar!);
+                                                                                                  _model.defultAvatar = await UserExtTable().update(
+                                                                                                    data: {
+                                                                                                      'profile_avatar': 'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/anonymous.jpg',
+                                                                                                    },
+                                                                                                    matchingRows: (rows) => rows.eqOrNull(
+                                                                                                      'id',
+                                                                                                      currentUserUid,
+                                                                                                    ),
+                                                                                                    returnRows: true,
+                                                                                                  );
+                                                                                                },
+                                                                                                onCancelAction: () async {},
+                                                                                              ),
+                                                                                            ),
+                                                                                          );
                                                                                         },
-                                                                                        matchingRows: (rows) => rows.eqOrNull(
-                                                                                          'id',
-                                                                                          currentUserUid,
-                                                                                        ),
-                                                                                        returnRows: true,
                                                                                       );
-                                                                                    }
 
-                                                                                    safeSetState(() {});
-                                                                                  },
-                                                                                  child: Icon(
-                                                                                    Icons.close_sharp,
-                                                                                    color: Color(0xE7232426),
-                                                                                    size: 20.0,
+                                                                                      safeSetState(() {});
+                                                                                    },
+                                                                                    child: Icon(
+                                                                                      Icons.close_sharp,
+                                                                                      color: Color(0xE7232426),
+                                                                                      size: 20.0,
+                                                                                    ),
                                                                                   ),
                                                                                 ),
                                                                               ),
@@ -659,67 +684,73 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                               1.0,
                                                                               -1.0),
                                                                       child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            30.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            InkWell(
-                                                                          splashColor:
-                                                                              Colors.transparent,
-                                                                          focusColor:
-                                                                              Colors.transparent,
-                                                                          hoverColor:
-                                                                              Colors.transparent,
-                                                                          highlightColor:
-                                                                              Colors.transparent,
-                                                                          onTap:
-                                                                              () async {
-                                                                            var confirmDialogResponse = await showDialog<bool>(
-                                                                                  context: context,
-                                                                                  builder: (alertDialogContext) {
-                                                                                    return AlertDialog(
-                                                                                      title: Text('Remove Profile Wallpaper'),
-                                                                                      content: Text('Are You sure you want to Remove your profile wallpaper? '),
-                                                                                      actions: [
-                                                                                        TextButton(
-                                                                                          onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                          child: Text('Cancel'),
-                                                                                        ),
-                                                                                        TextButton(
-                                                                                          onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                          child: Text('Remove'),
-                                                                                        ),
-                                                                                      ],
-                                                                                    );
-                                                                                  },
-                                                                                ) ??
-                                                                                false;
-                                                                            if (confirmDialogResponse) {
-                                                                              await deleteSupabaseFileFromPublicUrl(columnUserExtRow!.profileWallpaper!);
-                                                                              _model.removedWallpaper = await UserExtTable().update(
-                                                                                data: {
-                                                                                  'profile_wallpaper': 'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/defult-profile-walpaper.avif',
-                                                                                },
-                                                                                matchingRows: (rows) => rows.eqOrNull(
-                                                                                  'id',
-                                                                                  currentUserUid,
-                                                                                ),
-                                                                                returnRows: true,
-                                                                              );
-                                                                            }
-
-                                                                            safeSetState(() {});
-                                                                          },
+                                                                          Builder(
+                                                                        builder:
+                                                                            (context) =>
+                                                                                Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              5.0,
+                                                                              30.0,
+                                                                              0.0),
                                                                           child:
-                                                                              Icon(
-                                                                            Icons.close_sharp,
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primary,
-                                                                            size:
-                                                                                20.0,
+                                                                              InkWell(
+                                                                            splashColor:
+                                                                                Colors.transparent,
+                                                                            focusColor:
+                                                                                Colors.transparent,
+                                                                            hoverColor:
+                                                                                Colors.transparent,
+                                                                            highlightColor:
+                                                                                Colors.transparent,
+                                                                            onTap:
+                                                                                () async {
+                                                                              await showDialog(
+                                                                                context: context,
+                                                                                builder: (dialogContext) {
+                                                                                  return Dialog(
+                                                                                    elevation: 0,
+                                                                                    insetPadding: EdgeInsets.zero,
+                                                                                    backgroundColor: Colors.transparent,
+                                                                                    alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                    child: GestureDetector(
+                                                                                      onTap: () {
+                                                                                        FocusScope.of(dialogContext).unfocus();
+                                                                                        FocusManager.instance.primaryFocus?.unfocus();
+                                                                                      },
+                                                                                      child: ConfirmCancelPopUpWidget(
+                                                                                        header: 'Remove Profile Wallpaper',
+                                                                                        hintText: 'Are You sure you want to Remove your profile wallpaper? ',
+                                                                                        cancelText: 'Cancel',
+                                                                                        confirmText: 'Remove',
+                                                                                        onConfirmAction: () async {
+                                                                                          await deleteSupabaseFileFromPublicUrl(columnUserExtRow!.profileWallpaper!);
+                                                                                          _model.removedWallpaperCopy = await UserExtTable().update(
+                                                                                            data: {
+                                                                                              'profile_wallpaper': 'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/defult-profile-walpaper.avif',
+                                                                                            },
+                                                                                            matchingRows: (rows) => rows.eqOrNull(
+                                                                                              'id',
+                                                                                              currentUserUid,
+                                                                                            ),
+                                                                                            returnRows: true,
+                                                                                          );
+                                                                                        },
+                                                                                        onCancelAction: () async {},
+                                                                                      ),
+                                                                                    ),
+                                                                                  );
+                                                                                },
+                                                                              );
+
+                                                                              safeSetState(() {});
+                                                                            },
+                                                                            child:
+                                                                                Icon(
+                                                                              Icons.close_sharp,
+                                                                              color: FlutterFlowTheme.of(context).primary,
+                                                                              size: 20.0,
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -1985,20 +2016,20 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                     ),
                                                                   );
                                                                   FFAppState()
-                                                                          .userInfo =
-                                                                      UserInfoStruct(
-                                                                    userName: _model
-                                                                        .userNameTextController
-                                                                        .text,
-                                                                    name: _model
-                                                                        .firstNameTextController
-                                                                        .text,
-                                                                    lastName: (_model.lastNameFocusNode?.hasFocus ??
-                                                                            false)
-                                                                        .toString(),
-                                                                    city: _model
-                                                                        .cityTextController
-                                                                        .text,
+                                                                      .updateUserInfoStruct(
+                                                                    (e) => e
+                                                                      ..userName = _model
+                                                                          .userNameTextController
+                                                                          .text
+                                                                      ..name = _model
+                                                                          .firstNameTextController
+                                                                          .text
+                                                                      ..lastName = _model
+                                                                          .lastNameTextController
+                                                                          .text
+                                                                      ..city = _model
+                                                                          .cityTextController
+                                                                          .text,
                                                                   );
                                                                   safeSetState(
                                                                       () {});
@@ -2253,6 +2284,28 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                             8.0),
                                                               ),
                                                             ),
+                                                          ),
+                                                        ),
+                                                        InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            context.pushNamed(
+                                                                ProfileEditCopyWidget
+                                                                    .routeName);
+                                                          },
+                                                          child: Icon(
+                                                            Icons.arrow_back,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            size: 24.0,
                                                           ),
                                                         ),
                                                       ],

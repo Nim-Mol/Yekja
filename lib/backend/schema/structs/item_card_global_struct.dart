@@ -17,6 +17,7 @@ class ItemCardGlobalStruct extends BaseStruct {
     String? postUserId,
     String? details,
     String? avatar,
+    String? subCatName,
   })  : _title = title,
         _description = description,
         _itemLocation = itemLocation,
@@ -26,7 +27,8 @@ class ItemCardGlobalStruct extends BaseStruct {
         _mainImagePath = mainImagePath,
         _postUserId = postUserId,
         _details = details,
-        _avatar = avatar;
+        _avatar = avatar,
+        _subCatName = subCatName;
 
   // "title" field.
   String? _title;
@@ -102,6 +104,13 @@ class ItemCardGlobalStruct extends BaseStruct {
 
   bool hasAvatar() => _avatar != null;
 
+  // "sub_cat_name" field.
+  String? _subCatName;
+  String get subCatName => _subCatName ?? '';
+  set subCatName(String? val) => _subCatName = val;
+
+  bool hasSubCatName() => _subCatName != null;
+
   static ItemCardGlobalStruct fromMap(Map<String, dynamic> data) =>
       ItemCardGlobalStruct(
         title: data['title'] as String?,
@@ -114,6 +123,7 @@ class ItemCardGlobalStruct extends BaseStruct {
         postUserId: data['postUserId'] as String?,
         details: data['details'] as String?,
         avatar: data['Avatar'] as String?,
+        subCatName: data['sub_cat_name'] as String?,
       );
 
   static ItemCardGlobalStruct? maybeFromMap(dynamic data) => data is Map
@@ -131,6 +141,7 @@ class ItemCardGlobalStruct extends BaseStruct {
         'postUserId': _postUserId,
         'details': _details,
         'Avatar': _avatar,
+        'sub_cat_name': _subCatName,
       }.withoutNulls;
 
   @override
@@ -173,6 +184,10 @@ class ItemCardGlobalStruct extends BaseStruct {
         ),
         'Avatar': serializeParam(
           _avatar,
+          ParamType.String,
+        ),
+        'sub_cat_name': serializeParam(
+          _subCatName,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -229,6 +244,11 @@ class ItemCardGlobalStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        subCatName: deserializeParam(
+          data['sub_cat_name'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -246,7 +266,8 @@ class ItemCardGlobalStruct extends BaseStruct {
         mainImagePath == other.mainImagePath &&
         postUserId == other.postUserId &&
         details == other.details &&
-        avatar == other.avatar;
+        avatar == other.avatar &&
+        subCatName == other.subCatName;
   }
 
   @override
@@ -260,7 +281,8 @@ class ItemCardGlobalStruct extends BaseStruct {
         mainImagePath,
         postUserId,
         details,
-        avatar
+        avatar,
+        subCatName
       ]);
 }
 
@@ -275,6 +297,7 @@ ItemCardGlobalStruct createItemCardGlobalStruct({
   String? postUserId,
   String? details,
   String? avatar,
+  String? subCatName,
 }) =>
     ItemCardGlobalStruct(
       title: title,
@@ -287,4 +310,5 @@ ItemCardGlobalStruct createItemCardGlobalStruct({
       postUserId: postUserId,
       details: details,
       avatar: avatar,
+      subCatName: subCatName,
     );

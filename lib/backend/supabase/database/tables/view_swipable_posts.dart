@@ -30,6 +30,9 @@ class ViewSwipablePostsRow extends SupabaseDataRow {
   int? get postLikes => getField<int>('post_likes');
   set postLikes(int? value) => setField<int>('post_likes', value);
 
+  String? get city => getField<String>('city');
+  set city(String? value) => setField<String>('city', value);
+
   int? get mainCatId => getField<int>('main_cat_id');
   set mainCatId(int? value) => setField<int>('main_cat_id', value);
 
@@ -62,9 +65,7 @@ class ViewSwipablePostsRow extends SupabaseDataRow {
   String? get profileAvatar => getField<String>('profile_avatar');
   set profileAvatar(String? value) => setField<String>('profile_avatar', value);
 
-  String? get userCity => getField<String>('user_city');
-  set userCity(String? value) => setField<String>('user_city', value);
-
-  bool? get yekjaVerified => getField<bool>('yekja_verified');
-  set yekjaVerified(bool? value) => setField<bool>('yekja_verified', value);
+  bool? get showProfileImage => getField<bool>('show_profile_image');
+  set showProfileImage(bool? value) =>
+      setField<bool>('show_profile_image', value);
 }

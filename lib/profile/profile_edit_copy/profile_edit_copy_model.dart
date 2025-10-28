@@ -2,6 +2,7 @@ import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'profile_edit_copy_widget.dart' show ProfileEditCopyWidget;
+import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 
 class ProfileEditCopyModel extends FlutterFlowModel<ProfileEditCopyWidget> {
@@ -29,9 +30,8 @@ class ProfileEditCopyModel extends FlutterFlowModel<ProfileEditCopyWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final formKey2 = GlobalKey<FormState>();
-  final formKey3 = GlobalKey<FormState>();
   final formKey1 = GlobalKey<FormState>();
+  final formKey2 = GlobalKey<FormState>();
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
@@ -206,10 +206,13 @@ class ProfileEditCopyModel extends FlutterFlowModel<ProfileEditCopyWidget> {
   FocusNode? cityFocusNode;
   TextEditingController? cityTextController;
   String? Function(BuildContext, String?)? cityTextControllerValidator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode;
-  TextEditingController? textController7;
-  String? Function(BuildContext, String?)? textController7Validator;
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableExpandableController;
+
+  // State field(s) for InstaLink widget.
+  FocusNode? instaLinkFocusNode;
+  TextEditingController? instaLinkTextController;
+  String? Function(BuildContext, String?)? instaLinkTextControllerValidator;
   // Stores action output result for [Validate Form] action in Save widget.
   bool? valid;
   // Stores action output result for [Custom Action - userSoftDeleteAsync] action in RichTextSpan widget.
@@ -261,7 +264,8 @@ class ProfileEditCopyModel extends FlutterFlowModel<ProfileEditCopyWidget> {
     cityFocusNode?.dispose();
     cityTextController?.dispose();
 
-    textFieldFocusNode?.dispose();
-    textController7?.dispose();
+    expandableExpandableController.dispose();
+    instaLinkFocusNode?.dispose();
+    instaLinkTextController?.dispose();
   }
 }

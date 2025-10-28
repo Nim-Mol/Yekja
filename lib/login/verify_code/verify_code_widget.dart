@@ -409,6 +409,11 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                         );
                         _shouldSetState = true;
                         if (_model.verificationMessage == true) {
+                          await Future.delayed(
+                            Duration(
+                              milliseconds: 3000,
+                            ),
+                          );
                           _model.userExt = await UserExtTable().insert({
                             'id': currentUserUid,
                             'email': currentUserEmail,
@@ -429,7 +434,8 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                           _shouldSetState = true;
                           // Send message
                           await MessagesTable().insert({
-                            'message_text': 'Hi Welcome to Yekja, ',
+                            'message_text':
+                                'Hi Welcome to Yekja! You can reach out to our community members and start trading, requesting or offering support. In case of any issues please make sure to contact us. Wishing you a nice experience!',
                             'recipient': currentUserUid,
                             'chat_id': _model.yekjaChat2Customer?.id,
                             'sent_by': FFAppConstants.YekjaAdminID,

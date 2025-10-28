@@ -143,10 +143,10 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
               ),
             ),
             child: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Row(
@@ -302,87 +302,95 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                       ),
                     ].divide(SizedBox(width: 8.0)),
                   ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Align(
-                          alignment: AlignmentDirectional(-1.0, 0.0),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 2.0, 0.0),
-                            child: Text(
-                              valueOrDefault<String>(
-                                containerViewShoutoutRow.header,
-                                'Thanks!',
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .displaySmall
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .displaySmallFamily,
-                                    fontSize: 12.0,
-                                    letterSpacing: 0.0,
-                                    useGoogleFonts:
-                                        !FlutterFlowTheme.of(context)
-                                            .displaySmallIsCustom,
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 2.0, 0.0),
+                                child: Text(
+                                  valueOrDefault<String>(
+                                    containerViewShoutoutRow.header,
+                                    'Thanks!',
                                   ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Flexible(
-                          child: Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
-                            child: Text(
-                              valueOrDefault<String>(
-                                containerViewShoutoutRow.description,
-                                'description',
-                              ).maybeHandleOverflow(
-                                maxChars: 150,
-                                replacement: '…',
+                                  style: FlutterFlowTheme.of(context)
+                                      .displaySmall
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .displaySmallFamily,
+                                        fontSize: 12.0,
+                                        letterSpacing: 0.0,
+                                        useGoogleFonts:
+                                            !FlutterFlowTheme.of(context)
+                                                .displaySmallIsCustom,
+                                      ),
+                                ),
                               ),
-                              maxLines: 3,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily,
-                                    fontSize: 12.0,
-                                    letterSpacing: 0.0,
-                                    useGoogleFonts:
-                                        !FlutterFlowTheme.of(context)
-                                            .bodyMediumIsCustom,
-                                  ),
                             ),
-                          ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Flexible(
+                              child: Align(
+                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                child: Text(
+                                  valueOrDefault<String>(
+                                    containerViewShoutoutRow.description,
+                                    'description',
+                                  ).maybeHandleOverflow(
+                                    maxChars: 150,
+                                    replacement: '…',
+                                  ),
+                                  maxLines: 3,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .bodyMediumFamily,
+                                        fontSize: 12.0,
+                                        letterSpacing: 0.0,
+                                        useGoogleFonts:
+                                            !FlutterFlowTheme.of(context)
+                                                .bodyMediumIsCustom,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                  Align(
-                    alignment: AlignmentDirectional(1.0, 1.0),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          ToggleIcon(
-                            onPressed: () async {
-                              safeSetState(
-                                  () => _model.isLiked = !_model.isLiked!);
-                              if (loggedIn) {
+                  if (loggedIn)
+                    Align(
+                      alignment: AlignmentDirectional(1.0, 1.0),
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            ToggleIcon(
+                              onPressed: () async {
+                                safeSetState(
+                                    () => _model.isLiked = !_model.isLiked!);
                                 if (_model.isLiked!) {
                                   await PostLikeRelationTable().insert({
                                     'liked_by': currentUserUid,
@@ -405,43 +413,41 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                                 safeSetState(
                                     () => _model.requestCompleter = null);
                                 await _model.waitForRequestCompleted();
-                                return;
-                              } else {
-                                return;
-                              }
-                            },
-                            value: _model.isLiked!,
-                            onIcon: Icon(
-                              Icons.favorite,
-                              color: Color(0xFFBA0A0A),
-                              size: 18.0,
+                              },
+                              value: _model.isLiked!,
+                              onIcon: Icon(
+                                Icons.favorite,
+                                color: Color(0xFFBA0A0A),
+                                size: 18.0,
+                              ),
+                              offIcon: Icon(
+                                Icons.favorite_border,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 18.0,
+                              ),
                             ),
-                            offIcon: Icon(
-                              Icons.favorite_border,
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                              size: 18.0,
+                            Text(
+                              valueOrDefault<String>(
+                                containerViewShoutoutRow.likes.toString(),
+                                '0',
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily,
+                                    fontSize: 12.0,
+                                    letterSpacing: 0.0,
+                                    useGoogleFonts:
+                                        !FlutterFlowTheme.of(context)
+                                            .bodyMediumIsCustom,
+                                  ),
                             ),
-                          ),
-                          Text(
-                            valueOrDefault<String>(
-                              containerViewShoutoutRow.likes.toString(),
-                              '0',
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily,
-                                  fontSize: 12.0,
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .bodyMediumIsCustom,
-                                ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-                  ),
                 ],
               ),
             ),

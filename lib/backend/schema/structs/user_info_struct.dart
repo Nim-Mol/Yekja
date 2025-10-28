@@ -18,6 +18,7 @@ class UserInfoStruct extends BaseStruct {
     int? unseenChats,
     int? unseenMessages,
     String? role,
+    String? instaLink,
   })  : _userId = userId,
         _userName = userName,
         _name = name,
@@ -28,7 +29,8 @@ class UserInfoStruct extends BaseStruct {
         _reportedList = reportedList,
         _unseenChats = unseenChats,
         _unseenMessages = unseenMessages,
-        _role = role;
+        _role = role,
+        _instaLink = instaLink;
 
   // "userId" field.
   String? _userId;
@@ -120,6 +122,13 @@ class UserInfoStruct extends BaseStruct {
 
   bool hasRole() => _role != null;
 
+  // "Insta_Link" field.
+  String? _instaLink;
+  String get instaLink => _instaLink ?? '';
+  set instaLink(String? val) => _instaLink = val;
+
+  bool hasInstaLink() => _instaLink != null;
+
   static UserInfoStruct fromMap(Map<String, dynamic> data) => UserInfoStruct(
         userId: data['userId'] as String?,
         userName: data['userName'] as String?,
@@ -132,6 +141,7 @@ class UserInfoStruct extends BaseStruct {
         unseenChats: castToType<int>(data['unseen_chats']),
         unseenMessages: castToType<int>(data['unseen_messages']),
         role: data['Role'] as String?,
+        instaLink: data['Insta_Link'] as String?,
       );
 
   static UserInfoStruct? maybeFromMap(dynamic data) =>
@@ -149,6 +159,7 @@ class UserInfoStruct extends BaseStruct {
         'unseen_chats': _unseenChats,
         'unseen_messages': _unseenMessages,
         'Role': _role,
+        'Insta_Link': _instaLink,
       }.withoutNulls;
 
   @override
@@ -197,6 +208,10 @@ class UserInfoStruct extends BaseStruct {
         ),
         'Role': serializeParam(
           _role,
+          ParamType.String,
+        ),
+        'Insta_Link': serializeParam(
+          _instaLink,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -258,6 +273,11 @@ class UserInfoStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        instaLink: deserializeParam(
+          data['Insta_Link'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -277,7 +297,8 @@ class UserInfoStruct extends BaseStruct {
         listEquality.equals(reportedList, other.reportedList) &&
         unseenChats == other.unseenChats &&
         unseenMessages == other.unseenMessages &&
-        role == other.role;
+        role == other.role &&
+        instaLink == other.instaLink;
   }
 
   @override
@@ -292,7 +313,8 @@ class UserInfoStruct extends BaseStruct {
         reportedList,
         unseenChats,
         unseenMessages,
-        role
+        role,
+        instaLink
       ]);
 }
 
@@ -306,6 +328,7 @@ UserInfoStruct createUserInfoStruct({
   int? unseenChats,
   int? unseenMessages,
   String? role,
+  String? instaLink,
 }) =>
     UserInfoStruct(
       userId: userId,
@@ -317,4 +340,5 @@ UserInfoStruct createUserInfoStruct({
       unseenChats: unseenChats,
       unseenMessages: unseenMessages,
       role: role,
+      instaLink: instaLink,
     );

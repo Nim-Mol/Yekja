@@ -1589,6 +1589,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa':
           'برای کاوش، انگشت خود را بکشید - برای کسب اطلاعات بیشتر، روی هر کدام ضربه بزنید',
     },
+    'b8feubfc': {
+      'en': 'See details',
+      'fa': '',
+    },
     'bifytvxz': {
       'en': 'Home',
       'fa': 'خانه',
@@ -3162,102 +3166,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Social Media',
       'fa': '',
     },
-    'lg5sehnw': {
-      'en': 'TextField',
+    'eun17pjp': {
+      'en': 'Social Media Links',
+      'fa': 'مرتب سازی بر اساس',
+    },
+    'j3ddr7lb': {
+      'en': 'Instagram Link',
       'fa': '',
-    },
-    'dicxn44a': {
-      'en': 'This field is required.',
-      'fa': 'این فیلد الزامی است.',
-    },
-    '1eppca3a': {
-      'en': 'Minimum 3 letters are required.',
-      'fa': 'حداقل ۳ حرف الزامی است.',
-    },
-    'f5ccyolk': {
-      'en': 'user name is too lang.',
-      'fa': 'نام کاربری خیلی طولانی است.',
-    },
-    '980rw6yr': {
-      'en': 'Please use only letters (English/Persian), spaces, or underscore.',
-      'fa': 'فقط حروف (A-Z) معتبر هستند.',
-    },
-    '604u4w71': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    'd13gr7rd': {
-      'en': 'firstName is required',
-      'fa': 'نام و نام خانوادگی الزامی است',
-    },
-    'oagjwo1v': {
-      'en': 'Please use only letters (English/Persian), spaces.',
-      'fa': '',
-    },
-    'ne7mo6bm': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    's1bj8aiy': {
-      'en': 'This field is required',
-      'fa': 'این فیلد الزامی است',
-    },
-    '9kpgusg7': {
-      'en': 'Please use only letters (English/Persian), spaces.',
-      'fa': 'لطفا فقط نامه کاربر.',
-    },
-    'n9778bcq': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    'a3lrwfo0': {
-      'en': 'Please enter valid Email address.',
-      'fa': 'لطفا آدرس ایمیل معتبری وارد کنید.',
-    },
-    'ou3gtevy': {
-      'en': 'This field is required',
-      'fa': 'این فیلد الزامی است',
-    },
-    'nryrdgfm': {
-      'en': 'Please use a valid email address.',
-      'fa': 'لطفا آدرس ایمیل معتبری وارد کنید.',
-    },
-    '458daemi': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    'acfapk81': {
-      'en': 'This field is required.',
-      'fa': 'این فیلد الزامی است.',
-    },
-    'wpvvzqf3': {
-      'en': 'Use a valid phone number. e.g 0612345678',
-      'fa': 'از یک شماره تلفن معتبر استفاده کنید. مثلاً 0612345678',
-    },
-    'f5op2316': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    'hg78612y': {
-      'en': 'user_city is required',
-      'fa': 'user_city الزامی است',
-    },
-    'bgpa91a2': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-    },
-    'pr4zbq4i': {
-      'en': 'Too many characters.',
-      'fa': 'تعداد کاراکترها خیلی زیاده.',
-    },
-    'lzng4qx4': {
-      'en':
-          'Please use only letters (English/Persian), spaces, underscore or dot.',
-      'fa': 'ساختار نامعتبر است، لطفاً پیشنهاد 0612345678 را دنبال کنید.',
-    },
-    'q0akrcrf': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
     },
     'mb8qxwm3': {
       'en': 'Save',
@@ -4217,10 +4132,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Quanitty:        ',
       'fa': '',
     },
-    'xse4c2z2': {
-      'en': 'Price (per ticket):        ',
-      'fa': '',
-    },
     'e00bht04': {
       'en': 'Rotterdam',
       'fa': '',
@@ -4233,7 +4144,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '2 (Standing)',
       'fa': '',
     },
-    '2jghk6wf': {
+    'jxlxlioj': {
+      'en': 'Asling price (per ticket): ',
+      'fa': '',
+    },
+    'f8le80p9': {
       'en': '100 Euro',
       'fa': '',
     },

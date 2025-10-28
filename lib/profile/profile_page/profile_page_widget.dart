@@ -2032,6 +2032,46 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        25.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                await launchURL(
+                                                                    FFAppState()
+                                                                        .userInfo
+                                                                        .instaLink);
+                                                              },
+                                                              child: Icon(
+                                                                Icons
+                                                                    .link_outlined,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                size: 30.0,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional

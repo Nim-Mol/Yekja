@@ -14,4 +14,6 @@ abstract class FFAppConstants {
   static const List<int> catsOpenForSwap = [4, 5, 6];
   static const String profileAvatarCircular =
       'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/n2imhdlvogb3/profile_avatar_circular.png';
+  static const String DefaultPostImage =
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg';
 }

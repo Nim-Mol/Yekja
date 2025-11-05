@@ -1,13 +1,13 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
-import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/main_overview_pages/item_card_global/item_card_global_widget.dart';
+import '/shared_components/item_card_job_request/item_card_job_request_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
-import '/shared_components/shout_out_card/shout_out_card_widget.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -214,1100 +214,318 @@ class _MarketWidgetState extends State<MarketWidget>
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 16.0, 16.0, 8.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Flexible(
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                FFAppState()
-                                                    .updateFilterSmallStruct(
-                                                  (e) => e..catId = 1,
-                                                );
-                                                safeSetState(() {});
-                                                safeSetState(() => _model
-                                                    .listviewMarketPagingController
-                                                    ?.refresh());
-                                                await _model
-                                                    .waitForOnePageForListviewMarket();
-                                              },
-                                              child: Container(
-                                                height: 135.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                  border: Border.all(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    width: 0.3,
-                                                  ),
-                                                ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Container(
-                                                      decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        shape:
-                                                            BoxShape.rectangle,
-                                                        border: Border.all(
-                                                          color: FFAppState()
-                                                                      .filterSmall
-                                                                      .catId ==
-                                                                  1
-                                                              ? FlutterFlowTheme
-                                                                      .of(
-                                                                          context)
-                                                                  .secondaryText
-                                                              : FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryBackground,
-                                                          width: 1.0,
-                                                        ),
-                                                      ),
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(0.0),
-                                                        child: Image.network(
-                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/o2bnof2or890/iran.png',
-                                                          width: 75.0,
-                                                          height: 75.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  2.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: AutoSizeText(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'lhv4rbl0' /* Transfer
-Parcels */
-                                                          ,
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .titleMedium
-                                                            .override(
-                                                              font: GoogleFonts
-                                                                  .poppins(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                              color: FFAppState()
-                                                                          .filterSmall
-                                                                          .catId ==
-                                                                      1
-                                                                  ? FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText
-                                                                  : FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .midgray,
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ].addToEnd(
-                                                      SizedBox(height: 10.0)),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Flexible(
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                FFAppState()
-                                                    .updateFilterSmallStruct(
-                                                  (e) => e..catId = 2,
-                                                );
-                                                safeSetState(() {});
-                                                safeSetState(() => _model
-                                                    .listviewMarketPagingController
-                                                    ?.refresh());
-                                                await _model
-                                                    .waitForOnePageForListviewMarket();
-                                              },
-                                              child: Container(
-                                                height: 135.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                  border: Border.all(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    width: 0.3,
-                                                  ),
-                                                ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Container(
-                                                      decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        shape:
-                                                            BoxShape.rectangle,
-                                                        border: Border.all(
-                                                          color: FFAppState()
-                                                                      .filterSmall
-                                                                      .catId ==
-                                                                  2
-                                                              ? FlutterFlowTheme
-                                                                      .of(
-                                                                          context)
-                                                                  .secondaryText
-                                                              : FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryBackground,
-                                                          width: 1.0,
-                                                        ),
-                                                      ),
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(0.0),
-                                                        child: Image.network(
-                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/a8zq0ym905ah/exchange_.png',
-                                                          width: 75.0,
-                                                          height: 75.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  2.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: AutoSizeText(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'e75me3ra' /* Currency
-Exchanges */
-                                                          ,
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .titleMedium
-                                                            .override(
-                                                              font: GoogleFonts
-                                                                  .poppins(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                              color: FFAppState()
-                                                                          .filterSmall
-                                                                          .catId ==
-                                                                      2
-                                                                  ? FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText
-                                                                  : FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .midgray,
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ].addToEnd(
-                                                      SizedBox(height: 10.0)),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Flexible(
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                FFAppState()
-                                                    .updateFilterSmallStruct(
-                                                  (e) => e..catId = 3,
-                                                );
-                                                safeSetState(() {});
-                                                safeSetState(() => _model
-                                                    .listviewMarketPagingController
-                                                    ?.refresh());
-                                                await _model
-                                                    .waitForOnePageForListviewMarket();
-                                              },
-                                              child: Container(
-                                                height: 135.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                  border: Border.all(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    width: 0.3,
-                                                  ),
-                                                ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Container(
-                                                      decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        shape:
-                                                            BoxShape.rectangle,
-                                                        border: Border.all(
-                                                          color: FFAppState()
-                                                                      .filterSmall
-                                                                      .catId ==
-                                                                  3
-                                                              ? FlutterFlowTheme
-                                                                      .of(
-                                                                          context)
-                                                                  .secondaryText
-                                                              : FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryBackground,
-                                                          width: 1.0,
-                                                        ),
-                                                      ),
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(0.0),
-                                                        child: Image.network(
-                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/73egaf2hucf5/ticket_swap.png',
-                                                          width: 75.0,
-                                                          height: 75.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  2.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: AutoSizeText(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          '7nejfzx6' /* Ticket
-Swaps */
-                                                          ,
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .titleMedium
-                                                            .override(
-                                                              font: GoogleFonts
-                                                                  .poppins(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                              color: FFAppState()
-                                                                          .filterSmall
-                                                                          .catId ==
-                                                                      3
-                                                                  ? FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText
-                                                                  : FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .midgray,
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ].addToEnd(
-                                                      SizedBox(height: 10.0)),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Flexible(
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                FFAppState()
-                                                    .updateFilterSmallStruct(
-                                                  (e) => e..catId = 4,
-                                                );
-                                                safeSetState(() {});
-                                                safeSetState(() => _model
-                                                    .listviewMarketPagingController
-                                                    ?.refresh());
-                                                await _model
-                                                    .waitForOnePageForListviewMarket();
-                                              },
-                                              child: Container(
-                                                height: 135.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                  border: Border.all(
-                                                    width: 0.3,
-                                                  ),
-                                                ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Container(
-                                                      decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        shape:
-                                                            BoxShape.rectangle,
-                                                        border: Border.all(
-                                                          color: FFAppState()
-                                                                      .filterSmall
-                                                                      .catId ==
-                                                                  4
-                                                              ? FlutterFlowTheme
-                                                                      .of(
-                                                                          context)
-                                                                  .secondaryText
-                                                              : FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryBackground,
-                                                          width: 1.0,
-                                                        ),
-                                                      ),
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(0.0),
-                                                        child: Image.network(
-                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/pepva0f2egqn/sell_and_buy.png',
-                                                          width: 75.0,
-                                                          height: 75.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  2.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: AutoSizeText(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'upzdzqfj' /* Selling
-Items */
-                                                          ,
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .titleMedium
-                                                            .override(
-                                                              font: GoogleFonts
-                                                                  .poppins(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                              color: FFAppState()
-                                                                          .filterSmall
-                                                                          .catId ==
-                                                                      4
-                                                                  ? FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText
-                                                                  : FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .midgray,
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ].addToEnd(
-                                                      SizedBox(height: 10.0)),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ].divide(SizedBox(width: 16.0)),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 0.0, 16.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Flexible(
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                FFAppState()
-                                                    .updateFilterSmallStruct(
-                                                  (e) => e..catId = 5,
-                                                );
-                                                safeSetState(() {});
-                                                safeSetState(() => _model
-                                                    .listviewMarketPagingController
-                                                    ?.refresh());
-                                                await _model
-                                                    .waitForOnePageForListviewMarket();
-                                              },
-                                              child: Container(
-                                                height: 135.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                  border: Border.all(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    width: 0.3,
-                                                  ),
-                                                ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Container(
-                                                      decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        shape:
-                                                            BoxShape.rectangle,
-                                                        border: Border.all(
-                                                          color: FFAppState()
-                                                                      .filterSmall
-                                                                      .catId ==
-                                                                  5
-                                                              ? FlutterFlowTheme
-                                                                      .of(
-                                                                          context)
-                                                                  .secondaryText
-                                                              : FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryBackground,
-                                                          width: 1.0,
-                                                        ),
-                                                      ),
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(0.0),
-                                                        child: Image.network(
-                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/m16buys7jx2x/giveaway.png',
-                                                          width: 75.0,
-                                                          height: 75.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  2.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: AutoSizeText(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          '0a5argz8' /* Give
-Away */
-                                                          ,
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .titleMedium
-                                                            .override(
-                                                              font: GoogleFonts
-                                                                  .poppins(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                              color: FFAppState()
-                                                                          .filterSmall
-                                                                          .catId ==
-                                                                      5
-                                                                  ? FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText
-                                                                  : FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .midgray,
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ].addToEnd(
-                                                      SizedBox(height: 10.0)),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Flexible(
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                FFAppState()
-                                                    .updateFilterSmallStruct(
-                                                  (e) => e..catId = 6,
-                                                );
-                                                safeSetState(() {});
-                                                safeSetState(() => _model
-                                                    .listviewMarketPagingController
-                                                    ?.refresh());
-                                                await _model
-                                                    .waitForOnePageForListviewMarket();
-                                              },
-                                              child: Container(
-                                                height: 134.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                  border: Border.all(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    width: 0.3,
-                                                  ),
-                                                ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Container(
-                                                      decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        shape:
-                                                            BoxShape.rectangle,
-                                                        border: Border.all(
-                                                          color: FFAppState()
-                                                                      .filterSmall
-                                                                      .catId ==
-                                                                  6
-                                                              ? FlutterFlowTheme
-                                                                      .of(
-                                                                          context)
-                                                                  .secondaryText
-                                                              : FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryBackground,
-                                                          width: 1.0,
-                                                        ),
-                                                      ),
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(0.0),
-                                                        child: Image.network(
-                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/lib0xs6vsq6z/item_swap.png',
-                                                          width: 75.0,
-                                                          height: 75.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  2.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: AutoSizeText(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'fez7bxzs' /* Exchange
-Items */
-                                                          ,
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .titleMedium
-                                                            .override(
-                                                              font: GoogleFonts
-                                                                  .poppins(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                              color: FFAppState()
-                                                                          .filterSmall
-                                                                          .catId ==
-                                                                      6
-                                                                  ? FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText
-                                                                  : FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .midgray,
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ].addToEnd(
-                                                      SizedBox(height: 10.0)),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Flexible(
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                FFAppState()
-                                                    .updateFilterSmallStruct(
-                                                  (e) => e..catId = 7,
-                                                );
-                                                safeSetState(() {});
-                                                safeSetState(() => _model
-                                                    .listviewMarketPagingController
-                                                    ?.refresh());
-                                                await _model
-                                                    .waitForOnePageForListviewMarket();
-                                              },
-                                              child: Container(
-                                                height: 135.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                  border: Border.all(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    width: 0.3,
-                                                  ),
-                                                ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Container(
-                                                      decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        shape:
-                                                            BoxShape.rectangle,
-                                                        border: Border.all(
-                                                          color: FFAppState()
-                                                                      .filterSmall
-                                                                      .catId ==
-                                                                  7
-                                                              ? FlutterFlowTheme
-                                                                      .of(
-                                                                          context)
-                                                                  .secondaryText
-                                                              : FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryBackground,
-                                                          width: 1.0,
-                                                        ),
-                                                      ),
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(0.0),
-                                                        child: Image.network(
-                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/b3vl8s1594q2/Rent.png',
-                                                          width: 75.0,
-                                                          height: 75.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  2.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: AutoSizeText(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          '445vvqa5' /* Homes &
-Rentals */
-                                                          ,
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .titleMedium
-                                                            .override(
-                                                              font: GoogleFonts
-                                                                  .poppins(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                              color: FFAppState()
-                                                                          .filterSmall
-                                                                          .catId ==
-                                                                      7
-                                                                  ? FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText
-                                                                  : FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .midgray,
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ].addToEnd(
-                                                      SizedBox(height: 10.0)),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ].divide(SizedBox(width: 16.0)),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 0.0, 16.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 10.0),
-                                            child: FlutterFlowDropDown<String>(
-                                              controller: _model
-                                                      .dropDownSortValueController1 ??=
-                                                  FormFieldController<String>(
-                                                      null),
-                                              options: List<String>.from([
-                                                'created_at.desc.nullslast',
-                                                'post_likes.desc.nullslast,created_at.desc'
-                                              ]),
-                                              optionLabels: [
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'dvxs0iu7' /* Recent */,
-                                                ),
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'x8u4gjyb' /* Popular */,
-                                                )
-                                              ],
-                                              onChanged: (val) async {
-                                                safeSetState(() => _model
-                                                    .dropDownSortValue1 = val);
-                                                _model.sortBy =
-                                                    _model.dropDownSortValue1!;
-                                                safeSetState(() {});
-                                                safeSetState(() => _model
-                                                    .listviewMarketPagingController
-                                                    ?.refresh());
-                                                await _model
-                                                    .waitForOnePageForListviewMarket();
-                                              },
-                                              width: 100.0,
-                                              height: 34.0,
-                                              textStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                    letterSpacing: 0.0,
-                                                    useGoogleFonts:
-                                                        !FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumIsCustom,
-                                                  ),
-                                              hintText:
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                'z03svtjd' /* Sort by */,
-                                              ),
-                                              icon: Icon(
-                                                Icons.arrow_drop_down_sharp,
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 16.0, 16.0, 0.0),
+                                  child: Builder(
+                                    builder: (context) {
+                                      final categories = FFAppState()
+                                          .SubcatApp
+                                          .where((e) =>
+                                              e.mainCatId ==
+                                              FFAppState()
+                                                  .filterSmall
+                                                  .mainCatId)
+                                          .toList()
+                                          .unique((e) => e.catId)
+                                          .toList();
+
+                                      return GridView.builder(
+                                        padding: EdgeInsets.zero,
+                                        gridDelegate:
+                                            SliverGridDelegateWithFixedCrossAxisCount(
+                                          crossAxisCount: 3,
+                                          crossAxisSpacing: 10.0,
+                                          mainAxisSpacing: 10.0,
+                                          childAspectRatio: 1.0,
+                                        ),
+                                        primary: false,
+                                        shrinkWrap: true,
+                                        scrollDirection: Axis.vertical,
+                                        itemCount: categories.length,
+                                        itemBuilder:
+                                            (context, categoriesIndex) {
+                                          final categoriesItem =
+                                              categories[categoriesIndex];
+                                          return InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              FFAppState()
+                                                  .updateFilterSmallStruct(
+                                                (e) => e
+                                                  ..catId =
+                                                      categoriesItem.catId,
+                                              );
+                                              safeSetState(() {});
+                                              safeSetState(() => _model
+                                                  .listviewMarketPagingController
+                                                  ?.refresh());
+                                              await _model
+                                                  .waitForOnePageForListviewMarket();
+                                            },
+                                            child: Container(
+                                              decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                                size: 18.0,
+                                                        .primaryBackground,
+                                                borderRadius:
+                                                    BorderRadius.circular(16.0),
+                                                border: Border.all(
+                                                  color: categoriesItem.catId ==
+                                                          FFAppState()
+                                                              .filterSmall
+                                                              .catId
+                                                      ? FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryText
+                                                      : FlutterFlowTheme.of(
+                                                              context)
+                                                          .darkgray,
+                                                  width: 0.4,
+                                                ),
                                               ),
-                                              fillColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              elevation: 2.0,
-                                              borderColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .textfiled,
-                                              borderWidth: 0.3,
-                                              borderRadius: 24.0,
-                                              margin: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 0.0, 12.0, 0.0),
-                                              hidesUnderline: true,
-                                              isOverButton: false,
-                                              isSearchable: false,
-                                              isMultiSelect: false,
+                                              child: Padding(
+                                                padding: EdgeInsets.all(10.0),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Container(
+                                                        width: 50.0,
+                                                        height: 50.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: valueOrDefault<
+                                                              Color>(
+                                                            functions.hexToColor(
+                                                                categoriesItem
+                                                                    .fillColorHex,
+                                                                Color(
+                                                                    0xFF213A21)),
+                                                            Color(0xFF213A21),
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius.only(
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    8.0),
+                                                            bottomRight:
+                                                                Radius.circular(
+                                                                    8.0),
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    8.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    8.0),
+                                                          ),
+                                                          shape: BoxShape
+                                                              .rectangle,
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  8.0),
+                                                          child: custom_widgets
+                                                              .SvgRenderer(
+                                                            width: 30.0,
+                                                            height: 30.0,
+                                                            svgCode: categoriesItem
+                                                                .effectiveIconImage,
+                                                            iconColor: functions
+                                                                .hexToColor(
+                                                                    categoriesItem
+                                                                        .effectiveColorHex,
+                                                                    Color(
+                                                                        0x00000000)),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Flexible(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    4.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: AutoSizeText(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            FFLocalizations.of(
+                                                                            context)
+                                                                        .languageCode ==
+                                                                    'fa'
+                                                                ? categoriesItem
+                                                                    .catNameFa
+                                                                : categoriesItem
+                                                                    .catName,
+                                                            'category',
+                                                          ),
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          maxLines: 2,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmallFamily,
+                                                                color: categoriesItem
+                                                                            .catId ==
+                                                                        FFAppState()
+                                                                            .filterSmall
+                                                                            .catId
+                                                                    ? FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText
+                                                                    : FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .textgray,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmallIsCustom,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
                                             ),
-                                          ),
-                                        ],
+                                          );
+                                        },
+                                      );
+                                    },
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 24.0, 0.0, 0.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 16.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 0.0, 10.0),
+                                              child:
+                                                  FlutterFlowDropDown<String>(
+                                                controller: _model
+                                                        .dropDownSortValueController1 ??=
+                                                    FormFieldController<String>(
+                                                        null),
+                                                options: List<String>.from([
+                                                  'created_at.desc.nullslast',
+                                                  'post_likes.desc.nullslast,created_at.desc'
+                                                ]),
+                                                optionLabels: [
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'dvxs0iu7' /* Recent */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'x8u4gjyb' /* Popular */,
+                                                  )
+                                                ],
+                                                onChanged: (val) async {
+                                                  safeSetState(() => _model
+                                                          .dropDownSortValue1 =
+                                                      val);
+                                                  _model.sortBy = _model
+                                                      .dropDownSortValue1!;
+                                                  safeSetState(() {});
+                                                  safeSetState(() => _model
+                                                      .listviewMarketPagingController
+                                                      ?.refresh());
+                                                  await _model
+                                                      .waitForOnePageForListviewMarket();
+                                                },
+                                                width: 100.0,
+                                                height: 34.0,
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                      letterSpacing: 0.0,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumIsCustom,
+                                                    ),
+                                                hintText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'z03svtjd' /* Sort by */,
+                                                ),
+                                                icon: Icon(
+                                                  Icons.arrow_drop_down_sharp,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  size: 18.0,
+                                                ),
+                                                fillColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryBackground,
+                                                elevation: 2.0,
+                                                borderColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bordergray,
+                                                borderWidth: 0.3,
+                                                borderRadius: 24.0,
+                                                margin: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 0.0, 12.0, 0.0),
+                                                hidesUnderline: true,
+                                                isOverButton: false,
+                                                isSearchable: false,
+                                                isMultiSelect: false,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                                 Align(
                                   alignment: AlignmentDirectional(0.0, 0.0),
@@ -1464,7 +682,18 @@ Rentals */
                                                                 .toMap(),
                                                             r'''$.images[0]''',
                                                           ).toString()
-                                                        : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg',
+                                                        : (filterResultsItem
+                                                                    .detailTable ==
+                                                                'rentals'
+                                                            ? FFAppConstants
+                                                                .RentalDefaultImage
+                                                            : (filterResultsItem
+                                                                        .detailTable ==
+                                                                    'events'
+                                                                ? FFAppConstants
+                                                                    .EventsDefaultImage
+                                                                : FFAppConstants
+                                                                    .DefaultPostImage)),
                                                     postUserId:
                                                         filterResultsItem
                                                             .userId,
@@ -1485,10 +714,6 @@ Rentals */
                                                       functions.decodeDetails(
                                                           filterResultsItem
                                                               .detailsText),
-                                                  detailsString: getJsonField(
-                                                    filterResultsItem.toMap(),
-                                                    r'''$.details''',
-                                                  ).toString(),
                                                 ),
                                               ),
                                             );
@@ -1520,291 +745,211 @@ Rentals */
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 16.0, 16.0, 8.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: [
-                                            Flexible(
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  FFAppState()
-                                                      .updateFilterSmallStruct(
-                                                    (e) => e..catId = 8,
-                                                  );
-                                                  safeSetState(() {});
-                                                  safeSetState(() => _model
-                                                      .listviewSupportPagingController
-                                                      ?.refresh());
-                                                  await _model
-                                                      .waitForOnePageForListviewSupport();
-                                                },
-                                                child: Container(
-                                                  height: 135.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                    border: Border.all(
+                                            16.0, 16.0, 16.0, 24.0),
+                                        child: Builder(
+                                          builder: (context) {
+                                            final categories = FFAppState()
+                                                .SubcatApp
+                                                .where((e) =>
+                                                    e.mainCatId ==
+                                                    FFAppState()
+                                                        .filterSmall
+                                                        .mainCatId)
+                                                .toList()
+                                                .unique((e) => e.catId)
+                                                .toList();
+
+                                            return GridView.builder(
+                                              padding: EdgeInsets.zero,
+                                              gridDelegate:
+                                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                                crossAxisCount: 3,
+                                                crossAxisSpacing: 10.0,
+                                                mainAxisSpacing: 10.0,
+                                                childAspectRatio: 1.0,
+                                              ),
+                                              primary: false,
+                                              shrinkWrap: true,
+                                              scrollDirection: Axis.vertical,
+                                              itemCount: categories.length,
+                                              itemBuilder:
+                                                  (context, categoriesIndex) {
+                                                final categoriesItem =
+                                                    categories[categoriesIndex];
+                                                return InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    FFAppState()
+                                                        .updateFilterSmallStruct(
+                                                      (e) => e
+                                                        ..catId = categoriesItem
+                                                            .catId,
+                                                    );
+                                                    safeSetState(() {});
+                                                    safeSetState(() => _model
+                                                        .listviewSupportPagingController
+                                                        ?.refresh());
+                                                    await _model
+                                                        .waitForOnePageForListviewSupport();
+                                                  },
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .primaryBackground,
-                                                      width: 0.3,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              16.0),
+                                                      border: Border.all(
+                                                        color: categoriesItem
+                                                                    .catId ==
+                                                                FFAppState()
+                                                                    .filterSmall
+                                                                    .catId
+                                                            ? FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .darkgray,
+                                                        width: 0.4,
+                                                      ),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsets.all(10.0),
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Container(
+                                                              width: 50.0,
+                                                              height: 50.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  functions.hexToColor(
+                                                                      categoriesItem
+                                                                          .fillColorHex,
+                                                                      Color(
+                                                                          0xFF213A21)),
+                                                                  Color(
+                                                                      0xFF213A21),
+                                                                ),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .only(
+                                                                  bottomLeft: Radius
+                                                                      .circular(
+                                                                          8.0),
+                                                                  bottomRight: Radius
+                                                                      .circular(
+                                                                          8.0),
+                                                                  topLeft: Radius
+                                                                      .circular(
+                                                                          8.0),
+                                                                  topRight: Radius
+                                                                      .circular(
+                                                                          8.0),
+                                                                ),
+                                                                shape: BoxShape
+                                                                    .rectangle,
+                                                              ),
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            8.0),
+                                                                child: custom_widgets
+                                                                    .SvgRenderer(
+                                                                  width: 30.0,
+                                                                  height: 30.0,
+                                                                  svgCode:
+                                                                      categoriesItem
+                                                                          .effectiveIconImage,
+                                                                  iconColor: functions.hexToColor(
+                                                                      categoriesItem
+                                                                          .effectiveColorHex,
+                                                                      Color(
+                                                                          0x00000000)),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Flexible(
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child:
+                                                                  AutoSizeText(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  FFLocalizations.of(context)
+                                                                              .languageCode ==
+                                                                          'fa'
+                                                                      ? categoriesItem
+                                                                          .catNameFa
+                                                                      : categoriesItem
+                                                                          .catName,
+                                                                  'category',
+                                                                ),
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
+                                                                maxLines: 2,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .titleSmallFamily,
+                                                                      color: categoriesItem.catId == FFAppState().filterSmall.catId
+                                                                          ? FlutterFlowTheme.of(context)
+                                                                              .primaryText
+                                                                          : FlutterFlowTheme.of(context)
+                                                                              .textgray,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      useGoogleFonts:
+                                                                          !FlutterFlowTheme.of(context)
+                                                                              .titleSmallIsCustom,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
                                                     ),
                                                   ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      10.0),
-                                                          shape: BoxShape
-                                                              .rectangle,
-                                                          border: Border.all(
-                                                            color: FFAppState()
-                                                                        .filterSmall
-                                                                        .catId ==
-                                                                    8
-                                                                ? FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText
-                                                                : FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBackground,
-                                                            width: 1.0,
-                                                          ),
-                                                        ),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                          child: Image.network(
-                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/7alx2zdgj1ln/assistance.png',
-                                                            width: 75.0,
-                                                            height: 75.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    2.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: AutoSizeText(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'xvimr1m0' /* Care &
-Assistance */
-                                                            ,
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FFAppState().filterSmall.catId ==
-                                                                        8
-                                                                    ? FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText
-                                                                    : FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .midgray,
-                                                                fontSize: 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ].addToEnd(
-                                                        SizedBox(height: 10.0)),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            Flexible(
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  FFAppState()
-                                                      .updateFilterSmallStruct(
-                                                    (e) => e..catId = 9,
-                                                  );
-                                                  safeSetState(() {});
-                                                  safeSetState(() => _model
-                                                      .listviewSupportPagingController
-                                                      ?.refresh());
-                                                  await _model
-                                                      .waitForOnePageForListviewSupport();
-                                                },
-                                                child: Container(
-                                                  height: 135.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                    border: Border.all(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .primaryBackground,
-                                                      width: 0.3,
-                                                    ),
-                                                  ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      10.0),
-                                                          shape: BoxShape
-                                                              .rectangle,
-                                                          border: Border.all(
-                                                            color: FFAppState()
-                                                                        .filterSmall
-                                                                        .catId ==
-                                                                    9
-                                                                ? FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText
-                                                                : FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBackground,
-                                                            width: 1.0,
-                                                          ),
-                                                        ),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                          child: Image.network(
-                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/6zotdcab6flq/peer.png',
-                                                            width: 75.0,
-                                                            height: 75.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    2.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: AutoSizeText(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'to4790zt' /* Peer-
-Support */
-                                                            ,
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FFAppState().filterSmall.catId ==
-                                                                        9
-                                                                    ? FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText
-                                                                    : FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .midgray,
-                                                                fontSize: 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ].addToEnd(
-                                                        SizedBox(height: 10.0)),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ].divide(SizedBox(width: 16.0)),
+                                                );
+                                              },
+                                            );
+                                          },
                                         ),
                                       ),
                                       Padding(
@@ -1890,7 +1035,7 @@ Support */
                                                 elevation: 2.0,
                                                 borderColor:
                                                     FlutterFlowTheme.of(context)
-                                                        .textfiled,
+                                                        .bordergray,
                                                 borderWidth: 0.3,
                                                 borderRadius: 24.0,
                                                 margin: EdgeInsetsDirectional
@@ -2084,10 +1229,6 @@ Support */
                                                       functions.decodeDetails(
                                                           filterResultsItem
                                                               .detailsText),
-                                                  detailsString: getJsonField(
-                                                    filterResultsItem.toMap(),
-                                                    r'''$.details''',
-                                                  ).toString(),
                                                 ),
                                               ),
                                             );
@@ -2101,145 +1242,6 @@ Support */
                                   thickness: 2.0,
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Expanded(
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 16.0, 0.0, 16.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                Container(
-                                                  width: 40.0,
-                                                  height: 40.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0x4240C057),
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                  child: Icon(
-                                                    Icons.handshake_outlined,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .customColor1,
-                                                    size: 24.0,
-                                                  ),
-                                                ),
-                                                Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'jbbatmul' /* Community Shoutouts */,
-                                                  ),
-                                                  textAlign: TextAlign.start,
-                                                  style:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleLarge
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleLargeFamily,
-                                                            fontSize: 20.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleLargeIsCustom,
-                                                          ),
-                                                ),
-                                              ].divide(SizedBox(width: 10.0)),
-                                            ),
-                                          ),
-                                          FutureBuilder<
-                                              List<CommunityShoutoutRow>>(
-                                            future: CommunityShoutoutTable()
-                                                .queryRows(
-                                              queryFn: (q) =>
-                                                  q.order('created_at'),
-                                            ),
-                                            builder: (context, snapshot) {
-                                              // Customize what your widget looks like when it's loading.
-                                              if (!snapshot.hasData) {
-                                                return Center(
-                                                  child: SizedBox(
-                                                    width: 50.0,
-                                                    height: 50.0,
-                                                    child: SpinKitChasingDots(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .greenInit,
-                                                      size: 50.0,
-                                                    ),
-                                                  ),
-                                                );
-                                              }
-                                              List<CommunityShoutoutRow>
-                                                  rowCommunityShoutoutRowList =
-                                                  snapshot.data!;
-
-                                              return SingleChildScrollView(
-                                                scrollDirection:
-                                                    Axis.horizontal,
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: List.generate(
-                                                          rowCommunityShoutoutRowList
-                                                              .length, (rowIndex) {
-                                                    final rowCommunityShoutoutRow =
-                                                        rowCommunityShoutoutRowList[
-                                                            rowIndex];
-                                                    return wrapWithModel(
-                                                      model: _model
-                                                          .shoutOutCardModels
-                                                          .getModel(
-                                                        rowCommunityShoutoutRow
-                                                            .id
-                                                            .toString(),
-                                                        rowIndex,
-                                                      ),
-                                                      updateCallback: () =>
-                                                          safeSetState(() {}),
-                                                      child: ShoutOutCardWidget(
-                                                        key: Key(
-                                                          'Key5ip_${rowCommunityShoutoutRow.id.toString()}',
-                                                        ),
-                                                        shoutOutId:
-                                                            rowCommunityShoutoutRow
-                                                                .id,
-                                                      ),
-                                                    );
-                                                  })
-                                                      .divide(
-                                                          SizedBox(width: 16.0))
-                                                      .addToStart(
-                                                          SizedBox(width: 16.0))
-                                                      .addToEnd(SizedBox(
-                                                          width: 16.0)),
-                                                ),
-                                              );
-                                            },
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
                                 ),
                               ].addToEnd(SizedBox(height: 80.0)),
                             ),
@@ -2263,563 +1265,337 @@ Support */
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 16.0, 16.0, 8.0),
+                                            16.0, 16.0, 16.0, 24.0),
+                                        child: Builder(
+                                          builder: (context) {
+                                            final categories = FFAppState()
+                                                .SubcatApp
+                                                .where((e) =>
+                                                    e.mainCatId ==
+                                                    FFAppState()
+                                                        .filterSmall
+                                                        .mainCatId)
+                                                .toList()
+                                                .unique((e) => e.catId)
+                                                .toList();
+
+                                            return GridView.builder(
+                                              padding: EdgeInsets.zero,
+                                              gridDelegate:
+                                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                                crossAxisCount: 3,
+                                                crossAxisSpacing: 10.0,
+                                                mainAxisSpacing: 10.0,
+                                                childAspectRatio: 1.0,
+                                              ),
+                                              primary: false,
+                                              shrinkWrap: true,
+                                              scrollDirection: Axis.vertical,
+                                              itemCount: categories.length,
+                                              itemBuilder:
+                                                  (context, categoriesIndex) {
+                                                final categoriesItem =
+                                                    categories[categoriesIndex];
+                                                return InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    FFAppState()
+                                                        .updateFilterSmallStruct(
+                                                      (e) => e
+                                                        ..catId = categoriesItem
+                                                            .catId,
+                                                    );
+                                                    safeSetState(() {});
+                                                    safeSetState(() => _model
+                                                        .listviewSkillsPagingController
+                                                        ?.refresh());
+                                                    await _model
+                                                        .waitForOnePageForListviewSkills();
+                                                  },
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .primaryBackground,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              16.0),
+                                                      border: Border.all(
+                                                        color: categoriesItem
+                                                                    .catId ==
+                                                                FFAppState()
+                                                                    .filterSmall
+                                                                    .catId
+                                                            ? FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .darkgray,
+                                                        width: 0.4,
+                                                      ),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsets.all(10.0),
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Container(
+                                                              width: 50.0,
+                                                              height: 50.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  functions.hexToColor(
+                                                                      categoriesItem
+                                                                          .fillColorHex,
+                                                                      Color(
+                                                                          0xFF213A21)),
+                                                                  Color(
+                                                                      0xFF213A21),
+                                                                ),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .only(
+                                                                  bottomLeft: Radius
+                                                                      .circular(
+                                                                          8.0),
+                                                                  bottomRight: Radius
+                                                                      .circular(
+                                                                          8.0),
+                                                                  topLeft: Radius
+                                                                      .circular(
+                                                                          8.0),
+                                                                  topRight: Radius
+                                                                      .circular(
+                                                                          8.0),
+                                                                ),
+                                                                shape: BoxShape
+                                                                    .rectangle,
+                                                              ),
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            8.0),
+                                                                child: custom_widgets
+                                                                    .SvgRenderer(
+                                                                  width: 30.0,
+                                                                  height: 30.0,
+                                                                  svgCode:
+                                                                      categoriesItem
+                                                                          .effectiveIconImage,
+                                                                  iconColor: functions.hexToColor(
+                                                                      categoriesItem
+                                                                          .effectiveColorHex,
+                                                                      Color(
+                                                                          0x00000000)),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Flexible(
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child:
+                                                                  AutoSizeText(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  FFLocalizations.of(context)
+                                                                              .languageCode ==
+                                                                          'fa'
+                                                                      ? categoriesItem
+                                                                          .catNameFa
+                                                                      : categoriesItem
+                                                                          .catName,
+                                                                  'category',
+                                                                ),
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
+                                                                maxLines: 2,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .titleSmallFamily,
+                                                                      color: categoriesItem.catId == FFAppState().filterSmall.catId
+                                                                          ? FlutterFlowTheme.of(context)
+                                                                              .primaryText
+                                                                          : FlutterFlowTheme.of(context)
+                                                                              .textgray,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      useGoogleFonts:
+                                                                          !FlutterFlowTheme.of(context)
+                                                                              .titleSmallIsCustom,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                          },
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 32.0, 0.0, 16.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Flexible(
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  FFAppState()
-                                                      .updateFilterSmallStruct(
-                                                    (e) => e..catId = 10,
-                                                  );
-                                                  safeSetState(() {});
-                                                  safeSetState(() => _model
-                                                      .listviewSkillsPagingController
-                                                      ?.refresh());
-                                                  await _model
-                                                      .waitForOnePageForListviewSkills();
-                                                },
-                                                child: Container(
-                                                  height: 135.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
+                                            Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          16.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      '77xj3zbf' /* Recent Job Requests */,
+                                                    ),
+                                                    textAlign: TextAlign.start,
+                                                    style: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                    border: Border.all(
-                                                      color: FlutterFlowTheme
+                                                        .titleLarge
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleLarge
+                                                                    .fontStyle,
+                                                          ),
+                                                          fontSize: 18.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleLarge
+                                                                  .fontStyle,
+                                                        ),
+                                                  ),
+                                                ),
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          -1.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(16.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'v823sdrj' /* Members looking for a job */,
+                                                      ),
+                                                      style: FlutterFlowTheme
                                                               .of(context)
-                                                          .primaryBackground,
-                                                      width: 0.3,
+                                                          .labelSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelSmallFamily,
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                            useGoogleFonts:
+                                                                !FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelSmallIsCustom,
+                                                          ),
                                                     ),
                                                   ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      10.0),
-                                                          shape: BoxShape
-                                                              .rectangle,
-                                                          border: Border.all(
-                                                            color: FFAppState()
-                                                                        .filterSmall
-                                                                        .catId ==
-                                                                    10
-                                                                ? FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText
-                                                                : FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBackground,
-                                                            width: 1.0,
-                                                          ),
-                                                        ),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                          child: Image.network(
-                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/f8ckduu6jhul/Transport.png',
-                                                            width: 75.0,
-                                                            height: 75.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    2.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: AutoSizeText(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'kccxuk3b' /* Transport
-& Logistics */
-                                                            ,
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FFAppState().filterSmall.catId ==
-                                                                        10
-                                                                    ? FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText
-                                                                    : FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .midgray,
-                                                                fontSize: 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ].addToEnd(
-                                                        SizedBox(height: 10.0)),
-                                                  ),
                                                 ),
-                                              ),
+                                              ],
                                             ),
-                                            Flexible(
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  FFAppState()
-                                                      .updateFilterSmallStruct(
-                                                    (e) => e..catId = 11,
-                                                  );
-                                                  safeSetState(() {});
-                                                  safeSetState(() => _model
-                                                      .listviewSkillsPagingController
-                                                      ?.refresh());
-                                                  await _model
-                                                      .waitForOnePageForListviewSkills();
-                                                },
-                                                child: Container(
-                                                  height: 135.0,
-                                                  decoration: BoxDecoration(
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 16.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      '4a41kkm7' /* See All */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText,
+                                                          letterSpacing: 0.0,
+                                                          useGoogleFonts:
+                                                              !FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMediumIsCustom,
+                                                        ),
+                                                  ),
+                                                  Icon(
+                                                    Icons.arrow_right_sharp,
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                    border: Border.all(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .primaryBackground,
-                                                      width: 0.3,
-                                                    ),
+                                                        .textgray,
+                                                    size: 24.0,
                                                   ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      10.0),
-                                                          shape: BoxShape
-                                                              .rectangle,
-                                                          border: Border.all(
-                                                            color: FFAppState()
-                                                                        .filterSmall
-                                                                        .catId ==
-                                                                    11
-                                                                ? FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText
-                                                                : FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBackground,
-                                                            width: 1.0,
-                                                          ),
-                                                        ),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                          child: Image.network(
-                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/dlnylj7v62bc/home%26services.png',
-                                                            width: 75.0,
-                                                            height: 75.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    2.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: AutoSizeText(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'gzwc3wn6' /* Home
-& Services */
-                                                            ,
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FFAppState().filterSmall.catId ==
-                                                                        11
-                                                                    ? FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText
-                                                                    : FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .midgray,
-                                                                fontSize: 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ].addToEnd(
-                                                        SizedBox(height: 10.0)),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            Flexible(
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  FFAppState()
-                                                      .updateFilterSmallStruct(
-                                                    (e) => e..catId = 12,
-                                                  );
-                                                  safeSetState(() {});
-                                                  safeSetState(() => _model
-                                                      .listviewSkillsPagingController
-                                                      ?.refresh());
-                                                  await _model
-                                                      .waitForOnePageForListviewSkills();
-                                                },
-                                                child: Container(
-                                                  height: 135.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                    border: Border.all(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .primaryBackground,
-                                                      width: 0.3,
-                                                    ),
-                                                  ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      10.0),
-                                                          shape: BoxShape
-                                                              .rectangle,
-                                                          border: Border.all(
-                                                            color: FFAppState()
-                                                                        .filterSmall
-                                                                        .catId ==
-                                                                    12
-                                                                ? FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText
-                                                                : FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBackground,
-                                                            width: 1.0,
-                                                          ),
-                                                        ),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                          child: Image.network(
-                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/lm5nrgozge2w/education.png',
-                                                            width: 75.0,
-                                                            height: 75.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    2.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: AutoSizeText(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'es9rzsh2' /* Education
-& Coaching */
-                                                            ,
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FFAppState().filterSmall.catId ==
-                                                                        12
-                                                                    ? FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText
-                                                                    : FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .midgray,
-                                                                fontSize: 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ].addToEnd(
-                                                        SizedBox(height: 10.0)),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            Flexible(
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  FFAppState()
-                                                      .updateFilterSmallStruct(
-                                                    (e) => e..catId = 13,
-                                                  );
-                                                  safeSetState(() {});
-                                                  safeSetState(() => _model
-                                                      .listviewSkillsPagingController
-                                                      ?.refresh());
-                                                  await _model
-                                                      .waitForOnePageForListviewSkills();
-                                                },
-                                                child: Container(
-                                                  height: 135.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                    border: Border.all(
-                                                      width: 0.3,
-                                                    ),
-                                                  ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      10.0),
-                                                          shape: BoxShape
-                                                              .rectangle,
-                                                          border: Border.all(
-                                                            color: FFAppState()
-                                                                        .filterSmall
-                                                                        .catId ==
-                                                                    13
-                                                                ? FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText
-                                                                : FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBackground,
-                                                            width: 1.0,
-                                                          ),
-                                                        ),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                          child: Image.network(
-                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/5dwzpvco35ay/body.png',
-                                                            width: 75.0,
-                                                            height: 75.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    2.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: AutoSizeText(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'tro57wlg' /* Body
-& Care */
-                                                            ,
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FFAppState().filterSmall.catId ==
-                                                                        13
-                                                                    ? FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText
-                                                                    : FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .midgray,
-                                                                fontSize: 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ].addToEnd(
-                                                        SizedBox(height: 10.0)),
-                                                  ),
-                                                ),
+                                                ],
                                               ),
                                             ),
                                           ],
@@ -2827,548 +1603,177 @@ Support */
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 16.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Flexible(
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  FFAppState()
-                                                      .updateFilterSmallStruct(
-                                                    (e) => e..catId = 14,
-                                                  );
-                                                  safeSetState(() {});
-                                                  safeSetState(() => _model
-                                                      .listviewSkillsPagingController
-                                                      ?.refresh());
-                                                  await _model
-                                                      .waitForOnePageForListviewSkills();
-                                                },
-                                                child: Container(
-                                                  height: 135.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                    border: Border.all(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .primaryBackground,
-                                                      width: 0.3,
-                                                    ),
-                                                  ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      10.0),
-                                                          shape: BoxShape
-                                                              .rectangle,
-                                                          border: Border.all(
-                                                            color: FFAppState()
-                                                                        .filterSmall
-                                                                        .catId ==
-                                                                    14
-                                                                ? FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText
-                                                                : FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBackground,
-                                                            width: 1.0,
-                                                          ),
-                                                        ),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                          child: Image.network(
-                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/s17ng6xwzq9x/Art.png',
-                                                            width: 75.0,
-                                                            height: 75.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    2.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: AutoSizeText(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'zzoozb1b' /* Arts, Culture
-Community */
-                                                            ,
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FFAppState().filterSmall.catId ==
-                                                                        14
-                                                                    ? FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText
-                                                                    : FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .midgray,
-                                                                fontSize: 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ].addToEnd(
-                                                        SizedBox(height: 10.0)),
-                                                  ),
-                                                ),
+                                            0.0, 0.0, 0.0, 32.0),
+                                        child: SingleChildScrollView(
+                                          scrollDirection: Axis.horizontal,
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              wrapWithModel(
+                                                model: _model
+                                                    .itemCardJobRequestModel1,
+                                                updateCallback: () =>
+                                                    safeSetState(() {}),
+                                                child:
+                                                    ItemCardJobRequestWidget(),
                                               ),
-                                            ),
-                                            Flexible(
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  FFAppState()
-                                                      .updateFilterSmallStruct(
-                                                    (e) => e..catId = 15,
-                                                  );
-                                                  safeSetState(() {});
-                                                  safeSetState(() => _model
-                                                      .listviewSkillsPagingController
-                                                      ?.refresh());
-                                                  await _model
-                                                      .waitForOnePageForListviewSkills();
-                                                },
-                                                child: Container(
-                                                  height: 134.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                    border: Border.all(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .primaryBackground,
-                                                      width: 0.3,
-                                                    ),
-                                                  ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      10.0),
-                                                          shape: BoxShape
-                                                              .rectangle,
-                                                          border: Border.all(
-                                                            color: FFAppState()
-                                                                        .filterSmall
-                                                                        .catId ==
-                                                                    15
-                                                                ? FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText
-                                                                : FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBackground,
-                                                            width: 1.0,
-                                                          ),
-                                                        ),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                          child: Image.network(
-                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/ez4nwken36dy/creative.png',
-                                                            width: 75.0,
-                                                            height: 75.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    2.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: AutoSizeText(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'aq6ocaqj' /* Creative 
-& Digital */
-                                                            ,
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FFAppState().filterSmall.catId ==
-                                                                        15
-                                                                    ? FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText
-                                                                    : FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .midgray,
-                                                                fontSize: 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ].addToEnd(
-                                                        SizedBox(height: 10.0)),
-                                                  ),
-                                                ),
+                                              wrapWithModel(
+                                                model: _model
+                                                    .itemCardJobRequestModel2,
+                                                updateCallback: () =>
+                                                    safeSetState(() {}),
+                                                child:
+                                                    ItemCardJobRequestWidget(),
                                               ),
-                                            ),
-                                            Flexible(
-                                              child: Container(
-                                                height: 134.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                  border: Border.all(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    width: 0.3,
-                                                  ),
-                                                ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Container(
-                                                      decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        shape:
-                                                            BoxShape.rectangle,
-                                                        border: Border.all(
-                                                          color: FFAppState()
-                                                                      .filterSmall
-                                                                      .catId ==
-                                                                  6
-                                                              ? FlutterFlowTheme
-                                                                      .of(
-                                                                          context)
-                                                                  .secondaryText
-                                                              : FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryBackground,
-                                                          width: 1.0,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  2.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: AutoSizeText(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'yivcsxxp' /* Exchange
-Items */
-                                                          ,
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  ].addToEnd(
-                                                      SizedBox(height: 10.0)),
-                                                ),
+                                              wrapWithModel(
+                                                model: _model
+                                                    .itemCardJobRequestModel3,
+                                                updateCallback: () =>
+                                                    safeSetState(() {}),
+                                                child:
+                                                    ItemCardJobRequestWidget(),
                                               ),
-                                            ),
-                                            Flexible(
-                                              child: Container(
-                                                height: 134.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                  border: Border.all(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    width: 0.3,
-                                                  ),
-                                                ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Container(
-                                                      decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        shape:
-                                                            BoxShape.rectangle,
-                                                        border: Border.all(
-                                                          color: FFAppState()
-                                                                      .filterSmall
-                                                                      .catId ==
-                                                                  6
-                                                              ? FlutterFlowTheme
-                                                                      .of(
-                                                                          context)
-                                                                  .secondaryText
-                                                              : FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryBackground,
-                                                          width: 1.0,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  2.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: AutoSizeText(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'ibapwag9' /* Exchange
-Items */
-                                                          ,
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  ].addToEnd(
-                                                      SizedBox(height: 10.0)),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
+                                            ]
+                                                .divide(SizedBox(width: 16.0))
+                                                .addToStart(
+                                                    SizedBox(width: 16.0))
+                                                .addToEnd(
+                                                    SizedBox(width: 16.0)),
+                                          ),
                                         ),
                                       ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 8.0),
+                                  child: Stack(
+                                    alignment: AlignmentDirectional(1.0, 1.0),
+                                    children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 16.0, 0.0),
-                                        child: Row(
+                                            0.0, 0.0, 0.0, 8.0),
+                                        child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
-                                              MainAxisAlignment.end,
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      0.0, 0.0, 0.0, 10.0),
-                                              child:
-                                                  FlutterFlowDropDown<String>(
-                                                controller: _model
-                                                        .dropDownSortValueController3 ??=
-                                                    FormFieldController<String>(
-                                                        null),
-                                                options: List<String>.from([
-                                                  'created_at.desc.nullslast',
-                                                  'post_likes.desc.nullslast,created_at.desc'
-                                                ]),
-                                                optionLabels: [
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'c9jgszbk' /* Recent */,
-                                                  ),
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'vs677ope' /* Popular */,
-                                                  )
-                                                ],
-                                                onChanged: (val) async {
-                                                  safeSetState(() => _model
-                                                          .dropDownSortValue3 =
-                                                      val);
-                                                  _model.sortBy = _model
-                                                      .dropDownSortValue3!;
-                                                  safeSetState(() {});
-                                                  safeSetState(() => _model
-                                                      .listviewSkillsPagingController
-                                                      ?.refresh());
-                                                  await _model
-                                                      .waitForOnePageForListviewSkills();
-                                                },
-                                                width: 100.0,
-                                                height: 34.0,
-                                                textStyle: FlutterFlowTheme.of(
+                                                      16.0, 0.0, 0.0, 0.0),
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'c4hr7zv6' /* Professional Service Providers */,
+                                                ),
+                                                textAlign: TextAlign.start,
+                                                style: FlutterFlowTheme.of(
                                                         context)
+                                                    .titleLarge
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleLarge
+                                                                .fontStyle,
+                                                      ),
+                                                      fontSize: 18.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleLarge
+                                                              .fontStyle,
+                                                    ),
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  -1.0, 0.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        16.0, 0.0, 0.0, 16.0),
+                                                child: Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'a1uim8nf' /* Local Businesses and Services */,
+                                                  ),
+                                                  style:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelSmallFamily,
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                            useGoogleFonts:
+                                                                !FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelSmallIsCustom,
+                                                          ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(1.0, 1.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 16.0, 0.0),
+                                          child: FlutterFlowDropDown<String>(
+                                            controller: _model
+                                                    .dropDownSortValueController3 ??=
+                                                FormFieldController<String>(
+                                                    null),
+                                            options: List<String>.from([
+                                              'created_at.desc.nullslast',
+                                              'post_likes.desc.nullslast,created_at.desc'
+                                            ]),
+                                            optionLabels: [
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'mf3wf9bs' /* Recent */,
+                                              ),
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '0vfuan47' /* Popular */,
+                                              )
+                                            ],
+                                            onChanged: (val) async {
+                                              safeSetState(() => _model
+                                                  .dropDownSortValue3 = val);
+                                              _model.sortBy =
+                                                  _model.dropDownSortValue3!;
+                                              safeSetState(() {});
+                                              safeSetState(() => _model
+                                                  .listviewSkillsPagingController
+                                                  ?.refresh());
+                                              await _model
+                                                  .waitForOnePageForListviewSkills();
+                                            },
+                                            width: 100.0,
+                                            height: 34.0,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
                                                     .bodyMedium
                                                     .override(
                                                       fontFamily:
@@ -3385,37 +1790,35 @@ Items */
                                                                   context)
                                                               .bodyMediumIsCustom,
                                                     ),
-                                                hintText:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  'rr93b4j7' /* Sort by */,
-                                                ),
-                                                icon: Icon(
-                                                  Icons.arrow_drop_down_sharp,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                  size: 18.0,
-                                                ),
-                                                fillColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBackground,
-                                                elevation: 2.0,
-                                                borderColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .textfiled,
-                                                borderWidth: 0.3,
-                                                borderRadius: 24.0,
-                                                margin: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 0.0, 12.0, 0.0),
-                                                hidesUnderline: true,
-                                                isOverButton: false,
-                                                isSearchable: false,
-                                                isMultiSelect: false,
-                                              ),
+                                            hintText:
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                              'hpek7i7b' /* Sort by */,
                                             ),
-                                          ],
+                                            icon: Icon(
+                                              Icons.arrow_drop_down_sharp,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              size: 18.0,
+                                            ),
+                                            fillColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryBackground,
+                                            elevation: 2.0,
+                                            borderColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .bordergray,
+                                            borderWidth: 0.3,
+                                            borderRadius: 24.0,
+                                            margin:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 12.0, 0.0),
+                                            hidesUnderline: true,
+                                            isOverButton: false,
+                                            isSearchable: false,
+                                            isMultiSelect: false,
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -3597,10 +2000,6 @@ Items */
                                                       functions.decodeDetails(
                                                           filterResultsItem
                                                               .detailsText),
-                                                  detailsString: getJsonField(
-                                                    filterResultsItem.toMap(),
-                                                    r'''$.details''',
-                                                  ).toString(),
                                                 ),
                                               ),
                                             );
@@ -3632,1071 +2031,211 @@ Items */
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 16.0, 16.0, 8.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Flexible(
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  FFAppState()
-                                                      .updateFilterSmallStruct(
-                                                    (e) => e..catId = 16,
-                                                  );
-                                                  safeSetState(() {});
-                                                  safeSetState(() => _model
-                                                      .listviewEventsPagingController
-                                                      ?.refresh());
-                                                  await _model
-                                                      .waitForOnePageForListviewEvents();
-                                                },
-                                                child: Container(
-                                                  height: 135.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                    border: Border.all(
+                                            16.0, 16.0, 16.0, 24.0),
+                                        child: Builder(
+                                          builder: (context) {
+                                            final categories = FFAppState()
+                                                .SubcatApp
+                                                .where((e) =>
+                                                    e.mainCatId ==
+                                                    FFAppState()
+                                                        .filterSmall
+                                                        .mainCatId)
+                                                .toList()
+                                                .unique((e) => e.catId)
+                                                .toList();
+
+                                            return GridView.builder(
+                                              padding: EdgeInsets.zero,
+                                              gridDelegate:
+                                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                                crossAxisCount: 3,
+                                                crossAxisSpacing: 10.0,
+                                                mainAxisSpacing: 10.0,
+                                                childAspectRatio: 1.0,
+                                              ),
+                                              primary: false,
+                                              shrinkWrap: true,
+                                              scrollDirection: Axis.vertical,
+                                              itemCount: categories.length,
+                                              itemBuilder:
+                                                  (context, categoriesIndex) {
+                                                final categoriesItem =
+                                                    categories[categoriesIndex];
+                                                return InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    FFAppState()
+                                                        .updateFilterSmallStruct(
+                                                      (e) => e
+                                                        ..catId = categoriesItem
+                                                            .catId,
+                                                    );
+                                                    safeSetState(() {});
+                                                    safeSetState(() => _model
+                                                        .listviewEventsPagingController
+                                                        ?.refresh());
+                                                    await _model
+                                                        .waitForOnePageForListviewEvents();
+                                                  },
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .primaryBackground,
-                                                      width: 0.3,
-                                                    ),
-                                                  ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      10.0),
-                                                          shape: BoxShape
-                                                              .rectangle,
-                                                          border: Border.all(
-                                                            color: FFAppState()
-                                                                        .filterSmall
-                                                                        .catId ==
-                                                                    16
-                                                                ? FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText
-                                                                : FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBackground,
-                                                            width: 1.0,
-                                                          ),
-                                                        ),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                          child: Image.network(
-                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uxppcti8zjw1/Culture.png',
-                                                            width: 75.0,
-                                                            height: 75.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    2.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: AutoSizeText(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            '58nv5tei' /* Cultural
-& Social */
-                                                            ,
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FFAppState().filterSmall.catId ==
-                                                                        16
-                                                                    ? FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText
-                                                                    : FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .midgray,
-                                                                fontSize: 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ].addToEnd(
-                                                        SizedBox(height: 10.0)),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            Flexible(
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  FFAppState()
-                                                      .updateFilterSmallStruct(
-                                                    (e) => e..catId = 17,
-                                                  );
-                                                  safeSetState(() {});
-                                                  safeSetState(() => _model
-                                                      .listviewEventsPagingController
-                                                      ?.refresh());
-                                                  await _model
-                                                      .waitForOnePageForListviewEvents();
-                                                },
-                                                child: Container(
-                                                  height: 135.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                    border: Border.all(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .primaryBackground,
-                                                      width: 0.3,
-                                                    ),
-                                                  ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      10.0),
-                                                          shape: BoxShape
-                                                              .rectangle,
-                                                          border: Border.all(
-                                                            color: FFAppState()
-                                                                        .filterSmall
-                                                                        .catId ==
-                                                                    17
-                                                                ? FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText
-                                                                : FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBackground,
-                                                            width: 1.0,
-                                                          ),
-                                                        ),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                          child: Image.network(
-                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/9mwcf0csxbkl/concert_(1).png',
-                                                            width: 75.0,
-                                                            height: 75.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    2.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: AutoSizeText(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'xip09fov' /* Concerts
-& Shows */
-                                                            ,
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FFAppState().filterSmall.catId ==
-                                                                        17
-                                                                    ? FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText
-                                                                    : FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .midgray,
-                                                                fontSize: 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ].addToEnd(
-                                                        SizedBox(height: 10.0)),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            Flexible(
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  FFAppState()
-                                                      .updateFilterSmallStruct(
-                                                    (e) => e..catId = 18,
-                                                  );
-                                                  safeSetState(() {});
-                                                  safeSetState(() => _model
-                                                      .listviewEventsPagingController
-                                                      ?.refresh());
-                                                  await _model
-                                                      .waitForOnePageForListviewEvents();
-                                                },
-                                                child: Container(
-                                                  height: 135.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                    border: Border.all(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .primaryBackground,
-                                                      width: 0.3,
-                                                    ),
-                                                  ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      10.0),
-                                                          shape: BoxShape
-                                                              .rectangle,
-                                                          border: Border.all(
-                                                            color: FFAppState()
-                                                                        .filterSmall
-                                                                        .catId ==
-                                                                    18
-                                                                ? FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText
-                                                                : FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBackground,
-                                                            width: 1.0,
-                                                          ),
-                                                        ),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                          child: Image.network(
-                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/ai7a6myrds2c/event-3.png',
-                                                            width: 75.0,
-                                                            height: 75.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    2.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: AutoSizeText(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'c655fk0g' /* Art &
-Exhibition */
-                                                            ,
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FFAppState().filterSmall.catId ==
-                                                                        18
-                                                                    ? FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText
-                                                                    : FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .midgray,
-                                                                fontSize: 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ].addToEnd(
-                                                        SizedBox(height: 10.0)),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            Flexible(
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  FFAppState()
-                                                      .updateFilterSmallStruct(
-                                                    (e) => e..catId = 19,
-                                                  );
-                                                  safeSetState(() {});
-                                                  safeSetState(() => _model
-                                                      .listviewEventsPagingController
-                                                      ?.refresh());
-                                                  await _model
-                                                      .waitForOnePageForListviewEvents();
-                                                },
-                                                child: Container(
-                                                  height: 135.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                    border: Border.all(
-                                                      width: 0.3,
-                                                    ),
-                                                  ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      10.0),
-                                                          shape: BoxShape
-                                                              .rectangle,
-                                                          border: Border.all(
-                                                            color: FFAppState()
-                                                                        .filterSmall
-                                                                        .catId ==
-                                                                    19
-                                                                ? FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText
-                                                                : FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBackground,
-                                                            width: 1.0,
-                                                          ),
-                                                        ),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                          child: Image.network(
-                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/536onp55yi6u/workshop.png',
-                                                            width: 75.0,
-                                                            height: 75.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    2.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: AutoSizeText(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'y85mmnsr' /* Workshop
-& Training */
-                                                            ,
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FFAppState().filterSmall.catId ==
-                                                                        19
-                                                                    ? FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText
-                                                                    : FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .midgray,
-                                                                fontSize: 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ].addToEnd(
-                                                        SizedBox(height: 10.0)),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 16.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: [
-                                            Flexible(
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  FFAppState()
-                                                      .updateFilterSmallStruct(
-                                                    (e) => e..catId = 21,
-                                                  );
-                                                  safeSetState(() {});
-                                                  safeSetState(() => _model
-                                                      .listviewEventsPagingController
-                                                      ?.refresh());
-                                                  await _model
-                                                      .waitForOnePageForListviewEvents();
-                                                },
-                                                child: Container(
-                                                  height: 135.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                    border: Border.all(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .primaryBackground,
-                                                      width: 0.3,
-                                                    ),
-                                                  ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      10.0),
-                                                          shape: BoxShape
-                                                              .rectangle,
-                                                          border: Border.all(
-                                                            color: FFAppState()
-                                                                        .filterSmall
-                                                                        .catId ==
-                                                                    21
-                                                                ? FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText
-                                                                : FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBackground,
-                                                            width: 1.0,
-                                                          ),
-                                                        ),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                          child: Image.network(
-                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/5vhp7ynotpwc/game_Night.png',
-                                                            width: 75.0,
-                                                            height: 75.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    2.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: AutoSizeText(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'm4l7xo2j' /* Game Nights */,
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FFAppState().filterSmall.catId ==
-                                                                        21
-                                                                    ? FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText
-                                                                    : FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .midgray,
-                                                                fontSize: 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ].addToEnd(
-                                                        SizedBox(height: 10.0)),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            Flexible(
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  FFAppState()
-                                                      .updateFilterSmallStruct(
-                                                    (e) => e..catId = 22,
-                                                  );
-                                                  safeSetState(() {});
-                                                  safeSetState(() => _model
-                                                      .listviewEventsPagingController
-                                                      ?.refresh());
-                                                  await _model
-                                                      .waitForOnePageForListviewEvents();
-                                                },
-                                                child: Container(
-                                                  height: 134.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                    border: Border.all(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .primaryBackground,
-                                                      width: 0.3,
-                                                    ),
-                                                  ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      10.0),
-                                                          shape: BoxShape
-                                                              .rectangle,
-                                                          border: Border.all(
-                                                            color: FFAppState()
-                                                                        .filterSmall
-                                                                        .catId ==
-                                                                    22
-                                                                ? FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText
-                                                                : FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBackground,
-                                                            width: 1.0,
-                                                          ),
-                                                        ),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                          child: Image.network(
-                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/xvhnq44d78co/Sport.png',
-                                                            width: 75.0,
-                                                            height: 75.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    2.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: AutoSizeText(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            '39npjjn8' /* Sport
-Events */
-                                                            ,
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FFAppState().filterSmall.catId ==
-                                                                        22
-                                                                    ? FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText
-                                                                    : FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .midgray,
-                                                                fontSize: 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ].addToEnd(
-                                                        SizedBox(height: 10.0)),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            Flexible(
-                                              child: Container(
-                                                height: 135.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                  border: Border.all(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    width: 0.3,
-                                                  ),
-                                                ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Container(
-                                                      decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        shape:
-                                                            BoxShape.rectangle,
-                                                        border: Border.all(
-                                                          color: FFAppState()
-                                                                      .filterSmall
-                                                                      .catId ==
-                                                                  7
-                                                              ? FlutterFlowTheme
-                                                                      .of(
-                                                                          context)
-                                                                  .secondaryText
-                                                              : FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryBackground,
-                                                          width: 1.0,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  2.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: AutoSizeText(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          '6bc1921m' /* Homes &
-Rentals */
-                                                          ,
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  ].addToEnd(
-                                                      SizedBox(height: 10.0)),
-                                                ),
-                                              ),
-                                            ),
-                                            Flexible(
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  FFAppState()
-                                                      .updateFilterSmallStruct(
-                                                    (e) => e..catId = 7,
-                                                  );
-                                                  safeSetState(() {});
-                                                  safeSetState(() => _model
-                                                      .listviewEventsPagingController
-                                                      ?.refresh());
-                                                  await _model
-                                                      .waitForOnePageForListviewEvents();
-                                                },
-                                                child: Container(
-                                                  height: 135.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
-                                                    border: Border.all(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .primaryBackground,
-                                                      width: 0.3,
-                                                    ),
-                                                  ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      10.0),
-                                                          shape: BoxShape
-                                                              .rectangle,
-                                                          border: Border.all(
-                                                            color: FlutterFlowTheme
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              16.0),
+                                                      border: Border.all(
+                                                        color: categoriesItem
+                                                                    .catId ==
+                                                                FFAppState()
+                                                                    .filterSmall
+                                                                    .catId
+                                                            ? FlutterFlowTheme
                                                                     .of(context)
-                                                                .primaryBackground,
-                                                            width: 1.0,
-                                                          ),
-                                                        ),
+                                                                .primaryText
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .darkgray,
+                                                        width: 0.4,
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    2.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: AutoSizeText(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            '9hhtvn8g' /* Homes &
-Rentals */
-                                                            ,
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsets.all(10.0),
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Container(
+                                                              width: 50.0,
+                                                              height: 50.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color:
+                                                                    valueOrDefault<
+                                                                        Color>(
+                                                                  functions.hexToColor(
+                                                                      categoriesItem
+                                                                          .fillColorHex,
+                                                                      Color(
+                                                                          0xFF213A21)),
+                                                                  Color(
+                                                                      0xFF213A21),
                                                                 ),
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBackground,
-                                                                fontSize: 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .only(
+                                                                  bottomLeft: Radius
+                                                                      .circular(
+                                                                          8.0),
+                                                                  bottomRight: Radius
+                                                                      .circular(
+                                                                          8.0),
+                                                                  topLeft: Radius
+                                                                      .circular(
+                                                                          8.0),
+                                                                  topRight: Radius
+                                                                      .circular(
+                                                                          8.0),
+                                                                ),
+                                                                shape: BoxShape
+                                                                    .rectangle,
                                                               ),
-                                                        ),
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            8.0),
+                                                                child: custom_widgets
+                                                                    .SvgRenderer(
+                                                                  width: 30.0,
+                                                                  height: 30.0,
+                                                                  svgCode:
+                                                                      categoriesItem
+                                                                          .effectiveIconImage,
+                                                                  iconColor: functions.hexToColor(
+                                                                      categoriesItem
+                                                                          .effectiveColorHex,
+                                                                      Color(
+                                                                          0x00000000)),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Flexible(
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child:
+                                                                  AutoSizeText(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  FFLocalizations.of(context)
+                                                                              .languageCode ==
+                                                                          'fa'
+                                                                      ? categoriesItem
+                                                                          .catNameFa
+                                                                      : categoriesItem
+                                                                          .catName,
+                                                                  'category',
+                                                                ),
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
+                                                                maxLines: 2,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .titleSmallFamily,
+                                                                      color: categoriesItem.catId == FFAppState().filterSmall.catId
+                                                                          ? FlutterFlowTheme.of(context)
+                                                                              .primaryText
+                                                                          : FlutterFlowTheme.of(context)
+                                                                              .textgray,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      useGoogleFonts:
+                                                                          !FlutterFlowTheme.of(context)
+                                                                              .titleSmallIsCustom,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
                                                       ),
-                                                    ].addToEnd(
-                                                        SizedBox(height: 10.0)),
+                                                    ),
                                                   ),
-                                                ),
-                                              ),
-                                            ),
-                                          ].divide(SizedBox(width: 16.0)),
+                                                );
+                                              },
+                                            );
+                                          },
                                         ),
                                       ),
                                       Padding(
@@ -4782,7 +2321,7 @@ Rentals */
                                                 elevation: 2.0,
                                                 borderColor:
                                                     FlutterFlowTheme.of(context)
-                                                        .textfiled,
+                                                        .bordergray,
                                                 borderWidth: 0.3,
                                                 borderRadius: 24.0,
                                                 margin: EdgeInsetsDirectional
@@ -4976,10 +2515,6 @@ Rentals */
                                                       functions.decodeDetails(
                                                           filterResultsItem
                                                               .detailsText),
-                                                  detailsString: getJsonField(
-                                                    filterResultsItem.toMap(),
-                                                    r'''$.details''',
-                                                  ).toString(),
                                                 ),
                                               ),
                                             );
@@ -5702,10 +3237,13 @@ Rentals */
                   ),
                 ],
               ),
-              wrapWithModel(
-                model: _model.navBarModel,
-                updateCallback: () => safeSetState(() {}),
-                child: NavBarWidget(),
+              Align(
+                alignment: AlignmentDirectional(0.0, 0.0),
+                child: wrapWithModel(
+                  model: _model.navBarModel,
+                  updateCallback: () => safeSetState(() {}),
+                  child: NavBarWidget(),
+                ),
               ),
             ],
           ),

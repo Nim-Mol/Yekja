@@ -15,6 +15,8 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
 
   // Stores action output result for [Backend Call - Query Rows] action in ProfilePage widget.
   List<ViewUserChatsRow>? chatView;
+  // Stores action output result for [Backend Call - Query Rows] action in ProfilePage widget.
+  List<ConsentsRow>? userConsent;
   // Stores action output result for [Backend Call - Query Rows] action in Icon widget.
   List<ChatsRow>? yekjaChat2Customer;
   // State field(s) for TabBar widget.

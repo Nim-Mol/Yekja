@@ -191,7 +191,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                                     .override(
                                       fontFamily: 'Satoshi',
                                       color: FlutterFlowTheme.of(context)
-                                          .textfiled,
+                                          .bordergray,
                                       fontSize: 17.0,
                                       letterSpacing: 0.0,
                                     ),
@@ -207,7 +207,8 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).black20,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     width: 1.0,
                                   ),
                                   borderRadius: BorderRadius.circular(12.0),

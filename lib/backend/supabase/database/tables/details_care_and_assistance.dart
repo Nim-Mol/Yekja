@@ -29,15 +29,9 @@ class DetailsCareAndAssistanceRow extends SupabaseDataRow {
   set compensationType(String? value) =>
       setField<String>('compensation_type', value);
 
-  String? get locationMode => getField<String>('location_mode');
-  set locationMode(String? value) => setField<String>('location_mode', value);
+  bool get openForSwap => getField<bool>('open_for_swap')!;
+  set openForSwap(bool value) => setField<bool>('open_for_swap', value);
 
-  int? get radiusKm => getField<int>('radius_km');
-  set radiusKm(int? value) => setField<int>('radius_km', value);
-
-  int? get durationMin => getField<int>('duration_min');
-  set durationMin(int? value) => setField<int>('duration_min', value);
-
-  int? get capacity => getField<int>('capacity');
-  set capacity(int? value) => setField<int>('capacity', value);
+  String? get wishlistText => getField<String>('wishlist_text');
+  set wishlistText(String? value) => setField<String>('wishlist_text', value);
 }

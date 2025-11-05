@@ -21,6 +21,9 @@ class DetailsSwapItemsRow extends SupabaseDataRow {
   bool get openForSwap => getField<bool>('open_for_swap')!;
   set openForSwap(bool value) => setField<bool>('open_for_swap', value);
 
+  String? get intend => getField<String>('intend');
+  set intend(String? value) => setField<String>('intend', value);
+
   String? get wishlistText => getField<String>('wishlist_text');
   set wishlistText(String? value) => setField<String>('wishlist_text', value);
 
@@ -28,20 +31,16 @@ class DetailsSwapItemsRow extends SupabaseDataRow {
   set deliveryMethod(String? value) =>
       setField<String>('delivery_method', value);
 
+  bool get allowCashAdjustment => getField<bool>('allow_cash_adjustment')!;
+  set allowCashAdjustment(bool value) =>
+      setField<bool>('allow_cash_adjustment', value);
+
   int? get price => getField<int>('price');
   set price(int? value) => setField<int>('price', value);
 
   String? get priceText => getField<String>('price_text');
   set priceText(String? value) => setField<String>('price_text', value);
 
-  String? get priceUnit => getField<String>('price_unit');
-  set priceUnit(String? value) => setField<String>('price_unit', value);
-
-  bool get acceptAlternatives => getField<bool>('accept_alternatives')!;
-  set acceptAlternatives(bool value) =>
-      setField<bool>('accept_alternatives', value);
-
-  bool get allowCashAdjustment => getField<bool>('allow_cash_adjustment')!;
-  set allowCashAdjustment(bool value) =>
-      setField<bool>('allow_cash_adjustment', value);
+  int? get durationMin => getField<int>('duration_min');
+  set durationMin(int? value) => setField<int>('duration_min', value);
 }

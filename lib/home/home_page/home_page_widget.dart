@@ -1,15 +1,18 @@
-import '/auth/base_auth_user_provider.dart';
+import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/shared_components/main_header/main_header_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -35,6 +38,81 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      if (!(FFAppState().citiesApp.isNotEmpty)) {
+        _model.citiesOutput = await CitiesTable().queryRows(
+          queryFn: (q) => q,
+        );
+        for (int loop1Index = 0;
+            loop1Index < _model.citiesOutput!.length;
+            loop1Index++) {
+          final currentLoop1Item = _model.citiesOutput![loop1Index];
+          FFAppState().addToCitiesApp(CitiesModelStruct(
+            id: currentLoop1Item.id,
+            name: currentLoop1Item.name,
+          ));
+          safeSetState(() {});
+        }
+        _model.topsubcatOutput = await ViewTopSubcategoriesTable().queryRows(
+          queryFn: (q) => q,
+        );
+        for (int loop2Index = 0;
+            loop2Index < _model.topsubcatOutput!.length;
+            loop2Index++) {
+          final currentLoop2Item = _model.topsubcatOutput![loop2Index];
+          FFAppState().addToSubcatApp(SubcatModelStruct(
+            mainCatId: currentLoop2Item.mainCatId,
+            mainCatName: currentLoop2Item.mainCatName,
+            catId: currentLoop2Item.catId,
+            catName: currentLoop2Item.catName,
+            subCatId: currentLoop2Item.subCatId,
+            uniqueSubcatId: currentLoop2Item.uniqueSubcatId,
+            subCatName: currentLoop2Item.subCatName,
+            effectiveColorHex: currentLoop2Item.effectiveColorHex,
+            effectiveIconImage: currentLoop2Item.effectiveIconImage,
+            totalLikes: currentLoop2Item.totalLikes,
+            catPostCount: currentLoop2Item.catPostCount,
+            catPostLikes: currentLoop2Item.catPostLikes,
+            fillColorHex: currentLoop2Item.fillColorHex,
+            detailTable: currentLoop2Item.detailTable,
+            catNameFa: currentLoop2Item.catNameFa,
+            subCatNameFa: currentLoop2Item.subCatNameFa,
+            mainCatNameFa: currentLoop2Item.mainCatNameFa,
+          ));
+          safeSetState(() {});
+        }
+      }
+      if (currentUserEmail != '') {
+        // Get user_ext
+        _model.user = await UserExtTable().queryRows(
+          queryFn: (q) => q.eqOrNull(
+            'id',
+            currentUserUid,
+          ),
+        );
+        // Get user fav
+        _model.userFav = await UserFavoritesTable().queryRows(
+          queryFn: (q) => q.eqOrNull(
+            'user_id',
+            currentUserUid,
+          ),
+        );
+        _model.userRole = await actions.decodeJwtRole();
+        // Update UserInfo global object
+        FFAppState().userInfo = UserInfoStruct(
+          userId: currentUserUid,
+          userName: _model.user?.firstOrNull?.userName,
+          name: _model.user?.firstOrNull?.firstName,
+          lastName: _model.user?.firstOrNull?.lastName,
+          avatar: _model.user?.firstOrNull?.profileAvatar,
+          city: _model.user?.firstOrNull?.userCity,
+          role: _model.userRole,
+        );
+        safeSetState(() {});
+      }
+    });
 
     _model.searchFieldTextController ??= TextEditingController();
     _model.searchFieldFocusNode ??= FocusNode();
@@ -241,37 +319,37 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 8.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Flexible(
-                                    child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          await showDialog(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return AlertDialog(
-                                                title: Text(
-                                                    FFAppState().userInfo.role),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          );
-                                        },
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  await actions.debugDecoder();
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        title: Text(FFAppState().userInfo.role),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                },
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Flexible(
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             'uecq8i6w' /* What are you looking for today... */,
@@ -299,8 +377,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                             Container(
@@ -1077,15 +1155,18 @@ launching soo... */
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
+                                                    await authManager
+                                                        .refreshUser();
                                                     await showDialog(
                                                       context: context,
                                                       builder:
                                                           (alertDialogContext) {
                                                         return AlertDialog(
                                                           title: Text(
-                                                              FFAppState()
-                                                                  .userInfo
-                                                                  .role),
+                                                              currentUserEmail),
+                                                          content: Text(
+                                                              currentUserEmailVerified
+                                                                  .toString()),
                                                           actions: [
                                                             TextButton(
                                                               onPressed: () =>
@@ -1241,7 +1322,7 @@ launching soo... */
                                               children: [
                                                 Expanded(
                                                   child: Container(
-                                                    height: 150.0,
+                                                    height: 110.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -1253,7 +1334,7 @@ launching soo... */
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .textfiled,
+                                                                .bordergray,
                                                         width: 0.3,
                                                       ),
                                                     ),
@@ -1261,45 +1342,50 @@ launching soo... */
                                                       mainAxisSize:
                                                           MainAxisSize.min,
                                                       mainAxisAlignment:
-                                                          MainAxisAlignment.end,
+                                                          MainAxisAlignment
+                                                              .center,
                                                       crossAxisAlignment:
                                                           CrossAxisAlignment
                                                               .center,
                                                       children: [
                                                         Container(
+                                                          width: 50.0,
+                                                          height: 50.0,
                                                           decoration:
                                                               BoxDecoration(
+                                                            color: Color(
+                                                                0x4040C057),
                                                             borderRadius:
                                                                 BorderRadius
-                                                                    .circular(
-                                                                        10.0),
+                                                                    .only(
+                                                              bottomLeft: Radius
+                                                                  .circular(
+                                                                      8.0),
+                                                              bottomRight:
+                                                                  Radius
+                                                                      .circular(
+                                                                          8.0),
+                                                              topLeft: Radius
+                                                                  .circular(
+                                                                      8.0),
+                                                              topRight: Radius
+                                                                  .circular(
+                                                                      8.0),
+                                                            ),
                                                             shape: BoxShape
                                                                 .rectangle,
-                                                            border: Border.all(
-                                                              color: FFAppState()
-                                                                          .filterSmall
-                                                                          .catId ==
-                                                                      8
-                                                                  ? FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText
-                                                                  : FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                              width: 1.0,
-                                                            ),
                                                           ),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        0.0),
-                                                            child:
-                                                                Image.network(
-                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/7alx2zdgj1ln/assistance.png',
-                                                              width: 80.0,
-                                                              height: 80.0,
-                                                              fit: BoxFit.cover,
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: FaIcon(
+                                                              FontAwesomeIcons
+                                                                  .handsHelping,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .customColor1,
+                                                              size: 30.0,
                                                             ),
                                                           ),
                                                         ),
@@ -1323,43 +1409,29 @@ Assistance */
                                                                 .center,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .titleMedium
+                                                                .titleSmall
                                                                 .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  color: FlutterFlowTheme.of(
+                                                                  fontFamily: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .secondaryText,
+                                                                      .titleSmallFamily,
                                                                   fontSize:
                                                                       14.0,
                                                                   letterSpacing:
                                                                       0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMedium
-                                                                      .fontStyle,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmallIsCustom,
                                                                 ),
                                                           ),
                                                         ),
-                                                      ].addToEnd(SizedBox(
-                                                          height: 10.0)),
+                                                      ],
                                                     ),
                                                   ),
                                                 ),
                                                 Expanded(
                                                   child: Container(
-                                                    height: 150.0,
+                                                    height: 110.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -1371,7 +1443,7 @@ Assistance */
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .textfiled,
+                                                                .bordergray,
                                                         width: 0.3,
                                                       ),
                                                     ),
@@ -1379,21 +1451,51 @@ Assistance */
                                                       mainAxisSize:
                                                           MainAxisSize.max,
                                                       mainAxisAlignment:
-                                                          MainAxisAlignment.end,
+                                                          MainAxisAlignment
+                                                              .center,
                                                       crossAxisAlignment:
                                                           CrossAxisAlignment
                                                               .center,
                                                       children: [
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
+                                                        Container(
+                                                          width: 50.0,
+                                                          height: 50.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0x420593D7),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .only(
+                                                              bottomLeft: Radius
                                                                   .circular(
                                                                       8.0),
-                                                          child: Image.asset(
-                                                            'assets/images/Rent.png',
-                                                            width: 80.0,
-                                                            height: 80.0,
-                                                            fit: BoxFit.fill,
+                                                              bottomRight:
+                                                                  Radius
+                                                                      .circular(
+                                                                          8.0),
+                                                              topLeft: Radius
+                                                                  .circular(
+                                                                      8.0),
+                                                              topRight: Radius
+                                                                  .circular(
+                                                                      8.0),
+                                                            ),
+                                                            shape: BoxShape
+                                                                .rectangle,
+                                                          ),
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: FaIcon(
+                                                              FontAwesomeIcons
+                                                                  .home,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .market,
+                                                              size: 30.0,
+                                                            ),
                                                           ),
                                                         ),
                                                         Padding(
@@ -1445,14 +1547,13 @@ Rentals */
                                                                 ),
                                                           ),
                                                         ),
-                                                      ].addToEnd(SizedBox(
-                                                          height: 10.0)),
+                                                      ],
                                                     ),
                                                   ),
                                                 ),
                                                 Expanded(
                                                   child: Container(
-                                                    height: 150.0,
+                                                    height: 110.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -1464,7 +1565,7 @@ Rentals */
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .textfiled,
+                                                                .bordergray,
                                                         width: 0.3,
                                                       ),
                                                     ),
@@ -1472,45 +1573,50 @@ Rentals */
                                                       mainAxisSize:
                                                           MainAxisSize.min,
                                                       mainAxisAlignment:
-                                                          MainAxisAlignment.end,
+                                                          MainAxisAlignment
+                                                              .center,
                                                       crossAxisAlignment:
                                                           CrossAxisAlignment
                                                               .center,
                                                       children: [
                                                         Container(
+                                                          width: 50.0,
+                                                          height: 50.0,
                                                           decoration:
                                                               BoxDecoration(
+                                                            color: Color(
+                                                                0x42A70D0A),
                                                             borderRadius:
                                                                 BorderRadius
-                                                                    .circular(
-                                                                        10.0),
+                                                                    .only(
+                                                              bottomLeft: Radius
+                                                                  .circular(
+                                                                      8.0),
+                                                              bottomRight:
+                                                                  Radius
+                                                                      .circular(
+                                                                          8.0),
+                                                              topLeft: Radius
+                                                                  .circular(
+                                                                      8.0),
+                                                              topRight: Radius
+                                                                  .circular(
+                                                                      8.0),
+                                                            ),
                                                             shape: BoxShape
                                                                 .rectangle,
-                                                            border: Border.all(
-                                                              color: FFAppState()
-                                                                          .filterSmall
-                                                                          .catId ==
-                                                                      17
-                                                                  ? FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText
-                                                                  : FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                              width: 1.0,
-                                                            ),
                                                           ),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        0.0),
-                                                            child:
-                                                                Image.network(
-                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/9mwcf0csxbkl/concert_(1).png',
-                                                              width: 80.0,
-                                                              height: 80.0,
-                                                              fit: BoxFit.cover,
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: FaIcon(
+                                                              FontAwesomeIcons
+                                                                  .glassCheers,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .event,
+                                                              size: 30.0,
                                                             ),
                                                           ),
                                                         ),
@@ -1563,12 +1669,11 @@ Rentals */
                                                                 ),
                                                           ),
                                                         ),
-                                                      ].addToEnd(SizedBox(
-                                                          height: 10.0)),
+                                                      ],
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(SizedBox(width: 12.0)),
+                                              ].divide(SizedBox(width: 10.0)),
                                             ),
                                           ),
                                           Padding(
@@ -1583,7 +1688,7 @@ Rentals */
                                               children: [
                                                 Expanded(
                                                   child: Container(
-                                                    height: 150.0,
+                                                    height: 110.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -1595,7 +1700,7 @@ Rentals */
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .textfiled,
+                                                                .bordergray,
                                                         width: 0.3,
                                                       ),
                                                     ),
@@ -1603,45 +1708,73 @@ Rentals */
                                                       mainAxisSize:
                                                           MainAxisSize.min,
                                                       mainAxisAlignment:
-                                                          MainAxisAlignment.end,
+                                                          MainAxisAlignment
+                                                              .center,
                                                       crossAxisAlignment:
                                                           CrossAxisAlignment
                                                               .center,
                                                       children: [
                                                         Container(
+                                                          width: 50.0,
+                                                          height: 50.0,
                                                           decoration:
                                                               BoxDecoration(
+                                                            color: Color(
+                                                                0x42D9D506),
                                                             borderRadius:
                                                                 BorderRadius
-                                                                    .circular(
-                                                                        10.0),
+                                                                    .only(
+                                                              bottomLeft: Radius
+                                                                  .circular(
+                                                                      8.0),
+                                                              bottomRight:
+                                                                  Radius
+                                                                      .circular(
+                                                                          8.0),
+                                                              topLeft: Radius
+                                                                  .circular(
+                                                                      8.0),
+                                                              topRight: Radius
+                                                                  .circular(
+                                                                      8.0),
+                                                            ),
                                                             shape: BoxShape
                                                                 .rectangle,
-                                                            border: Border.all(
-                                                              color: FFAppState()
-                                                                          .filterSmall
-                                                                          .catId ==
-                                                                      14
-                                                                  ? FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText
-                                                                  : FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                              width: 1.0,
-                                                            ),
                                                           ),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
+                                                          child: Stack(
+                                                            children: [
+                                                              Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        0.0,
                                                                         0.0),
-                                                            child: Image.asset(
-                                                              'assets/images/home&services.png',
-                                                              width: 80.0,
-                                                              height: 80.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
+                                                                child: Icon(
+                                                                  Icons
+                                                                      .elderly_woman_outlined,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .service,
+                                                                  size: 40.0,
+                                                                ),
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            3.0,
+                                                                            3.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: FaIcon(
+                                                                  FontAwesomeIcons
+                                                                      .paw,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .service,
+                                                                  size: 15.0,
+                                                                ),
+                                                              ),
+                                                            ],
                                                           ),
                                                         ),
                                                         Padding(
@@ -1693,14 +1826,13 @@ Services */
                                                                 ),
                                                           ),
                                                         ),
-                                                      ].addToEnd(SizedBox(
-                                                          height: 10.0)),
+                                                      ],
                                                     ),
                                                   ),
                                                 ),
                                                 Expanded(
                                                   child: Container(
-                                                    height: 150.0,
+                                                    height: 110.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -1712,7 +1844,7 @@ Services */
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .textfiled,
+                                                                .bordergray,
                                                         width: 0.3,
                                                       ),
                                                     ),
@@ -1720,21 +1852,56 @@ Services */
                                                       mainAxisSize:
                                                           MainAxisSize.max,
                                                       mainAxisAlignment:
-                                                          MainAxisAlignment.end,
+                                                          MainAxisAlignment
+                                                              .center,
                                                       crossAxisAlignment:
                                                           CrossAxisAlignment
                                                               .center,
                                                       children: [
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
+                                                        Container(
+                                                          width: 50.0,
+                                                          height: 50.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0x427950F2),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .only(
+                                                              bottomLeft: Radius
                                                                   .circular(
                                                                       8.0),
-                                                          child: Image.network(
-                                                            'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Temp/nima/skills.png',
-                                                            width: 80.0,
-                                                            height: 80.0,
-                                                            fit: BoxFit.contain,
+                                                              bottomRight:
+                                                                  Radius
+                                                                      .circular(
+                                                                          8.0),
+                                                              topLeft: Radius
+                                                                  .circular(
+                                                                      8.0),
+                                                              topRight: Radius
+                                                                  .circular(
+                                                                      8.0),
+                                                            ),
+                                                            shape: BoxShape
+                                                                .rectangle,
+                                                          ),
+                                                          child: Stack(
+                                                            children: [
+                                                              Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        0.0,
+                                                                        0.0),
+                                                                child: Icon(
+                                                                  Icons
+                                                                      .people_sharp,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .purple1,
+                                                                  size: 40.0,
+                                                                ),
+                                                              ),
+                                                            ],
                                                           ),
                                                         ),
                                                         Padding(
@@ -1786,14 +1953,13 @@ Offers */
                                                                 ),
                                                           ),
                                                         ),
-                                                      ].addToEnd(SizedBox(
-                                                          height: 10.0)),
+                                                      ],
                                                     ),
                                                   ),
                                                 ),
                                                 Expanded(
                                                   child: Container(
-                                                    height: 150.0,
+                                                    height: 110.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -1805,7 +1971,7 @@ Offers */
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .textfiled,
+                                                                .bordergray,
                                                         width: 0.3,
                                                       ),
                                                     ),
@@ -1813,21 +1979,51 @@ Offers */
                                                       mainAxisSize:
                                                           MainAxisSize.min,
                                                       mainAxisAlignment:
-                                                          MainAxisAlignment.end,
+                                                          MainAxisAlignment
+                                                              .center,
                                                       crossAxisAlignment:
                                                           CrossAxisAlignment
                                                               .center,
                                                       children: [
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
+                                                        Container(
+                                                          width: 50.0,
+                                                          height: 50.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0x42F0C206),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .only(
+                                                              bottomLeft: Radius
                                                                   .circular(
                                                                       8.0),
-                                                          child: Image.asset(
-                                                            'assets/images/shops.png',
-                                                            width: 80.0,
-                                                            height: 80.0,
-                                                            fit: BoxFit.contain,
+                                                              bottomRight:
+                                                                  Radius
+                                                                      .circular(
+                                                                          8.0),
+                                                              topLeft: Radius
+                                                                  .circular(
+                                                                      8.0),
+                                                              topRight: Radius
+                                                                  .circular(
+                                                                      8.0),
+                                                            ),
+                                                            shape: BoxShape
+                                                                .rectangle,
+                                                          ),
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: FaIcon(
+                                                              FontAwesomeIcons
+                                                                  .shoppingCart,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .service,
+                                                              size: 30.0,
+                                                            ),
                                                           ),
                                                         ),
                                                         Padding(
@@ -1879,8 +2075,7 @@ Offers */
                                                                 ),
                                                           ),
                                                         ),
-                                                      ].addToEnd(SizedBox(
-                                                          height: 10.0)),
+                                                      ],
                                                     ),
                                                   ),
                                                 ),
@@ -2844,7 +3039,7 @@ Offers */
                             updateCallback: () => safeSetState(() {}),
                             child: MainHeaderWidget(),
                           ),
-                        if (FFAppState().userInfo.role == '')
+                        if (currentUserEmail == '')
                           Align(
                             alignment: AlignmentDirectional(-1.0, -1.0),
                             child: InkWell(

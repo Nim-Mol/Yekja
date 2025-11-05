@@ -41,9 +41,9 @@ abstract class FlutterFlowTheme {
   late Color error;
   late Color info;
 
-  late Color black20;
+  late Color textgray;
   late Color lightGray;
-  late Color textfiled;
+  late Color bordergray;
   late Color lighterSecBackground;
   late Color logoGreen;
   late Color lighterGreen;
@@ -66,8 +66,11 @@ abstract class FlutterFlowTheme {
   late Color customColor2;
   late Color customColor3;
   late Color green1;
-  late Color customColor4;
-  late Color customColor5;
+  late Color care;
+  late Color market;
+  late Color service;
+  late Color event;
+  late Color business;
 
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
@@ -187,9 +190,9 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color error = const Color(0xFFF25A57);
   late Color info = const Color(0xFFDCDCDC);
 
-  late Color black20 = const Color(0xFFDCDCDC);
+  late Color textgray = const Color(0xCFD4D4D4);
   late Color lightGray = const Color(0xFFF5F5F5);
-  late Color textfiled = const Color(0xFF696969);
+  late Color bordergray = const Color(0xFF696969);
   late Color lighterSecBackground = const Color(0xFF2A2A2A);
   late Color logoGreen = const Color(0xFF587858);
   late Color lighterGreen = const Color(0xFF6A966A);
@@ -212,8 +215,11 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color customColor2 = const Color(0xFFAA72E8);
   late Color customColor3 = const Color(0xFF089F88);
   late Color green1 = const Color(0xFF12B886);
-  late Color customColor4 = const Color(0xFFCDAE1C);
-  late Color customColor5 = const Color(0xFFCD75C5);
+  late Color care = const Color(0xFF40C057);
+  late Color market = const Color(0xFF0593D7);
+  late Color service = const Color(0xFFF0C206);
+  late Color event = const Color(0xFFA70D0A);
+  late Color business = const Color(0xFF012459);
 }
 
 abstract class Typography {

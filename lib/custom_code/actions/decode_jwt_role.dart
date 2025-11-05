@@ -14,60 +14,51 @@ import 'dart:convert';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 // Utility to decode the JWT payload
+// Utility to decode the JWT payload (unchanged)
 Map<String, dynamic>? _decodeJwtPayload(String jwt) {
   final parts = jwt.split('.');
   if (parts.length != 3) return null;
-
   try {
     final norm =
         base64.normalize(parts[1]).replaceAll('-', '+').replaceAll('_', '/');
     final decodedBytes = base64.decode(norm);
     final decodedString = utf8.decode(decodedBytes);
     return json.decode(decodedString) as Map<String, dynamic>;
-  } catch (e) {
-    return null; // Return null on any decoding failure
+  } catch (_) {
+    return null;
   }
 }
 
-/// 🎯 THE FINAL WORKING CUSTOM ACTION
 Future<String> decodeJwtRole() async {
-  // Renamed for clarity on its purpose
   final client = Supabase.instance.client;
   String? token;
-  Map<String, dynamic>? payload;
 
-  // --- Step 1: Secure Token Retrieval ---
   try {
-    final res = await client.auth.refreshSession();
-    // Prioritize the new session's token
+    final res = await client.auth.refreshSession(); // ok to keep; optional
     token = res.session?.accessToken ?? client.auth.currentSession?.accessToken;
-  } catch (e) {
-    // Fallback to current token if refresh failed
+  } catch (_) {
     token = client.auth.currentSession?.accessToken;
   }
+  if (token == null) return "DEBUG_ERROR: No Token Found";
 
-  if (token == null) {
-    return "DEBUG_ERROR: No Token Found";
+  final payload = _decodeJwtPayload(token);
+  if (payload == null) return "DEBUG_ERROR: Payload Decode Failed";
+
+  // Preferred: app_role (new claim)
+  final appRole = payload['app_role'] as String?;
+  if (appRole != null && appRole.isNotEmpty) return appRole;
+
+  // Fallback 1: app_metadata.role (we mirror it there server-side)
+  final appMeta = payload['app_metadata'];
+  if (appMeta is Map &&
+      appMeta['role'] is String &&
+      (appMeta['role'] as String).isNotEmpty) {
+    return appMeta['role'] as String;
   }
 
-  // --- Step 2: Decode the Payload ---
-  payload = _decodeJwtPayload(token);
+  // Fallback 2: legacy user_role (old claim, if still present)
+  final legacy = payload['user_role'] as String?;
+  if (legacy != null && legacy.isNotEmpty) return legacy;
 
-  if (payload == null) {
-    return "DEBUG_ERROR: Payload Decode Failed";
-  }
-
-  // --- Step 3: Extract the Top-Level 'user_role' Claim ---
-
-  // 1. Directly access the 'user_role' key (as seen in your debug output)
-  final role = payload['user_role'];
-
-  // 2. Explicitly check if the value is a non-empty string
-  if (role is String && role.isNotEmpty) {
-    // SUCCESS
-    return role; // ⬅️ This returns "global_admin"
-  } else {
-    // FAILURE: Token and Payload are fine, but the claim is missing/wrong type.
-    return "DEBUG_ERROR: Claim Not Valid or Missing 'user_role'";
-  }
+  return "DEBUG_ERROR: app_role missing";
 }

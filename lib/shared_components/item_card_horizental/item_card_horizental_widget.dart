@@ -125,7 +125,7 @@ class _ItemCardHorizentalWidgetState extends State<ItemCardHorizentalWidget> {
                   children: [
                     FaIcon(
                       FontAwesomeIcons.mapMarkerAlt,
-                      color: FlutterFlowTheme.of(context).textfiled,
+                      color: FlutterFlowTheme.of(context).bordergray,
                       size: 15.0,
                     ),
                     Text(

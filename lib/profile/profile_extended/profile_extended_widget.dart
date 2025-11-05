@@ -238,17 +238,9 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                                                 itemLikes:
                                                     listViewViewUserPostsRow
                                                         .postLikes,
-                                                mainImagePath: listViewViewUserPostsRow
-                                                                .images
-                                                                .firstOrNull !=
-                                                            null &&
-                                                        listViewViewUserPostsRow
-                                                                .images
-                                                                .firstOrNull !=
-                                                            ''
-                                                    ? listViewViewUserPostsRow
-                                                        .images.firstOrNull
-                                                    : 'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/default_image.jpg',
+                                                mainImagePath:
+                                                    listViewViewUserPostsRow
+                                                        .images.firstOrNull,
                                                 postUserId:
                                                     listViewViewUserPostsRow
                                                         .userId,

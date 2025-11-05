@@ -205,19 +205,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => TermsConditionsPageWidget(),
         ),
         FFRoute(
-          name: PostDetailWidget.routeName,
-          path: PostDetailWidget.routePath,
-          builder: (context, params) => PostDetailWidget(),
+          name: PostGeneralDetailWidget.routeName,
+          path: PostGeneralDetailWidget.routePath,
+          builder: (context, params) => PostGeneralDetailWidget(),
         ),
         FFRoute(
           name: ReportedUserWidget.routeName,
           path: ReportedUserWidget.routePath,
           builder: (context, params) => ReportedUserWidget(),
-        ),
-        FFRoute(
-          name: ScoringSystemWidget.routeName,
-          path: ScoringSystemWidget.routePath,
-          builder: (context, params) => ScoringSystemWidget(),
         ),
         FFRoute(
           name: PostMainCatWidget.routeName,
@@ -327,11 +322,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => HomePageWidget(),
         ),
         FFRoute(
-          name: ProfileEditWidget.routeName,
-          path: ProfileEditWidget.routePath,
-          builder: (context, params) => ProfileEditWidget(),
-        ),
-        FFRoute(
           name: ChatdetailWidget.routeName,
           path: ChatdetailWidget.routePath,
           requireAuth: true,
@@ -410,9 +400,64 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           ),
         ),
         FFRoute(
-          name: ProfileEditCopyWidget.routeName,
-          path: ProfileEditCopyWidget.routePath,
-          builder: (context, params) => ProfileEditCopyWidget(),
+          name: ProfileEditWidget.routeName,
+          path: ProfileEditWidget.routePath,
+          builder: (context, params) => ProfileEditWidget(),
+        ),
+        FFRoute(
+          name: PostGeneralDetailCopy2Widget.routeName,
+          path: PostGeneralDetailCopy2Widget.routePath,
+          builder: (context, params) => PostGeneralDetailCopy2Widget(),
+        ),
+        FFRoute(
+          name: DetailRentalsWidget.routeName,
+          path: DetailRentalsWidget.routePath,
+          builder: (context, params) => DetailRentalsWidget(),
+        ),
+        FFRoute(
+          name: DetailSalesWidget.routeName,
+          path: DetailSalesWidget.routePath,
+          builder: (context, params) => DetailSalesWidget(),
+        ),
+        FFRoute(
+          name: DetailGiveAwayWidget.routeName,
+          path: DetailGiveAwayWidget.routePath,
+          builder: (context, params) => DetailGiveAwayWidget(),
+        ),
+        FFRoute(
+          name: DetailTransferWidget.routeName,
+          path: DetailTransferWidget.routePath,
+          builder: (context, params) => DetailTransferWidget(),
+        ),
+        FFRoute(
+          name: DetailSwapItemsWidget.routeName,
+          path: DetailSwapItemsWidget.routePath,
+          builder: (context, params) => DetailSwapItemsWidget(),
+        ),
+        FFRoute(
+          name: DetailTicketSwapWidget.routeName,
+          path: DetailTicketSwapWidget.routePath,
+          builder: (context, params) => DetailTicketSwapWidget(),
+        ),
+        FFRoute(
+          name: DetailCurrencyExchangeWidget.routeName,
+          path: DetailCurrencyExchangeWidget.routePath,
+          builder: (context, params) => DetailCurrencyExchangeWidget(),
+        ),
+        FFRoute(
+          name: DetailCareAndAssistanceWidget.routeName,
+          path: DetailCareAndAssistanceWidget.routePath,
+          builder: (context, params) => DetailCareAndAssistanceWidget(),
+        ),
+        FFRoute(
+          name: DetailEventsWidget.routeName,
+          path: DetailEventsWidget.routePath,
+          builder: (context, params) => DetailEventsWidget(),
+        ),
+        FFRoute(
+          name: BlankPageWidget.routeName,
+          path: BlankPageWidget.routePath,
+          builder: (context, params) => BlankPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

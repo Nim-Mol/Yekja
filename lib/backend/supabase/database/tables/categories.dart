@@ -40,4 +40,7 @@ class CategoriesRow extends SupabaseDataRow {
 
   DateTime get createdAt => getField<DateTime>('created_at')!;
   set createdAt(DateTime value) => setField<DateTime>('created_at', value);
+
+  String? get colorFillHex => getField<String>('color_fill_hex');
+  set colorFillHex(String? value) => setField<String>('color_fill_hex', value);
 }

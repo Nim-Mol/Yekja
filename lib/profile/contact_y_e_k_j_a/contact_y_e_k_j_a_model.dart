@@ -48,7 +48,7 @@ class ContactYEKJAModel extends FlutterFlowModel<ContactYEKJAWidget> {
 
   bool isDataUploading_uploadedimage = false;
   FFUploadedFile uploadedLocalFile_uploadedimage =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadedimage = '';
 
   // Stores action output result for [Backend Call - Insert Row] action in Button widget.

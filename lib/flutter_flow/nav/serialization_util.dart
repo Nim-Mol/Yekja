@@ -242,6 +242,8 @@ dynamic deserializeParam<T>(
             return MonitoringLogsRow(data);
           case ReportedRow:
             return ReportedRow(data);
+          case PostImagesRow:
+            return PostImagesRow(data);
           case ChatsRow:
             return ChatsRow(data);
           case DetailsSwapItemsRow:
@@ -250,8 +252,6 @@ dynamic deserializeParam<T>(
             return PostsLikesRow(data);
           case ViewUserChatsVisibleRow:
             return ViewUserChatsVisibleRow(data);
-          case DetailsPeerSupportRow:
-            return DetailsPeerSupportRow(data);
           case SubCategoriesRow:
             return SubCategoriesRow(data);
           case DetailsCurrencyExchangeRow:

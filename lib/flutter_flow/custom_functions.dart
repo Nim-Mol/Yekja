@@ -95,7 +95,7 @@ String csvQuotedOrNullCopy(
 }
 
 bool isNullSingleString(String? widgetState) {
-  if (widgetState == null || widgetState.isEmpty) {
+  if (widgetState == null || widgetState.isEmpty || widgetState == 'null') {
     return true;
   } else {
     return false;
@@ -252,4 +252,89 @@ dynamic decodeDetails(String raw) {
   } catch (_) {
     return {};
   }
+}
+
+String toLowerCase(String? originalText) {
+  if (originalText == null) {
+    return ''; // Return an empty string if the input is null
+  }
+
+  return originalText.toLowerCase();
+}
+
+String dateTimeToString(DateTime? dateTimeValue) {
+  if (dateTimeValue == null) {
+    return ''; // Or return null if your database expects null for empty dates
+  }
+
+  // Use the built-in Dart method to convert the DateTime object
+  // into the standard ISO 8601 string format.
+  return dateTimeValue.toIso8601String();
+}
+
+bool isNullJSON(dynamic widgetState) {
+  // 1. Check for literal Dart null first.
+  if (widgetState == null) {
+    return true;
+  }
+
+  // 2. Handle specific types that can be "empty" but not null.
+  if (widgetState is String) {
+    // Check if the string is empty after trimming whitespace,
+    // or if the string itself is the literal text "null" (case-insensitive)
+    final String str = widgetState.trim();
+    return str.isEmpty || str.toLowerCase() == 'null';
+  }
+
+  // 3. Check for empty Lists (e.g., [])
+  if (widgetState is List) {
+    return widgetState.isEmpty;
+  }
+
+  // 4. Check for empty Maps (e.g., {})
+  if (widgetState is Map) {
+    return widgetState.isEmpty;
+  }
+
+  // 5. If it passed the null check and is a non-empty primitive (like a number or boolean)
+  // or a non-empty complex object, then it is considered NOT null/empty.
+  return false;
+}
+
+String formatIsoDate(String? iso) {
+  if (iso == null) return '';
+  final s = iso.trim();
+  if (s.isEmpty) return '';
+  DateTime dt;
+  try {
+    dt = DateTime.parse(s).toLocal();
+  } catch (_) {
+    return s; // fallback to raw if not parseable
+  }
+
+  // Month short names (English)
+  const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec'
+  ];
+
+  String two(int n) => n < 10 ? '0$n' : '$n';
+
+  final mon = months[dt.month - 1];
+  final day = dt.day; // no leading zero for day (looks nicer)
+  final year = dt.year;
+  final hh = two(dt.hour);
+  final mm = two(dt.minute);
+
+  return '$mon $day, $year • $hh:$mm';
 }

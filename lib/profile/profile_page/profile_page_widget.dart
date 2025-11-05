@@ -55,11 +55,19 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.chatView = await ViewUserChatsTable().queryRows(
-        queryFn: (q) => q
-            .or("chat_sender.eq.${widget.profileId}, chat_recipient.eq.${widget.profileId}")
-            .order('chat_created_at'),
-      );
+      if (currentUserUid != '') {
+        _model.chatView = await ViewUserChatsTable().queryRows(
+          queryFn: (q) => q
+              .or("chat_sender.eq.${widget.profileId}, chat_recipient.eq.${widget.profileId}")
+              .order('chat_created_at'),
+        );
+        _model.userConsent = await ConsentsTable().queryRows(
+          queryFn: (q) => q.eqOrNull(
+            'user_id',
+            currentUserUid,
+          ),
+        );
+      }
     });
 
     _model.tabBarController = TabController(
@@ -97,637 +105,561 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return FutureBuilder<List<UserExtRow>>(
-      future: UserExtTable().querySingleRow(
-        queryFn: (q) => q.eqOrNull(
-          'id',
-          widget.profileId,
-        ),
-      ),
-      builder: (context, snapshot) {
-        // Customize what your widget looks like when it's loading.
-        if (!snapshot.hasData) {
-          return Scaffold(
-            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-            body: Center(
-              child: SizedBox(
-                width: 50.0,
-                height: 50.0,
-                child: SpinKitChasingDots(
-                  color: FlutterFlowTheme.of(context).greenInit,
-                  size: 50.0,
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SafeArea(
+          top: true,
+          child: Align(
+            alignment: AlignmentDirectional(0.0, -1.0),
+            child: FutureBuilder<List<UserExtRow>>(
+              future: UserExtTable().querySingleRow(
+                queryFn: (q) => q.eqOrNull(
+                  'id',
+                  widget.profileId,
                 ),
               ),
-            ),
-          );
-        }
-        List<UserExtRow> profilePageUserExtRowList = snapshot.data!;
+              builder: (context, snapshot) {
+                // Customize what your widget looks like when it's loading.
+                if (!snapshot.hasData) {
+                  return Center(
+                    child: SizedBox(
+                      width: 50.0,
+                      height: 50.0,
+                      child: SpinKitChasingDots(
+                        color: FlutterFlowTheme.of(context).greenInit,
+                        size: 50.0,
+                      ),
+                    ),
+                  );
+                }
+                List<UserExtRow> containerUserExtRowList = snapshot.data!;
 
-        final profilePageUserExtRow = profilePageUserExtRowList.isNotEmpty
-            ? profilePageUserExtRowList.first
-            : null;
+                final containerUserExtRow = containerUserExtRowList.isNotEmpty
+                    ? containerUserExtRowList.first
+                    : null;
 
-        return GestureDetector(
-          onTap: () {
-            FocusScope.of(context).unfocus();
-            FocusManager.instance.primaryFocus?.unfocus();
-          },
-          child: Scaffold(
-            key: scaffoldKey,
-            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-            body: SafeArea(
-              top: true,
-              child: Align(
-                alignment: AlignmentDirectional(0.0, -1.0),
-                child: Container(
+                return Container(
                   constraints: BoxConstraints(
                     maxWidth: 480.0,
                   ),
                   decoration: BoxDecoration(),
                   child: Stack(
                     children: [
-                      FutureBuilder<List<ConsentsRow>>(
-                        future: ConsentsTable().querySingleRow(
-                          queryFn: (q) => q.eqOrNull(
-                            'user_id',
-                            widget.profileId,
-                          ),
-                        ),
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
-                                child: SpinKitChasingDots(
-                                  color: FlutterFlowTheme.of(context).greenInit,
-                                  size: 50.0,
-                                ),
-                              ),
-                            );
-                          }
-                          List<ConsentsRow> columnConsentsRowList =
-                              snapshot.data!;
-
-                          final columnConsentsRow =
-                              columnConsentsRowList.isNotEmpty
-                                  ? columnConsentsRowList.first
-                                  : null;
-
-                          return SingleChildScrollView(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
+                      SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Column(
+                              mainAxisSize: MainAxisSize.min,
                               children: [
-                                Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Container(
-                                      height: 150.0,
-                                      constraints: BoxConstraints(
-                                        maxHeight: 150.0,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                      ),
-                                      child: Stack(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 1.0),
-                                        children: [
-                                          Container(
-                                            height: 150.0,
-                                            decoration: BoxDecoration(),
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              child: Image.network(
-                                                profilePageUserExtRow
-                                                                ?.profileWallpaper !=
-                                                            null &&
-                                                        profilePageUserExtRow
-                                                                ?.profileWallpaper !=
-                                                            ''
-                                                    ? profilePageUserExtRow!
-                                                        .profileWallpaper!
-                                                    : FFAppConstants
-                                                        .DefultProfileWalpaper,
-                                                width: double.infinity,
-                                                height: double.infinity,
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
+                                Container(
+                                  height: 150.0,
+                                  constraints: BoxConstraints(
+                                    maxHeight: 150.0,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: Stack(
+                                    alignment: AlignmentDirectional(0.0, 1.0),
+                                    children: [
+                                      Container(
+                                        height: 150.0,
+                                        decoration: BoxDecoration(),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child: Image.network(
+                                            containerUserExtRow
+                                                            ?.profileWallpaper !=
+                                                        null &&
+                                                    containerUserExtRow
+                                                            ?.profileWallpaper !=
+                                                        ''
+                                                ? containerUserExtRow!
+                                                    .profileWallpaper!
+                                                : FFAppConstants
+                                                    .DefultProfileWalpaper,
+                                            width: double.infinity,
+                                            height: double.infinity,
+                                            fit: BoxFit.cover,
                                           ),
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 5.0),
-                                            child: Container(
-                                              width: 100.0,
-                                              height: 120.0,
-                                              decoration: BoxDecoration(
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 5.0),
+                                        child: Container(
+                                          width: 100.0,
+                                          height: 120.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                            boxShadow: [
+                                              BoxShadow(
+                                                blurRadius: 4.0,
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                    blurRadius: 4.0,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
                                                         .primaryBackground,
-                                                    offset: Offset(
-                                                      0.0,
-                                                      2.0,
-                                                    ),
-                                                  )
-                                                ],
-                                                borderRadius: BorderRadius.only(
-                                                  bottomLeft:
-                                                      Radius.circular(8.0),
-                                                  bottomRight:
-                                                      Radius.circular(8.0),
-                                                  topLeft: Radius.circular(8.0),
-                                                  topRight:
-                                                      Radius.circular(8.0),
+                                                offset: Offset(
+                                                  0.0,
+                                                  2.0,
                                                 ),
-                                              ),
-                                              child: FutureBuilder<
-                                                  List<ConsentsRow>>(
-                                                future: ConsentsTable()
-                                                    .querySingleRow(
-                                                  queryFn: (q) => q.eqOrNull(
-                                                    'user_id',
-                                                    currentUserUid,
-                                                  ),
-                                                ),
-                                                builder: (context, snapshot) {
-                                                  // Customize what your widget looks like when it's loading.
-                                                  if (!snapshot.hasData) {
-                                                    return Center(
-                                                      child: SizedBox(
-                                                        width: 50.0,
-                                                        height: 50.0,
-                                                        child:
-                                                            SpinKitChasingDots(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .greenInit,
-                                                          size: 50.0,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
-                                                  List<ConsentsRow>
-                                                      rowConsentsRowList =
-                                                      snapshot.data!;
-
-                                                  final rowConsentsRow =
-                                                      rowConsentsRowList
-                                                              .isNotEmpty
-                                                          ? rowConsentsRowList
-                                                              .first
-                                                          : null;
-
-                                                  return Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceEvenly,
-                                                    children: [
-                                                      Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                          child: Image.network(
-                                                            (columnConsentsRow
-                                                                            ?.showProfileImage ==
-                                                                        true) &&
-                                                                    (profilePageUserExtRow?.profileAvatar !=
-                                                                            null &&
-                                                                        profilePageUserExtRow?.profileAvatar !=
-                                                                            '')
-                                                                ? profilePageUserExtRow!
-                                                                    .profileAvatar!
-                                                                : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/9zp5habce8h3/profile_avatar_1.png',
-                                                            width: 99.3,
-                                                            height: 200.0,
-                                                            fit: BoxFit.cover,
-                                                            alignment:
-                                                                Alignment(
-                                                                    0.0, 0.0),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              ),
+                                              )
+                                            ],
+                                            borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(8.0),
+                                              bottomRight: Radius.circular(8.0),
+                                              topLeft: Radius.circular(8.0),
+                                              topRight: Radius.circular(8.0),
                                             ),
                                           ),
-                                          Row(
+                                          child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
+                                                MainAxisAlignment.spaceEvenly,
                                             children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 0.0, 0.0, 0.0),
-                                                child: FlutterFlowIconButton(
-                                                  borderRadius: 50.0,
-                                                  buttonSize: 40.0,
-                                                  fillColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primaryBackground,
-                                                  icon: Icon(
-                                                    Icons.chevron_left,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .info,
-                                                    size: 24.0,
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  child: Image.network(
+                                                    (_model
+                                                                    .userConsent
+                                                                    ?.firstOrNull
+                                                                    ?.showProfileImage ==
+                                                                true) &&
+                                                            (containerUserExtRow
+                                                                        ?.profileAvatar !=
+                                                                    null &&
+                                                                containerUserExtRow
+                                                                        ?.profileAvatar !=
+                                                                    '')
+                                                        ? containerUserExtRow!
+                                                            .profileAvatar!
+                                                        : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/9zp5habce8h3/profile_avatar_1.png',
+                                                    width: 99.3,
+                                                    height: 200.0,
+                                                    fit: BoxFit.cover,
+                                                    alignment:
+                                                        Alignment(0.0, 0.0),
                                                   ),
-                                                  onPressed: () async {
-                                                    context.safePop();
-                                                  },
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 16.0, 0.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    if (!FFAppState().IsGust)
-                                                      Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                1.0, 0.0),
-                                                        child: Container(
-                                                          width: 40.0,
-                                                          height: 40.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryBackground,
-                                                            shape:
-                                                                BoxShape.circle,
-                                                          ),
-                                                          child: ToggleIcon(
-                                                            onPressed:
-                                                                () async {
-                                                              safeSetState(() =>
-                                                                  _model.isClose =
-                                                                      !_model
-                                                                          .isClose);
-                                                            },
-                                                            value:
-                                                                _model.isClose,
-                                                            onIcon: FaIcon(
-                                                              FontAwesomeIcons
-                                                                  .ellipsisV,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primary,
-                                                              size: 14.0,
-                                                            ),
-                                                            offIcon: FaIcon(
-                                                              FontAwesomeIcons
-                                                                  .angleRight,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryText,
-                                                              size: 14.0,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    if (!_model.isClose)
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          if (widget
-                                                                  .profileId ==
-                                                              currentUserUid)
-                                                            Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      1.0, 0.0),
-                                                              child: Container(
-                                                                width: 40.0,
-                                                                height: 40.0,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                  shape: BoxShape
-                                                                      .circle,
-                                                                ),
-                                                                child: Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          1.0,
-                                                                          0.0),
-                                                                  child:
-                                                                      Builder(
-                                                                    builder:
-                                                                        (context) =>
-                                                                            FlutterFlowIconButton(
-                                                                      borderRadius:
-                                                                          50.0,
-                                                                      buttonSize:
-                                                                          40.0,
-                                                                      fillColor:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .primaryBackground,
-                                                                      icon:
-                                                                          Icon(
-                                                                        Icons
-                                                                            .settings_rounded,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primary,
-                                                                        size:
-                                                                            20.0,
-                                                                      ),
-                                                                      onPressed:
-                                                                          () async {
-                                                                        await showDialog(
-                                                                          context:
-                                                                              context,
-                                                                          builder:
-                                                                              (dialogContext) {
-                                                                            return Dialog(
-                                                                              elevation: 0,
-                                                                              insetPadding: EdgeInsets.zero,
-                                                                              backgroundColor: Colors.transparent,
-                                                                              alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                              child: GestureDetector(
-                                                                                onTap: () {
-                                                                                  FocusScope.of(dialogContext).unfocus();
-                                                                                  FocusManager.instance.primaryFocus?.unfocus();
-                                                                                },
-                                                                                child: ProfileSettingWidget(
-                                                                                  profileUrl: 'https://app.flutterflow.io/project/4JrFL7AdymYZtlR8X9ly?tab=widgetTree&page=ProfilePage',
-                                                                                ),
-                                                                              ),
-                                                                            );
-                                                                          },
-                                                                        );
-                                                                      },
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          if (widget
-                                                                  .profileId !=
-                                                              currentUserUid)
-                                                            Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      1.0, 0.0),
-                                                              child: Container(
-                                                                width: 40.0,
-                                                                height: 40.0,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                  shape: BoxShape
-                                                                      .circle,
-                                                                ),
-                                                                child: Stack(
-                                                                  children: [
-                                                                    if (functions.listContainsString(
-                                                                        FFAppState()
-                                                                            .userInfo
-                                                                            .reportedList
-                                                                            .toList(),
-                                                                        widget
-                                                                            .profileId!))
-                                                                      Align(
-                                                                        alignment: AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            FaIcon(
-                                                                          FontAwesomeIcons
-                                                                              .solidFlag,
-                                                                          color:
-                                                                              Color(0xFFDC0D08),
-                                                                          size:
-                                                                              14.0,
-                                                                        ),
-                                                                      ),
-                                                                    if (!functions.listContainsString(
-                                                                        FFAppState()
-                                                                            .userInfo
-                                                                            .reportedList
-                                                                            .toList(),
-                                                                        widget
-                                                                            .profileId!))
-                                                                      Align(
-                                                                        alignment: AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Builder(
-                                                                          builder: (context) =>
-                                                                              InkWell(
-                                                                            splashColor:
-                                                                                Colors.transparent,
-                                                                            focusColor:
-                                                                                Colors.transparent,
-                                                                            hoverColor:
-                                                                                Colors.transparent,
-                                                                            highlightColor:
-                                                                                Colors.transparent,
-                                                                            onTap:
-                                                                                () async {
-                                                                              await showDialog(
-                                                                                context: context,
-                                                                                builder: (dialogContext) {
-                                                                                  return Dialog(
-                                                                                    elevation: 0,
-                                                                                    insetPadding: EdgeInsets.zero,
-                                                                                    backgroundColor: Colors.transparent,
-                                                                                    alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                                    child: GestureDetector(
-                                                                                      onTap: () {
-                                                                                        FocusScope.of(dialogContext).unfocus();
-                                                                                        FocusManager.instance.primaryFocus?.unfocus();
-                                                                                      },
-                                                                                      child: ConfirmCancelPopUpWidget(
-                                                                                        header: 'Reporting ',
-                                                                                        hintText: 'Are you sure you want to report this profile?',
-                                                                                        cancelText: 'Cancel',
-                                                                                        confirmText: 'Report',
-                                                                                        onConfirmAction: () async {
-                                                                                          await showDialog(
-                                                                                            context: context,
-                                                                                            builder: (dialogContext) {
-                                                                                              return Dialog(
-                                                                                                elevation: 0,
-                                                                                                insetPadding: EdgeInsets.zero,
-                                                                                                backgroundColor: Colors.transparent,
-                                                                                                alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                                                child: GestureDetector(
-                                                                                                  onTap: () {
-                                                                                                    FocusScope.of(dialogContext).unfocus();
-                                                                                                    FocusManager.instance.primaryFocus?.unfocus();
-                                                                                                  },
-                                                                                                  child: ReportingPopupWidget(
-                                                                                                    reportingData: ReportingDataStruct(
-                                                                                                      profileId: widget.profileId,
-                                                                                                      isProfile: true,
-                                                                                                      profileOwnerName: profilePageUserExtRow?.userName,
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              );
-                                                                                            },
-                                                                                          );
-                                                                                        },
-                                                                                        onCancelAction: () async {},
-                                                                                      ),
-                                                                                    ),
-                                                                                  );
-                                                                                },
-                                                                              );
-
-                                                                              // Creat Chat ROOM
-                                                                              _model.yekjaChat2Customer = await ChatsTable().queryRows(
-                                                                                queryFn: (q) => q
-                                                                                    .eqOrNull(
-                                                                                      'sender',
-                                                                                      FFAppConstants.YekjaAdminID,
-                                                                                    )
-                                                                                    .eqOrNull(
-                                                                                      'recipient',
-                                                                                      widget.profileId,
-                                                                                    ),
-                                                                              );
-                                                                              // Send message
-                                                                              await MessagesTable().insert({
-                                                                                'message_text': 'Hi ${profilePageUserExtRow?.userName}We are writing to inform you that your profile has been reported to the Yekja team.We are currently investigating the matter and will get back to you with the results as soon as our review is complete.',
-                                                                                'recipient': currentUserUid,
-                                                                                'chat_id': _model.yekjaChat2Customer?.firstOrNull?.id,
-                                                                                'sent_by': 'Yekja',
-                                                                              });
-
-                                                                              safeSetState(() {});
-                                                                            },
-                                                                            child:
-                                                                                FaIcon(
-                                                                              FontAwesomeIcons.flag,
-                                                                              color: FlutterFlowTheme.of(context).primaryText,
-                                                                              size: 16.0,
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                            ),
-                                                        ].divide(SizedBox(
-                                                            width: 3.0)),
-                                                      ).animateOnPageLoad(
-                                                          animationsMap[
-                                                              'rowOnPageLoadAnimation']!),
-                                                  ].divide(
-                                                      SizedBox(width: 5.0)),
                                                 ),
                                               ),
                                             ],
                                           ),
-                                        ],
+                                        ),
                                       ),
-                                    ),
-                                    Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Stack(
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 60.0, 16.0, 0.0),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
+                                                    16.0, 0.0, 0.0, 0.0),
+                                            child: FlutterFlowIconButton(
+                                              borderRadius: 50.0,
+                                              buttonSize: 40.0,
+                                              fillColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              icon: Icon(
+                                                Icons.chevron_left,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .info,
+                                                size: 24.0,
+                                              ),
+                                              onPressed: () async {
+                                                context.safePop();
+                                              },
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 16.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
                                               children: [
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: Column(
+                                                if (!FFAppState().IsGust)
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            1.0, 0.0),
+                                                    child: Container(
+                                                      width: 40.0,
+                                                      height: 40.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .primaryBackground,
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                      child: ToggleIcon(
+                                                        onPressed: () async {
+                                                          safeSetState(() =>
+                                                              _model.isClose =
+                                                                  !_model
+                                                                      .isClose);
+                                                        },
+                                                        value: _model.isClose,
+                                                        onIcon: FaIcon(
+                                                          FontAwesomeIcons
+                                                              .ellipsisV,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          size: 14.0,
+                                                        ),
+                                                        offIcon: FaIcon(
+                                                          FontAwesomeIcons
+                                                              .angleRight,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText,
+                                                          size: 14.0,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                if (!_model.isClose)
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      if (widget.profileId ==
+                                                          currentUserUid)
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  1.0, 0.0),
+                                                          child: Container(
+                                                            width: 40.0,
+                                                            height: 40.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                              shape: BoxShape
+                                                                  .circle,
+                                                            ),
+                                                            child: Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      1.0, 0.0),
+                                                              child: Builder(
+                                                                builder:
+                                                                    (context) =>
+                                                                        FlutterFlowIconButton(
+                                                                  borderRadius:
+                                                                      50.0,
+                                                                  buttonSize:
+                                                                      40.0,
+                                                                  fillColor: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBackground,
+                                                                  icon: Icon(
+                                                                    Icons
+                                                                        .settings_rounded,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    size: 20.0,
+                                                                  ),
+                                                                  onPressed:
+                                                                      () async {
+                                                                    await showDialog(
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (dialogContext) {
+                                                                        return Dialog(
+                                                                          elevation:
+                                                                              0,
+                                                                          insetPadding:
+                                                                              EdgeInsets.zero,
+                                                                          backgroundColor:
+                                                                              Colors.transparent,
+                                                                          alignment:
+                                                                              AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                          child:
+                                                                              GestureDetector(
+                                                                            onTap:
+                                                                                () {
+                                                                              FocusScope.of(dialogContext).unfocus();
+                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                            },
+                                                                            child:
+                                                                                ProfileSettingWidget(
+                                                                              profileUrl: 'https://app.flutterflow.io/project/4JrFL7AdymYZtlR8X9ly?tab=widgetTree&page=ProfilePage',
+                                                                            ),
+                                                                          ),
+                                                                        );
+                                                                      },
+                                                                    );
+                                                                  },
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      if (widget.profileId !=
+                                                          currentUserUid)
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  1.0, 0.0),
+                                                          child: Container(
+                                                            width: 40.0,
+                                                            height: 40.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryBackground,
+                                                              shape: BoxShape
+                                                                  .circle,
+                                                            ),
+                                                            child: Stack(
+                                                              children: [
+                                                                if (functions.listContainsString(
+                                                                    FFAppState()
+                                                                        .userInfo
+                                                                        .reportedList
+                                                                        .toList(),
+                                                                    widget
+                                                                        .profileId!))
+                                                                  Align(
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        FaIcon(
+                                                                      FontAwesomeIcons
+                                                                          .solidFlag,
+                                                                      color: Color(
+                                                                          0xFFDC0D08),
+                                                                      size:
+                                                                          14.0,
+                                                                    ),
+                                                                  ),
+                                                                if (!functions.listContainsString(
+                                                                    FFAppState()
+                                                                        .userInfo
+                                                                        .reportedList
+                                                                        .toList(),
+                                                                    widget
+                                                                        .profileId!))
+                                                                  Align(
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        Builder(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          await showDialog(
+                                                                            context:
+                                                                                context,
+                                                                            builder:
+                                                                                (dialogContext) {
+                                                                              return Dialog(
+                                                                                elevation: 0,
+                                                                                insetPadding: EdgeInsets.zero,
+                                                                                backgroundColor: Colors.transparent,
+                                                                                alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                child: GestureDetector(
+                                                                                  onTap: () {
+                                                                                    FocusScope.of(dialogContext).unfocus();
+                                                                                    FocusManager.instance.primaryFocus?.unfocus();
+                                                                                  },
+                                                                                  child: ConfirmCancelPopUpWidget(
+                                                                                    header: 'Reporting ',
+                                                                                    hintText: 'Are you sure you want to report this profile?',
+                                                                                    cancelText: 'Cancel',
+                                                                                    confirmText: 'Report',
+                                                                                    onConfirmAction: () async {
+                                                                                      await showDialog(
+                                                                                        context: context,
+                                                                                        builder: (dialogContext) {
+                                                                                          return Dialog(
+                                                                                            elevation: 0,
+                                                                                            insetPadding: EdgeInsets.zero,
+                                                                                            backgroundColor: Colors.transparent,
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                            child: GestureDetector(
+                                                                                              onTap: () {
+                                                                                                FocusScope.of(dialogContext).unfocus();
+                                                                                                FocusManager.instance.primaryFocus?.unfocus();
+                                                                                              },
+                                                                                              child: ReportingPopupWidget(
+                                                                                                reportingData: ReportingDataStruct(
+                                                                                                  profileId: widget.profileId,
+                                                                                                  isProfile: true,
+                                                                                                  profileOwnerName: containerUserExtRow?.userName,
+                                                                                                ),
+                                                                                              ),
+                                                                                            ),
+                                                                                          );
+                                                                                        },
+                                                                                      );
+                                                                                    },
+                                                                                    onCancelAction: () async {},
+                                                                                  ),
+                                                                                ),
+                                                                              );
+                                                                            },
+                                                                          );
+
+                                                                          // Creat Chat ROOM
+                                                                          _model.yekjaChat2Customer =
+                                                                              await ChatsTable().queryRows(
+                                                                            queryFn: (q) => q
+                                                                                .eqOrNull(
+                                                                                  'sender',
+                                                                                  FFAppConstants.YekjaAdminID,
+                                                                                )
+                                                                                .eqOrNull(
+                                                                                  'recipient',
+                                                                                  widget.profileId,
+                                                                                ),
+                                                                          );
+                                                                          // Send message
+                                                                          await MessagesTable()
+                                                                              .insert({
+                                                                            'message_text':
+                                                                                'Hi ${containerUserExtRow?.userName}We are writing to inform you that your profile has been reported to the Yekja team.We are currently investigating the matter and will get back to you with the results as soon as our review is complete.',
+                                                                            'recipient':
+                                                                                currentUserUid,
+                                                                            'chat_id':
+                                                                                _model.yekjaChat2Customer?.firstOrNull?.id,
+                                                                            'sent_by':
+                                                                                'Yekja',
+                                                                          });
+
+                                                                          safeSetState(
+                                                                              () {});
+                                                                        },
+                                                                        child:
+                                                                            FaIcon(
+                                                                          FontAwesomeIcons
+                                                                              .flag,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primaryText,
+                                                                          size:
+                                                                              16.0,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+                                                    ].divide(
+                                                        SizedBox(width: 3.0)),
+                                                  ).animateOnPageLoad(animationsMap[
+                                                      'rowOnPageLoadAnimation']!),
+                                              ].divide(SizedBox(width: 5.0)),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Stack(
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 60.0, 16.0, 0.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    valueOrDefault<String>(
+                                                      containerUserExtRow
+                                                          ?.userName,
+                                                      'Username',
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleLarge
+                                                        .override(
+                                                          fontFamily: 'Satoshi',
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                                  ),
+                                                  Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
                                                             .center,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
                                                     children: [
+                                                      Icon(
+                                                        Icons
+                                                            .person_pin_circle_rounded,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        size: 22.0,
+                                                      ),
                                                       Text(
                                                         valueOrDefault<String>(
-                                                          profilePageUserExtRow
-                                                              ?.userName,
-                                                          'Username',
+                                                          containerUserExtRow
+                                                              ?.userCity,
+                                                          'Not set',
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .titleLarge
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Satoshi',
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                ),
-                                                      ),
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Icon(
-                                                            Icons
-                                                                .location_history,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryText,
-                                                            size: 22.0,
-                                                          ),
-                                                          Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              profilePageUserExtRow
-                                                                  ?.userCity,
-                                                              'Not set',
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily: FlutterFlowTheme.of(
@@ -740,42 +672,40 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                               context)
                                                                           .bodyMediumIsCustom,
                                                                 ),
-                                                          ),
-                                                        ].divide(SizedBox(
-                                                            width: 8.0)),
                                                       ),
-                                                    ]
-                                                        .divide(SizedBox(
-                                                            height: 8.0))
-                                                        .addToStart(SizedBox(
-                                                            height: 8.0)),
+                                                    ].divide(
+                                                        SizedBox(width: 8.0)),
                                                   ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 8.0, 0.0, 0.0),
-                                                  child: Row(
+                                                ]
+                                                    .divide(
+                                                        SizedBox(height: 8.0))
+                                                    .addToStart(
+                                                        SizedBox(height: 8.0)),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 8.0, 0.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
+                                                children: [
+                                                  Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceEvenly,
                                                     children: [
-                                                      Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              profilePageUserExtRow
-                                                                  ?.totalLikes
-                                                                  ?.toString(),
-                                                              '0',
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
+                                                      Text(
+                                                        valueOrDefault<String>(
+                                                          containerUserExtRow
+                                                              ?.totalLikes
+                                                              ?.toString(),
+                                                          '0',
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
                                                                 .displaySmall
                                                                 .override(
                                                                   font: GoogleFonts
@@ -802,158 +732,52 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                       .displaySmall
                                                                       .fontStyle,
                                                                 ),
-                                                          ),
-                                                          Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'wi68hahy' /* Likes */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .labelLarge
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
+                                                      ),
+                                                      Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'wi68hahy' /* Likes */,
+                                                        ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .labelLarge
+                                                            .override(
+                                                              fontFamily:
+                                                                  FlutterFlowTheme.of(
                                                                           context)
                                                                       .labelLargeFamily,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .labelLargeIsCustom,
-                                                                ),
-                                                          ),
-                                                        ],
+                                                              fontSize: 14.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              useGoogleFonts:
+                                                                  !FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLargeIsCustom,
+                                                            ),
                                                       ),
-                                                      Opacity(
-                                                        opacity: 0.5,
-                                                        child: SizedBox(
-                                                          height: 50.0,
-                                                          child:
-                                                              VerticalDivider(
-                                                            thickness: 2.0,
-                                                            color: Color(
-                                                                0x70E0E3E7),
-                                                          ),
-                                                        ),
+                                                    ],
+                                                  ),
+                                                  Opacity(
+                                                    opacity: 0.5,
+                                                    child: SizedBox(
+                                                      height: 50.0,
+                                                      child: VerticalDivider(
+                                                        thickness: 2.0,
+                                                        color:
+                                                            Color(0x70E0E3E7),
                                                       ),
-                                                      Stack(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                    ),
+                                                  ),
+                                                  Stack(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    children: [
+                                                      Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
                                                         children: [
-                                                          Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            4.0),
-                                                                child: Text(
-                                                                  FFLocalizations.of(
-                                                                          context)
-                                                                      .getText(
-                                                                    'jzc0o03k' /* 3 */,
-                                                                  ),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .displaySmall
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(
-                                                                          fontWeight: FlutterFlowTheme.of(context)
-                                                                              .displaySmall
-                                                                              .fontWeight,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .displaySmall
-                                                                              .fontStyle,
-                                                                        ),
-                                                                        fontSize:
-                                                                            24.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight: FlutterFlowTheme.of(context)
-                                                                            .displaySmall
-                                                                            .fontWeight,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .displaySmall
-                                                                            .fontStyle,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            4.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  FFLocalizations.of(
-                                                                          context)
-                                                                      .getText(
-                                                                    'yhmczqlg' /* 12 points to reach level 4 */,
-                                                                  ),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelLarge
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).labelLargeFamily,
-                                                                        fontSize:
-                                                                            14.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        useGoogleFonts:
-                                                                            !FlutterFlowTheme.of(context).labelLargeIsCustom,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            6.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child:
-                                                                    LinearPercentIndicator(
-                                                                  percent: 0.3,
-                                                                  width: 120.0,
-                                                                  lineHeight:
-                                                                      12.0,
-                                                                  animation:
-                                                                      true,
-                                                                  animateFromLastPercent:
-                                                                      true,
-                                                                  progressColor:
-                                                                      FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .greenInit,
-                                                                  backgroundColor:
-                                                                      Color(
-                                                                          0xFF232426),
-                                                                  barRadius: Radius
-                                                                      .circular(
-                                                                          30.0),
-                                                                  padding:
-                                                                      EdgeInsets
-                                                                          .zero,
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
                                                           Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
@@ -961,80 +785,175 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                         0.0,
                                                                         0.0,
                                                                         0.0,
-                                                                        20.0),
+                                                                        4.0),
+                                                            child: Text(
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                                'jzc0o03k' /* 3 */,
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .displaySmall
+                                                                  .override(
+                                                                    font: GoogleFonts
+                                                                        .poppins(
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .displaySmall
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .displaySmall
+                                                                          .fontStyle,
+                                                                    ),
+                                                                    fontSize:
+                                                                        24.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .displaySmall
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .displaySmall
+                                                                        .fontStyle,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        4.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                                'yhmczqlg' /* 12 points to reach level 4 */,
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .labelLarge
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .labelLargeFamily,
+                                                                    fontSize:
+                                                                        14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    useGoogleFonts:
+                                                                        !FlutterFlowTheme.of(context)
+                                                                            .labelLargeIsCustom,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        6.0,
+                                                                        0.0,
+                                                                        0.0),
                                                             child:
-                                                                Image.network(
-                                                              'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Badges/sonbol1.png',
-                                                              width: 50.0,
-                                                              height: 25.0,
-                                                              fit: BoxFit.cover,
+                                                                LinearPercentIndicator(
+                                                              percent: 0.3,
+                                                              width: 120.0,
+                                                              lineHeight: 12.0,
+                                                              animation: true,
+                                                              animateFromLastPercent:
+                                                                  true,
+                                                              progressColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .greenInit,
+                                                              backgroundColor:
+                                                                  Color(
+                                                                      0xFF232426),
+                                                              barRadius: Radius
+                                                                  .circular(
+                                                                      30.0),
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .zero,
                                                             ),
                                                           ),
                                                         ],
                                                       ),
-                                                      Opacity(
-                                                        opacity: 0.5,
-                                                        child: SizedBox(
-                                                          height: 50.0,
-                                                          child:
-                                                              VerticalDivider(
-                                                            thickness: 2.0,
-                                                            color: Color(
-                                                                0x70E0E3E7),
-                                                          ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    20.0),
+                                                        child: Image.network(
+                                                          'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Badges/sonbol1.png',
+                                                          width: 50.0,
+                                                          height: 25.0,
+                                                          fit: BoxFit.cover,
                                                         ),
                                                       ),
-                                                      Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          RichText(
-                                                            textScaler:
-                                                                MediaQuery.of(
-                                                                        context)
-                                                                    .textScaler,
-                                                            text: TextSpan(
-                                                              children: [
-                                                                TextSpan(
-                                                                  text: valueOrDefault<
+                                                    ],
+                                                  ),
+                                                  Opacity(
+                                                    opacity: 0.5,
+                                                    child: SizedBox(
+                                                      height: 50.0,
+                                                      child: VerticalDivider(
+                                                        thickness: 2.0,
+                                                        color:
+                                                            Color(0x70E0E3E7),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      RichText(
+                                                        textScaler:
+                                                            MediaQuery.of(
+                                                                    context)
+                                                                .textScaler,
+                                                        text: TextSpan(
+                                                          children: [
+                                                            TextSpan(
+                                                              text:
+                                                                  valueOrDefault<
                                                                       String>(
-                                                                    profilePageUserExtRow
-                                                                        ?.review
-                                                                        .toString(),
-                                                                    'R',
+                                                                containerUserExtRow
+                                                                    ?.review
+                                                                    .toString(),
+                                                                'R',
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .headlineSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .headlineSmallFamily,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    useGoogleFonts:
+                                                                        !FlutterFlowTheme.of(context)
+                                                                            .headlineSmallIsCustom,
                                                                   ),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .headlineSmall
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).headlineSmallFamily,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.w600,
-                                                                        useGoogleFonts:
-                                                                            !FlutterFlowTheme.of(context).headlineSmallIsCustom,
-                                                                      ),
-                                                                ),
-                                                                TextSpan(
-                                                                  text:
-                                                                      ' (${profilePageUserExtRow?.ratings.toString()})',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.bold,
-                                                                        useGoogleFonts:
-                                                                            !FlutterFlowTheme.of(context).bodyMediumIsCustom,
-                                                                      ),
-                                                                )
-                                                              ],
+                                                            ),
+                                                            TextSpan(
+                                                              text:
+                                                                  ' (${containerUserExtRow?.ratings.toString()})',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -1044,62 +963,15 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                             .bodyMediumFamily,
                                                                     letterSpacing:
                                                                         0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
                                                                     useGoogleFonts:
                                                                         !FlutterFlowTheme.of(context)
                                                                             .bodyMediumIsCustom,
                                                                   ),
-                                                            ),
-                                                          ),
-                                                          Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'dcb0abt1' /* Reviews */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .labelLarge
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelLargeFamily,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .labelLargeIsCustom,
-                                                                ),
-                                                          ),
-                                                        ].addToStart(SizedBox(
-                                                            height: 10.0)),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 16.0, 0.0, 24.0),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, -1.0),
-                                                        child: Text(
-                                                          valueOrDefault<
-                                                              String>(
-                                                            profilePageUserExtRow
-                                                                ?.biography,
-                                                            'Biography..',
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.center,
+                                                            )
+                                                          ],
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -1107,14 +979,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMediumFamily,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
                                                                 useGoogleFonts:
                                                                     !FlutterFlowTheme.of(
                                                                             context)
@@ -1122,259 +988,555 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                               ),
                                                         ),
                                                       ),
-                                                    ],
+                                                      Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'dcb0abt1' /* Reviews */,
+                                                        ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .labelLarge
+                                                            .override(
+                                                              fontFamily:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLargeFamily,
+                                                              fontSize: 14.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              useGoogleFonts:
+                                                                  !FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLargeIsCustom,
+                                                            ),
+                                                      ),
+                                                    ].addToStart(
+                                                        SizedBox(height: 10.0)),
                                                   ),
-                                                ),
-                                              ],
+                                                ],
+                                              ),
                                             ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 10.0, 0.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          1.0, 1.0),
-                                                  child: Container(
-                                                    width: 52.0,
-                                                    height: 52.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0xFF03231C),
-                                                      shape: BoxShape.circle,
-                                                    ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 16.0, 0.0, 24.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                    child: Visibility(
-                                                      visible: profilePageUserExtRow
-                                                              ?.yekjaVerified ==
-                                                          true,
-                                                      child: Opacity(
-                                                        opacity: 0.9,
-                                                        child: Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Container(
-                                                            width: 52.0,
-                                                            height: 52.0,
-                                                            clipBehavior:
-                                                                Clip.antiAlias,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              shape: BoxShape
-                                                                  .circle,
-                                                            ),
-                                                            child:
-                                                                Image.network(
-                                                              'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Badges/yekja_certified_3.png',
-                                                              fit: BoxFit.cover,
-                                                            ),
+                                                            0.0, -1.0),
+                                                    child: Text(
+                                                      valueOrDefault<String>(
+                                                        containerUserExtRow
+                                                            ?.biography,
+                                                        'Biography..',
+                                                      ),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            useGoogleFonts:
+                                                                !FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumIsCustom,
                                                           ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          1.0, 1.0),
-                                                  child: Container(
-                                                    width: 52.0,
-                                                    height: 52.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0xFF03231C),
-                                                      shape: BoxShape.circle,
-                                                      border: Border.all(
-                                                        width: 1.0,
-                                                      ),
-                                                    ),
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                  ),
-                                                ),
-                                              ].divide(SizedBox(width: 6.0)),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 20.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.end,
-                                              children: [
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          1.0, 1.0),
-                                                  child: Container(
-                                                    width: 52.0,
-                                                    height: 52.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0xFF03231C),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                  ),
-                                                ),
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          1.0, 1.0),
-                                                  child: Material(
-                                                    color: Colors.transparent,
-                                                    elevation: 5.0,
-                                                    shape: const CircleBorder(),
-                                                    child: Container(
-                                                      width: 52.0,
-                                                      height: 52.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0xFF03231C),
-                                                        shape: BoxShape.circle,
-                                                      ),
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ].divide(SizedBox(width: 10.0)),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SingleChildScrollView(
-                                  primary: false,
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Container(
-                                        height: 650.0,
-                                        decoration: BoxDecoration(),
-                                        child: Column(
-                                          children: [
-                                            Align(
-                                              alignment: Alignment(0.0, 0),
-                                              child: TabBar(
-                                                labelColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                unselectedLabelColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                                labelStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleMediumFamily,
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .titleMediumIsCustom,
-                                                        ),
-                                                unselectedLabelStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleMediumFamily,
-                                                          fontSize: 13.0,
-                                                          letterSpacing: 0.0,
-                                                          useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .titleMediumIsCustom,
-                                                        ),
-                                                indicatorColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                tabs: [
-                                                  Tab(
-                                                    text: FFLocalizations.of(
-                                                            context)
-                                                        .getText(
-                                                      '2808vfr9' /* Posts */,
-                                                    ),
-                                                  ),
-                                                  Tab(
-                                                    text: FFLocalizations.of(
-                                                            context)
-                                                        .getText(
-                                                      'oq2hc9vq' /* Favorites */,
-                                                    ),
-                                                  ),
-                                                  Tab(
-                                                    text: FFLocalizations.of(
-                                                            context)
-                                                        .getText(
-                                                      'h7butxb7' /* Reviews */,
-                                                    ),
-                                                  ),
-                                                  Tab(
-                                                    text: FFLocalizations.of(
-                                                            context)
-                                                        .getText(
-                                                      'c9j6hm84' /* Awards */,
                                                     ),
                                                   ),
                                                 ],
-                                                controller:
-                                                    _model.tabBarController,
-                                                onTap: (i) async {
-                                                  [
-                                                    () async {},
-                                                    () async {},
-                                                    () async {},
-                                                    () async {}
-                                                  ][i]();
-                                                },
                                               ),
                                             ),
-                                            Expanded(
-                                              child: TabBarView(
-                                                controller:
-                                                    _model.tabBarController,
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 10.0, 0.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  1.0, 1.0),
+                                              child: Container(
+                                                width: 52.0,
+                                                height: 52.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFF03231C),
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Visibility(
+                                                  visible: containerUserExtRow
+                                                          ?.isVerified ==
+                                                      true,
+                                                  child: Opacity(
+                                                    opacity: 0.9,
+                                                    child: Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Container(
+                                                        width: 52.0,
+                                                        height: 52.0,
+                                                        clipBehavior:
+                                                            Clip.antiAlias,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child: Image.network(
+                                                          'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Badges/yekja_certified_3.png',
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  1.0, 1.0),
+                                              child: Container(
+                                                width: 52.0,
+                                                height: 52.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFF03231C),
+                                                  shape: BoxShape.circle,
+                                                  border: Border.all(
+                                                    width: 1.0,
+                                                  ),
+                                                ),
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                              ),
+                                            ),
+                                          ].divide(SizedBox(width: 6.0)),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 10.0, 20.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  1.0, 1.0),
+                                              child: Container(
+                                                width: 52.0,
+                                                height: 52.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFF03231C),
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  1.0, 1.0),
+                                              child: Material(
+                                                color: Colors.transparent,
+                                                elevation: 5.0,
+                                                shape: const CircleBorder(),
+                                                child: Container(
+                                                  width: 52.0,
+                                                  height: 52.0,
+                                                  decoration: BoxDecoration(
+                                                    color: Color(0xFF03231C),
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                ),
+                                              ),
+                                            ),
+                                          ].divide(SizedBox(width: 10.0)),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SingleChildScrollView(
+                              primary: false,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Container(
+                                    height: 650.0,
+                                    decoration: BoxDecoration(),
+                                    child: Column(
+                                      children: [
+                                        Align(
+                                          alignment: Alignment(0.0, 0),
+                                          child: TabBar(
+                                            labelColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryText,
+                                            unselectedLabelColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondaryText,
+                                            labelStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMediumFamily,
+                                                      fontSize: 14.0,
+                                                      letterSpacing: 0.0,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMediumIsCustom,
+                                                    ),
+                                            unselectedLabelStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMediumFamily,
+                                                      fontSize: 13.0,
+                                                      letterSpacing: 0.0,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMediumIsCustom,
+                                                    ),
+                                            indicatorColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                            tabs: [
+                                              Tab(
+                                                text:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  '2808vfr9' /* Posts */,
+                                                ),
+                                              ),
+                                              Tab(
+                                                text:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'oq2hc9vq' /* Favorites */,
+                                                ),
+                                              ),
+                                              Tab(
+                                                text:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'h7butxb7' /* Reviews */,
+                                                ),
+                                              ),
+                                              Tab(
+                                                text:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'c9j6hm84' /* Awards */,
+                                                ),
+                                              ),
+                                            ],
+                                            controller: _model.tabBarController,
+                                            onTap: (i) async {
+                                              [
+                                                () async {},
+                                                () async {},
+                                                () async {},
+                                                () async {}
+                                              ][i]();
+                                            },
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: TabBarView(
+                                            controller: _model.tabBarController,
+                                            children: [
+                                              Column(
+                                                mainAxisSize: MainAxisSize.max,
                                                 children: [
-                                                  Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    16.0,
-                                                                    0.0,
-                                                                    16.0,
-                                                                    0.0),
-                                                        child: FutureBuilder<
+                                                  if (widget.profileId !=
+                                                          null &&
+                                                      widget.profileId != '')
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  16.0,
+                                                                  0.0,
+                                                                  16.0,
+                                                                  0.0),
+                                                      child: FutureBuilder<
+                                                          List<
+                                                              ViewPostFilterRow>>(
+                                                        future:
+                                                            ViewPostFilterTable()
+                                                                .queryRows(
+                                                          queryFn: (q) => q
+                                                              .eqOrNull(
+                                                                'user_id',
+                                                                widget
+                                                                    .profileId,
+                                                              )
+                                                              .order(
+                                                                  'created_at'),
+                                                          limit: 5,
+                                                        ),
+                                                        builder: (context,
+                                                            snapshot) {
+                                                          // Customize what your widget looks like when it's loading.
+                                                          if (!snapshot
+                                                              .hasData) {
+                                                            return Center(
+                                                              child: SizedBox(
+                                                                width: 50.0,
+                                                                height: 50.0,
+                                                                child:
+                                                                    SpinKitChasingDots(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .greenInit,
+                                                                  size: 50.0,
+                                                                ),
+                                                              ),
+                                                            );
+                                                          }
+                                                          List<ViewPostFilterRow>
+                                                              listViewViewPostFilterRowList =
+                                                              snapshot.data!;
+
+                                                          return ListView
+                                                              .builder(
+                                                            padding:
+                                                                EdgeInsets.zero,
+                                                            primary: false,
+                                                            shrinkWrap: true,
+                                                            scrollDirection:
+                                                                Axis.vertical,
+                                                            itemCount:
+                                                                listViewViewPostFilterRowList
+                                                                    .length,
+                                                            itemBuilder: (context,
+                                                                listViewIndex) {
+                                                              final listViewViewPostFilterRow =
+                                                                  listViewViewPostFilterRowList[
+                                                                      listViewIndex];
+                                                              return InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  context
+                                                                      .pushNamed(
+                                                                    PostWidget
+                                                                        .routeName,
+                                                                    queryParameters:
+                                                                        {
+                                                                      'postID':
+                                                                          serializeParam(
+                                                                        listViewViewPostFilterRow
+                                                                            .sourceId,
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                      'mainCatID':
+                                                                          serializeParam(
+                                                                        0,
+                                                                        ParamType
+                                                                            .int,
+                                                                      ),
+                                                                      'detailDataName':
+                                                                          serializeParam(
+                                                                        listViewViewPostFilterRow
+                                                                            .detailTable,
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                    }.withoutNulls,
+                                                                  );
+                                                                },
+                                                                child:
+                                                                    wrapWithModel(
+                                                                  model: _model
+                                                                      .itemCardHorizentalModels1
+                                                                      .getModel(
+                                                                    listViewViewPostFilterRow
+                                                                        .sourceId!,
+                                                                    listViewIndex,
+                                                                  ),
+                                                                  updateCallback: () =>
+                                                                      safeSetState(
+                                                                          () {}),
+                                                                  child:
+                                                                      ItemCardHorizentalWidget(
+                                                                    key: Key(
+                                                                      'Keyoke_${listViewViewPostFilterRow.sourceId!}',
+                                                                    ),
+                                                                    profileId:
+                                                                        widget
+                                                                            .profileId,
+                                                                    itemData:
+                                                                        ItemCardHorizentalStruct(
+                                                                      title: listViewViewPostFilterRow
+                                                                          .title,
+                                                                      description:
+                                                                          listViewViewPostFilterRow
+                                                                              .description,
+                                                                      itemLocation:
+                                                                          listViewViewPostFilterRow
+                                                                              .city,
+                                                                      createdAt:
+                                                                          listViewViewPostFilterRow
+                                                                              .createdAt,
+                                                                      catID: listViewViewPostFilterRow
+                                                                          .subCatId,
+                                                                      itemLikes:
+                                                                          listViewViewPostFilterRow
+                                                                              .postLikes,
+                                                                      mainImagePath: listViewViewPostFilterRow
+                                                                          .images
+                                                                          .firstOrNull,
+                                                                      postUserId:
+                                                                          listViewViewPostFilterRow
+                                                                              .userId,
+                                                                    ),
+                                                                    postId: listViewViewPostFilterRow
+                                                                        .sourceId,
+                                                                  ),
+                                                                ),
+                                                              );
+                                                            },
+                                                          );
+                                                        },
+                                                      ),
+                                                    ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 16.0,
+                                                                16.0, 0.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment.end,
+                                                      children: [
+                                                        InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            context.pushNamed(
+                                                              ProfileExtendedWidget
+                                                                  .routeName,
+                                                              queryParameters: {
+                                                                'profileId':
+                                                                    serializeParam(
+                                                                  containerUserExtRow
+                                                                      ?.id,
+                                                                  ParamType
+                                                                      .String,
+                                                                ),
+                                                                'selectedTab':
+                                                                    serializeParam(
+                                                                  _model
+                                                                      .tabBarCurrentIndex,
+                                                                  ParamType.int,
+                                                                ),
+                                                              }.withoutNulls,
+                                                            );
+                                                          },
+                                                          child: Text(
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'xt0uhk7r' /* See All */,
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMediumIsCustom,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Visibility(
+                                                visible: _model
+                                                        .userConsent
+                                                        ?.firstOrNull
+                                                        ?.showFav ==
+                                                    true,
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          16.0, 0.0, 16.0, 0.0),
+                                                  child: SingleChildScrollView(
+                                                    primary: false,
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      children: [
+                                                        FutureBuilder<
                                                             List<
-                                                                ViewPostFilterRow>>(
+                                                                ViewUserFavoritesRow>>(
                                                           future:
-                                                              ViewPostFilterTable()
+                                                              ViewUserFavoritesTable()
                                                                   .queryRows(
                                                             queryFn: (q) => q
                                                                 .eqOrNull(
@@ -1383,7 +1545,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                       .profileId,
                                                                 )
                                                                 .order(
-                                                                    'created_at'),
+                                                                    'post_created_at'),
                                                             limit: 5,
                                                           ),
                                                           builder: (context,
@@ -1405,8 +1567,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                 ),
                                                               );
                                                             }
-                                                            List<ViewPostFilterRow>
-                                                                listViewViewPostFilterRowList =
+                                                            List<ViewUserFavoritesRow>
+                                                                listViewViewUserFavoritesRowList =
                                                                 snapshot.data!;
 
                                                             return ListView
@@ -1419,12 +1581,12 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                               scrollDirection:
                                                                   Axis.vertical,
                                                               itemCount:
-                                                                  listViewViewPostFilterRowList
+                                                                  listViewViewUserFavoritesRowList
                                                                       .length,
                                                               itemBuilder: (context,
                                                                   listViewIndex) {
-                                                                final listViewViewPostFilterRow =
-                                                                    listViewViewPostFilterRowList[
+                                                                final listViewViewUserFavoritesRow =
+                                                                    listViewViewUserFavoritesRowList[
                                                                         listViewIndex];
                                                                 return InkWell(
                                                                   splashColor:
@@ -1447,20 +1609,21 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                           {
                                                                         'postID':
                                                                             serializeParam(
-                                                                          listViewViewPostFilterRow
-                                                                              .sourceId,
+                                                                          listViewViewUserFavoritesRow
+                                                                              .postId,
                                                                           ParamType
                                                                               .String,
                                                                         ),
                                                                         'mainCatID':
                                                                             serializeParam(
-                                                                          0,
+                                                                          listViewViewUserFavoritesRow
+                                                                              .mainCatId,
                                                                           ParamType
                                                                               .int,
                                                                         ),
                                                                         'detailDataName':
                                                                             serializeParam(
-                                                                          listViewViewPostFilterRow
+                                                                          listViewViewUserFavoritesRow
                                                                               .detailTable,
                                                                           ParamType
                                                                               .String,
@@ -1469,486 +1632,34 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                     );
                                                                   },
                                                                   child:
-                                                                      wrapWithModel(
-                                                                    model: _model
-                                                                        .itemCardHorizentalModels1
-                                                                        .getModel(
-                                                                      listViewViewPostFilterRow
-                                                                          .sourceId!,
-                                                                      listViewIndex,
-                                                                    ),
-                                                                    updateCallback: () =>
-                                                                        safeSetState(
-                                                                            () {}),
-                                                                    child:
-                                                                        ItemCardHorizentalWidget(
-                                                                      key: Key(
-                                                                        'Keyoke_${listViewViewPostFilterRow.sourceId!}',
-                                                                      ),
-                                                                      profileId:
-                                                                          widget
-                                                                              .profileId,
-                                                                      itemData:
-                                                                          ItemCardHorizentalStruct(
-                                                                        title: listViewViewPostFilterRow
-                                                                            .title,
-                                                                        description:
-                                                                            listViewViewPostFilterRow.description,
-                                                                        itemLocation:
-                                                                            listViewViewPostFilterRow.city,
-                                                                        createdAt:
-                                                                            listViewViewPostFilterRow.createdAt,
-                                                                        catID: listViewViewPostFilterRow
-                                                                            .subCatId,
-                                                                        itemLikes:
-                                                                            listViewViewPostFilterRow.postLikes,
-                                                                        mainImagePath: listViewViewPostFilterRow
-                                                                            .images
-                                                                            .firstOrNull,
-                                                                        postUserId:
-                                                                            listViewViewPostFilterRow.userId,
-                                                                      ),
-                                                                      postId: listViewViewPostFilterRow
-                                                                          .sourceId,
+                                                                      ItemCardHorizentalWidget(
+                                                                    key: Key(
+                                                                        'Key682_${listViewIndex}_of_${listViewViewUserFavoritesRowList.length}'),
+                                                                    itemData:
+                                                                        ItemCardHorizentalStruct(
+                                                                      title: listViewViewUserFavoritesRow
+                                                                          .title,
+                                                                      description:
+                                                                          listViewViewUserFavoritesRow
+                                                                              .description,
+                                                                      itemLocation:
+                                                                          listViewViewUserFavoritesRow
+                                                                              .city,
+                                                                      createdAt:
+                                                                          listViewViewUserFavoritesRow
+                                                                              .postCreatedAt,
+                                                                      itemLikes:
+                                                                          listViewViewUserFavoritesRow
+                                                                              .postLikes,
+                                                                      mainImagePath: listViewViewUserFavoritesRow
+                                                                          .images
+                                                                          .firstOrNull,
                                                                     ),
                                                                   ),
                                                                 );
                                                               },
                                                             );
                                                           },
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    16.0,
-                                                                    16.0,
-                                                                    0.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .end,
-                                                          children: [
-                                                            InkWell(
-                                                              splashColor: Colors
-                                                                  .transparent,
-                                                              focusColor: Colors
-                                                                  .transparent,
-                                                              hoverColor: Colors
-                                                                  .transparent,
-                                                              highlightColor:
-                                                                  Colors
-                                                                      .transparent,
-                                                              onTap: () async {
-                                                                context
-                                                                    .pushNamed(
-                                                                  ProfileExtendedWidget
-                                                                      .routeName,
-                                                                  queryParameters:
-                                                                      {
-                                                                    'profileId':
-                                                                        serializeParam(
-                                                                      profilePageUserExtRow
-                                                                          ?.id,
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'selectedTab':
-                                                                        serializeParam(
-                                                                      _model
-                                                                          .tabBarCurrentIndex,
-                                                                      ParamType
-                                                                          .int,
-                                                                    ),
-                                                                  }.withoutNulls,
-                                                                );
-                                                              },
-                                                              child: Text(
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .getText(
-                                                                  'xt0uhk7r' /* See All */,
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondaryText,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      useGoogleFonts:
-                                                                          !FlutterFlowTheme.of(context)
-                                                                              .bodyMediumIsCustom,
-                                                                    ),
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Visibility(
-                                                    visible: columnConsentsRow
-                                                            ?.showFav ==
-                                                        true,
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  16.0,
-                                                                  0.0,
-                                                                  16.0,
-                                                                  0.0),
-                                                      child:
-                                                          SingleChildScrollView(
-                                                        primary: false,
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children: [
-                                                            FutureBuilder<
-                                                                List<
-                                                                    ViewUserFavoritesRow>>(
-                                                              future:
-                                                                  ViewUserFavoritesTable()
-                                                                      .queryRows(
-                                                                queryFn: (q) => q
-                                                                    .eqOrNull(
-                                                                      'user_id',
-                                                                      widget
-                                                                          .profileId,
-                                                                    )
-                                                                    .order('post_created_at'),
-                                                                limit: 5,
-                                                              ),
-                                                              builder: (context,
-                                                                  snapshot) {
-                                                                // Customize what your widget looks like when it's loading.
-                                                                if (!snapshot
-                                                                    .hasData) {
-                                                                  return Center(
-                                                                    child:
-                                                                        SizedBox(
-                                                                      width:
-                                                                          50.0,
-                                                                      height:
-                                                                          50.0,
-                                                                      child:
-                                                                          SpinKitChasingDots(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .greenInit,
-                                                                        size:
-                                                                            50.0,
-                                                                      ),
-                                                                    ),
-                                                                  );
-                                                                }
-                                                                List<ViewUserFavoritesRow>
-                                                                    listViewViewUserFavoritesRowList =
-                                                                    snapshot
-                                                                        .data!;
-
-                                                                return ListView
-                                                                    .builder(
-                                                                  padding:
-                                                                      EdgeInsets
-                                                                          .zero,
-                                                                  primary:
-                                                                      false,
-                                                                  shrinkWrap:
-                                                                      true,
-                                                                  scrollDirection:
-                                                                      Axis.vertical,
-                                                                  itemCount:
-                                                                      listViewViewUserFavoritesRowList
-                                                                          .length,
-                                                                  itemBuilder:
-                                                                      (context,
-                                                                          listViewIndex) {
-                                                                    final listViewViewUserFavoritesRow =
-                                                                        listViewViewUserFavoritesRowList[
-                                                                            listViewIndex];
-                                                                    return InkWell(
-                                                                      splashColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      focusColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      hoverColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      highlightColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      onTap:
-                                                                          () async {
-                                                                        context
-                                                                            .pushNamed(
-                                                                          PostWidget
-                                                                              .routeName,
-                                                                          queryParameters:
-                                                                              {
-                                                                            'postID':
-                                                                                serializeParam(
-                                                                              listViewViewUserFavoritesRow.postId,
-                                                                              ParamType.String,
-                                                                            ),
-                                                                            'mainCatID':
-                                                                                serializeParam(
-                                                                              listViewViewUserFavoritesRow.mainCatId,
-                                                                              ParamType.int,
-                                                                            ),
-                                                                            'detailDataName':
-                                                                                serializeParam(
-                                                                              listViewViewUserFavoritesRow.detailTable,
-                                                                              ParamType.String,
-                                                                            ),
-                                                                          }.withoutNulls,
-                                                                        );
-                                                                      },
-                                                                      child:
-                                                                          ItemCardHorizentalWidget(
-                                                                        key: Key(
-                                                                            'Key682_${listViewIndex}_of_${listViewViewUserFavoritesRowList.length}'),
-                                                                        itemData:
-                                                                            ItemCardHorizentalStruct(
-                                                                          title:
-                                                                              listViewViewUserFavoritesRow.title,
-                                                                          description:
-                                                                              listViewViewUserFavoritesRow.description,
-                                                                          itemLocation:
-                                                                              listViewViewUserFavoritesRow.city,
-                                                                          createdAt:
-                                                                              listViewViewUserFavoritesRow.postCreatedAt,
-                                                                          itemLikes:
-                                                                              listViewViewUserFavoritesRow.postLikes,
-                                                                          mainImagePath: listViewViewUserFavoritesRow
-                                                                              .images
-                                                                              .firstOrNull,
-                                                                        ),
-                                                                      ),
-                                                                    );
-                                                                  },
-                                                                );
-                                                              },
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          16.0,
-                                                                          16.0,
-                                                                          0.0),
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .end,
-                                                                children: [
-                                                                  InkWell(
-                                                                    splashColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    focusColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    hoverColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    highlightColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    onTap:
-                                                                        () async {
-                                                                      context
-                                                                          .pushNamed(
-                                                                        ProfileExtendedWidget
-                                                                            .routeName,
-                                                                        queryParameters:
-                                                                            {
-                                                                          'profileId':
-                                                                              serializeParam(
-                                                                            profilePageUserExtRow?.id,
-                                                                            ParamType.String,
-                                                                          ),
-                                                                          'selectedTab':
-                                                                              serializeParam(
-                                                                            _model.tabBarCurrentIndex,
-                                                                            ParamType.int,
-                                                                          ),
-                                                                        }.withoutNulls,
-                                                                      );
-                                                                    },
-                                                                    child: Text(
-                                                                      FFLocalizations.of(
-                                                                              context)
-                                                                          .getText(
-                                                                        'fd2re1c8' /* See All */,
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondaryText,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            useGoogleFonts:
-                                                                                !FlutterFlowTheme.of(context).bodyMediumIsCustom,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  SingleChildScrollView(
-                                                    primary: false,
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      16.0,
-                                                                      8.0,
-                                                                      16.0,
-                                                                      0.0),
-                                                          child: FutureBuilder<
-                                                              List<
-                                                                  ViewUserReviewsRow>>(
-                                                            future:
-                                                                ViewUserReviewsTable()
-                                                                    .queryRows(
-                                                              queryFn: (q) => q
-                                                                  .eqOrNull(
-                                                                    'reviewed_user_id',
-                                                                    widget
-                                                                        .profileId,
-                                                                  )
-                                                                  .eqOrNull(
-                                                                    'both_review_submitted',
-                                                                    true,
-                                                                  )
-                                                                  .order(
-                                                                      'created_at'),
-                                                              limit: 2,
-                                                            ),
-                                                            builder: (context,
-                                                                snapshot) {
-                                                              // Customize what your widget looks like when it's loading.
-                                                              if (!snapshot
-                                                                  .hasData) {
-                                                                return Center(
-                                                                  child:
-                                                                      SizedBox(
-                                                                    width: 50.0,
-                                                                    height:
-                                                                        50.0,
-                                                                    child:
-                                                                        SpinKitChasingDots(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .greenInit,
-                                                                      size:
-                                                                          50.0,
-                                                                    ),
-                                                                  ),
-                                                                );
-                                                              }
-                                                              List<ViewUserReviewsRow>
-                                                                  listViewViewUserReviewsRowList =
-                                                                  snapshot
-                                                                      .data!;
-
-                                                              return ListView
-                                                                  .separated(
-                                                                padding:
-                                                                    EdgeInsets
-                                                                        .zero,
-                                                                primary: false,
-                                                                shrinkWrap:
-                                                                    true,
-                                                                scrollDirection:
-                                                                    Axis.vertical,
-                                                                itemCount:
-                                                                    listViewViewUserReviewsRowList
-                                                                        .length,
-                                                                separatorBuilder: (_,
-                                                                        __) =>
-                                                                    SizedBox(
-                                                                        height:
-                                                                            4.0),
-                                                                itemBuilder:
-                                                                    (context,
-                                                                        listViewIndex) {
-                                                                  final listViewViewUserReviewsRow =
-                                                                      listViewViewUserReviewsRowList[
-                                                                          listViewIndex];
-                                                                  return ReviewCardWidget(
-                                                                    key: Key(
-                                                                        'Key4jh_${listViewIndex}_of_${listViewViewUserReviewsRowList.length}'),
-                                                                    reviewData:
-                                                                        ReviewCardDataStruct(
-                                                                      userName:
-                                                                          listViewViewUserReviewsRow
-                                                                              .usernameWriter,
-                                                                      userAvatar:
-                                                                          listViewViewUserReviewsRow
-                                                                              .profileAvatarWriter,
-                                                                      comunicationScore:
-                                                                          listViewViewUserReviewsRow
-                                                                              .comunicationScore,
-                                                                      qualitScore:
-                                                                          listViewViewUserReviewsRow
-                                                                              .qualityScsore,
-                                                                      reliabilityScore:
-                                                                          listViewViewUserReviewsRow
-                                                                              .reliabilityScore,
-                                                                      note: listViewViewUserReviewsRow
-                                                                          .note,
-                                                                      createAt:
-                                                                          listViewViewUserReviewsRow
-                                                                              .createdAt,
-                                                                      avarageScore:
-                                                                          listViewViewUserReviewsRow
-                                                                              .avgReviewScore,
-                                                                      fairnessScore:
-                                                                          listViewViewUserReviewsRow
-                                                                              .fairnessScore,
-                                                                      reviewerId:
-                                                                          listViewViewUserReviewsRow
-                                                                              .writerId,
-                                                                      reviewId:
-                                                                          listViewViewUserReviewsRow
-                                                                              .reviewId,
-                                                                    ),
-                                                                  );
-                                                                },
-                                                              );
-                                                            },
-                                                          ),
                                                         ),
                                                         Padding(
                                                           padding:
@@ -1986,7 +1697,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                         {
                                                                       'profileId':
                                                                           serializeParam(
-                                                                        profilePageUserExtRow
+                                                                        containerUserExtRow
                                                                             ?.id,
                                                                         ParamType
                                                                             .String,
@@ -2005,7 +1716,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    '9wndti6n' /* See All */,
+                                                                    'fd2re1c8' /* See All */,
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -2028,70 +1739,184 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                       ],
                                                     ),
                                                   ),
-                                                  Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Row(
+                                                ),
+                                              ),
+                                              SingleChildScrollView(
+                                                primary: false,
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  16.0,
+                                                                  8.0,
+                                                                  16.0,
+                                                                  0.0),
+                                                      child: FutureBuilder<
+                                                          List<
+                                                              ViewUserReviewsRow>>(
+                                                        future:
+                                                            ViewUserReviewsTable()
+                                                                .queryRows(
+                                                          queryFn: (q) => q
+                                                              .eqOrNull(
+                                                                'reviewed_user_id',
+                                                                widget
+                                                                    .profileId,
+                                                              )
+                                                              .eqOrNull(
+                                                                'both_review_submitted',
+                                                                true,
+                                                              )
+                                                              .order(
+                                                                  'created_at'),
+                                                          limit: 2,
+                                                        ),
+                                                        builder: (context,
+                                                            snapshot) {
+                                                          // Customize what your widget looks like when it's loading.
+                                                          if (!snapshot
+                                                              .hasData) {
+                                                            return Center(
+                                                              child: SizedBox(
+                                                                width: 50.0,
+                                                                height: 50.0,
+                                                                child:
+                                                                    SpinKitChasingDots(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .greenInit,
+                                                                  size: 50.0,
+                                                                ),
+                                                              ),
+                                                            );
+                                                          }
+                                                          List<ViewUserReviewsRow>
+                                                              listViewViewUserReviewsRowList =
+                                                              snapshot.data!;
+
+                                                          return ListView
+                                                              .separated(
+                                                            padding:
+                                                                EdgeInsets.zero,
+                                                            primary: false,
+                                                            shrinkWrap: true,
+                                                            scrollDirection:
+                                                                Axis.vertical,
+                                                            itemCount:
+                                                                listViewViewUserReviewsRowList
+                                                                    .length,
+                                                            separatorBuilder:
+                                                                (_, __) =>
+                                                                    SizedBox(
+                                                                        height:
+                                                                            4.0),
+                                                            itemBuilder: (context,
+                                                                listViewIndex) {
+                                                              final listViewViewUserReviewsRow =
+                                                                  listViewViewUserReviewsRowList[
+                                                                      listViewIndex];
+                                                              return ReviewCardWidget(
+                                                                key: Key(
+                                                                    'Key4jh_${listViewIndex}_of_${listViewViewUserReviewsRowList.length}'),
+                                                                reviewData:
+                                                                    ReviewCardDataStruct(
+                                                                  userName:
+                                                                      listViewViewUserReviewsRow
+                                                                          .usernameWriter,
+                                                                  userAvatar:
+                                                                      listViewViewUserReviewsRow
+                                                                          .profileAvatarWriter,
+                                                                  comunicationScore:
+                                                                      listViewViewUserReviewsRow
+                                                                          .comunicationScore,
+                                                                  qualitScore:
+                                                                      listViewViewUserReviewsRow
+                                                                          .qualityScsore,
+                                                                  reliabilityScore:
+                                                                      listViewViewUserReviewsRow
+                                                                          .reliabilityScore,
+                                                                  note:
+                                                                      listViewViewUserReviewsRow
+                                                                          .note,
+                                                                  createAt:
+                                                                      listViewViewUserReviewsRow
+                                                                          .createdAt,
+                                                                  avarageScore:
+                                                                      listViewViewUserReviewsRow
+                                                                          .avgReviewScore,
+                                                                  fairnessScore:
+                                                                      listViewViewUserReviewsRow
+                                                                          .fairnessScore,
+                                                                  reviewerId:
+                                                                      listViewViewUserReviewsRow
+                                                                          .writerId,
+                                                                  reviewId:
+                                                                      listViewViewUserReviewsRow
+                                                                          .reviewId,
+                                                                ),
+                                                              );
+                                                            },
+                                                          );
+                                                        },
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  16.0,
+                                                                  16.0,
+                                                                  0.0),
+                                                      child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .end,
                                                         children: [
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        25.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: InkWell(
-                                                              splashColor: Colors
-                                                                  .transparent,
-                                                              focusColor: Colors
-                                                                  .transparent,
-                                                              hoverColor: Colors
-                                                                  .transparent,
-                                                              highlightColor:
-                                                                  Colors
-                                                                      .transparent,
-                                                              onTap: () async {
-                                                                await launchURL(
-                                                                    FFAppState()
-                                                                        .userInfo
-                                                                        .instaLink);
-                                                              },
-                                                              child: Icon(
-                                                                Icons
-                                                                    .link_outlined,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
-                                                                size: 30.0,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    16.0,
-                                                                    16.0,
-                                                                    0.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .end,
-                                                          children: [
-                                                            Text(
+                                                          InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              context.pushNamed(
+                                                                ProfileExtendedWidget
+                                                                    .routeName,
+                                                                queryParameters:
+                                                                    {
+                                                                  'profileId':
+                                                                      serializeParam(
+                                                                    containerUserExtRow
+                                                                        ?.id,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'selectedTab':
+                                                                      serializeParam(
+                                                                    _model
+                                                                        .tabBarCurrentIndex,
+                                                                    ParamType
+                                                                        .int,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                              );
+                                                            },
+                                                            child: Text(
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                                'j6r5bq14' /* See All */,
+                                                                '9wndti6n' /* See All */,
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -2110,24 +1935,105 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                             .bodyMediumIsCustom,
                                                                   ),
                                                             ),
-                                                          ],
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    25.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            await launchURL(
+                                                                FFAppState()
+                                                                    .userInfo
+                                                                    .instaLink);
+                                                          },
+                                                          child: Icon(
+                                                            Icons.link_outlined,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            size: 30.0,
+                                                          ),
                                                         ),
                                                       ),
                                                     ],
                                                   ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 16.0,
+                                                                16.0, 0.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment.end,
+                                                      children: [
+                                                        Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'j6r5bq14' /* See All */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
                                                 ],
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                    ].addToEnd(SizedBox(height: 24.0)),
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ].addToEnd(SizedBox(height: 32.0)),
+                                ].addToEnd(SizedBox(height: 24.0)),
+                              ),
                             ),
-                          );
-                        },
+                          ].addToEnd(SizedBox(height: 32.0)),
+                        ),
                       ),
                       Align(
                         alignment: AlignmentDirectional(0.0, 0.0),
@@ -2139,12 +2045,12 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                       ),
                     ],
                   ),
-                ),
-              ),
+                );
+              },
             ),
           ),
-        );
-      },
+        ),
+      ),
     );
   }
 }

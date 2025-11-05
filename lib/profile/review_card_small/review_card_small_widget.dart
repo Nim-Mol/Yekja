@@ -281,7 +281,7 @@ class _ReviewCardSmallWidgetState extends State<ReviewCardSmallWidget> {
                                           .reviewData!.comunicationScore
                                           .toDouble(),
                                       unratedColor: FlutterFlowTheme.of(context)
-                                          .textfiled,
+                                          .bordergray,
                                       itemCount: 5,
                                       itemSize: 14.0,
                                     ),
@@ -321,7 +321,7 @@ class _ReviewCardSmallWidgetState extends State<ReviewCardSmallWidget> {
                                       rating: widget.reviewData!.qualitScore
                                           .toDouble(),
                                       unratedColor: FlutterFlowTheme.of(context)
-                                          .textfiled,
+                                          .bordergray,
                                       itemCount: 5,
                                       itemSize: 14.0,
                                     ),
@@ -368,7 +368,7 @@ class _ReviewCardSmallWidgetState extends State<ReviewCardSmallWidget> {
                                     rating: widget.reviewData!.reliabilityScore
                                         .toDouble(),
                                     unratedColor:
-                                        FlutterFlowTheme.of(context).textfiled,
+                                        FlutterFlowTheme.of(context).bordergray,
                                     itemCount: 5,
                                     itemSize: 14.0,
                                   ),
@@ -408,7 +408,7 @@ class _ReviewCardSmallWidgetState extends State<ReviewCardSmallWidget> {
                                     rating: widget.reviewData!.fairnessScore
                                         .toDouble(),
                                     unratedColor:
-                                        FlutterFlowTheme.of(context).textfiled,
+                                        FlutterFlowTheme.of(context).bordergray,
                                     itemCount: 5,
                                     itemSize: 14.0,
                                   ),

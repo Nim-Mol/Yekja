@@ -445,12 +445,12 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                           return;
                         }
 
-                        context.pushNamed(SignInPageWidget.routeName);
+                        context.goNamed(SignInPageWidget.routeName);
 
                         if (_shouldSetState) safeSetState(() {});
                       },
                       text: FFLocalizations.of(context).getText(
-                        '62qr2zha' /* Verify now */,
+                        '62qr2zha' /* Verify Now */,
                       ),
                       options: FFButtonOptions(
                         width: double.infinity,
@@ -474,7 +474,6 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                         ),
                         borderRadius: BorderRadius.circular(8.0),
                       ),
-                      showLoadingIndicator: false,
                     ),
                   ),
                 ],

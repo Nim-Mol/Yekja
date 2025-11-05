@@ -20,12 +20,14 @@ class SelectedFile {
     required this.bytes,
     this.dimensions,
     this.blurHash,
+    this.originalFilename = '',
   });
   final String storagePath;
   final String? filePath;
   final Uint8List bytes;
   final MediaDimensions? dimensions;
   final String? blurHash;
+  final String originalFilename;
 }
 
 class MediaDimensions {
@@ -187,6 +189,7 @@ Future<List<SelectedFile>?> selectMedia({
         filePath: media.path,
         bytes: mediaBytes,
         dimensions: await dimensions,
+        originalFilename: media.name,
       );
     }));
   }
@@ -220,6 +223,7 @@ Future<List<SelectedFile>?> selectMedia({
       filePath: pickedMedia.path,
       bytes: mediaBytes,
       dimensions: await dimensions,
+      originalFilename: pickedMedia.name,
     ),
   ];
 }
@@ -270,6 +274,7 @@ Future<List<SelectedFile>?> selectFiles({
         storagePath: storagePath,
         filePath: isWeb ? null : file.path,
         bytes: file.bytes!,
+        originalFilename: file.name,
       );
     }));
   }
@@ -283,6 +288,7 @@ Future<List<SelectedFile>?> selectFiles({
       storagePath: storagePath,
       filePath: isWeb ? null : file.path,
       bytes: file.bytes!,
+      originalFilename: file.name,
     )
   ];
 }
@@ -303,7 +309,8 @@ List<SelectedFile> selectedFilesFromUploadedFiles(
               false,
               isMultiData ? index : null,
             ),
-            bytes: file.bytes!);
+            bytes: file.bytes!,
+            originalFilename: file.originalFilename);
       },
     ).toList();
 

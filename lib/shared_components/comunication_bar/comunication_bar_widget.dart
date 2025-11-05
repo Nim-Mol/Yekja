@@ -354,7 +354,7 @@ class _ComunicationBarWidgetState extends State<ComunicationBarWidget>
                         disabledColor:
                             FlutterFlowTheme.of(context).lighterSecBackground,
                         disabledTextColor:
-                            FlutterFlowTheme.of(context).textfiled,
+                            FlutterFlowTheme.of(context).bordergray,
                       ),
                     ),
                   ),
@@ -406,7 +406,7 @@ class _ComunicationBarWidgetState extends State<ComunicationBarWidget>
                         disabledColor:
                             FlutterFlowTheme.of(context).lighterSecBackground,
                         disabledTextColor:
-                            FlutterFlowTheme.of(context).textfiled,
+                            FlutterFlowTheme.of(context).bordergray,
                       ),
                     ),
                   ),

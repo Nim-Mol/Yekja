@@ -243,7 +243,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                           .override(
                                             fontFamily: 'Satoshi',
                                             color: FlutterFlowTheme.of(context)
-                                                .textfiled,
+                                                .bordergray,
                                             fontSize: 17.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -360,7 +360,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                         .override(
                                           fontFamily: 'Satoshi',
                                           color: FlutterFlowTheme.of(context)
-                                              .textfiled,
+                                              .bordergray,
                                           fontSize: 17.0,
                                           letterSpacing: 0.0,
                                         ),

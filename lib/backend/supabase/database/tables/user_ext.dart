@@ -65,4 +65,10 @@ class UserExtRow extends SupabaseDataRow {
 
   int get ratings => getField<int>('ratings')!;
   set ratings(int value) => setField<int>('ratings', value);
+
+  String? get instagramLink => getField<String>('instagram_link');
+  set instagramLink(String? value) => setField<String>('instagram_link', value);
+
+  bool get emailConfirmed => getField<bool>('email_confirmed')!;
+  set emailConfirmed(bool value) => setField<bool>('email_confirmed', value);
 }

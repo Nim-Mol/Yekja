@@ -34,7 +34,7 @@ class ChatdetailModel extends FlutterFlowModel<ChatdetailWidget> {
   List<ChatsRow>? yekjaChat2Owner;
   bool isDataUploading_inMemImg1 = false;
   FFUploadedFile uploadedLocalFile_inMemImg1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
@@ -42,7 +42,7 @@ class ChatdetailModel extends FlutterFlowModel<ChatdetailWidget> {
   String? Function(BuildContext, String?)? textControllerValidator;
   bool isDataUploading_uploadToDB1 = false;
   FFUploadedFile uploadedLocalFile_uploadToDB1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadToDB1 = '';
 
   // Stores action output result for [Backend Call - Insert Row] action in IconButton widget.

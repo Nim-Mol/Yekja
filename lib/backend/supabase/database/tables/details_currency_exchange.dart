@@ -19,33 +19,27 @@ class DetailsCurrencyExchangeRow extends SupabaseDataRow {
   String get postId => getField<String>('post_id')!;
   set postId(String value) => setField<String>('post_id', value);
 
-  String? get offeredCurrency => getField<String>('offered_currency');
-  set offeredCurrency(String? value) =>
-      setField<String>('offered_currency', value);
+  String? get currency => getField<String>('currency');
+  set currency(String? value) => setField<String>('currency', value);
 
-  double? get offeredAmount => getField<double>('offered_amount');
-  set offeredAmount(double? value) => setField<double>('offered_amount', value);
-
-  String? get requestedCurrency => getField<String>('requested_currency');
-  set requestedCurrency(String? value) =>
-      setField<String>('requested_currency', value);
-
-  double? get requestedAmount => getField<double>('requested_amount');
-  set requestedAmount(double? value) =>
-      setField<double>('requested_amount', value);
-
-  double? get rate => getField<double>('rate');
-  set rate(double? value) => setField<double>('rate', value);
-
-  String? get rateText => getField<String>('rate_text');
-  set rateText(String? value) => setField<String>('rate_text', value);
-
-  bool? get feeIncluded => getField<bool>('fee_included');
-  set feeIncluded(bool? value) => setField<bool>('fee_included', value);
-
-  bool? get allowPartial => getField<bool>('allow_partial');
-  set allowPartial(bool? value) => setField<bool>('allow_partial', value);
+  double? get amount => getField<double>('amount');
+  set amount(double? value) => setField<double>('amount', value);
 
   String? get method => getField<String>('method');
   set method(String? value) => setField<String>('method', value);
+
+  double? get price => getField<double>('price');
+  set price(double? value) => setField<double>('price', value);
+
+  String? get priceText => getField<String>('price_text');
+  set priceText(String? value) => setField<String>('price_text', value);
+
+  bool get isNegotiable => getField<bool>('is_negotiable')!;
+  set isNegotiable(bool value) => setField<bool>('is_negotiable', value);
+
+  bool get allowPartial => getField<bool>('allow_partial')!;
+  set allowPartial(bool value) => setField<bool>('allow_partial', value);
+
+  String? get intend => getField<String>('intend');
+  set intend(String? value) => setField<String>('intend', value);
 }

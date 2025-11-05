@@ -11,9 +11,13 @@ abstract class FFAppConstants {
       'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Icons/default_image.jpg';
   static const String DefultProfileWalpaper =
       'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Defult_ProfileWallpaper.png';
-  static const List<int> catsOpenForSwap = [4, 5, 6];
+  static const List<int> catsOpenForSwap = [4, 5];
   static const String profileAvatarCircular =
       'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/n2imhdlvogb3/profile_avatar_circular.png';
   static const String DefaultPostImage =
       'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg';
+  static const String RentalDefaultImage =
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/zCfTnCN4IRBlV0rHAl5X/assets/kbaky2b9bqxx/rental_default.png';
+  static const String EventsDefaultImage =
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/zCfTnCN4IRBlV0rHAl5X/assets/2pet0dzqoita/event_default.png';
 }

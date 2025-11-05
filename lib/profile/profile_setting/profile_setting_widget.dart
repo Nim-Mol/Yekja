@@ -404,15 +404,7 @@ class _ProfileSettingWidgetState extends State<ProfileSettingWidget>
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              GoRouter.of(context).prepareAuthEvent(true);
-                              await authManager.signOut();
-                              GoRouter.of(context).clearRedirectLocation();
-
-                              context.goNamedAuth(
-                                SignInPageWidget.routeName,
-                                context.mounted,
-                                ignoreRedirect: true,
-                              );
+                              context.goNamed(BlankPageWidget.routeName);
                             },
                             child: Row(
                               mainAxisSize: MainAxisSize.max,

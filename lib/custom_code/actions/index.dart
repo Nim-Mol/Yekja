@@ -13,3 +13,5 @@ export 'call_translate_cache.dart' show callTranslateCache;
 export 'create_guest_session.dart' show createGuestSession;
 export 'clean_up_auth_session_state.dart' show cleanUpAuthSessionState;
 export 'get_jwt.dart' show getJwt;
+export 'navigate_to_detail_form.dart' show navigateToDetailForm;
+export 'reset_app_state_on_logout.dart' show resetAppStateOnLogout;

@@ -706,7 +706,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                           ? FlutterFlowTheme.of(context)
                                                                               .secondaryText
                                                                           : FlutterFlowTheme.of(context)
-                                                                              .textfiled,
+                                                                              .bordergray,
                                                                       fontSize:
                                                                           14.0,
                                                                       letterSpacing:
@@ -1154,7 +1154,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                           ? FlutterFlowTheme.of(context)
                                                                               .secondaryText
                                                                           : FlutterFlowTheme.of(context)
-                                                                              .textfiled,
+                                                                              .bordergray,
                                                                       fontSize:
                                                                           14.0,
                                                                       letterSpacing:
@@ -1599,7 +1599,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                           ? FlutterFlowTheme.of(context)
                                                                               .secondaryText
                                                                           : FlutterFlowTheme.of(context)
-                                                                              .textfiled,
+                                                                              .bordergray,
                                                                       fontSize:
                                                                           14.0,
                                                                       letterSpacing:
@@ -2023,7 +2023,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                         ? FlutterFlowTheme.of(context)
                                                                             .secondaryText
                                                                         : FlutterFlowTheme.of(context)
-                                                                            .textfiled,
+                                                                            .bordergray,
                                                                     fontSize:
                                                                         14.0,
                                                                     letterSpacing:

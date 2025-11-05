@@ -25,9 +25,6 @@ class DetailsGiveAwayRow extends SupabaseDataRow {
   set deliveryMethod(String? value) =>
       setField<String>('delivery_method', value);
 
-  bool get isFreeDelivery => getField<bool>('is_free_delivery')!;
-  set isFreeDelivery(bool value) => setField<bool>('is_free_delivery', value);
-
   bool get openForSwap => getField<bool>('open_for_swap')!;
   set openForSwap(bool value) => setField<bool>('open_for_swap', value);
 

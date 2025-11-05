@@ -274,7 +274,7 @@ class _ReviewCardWidgetState extends State<ReviewCardWidget> {
                                             .toDouble(),
                                         unratedColor:
                                             FlutterFlowTheme.of(context)
-                                                .textfiled,
+                                                .bordergray,
                                         itemCount: 5,
                                         itemSize: 16.0,
                                       ),
@@ -321,7 +321,7 @@ class _ReviewCardWidgetState extends State<ReviewCardWidget> {
                                               .toDouble(),
                                           unratedColor:
                                               FlutterFlowTheme.of(context)
-                                                  .textfiled,
+                                                  .bordergray,
                                           itemCount: 5,
                                           itemSize: 16.0,
                                         ),
@@ -371,7 +371,7 @@ class _ReviewCardWidgetState extends State<ReviewCardWidget> {
                                             .toDouble(),
                                         unratedColor:
                                             FlutterFlowTheme.of(context)
-                                                .textfiled,
+                                                .bordergray,
                                         itemCount: 5,
                                         itemSize: 16.0,
                                       ),
@@ -414,7 +414,7 @@ class _ReviewCardWidgetState extends State<ReviewCardWidget> {
                                             .toDouble(),
                                         unratedColor:
                                             FlutterFlowTheme.of(context)
-                                                .textfiled,
+                                                .bordergray,
                                         itemCount: 5,
                                         itemSize: 16.0,
                                       ),

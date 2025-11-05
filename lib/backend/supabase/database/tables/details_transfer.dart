@@ -35,18 +35,11 @@ class DetailsTransferRow extends SupabaseDataRow {
   set destinationCity(String? value) =>
       setField<String>('destination_city', value);
 
-  String? get itemType => getField<String>('item_type');
-  set itemType(String? value) => setField<String>('item_type', value);
-
   bool get isDocument => getField<bool>('is_document')!;
   set isDocument(bool value) => setField<bool>('is_document', value);
 
-  String? get contentsDescription => getField<String>('contents_description');
-  set contentsDescription(String? value) =>
-      setField<String>('contents_description', value);
-
-  double? get weightKg => getField<double>('weight_kg');
-  set weightKg(double? value) => setField<double>('weight_kg', value);
+  String? get weightKg => getField<String>('weight_kg');
+  set weightKg(String? value) => setField<String>('weight_kg', value);
 
   String? get dimensionsText => getField<String>('dimensions_text');
   set dimensionsText(String? value) =>
@@ -55,32 +48,8 @@ class DetailsTransferRow extends SupabaseDataRow {
   bool get isFragile => getField<bool>('is_fragile')!;
   set isFragile(bool value) => setField<bool>('is_fragile', value);
 
-  bool get isPerishable => getField<bool>('is_perishable')!;
-  set isPerishable(bool value) => setField<bool>('is_perishable', value);
-
-  bool get requiresCustoms => getField<bool>('requires_customs')!;
-  set requiresCustoms(bool value) => setField<bool>('requires_customs', value);
-
-  int? get declaredValue => getField<int>('declared_value');
-  set declaredValue(int? value) => setField<int>('declared_value', value);
-
-  String? get transferMethod => getField<String>('transfer_method');
-  set transferMethod(String? value) =>
-      setField<String>('transfer_method', value);
-
-  String? get handoverMethod => getField<String>('handover_method');
-  set handoverMethod(String? value) =>
-      setField<String>('handover_method', value);
-
-  String? get deliveryMethod => getField<String>('delivery_method');
-  set deliveryMethod(String? value) =>
-      setField<String>('delivery_method', value);
-
   DateTime? get travelDate => getField<DateTime>('travel_date');
   set travelDate(DateTime? value) => setField<DateTime>('travel_date', value);
-
-  DateTime? get readyFrom => getField<DateTime>('ready_from');
-  set readyFrom(DateTime? value) => setField<DateTime>('ready_from', value);
 
   DateTime? get deadline => getField<DateTime>('deadline');
   set deadline(DateTime? value) => setField<DateTime>('deadline', value);
@@ -90,4 +59,7 @@ class DetailsTransferRow extends SupabaseDataRow {
 
   String? get priceText => getField<String>('price_text');
   set priceText(String? value) => setField<String>('price_text', value);
+
+  bool get isNegotiable => getField<bool>('is_negotiable')!;
+  set isNegotiable(bool value) => setField<bool>('is_negotiable', value);
 }

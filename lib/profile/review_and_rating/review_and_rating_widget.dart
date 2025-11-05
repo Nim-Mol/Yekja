@@ -583,7 +583,8 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context).textfiled,
+                                  color:
+                                      FlutterFlowTheme.of(context).bordergray,
                                   width: 1.0,
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),

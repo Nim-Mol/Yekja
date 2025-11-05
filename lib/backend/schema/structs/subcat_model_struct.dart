@@ -19,6 +19,11 @@ class SubcatModelStruct extends BaseStruct {
     int? totalLikes,
     int? catPostCount,
     int? catPostLikes,
+    String? fillColorHex,
+    String? detailTable,
+    String? catNameFa,
+    String? subCatNameFa,
+    String? mainCatNameFa,
   })  : _mainCatId = mainCatId,
         _mainCatName = mainCatName,
         _catId = catId,
@@ -30,7 +35,12 @@ class SubcatModelStruct extends BaseStruct {
         _effectiveIconImage = effectiveIconImage,
         _totalLikes = totalLikes,
         _catPostCount = catPostCount,
-        _catPostLikes = catPostLikes;
+        _catPostLikes = catPostLikes,
+        _fillColorHex = fillColorHex,
+        _detailTable = detailTable,
+        _catNameFa = catNameFa,
+        _subCatNameFa = subCatNameFa,
+        _mainCatNameFa = mainCatNameFa;
 
   // "main_cat_id" field.
   int? _mainCatId;
@@ -133,6 +143,41 @@ class SubcatModelStruct extends BaseStruct {
 
   bool hasCatPostLikes() => _catPostLikes != null;
 
+  // "fill_color_hex" field.
+  String? _fillColorHex;
+  String get fillColorHex => _fillColorHex ?? '';
+  set fillColorHex(String? val) => _fillColorHex = val;
+
+  bool hasFillColorHex() => _fillColorHex != null;
+
+  // "detail_table" field.
+  String? _detailTable;
+  String get detailTable => _detailTable ?? '';
+  set detailTable(String? val) => _detailTable = val;
+
+  bool hasDetailTable() => _detailTable != null;
+
+  // "cat_name_fa" field.
+  String? _catNameFa;
+  String get catNameFa => _catNameFa ?? '';
+  set catNameFa(String? val) => _catNameFa = val;
+
+  bool hasCatNameFa() => _catNameFa != null;
+
+  // "sub_cat_name_fa" field.
+  String? _subCatNameFa;
+  String get subCatNameFa => _subCatNameFa ?? '';
+  set subCatNameFa(String? val) => _subCatNameFa = val;
+
+  bool hasSubCatNameFa() => _subCatNameFa != null;
+
+  // "main_cat_name_fa" field.
+  String? _mainCatNameFa;
+  String get mainCatNameFa => _mainCatNameFa ?? '';
+  set mainCatNameFa(String? val) => _mainCatNameFa = val;
+
+  bool hasMainCatNameFa() => _mainCatNameFa != null;
+
   static SubcatModelStruct fromMap(Map<String, dynamic> data) =>
       SubcatModelStruct(
         mainCatId: castToType<int>(data['main_cat_id']),
@@ -147,6 +192,11 @@ class SubcatModelStruct extends BaseStruct {
         totalLikes: castToType<int>(data['total_likes']),
         catPostCount: castToType<int>(data['cat_post_count']),
         catPostLikes: castToType<int>(data['cat_post_likes']),
+        fillColorHex: data['fill_color_hex'] as String?,
+        detailTable: data['detail_table'] as String?,
+        catNameFa: data['cat_name_fa'] as String?,
+        subCatNameFa: data['sub_cat_name_fa'] as String?,
+        mainCatNameFa: data['main_cat_name_fa'] as String?,
       );
 
   static SubcatModelStruct? maybeFromMap(dynamic data) => data is Map
@@ -166,6 +216,11 @@ class SubcatModelStruct extends BaseStruct {
         'total_likes': _totalLikes,
         'cat_post_count': _catPostCount,
         'cat_post_likes': _catPostLikes,
+        'fill_color_hex': _fillColorHex,
+        'detail_table': _detailTable,
+        'cat_name_fa': _catNameFa,
+        'sub_cat_name_fa': _subCatNameFa,
+        'main_cat_name_fa': _mainCatNameFa,
       }.withoutNulls;
 
   @override
@@ -217,6 +272,26 @@ class SubcatModelStruct extends BaseStruct {
         'cat_post_likes': serializeParam(
           _catPostLikes,
           ParamType.int,
+        ),
+        'fill_color_hex': serializeParam(
+          _fillColorHex,
+          ParamType.String,
+        ),
+        'detail_table': serializeParam(
+          _detailTable,
+          ParamType.String,
+        ),
+        'cat_name_fa': serializeParam(
+          _catNameFa,
+          ParamType.String,
+        ),
+        'sub_cat_name_fa': serializeParam(
+          _subCatNameFa,
+          ParamType.String,
+        ),
+        'main_cat_name_fa': serializeParam(
+          _mainCatNameFa,
+          ParamType.String,
         ),
       }.withoutNulls;
 
@@ -282,6 +357,31 @@ class SubcatModelStruct extends BaseStruct {
           ParamType.int,
           false,
         ),
+        fillColorHex: deserializeParam(
+          data['fill_color_hex'],
+          ParamType.String,
+          false,
+        ),
+        detailTable: deserializeParam(
+          data['detail_table'],
+          ParamType.String,
+          false,
+        ),
+        catNameFa: deserializeParam(
+          data['cat_name_fa'],
+          ParamType.String,
+          false,
+        ),
+        subCatNameFa: deserializeParam(
+          data['sub_cat_name_fa'],
+          ParamType.String,
+          false,
+        ),
+        mainCatNameFa: deserializeParam(
+          data['main_cat_name_fa'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -301,7 +401,12 @@ class SubcatModelStruct extends BaseStruct {
         effectiveIconImage == other.effectiveIconImage &&
         totalLikes == other.totalLikes &&
         catPostCount == other.catPostCount &&
-        catPostLikes == other.catPostLikes;
+        catPostLikes == other.catPostLikes &&
+        fillColorHex == other.fillColorHex &&
+        detailTable == other.detailTable &&
+        catNameFa == other.catNameFa &&
+        subCatNameFa == other.subCatNameFa &&
+        mainCatNameFa == other.mainCatNameFa;
   }
 
   @override
@@ -317,7 +422,12 @@ class SubcatModelStruct extends BaseStruct {
         effectiveIconImage,
         totalLikes,
         catPostCount,
-        catPostLikes
+        catPostLikes,
+        fillColorHex,
+        detailTable,
+        catNameFa,
+        subCatNameFa,
+        mainCatNameFa
       ]);
 }
 
@@ -334,6 +444,11 @@ SubcatModelStruct createSubcatModelStruct({
   int? totalLikes,
   int? catPostCount,
   int? catPostLikes,
+  String? fillColorHex,
+  String? detailTable,
+  String? catNameFa,
+  String? subCatNameFa,
+  String? mainCatNameFa,
 }) =>
     SubcatModelStruct(
       mainCatId: mainCatId,
@@ -348,4 +463,9 @@ SubcatModelStruct createSubcatModelStruct({
       totalLikes: totalLikes,
       catPostCount: catPostCount,
       catPostLikes: catPostLikes,
+      fillColorHex: fillColorHex,
+      detailTable: detailTable,
+      catNameFa: catNameFa,
+      subCatNameFa: subCatNameFa,
+      mainCatNameFa: mainCatNameFa,
     );

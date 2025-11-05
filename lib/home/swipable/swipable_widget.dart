@@ -568,7 +568,7 @@ Offers & Reque... */
                                                                   .location_on_rounded,
                                                               color: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .textfiled,
+                                                                  .bordergray,
                                                               size: 20.0,
                                                             ),
                                                             AutoSizeText(
@@ -665,7 +665,7 @@ Offers & Reque... */
                                                                       .all(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .textfiled,
+                                                                        .bordergray,
                                                                     width: 0.5,
                                                                   ),
                                                                 ),

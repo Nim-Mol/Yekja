@@ -985,7 +985,7 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .textfiled,
+                                                              .bordergray,
                                                       size: 15.0,
                                                     ),
                                                     Text(
@@ -1144,7 +1144,7 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .textfiled,
+                                                              .bordergray,
                                                       size: 15.0,
                                                     ),
                                                     Text(
@@ -1303,7 +1303,7 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .textfiled,
+                                                              .bordergray,
                                                       size: 15.0,
                                                     ),
                                                     Text(
@@ -1522,7 +1522,7 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                 buttonSize: 30.0,
                                                 fillColor:
                                                     FlutterFlowTheme.of(context)
-                                                        .textfiled,
+                                                        .bordergray,
                                                 icon: FaIcon(
                                                   FontAwesomeIcons.angleRight,
                                                   color: FlutterFlowTheme.of(
@@ -1634,7 +1634,7 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .textfiled,
+                                                              .bordergray,
                                                       size: 15.0,
                                                     ),
                                                     Text(
@@ -1908,7 +1908,7 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .textfiled,
+                                                              .bordergray,
                                                       size: 15.0,
                                                     ),
                                                     Text(
@@ -2182,7 +2182,7 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .textfiled,
+                                                              .bordergray,
                                                       size: 15.0,
                                                     ),
                                                     Text(

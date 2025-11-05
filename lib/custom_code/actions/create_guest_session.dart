@@ -11,41 +11,46 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 // FlutterFlow Custom Action: createGuestSession
+// FlutterFlow Custom Action: createAnonymousSession
+// FlutterFlow Custom Action: createGuestSession
+// FlutterFlow Custom Action: createAnonymousSession
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:uuid/uuid.dart'; // Ensure you have the UUID package dependency
 
 Future<String?> createGuestSession() async {
   final supabase = Supabase.instance.client;
-  const uuid = Uuid();
 
-  // 1. Generate a unique, temporary email address
-  final temporaryEmail = 'guest_${uuid.v4()}@temporary.com';
-  const fixedPassword = 'Temp#Pass320!@#'; // A known fixed password
+  // ⭐️ Strict Guardrail Check: Abort if a REGISTERED user session already exists ⭐️
+  final currentSession = supabase.auth.currentSession;
+  if (currentSession != null) {
+    final isAnonymous =
+        currentSession.user?.appMetadata?['is_anonymous'] == true;
 
+    // If a session exists and it's NOT anonymous, we assume a registered user is logged in.
+    if (!isAnonymous) {
+      print('Registered session detected. Aborting anonymous sign-in.');
+      return currentSession.user!.id;
+    }
+
+    // If a session exists and it *IS* anonymous, the function proceeds to the next step,
+    // which will simply refresh the existing anonymous session.
+  }
+
+  // Primary Directive: Attempt anonymous sign-in immediately.
   try {
-    // 2. Sign up the user (this creates the Auth record)
-    final AuthResponse signUpResponse = await supabase.auth.signUp(
-      email: temporaryEmail,
-      password: fixedPassword,
-    );
+    final AuthResponse authResponse = await supabase.auth.signInAnonymously();
 
-    // 3. Optional: Sign out immediately to prevent auto-login (if necessary),
-    //    then sign in with the same credentials to confirm the session.
-    //    Usually, signUp is enough if you handle the session in your app.
-
-    if (signUpResponse.user != null) {
-      // 4. Return the new User ID (UUID)
-      return signUpResponse.user!.id;
+    if (authResponse.user != null) {
+      // Return the new user's ID upon successful creation/login.
+      return authResponse.user!.id;
     } else {
-      // Handle the case where the user object is null (e.g., email already exists)
-      print('Guest sign up failed: User is null');
+      print('Anonymous sign-in failed: User is null');
       return null;
     }
   } on AuthException catch (e) {
-    print('Supabase Auth Error creating guest: ${e.message}');
+    print('Supabase Auth Error creating anonymous session: ${e.message}');
     return null;
   } catch (e) {
-    print('General Error creating guest session: $e');
+    print('General Error creating anonymous session: $e');
     return null;
   }
 }

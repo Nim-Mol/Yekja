@@ -23,15 +23,15 @@ class DetailsSalesRow extends SupabaseDataRow {
   String? get priceText => getField<String>('price_text');
   set priceText(String? value) => setField<String>('price_text', value);
 
+  bool get isNegotiable => getField<bool>('is_negotiable')!;
+  set isNegotiable(bool value) => setField<bool>('is_negotiable', value);
+
   String? get condition => getField<String>('condition');
   set condition(String? value) => setField<String>('condition', value);
 
   String? get deliveryMethod => getField<String>('delivery_method');
   set deliveryMethod(String? value) =>
       setField<String>('delivery_method', value);
-
-  bool get isFreeDelivery => getField<bool>('is_free_delivery')!;
-  set isFreeDelivery(bool value) => setField<bool>('is_free_delivery', value);
 
   bool get openForSwap => getField<bool>('open_for_swap')!;
   set openForSwap(bool value) => setField<bool>('open_for_swap', value);

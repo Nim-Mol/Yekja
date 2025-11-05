@@ -480,6 +480,8 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                                         m.dimensions?.height,
                                                     width: m.dimensions?.width,
                                                     blurHash: m.blurHash,
+                                                    originalFilename:
+                                                        m.originalFilename,
                                                   ))
                                               .toList();
                                         } finally {

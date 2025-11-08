@@ -275,7 +275,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .headlineLargeFamily,
-                                                  fontSize: 24.0,
+                                                  fontSize: 20.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                   useGoogleFonts:
@@ -294,7 +294,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .headlineLargeFamily,
-                                                  fontSize: 24.0,
+                                                  fontSize: 20.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                   useGoogleFonts:
@@ -461,11 +461,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                         ? FFAppState()
                                                             .postState
                                                             .title
-                                                        : 'Add a title to your post'
-                                                            .maybeHandleOverflow(
-                                                            maxChars: 35,
-                                                            replacement: '…',
-                                                          ),
+                                                        : '',
                                                     maxLines: 1,
                                                     style:
                                                         FlutterFlowTheme.of(
@@ -493,6 +489,8 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                                           context)
                                                                       .bodyMediumIsCustom,
                                                             ),
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
                                                   ),
                                                 ],
                                               ),
@@ -624,11 +622,14 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                     ],
                                                   ),
                                                   AutoSizeText(
-                                                    '${FFAppState().postState.description != '' ? FFAppState().postState.description : 'Add a description to your post'}'
-                                                        .maybeHandleOverflow(
-                                                      maxChars: 90,
-                                                      replacement: '…',
-                                                    ),
+                                                    FFAppState()
+                                                                    .postState
+                                                                    .description !=
+                                                                ''
+                                                        ? FFAppState()
+                                                            .postState
+                                                            .description
+                                                        : '',
                                                     maxLines: 2,
                                                     style:
                                                         FlutterFlowTheme.of(
@@ -656,6 +657,8 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                                           context)
                                                                       .bodyMediumIsCustom,
                                                             ),
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
                                                   ),
                                                 ],
                                               ),
@@ -926,7 +929,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                   ChipData(FFLocalizations.of(
                                                           context)
                                                       .getText(
-                                                    'xtp55sf4' /* Open to All Types */,
+                                                    'xtp55sf4' /* Flexible */,
                                                   ))
                                                 ],
                                                 onChanged: (val) async {
@@ -1752,7 +1755,6 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                       .spaceBetween,
                                               children: [
                                                 Container(
-                                                  width: 150.0,
                                                   height: 38.0,
                                                   decoration: BoxDecoration(
                                                     borderRadius:
@@ -1760,7 +1762,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                             4.0),
                                                   ),
                                                   child: Container(
-                                                    width: 140.0,
+                                                    width: 130.0,
                                                     child: TextFormField(
                                                       controller: _model
                                                           .textController2,
@@ -1937,7 +1939,6 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                       ),
                                                 ),
                                                 Container(
-                                                  width: 150.0,
                                                   height: 38.0,
                                                   decoration: BoxDecoration(
                                                     borderRadius:
@@ -1973,6 +1974,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                       );
                                                       safeSetState(() {});
                                                     },
+                                                    width: 130.0,
                                                     height: 38.0,
                                                     textStyle:
                                                         FlutterFlowTheme.of(

@@ -124,6 +124,17 @@ class FFAppState extends ChangeNotifier {
               .toList() ??
           _citiesApp;
     });
+    _safeInit(() {
+      if (prefs.containsKey('ff_GuestInfo')) {
+        try {
+          final serializedData = prefs.getString('ff_GuestInfo') ?? '{}';
+          _GuestInfo =
+              GuestUserStruct.fromSerializableMap(jsonDecode(serializedData));
+        } catch (e) {
+          print("Can't decode persisted data type. Error: $e.");
+        }
+      }
+    });
   }
 
   void update(VoidCallback callback) {
@@ -540,6 +551,24 @@ class FFAppState extends ChangeNotifier {
   DateTime? get selectedDate => _selectedDate;
   set selectedDate(DateTime? value) {
     _selectedDate = value;
+  }
+
+  GuestUserStruct _GuestInfo = GuestUserStruct();
+  GuestUserStruct get GuestInfo => _GuestInfo;
+  set GuestInfo(GuestUserStruct value) {
+    _GuestInfo = value;
+    prefs.setString('ff_GuestInfo', value.serialize());
+  }
+
+  void updateGuestInfoStruct(Function(GuestUserStruct) updateFn) {
+    updateFn(_GuestInfo);
+    prefs.setString('ff_GuestInfo', _GuestInfo.serialize());
+  }
+
+  String _appLang = 'nl';
+  String get appLang => _appLang;
+  set appLang(String value) {
+    _appLang = value;
   }
 }
 

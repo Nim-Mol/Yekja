@@ -39,4 +39,11 @@ class MainCategoriesRow extends SupabaseDataRow {
 
   String? get colorFillHex => getField<String>('color_fill_hex');
   set colorFillHex(String? value) => setField<String>('color_fill_hex', value);
+
+  String get mainCatCode => getField<String>('main_cat_code')!;
+  set mainCatCode(String value) => setField<String>('main_cat_code', value);
+
+  String? get mainCatNameNl => getField<String>('main_cat_name_nl');
+  set mainCatNameNl(String? value) =>
+      setField<String>('main_cat_name_nl', value);
 }

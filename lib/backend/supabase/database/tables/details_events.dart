@@ -29,10 +29,6 @@ class DetailsEventsRow extends SupabaseDataRow {
   set eventEndsAt(DateTime? value) =>
       setField<DateTime>('event_ends_at', value);
 
-  DateTime? get rsvpDeadline => getField<DateTime>('rsvp_deadline');
-  set rsvpDeadline(DateTime? value) =>
-      setField<DateTime>('rsvp_deadline', value);
-
   String? get repeats => getField<String>('repeats');
   set repeats(String? value) => setField<String>('repeats', value);
 
@@ -51,10 +47,9 @@ class DetailsEventsRow extends SupabaseDataRow {
   int? get price => getField<int>('price');
   set price(int? value) => setField<int>('price', value);
 
+  int? get nGoing => getField<int>('n_going');
+  set nGoing(int? value) => setField<int>('n_going', value);
+
   String? get priceText => getField<String>('price_text');
   set priceText(String? value) => setField<String>('price_text', value);
-
-  String? get compensationType => getField<String>('compensation_type');
-  set compensationType(String? value) =>
-      setField<String>('compensation_type', value);
 }

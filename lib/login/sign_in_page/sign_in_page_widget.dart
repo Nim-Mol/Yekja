@@ -4,12 +4,11 @@ import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/shared_components/botton_standard/botton_standard_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'sign_in_page_model.dart';
 export 'sign_in_page_model.dart';
 
@@ -27,6 +26,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
   late SignInPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
@@ -51,6 +51,8 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -130,24 +132,9 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .headlineLarge
                                       .override(
-                                        font: GoogleFonts.poppins(
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .headlineLarge
-                                                  .fontWeight,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .headlineLarge
-                                                  .fontStyle,
-                                        ),
+                                        fontFamily: 'FarsiFonts',
                                         fontSize: 30.0,
                                         letterSpacing: 0.0,
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .headlineLarge
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .headlineLarge
-                                            .fontStyle,
                                       ),
                                 ),
                                 Padding(
@@ -161,7 +148,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                         TextSpan(
                                           text: FFLocalizations.of(context)
                                               .getText(
-                                            '61yuoo32' /* If your email isn’t verified,  */,
+                                            '61yuoo32' /* If your email isn’t verified, */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium
@@ -182,7 +169,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                         TextSpan(
                                           text: FFLocalizations.of(context)
                                               .getText(
-                                            '1pylrdnu' /* click here. */,
+                                            '1pylrdnu' /*  click here.  */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium
@@ -195,8 +182,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                                         .primary,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
-                                                decoration:
-                                                    TextDecoration.underline,
+                                                fontStyle: FontStyle.italic,
                                                 useGoogleFonts:
                                                     !FlutterFlowTheme.of(
                                                             context)
@@ -510,139 +496,113 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                           ),
                                         ].divide(SizedBox(height: 16.0)),
                                       ),
-                                      FFButtonWidget(
-                                        onPressed: () async {
-                                          GoRouter.of(context)
-                                              .prepareAuthEvent();
-
-                                          final user =
-                                              await authManager.signInWithEmail(
-                                            context,
-                                            _model.emailAddressTextController
-                                                .text,
-                                            _model.passWordTextController.text,
-                                          );
-                                          if (user == null) {
-                                            return;
-                                          }
-
-                                          // Get user_ext
-                                          _model.user =
-                                              await UserExtTable().queryRows(
-                                            queryFn: (q) => q.eqOrNull(
-                                              'id',
-                                              currentUserUid,
-                                            ),
-                                          );
-                                          // Get user fav
-                                          _model.userFav =
-                                              await UserFavoritesTable()
-                                                  .queryRows(
-                                            queryFn: (q) => q.eqOrNull(
-                                              'user_id',
-                                              currentUserUid,
-                                            ),
-                                          );
-                                          _model.userRole =
-                                              await actions.decodeJwtRole();
-                                          // Update UserInfo global object
-                                          FFAppState().userInfo =
-                                              UserInfoStruct(
-                                            userId: currentUserUid,
-                                            userName: _model
-                                                .user?.firstOrNull?.userName,
-                                            name: _model
-                                                .user?.firstOrNull?.firstName,
-                                            lastName: _model
-                                                .user?.firstOrNull?.lastName,
-                                            avatar: _model.user?.firstOrNull
-                                                ?.profileAvatar,
-                                            city: _model
-                                                .user?.firstOrNull?.userCity,
-                                            role: _model.userRole,
-                                          );
-                                          safeSetState(() {});
-
-                                          context.goNamedAuth(
-                                              HomePageWidget.routeName,
-                                              context.mounted);
-
-                                          safeSetState(() {});
-                                        },
-                                        text:
-                                            FFLocalizations.of(context).getText(
-                                          'c2kd9tkh' /* sign in */,
-                                        ),
-                                        options: FFButtonOptions(
-                                          height: 40.0,
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 0.0, 16.0, 0.0),
-                                          iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          textStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .titleSmall
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmallFamily,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBackground,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleSmallIsCustom,
-                                              ),
-                                          elevation: 0.0,
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                      ),
                                     ],
                                   ),
                                 ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 16.0),
-                                  child: wrapWithModel(
-                                    model: _model.bottonStandardModel,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: BottonStandardWidget(
-                                      key: ValueKey('BottonStandard_cjw3'),
-                                      buttontext:
-                                          FFLocalizations.of(context).getText(
-                                        'i3al17a9' /* Sign In */,
-                                      ),
-                                      onPressed: () async {
-                                        GoRouter.of(context).prepareAuthEvent();
+                                FFButtonWidget(
+                                  onPressed: () async {
+                                    var _shouldSetState = false;
+                                    Function() _navigate = () {};
+                                    GoRouter.of(context).prepareAuthEvent();
 
-                                        final user =
-                                            await authManager.signInWithEmail(
-                                          context,
-                                          _model
-                                              .emailAddressTextController.text,
-                                          _model.passWordTextController.text,
-                                        );
-                                        if (user == null) {
-                                          return;
-                                        }
+                                    final user =
+                                        await authManager.signInWithEmail(
+                                      context,
+                                      _model.emailAddressTextController.text,
+                                      _model.passWordTextController.text,
+                                    );
+                                    if (user == null) {
+                                      return;
+                                    }
 
-                                        if (currentUserUid != '') {
-                                          context.goNamedAuth(
-                                              HomePageWidget.routeName,
-                                              context.mounted);
-                                        } else {
-                                          return;
-                                        }
-                                      },
-                                    ),
+                                    _navigate = () => context.goNamedAuth(
+                                        HomePageWidget.routeName,
+                                        context.mounted);
+                                    if (currentUserUid != '') {
+                                      // Get user_ext
+                                      _model.user =
+                                          await UserExtTable().queryRows(
+                                        queryFn: (q) => q.eqOrNull(
+                                          'id',
+                                          currentUserUid,
+                                        ),
+                                      );
+                                      _shouldSetState = true;
+                                      // Get user fav
+                                      _model.userFav =
+                                          await UserFavoritesTable().queryRows(
+                                        queryFn: (q) => q.eqOrNull(
+                                          'user_id',
+                                          currentUserUid,
+                                        ),
+                                      );
+                                      _shouldSetState = true;
+                                      _model.userRole =
+                                          await actions.decodeJwtRole();
+                                      _shouldSetState = true;
+                                      // Update UserInfo global object
+                                      FFAppState().userInfo = UserInfoStruct(
+                                        userId: currentUserUid,
+                                        userName:
+                                            _model.user?.firstOrNull?.userName,
+                                        name:
+                                            _model.user?.firstOrNull?.firstName,
+                                        lastName:
+                                            _model.user?.firstOrNull?.lastName,
+                                        avatar: _model
+                                            .user?.firstOrNull?.profileAvatar,
+                                        city:
+                                            _model.user?.firstOrNull?.userCity,
+                                        role: _model.userRole,
+                                        userFavs: _model.userFav
+                                            ?.map((e) => valueOrDefault<String>(
+                                                  e.postId,
+                                                  '1',
+                                                ))
+                                            .toList(),
+                                      );
+                                      safeSetState(() {});
+                                    } else {
+                                      _navigate();
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+
+                                    _navigate();
+                                    if (_shouldSetState) safeSetState(() {});
+                                  },
+                                  text: FFLocalizations.of(context).getText(
+                                    '8879mkr4' /* Sign in */,
                                   ),
+                                  options: FFButtonOptions(
+                                    width: double.infinity,
+                                    height: 48.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconAlignment: IconAlignment.start,
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color:
+                                        FlutterFlowTheme.of(context).greenInit,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'FarsiFonts',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          fontSize: 16.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                    elevation: 5.0,
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .greenInit,
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  showLoadingIndicator: false,
                                 ),
                                 Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -672,7 +632,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                                   text: FFLocalizations.of(
                                                           context)
                                                       .getText(
-                                                    'nxmvn4ld' /* Forgot password?  */,
+                                                    'nxmvn4ld' /* Forgot password? */,
                                                   ),
                                                   style: TextStyle(
                                                     color: FlutterFlowTheme.of(
@@ -684,7 +644,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                                   text: FFLocalizations.of(
                                                           context)
                                                       .getText(
-                                                    'btvjsow4' /* Click here */,
+                                                    'btvjsow4' /*  Click here  */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -807,7 +767,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        context.pushNamed(
+                                        context.goNamed(
                                             SignUpPageWidget.routeName);
                                       },
                                       child: RichText(
@@ -818,7 +778,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                             TextSpan(
                                               text: FFLocalizations.of(context)
                                                   .getText(
-                                                'qqhkk63r' /* No account yet?  */,
+                                                'qqhkk63r' /* No account yet? */,
                                               ),
                                               style: TextStyle(
                                                 color:
@@ -829,7 +789,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                             TextSpan(
                                               text: FFLocalizations.of(context)
                                                   .getText(
-                                                'oc6h6d27' /* Sign Up */,
+                                                'oc6h6d27' /*  Sign Up  */,
                                               ),
                                               style: FlutterFlowTheme.of(
                                                       context)
@@ -881,8 +841,13 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
+                                        currentUserLocationValue =
+                                            await getCurrentUserLocation(
+                                                defaultLocation:
+                                                    LatLng(0.0, 0.0));
                                         var _shouldSetState = false;
-                                        if (currentUserUid != '') {
+                                        if (FFAppState().GuestInfo.sessionId !=
+                                                '') {
                                           context.pushNamed(
                                               HomePageWidget.routeName);
 
@@ -890,9 +855,52 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                             safeSetState(() {});
                                           return;
                                         } else {
-                                          _model.result = await actions
-                                              .createGuestSession();
+                                          _model.sessionId =
+                                              await actions.generateUUID();
                                           _shouldSetState = true;
+                                          FFAppState().GuestInfo =
+                                              GuestUserStruct(
+                                            sessionId: _model.sessionId,
+                                            device: () {
+                                              if (isAndroid) {
+                                                return 'Android';
+                                              } else if (isiOS) {
+                                                return 'IOS';
+                                              } else {
+                                                return 'web';
+                                              }
+                                            }(),
+                                            deviceTime: getCurrentTimestamp,
+                                            deviceLoc: currentUserLocationValue,
+                                          );
+                                          safeSetState(() {});
+                                          await MonitoringGuestTable().insert({
+                                            'session_id': FFAppState()
+                                                .GuestInfo
+                                                .sessionId,
+                                            'device': () {
+                                              if (FFAppState()
+                                                      .GuestInfo
+                                                      .device ==
+                                                  'Android') {
+                                                return 'Android';
+                                              } else if (FFAppState()
+                                                      .GuestInfo
+                                                      .device ==
+                                                  'IOS') {
+                                                return 'IOS';
+                                              } else {
+                                                return 'Web';
+                                              }
+                                            }(),
+                                            'device_time':
+                                                supaSerialize<DateTime>(
+                                                    FFAppState()
+                                                        .GuestInfo
+                                                        .deviceTime),
+                                            'page': 'signin',
+                                            'action': 'guest sign in',
+                                          });
 
                                           context.pushNamed(
                                               HomePageWidget.routeName);
@@ -909,7 +917,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                             TextSpan(
                                               text: FFLocalizations.of(context)
                                                   .getText(
-                                                't4mxpixd' /* Continute as a  */,
+                                                't4mxpixd' /* Continute as a */,
                                               ),
                                               style: TextStyle(
                                                 color:
@@ -920,7 +928,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                             TextSpan(
                                               text: FFLocalizations.of(context)
                                                   .getText(
-                                                'c1gzecba' /* Guest user */,
+                                                'c1gzecba' /*  Guest user  */,
                                               ),
                                               style: FlutterFlowTheme.of(
                                                       context)

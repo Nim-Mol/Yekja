@@ -4,6 +4,10 @@ import 'reset_password_page_widget.dart' show ResetPasswordPageWidget;
 import 'package:flutter/material.dart';
 
 class ResetPasswordPageModel extends FlutterFlowModel<ResetPasswordPageWidget> {
+  ///  Local state fields for this page.
+
+  bool isSubmitting = false;
+
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();

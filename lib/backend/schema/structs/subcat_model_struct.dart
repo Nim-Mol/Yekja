@@ -24,6 +24,9 @@ class SubcatModelStruct extends BaseStruct {
     String? catNameFa,
     String? subCatNameFa,
     String? mainCatNameFa,
+    String? mainCatNameNl,
+    String? catNameNl,
+    String? subCatNameNl,
   })  : _mainCatId = mainCatId,
         _mainCatName = mainCatName,
         _catId = catId,
@@ -40,7 +43,10 @@ class SubcatModelStruct extends BaseStruct {
         _detailTable = detailTable,
         _catNameFa = catNameFa,
         _subCatNameFa = subCatNameFa,
-        _mainCatNameFa = mainCatNameFa;
+        _mainCatNameFa = mainCatNameFa,
+        _mainCatNameNl = mainCatNameNl,
+        _catNameNl = catNameNl,
+        _subCatNameNl = subCatNameNl;
 
   // "main_cat_id" field.
   int? _mainCatId;
@@ -178,6 +184,27 @@ class SubcatModelStruct extends BaseStruct {
 
   bool hasMainCatNameFa() => _mainCatNameFa != null;
 
+  // "main_cat_name_nl" field.
+  String? _mainCatNameNl;
+  String get mainCatNameNl => _mainCatNameNl ?? '';
+  set mainCatNameNl(String? val) => _mainCatNameNl = val;
+
+  bool hasMainCatNameNl() => _mainCatNameNl != null;
+
+  // "cat_name_nl" field.
+  String? _catNameNl;
+  String get catNameNl => _catNameNl ?? '';
+  set catNameNl(String? val) => _catNameNl = val;
+
+  bool hasCatNameNl() => _catNameNl != null;
+
+  // "sub_cat_name_nl" field.
+  String? _subCatNameNl;
+  String get subCatNameNl => _subCatNameNl ?? '';
+  set subCatNameNl(String? val) => _subCatNameNl = val;
+
+  bool hasSubCatNameNl() => _subCatNameNl != null;
+
   static SubcatModelStruct fromMap(Map<String, dynamic> data) =>
       SubcatModelStruct(
         mainCatId: castToType<int>(data['main_cat_id']),
@@ -197,6 +224,9 @@ class SubcatModelStruct extends BaseStruct {
         catNameFa: data['cat_name_fa'] as String?,
         subCatNameFa: data['sub_cat_name_fa'] as String?,
         mainCatNameFa: data['main_cat_name_fa'] as String?,
+        mainCatNameNl: data['main_cat_name_nl'] as String?,
+        catNameNl: data['cat_name_nl'] as String?,
+        subCatNameNl: data['sub_cat_name_nl'] as String?,
       );
 
   static SubcatModelStruct? maybeFromMap(dynamic data) => data is Map
@@ -221,6 +251,9 @@ class SubcatModelStruct extends BaseStruct {
         'cat_name_fa': _catNameFa,
         'sub_cat_name_fa': _subCatNameFa,
         'main_cat_name_fa': _mainCatNameFa,
+        'main_cat_name_nl': _mainCatNameNl,
+        'cat_name_nl': _catNameNl,
+        'sub_cat_name_nl': _subCatNameNl,
       }.withoutNulls;
 
   @override
@@ -291,6 +324,18 @@ class SubcatModelStruct extends BaseStruct {
         ),
         'main_cat_name_fa': serializeParam(
           _mainCatNameFa,
+          ParamType.String,
+        ),
+        'main_cat_name_nl': serializeParam(
+          _mainCatNameNl,
+          ParamType.String,
+        ),
+        'cat_name_nl': serializeParam(
+          _catNameNl,
+          ParamType.String,
+        ),
+        'sub_cat_name_nl': serializeParam(
+          _subCatNameNl,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -382,6 +427,21 @@ class SubcatModelStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        mainCatNameNl: deserializeParam(
+          data['main_cat_name_nl'],
+          ParamType.String,
+          false,
+        ),
+        catNameNl: deserializeParam(
+          data['cat_name_nl'],
+          ParamType.String,
+          false,
+        ),
+        subCatNameNl: deserializeParam(
+          data['sub_cat_name_nl'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -406,7 +466,10 @@ class SubcatModelStruct extends BaseStruct {
         detailTable == other.detailTable &&
         catNameFa == other.catNameFa &&
         subCatNameFa == other.subCatNameFa &&
-        mainCatNameFa == other.mainCatNameFa;
+        mainCatNameFa == other.mainCatNameFa &&
+        mainCatNameNl == other.mainCatNameNl &&
+        catNameNl == other.catNameNl &&
+        subCatNameNl == other.subCatNameNl;
   }
 
   @override
@@ -427,7 +490,10 @@ class SubcatModelStruct extends BaseStruct {
         detailTable,
         catNameFa,
         subCatNameFa,
-        mainCatNameFa
+        mainCatNameFa,
+        mainCatNameNl,
+        catNameNl,
+        subCatNameNl
       ]);
 }
 
@@ -449,6 +515,9 @@ SubcatModelStruct createSubcatModelStruct({
   String? catNameFa,
   String? subCatNameFa,
   String? mainCatNameFa,
+  String? mainCatNameNl,
+  String? catNameNl,
+  String? subCatNameNl,
 }) =>
     SubcatModelStruct(
       mainCatId: mainCatId,
@@ -468,4 +537,7 @@ SubcatModelStruct createSubcatModelStruct({
       catNameFa: catNameFa,
       subCatNameFa: subCatNameFa,
       mainCatNameFa: mainCatNameFa,
+      mainCatNameNl: mainCatNameNl,
+      catNameNl: catNameNl,
+      subCatNameNl: subCatNameNl,
     );

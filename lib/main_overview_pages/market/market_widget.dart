@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/main_overview_pages/item_card_global/item_card_global_widget.dart';
-import '/shared_components/item_card_job_request/item_card_job_request_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -132,7 +131,7 @@ class _MarketWidgetState extends State<MarketWidget>
                         ),
                         Tab(
                           text: FFLocalizations.of(context).getText(
-                            '1y5mye93' /* Skills & Expertise */,
+                            '1y5mye93' /* Services */,
                           ),
                         ),
                         Tab(
@@ -157,7 +156,7 @@ class _MarketWidgetState extends State<MarketWidget>
                           () async {
                             FFAppState().filterSmall = FilterSmallModelStruct(
                               mainCatId: 2,
-                              catId: 1,
+                              catId: 6,
                             );
                             safeSetState(() {});
                             safeSetState(() => _model
@@ -168,7 +167,7 @@ class _MarketWidgetState extends State<MarketWidget>
                           () async {
                             FFAppState().filterSmall = FilterSmallModelStruct(
                               mainCatId: 1,
-                              catId: 8,
+                              catId: 9,
                             );
                             safeSetState(() {});
                             safeSetState(() => _model
@@ -179,7 +178,7 @@ class _MarketWidgetState extends State<MarketWidget>
                           () async {
                             FFAppState().filterSmall = FilterSmallModelStruct(
                               mainCatId: 3,
-                              catId: 10,
+                              catId: 15,
                             );
                             safeSetState(() {});
                             safeSetState(() => _model
@@ -371,8 +370,13 @@ class _MarketWidgetState extends State<MarketWidget>
                                                                     'fa'
                                                                 ? categoriesItem
                                                                     .catNameFa
-                                                                : categoriesItem
-                                                                    .catName,
+                                                                : (FFLocalizations.of(context)
+                                                                            .languageCode ==
+                                                                        'nl'
+                                                                    ? categoriesItem
+                                                                        .catNameNl
+                                                                    : categoriesItem
+                                                                        .catName),
                                                             'category',
                                                           ),
                                                           textAlign:
@@ -396,6 +400,7 @@ class _MarketWidgetState extends State<MarketWidget>
                                                                     : FlutterFlowTheme.of(
                                                                             context)
                                                                         .textgray,
+                                                                fontSize: 15.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 useGoogleFonts:
@@ -471,7 +476,7 @@ class _MarketWidgetState extends State<MarketWidget>
                                                   await _model
                                                       .waitForOnePageForListviewMarket();
                                                 },
-                                                width: 100.0,
+                                                width: 130.0,
                                                 height: 34.0,
                                                 textStyle: FlutterFlowTheme.of(
                                                         context)
@@ -562,6 +567,9 @@ class _MarketWidgetState extends State<MarketWidget>
                                               _model.sortBy,
                                               'created_at.desc.nullslast',
                                             ),
+                                            langCode:
+                                                FFLocalizations.of(context)
+                                                    .languageCode,
                                           ),
                                         ),
                                         padding: EdgeInsets.fromLTRB(
@@ -708,12 +716,18 @@ class _MarketWidgetState extends State<MarketWidget>
                                                         : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/n2imhdlvogb3/profile_avatar_circular.png',
                                                     subCatName:
                                                         filterResultsItem
-                                                            .subCatName,
+                                                            .subCatLabel,
                                                   ),
                                                   details:
                                                       functions.decodeDetails(
                                                           filterResultsItem
                                                               .detailsText),
+                                                  username: '',
+                                                  ratings: 0,
+                                                  detailLabels:
+                                                      functions.decodeDetails(
+                                                          filterResultsItem
+                                                              .detailsLabelText),
                                                 ),
                                               ),
                                             );
@@ -908,13 +922,16 @@ class _MarketWidgetState extends State<MarketWidget>
                                                                   AutoSizeText(
                                                                 valueOrDefault<
                                                                     String>(
-                                                                  FFLocalizations.of(context)
-                                                                              .languageCode ==
+                                                                  FFLocalizations.of(context).languageCode ==
                                                                           'fa'
                                                                       ? categoriesItem
                                                                           .catNameFa
-                                                                      : categoriesItem
-                                                                          .catName,
+                                                                      : (FFLocalizations.of(context).languageCode ==
+                                                                              'nl'
+                                                                          ? categoriesItem
+                                                                              .catNameNl
+                                                                          : categoriesItem
+                                                                              .catName),
                                                                   'category',
                                                                 ),
                                                                 textAlign:
@@ -933,6 +950,8 @@ class _MarketWidgetState extends State<MarketWidget>
                                                                               .primaryText
                                                                           : FlutterFlowTheme.of(context)
                                                                               .textgray,
+                                                                      fontSize:
+                                                                          15.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       useGoogleFonts:
@@ -997,7 +1016,7 @@ class _MarketWidgetState extends State<MarketWidget>
                                                   await _model
                                                       .waitForOnePageForListviewSupport();
                                                 },
-                                                width: 100.0,
+                                                width: 130.0,
                                                 height: 34.0,
                                                 textStyle: FlutterFlowTheme.of(
                                                         context)
@@ -1088,6 +1107,9 @@ class _MarketWidgetState extends State<MarketWidget>
                                               _model.sortBy,
                                               'created_at.desc.nullslast',
                                             ),
+                                            langCode:
+                                                FFLocalizations.of(context)
+                                                    .languageCode,
                                           ),
                                         ),
                                         padding: EdgeInsets.fromLTRB(
@@ -1223,12 +1245,21 @@ class _MarketWidgetState extends State<MarketWidget>
                                                         : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/n2imhdlvogb3/profile_avatar_circular.png',
                                                     subCatName:
                                                         filterResultsItem
-                                                            .subCatName,
+                                                            .subCatLabel,
                                                   ),
                                                   details:
                                                       functions.decodeDetails(
                                                           filterResultsItem
                                                               .detailsText),
+                                                  username: FFLocalizations.of(
+                                                          context)
+                                                      .getText(
+                                                    'ivdh2xhj' /*  */,
+                                                  ),
+                                                  detailLabels:
+                                                      functions.decodeDetails(
+                                                          filterResultsItem
+                                                              .detailsLabelText),
                                                 ),
                                               ),
                                             );
@@ -1428,13 +1459,16 @@ class _MarketWidgetState extends State<MarketWidget>
                                                                   AutoSizeText(
                                                                 valueOrDefault<
                                                                     String>(
-                                                                  FFLocalizations.of(context)
-                                                                              .languageCode ==
+                                                                  FFLocalizations.of(context).languageCode ==
                                                                           'fa'
                                                                       ? categoriesItem
                                                                           .catNameFa
-                                                                      : categoriesItem
-                                                                          .catName,
+                                                                      : (FFLocalizations.of(context).languageCode ==
+                                                                              'nl'
+                                                                          ? categoriesItem
+                                                                              .catNameNl
+                                                                          : categoriesItem
+                                                                              .catName),
                                                                   'category',
                                                                 ),
                                                                 textAlign:
@@ -1453,6 +1487,8 @@ class _MarketWidgetState extends State<MarketWidget>
                                                                               .primaryText
                                                                           : FlutterFlowTheme.of(context)
                                                                               .textgray,
+                                                                      fontSize:
+                                                                          15.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       useGoogleFonts:
@@ -1472,178 +1508,6 @@ class _MarketWidgetState extends State<MarketWidget>
                                           },
                                         ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 32.0, 0.0, 16.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          16.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      '77xj3zbf' /* Recent Job Requests */,
-                                                    ),
-                                                    textAlign: TextAlign.start,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleLarge
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .poppins(
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleLarge
-                                                                    .fontStyle,
-                                                          ),
-                                                          fontSize: 18.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleLarge
-                                                                  .fontStyle,
-                                                        ),
-                                                  ),
-                                                ),
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          -1.0, 0.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(16.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'v823sdrj' /* Members looking for a job */,
-                                                      ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .labelSmall
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelSmallFamily,
-                                                            fontSize: 12.0,
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelSmallIsCustom,
-                                                          ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 16.0, 0.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      '4a41kkm7' /* See All */,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          letterSpacing: 0.0,
-                                                          useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMediumIsCustom,
-                                                        ),
-                                                  ),
-                                                  Icon(
-                                                    Icons.arrow_right_sharp,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .textgray,
-                                                    size: 24.0,
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 32.0),
-                                        child: SingleChildScrollView(
-                                          scrollDirection: Axis.horizontal,
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              wrapWithModel(
-                                                model: _model
-                                                    .itemCardJobRequestModel1,
-                                                updateCallback: () =>
-                                                    safeSetState(() {}),
-                                                child:
-                                                    ItemCardJobRequestWidget(),
-                                              ),
-                                              wrapWithModel(
-                                                model: _model
-                                                    .itemCardJobRequestModel2,
-                                                updateCallback: () =>
-                                                    safeSetState(() {}),
-                                                child:
-                                                    ItemCardJobRequestWidget(),
-                                              ),
-                                              wrapWithModel(
-                                                model: _model
-                                                    .itemCardJobRequestModel3,
-                                                updateCallback: () =>
-                                                    safeSetState(() {}),
-                                                child:
-                                                    ItemCardJobRequestWidget(),
-                                              ),
-                                            ]
-                                                .divide(SizedBox(width: 16.0))
-                                                .addToStart(
-                                                    SizedBox(width: 16.0))
-                                                .addToEnd(
-                                                    SizedBox(width: 16.0)),
-                                          ),
-                                        ),
-                                      ),
                                     ],
                                   ),
                                 ),
@@ -1653,85 +1517,6 @@ class _MarketWidgetState extends State<MarketWidget>
                                   child: Stack(
                                     alignment: AlignmentDirectional(1.0, 1.0),
                                     children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 8.0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      16.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'c4hr7zv6' /* Professional Service Providers */,
-                                                ),
-                                                textAlign: TextAlign.start,
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleLarge
-                                                    .override(
-                                                      font: GoogleFonts.poppins(
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleLarge
-                                                                .fontStyle,
-                                                      ),
-                                                      fontSize: 18.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleLarge
-                                                              .fontStyle,
-                                                    ),
-                                              ),
-                                            ),
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  -1.0, 0.0),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 0.0, 0.0, 16.0),
-                                                child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'a1uim8nf' /* Local Businesses and Services */,
-                                                  ),
-                                                  style:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelSmall
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelSmallFamily,
-                                                            fontSize: 12.0,
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelSmallIsCustom,
-                                                          ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
                                       Align(
                                         alignment:
                                             AlignmentDirectional(1.0, 1.0),
@@ -1770,7 +1555,7 @@ class _MarketWidgetState extends State<MarketWidget>
                                               await _model
                                                   .waitForOnePageForListviewSkills();
                                             },
-                                            width: 100.0,
+                                            width: 130.0,
                                             height: 34.0,
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
@@ -1859,6 +1644,9 @@ class _MarketWidgetState extends State<MarketWidget>
                                               _model.sortBy,
                                               'created_at.desc.nullslast',
                                             ),
+                                            langCode:
+                                                FFLocalizations.of(context)
+                                                    .languageCode,
                                           ),
                                         ),
                                         padding: EdgeInsets.fromLTRB(
@@ -1994,12 +1782,23 @@ class _MarketWidgetState extends State<MarketWidget>
                                                         : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/n2imhdlvogb3/profile_avatar_circular.png',
                                                     subCatName:
                                                         filterResultsItem
-                                                            .subCatName,
+                                                            .subCatLabel,
                                                   ),
                                                   details:
                                                       functions.decodeDetails(
                                                           filterResultsItem
                                                               .detailsText),
+                                                  username: filterResultsItem
+                                                      .userName,
+                                                  ratings:
+                                                      filterResultsItem.ratings,
+                                                  review: filterResultsItem
+                                                      .review
+                                                      .toString(),
+                                                  detailLabels:
+                                                      functions.decodeDetails(
+                                                          filterResultsItem
+                                                              .detailsLabelText),
                                                 ),
                                               ),
                                             );
@@ -2194,13 +1993,16 @@ class _MarketWidgetState extends State<MarketWidget>
                                                                   AutoSizeText(
                                                                 valueOrDefault<
                                                                     String>(
-                                                                  FFLocalizations.of(context)
-                                                                              .languageCode ==
+                                                                  FFLocalizations.of(context).languageCode ==
                                                                           'fa'
                                                                       ? categoriesItem
                                                                           .catNameFa
-                                                                      : categoriesItem
-                                                                          .catName,
+                                                                      : (FFLocalizations.of(context).languageCode ==
+                                                                              'nl'
+                                                                          ? categoriesItem
+                                                                              .catNameNl
+                                                                          : categoriesItem
+                                                                              .catName),
                                                                   'category',
                                                                 ),
                                                                 textAlign:
@@ -2219,6 +2021,8 @@ class _MarketWidgetState extends State<MarketWidget>
                                                                               .primaryText
                                                                           : FlutterFlowTheme.of(context)
                                                                               .textgray,
+                                                                      fontSize:
+                                                                          15.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       useGoogleFonts:
@@ -2283,7 +2087,7 @@ class _MarketWidgetState extends State<MarketWidget>
                                                   await _model
                                                       .waitForOnePageForListviewEvents();
                                                 },
-                                                width: 100.0,
+                                                width: 130.0,
                                                 height: 34.0,
                                                 textStyle: FlutterFlowTheme.of(
                                                         context)
@@ -2509,12 +2313,17 @@ class _MarketWidgetState extends State<MarketWidget>
                                                         : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/n2imhdlvogb3/profile_avatar_circular.png',
                                                     subCatName:
                                                         filterResultsItem
-                                                            .subCatName,
+                                                            .subCatLabel,
                                                   ),
                                                   details:
                                                       functions.decodeDetails(
                                                           filterResultsItem
                                                               .detailsText),
+                                                  username: '',
+                                                  detailLabels:
+                                                      functions.decodeDetails(
+                                                          filterResultsItem
+                                                              .detailsLabelText),
                                                 ),
                                               ),
                                             );

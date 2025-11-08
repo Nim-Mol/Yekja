@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'reset_password_page_model.dart';
 export 'reset_password_page_model.dart';
 
@@ -154,21 +153,10 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .headlineMedium
                                               .override(
-                                                font: GoogleFonts.poppins(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .headlineMedium
-                                                          .fontStyle,
-                                                ),
+                                                fontFamily: 'FarsiFonts',
                                                 fontSize: 30.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineMedium
-                                                        .fontStyle,
                                               ),
                                         ),
                                       ),
@@ -197,7 +185,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .titleSmall
                                                 .override(
-                                                  fontFamily: 'Satoshi',
+                                                  fontFamily: 'FarsiFonts',
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryText,
@@ -316,7 +304,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Satoshi',
+                                          fontFamily: 'FarsiFonts',
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
                                           fontSize: 16.0,
@@ -428,7 +416,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Satoshi',
+                                        fontFamily: 'FarsiFonts',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         fontSize: 16.0,
@@ -445,76 +433,98 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 48.0, 0.0, 24.0),
                                   child: FFButtonWidget(
-                                    onPressed: () async {
-                                      if (_model.formKey.currentState == null ||
-                                          !_model.formKey.currentState!
-                                              .validate()) {
-                                        return;
-                                      }
-                                      if (_model.passwordTextController.text ==
-                                          _model.confirmPasswordTextController
-                                              .text) {
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(
-                                          SnackBar(
-                                            content: Text(
-                                              '',
-                                              style: TextStyle(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                            ),
-                                            duration:
-                                                Duration(milliseconds: 4000),
-                                            backgroundColor: Color(0x4240C057),
-                                          ),
-                                        );
-                                        await authManager.updatePassword(
-                                          newPassword: _model
-                                              .passwordTextController.text,
-                                          context: context,
-                                        );
-                                        safeSetState(() {});
+                                    onPressed: (_model.isSubmitting == true)
+                                        ? null
+                                        : () async {
+                                            if (_model.formKey.currentState ==
+                                                    null ||
+                                                !_model.formKey.currentState!
+                                                    .validate()) {
+                                              return;
+                                            }
+                                            _model.isSubmitting = true;
+                                            safeSetState(() {});
+                                            if (_model.passwordTextController
+                                                    .text ==
+                                                _model
+                                                    .confirmPasswordTextController
+                                                    .text) {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                    '',
+                                                    style: TextStyle(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
+                                                  ),
+                                                  duration: Duration(
+                                                      milliseconds: 4000),
+                                                  backgroundColor:
+                                                      Color(0x4240C057),
+                                                ),
+                                              );
+                                              await authManager.updatePassword(
+                                                newPassword: _model
+                                                    .passwordTextController
+                                                    .text,
+                                                context: context,
+                                              );
+                                              safeSetState(() {});
 
-                                        context.pushNamedAuth(
-                                          ProfilePageWidget.routeName,
-                                          context.mounted,
-                                          queryParameters: {
-                                            'profileId': serializeParam(
-                                              currentUserUid,
-                                              ParamType.String,
-                                            ),
-                                          }.withoutNulls,
-                                        );
+                                              _model.isSubmitting = false;
+                                              safeSetState(() {});
 
-                                        return;
-                                      } else {
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(
-                                          SnackBar(
-                                            content: Text(
-                                              'Please enter same password',
-                                              style: TextStyle(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                            ),
-                                            duration:
-                                                Duration(milliseconds: 2000),
-                                            backgroundColor: Color(0x4240C057),
-                                          ),
-                                        );
-                                        safeSetState(() {
-                                          _model.confirmPasswordTextController
-                                              ?.clear();
-                                        });
-                                        return;
-                                      }
-                                    },
+                                              context.pushNamedAuth(
+                                                ProfilePageWidget.routeName,
+                                                context.mounted,
+                                                queryParameters: {
+                                                  'profileId': serializeParam(
+                                                    currentUserUid,
+                                                    ParamType.String,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+
+                                              return;
+                                            } else {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                    'Passwords do not match. Please try again.',
+                                                    style: TextStyle(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
+                                                  ),
+                                                  duration: Duration(
+                                                      milliseconds: 2000),
+                                                  backgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .warning,
+                                                ),
+                                              );
+                                              safeSetState(() {
+                                                _model
+                                                    .confirmPasswordTextController
+                                                    ?.clear();
+                                              });
+                                              _model.isSubmitting = false;
+                                              safeSetState(() {});
+                                              return;
+                                            }
+                                          },
                                     text: FFLocalizations.of(context).getText(
                                       'j3fkaqso' /* Reset password */,
                                     ),
@@ -531,7 +541,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .override(
-                                            fontFamily: 'Satoshi',
+                                            fontFamily: 'FarsiFonts',
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
                                             fontSize: 16.0,
@@ -544,7 +554,6 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
-                                    showLoadingIndicator: false,
                                   ),
                                 ),
                               ],

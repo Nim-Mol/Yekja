@@ -225,11 +225,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => SwipableWidget(),
         ),
         FFRoute(
-          name: SignUpPageWidget.routeName,
-          path: SignUpPageWidget.routePath,
-          builder: (context, params) => SignUpPageWidget(),
-        ),
-        FFRoute(
           name: ForgotPasswordPageWidget.routeName,
           path: ForgotPasswordPageWidget.routePath,
           builder: (context, params) => ForgotPasswordPageWidget(),
@@ -458,6 +453,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           name: BlankPageWidget.routeName,
           path: BlankPageWidget.routePath,
           builder: (context, params) => BlankPageWidget(),
+        ),
+        FFRoute(
+          name: SignUpPageWidget.routeName,
+          path: SignUpPageWidget.routePath,
+          builder: (context, params) => SignUpPageWidget(),
+        ),
+        FFRoute(
+          name: DetailSkillsWidget.routeName,
+          path: DetailSkillsWidget.routePath,
+          builder: (context, params) => DetailSkillsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

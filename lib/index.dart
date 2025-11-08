@@ -35,7 +35,6 @@ export '/admin/reported_user/reported_user_widget.dart' show ReportedUserWidget;
 export '/posts/create_post/post_main_cat/post_main_cat_widget.dart'
     show PostMainCatWidget;
 export '/home/swipable/swipable_widget.dart' show SwipableWidget;
-export '/login/sign_up_page/sign_up_page_widget.dart' show SignUpPageWidget;
 export '/login/forgot_password_page/forgot_password_page_widget.dart'
     show ForgotPasswordPageWidget;
 export '/profile/profile_extended/profile_extended_widget.dart'
@@ -79,3 +78,6 @@ export '/posts/create_post/detail_care_and_assistance/detail_care_and_assistance
 export '/posts/create_post/detail_events/detail_events_widget.dart'
     show DetailEventsWidget;
 export '/blank_page/blank_page_widget.dart' show BlankPageWidget;
+export '/login/sign_up_page/sign_up_page_widget.dart' show SignUpPageWidget;
+export '/posts/create_post/detail_skills/detail_skills_widget.dart'
+    show DetailSkillsWidget;

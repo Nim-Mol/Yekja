@@ -16,6 +16,7 @@ import '/posts/value_popup/value_popup_widget.dart';
 import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.dart';
 import '/shared_components/error_comp/error_comp_widget.dart';
 import '/shared_components/photo_gallary/photo_gallary_widget.dart';
+import 'dart:async';
 import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/gestures.dart';
@@ -1439,42 +1440,63 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                                               context)),
                                               child: ConfirmCancelPopUpWidget(
                                                 header:
-                                                    'Ready to Publish Your Post?',
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'gcvdwmgg' /* Ready to Publish Your Post? */,
+                                                ),
                                                 hintText:
-                                                    'Please confirm that all details are correct. Once published, your post will be visible to others.',
-                                                cancelText: 'Cancel',
-                                                confirmText: 'Confirm',
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'pjbqnmp5' /* Note: Yekja never gets involve... */,
+                                                ),
+                                                cancelText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'f5xxk8md' /* Cancel */,
+                                                ),
+                                                confirmText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'l2miz1aw' /* Confirm */,
+                                                ),
                                                 onConfirmAction: () async {
-                                                  _model.newPostOut =
-                                                      await PostCreateMuxTblTable()
-                                                          .insert({
-                                                    'title': FFAppState()
-                                                        .postState
-                                                        .title,
-                                                    'description': FFAppState()
-                                                        .postState
-                                                        .description,
-                                                    'city':
-                                                        valueOrDefault<String>(
-                                                      FFAppState()
-                                                          .postState
-                                                          .city,
-                                                      'Unlisted',
-                                                    ),
-                                                    'sub_cat_id': FFAppState()
-                                                        .postState
-                                                        .subCatId,
-                                                    'images': FFAppState()
-                                                        .postState
-                                                        .images,
-                                                    'detail_table': FFAppState()
-                                                        .postDetailTable,
-                                                    'details': FFAppState()
-                                                        .postDetailJSON,
-                                                  });
+                                                  unawaited(
+                                                    () async {
+                                                      _model.newPostOut =
+                                                          await PostCreateMuxTblTable()
+                                                              .insert({
+                                                        'title': FFAppState()
+                                                            .postState
+                                                            .title,
+                                                        'description':
+                                                            FFAppState()
+                                                                .postState
+                                                                .description,
+                                                        'city': valueOrDefault<
+                                                            String>(
+                                                          FFAppState()
+                                                              .postState
+                                                              .city,
+                                                          'Unlisted',
+                                                        ),
+                                                        'sub_cat_id':
+                                                            FFAppState()
+                                                                .postState
+                                                                .subCatId,
+                                                        'images': FFAppState()
+                                                            .postState
+                                                            .images,
+                                                        'detail_table':
+                                                            FFAppState()
+                                                                .postDetailTable,
+                                                        'details': FFAppState()
+                                                            .postDetailJSON,
+                                                      });
+                                                    }(),
+                                                  );
                                                   await Future.delayed(
                                                     Duration(
-                                                      milliseconds: 1000,
+                                                      milliseconds: 4000,
                                                     ),
                                                   );
                                                   if (_model.newPostOut !=

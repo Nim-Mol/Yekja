@@ -15,12 +15,6 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   List<CitiesRow>? citiesOutput;
   // Stores action output result for [Backend Call - Query Rows] action in HomePage widget.
   List<ViewTopSubcategoriesRow>? topsubcatOutput;
-  // Stores action output result for [Backend Call - Query Rows] action in HomePage widget.
-  List<UserExtRow>? user;
-  // Stores action output result for [Backend Call - Query Rows] action in HomePage widget.
-  List<UserFavoritesRow>? userFav;
-  // Stores action output result for [Custom Action - decodeJwtRole] action in HomePage widget.
-  String? userRole;
   // State field(s) for searchField widget.
   FocusNode? searchFieldFocusNode;
   TextEditingController? searchFieldTextController;

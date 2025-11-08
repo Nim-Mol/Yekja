@@ -1,11 +1,10 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/login/verify_code/verify_code_widget.dart';
-import '/shared_components/botton_standard/botton_standard_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'sign_up_page_model.dart';
 export 'sign_up_page_model.dart';
 
@@ -132,33 +131,14 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                         ),
                                         Text(
                                           FFLocalizations.of(context).getText(
-                                            'w51ndrcz' /* Create an account */,
+                                            'mfq18rlk' /* Create an account */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .headlineLarge
                                               .override(
-                                                font: GoogleFonts.poppins(
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .headlineLarge
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .headlineLarge
-                                                          .fontStyle,
-                                                ),
+                                                fontFamily: 'FarsiFonts',
                                                 fontSize: 30.0,
                                                 letterSpacing: 0.0,
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineLarge
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineLarge
-                                                        .fontStyle,
                                               ),
                                         ),
                                         Padding(
@@ -167,7 +147,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                   0.0, 12.0, 0.0, 24.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              '4z21d4lm' /* Let's get started by filling o... */,
+                                              'r6x4yqnw' /* Let's get started by filling o... */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
@@ -235,15 +215,17 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                           key: _model.formKey,
                                           autovalidateMode:
                                               AutovalidateMode.always,
-                                          child: ListView(
-                                            padding: EdgeInsets.symmetric(
-                                                vertical: 16.0),
-                                            shrinkWrap: true,
-                                            scrollDirection: Axis.vertical,
-                                            children: [
-                                              Container(
-                                                width: 200.0,
-                                                child: TextFormField(
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 16.0, 0.0, 0.0),
+                                            child: ListView(
+                                              padding: EdgeInsets.symmetric(
+                                                  vertical: 16.0),
+                                              shrinkWrap: true,
+                                              scrollDirection: Axis.vertical,
+                                              children: [
+                                                TextFormField(
                                                   controller: _model
                                                       .userNameTextController,
                                                   focusNode:
@@ -256,7 +238,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                      '7256pz7h' /* Username */,
+                                                      'totm38xv' /* Username */,
                                                     ),
                                                     labelStyle:
                                                         FlutterFlowTheme.of(
@@ -296,7 +278,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .secondaryBackground,
-                                                        width: 1.0,
+                                                        width: 0.3,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -309,7 +291,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
-                                                        width: 1.0,
+                                                        width: 0.3,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -322,7 +304,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 1.0,
+                                                        width: 0.3,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -335,7 +317,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 1.0,
+                                                        width: 0.3,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -373,10 +355,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                       .userNameTextControllerValidator
                                                       .asValidator(context),
                                                 ),
-                                              ),
-                                              Container(
-                                                width: 200.0,
-                                                child: TextFormField(
+                                                TextFormField(
                                                   controller: _model
                                                       .emailAddressTextController,
                                                   focusNode: _model
@@ -389,7 +368,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                      'l59oh5jc' /* Email */,
+                                                      'f1mymf8w' /* Email */,
                                                     ),
                                                     labelStyle:
                                                         FlutterFlowTheme.of(
@@ -429,7 +408,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .secondaryBackground,
-                                                        width: 1.0,
+                                                        width: 0.3,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -442,7 +421,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
-                                                        width: 1.0,
+                                                        width: 0.3,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -455,7 +434,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 1.0,
+                                                        width: 0.3,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -468,7 +447,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 1.0,
+                                                        width: 0.3,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -506,10 +485,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                       .emailAddressTextControllerValidator
                                                       .asValidator(context),
                                                 ),
-                                              ),
-                                              Container(
-                                                width: 200.0,
-                                                child: TextFormField(
+                                                TextFormField(
                                                   controller: _model
                                                       .passWordTextController,
                                                   focusNode:
@@ -523,7 +499,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                      '17880f1u' /* Password */,
+                                                      'zetaeoul' /* Password */,
                                                     ),
                                                     labelStyle:
                                                         FlutterFlowTheme.of(
@@ -563,7 +539,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .secondaryBackground,
-                                                        width: 1.0,
+                                                        width: 0.3,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -576,7 +552,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
-                                                        width: 1.0,
+                                                        width: 0.3,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -589,7 +565,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 1.0,
+                                                        width: 0.3,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -602,7 +578,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 1.0,
+                                                        width: 0.3,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -662,10 +638,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                       .passWordTextControllerValidator
                                                       .asValidator(context),
                                                 ),
-                                              ),
-                                              Container(
-                                                width: 200.0,
-                                                child: TextFormField(
+                                                TextFormField(
                                                   controller: _model
                                                       .confPasswordTextController,
                                                   focusNode: _model
@@ -679,7 +652,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                      '1256s0cp' /* Confirm Password */,
+                                                      '53qxhdtu' /* Confirm Password */,
                                                     ),
                                                     labelStyle:
                                                         FlutterFlowTheme.of(
@@ -719,7 +692,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .secondaryBackground,
-                                                        width: 1.0,
+                                                        width: 0.3,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -732,7 +705,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
-                                                        width: 1.0,
+                                                        width: 0.3,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -745,7 +718,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 1.0,
+                                                        width: 0.3,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -758,7 +731,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 1.0,
+                                                        width: 0.3,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -818,144 +791,210 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                       .confPasswordTextControllerValidator
                                                       .asValidator(context),
                                                 ),
-                                              ),
-                                              if (_model.passWordTextController
-                                                      .text !=
-                                                  _model
-                                                      .confPasswordTextController
-                                                      .text)
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          -1.0, -1.0),
-                                                  child: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'rl6es88l' /* Password dosen't match. */,
+                                                if (_model
+                                                        .passWordTextController
+                                                        .text !=
+                                                    _model
+                                                        .confPasswordTextController
+                                                        .text)
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            -1.0, -1.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'txk1564u' /* Password dosen't match. */,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .error,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
                                                     ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .error,
-                                                          letterSpacing: 0.0,
-                                                          useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMediumIsCustom,
+                                                  ),
+                                              ].divide(SizedBox(height: 16.0)),
+                                            ),
+                                          ),
+                                        ),
+                                        Builder(
+                                          builder: (context) => Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 15.0),
+                                            child: FFButtonWidget(
+                                              onPressed: (_model.loading ==
+                                                      true)
+                                                  ? null
+                                                  : () async {
+                                                      _model.validationOut =
+                                                          true;
+                                                      if (_model.formKey
+                                                                  .currentState ==
+                                                              null ||
+                                                          !_model.formKey
+                                                              .currentState!
+                                                              .validate()) {
+                                                        safeSetState(() => _model
+                                                                .validationOut =
+                                                            false);
+                                                        return;
+                                                      }
+                                                      _model.loading = true;
+                                                      safeSetState(() {});
+                                                      _model.authonticationError =
+                                                          await actions
+                                                              .customSignUpWithEmail(
+                                                        _model
+                                                            .emailAddressTextController
+                                                            .text,
+                                                        _model
+                                                            .passWordTextController
+                                                            .text,
+                                                        _model
+                                                            .confPasswordTextController
+                                                            .text,
+                                                      );
+                                                      await Future.delayed(
+                                                        Duration(
+                                                          milliseconds: 3000,
                                                         ),
-                                                  ),
-                                                ),
-                                              Builder(
-                                                builder: (context) => Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 16.0),
-                                                  child: wrapWithModel(
-                                                    model: _model
-                                                        .bottonStandardModel,
-                                                    updateCallback: () =>
-                                                        safeSetState(() {}),
-                                                    child: BottonStandardWidget(
-                                                      buttontext:
-                                                          'Create Account',
-                                                      onPressed: () async {
-                                                        _model.validationOut =
-                                                            true;
-                                                        if (_model.formKey
-                                                                    .currentState ==
-                                                                null ||
-                                                            !_model.formKey
-                                                                .currentState!
-                                                                .validate()) {
-                                                          safeSetState(() =>
-                                                              _model.validationOut =
-                                                                  false);
-                                                          return;
-                                                        }
-                                                        _model.authonticationError =
-                                                            await actions
-                                                                .customSignUpWithEmail(
-                                                          _model
-                                                              .emailAddressTextController
-                                                              .text,
-                                                          _model
-                                                              .passWordTextController
-                                                              .text,
-                                                          _model
-                                                              .confPasswordTextController
-                                                              .text,
-                                                        );
-                                                        if (_model.authonticationError ==
-                                                                null ||
-                                                            _model.authonticationError ==
-                                                                '') {
-                                                          await showDialog(
-                                                            context: context,
-                                                            builder:
-                                                                (dialogContext) {
-                                                              return Dialog(
-                                                                elevation: 0,
-                                                                insetPadding:
-                                                                    EdgeInsets
-                                                                        .zero,
-                                                                backgroundColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                alignment: AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0)
-                                                                    .resolve(
-                                                                        Directionality.of(
-                                                                            context)),
+                                                      );
+                                                      if (_model.authonticationError ==
+                                                              null ||
+                                                          _model.authonticationError ==
+                                                              '') {
+                                                        await showDialog(
+                                                          context: context,
+                                                          builder:
+                                                              (dialogContext) {
+                                                            return Dialog(
+                                                              elevation: 0,
+                                                              insetPadding:
+                                                                  EdgeInsets
+                                                                      .zero,
+                                                              backgroundColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              alignment: AlignmentDirectional(
+                                                                      0.0, 0.0)
+                                                                  .resolve(
+                                                                      Directionality.of(
+                                                                          context)),
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          dialogContext)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
                                                                 child:
-                                                                    GestureDetector(
-                                                                  onTap: () {
-                                                                    FocusScope.of(
-                                                                            dialogContext)
-                                                                        .unfocus();
-                                                                    FocusManager
-                                                                        .instance
-                                                                        .primaryFocus
-                                                                        ?.unfocus();
-                                                                  },
-                                                                  child:
-                                                                      VerifyCodeWidget(
-                                                                    userEmail: _model
-                                                                        .emailAddressTextController
-                                                                        .text,
-                                                                    userName: _model
-                                                                        .userNameTextController
-                                                                        .text,
-                                                                    password: _model
-                                                                        .passWordTextController
-                                                                        .text,
-                                                                    confirmPassword:
-                                                                        _model
-                                                                            .confPasswordTextController
-                                                                            .text,
-                                                                  ),
+                                                                    VerifyCodeWidget(
+                                                                  userEmail: _model
+                                                                      .emailAddressTextController
+                                                                      .text,
+                                                                  userName: _model
+                                                                      .userNameTextController
+                                                                      .text,
+                                                                  password: _model
+                                                                      .passWordTextController
+                                                                      .text,
+                                                                  confirmPassword:
+                                                                      _model
+                                                                          .confPasswordTextController
+                                                                          .text,
                                                                 ),
-                                                              );
-                                                            },
-                                                          );
-                                                        } else {
-                                                          safeSetState(() {});
-                                                        }
+                                                              ),
+                                                            );
+                                                          },
+                                                        );
+                                                      } else {
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                          SnackBar(
+                                                            content: Text(
+                                                              _model
+                                                                  .authonticationError!,
+                                                              style: TextStyle(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                fontSize: 14.0,
+                                                              ),
+                                                            ),
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    4000),
+                                                            backgroundColor:
+                                                                Color(
+                                                                    0xFFF11917),
+                                                          ),
+                                                        );
+                                                      }
 
-                                                        safeSetState(() {});
-                                                      },
-                                                    ),
-                                                  ),
-                                                ),
+                                                      _model.loading = false;
+                                                      safeSetState(() {});
+
+                                                      safeSetState(() {});
+                                                    },
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                '00jrevyh' /* Create Account */,
                                               ),
-                                            ].divide(SizedBox(height: 16.0)),
+                                              options: FFButtonOptions(
+                                                width: double.infinity,
+                                                height: 48.0,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 0.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .greenInit,
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleMedium
+                                                    .override(
+                                                      fontFamily: 'FarsiFonts',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
+                                                elevation: 0.0,
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                            ),
                                           ),
                                         ),
                                         Container(
@@ -1000,7 +1039,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'q3xjm17v' /* OR */,
+                                                      '7dtf9w99' /* OR */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -1051,7 +1090,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                       text: FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'eo7evm6p' /* Already have an account?  */,
+                                                        'wico1una' /* Already have an account?  */,
                                                       ),
                                                       style: TextStyle(
                                                         color:
@@ -1064,7 +1103,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                       text: FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'vk8yd8no' /*  Sign In here */,
+                                                        '2vbhldic' /*  Sign In here */,
                                                       ),
                                                       style: FlutterFlowTheme
                                                               .of(context)

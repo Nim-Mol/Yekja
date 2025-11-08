@@ -30,6 +30,12 @@ class ViewPostSearchRow extends SupabaseDataRow {
   String? get profileAvatar => getField<String>('profile_avatar');
   set profileAvatar(String? value) => setField<String>('profile_avatar', value);
 
+  double? get review => getField<double>('review');
+  set review(double? value) => setField<double>('review', value);
+
+  int? get ratings => getField<int>('ratings');
+  set ratings(int? value) => setField<int>('ratings', value);
+
   String? get detailTable => getField<String>('detail_table');
   set detailTable(String? value) => setField<String>('detail_table', value);
 
@@ -63,17 +69,26 @@ class ViewPostSearchRow extends SupabaseDataRow {
   String? get subCatName => getField<String>('sub_cat_name');
   set subCatName(String? value) => setField<String>('sub_cat_name', value);
 
+  String? get subCatCode => getField<String>('sub_cat_code');
+  set subCatCode(String? value) => setField<String>('sub_cat_code', value);
+
   int? get catId => getField<int>('cat_id');
   set catId(int? value) => setField<int>('cat_id', value);
 
   String? get catName => getField<String>('cat_name');
   set catName(String? value) => setField<String>('cat_name', value);
 
+  String? get catCode => getField<String>('cat_code');
+  set catCode(String? value) => setField<String>('cat_code', value);
+
   int? get mainCatId => getField<int>('main_cat_id');
   set mainCatId(int? value) => setField<int>('main_cat_id', value);
 
   String? get mainCatName => getField<String>('main_cat_name');
   set mainCatName(String? value) => setField<String>('main_cat_name', value);
+
+  String? get mainCatCode => getField<String>('main_cat_code');
+  set mainCatCode(String? value) => setField<String>('main_cat_code', value);
 
   String? get effectiveColorHex => getField<String>('effective_color_hex');
   set effectiveColorHex(String? value) =>
@@ -99,6 +114,23 @@ class ViewPostSearchRow extends SupabaseDataRow {
   bool? get allowCall => getField<bool>('allow_call');
   set allowCall(bool? value) => setField<bool>('allow_call', value);
 
+  String? get mainCatLabel => getField<String>('main_cat_label');
+  set mainCatLabel(String? value) => setField<String>('main_cat_label', value);
+
+  String? get catLabel => getField<String>('cat_label');
+  set catLabel(String? value) => setField<String>('cat_label', value);
+
+  String? get subCatLabel => getField<String>('sub_cat_label');
+  set subCatLabel(String? value) => setField<String>('sub_cat_label', value);
+
+  dynamic get detailsLabels => getField<dynamic>('details_labels');
+  set detailsLabels(dynamic value) =>
+      setField<dynamic>('details_labels', value);
+
   String? get detailsText => getField<String>('details_text');
   set detailsText(String? value) => setField<String>('details_text', value);
+
+  String? get detailsLabelText => getField<String>('details_label_text');
+  set detailsLabelText(String? value) =>
+      setField<String>('details_label_text', value);
 }

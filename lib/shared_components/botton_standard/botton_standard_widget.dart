@@ -49,9 +49,8 @@ class _BottonStandardWidgetState extends State<BottonStandardWidget> {
       onPressed: () async {
         await widget.onPressed?.call();
       },
-      text: valueOrDefault<String>(
-        widget.buttontext,
-        'Next',
+      text: FFLocalizations.of(context).getText(
+        'bmqd8rae' /* Next */,
       ),
       options: FFButtonOptions(
         width: double.infinity,
@@ -61,7 +60,7 @@ class _BottonStandardWidgetState extends State<BottonStandardWidget> {
         iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
         color: FlutterFlowTheme.of(context).greenInit,
         textStyle: FlutterFlowTheme.of(context).titleMedium.override(
-              fontFamily: 'Satoshi',
+              fontFamily: 'FarsiFonts',
               color: FlutterFlowTheme.of(context).primary,
               fontSize: 16.0,
               letterSpacing: 0.0,

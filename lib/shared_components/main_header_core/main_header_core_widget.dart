@@ -7,7 +7,6 @@ import '/shared_components/yekja_score_pop_up/yekja_score_pop_up_widget.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'main_header_core_model.dart';
 export 'main_header_core_model.dart';
@@ -161,26 +160,13 @@ class _MainHeaderCoreWidgetState extends State<MainHeaderCoreWidget> {
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    font: GoogleFonts.poppins(
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .fontStyle,
-                                                    ),
+                                                    fontFamily: 'FarsiFonts',
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primary,
                                                     fontSize: 16.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .fontStyle,
                                                   ),
                                             ),
                                           ),
@@ -195,8 +181,8 @@ class _MainHeaderCoreWidgetState extends State<MainHeaderCoreWidget> {
                           Align(
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: FlutterFlowLanguageSelector(
-                              width: 120.0,
-                              height: 22.7,
+                              width: 140.0,
+                              height: 32.0,
                               backgroundColor: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                               borderColor: Colors.transparent,
@@ -214,8 +200,7 @@ class _MainHeaderCoreWidgetState extends State<MainHeaderCoreWidget> {
                                             .labelSmallIsCustom,
                                   ),
                               hideFlags: false,
-                              flagSize: 20.0,
-                              flagTextGap: 6.0,
+                              flagSize: 24.0,
                               currentLanguage:
                                   FFLocalizations.of(context).languageCode,
                               languages: FFLocalizations.languages(),

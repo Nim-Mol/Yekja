@@ -71,6 +71,9 @@ abstract class FlutterFlowTheme {
   late Color service;
   late Color event;
   late Color business;
+  late Color successSnack;
+  late Color warningSnack;
+  late Color errorSnack;
 
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
@@ -186,8 +189,8 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color accent3 = const Color(0xC4115624);
   late Color accent4 = const Color(0xFF1A8D9A);
   late Color success = const Color(0xFF00798A);
-  late Color warning = const Color(0xFFBA8D08);
-  late Color error = const Color(0xFFF25A57);
+  late Color warning = const Color(0xFFAA8102);
+  late Color error = const Color(0xFFFF0400);
   late Color info = const Color(0xFFDCDCDC);
 
   late Color textgray = const Color(0xCFD4D4D4);
@@ -220,6 +223,9 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color service = const Color(0xFFF0C206);
   late Color event = const Color(0xFFA70D0A);
   late Color business = const Color(0xFF012459);
+  late Color successSnack = const Color(0xFF01410C);
+  late Color warningSnack = const Color(0xFFAA8102);
+  late Color errorSnack = const Color(0xFF7C0401);
 }
 
 abstract class Typography {
@@ -275,122 +281,122 @@ class MobileTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Satoshi';
+  String get displayLargeFamily => 'FarsiFonts';
   bool get displayLargeIsCustom => true;
   TextStyle get displayLarge => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primary,
         fontWeight: FontWeight.normal,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'Satoshi';
+  String get displayMediumFamily => 'FarsiFonts';
   bool get displayMediumIsCustom => true;
   TextStyle get displayMedium => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primary,
         fontWeight: FontWeight.normal,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'Satoshi';
+  String get displaySmallFamily => 'FarsiFonts';
   bool get displaySmallIsCustom => true;
   TextStyle get displaySmall => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primary,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'Satoshi';
+  String get headlineLargeFamily => 'FarsiFonts';
   bool get headlineLargeIsCustom => true;
   TextStyle get headlineLarge => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primary,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Satoshi';
+  String get headlineMediumFamily => 'FarsiFonts';
   bool get headlineMediumIsCustom => true;
   TextStyle get headlineMedium => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primary,
         fontWeight: FontWeight.normal,
         fontSize: 24.0,
       );
-  String get headlineSmallFamily => 'Satoshi';
+  String get headlineSmallFamily => 'FarsiFonts';
   bool get headlineSmallIsCustom => true;
   TextStyle get headlineSmall => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primary,
         fontWeight: FontWeight.w500,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Satoshi';
+  String get titleLargeFamily => 'FarsiFonts';
   bool get titleLargeIsCustom => true;
   TextStyle get titleLarge => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primary,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Satoshi';
+  String get titleMediumFamily => 'FarsiFonts';
   bool get titleMediumIsCustom => true;
   TextStyle get titleMedium => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.info,
         fontWeight: FontWeight.normal,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Satoshi';
+  String get titleSmallFamily => 'FarsiFonts';
   bool get titleSmallIsCustom => true;
   TextStyle get titleSmall => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Satoshi';
+  String get labelLargeFamily => 'FarsiFonts';
   bool get labelLargeIsCustom => true;
   TextStyle get labelLarge => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Satoshi';
+  String get labelMediumFamily => 'FarsiFonts';
   bool get labelMediumIsCustom => true;
   TextStyle get labelMedium => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Satoshi';
+  String get labelSmallFamily => 'FarsiFonts';
   bool get labelSmallIsCustom => true;
   TextStyle get labelSmall => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Satoshi';
+  String get bodyLargeFamily => 'FarsiFonts';
   bool get bodyLargeIsCustom => true;
   TextStyle get bodyLarge => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primary,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Satoshi';
+  String get bodyMediumFamily => 'FarsiFonts';
   bool get bodyMediumIsCustom => true;
   TextStyle get bodyMedium => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primary,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Satoshi';
+  String get bodySmallFamily => 'FarsiFonts';
   bool get bodySmallIsCustom => true;
   TextStyle get bodySmall => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primary,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
@@ -402,122 +408,122 @@ class TabletTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Satoshi';
+  String get displayLargeFamily => 'FarsiFonts';
   bool get displayLargeIsCustom => true;
   TextStyle get displayLarge => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'Satoshi';
+  String get displayMediumFamily => 'FarsiFonts';
   bool get displayMediumIsCustom => true;
   TextStyle get displayMedium => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'Satoshi';
+  String get displaySmallFamily => 'FarsiFonts';
   bool get displaySmallIsCustom => true;
   TextStyle get displaySmall => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'Satoshi';
+  String get headlineLargeFamily => 'FarsiFonts';
   bool get headlineLargeIsCustom => true;
   TextStyle get headlineLarge => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Satoshi';
+  String get headlineMediumFamily => 'FarsiFonts';
   bool get headlineMediumIsCustom => true;
   TextStyle get headlineMedium => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 24.0,
       );
-  String get headlineSmallFamily => 'Satoshi';
+  String get headlineSmallFamily => 'FarsiFonts';
   bool get headlineSmallIsCustom => true;
   TextStyle get headlineSmall => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Satoshi';
+  String get titleLargeFamily => 'FarsiFonts';
   bool get titleLargeIsCustom => true;
   TextStyle get titleLarge => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Satoshi';
+  String get titleMediumFamily => 'FarsiFonts';
   bool get titleMediumIsCustom => true;
   TextStyle get titleMedium => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.info,
         fontWeight: FontWeight.normal,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Satoshi';
+  String get titleSmallFamily => 'FarsiFonts';
   bool get titleSmallIsCustom => true;
   TextStyle get titleSmall => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Satoshi';
+  String get labelLargeFamily => 'FarsiFonts';
   bool get labelLargeIsCustom => true;
   TextStyle get labelLarge => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Satoshi';
+  String get labelMediumFamily => 'FarsiFonts';
   bool get labelMediumIsCustom => true;
   TextStyle get labelMedium => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Satoshi';
+  String get labelSmallFamily => 'FarsiFonts';
   bool get labelSmallIsCustom => true;
   TextStyle get labelSmall => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Satoshi';
+  String get bodyLargeFamily => 'FarsiFonts';
   bool get bodyLargeIsCustom => true;
   TextStyle get bodyLarge => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Satoshi';
+  String get bodyMediumFamily => 'FarsiFonts';
   bool get bodyMediumIsCustom => true;
   TextStyle get bodyMedium => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Satoshi';
+  String get bodySmallFamily => 'FarsiFonts';
   bool get bodySmallIsCustom => true;
   TextStyle get bodySmall => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
@@ -529,122 +535,122 @@ class DesktopTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Satoshi';
+  String get displayLargeFamily => 'FarsiFonts';
   bool get displayLargeIsCustom => true;
   TextStyle get displayLarge => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'Satoshi';
+  String get displayMediumFamily => 'FarsiFonts';
   bool get displayMediumIsCustom => true;
   TextStyle get displayMedium => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'Satoshi';
+  String get displaySmallFamily => 'FarsiFonts';
   bool get displaySmallIsCustom => true;
   TextStyle get displaySmall => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'Satoshi';
+  String get headlineLargeFamily => 'FarsiFonts';
   bool get headlineLargeIsCustom => true;
   TextStyle get headlineLarge => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Satoshi';
+  String get headlineMediumFamily => 'FarsiFonts';
   bool get headlineMediumIsCustom => true;
   TextStyle get headlineMedium => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 24.0,
       );
-  String get headlineSmallFamily => 'Satoshi';
+  String get headlineSmallFamily => 'FarsiFonts';
   bool get headlineSmallIsCustom => true;
   TextStyle get headlineSmall => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Satoshi';
+  String get titleLargeFamily => 'FarsiFonts';
   bool get titleLargeIsCustom => true;
   TextStyle get titleLarge => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Satoshi';
+  String get titleMediumFamily => 'FarsiFonts';
   bool get titleMediumIsCustom => true;
   TextStyle get titleMedium => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.info,
         fontWeight: FontWeight.normal,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Satoshi';
+  String get titleSmallFamily => 'FarsiFonts';
   bool get titleSmallIsCustom => true;
   TextStyle get titleSmall => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Satoshi';
+  String get labelLargeFamily => 'FarsiFonts';
   bool get labelLargeIsCustom => true;
   TextStyle get labelLarge => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Satoshi';
+  String get labelMediumFamily => 'FarsiFonts';
   bool get labelMediumIsCustom => true;
   TextStyle get labelMedium => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Satoshi';
+  String get labelSmallFamily => 'FarsiFonts';
   bool get labelSmallIsCustom => true;
   TextStyle get labelSmall => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Satoshi';
+  String get bodyLargeFamily => 'FarsiFonts';
   bool get bodyLargeIsCustom => true;
   TextStyle get bodyLarge => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Satoshi';
+  String get bodyMediumFamily => 'FarsiFonts';
   bool get bodyMediumIsCustom => true;
   TextStyle get bodyMedium => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Satoshi';
+  String get bodySmallFamily => 'FarsiFonts';
   bool get bodySmallIsCustom => true;
   TextStyle get bodySmall => TextStyle(
-        fontFamily: 'Satoshi',
+        fontFamily: 'FarsiFonts',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,

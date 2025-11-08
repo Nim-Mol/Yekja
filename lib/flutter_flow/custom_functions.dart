@@ -338,3 +338,7 @@ String formatIsoDate(String? iso) {
 
   return '$mon $day, $year • $hh:$mm';
 }
+
+String stringListToCommaString(List<String>? stringList) {
+  return stringList?.join(', ') ?? '';
+}

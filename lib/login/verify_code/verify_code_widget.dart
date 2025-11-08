@@ -1,4 +1,5 @@
 import '/auth/supabase_auth/auth_util.dart';
+import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -13,6 +14,7 @@ import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:provider/provider.dart';
 import 'verify_code_model.dart';
 export 'verify_code_model.dart';
 
@@ -101,6 +103,8 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Align(
       alignment: AlignmentDirectional(0.0, -1.0),
       child: Container(
@@ -173,7 +177,7 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                               style: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Satoshi',
+                                    fontFamily: 'FarsiFonts',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     fontSize: 17.0,
@@ -381,7 +385,7 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                               FlutterFlowTheme.of(context).secondaryBackground,
                           textStyle:
                               FlutterFlowTheme.of(context).titleMedium.override(
-                                    fontFamily: 'Satoshi',
+                                    fontFamily: 'FarsiFonts',
                                     color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
@@ -400,55 +404,78 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                     padding:
                         EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 20.0, 24.0),
                     child: FFButtonWidget(
-                      onPressed: () async {
-                        var _shouldSetState = false;
-                        _model.verificationMessage =
-                            await actions.verifyEmailWithToken(
-                          widget.userEmail!,
-                          _model.pinCodeController!.text,
-                        );
-                        _shouldSetState = true;
-                        if (_model.verificationMessage == true) {
-                          await Future.delayed(
-                            Duration(
-                              milliseconds: 3000,
-                            ),
-                          );
-                          _model.userExt = await UserExtTable().insert({
-                            'id': currentUserUid,
-                            'email': currentUserEmail,
-                            'user_name': widget.userName,
-                          });
-                          _shouldSetState = true;
-                          await ConsentsTable().insert({
-                            'user_id': currentUserUid,
-                          });
-                          // Creat Chat ROOM
-                          _model.yekjaChat2Customer =
-                              await ChatsTable().insert({
-                            'recipient': currentUserUid,
-                            'sender_name': 'Yekja',
-                            'sender': FFAppConstants.YekjaAdminID,
-                            'post_id': FFAppConstants.YekjaAdminID,
-                          });
-                          _shouldSetState = true;
-                          // Send message
-                          await MessagesTable().insert({
-                            'message_text':
-                                'Hi Welcome to Yekja! You can reach out to our community members and start trading, requesting or offering support. In case of any issues please make sure to contact us. Wishing you a nice experience!',
-                            'recipient': currentUserUid,
-                            'chat_id': _model.yekjaChat2Customer?.id,
-                            'sent_by': FFAppConstants.YekjaAdminID,
-                          });
-                        } else {
-                          if (_shouldSetState) safeSetState(() {});
-                          return;
-                        }
+                      onPressed: _model.loading
+                          ? null
+                          : () async {
+                              _model.verificationMessage =
+                                  await actions.verifyEmailWithToken(
+                                widget.userEmail!,
+                                _model.pinCodeController!.text,
+                              );
+                              _model.loading = true;
+                              safeSetState(() {});
+                              if (_model.verificationMessage == true) {
+                                await Future.delayed(
+                                  Duration(
+                                    milliseconds: 3000,
+                                  ),
+                                );
+                                if (FFAppState().GuestInfo.sessionId != '') {
+                                  await MonitoringGuestTable().update(
+                                    data: {
+                                      'signed_up': true,
+                                      'user_id': currentUserUid,
+                                    },
+                                    matchingRows: (rows) => rows.eqOrNull(
+                                      'session_id',
+                                      FFAppState().GuestInfo.sessionId,
+                                    ),
+                                  );
+                                  FFAppState().GuestInfo = GuestUserStruct();
+                                  safeSetState(() {});
+                                }
+                                _model.userExt = await UserExtTable().insert({
+                                  'id': currentUserUid,
+                                  'email': currentUserEmail,
+                                  'user_name': widget.userName,
+                                });
+                                await ConsentsTable().insert({
+                                  'user_id': currentUserUid,
+                                });
+                                // Creat Chat ROOM
+                                _model.yekjaChat2Customer =
+                                    await ChatsTable().insert({
+                                  'recipient': currentUserUid,
+                                  'sender_name': 'Yekja',
+                                  'sender': FFAppConstants.YekjaAdminID,
+                                  'post_id': FFAppConstants.YekjaAdminID,
+                                });
+                                // Send message
+                                await MessagesTable().insert({
+                                  'message_text':
+                                      'Hi Welcome to Yekja! You can reach out to our community members and start trading, requesting or offering support. In case of any issues please make sure to contact us. Wishing you a nice experience!',
+                                  'recipient': currentUserUid,
+                                  'chat_id': _model.yekjaChat2Customer?.id,
+                                  'sent_by': FFAppConstants.YekjaAdminID,
+                                });
+                                _model.userRole = await actions.decodeJwtRole();
+                                // Update UserInfo global object
+                                FFAppState().userInfo = UserInfoStruct(
+                                  userId: _model.userExt?.id,
+                                  userName: _model.userExt?.userName,
+                                  role: _model.userRole,
+                                );
+                                safeSetState(() {});
+                                _model.loading = false;
+                                safeSetState(() {});
 
-                        context.goNamed(SignInPageWidget.routeName);
+                                context.goNamed(HomePageWidget.routeName);
+                              } else {
+                                safeSetState(() {});
+                              }
 
-                        if (_shouldSetState) safeSetState(() {});
-                      },
+                              safeSetState(() {});
+                            },
                       text: FFLocalizations.of(context).getText(
                         '62qr2zha' /* Verify Now */,
                       ),
@@ -462,7 +489,7 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                         color: FlutterFlowTheme.of(context).greenInit,
                         textStyle:
                             FlutterFlowTheme.of(context).titleMedium.override(
-                                  fontFamily: 'Satoshi',
+                                  fontFamily: 'FarsiFonts',
                                   color: FlutterFlowTheme.of(context).primary,
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,

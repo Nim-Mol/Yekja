@@ -274,7 +274,7 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .headlineLargeFamily,
-                                                fontSize: 24.0,
+                                                fontSize: 20.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                                 useGoogleFonts:
@@ -294,7 +294,7 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .headlineLargeFamily,
-                                                fontSize: 24.0,
+                                                fontSize: 20.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                                 useGoogleFonts:
@@ -458,8 +458,7 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                                       ? FFAppState()
                                                           .postState
                                                           .title
-                                                      : 'Add a title to your post'
-                                                          .maybeHandleOverflow(
+                                                      : ''.maybeHandleOverflow(
                                                           maxChars: 35,
                                                           replacement: '…',
                                                         ),
@@ -619,7 +618,7 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                                   ],
                                                 ),
                                                 AutoSizeText(
-                                                  '${FFAppState().postState.description != '' ? FFAppState().postState.description : 'Add a description to your post'}'
+                                                  '${FFAppState().postState.description != '' ? FFAppState().postState.description : ''}'
                                                       .maybeHandleOverflow(
                                                     maxChars: 90,
                                                     replacement: '…',

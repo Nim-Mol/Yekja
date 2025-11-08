@@ -1,11 +1,10 @@
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/login/verify_code/verify_code_widget.dart';
-import '/shared_components/botton_standard/botton_standard_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'sign_in_confirm_model.dart';
 export 'sign_in_confirm_model.dart';
 
@@ -129,24 +128,9 @@ class _SignInConfirmWidgetState extends State<SignInConfirmWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .headlineLarge
                                       .override(
-                                        font: GoogleFonts.poppins(
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .headlineLarge
-                                                  .fontWeight,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .headlineLarge
-                                                  .fontStyle,
-                                        ),
+                                        fontFamily: 'FarsiFonts',
                                         fontSize: 30.0,
                                         letterSpacing: 0.0,
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .headlineLarge
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .headlineLarge
-                                            .fontStyle,
                                       ),
                                 ),
                                 Padding(
@@ -182,15 +166,10 @@ class _SignInConfirmWidgetState extends State<SignInConfirmWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMediumFamily,
+                                            fontFamily: 'FarsiFonts',
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryText,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .labelMediumIsCustom,
                                           ),
                                     ),
                                   ),
@@ -570,128 +549,104 @@ class _SignInConfirmWidgetState extends State<SignInConfirmWidget> {
                                 Builder(
                                   builder: (context) => Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 16.0),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (dialogContext) {
-                                            return Dialog(
-                                              elevation: 0,
-                                              insetPadding: EdgeInsets.zero,
-                                              backgroundColor:
-                                                  Colors.transparent,
-                                              alignment:
-                                                  AlignmentDirectional(0.0, 0.0)
-                                                      .resolve(
-                                                          Directionality.of(
-                                                              context)),
-                                              child: GestureDetector(
-                                                onTap: () {
-                                                  FocusScope.of(dialogContext)
-                                                      .unfocus();
-                                                  FocusManager
-                                                      .instance.primaryFocus
-                                                      ?.unfocus();
-                                                },
-                                                child: VerifyCodeWidget(
-                                                  userEmail: '',
-                                                  userName: '',
-                                                  password: _model
-                                                      .passWordTextController
-                                                      .text,
-                                                  confirmPassword: '',
-                                                ),
-                                              ),
-                                            );
-                                          },
+                                        0.0, 16.0, 0.0, 0.0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        _model.authonticationError =
+                                            await actions.customSignUpWithEmail(
+                                          _model
+                                              .emailAddressTextController.text,
+                                          _model.passWordTextController.text,
+                                          _model.passWordTextController.text,
                                         );
-                                      },
-                                      child: wrapWithModel(
-                                        model: _model.bottonStandardModel,
-                                        updateCallback: () =>
-                                            safeSetState(() {}),
-                                        child: BottonStandardWidget(
-                                          buttontext:
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                            '5vqq1v8g' /* Next */,
-                                          ),
-                                          onPressed: () async {
-                                            _model.authonticationError =
-                                                await actions
-                                                    .customSignUpWithEmail(
-                                              _model.emailAddressTextController
-                                                  .text,
-                                              _model
-                                                  .passWordTextController.text,
-                                              _model
-                                                  .passWordTextController.text,
-                                            );
-                                            if (_model.authonticationError ==
-                                                    null ||
-                                                _model.authonticationError ==
-                                                    '') {
-                                              _model.confirmEmail =
-                                                  await MonitoringLogsTable()
-                                                      .insert({
-                                                'scrren_name': 'confirmEmail',
-                                                'action': 'ConfirmEmail',
-                                              });
-                                              await showDialog(
-                                                context: context,
-                                                builder: (dialogContext) {
-                                                  return Dialog(
-                                                    elevation: 0,
-                                                    insetPadding:
-                                                        EdgeInsets.zero,
-                                                    backgroundColor:
-                                                        Colors.transparent,
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                                0.0, 0.0)
-                                                            .resolve(
-                                                                Directionality.of(
-                                                                    context)),
-                                                    child: GestureDetector(
-                                                      onTap: () {
-                                                        FocusScope.of(
-                                                                dialogContext)
-                                                            .unfocus();
-                                                        FocusManager.instance
-                                                            .primaryFocus
-                                                            ?.unfocus();
-                                                      },
-                                                      child: VerifyCodeWidget(
-                                                        userEmail: _model
-                                                            .emailAddressTextController
-                                                            .text,
-                                                        userName: _model
-                                                            .userNameTextController
-                                                            .text,
-                                                        password: _model
-                                                            .passWordTextController
-                                                            .text,
-                                                        confirmPassword: _model
-                                                            .passWordTextController
-                                                            .text,
-                                                      ),
-                                                    ),
-                                                  );
-                                                },
+                                        if (_model.authonticationError ==
+                                                null ||
+                                            _model.authonticationError == '') {
+                                          _model.confirmEmail =
+                                              await MonitoringLogsTable()
+                                                  .insert({
+                                            'scrren_name': 'confirmEmail',
+                                            'action': 'ConfirmEmail',
+                                          });
+                                          await showDialog(
+                                            context: context,
+                                            builder: (dialogContext) {
+                                              return Dialog(
+                                                elevation: 0,
+                                                insetPadding: EdgeInsets.zero,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                alignment: AlignmentDirectional(
+                                                        0.0, 0.0)
+                                                    .resolve(Directionality.of(
+                                                        context)),
+                                                child: GestureDetector(
+                                                  onTap: () {
+                                                    FocusScope.of(dialogContext)
+                                                        .unfocus();
+                                                    FocusManager
+                                                        .instance.primaryFocus
+                                                        ?.unfocus();
+                                                  },
+                                                  child: VerifyCodeWidget(
+                                                    userEmail: _model
+                                                        .emailAddressTextController
+                                                        .text,
+                                                    userName: _model
+                                                        .userNameTextController
+                                                        .text,
+                                                    password: _model
+                                                        .passWordTextController
+                                                        .text,
+                                                    confirmPassword: _model
+                                                        .passWordTextController
+                                                        .text,
+                                                  ),
+                                                ),
                                               );
-                                            } else {
-                                              safeSetState(() {});
-                                            }
+                                            },
+                                          );
+                                        } else {
+                                          safeSetState(() {});
+                                        }
 
-                                            safeSetState(() {});
-                                          },
-                                        ),
+                                        safeSetState(() {});
+                                      },
+                                      text: FFLocalizations.of(context).getText(
+                                        'it3a9439' /* Confirm */,
                                       ),
+                                      options: FFButtonOptions(
+                                        width: double.infinity,
+                                        height: 48.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
+                                        iconAlignment: IconAlignment.start,
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .greenInit,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleMedium
+                                            .override(
+                                              fontFamily: 'FarsiFonts',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              fontSize: 16.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                        elevation: 5.0,
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .greenInit,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      showLoadingIndicator: false,
                                     ),
                                   ),
                                 ),

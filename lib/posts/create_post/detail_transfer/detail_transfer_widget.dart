@@ -281,7 +281,7 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .headlineLargeFamily,
-                                                  fontSize: 24.0,
+                                                  fontSize: 20.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                   useGoogleFonts:
@@ -300,7 +300,7 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .headlineLargeFamily,
-                                                  fontSize: 24.0,
+                                                  fontSize: 20.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                   useGoogleFonts:
@@ -467,8 +467,7 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                         ? FFAppState()
                                                             .postState
                                                             .title
-                                                        : 'Add a title to your post'
-                                                            .maybeHandleOverflow(
+                                                        : ''.maybeHandleOverflow(
                                                             maxChars: 35,
                                                             replacement: '…',
                                                           ),
@@ -630,11 +629,17 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                     ],
                                                   ),
                                                   AutoSizeText(
-                                                    '${FFAppState().postState.description != '' ? FFAppState().postState.description : 'Add a description to your post'}'
-                                                        .maybeHandleOverflow(
-                                                      maxChars: 90,
-                                                      replacement: '…',
-                                                    ),
+                                                    FFAppState()
+                                                                    .postState
+                                                                    .description !=
+                                                                ''
+                                                        ? FFAppState()
+                                                            .postState
+                                                            .description
+                                                        : ''.maybeHandleOverflow(
+                                                            maxChars: 90,
+                                                            replacement: '…',
+                                                          ),
                                                     maxLines: 2,
                                                     style:
                                                         FlutterFlowTheme.of(
@@ -2258,13 +2263,19 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                            'lmorxan9' /* Under €50 */,
+                                                            'lmorxan9' /* €20-€50 */,
                                                           )),
                                                           ChipData(
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                            'r4zjyh5h' /* Under 100 */,
+                                                            'r4zjyh5h' /* €50-€100 */,
+                                                          )),
+                                                          ChipData(
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                            'mtzdnee2' /* Above €100 */,
                                                           ))
                                                         ],
                                                         onChanged: (val) async {

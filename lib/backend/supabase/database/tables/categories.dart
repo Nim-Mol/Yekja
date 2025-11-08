@@ -43,4 +43,10 @@ class CategoriesRow extends SupabaseDataRow {
 
   String? get colorFillHex => getField<String>('color_fill_hex');
   set colorFillHex(String? value) => setField<String>('color_fill_hex', value);
+
+  String? get catNameNl => getField<String>('cat_name_nl');
+  set catNameNl(String? value) => setField<String>('cat_name_nl', value);
+
+  String get catCode => getField<String>('cat_code')!;
+  set catCode(String value) => setField<String>('cat_code', value);
 }

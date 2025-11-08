@@ -30,6 +30,11 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
     String? createdAt,
     String? detailsText,
     String? profileAvatar,
+    double? review,
+    int? ratings,
+    String? catLabel,
+    String? subCatLabel,
+    String? detailsLabelText,
   })  : _mainCatId = mainCatId,
         _postId = postId,
         _catName = catName,
@@ -52,7 +57,12 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
         _reported = reported,
         _createdAt = createdAt,
         _detailsText = detailsText,
-        _profileAvatar = profileAvatar;
+        _profileAvatar = profileAvatar,
+        _review = review,
+        _ratings = ratings,
+        _catLabel = catLabel,
+        _subCatLabel = subCatLabel,
+        _detailsLabelText = detailsLabelText;
 
   // "main_cat_id" field.
   int? _mainCatId;
@@ -232,6 +242,45 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
 
   bool hasProfileAvatar() => _profileAvatar != null;
 
+  // "review" field.
+  double? _review;
+  double get review => _review ?? 0.0;
+  set review(double? val) => _review = val;
+
+  void incrementReview(double amount) => review = review + amount;
+
+  bool hasReview() => _review != null;
+
+  // "ratings" field.
+  int? _ratings;
+  int get ratings => _ratings ?? 0;
+  set ratings(int? val) => _ratings = val;
+
+  void incrementRatings(int amount) => ratings = ratings + amount;
+
+  bool hasRatings() => _ratings != null;
+
+  // "cat_label" field.
+  String? _catLabel;
+  String get catLabel => _catLabel ?? '';
+  set catLabel(String? val) => _catLabel = val;
+
+  bool hasCatLabel() => _catLabel != null;
+
+  // "sub_cat_label" field.
+  String? _subCatLabel;
+  String get subCatLabel => _subCatLabel ?? '';
+  set subCatLabel(String? val) => _subCatLabel = val;
+
+  bool hasSubCatLabel() => _subCatLabel != null;
+
+  // "details_label_text" field.
+  String? _detailsLabelText;
+  String get detailsLabelText => _detailsLabelText ?? '';
+  set detailsLabelText(String? val) => _detailsLabelText = val;
+
+  bool hasDetailsLabelText() => _detailsLabelText != null;
+
   static FilterModelwithDetailsTableStruct fromMap(Map<String, dynamic> data) =>
       FilterModelwithDetailsTableStruct(
         mainCatId: castToType<int>(data['main_cat_id']),
@@ -257,6 +306,11 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
         createdAt: data['created_at'] as String?,
         detailsText: data['details_text'] as String?,
         profileAvatar: data['profile_avatar'] as String?,
+        review: castToType<double>(data['review']),
+        ratings: castToType<int>(data['ratings']),
+        catLabel: data['cat_label'] as String?,
+        subCatLabel: data['sub_cat_label'] as String?,
+        detailsLabelText: data['details_label_text'] as String?,
       );
 
   static FilterModelwithDetailsTableStruct? maybeFromMap(dynamic data) => data
@@ -288,6 +342,11 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
         'created_at': _createdAt,
         'details_text': _detailsText,
         'profile_avatar': _profileAvatar,
+        'review': _review,
+        'ratings': _ratings,
+        'cat_label': _catLabel,
+        'sub_cat_label': _subCatLabel,
+        'details_label_text': _detailsLabelText,
       }.withoutNulls;
 
   @override
@@ -383,6 +442,26 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
         ),
         'profile_avatar': serializeParam(
           _profileAvatar,
+          ParamType.String,
+        ),
+        'review': serializeParam(
+          _review,
+          ParamType.double,
+        ),
+        'ratings': serializeParam(
+          _ratings,
+          ParamType.int,
+        ),
+        'cat_label': serializeParam(
+          _catLabel,
+          ParamType.String,
+        ),
+        'sub_cat_label': serializeParam(
+          _subCatLabel,
+          ParamType.String,
+        ),
+        'details_label_text': serializeParam(
+          _detailsLabelText,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -505,6 +584,31 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        review: deserializeParam(
+          data['review'],
+          ParamType.double,
+          false,
+        ),
+        ratings: deserializeParam(
+          data['ratings'],
+          ParamType.int,
+          false,
+        ),
+        catLabel: deserializeParam(
+          data['cat_label'],
+          ParamType.String,
+          false,
+        ),
+        subCatLabel: deserializeParam(
+          data['sub_cat_label'],
+          ParamType.String,
+          false,
+        ),
+        detailsLabelText: deserializeParam(
+          data['details_label_text'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -536,7 +640,12 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
         reported == other.reported &&
         createdAt == other.createdAt &&
         detailsText == other.detailsText &&
-        profileAvatar == other.profileAvatar;
+        profileAvatar == other.profileAvatar &&
+        review == other.review &&
+        ratings == other.ratings &&
+        catLabel == other.catLabel &&
+        subCatLabel == other.subCatLabel &&
+        detailsLabelText == other.detailsLabelText;
   }
 
   @override
@@ -563,7 +672,12 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
         reported,
         createdAt,
         detailsText,
-        profileAvatar
+        profileAvatar,
+        review,
+        ratings,
+        catLabel,
+        subCatLabel,
+        detailsLabelText
       ]);
 }
 
@@ -590,6 +704,11 @@ FilterModelwithDetailsTableStruct createFilterModelwithDetailsTableStruct({
   String? createdAt,
   String? detailsText,
   String? profileAvatar,
+  double? review,
+  int? ratings,
+  String? catLabel,
+  String? subCatLabel,
+  String? detailsLabelText,
 }) =>
     FilterModelwithDetailsTableStruct(
       mainCatId: mainCatId,
@@ -614,4 +733,9 @@ FilterModelwithDetailsTableStruct createFilterModelwithDetailsTableStruct({
       createdAt: createdAt,
       detailsText: detailsText,
       profileAvatar: profileAvatar,
+      review: review,
+      ratings: ratings,
+      catLabel: catLabel,
+      subCatLabel: subCatLabel,
+      detailsLabelText: detailsLabelText,
     );

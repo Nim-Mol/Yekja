@@ -268,7 +268,7 @@ class _DetailSalesWidgetState extends State<DetailSalesWidget> {
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .headlineLargeFamily,
-                                                  fontSize: 24.0,
+                                                  fontSize: 20.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                   useGoogleFonts:
@@ -289,7 +289,7 @@ class _DetailSalesWidgetState extends State<DetailSalesWidget> {
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .headlineLargeFamily,
-                                                  fontSize: 24.0,
+                                                  fontSize: 20.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                   useGoogleFonts:
@@ -456,8 +456,7 @@ class _DetailSalesWidgetState extends State<DetailSalesWidget> {
                                                         ? FFAppState()
                                                             .postState
                                                             .title
-                                                        : 'Add a title to your post'
-                                                            .maybeHandleOverflow(
+                                                        : ''.maybeHandleOverflow(
                                                             maxChars: 35,
                                                             replacement: '…',
                                                           ),
@@ -619,11 +618,17 @@ class _DetailSalesWidgetState extends State<DetailSalesWidget> {
                                                     ],
                                                   ),
                                                   AutoSizeText(
-                                                    '${FFAppState().postState.description != '' ? FFAppState().postState.description : 'Add a description to your post'}'
-                                                        .maybeHandleOverflow(
-                                                      maxChars: 90,
-                                                      replacement: '…',
-                                                    ),
+                                                    FFAppState()
+                                                                    .postState
+                                                                    .description !=
+                                                                ''
+                                                        ? FFAppState()
+                                                            .postState
+                                                            .description
+                                                        : ''.maybeHandleOverflow(
+                                                            maxChars: 90,
+                                                            replacement: '…',
+                                                          ),
                                                     maxLines: 2,
                                                     style:
                                                         FlutterFlowTheme.of(

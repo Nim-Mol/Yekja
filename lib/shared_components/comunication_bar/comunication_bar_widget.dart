@@ -94,7 +94,8 @@ class _ComunicationBarWidgetState extends State<ComunicationBarWidget>
                   Align(
                     alignment: AlignmentDirectional(0.0, -1.0),
                     child: FFButtonWidget(
-                      onPressed: !widget.allowMessage
+                      onPressed: (!widget.allowMessage ||
+                              (currentUserUid == ''))
                           ? null
                           : () async {
                               var _shouldSetState = false;
@@ -361,7 +362,8 @@ class _ComunicationBarWidgetState extends State<ComunicationBarWidget>
                   Align(
                     alignment: AlignmentDirectional(0.0, -1.0),
                     child: FFButtonWidget(
-                      onPressed: !widget.allowCall
+                      onPressed: (!widget.allowCall ||
+                              (currentUserUid == ''))
                           ? null
                           : () {
                               print('Button pressed ...');

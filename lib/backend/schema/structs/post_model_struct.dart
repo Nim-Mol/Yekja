@@ -70,6 +70,12 @@ class PostModelStruct extends BaseStruct {
     int? totalArea,
     bool? allowCashAdjustment,
     String? repeatsText,
+    int? nGoing,
+    String? serviceMode,
+    String? experienceYears,
+    List<String>? languages,
+    double? review,
+    int? ratings,
   })  : _id = id,
         _createdAt = createdAt,
         _updatedAt = updatedAt,
@@ -132,7 +138,13 @@ class PostModelStruct extends BaseStruct {
         _capacity = capacity,
         _totalArea = totalArea,
         _allowCashAdjustment = allowCashAdjustment,
-        _repeatsText = repeatsText;
+        _repeatsText = repeatsText,
+        _nGoing = nGoing,
+        _serviceMode = serviceMode,
+        _experienceYears = experienceYears,
+        _languages = languages,
+        _review = review,
+        _ratings = ratings;
 
   // "id" field.
   String? _id;
@@ -601,6 +613,58 @@ class PostModelStruct extends BaseStruct {
 
   bool hasRepeatsText() => _repeatsText != null;
 
+  // "n_going" field.
+  int? _nGoing;
+  int get nGoing => _nGoing ?? 0;
+  set nGoing(int? val) => _nGoing = val;
+
+  void incrementNGoing(int amount) => nGoing = nGoing + amount;
+
+  bool hasNGoing() => _nGoing != null;
+
+  // "service_mode" field.
+  String? _serviceMode;
+  String get serviceMode => _serviceMode ?? '';
+  set serviceMode(String? val) => _serviceMode = val;
+
+  bool hasServiceMode() => _serviceMode != null;
+
+  // "experience_years" field.
+  String? _experienceYears;
+  String get experienceYears => _experienceYears ?? '';
+  set experienceYears(String? val) => _experienceYears = val;
+
+  bool hasExperienceYears() => _experienceYears != null;
+
+  // "languages" field.
+  List<String>? _languages;
+  List<String> get languages => _languages ?? const [];
+  set languages(List<String>? val) => _languages = val;
+
+  void updateLanguages(Function(List<String>) updateFn) {
+    updateFn(_languages ??= []);
+  }
+
+  bool hasLanguages() => _languages != null;
+
+  // "review" field.
+  double? _review;
+  double get review => _review ?? 0.0;
+  set review(double? val) => _review = val;
+
+  void incrementReview(double amount) => review = review + amount;
+
+  bool hasReview() => _review != null;
+
+  // "ratings" field.
+  int? _ratings;
+  int get ratings => _ratings ?? 0;
+  set ratings(int? val) => _ratings = val;
+
+  void incrementRatings(int amount) => ratings = ratings + amount;
+
+  bool hasRatings() => _ratings != null;
+
   static PostModelStruct fromMap(Map<String, dynamic> data) => PostModelStruct(
         id: data['id'] as String?,
         createdAt: data['created_at'] as DateTime?,
@@ -665,6 +729,12 @@ class PostModelStruct extends BaseStruct {
         totalArea: castToType<int>(data['total_area']),
         allowCashAdjustment: data['allow_cash_adjustment'] as bool?,
         repeatsText: data['repeats_text'] as String?,
+        nGoing: castToType<int>(data['n_going']),
+        serviceMode: data['service_mode'] as String?,
+        experienceYears: data['experience_years'] as String?,
+        languages: getDataList(data['languages']),
+        review: castToType<double>(data['review']),
+        ratings: castToType<int>(data['ratings']),
       );
 
   static PostModelStruct? maybeFromMap(dynamic data) => data is Map
@@ -735,6 +805,12 @@ class PostModelStruct extends BaseStruct {
         'total_area': _totalArea,
         'allow_cash_adjustment': _allowCashAdjustment,
         'repeats_text': _repeatsText,
+        'n_going': _nGoing,
+        'service_mode': _serviceMode,
+        'experience_years': _experienceYears,
+        'languages': _languages,
+        'review': _review,
+        'ratings': _ratings,
       }.withoutNulls;
 
   @override
@@ -991,6 +1067,31 @@ class PostModelStruct extends BaseStruct {
         'repeats_text': serializeParam(
           _repeatsText,
           ParamType.String,
+        ),
+        'n_going': serializeParam(
+          _nGoing,
+          ParamType.int,
+        ),
+        'service_mode': serializeParam(
+          _serviceMode,
+          ParamType.String,
+        ),
+        'experience_years': serializeParam(
+          _experienceYears,
+          ParamType.String,
+        ),
+        'languages': serializeParam(
+          _languages,
+          ParamType.String,
+          isList: true,
+        ),
+        'review': serializeParam(
+          _review,
+          ParamType.double,
+        ),
+        'ratings': serializeParam(
+          _ratings,
+          ParamType.int,
         ),
       }.withoutNulls;
 
@@ -1311,6 +1412,36 @@ class PostModelStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        nGoing: deserializeParam(
+          data['n_going'],
+          ParamType.int,
+          false,
+        ),
+        serviceMode: deserializeParam(
+          data['service_mode'],
+          ParamType.String,
+          false,
+        ),
+        experienceYears: deserializeParam(
+          data['experience_years'],
+          ParamType.String,
+          false,
+        ),
+        languages: deserializeParam<String>(
+          data['languages'],
+          ParamType.String,
+          true,
+        ),
+        review: deserializeParam(
+          data['review'],
+          ParamType.double,
+          false,
+        ),
+        ratings: deserializeParam(
+          data['ratings'],
+          ParamType.int,
+          false,
+        ),
       );
 
   @override
@@ -1382,7 +1513,13 @@ class PostModelStruct extends BaseStruct {
         capacity == other.capacity &&
         totalArea == other.totalArea &&
         allowCashAdjustment == other.allowCashAdjustment &&
-        repeatsText == other.repeatsText;
+        repeatsText == other.repeatsText &&
+        nGoing == other.nGoing &&
+        serviceMode == other.serviceMode &&
+        experienceYears == other.experienceYears &&
+        listEquality.equals(languages, other.languages) &&
+        review == other.review &&
+        ratings == other.ratings;
   }
 
   @override
@@ -1449,7 +1586,13 @@ class PostModelStruct extends BaseStruct {
         capacity,
         totalArea,
         allowCashAdjustment,
-        repeatsText
+        repeatsText,
+        nGoing,
+        serviceMode,
+        experienceYears,
+        languages,
+        review,
+        ratings
       ]);
 }
 
@@ -1516,6 +1659,11 @@ PostModelStruct createPostModelStruct({
   int? totalArea,
   bool? allowCashAdjustment,
   String? repeatsText,
+  int? nGoing,
+  String? serviceMode,
+  String? experienceYears,
+  double? review,
+  int? ratings,
 }) =>
     PostModelStruct(
       id: id,
@@ -1580,4 +1728,9 @@ PostModelStruct createPostModelStruct({
       totalArea: totalArea,
       allowCashAdjustment: allowCashAdjustment,
       repeatsText: repeatsText,
+      nGoing: nGoing,
+      serviceMode: serviceMode,
+      experienceYears: experienceYears,
+      review: review,
+      ratings: ratings,
     );

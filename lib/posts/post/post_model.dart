@@ -34,7 +34,7 @@ class PostModel extends FlutterFlowModel<PostWidget> {
   List<PostsLikesRow>? liked;
   // Model for Photo_gallary component.
   late PhotoGallaryModel photoGallaryModel;
-  Completer<List<ViewPostSearchRow>>? requestCompleter;
+  Completer<List<ViewPostSearchEnRow>>? requestCompleter;
   // Model for Comunication_Bar component.
   late ComunicationBarModel comunicationBarModel;
 

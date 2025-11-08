@@ -178,7 +178,7 @@ class _CityWidgetState extends State<CityWidget> {
                                   color: FlutterFlowTheme.of(context).primary,
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w500,
+                                  fontWeight: FontWeight.normal,
                                   useGoogleFonts: !FlutterFlowTheme.of(context)
                                       .titleMediumIsCustom,
                                 ),

@@ -1,6 +1,5 @@
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/shared_components/botton_standard/botton_standard_widget.dart';
 import 'sign_in_confirm_widget.dart' show SignInConfirmWidget;
 import 'package:flutter/material.dart';
 
@@ -67,11 +66,9 @@ class SignInConfirmModel extends FlutterFlowModel<SignInConfirmWidget> {
   TextEditingController? passWordTextController;
   late bool passWordVisibility;
   String? Function(BuildContext, String?)? passWordTextControllerValidator;
-  // Model for BottonStandard component.
-  late BottonStandardModel bottonStandardModel;
-  // Stores action output result for [Custom Action - customSignUpWithEmail] action in BottonStandard widget.
+  // Stores action output result for [Custom Action - customSignUpWithEmail] action in Button widget.
   String? authonticationError;
-  // Stores action output result for [Backend Call - Insert Row] action in BottonStandard widget.
+  // Stores action output result for [Backend Call - Insert Row] action in Button widget.
   MonitoringLogsRow? confirmEmail;
 
   @override
@@ -79,7 +76,6 @@ class SignInConfirmModel extends FlutterFlowModel<SignInConfirmWidget> {
     userNameTextControllerValidator = _userNameTextControllerValidator;
     emailAddressTextControllerValidator = _emailAddressTextControllerValidator;
     passWordVisibility = false;
-    bottonStandardModel = createModel(context, () => BottonStandardModel());
   }
 
   @override
@@ -92,7 +88,5 @@ class SignInConfirmModel extends FlutterFlowModel<SignInConfirmWidget> {
 
     passWordFocusNode?.dispose();
     passWordTextController?.dispose();
-
-    bottonStandardModel.dispose();
   }
 }

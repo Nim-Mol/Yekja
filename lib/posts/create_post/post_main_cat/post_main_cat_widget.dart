@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'post_main_cat_model.dart';
 export 'post_main_cat_model.dart';
@@ -331,31 +330,10 @@ new post about? */
                                                             context)
                                                         .titleLarge
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleLarge
-                                                                    .fontWeight,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleLarge
-                                                                    .fontStyle,
-                                                          ),
+                                                          fontFamily:
+                                                              'FarsiFonts',
                                                           fontSize: 18.0,
                                                           letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleLarge
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleLarge
-                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                   AutoSizeText(
@@ -455,31 +433,10 @@ new post about? */
                                                             context)
                                                         .titleLarge
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleLarge
-                                                                    .fontWeight,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleLarge
-                                                                    .fontStyle,
-                                                          ),
+                                                          fontFamily:
+                                                              'FarsiFonts',
                                                           fontSize: 18.0,
                                                           letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleLarge
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleLarge
-                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                   Padding(
@@ -491,7 +448,7 @@ new post about? */
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        '9exgqc2a' /* Sell, rent, swap, transfer, gi... */,
+                                                        '9exgqc2a' /* Sell, rent, transfer parcels, ... */,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -587,34 +544,15 @@ new post about? */
                                                           .getText(
                                                         'kaywgjyd' /* Premium Services */,
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleLarge
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleLarge
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleLarge
-                                                                      .fontStyle,
-                                                                ),
-                                                                fontSize: 18.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleLarge
-                                                                    .fontWeight,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleLarge
-                                                                    .fontStyle,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleLarge
+                                                          .override(
+                                                            fontFamily:
+                                                                'FarsiFonts',
+                                                            fontSize: 18.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                     Padding(
                                                       padding:
@@ -727,37 +665,16 @@ Announcements */
                                                             context)
                                                         .titleLarge
                                                         .override(
-                                                          font: GoogleFonts
-                                                              .poppins(
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleLarge
-                                                                    .fontWeight,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleLarge
-                                                                    .fontStyle,
-                                                          ),
+                                                          fontFamily:
+                                                              'FarsiFonts',
                                                           fontSize: 18.0,
                                                           letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleLarge
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleLarge
-                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                   Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'tlce1sd2' /* Organise or announce events */,
+                                                      'tlce1sd2' /* Host or announce events */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)

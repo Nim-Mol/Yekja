@@ -6,6 +6,7 @@ export 'filter_model2_struct.dart';
 export 'filter_modelwith_details_table_struct.dart';
 export 'filter_small_model_struct.dart';
 export 'giveaway_model_struct.dart';
+export 'guest_user_struct.dart';
 export 'item_card_global_struct.dart';
 export 'item_card_horizental_struct.dart';
 export 'market_model_struct.dart';

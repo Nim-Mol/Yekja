@@ -6,6 +6,10 @@ import 'verify_code_widget.dart' show VerifyCodeWidget;
 import 'package:flutter/material.dart';
 
 class VerifyCodeModel extends FlutterFlowModel<VerifyCodeWidget> {
+  ///  Local state fields for this component.
+
+  bool loading = false;
+
   ///  State fields for stateful widgets in this component.
 
   final formKey = GlobalKey<FormState>();
@@ -42,6 +46,8 @@ class VerifyCodeModel extends FlutterFlowModel<VerifyCodeWidget> {
   UserExtRow? userExt;
   // Stores action output result for [Backend Call - Insert Row] action in Button widget.
   ChatsRow? yekjaChat2Customer;
+  // Stores action output result for [Custom Action - decodeJwtRole] action in Button widget.
+  String? userRole;
 
   @override
   void initState(BuildContext context) {

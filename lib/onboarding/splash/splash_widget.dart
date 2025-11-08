@@ -1,4 +1,3 @@
-import '/auth/base_auth_user_provider.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -6,7 +5,6 @@ import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:provider/provider.dart';
 import 'splash_model.dart';
 export 'splash_model.dart';
 
@@ -40,15 +38,8 @@ class _SplashWidgetState extends State<SplashWidget>
           milliseconds: 3000,
         ),
       );
-      if (FFAppState().isOnboarding == true) {
-        if (loggedIn) {
-          context.pushNamed(HomePageWidget.routeName);
-        } else {
-          context.pushNamed(SignInPageWidget.routeName);
-        }
-      } else {
-        context.pushNamed(OnboardingPageWidget.routeName);
-      }
+
+      context.pushNamed(OnboardingPageWidget.routeName);
     });
 
     animationsMap.addAll({
@@ -85,8 +76,6 @@ class _SplashWidgetState extends State<SplashWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

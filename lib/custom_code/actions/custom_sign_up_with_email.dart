@@ -12,49 +12,51 @@ import 'package:flutter/material.dart';
 
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+class _SignupGate {
+  static bool inFlight = false;
+}
+
 Future<String?> customSignUpWithEmail(
   String email,
   String password,
   String confirmPassword,
 ) async {
-  if (password != confirmPassword) {
-    return "Passwords do not match.";
+  if (_SignupGate.inFlight) {
+    return "Please wait…"; // prevents double-fire
   }
-
+  _SignupGate.inFlight = true;
   try {
-    final supabase = SupaFlow.client;
+    if (password != confirmPassword) {
+      return "Passwords do not match.";
+    }
 
-    // Normalize email a bit (optional but helpful)
+    final supabase = SupaFlow.client;
     final normalizedEmail = email.trim().toLowerCase();
 
-    final AuthResponse res = await supabase.auth.signUp(
+    final res = await supabase.auth.signUp(
       email: normalizedEmail,
       password: password,
+      // emailRedirectTo: 'https://yourdomain/auth/callback' // optional
     );
 
+    // Already registered shortcut
     final user = res.user;
-
-    // When the email is already registered, Supabase returns a user object
-    // but `identities` is empty.
     final alreadyRegistered =
         user != null && (user.identities?.isEmpty ?? false);
-
     if (alreadyRegistered) {
       return "This email is already registered. Try signing in or resetting your password.";
     }
 
-    // If email confirmations are enabled, session will be null until they confirm.
+    // If confirmations are enabled, session will be null and an email is sent.
     if (res.session == null) {
-      // Successful sign-up started; confirmation email sent.
-      return null; // or return a message if you prefer to surface it to the UI
+      return null; // success; show "check your email" UI
     }
-
-    // Fully signed in (e.g., if confirmations are disabled)
     return null;
   } on AuthException catch (e) {
-    // Real errors (weak password, invalid email, etc.)
     return e.message;
   } catch (_) {
     return "Something went wrong. Please try again.";
+  } finally {
+    _SignupGate.inFlight = false;
   }
 }

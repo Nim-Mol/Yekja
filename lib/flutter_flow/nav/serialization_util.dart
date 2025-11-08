@@ -246,12 +246,18 @@ dynamic deserializeParam<T>(
             return PostImagesRow(data);
           case ChatsRow:
             return ChatsRow(data);
+          case MonitoringGuestRow:
+            return MonitoringGuestRow(data);
           case DetailsSwapItemsRow:
             return DetailsSwapItemsRow(data);
           case PostsLikesRow:
             return PostsLikesRow(data);
           case ViewUserChatsVisibleRow:
             return ViewUserChatsVisibleRow(data);
+          case ViewPostSearchNlRow:
+            return ViewPostSearchNlRow(data);
+          case ViewPostSearchEnRow:
+            return ViewPostSearchEnRow(data);
           case SubCategoriesRow:
             return SubCategoriesRow(data);
           case DetailsCurrencyExchangeRow:
@@ -268,6 +274,8 @@ dynamic deserializeParam<T>(
             return ViewUserChatsRow(data);
           case PostsRow:
             return PostsRow(data);
+          case I18nCodeRow:
+            return I18nCodeRow(data);
           case ContactYekjaRow:
             return ContactYekjaRow(data);
           case DeletionQueueRow:
@@ -308,6 +316,8 @@ dynamic deserializeParam<T>(
             return ViewTopSubcategoriesRow(data);
           case ViewSwipablePostsRow:
             return ViewSwipablePostsRow(data);
+          case ViewPostSearchFaRow:
+            return ViewPostSearchFaRow(data);
           case RolesRow:
             return RolesRow(data);
           case ViewUserFavoritesRow:

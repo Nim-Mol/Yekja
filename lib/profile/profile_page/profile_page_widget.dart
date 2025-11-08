@@ -55,7 +55,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (currentUserUid != '') {
+      if (widget.profileId != null && widget.profileId != '') {
         _model.chatView = await ViewUserChatsTable().queryRows(
           queryFn: (q) => q
               .or("chat_sender.eq.${widget.profileId}, chat_recipient.eq.${widget.profileId}")
@@ -65,6 +65,19 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
           queryFn: (q) => q.eqOrNull(
             'user_id',
             currentUserUid,
+          ),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Sorry something went wrong please refresh the page.',
+              style: TextStyle(
+                color: FlutterFlowTheme.of(context).primaryText,
+              ),
+            ),
+            duration: Duration(milliseconds: 4000),
+            backgroundColor: FlutterFlowTheme.of(context).errorSnack,
           ),
         );
       }

@@ -22,13 +22,6 @@ class DetailsSkillsAndExpertiseRow extends SupabaseDataRow {
   String get intend => getField<String>('intend')!;
   set intend(String value) => setField<String>('intend', value);
 
-  DateTime? get deadline => getField<DateTime>('deadline');
-  set deadline(DateTime? value) => setField<DateTime>('deadline', value);
-
-  String? get compensationType => getField<String>('compensation_type');
-  set compensationType(String? value) =>
-      setField<String>('compensation_type', value);
-
   int? get price => getField<int>('price');
   set price(int? value) => setField<int>('price', value);
 
@@ -38,26 +31,16 @@ class DetailsSkillsAndExpertiseRow extends SupabaseDataRow {
   String? get priceText => getField<String>('price_text');
   set priceText(String? value) => setField<String>('price_text', value);
 
-  List<String> get languages => getListField<String>('languages');
-  set languages(List<String> value) => setListField<String>('languages', value);
+  bool get isNegotiable => getField<bool>('is_negotiable')!;
+  set isNegotiable(bool value) => setField<bool>('is_negotiable', value);
 
-  String? get locationMode => getField<String>('location_mode');
-  set locationMode(String? value) => setField<String>('location_mode', value);
+  String? get languages => getField<String>('languages');
+  set languages(String? value) => setField<String>('languages', value);
 
-  int? get experienceYears => getField<int>('experience_years');
-  set experienceYears(int? value) => setField<int>('experience_years', value);
+  String? get serviceMode => getField<String>('service_mode');
+  set serviceMode(String? value) => setField<String>('service_mode', value);
 
-  String? get certifications => getField<String>('certifications');
-  set certifications(String? value) =>
-      setField<String>('certifications', value);
-
-  bool get materialsIncluded => getField<bool>('materials_included')!;
-  set materialsIncluded(bool value) =>
-      setField<bool>('materials_included', value);
-
-  bool get travelPossible => getField<bool>('travel_possible')!;
-  set travelPossible(bool value) => setField<bool>('travel_possible', value);
-
-  int? get capacity => getField<int>('capacity');
-  set capacity(int? value) => setField<int>('capacity', value);
+  String? get experienceYears => getField<String>('experience_years');
+  set experienceYears(String? value) =>
+      setField<String>('experience_years', value);
 }

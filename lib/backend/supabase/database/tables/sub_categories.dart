@@ -35,4 +35,10 @@ class SubCategoriesRow extends SupabaseDataRow {
 
   DateTime get createdAt => getField<DateTime>('created_at')!;
   set createdAt(DateTime value) => setField<DateTime>('created_at', value);
+
+  String? get subCatNameNl => getField<String>('sub_cat_name_nl');
+  set subCatNameNl(String? value) => setField<String>('sub_cat_name_nl', value);
+
+  String get subCatCode => getField<String>('sub_cat_code')!;
+  set subCatCode(String value) => setField<String>('sub_cat_code', value);
 }

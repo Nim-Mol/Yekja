@@ -86,7 +86,7 @@ fits your post ... */
                           FlutterFlowTheme.of(context).headlineLarge.override(
                                 fontFamily: FlutterFlowTheme.of(context)
                                     .headlineLargeFamily,
-                                fontSize: 22.0,
+                                fontSize: 20.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
                                 useGoogleFonts: !FlutterFlowTheme.of(context)

@@ -1,6 +1,5 @@
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
 import '/index.dart';
 import 'chat_page_widget.dart' show ChatPageWidget;
@@ -12,14 +11,10 @@ class ChatPageModel extends FlutterFlowModel<ChatPageWidget> {
 
   int? lastHiddenChatId;
 
+  String filterChoice = 'All';
+
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for ChoiceChips widget.
-  FormFieldController<List<String>>? choiceChipsValueController;
-  String? get choiceChipsValue =>
-      choiceChipsValueController?.value?.firstOrNull;
-  set choiceChipsValue(String? val) =>
-      choiceChipsValueController?.value = val != null ? [val] : [];
   Completer<List<ViewUserChatsVisibleRow>>? requestCompleter;
   // Model for NavBar component.
   late NavBarModel navBarModel;

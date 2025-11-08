@@ -1,9 +1,7 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/supabase/supabase.dart';
-import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
 import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -11,7 +9,6 @@ import '/index.dart';
 import 'dart:async';
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'chat_page_model.dart';
@@ -41,9 +38,6 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ChatPageModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {});
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -155,7 +149,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .greenInit,
+                                                      .secondaryBackground,
                                               shape: BoxShape.circle,
                                             ),
                                             child: Align(
@@ -193,13 +187,8 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                           height: 35.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
+                                                .greenInit,
                                             shape: BoxShape.circle,
-                                            border: Border.all(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .darkgray,
-                                            ),
                                           ),
                                           child: Icon(
                                             Icons.person,
@@ -220,107 +209,242 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                             ),
                             Row(
                               mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Expanded(
-                                  child: FlutterFlowChoiceChips(
-                                    options: [
-                                      ChipData(
-                                          FFLocalizations.of(context).getText(
-                                        'cyoqgt88' /* All */,
-                                      )),
-                                      ChipData(
-                                          FFLocalizations.of(context).getText(
-                                        'ktmh8zc4' /* My Posts */,
-                                      )),
-                                      ChipData(
-                                          FFLocalizations.of(context).getText(
-                                        's5akc9nm' /* Other's Posts */,
-                                      )),
-                                      ChipData(
-                                          FFLocalizations.of(context).getText(
-                                        'o9qneast' /* Yekja */,
-                                      ))
-                                    ],
-                                    onChanged: (val) => safeSetState(() =>
-                                        _model.choiceChipsValue =
-                                            val?.firstOrNull),
-                                    selectedChipStyle: ChipStyle(
-                                      backgroundColor:
-                                          FlutterFlowTheme.of(context)
-                                              .greenInit,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            fontSize: 14.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w500,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .bodyMediumIsCustom,
-                                          ),
-                                      iconColor:
-                                          FlutterFlowTheme.of(context).primary,
-                                      iconSize: 16.0,
-                                      elevation: 0.0,
-                                      borderRadius: BorderRadius.circular(6.0),
-                                    ),
-                                    unselectedChipStyle: ChipStyle(
-                                      backgroundColor:
-                                          FlutterFlowTheme.of(context)
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    _model.filterChoice = 'All';
+                                    safeSetState(() {});
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: _model.filterChoice == 'All'
+                                          ? FlutterFlowTheme.of(context)
+                                              .greenInit
+                                          : FlutterFlowTheme.of(context)
                                               .secondaryBackground,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w500,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .bodyMediumIsCustom,
-                                          ),
-                                      iconColor:
-                                          FlutterFlowTheme.of(context).primary,
-                                      iconSize: 16.0,
-                                      elevation: 0.0,
-                                      borderColor:
-                                          FlutterFlowTheme.of(context).darkgray,
-                                      borderRadius: BorderRadius.circular(6.0),
+                                      borderRadius: BorderRadius.circular(4.0),
+                                      border: Border.all(
+                                        color: _model.filterChoice == 'All'
+                                            ? FlutterFlowTheme.of(context)
+                                                .greenInit
+                                            : FlutterFlowTheme.of(context)
+                                                .bordergray,
+                                        width: 0.3,
+                                      ),
                                     ),
-                                    chipSpacing: 10.0,
-                                    rowSpacing: 8.0,
-                                    multiselect: false,
-                                    initialized:
-                                        _model.choiceChipsValue != null,
-                                    alignment: WrapAlignment.center,
-                                    controller:
-                                        _model.choiceChipsValueController ??=
-                                            FormFieldController<List<String>>(
-                                      [
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 2.0, 10.0, 2.0),
+                                      child: Text(
                                         FFLocalizations.of(context).getText(
-                                          'fyic4jxi' /* All */,
-                                        )
-                                      ],
+                                          '4nojqmye' /* All */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
+                                              color: _model.filterChoice ==
+                                                      'All'
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .primaryText
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              fontSize: 14.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .bodyMediumIsCustom,
+                                            ),
+                                      ),
                                     ),
-                                    wrapped: true,
                                   ),
                                 ),
-                              ],
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    _model.filterChoice = 'My Posts';
+                                    safeSetState(() {});
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: _model.filterChoice == 'My Posts'
+                                          ? FlutterFlowTheme.of(context)
+                                              .greenInit
+                                          : FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                      borderRadius: BorderRadius.circular(4.0),
+                                      border: Border.all(
+                                        color: _model.filterChoice == 'My Posts'
+                                            ? FlutterFlowTheme.of(context)
+                                                .greenInit
+                                            : FlutterFlowTheme.of(context)
+                                                .bordergray,
+                                        width: 0.3,
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 2.0, 10.0, 2.0),
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          'e248wdxf' /* My Posts */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
+                                              color: _model.filterChoice ==
+                                                      'My Posts'
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .primaryText
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              fontSize: 14.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .bodyMediumIsCustom,
+                                            ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    _model.filterChoice = 'Other\'s Posts';
+                                    safeSetState(() {});
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: _model.filterChoice ==
+                                              'Other\'s Posts'
+                                          ? FlutterFlowTheme.of(context)
+                                              .greenInit
+                                          : FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                      borderRadius: BorderRadius.circular(4.0),
+                                      border: Border.all(
+                                        color: _model.filterChoice ==
+                                                'Other\'s Posts'
+                                            ? FlutterFlowTheme.of(context)
+                                                .greenInit
+                                            : FlutterFlowTheme.of(context)
+                                                .bordergray,
+                                        width: 0.3,
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 2.0, 10.0, 2.0),
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          'pspduh98' /* Other's Posts */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
+                                              color: _model
+                                                          .filterChoice ==
+                                                      'Other\'s Posts'
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .primaryText
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              fontSize: 14.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .bodyMediumIsCustom,
+                                            ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    _model.filterChoice = 'Yekja';
+                                    safeSetState(() {});
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: _model.filterChoice == 'Yekja'
+                                          ? FlutterFlowTheme.of(context)
+                                              .greenInit
+                                          : FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                      borderRadius: BorderRadius.circular(4.0),
+                                      border: Border.all(
+                                        color: _model.filterChoice == 'Yekja'
+                                            ? FlutterFlowTheme.of(context)
+                                                .greenInit
+                                            : FlutterFlowTheme.of(context)
+                                                .bordergray,
+                                        width: 0.3,
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 2.0, 10.0, 2.0),
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          '9bsrpmk4' /* Yekja */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
+                                              color: _model.filterChoice ==
+                                                      'Yekja'
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .primaryText
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              fontSize: 14.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .bodyMediumIsCustom,
+                                            ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ].divide(SizedBox(width: 10.0)),
                             ),
                             Divider(
                               thickness: 1.0,
                               color: FlutterFlowTheme.of(context).darkgray,
                             ),
-                            if (_model.choiceChipsValue == 'All')
+                            if (_model.filterChoice == 'All')
                               Builder(
                                 builder: (context) {
                                   final chatview =
@@ -633,6 +757,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                       FontWeight
                                                                           .bold,
                                                                 ),
+                                                            overflow:
+                                                                TextOverflow
+                                                                    .ellipsis,
                                                           ),
                                                         ].divide(SizedBox(
                                                             width: 4.0)),
@@ -687,10 +814,6 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                   chatviewItem
                                                                       .lastMessageText,
                                                                   'chat opened',
-                                                                ).maybeHandleOverflow(
-                                                                  maxChars: 70,
-                                                                  replacement:
-                                                                      '…',
                                                                 ),
                                                                 textAlign:
                                                                     TextAlign
@@ -715,6 +838,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                           FontWeight
                                                                               .w200,
                                                                     ),
+                                                                overflow:
+                                                                    TextOverflow
+                                                                        .ellipsis,
                                                               ),
                                                             ),
                                                           ],
@@ -767,7 +893,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                   );
                                 },
                               ),
-                            if (_model.choiceChipsValue == 'My Posts')
+                            if (_model.filterChoice == 'My Posts')
                               Builder(
                                 builder: (context) {
                                   final chatview =
@@ -1081,6 +1207,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                       FontWeight
                                                                           .bold,
                                                                 ),
+                                                            overflow:
+                                                                TextOverflow
+                                                                    .ellipsis,
                                                           ),
                                                         ].divide(SizedBox(
                                                             width: 4.0)),
@@ -1135,10 +1264,6 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                   chatviewItem
                                                                       .lastMessageText,
                                                                   'chat opened',
-                                                                ).maybeHandleOverflow(
-                                                                  maxChars: 70,
-                                                                  replacement:
-                                                                      '…',
                                                                 ),
                                                                 textAlign:
                                                                     TextAlign
@@ -1163,6 +1288,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                           FontWeight
                                                                               .w200,
                                                                     ),
+                                                                overflow:
+                                                                    TextOverflow
+                                                                        .ellipsis,
                                                               ),
                                                             ),
                                                           ],
@@ -1215,7 +1343,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                   );
                                 },
                               ),
-                            if (_model.choiceChipsValue == 'Other\'s Posts')
+                            if (_model.filterChoice == 'Other\'s Posts')
                               Builder(
                                 builder: (context) {
                                   final chatview =
@@ -1530,6 +1658,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                       FontWeight
                                                                           .bold,
                                                                 ),
+                                                            overflow:
+                                                                TextOverflow
+                                                                    .ellipsis,
                                                           ),
                                                         ].divide(SizedBox(
                                                             width: 4.0)),
@@ -1580,10 +1711,6 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                   chatviewItem
                                                                       .lastMessageText,
                                                                   'chat opened',
-                                                                ).maybeHandleOverflow(
-                                                                  maxChars: 70,
-                                                                  replacement:
-                                                                      '…',
                                                                 ),
                                                                 textAlign:
                                                                     TextAlign
@@ -1608,6 +1735,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                           FontWeight
                                                                               .w200,
                                                                     ),
+                                                                overflow:
+                                                                    TextOverflow
+                                                                        .ellipsis,
                                                               ),
                                                             ),
                                                           ],
@@ -1661,8 +1791,8 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                   );
                                 },
                               ),
-                            if ((_model.choiceChipsValue == 'Yekja') ||
-                                (_model.choiceChipsValue == 'All'))
+                            if ((_model.filterChoice == 'Yekja') ||
+                                (_model.filterChoice == 'All'))
                               Builder(
                                 builder: (context) {
                                   final chatview =
@@ -1932,7 +2062,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                 String>(
                                                               chatviewItem
                                                                   .postTitle,
-                                                              'Post title unavailable',
+                                                              'Welcome to Yekja :)',
                                                             ),
                                                             maxLines: 1,
                                                             style: FlutterFlowTheme
@@ -1957,6 +2087,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                       FontWeight
                                                                           .bold,
                                                                 ),
+                                                            overflow:
+                                                                TextOverflow
+                                                                    .ellipsis,
                                                           ),
                                                         ].divide(SizedBox(
                                                             width: 4.0)),
@@ -2003,10 +2136,6 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                 chatviewItem
                                                                     .lastMessageText,
                                                                 'chat opened',
-                                                              ).maybeHandleOverflow(
-                                                                maxChars: 70,
-                                                                replacement:
-                                                                    '…',
                                                               ),
                                                               textAlign:
                                                                   TextAlign
@@ -2032,6 +2161,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                         FontWeight
                                                                             .w200,
                                                                   ),
+                                                              overflow:
+                                                                  TextOverflow
+                                                                      .ellipsis,
                                                             ),
                                                           ),
                                                         ],

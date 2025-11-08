@@ -216,37 +216,64 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                                             final listViewViewUserPostsRow =
                                                 listViewViewUserPostsRowList[
                                                     listViewIndex];
-                                            return ItemCardHorizentalWidget(
-                                              key: Key(
-                                                  'Key76t_${listViewIndex}_of_${listViewViewUserPostsRowList.length}'),
-                                              profileId: widget.profileId,
-                                              itemData:
-                                                  ItemCardHorizentalStruct(
-                                                title: listViewViewUserPostsRow
-                                                    .title,
-                                                description:
-                                                    listViewViewUserPostsRow
-                                                        .description,
-                                                itemLocation:
-                                                    listViewViewUserPostsRow
-                                                        .city,
-                                                createdAt:
-                                                    listViewViewUserPostsRow
-                                                        .createdAt,
-                                                catID: listViewViewUserPostsRow
-                                                    .catId,
-                                                itemLikes:
-                                                    listViewViewUserPostsRow
-                                                        .postLikes,
-                                                mainImagePath:
-                                                    listViewViewUserPostsRow
-                                                        .images.firstOrNull,
-                                                postUserId:
-                                                    listViewViewUserPostsRow
-                                                        .userId,
+                                            return InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.pushNamed(
+                                                  PostWidget.routeName,
+                                                  queryParameters: {
+                                                    'postID': serializeParam(
+                                                      listViewViewUserPostsRow
+                                                          .sourceId,
+                                                      ParamType.String,
+                                                    ),
+                                                    'detailDataName':
+                                                        serializeParam(
+                                                      listViewViewUserPostsRow
+                                                          .detailTable,
+                                                      ParamType.String,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              },
+                                              child: ItemCardHorizentalWidget(
+                                                key: Key(
+                                                    'Key76t_${listViewIndex}_of_${listViewViewUserPostsRowList.length}'),
+                                                profileId: widget.profileId,
+                                                itemData:
+                                                    ItemCardHorizentalStruct(
+                                                  title:
+                                                      listViewViewUserPostsRow
+                                                          .title,
+                                                  description:
+                                                      listViewViewUserPostsRow
+                                                          .description,
+                                                  itemLocation:
+                                                      listViewViewUserPostsRow
+                                                          .city,
+                                                  createdAt:
+                                                      listViewViewUserPostsRow
+                                                          .createdAt,
+                                                  catID:
+                                                      listViewViewUserPostsRow
+                                                          .catId,
+                                                  itemLikes:
+                                                      listViewViewUserPostsRow
+                                                          .postLikes,
+                                                  mainImagePath:
+                                                      listViewViewUserPostsRow
+                                                          .images.firstOrNull,
+                                                  postUserId:
+                                                      listViewViewUserPostsRow
+                                                          .userId,
+                                                ),
+                                                postId: listViewViewUserPostsRow
+                                                    .sourceId,
                                               ),
-                                              postId: listViewViewUserPostsRow
-                                                  .sourceId,
                                             );
                                           },
                                         );

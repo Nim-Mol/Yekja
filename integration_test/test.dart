@@ -52,7 +52,7 @@ void main() async {
           'yekja.team@gmail.com');
       await tester.enterText(
           find.byKey(const ValueKey('PassWord_fyan')), 'Nima&Mehran1');
-      await tester.tap(find.byKey(const ValueKey('BottonStandard_cjw3')));
+      await tester.tap(find.byKey(const ValueKey('UNDEFINED')));
       await tester.pumpAndSettle();
       expect(find.text('What are you looking for roday?'), findsOneWidget);
     });

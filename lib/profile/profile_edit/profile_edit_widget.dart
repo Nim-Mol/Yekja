@@ -2152,7 +2152,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          0.0, 15.0, 0.0, 0.0),
+                                                          0.0, 32.0, 0.0, 0.0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -2164,7 +2164,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                     16.0,
                                                                     0.0,
                                                                     16.0,
-                                                                    16.0),
+                                                                    12.0),
                                                         child: Container(
                                                           width:
                                                               double.infinity,

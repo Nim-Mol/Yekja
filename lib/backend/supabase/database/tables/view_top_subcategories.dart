@@ -25,6 +25,10 @@ class ViewTopSubcategoriesRow extends SupabaseDataRow {
   set mainCatNameFa(String? value) =>
       setField<String>('main_cat_name_fa', value);
 
+  String? get mainCatNameNl => getField<String>('main_cat_name_nl');
+  set mainCatNameNl(String? value) =>
+      setField<String>('main_cat_name_nl', value);
+
   int? get catId => getField<int>('cat_id');
   set catId(int? value) => setField<int>('cat_id', value);
 
@@ -33,6 +37,9 @@ class ViewTopSubcategoriesRow extends SupabaseDataRow {
 
   String? get catNameFa => getField<String>('cat_name_fa');
   set catNameFa(String? value) => setField<String>('cat_name_fa', value);
+
+  String? get catNameNl => getField<String>('cat_name_nl');
+  set catNameNl(String? value) => setField<String>('cat_name_nl', value);
 
   String? get detailTable => getField<String>('detail_table');
   set detailTable(String? value) => setField<String>('detail_table', value);
@@ -48,6 +55,9 @@ class ViewTopSubcategoriesRow extends SupabaseDataRow {
 
   String? get subCatNameFa => getField<String>('sub_cat_name_fa');
   set subCatNameFa(String? value) => setField<String>('sub_cat_name_fa', value);
+
+  String? get subCatNameNl => getField<String>('sub_cat_name_nl');
+  set subCatNameNl(String? value) => setField<String>('sub_cat_name_nl', value);
 
   int? get subPostCount => getField<int>('sub_post_count');
   set subPostCount(int? value) => setField<int>('sub_post_count', value);

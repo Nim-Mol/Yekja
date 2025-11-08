@@ -3,7 +3,6 @@ import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/main_overview_pages/item_card_global/item_card_global_widget.dart';
-import '/shared_components/item_card_job_request/item_card_job_request_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
 import '/index.dart';
 import 'dart:async';
@@ -47,12 +46,6 @@ class MarketModel extends FlutterFlowModel<MarketWidget> {
 
   // Models for ItemCard_Global dynamic component.
   late FlutterFlowDynamicModels<ItemCardGlobalModel> itemCardGlobalModels2;
-  // Model for ItemCard_JobRequest component.
-  late ItemCardJobRequestModel itemCardJobRequestModel1;
-  // Model for ItemCard_JobRequest component.
-  late ItemCardJobRequestModel itemCardJobRequestModel2;
-  // Model for ItemCard_JobRequest component.
-  late ItemCardJobRequestModel itemCardJobRequestModel3;
   // State field(s) for DropDownSort widget.
   String? dropDownSortValue3;
   FormFieldController<String>? dropDownSortValueController3;
@@ -82,12 +75,6 @@ class MarketModel extends FlutterFlowModel<MarketWidget> {
         FlutterFlowDynamicModels(() => ItemCardGlobalModel());
     itemCardGlobalModels2 =
         FlutterFlowDynamicModels(() => ItemCardGlobalModel());
-    itemCardJobRequestModel1 =
-        createModel(context, () => ItemCardJobRequestModel());
-    itemCardJobRequestModel2 =
-        createModel(context, () => ItemCardJobRequestModel());
-    itemCardJobRequestModel3 =
-        createModel(context, () => ItemCardJobRequestModel());
     itemCardGlobalModels3 =
         FlutterFlowDynamicModels(() => ItemCardGlobalModel());
     itemCardGlobalModels4 =
@@ -102,9 +89,6 @@ class MarketModel extends FlutterFlowModel<MarketWidget> {
     itemCardGlobalModels1.dispose();
     listviewSupportPagingController?.dispose();
     itemCardGlobalModels2.dispose();
-    itemCardJobRequestModel1.dispose();
-    itemCardJobRequestModel2.dispose();
-    itemCardJobRequestModel3.dispose();
     listviewSkillsPagingController?.dispose();
     itemCardGlobalModels3.dispose();
     listviewEventsPagingController?.dispose();

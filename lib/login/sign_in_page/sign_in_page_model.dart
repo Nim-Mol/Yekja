@@ -1,6 +1,5 @@
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/shared_components/botton_standard/botton_standard_widget.dart';
 import '/index.dart';
 import 'sign_in_page_widget.dart' show SignInPageWidget;
 import 'package:flutter/material.dart';
@@ -28,15 +27,12 @@ class SignInPageModel extends FlutterFlowModel<SignInPageWidget> {
   List<UserFavoritesRow>? userFav;
   // Stores action output result for [Custom Action - decodeJwtRole] action in Button widget.
   String? userRole;
-  // Model for BottonStandard component.
-  late BottonStandardModel bottonStandardModel;
-  // Stores action output result for [Custom Action - createGuestSession] action in RichText widget.
-  String? result;
+  // Stores action output result for [Custom Action - generateUUID] action in RichText widget.
+  String? sessionId;
 
   @override
   void initState(BuildContext context) {
     passWordVisibility = false;
-    bottonStandardModel = createModel(context, () => BottonStandardModel());
   }
 
   @override
@@ -46,7 +42,5 @@ class SignInPageModel extends FlutterFlowModel<SignInPageWidget> {
 
     passWordFocusNode?.dispose();
     passWordTextController?.dispose();
-
-    bottonStandardModel.dispose();
   }
 }

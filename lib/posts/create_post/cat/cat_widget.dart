@@ -98,7 +98,7 @@ like to do? */
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .headlineLargeFamily,
-                                        fontSize: 22.0,
+                                        fontSize: 20.0,
                                         letterSpacing: 0.0,
                                         useGoogleFonts:
                                             !FlutterFlowTheme.of(context)

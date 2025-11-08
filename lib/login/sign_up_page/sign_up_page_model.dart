@@ -1,10 +1,13 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/shared_components/botton_standard/botton_standard_widget.dart';
 import '/index.dart';
 import 'sign_up_page_widget.dart' show SignUpPageWidget;
 import 'package:flutter/material.dart';
 
 class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
+  ///  Local state fields for this page.
+
+  bool loading = false;
+
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -15,20 +18,20 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
   String? _userNameTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        '206yhyd6' /* User name is invalid! */,
+        'jxbbzwtm' /* User name is invalid! */,
       );
     }
 
     if (val.length < 3) {
       return FFLocalizations.of(context).getText(
-        'p0w37jdu' /* 3 */,
+        'mh6jmnw3' /* 3 */,
       );
     }
 
     if (!RegExp('^[\\u0600-\\u06FF\\s_\\u0660-\\u06690-9a-zA-Z]+\$')
         .hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        'ae4rvotw' /* Please use only letters (Engli... */,
+        'orsnu8it' /* Please use only letters (Engli... */,
       );
     }
     return null;
@@ -51,7 +54,7 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
     if (!RegExp('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}\$')
         .hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        '5gfprwht' /* Please enter a valid email add... */,
+        'ma5ftnzi' /* Please enter a valid email add... */,
       );
     }
     return null;
@@ -69,13 +72,13 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
 
     if (val.length < 6) {
       return FFLocalizations.of(context).getText(
-        'ckanrmbh' /* Minimum 6 characters are requi... */,
+        'tr7ehegd' /* Minimum 6 characters are requi... */,
       );
     }
 
     if (!RegExp('^(?=.*[A-Z])(?=.*\\d).{8,}\$').hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        'h40f5p5q' /* - At least one uppercase lette... */,
+        'oapbd592' /* - At least one uppercase lette... */,
       );
     }
     return null;
@@ -94,18 +97,16 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
 
     if (val.length < 6) {
       return FFLocalizations.of(context).getText(
-        '1nu2760r' /* Minimum 6 characters are requi... */,
+        'q19tebbf' /* Minimum 6 characters are requi... */,
       );
     }
 
     return null;
   }
 
-  // Model for BottonStandard component.
-  late BottonStandardModel bottonStandardModel;
-  // Stores action output result for [Validate Form] action in BottonStandard widget.
+  // Stores action output result for [Validate Form] action in Button widget.
   bool? validationOut;
-  // Stores action output result for [Custom Action - customSignUpWithEmail] action in BottonStandard widget.
+  // Stores action output result for [Custom Action - customSignUpWithEmail] action in Button widget.
   String? authonticationError;
 
   @override
@@ -116,7 +117,6 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
     passWordTextControllerValidator = _passWordTextControllerValidator;
     confPasswordVisibility = false;
     confPasswordTextControllerValidator = _confPasswordTextControllerValidator;
-    bottonStandardModel = createModel(context, () => BottonStandardModel());
   }
 
   @override
@@ -132,7 +132,5 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
 
     confPasswordFocusNode?.dispose();
     confPasswordTextController?.dispose();
-
-    bottonStandardModel.dispose();
   }
 }

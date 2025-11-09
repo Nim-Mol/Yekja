@@ -5519,6 +5519,16 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
       'nl': 'Kies een optie uit de keuzelijst',
     },
+    'm1b3xvwl': {
+      'en': 'I agree to the ',
+      'fa': '',
+      'nl': '',
+    },
+    'bdmdjui9': {
+      'en': 'Terms and Privacy Policy',
+      'fa': '',
+      'nl': '',
+    },
     '00jrevyh': {
       'en': 'Create Account',
       'fa': 'ایجاد حساب کاربری',
@@ -7123,6 +7133,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '0',
       'fa': '0',
       'nl': '0',
+    },
+  },
+  // Terms_popup
+  {
+    'w7tnoy2a': {
+      'en': 'Terms and Privacy Policy',
+      'fa': '',
+      'nl': '',
+    },
+    'xiiybaze': {
+      'en': 'Main Header',
+      'fa': '',
+      'nl': '',
+    },
+    'psnuzzq3': {
+      'en':
+          'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. \n\nMany desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).',
+      'fa': '',
+      'nl': '',
     },
   },
   // Miscellaneous

@@ -8,6 +8,8 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
 
   bool loading = false;
 
+  bool terms = false;
+
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -104,6 +106,8 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
     return null;
   }
 
+  // State field(s) for Checkbox widget.
+  bool? checkboxValue;
   // Stores action output result for [Validate Form] action in Button widget.
   bool? validationOut;
   // Stores action output result for [Custom Action - customSignUpWithEmail] action in Button widget.

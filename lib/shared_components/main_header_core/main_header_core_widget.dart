@@ -249,7 +249,7 @@ class _MainHeaderCoreWidgetState extends State<MainHeaderCoreWidget> {
                                                           .avatar !=
                                                       '')
                                           ? FFAppState().userInfo.avatar
-                                          : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/n2imhdlvogb3/profile_avatar_circular.png',
+                                          : FFAppConstants.DefultProfilePhoto,
                                       fit: BoxFit.cover,
                                     ),
                                   ),

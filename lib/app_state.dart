@@ -60,6 +60,21 @@ class FFAppState extends ChangeNotifier {
       }
     });
     _safeInit(() {
+      _catList = prefs
+              .getStringList('ff_catList')
+              ?.map((x) {
+                try {
+                  return SubcatModelStruct.fromSerializableMap(jsonDecode(x));
+                } catch (e) {
+                  print("Can't decode persisted data type. Error: $e.");
+                  return null;
+                }
+              })
+              .withoutNulls
+              .toList() ??
+          _catList;
+    });
+    _safeInit(() {
       _postLike = prefs.getBool('ff_postLike') ?? _postLike;
     });
     _safeInit(() {
@@ -247,18 +262,25 @@ class FFAppState extends ChangeNotifier {
   List<SubcatModelStruct> get catList => _catList;
   set catList(List<SubcatModelStruct> value) {
     _catList = value;
+    prefs.setStringList('ff_catList', value.map((x) => x.serialize()).toList());
   }
 
   void addToCatList(SubcatModelStruct value) {
     catList.add(value);
+    prefs.setStringList(
+        'ff_catList', _catList.map((x) => x.serialize()).toList());
   }
 
   void removeFromCatList(SubcatModelStruct value) {
     catList.remove(value);
+    prefs.setStringList(
+        'ff_catList', _catList.map((x) => x.serialize()).toList());
   }
 
   void removeAtIndexFromCatList(int index) {
     catList.removeAt(index);
+    prefs.setStringList(
+        'ff_catList', _catList.map((x) => x.serialize()).toList());
   }
 
   void updateCatListAtIndex(
@@ -266,10 +288,14 @@ class FFAppState extends ChangeNotifier {
     SubcatModelStruct Function(SubcatModelStruct) updateFn,
   ) {
     catList[index] = updateFn(_catList[index]);
+    prefs.setStringList(
+        'ff_catList', _catList.map((x) => x.serialize()).toList());
   }
 
   void insertAtIndexInCatList(int index, SubcatModelStruct value) {
     catList.insert(index, value);
+    prefs.setStringList(
+        'ff_catList', _catList.map((x) => x.serialize()).toList());
   }
 
   bool _postLike = false;
@@ -569,6 +595,12 @@ class FFAppState extends ChangeNotifier {
   String get appLang => _appLang;
   set appLang(String value) {
     _appLang = value;
+  }
+
+  bool _isGoingEvent = false;
+  bool get isGoingEvent => _isGoingEvent;
+  set isGoingEvent(bool value) {
+    _isGoingEvent = value;
   }
 }
 

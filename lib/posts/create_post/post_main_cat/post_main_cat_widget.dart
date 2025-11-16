@@ -308,7 +308,7 @@ new post about? */
                                                 borderRadius:
                                                     BorderRadius.circular(12.0),
                                                 child: Image.network(
-                                                  'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/support.jpg',
+                                                  FFAppConstants.SupportImage,
                                                   width: 70.0,
                                                   height: 70.0,
                                                   fit: BoxFit.cover,
@@ -411,7 +411,7 @@ new post about? */
                                                 borderRadius:
                                                     BorderRadius.circular(12.0),
                                                 child: Image.network(
-                                                  'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/CommunityMarket.png',
+                                                  FFAppConstants.MarketImage,
                                                   width: 70.0,
                                                   height: 70.0,
                                                   fit: BoxFit.cover,
@@ -523,7 +523,7 @@ new post about? */
                                                 borderRadius:
                                                     BorderRadius.circular(12.0),
                                                 child: Image.network(
-                                                  'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Onboardings/babysitter_1.jpg',
+                                                  FFAppConstants.ServicesImage,
                                                   width: 70.0,
                                                   height: 70.0,
                                                   fit: BoxFit.cover,
@@ -641,7 +641,7 @@ new post about? */
                                                 borderRadius:
                                                     BorderRadius.circular(12.0),
                                                 child: Image.network(
-                                                  'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Events.png',
+                                                  FFAppConstants.EventsImage,
                                                   width: 70.0,
                                                   height: 70.0,
                                                   fit: BoxFit.cover,

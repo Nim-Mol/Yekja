@@ -6,11 +6,11 @@ import '/main_overview_pages/item_card_global/item_card_global_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
 import '/index.dart';
 import 'dart:async';
-import 'market_widget.dart' show MarketWidget;
+import 'main_page_widget.dart' show MainPageWidget;
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
-class MarketModel extends FlutterFlowModel<MarketWidget> {
+class MainPageModel extends FlutterFlowModel<MainPageWidget> {
   ///  Local state fields for this page.
 
   String sortBy = 'created_at.desc.nullslast';
@@ -114,6 +114,57 @@ class MarketModel extends FlutterFlowModel<MarketWidget> {
     }
   }
 
+  Future waitForOnePageForListviewSupport({
+    double minWait = 0,
+    double maxWait = double.infinity,
+  }) async {
+    final stopwatch = Stopwatch()..start();
+    while (true) {
+      await Future.delayed(Duration(milliseconds: 50));
+      final timeElapsed = stopwatch.elapsedMilliseconds;
+      final requestComplete =
+          (listviewSupportPagingController?.nextPageKey?.nextPageNumber ?? 0) >
+              0;
+      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
+        break;
+      }
+    }
+  }
+
+  Future waitForOnePageForListviewSkills({
+    double minWait = 0,
+    double maxWait = double.infinity,
+  }) async {
+    final stopwatch = Stopwatch()..start();
+    while (true) {
+      await Future.delayed(Duration(milliseconds: 50));
+      final timeElapsed = stopwatch.elapsedMilliseconds;
+      final requestComplete =
+          (listviewSkillsPagingController?.nextPageKey?.nextPageNumber ?? 0) >
+              0;
+      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
+        break;
+      }
+    }
+  }
+
+  Future waitForOnePageForListviewEvents({
+    double minWait = 0,
+    double maxWait = double.infinity,
+  }) async {
+    final stopwatch = Stopwatch()..start();
+    while (true) {
+      await Future.delayed(Duration(milliseconds: 50));
+      final timeElapsed = stopwatch.elapsedMilliseconds;
+      final requestComplete =
+          (listviewEventsPagingController?.nextPageKey?.nextPageNumber ?? 0) >
+              0;
+      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
+        break;
+      }
+    }
+  }
+
   PagingController<ApiPagingParams, dynamic> setListviewMarketController(
     Function(ApiPagingParams) apiCall,
   ) {
@@ -159,23 +210,6 @@ class MarketModel extends FlutterFlowModel<MarketWidget> {
               : null,
         );
       });
-
-  Future waitForOnePageForListviewSupport({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete =
-          (listviewSupportPagingController?.nextPageKey?.nextPageNumber ?? 0) >
-              0;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
-  }
 
   PagingController<ApiPagingParams, dynamic> setListviewSupportController(
     Function(ApiPagingParams) apiCall,
@@ -223,23 +257,6 @@ class MarketModel extends FlutterFlowModel<MarketWidget> {
         );
       });
 
-  Future waitForOnePageForListviewSkills({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete =
-          (listviewSkillsPagingController?.nextPageKey?.nextPageNumber ?? 0) >
-              0;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
-  }
-
   PagingController<ApiPagingParams, dynamic> setListviewSkillsController(
     Function(ApiPagingParams) apiCall,
   ) {
@@ -285,23 +302,6 @@ class MarketModel extends FlutterFlowModel<MarketWidget> {
               : null,
         );
       });
-
-  Future waitForOnePageForListviewEvents({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete =
-          (listviewEventsPagingController?.nextPageKey?.nextPageNumber ?? 0) >
-              0;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
-  }
 
   PagingController<ApiPagingParams, dynamic> setListviewEventsController(
     Function(ApiPagingParams) apiCall,

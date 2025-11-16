@@ -43,4 +43,7 @@ class DetailsSwapItemsRow extends SupabaseDataRow {
 
   int? get durationMin => getField<int>('duration_min');
   set durationMin(int? value) => setField<int>('duration_min', value);
+
+  DateTime? get deadline => getField<DateTime>('deadline');
+  set deadline(DateTime? value) => setField<DateTime>('deadline', value);
 }

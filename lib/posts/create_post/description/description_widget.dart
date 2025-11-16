@@ -180,7 +180,7 @@ class _DescriptionWidgetState extends State<DescriptionWidget> {
                                     .titleMediumIsCustom,
                               ),
                           textAlign: TextAlign.center,
-                          maxLines: 17,
+                          maxLines: 13,
                           maxLength: 600,
                           maxLengthEnforcement: MaxLengthEnforcement.enforced,
                           cursorColor: FlutterFlowTheme.of(context).primaryText,

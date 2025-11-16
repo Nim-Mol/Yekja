@@ -1865,7 +1865,7 @@ class _DetailSkillsWidgetState extends State<DetailSkillsWidget> {
                                   'price_text':
                                       FFAppState().postState.priceText,
                                   'price': FFAppState().postState.price,
-                                  'price_period':
+                                  'price_unit':
                                       FFAppState().postState.pricePeriod,
                                   'service_model':
                                       FFAppState().postState.serviceMode,

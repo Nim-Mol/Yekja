@@ -541,7 +541,7 @@ ongoing ser... */
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     FFAppState().updatePostStateStruct(
-                                      (e) => e..intend = 'Event Hosting',
+                                      (e) => e..intend = 'Hosting',
                                     );
                                     _model.updatePage(() {});
                                   },
@@ -552,7 +552,7 @@ ongoing ser... */
                                       borderRadius: BorderRadius.circular(24.0),
                                       border: Border.all(
                                         color: FFAppState().postState.intend ==
-                                                'Event Hosting'
+                                                'Hosting'
                                             ? FlutterFlowTheme.of(context)
                                                 .primaryText
                                             : FlutterFlowTheme.of(context)
@@ -631,7 +631,7 @@ ongoing ser... */
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     FFAppState().updatePostStateStruct(
-                                      (e) => e..intend = 'Event Announcement',
+                                      (e) => e..intend = 'Announcing',
                                     );
                                     _model.updatePage(() {});
                                   },
@@ -642,7 +642,7 @@ ongoing ser... */
                                       borderRadius: BorderRadius.circular(24.0),
                                       border: Border.all(
                                         color: FFAppState().postState.intend ==
-                                                'Event Announcement'
+                                                'Announcing'
                                             ? FlutterFlowTheme.of(context)
                                                 .primaryText
                                             : FlutterFlowTheme.of(context)
@@ -1132,7 +1132,6 @@ ongoing ser... */
                                     _model.updatePage(() {});
                                   },
                                   child: Container(
-                                    width: 140.0,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
@@ -1192,7 +1191,6 @@ ongoing ser... */
                                     _model.updatePage(() {});
                                   },
                                   child: Container(
-                                    width: 140.0,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,

@@ -12,7 +12,9 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final formKey = GlobalKey<FormState>();
+  final formKey2 = GlobalKey<FormState>();
+  final formKey1 = GlobalKey<FormState>();
+  final formKey3 = GlobalKey<FormState>();
   // State field(s) for userName widget.
   FocusNode? userNameFocusNode;
   TextEditingController? userNameTextController;
@@ -20,20 +22,24 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
   String? _userNameTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'jxbbzwtm' /* User name is invalid! */,
+        'g57bhyec' /* This field is required. */,
       );
     }
 
     if (val.length < 3) {
       return FFLocalizations.of(context).getText(
-        'mh6jmnw3' /* 3 */,
+        'gyyzglsg' /* Minimum 3 characters are requi... */,
       );
     }
-
+    if (val.length > 10) {
+      return FFLocalizations.of(context).getText(
+        'mj06dfc0' /* Max characters reached. */,
+      );
+    }
     if (!RegExp('^[\\u0600-\\u06FF\\s_\\u0660-\\u06690-9a-zA-Z]+\$')
         .hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        'orsnu8it' /* Please use only letters (Engli... */,
+        'o7uj5dgy' /* Please use only letters (Engli... */,
       );
     }
     return null;
@@ -46,17 +52,15 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
   String? _emailAddressTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
-    }
-
-    if (val.length < 1) {
-      return 'Requires at least 1 characters.';
+      return FFLocalizations.of(context).getText(
+        'v31k1qg9' /* This field is required. */,
+      );
     }
 
     if (!RegExp('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}\$')
         .hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        'ma5ftnzi' /* Please enter a valid email add... */,
+        'fhkvtejh' /* Please enter a valid email add... */,
       );
     }
     return null;
@@ -69,18 +73,20 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
   String? Function(BuildContext, String?)? passWordTextControllerValidator;
   String? _passWordTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return FFLocalizations.of(context).getText(
+        '2pobt1h6' /* This field is required. */,
+      );
     }
 
     if (val.length < 6) {
       return FFLocalizations.of(context).getText(
-        'tr7ehegd' /* Minimum 6 characters are requi... */,
+        'ixw153fz' /* Minimum 6 characters are requi... */,
       );
     }
 
     if (!RegExp('^(?=.*[A-Z])(?=.*\\d).{8,}\$').hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        'oapbd592' /* - At least one uppercase lette... */,
+        '0ootosfw' /* - At least one uppercase lette... */,
       );
     }
     return null;
@@ -91,25 +97,8 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
   TextEditingController? confPasswordTextController;
   late bool confPasswordVisibility;
   String? Function(BuildContext, String?)? confPasswordTextControllerValidator;
-  String? _confPasswordTextControllerValidator(
-      BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return 'Field is required';
-    }
-
-    if (val.length < 6) {
-      return FFLocalizations.of(context).getText(
-        'q19tebbf' /* Minimum 6 characters are requi... */,
-      );
-    }
-
-    return null;
-  }
-
   // State field(s) for Checkbox widget.
   bool? checkboxValue;
-  // Stores action output result for [Validate Form] action in Button widget.
-  bool? validationOut;
   // Stores action output result for [Custom Action - customSignUpWithEmail] action in Button widget.
   String? authonticationError;
 
@@ -120,7 +109,6 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
     passWordVisibility = false;
     passWordTextControllerValidator = _passWordTextControllerValidator;
     confPasswordVisibility = false;
-    confPasswordTextControllerValidator = _confPasswordTextControllerValidator;
   }
 
   @override

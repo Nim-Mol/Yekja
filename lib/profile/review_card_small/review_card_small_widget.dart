@@ -294,7 +294,7 @@ class _ReviewCardSmallWidgetState extends State<ReviewCardSmallWidget> {
                                   children: [
                                     Text(
                                       FFLocalizations.of(context).getText(
-                                        'p9fq8o0p' /* Quality */,
+                                        'p9fq8o0p' /*  Quality */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium

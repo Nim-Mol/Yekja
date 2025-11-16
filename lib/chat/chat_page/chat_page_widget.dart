@@ -468,7 +468,11 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 13.5, 16.0, 13.5),
-                                          child: GestureDetector(
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
                                             onTap: () async {
                                               context.pushNamed(
                                                 ChatdetailWidget.routeName,
@@ -511,8 +515,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                 }.withoutNulls,
                                               );
                                             },
-                                            onHorizontalDragStart:
-                                                (details) async {
+                                            onLongPress: () async {
                                               await showDialog(
                                                 context: context,
                                                 builder: (dialogContext) {
@@ -539,11 +542,30 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                       },
                                                       child:
                                                           ConfirmCancelPopUpWidget(
-                                                        header: 'Delete chat',
+                                                        header:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'i9836zr0' /* Delete chat */,
+                                                        ),
                                                         hintText:
-                                                            'Press confirm if you intend to delete this chat.',
-                                                        cancelText: 'Cancel',
-                                                        confirmText: 'Confirm',
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'n958loab' /* Press confirm if you intend to... */,
+                                                        ),
+                                                        cancelText:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          '46z72kp3' /* Cancel */,
+                                                        ),
+                                                        confirmText:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'lkl0kp7h' /* Confirm */,
+                                                        ),
                                                         onConfirmAction:
                                                             () async {
                                                           if (currentUserUid ==
@@ -599,8 +621,6 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                   null);
                                                           await _model
                                                               .waitForRequestCompleted();
-                                                          Navigator.pop(
-                                                              context);
                                                         },
                                                         onCancelAction:
                                                             () async {
@@ -813,7 +833,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                     String>(
                                                                   chatviewItem
                                                                       .lastMessageText,
-                                                                  'chat opened',
+                                                                  'Image',
                                                                 ),
                                                                 textAlign:
                                                                     TextAlign
@@ -1049,8 +1069,6 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                   null);
                                                           await _model
                                                               .waitForRequestCompleted();
-                                                          Navigator.pop(
-                                                              context);
                                                         },
                                                         onCancelAction:
                                                             () async {
@@ -1369,7 +1387,11 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 13.5, 16.0, 13.5),
-                                          child: GestureDetector(
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
                                             onTap: () async {
                                               context.pushNamed(
                                                 ChatdetailWidget.routeName,
@@ -1412,8 +1434,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                 }.withoutNulls,
                                               );
                                             },
-                                            onHorizontalDragStart:
-                                                (details) async {
+                                            onLongPress: () async {
                                               await showDialog(
                                                 context: context,
                                                 builder: (dialogContext) {
@@ -1500,8 +1521,6 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                   null);
                                                           await _model
                                                               .waitForRequestCompleted();
-                                                          Navigator.pop(
-                                                              context);
                                                         },
                                                         onCancelAction:
                                                             () async {
@@ -1710,7 +1729,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                     String>(
                                                                   chatviewItem
                                                                       .lastMessageText,
-                                                                  'chat opened',
+                                                                  'Image',
                                                                 ),
                                                                 textAlign:
                                                                     TextAlign
@@ -1816,7 +1835,11 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 13.5, 16.0, 13.5),
-                                          child: GestureDetector(
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
                                             onTap: () async {
                                               context.pushNamed(
                                                 ChatdetailWithYekjaWidget
@@ -1842,8 +1865,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                 }.withoutNulls,
                                               );
                                             },
-                                            onHorizontalDragStart:
-                                                (details) async {
+                                            onLongPress: () async {
                                               await showDialog(
                                                 context: context,
                                                 builder: (dialogContext) {
@@ -1930,8 +1952,6 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                   null);
                                                           await _model
                                                               .waitForRequestCompleted();
-                                                          Navigator.pop(
-                                                              context);
                                                         },
                                                         onCancelAction:
                                                             () async {
@@ -2135,7 +2155,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                   String>(
                                                                 chatviewItem
                                                                     .lastMessageText,
-                                                                'chat opened',
+                                                                'Image',
                                                               ),
                                                               textAlign:
                                                                   TextAlign

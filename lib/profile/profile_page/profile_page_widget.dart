@@ -20,7 +20,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'profile_page_model.dart';
 export 'profile_page_model.dart';
@@ -99,6 +98,18 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
             duration: 600.0.ms,
             begin: Offset(-41.0, -0.0),
             end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'iconOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-1.0, -1.0),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -234,42 +245,32 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                               topRight: Radius.circular(8.0),
                                             ),
                                           ),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceEvenly,
-                                            children: [
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                  child: Image.network(
-                                                    (_model
-                                                                    .userConsent
-                                                                    ?.firstOrNull
-                                                                    ?.showProfileImage ==
-                                                                true) &&
-                                                            (containerUserExtRow
-                                                                        ?.profileAvatar !=
-                                                                    null &&
-                                                                containerUserExtRow
-                                                                        ?.profileAvatar !=
-                                                                    '')
-                                                        ? containerUserExtRow!
-                                                            .profileAvatar!
-                                                        : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/9zp5habce8h3/profile_avatar_1.png',
-                                                    width: 99.3,
-                                                    height: 200.0,
-                                                    fit: BoxFit.cover,
-                                                    alignment:
-                                                        Alignment(0.0, 0.0),
-                                                  ),
-                                                ),
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: Image.network(
+                                                (_model.userConsent?.firstOrNull
+                                                                ?.showProfileImage ==
+                                                            true) &&
+                                                        (containerUserExtRow
+                                                                    ?.profileAvatar !=
+                                                                null &&
+                                                            containerUserExtRow
+                                                                    ?.profileAvatar !=
+                                                                '')
+                                                    ? containerUserExtRow!
+                                                        .profileAvatar!
+                                                    : FFAppConstants
+                                                        .DefultProfilePhoto,
+                                                width: 99.3,
+                                                height: 200.0,
+                                                fit: BoxFit.cover,
+                                                alignment: Alignment(0.0, 0.0),
                                               ),
-                                            ],
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -782,139 +783,159 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                       ),
                                                     ),
                                                   ),
-                                                  Stack(
+                                                  Align(
                                                     alignment:
                                                         AlignmentDirectional(
                                                             0.0, 0.0),
-                                                    children: [
-                                                      Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
+                                                    child: Container(
+                                                      height: 71.32,
+                                                      decoration:
+                                                          BoxDecoration(),
+                                                      child: Stack(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
                                                         children: [
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        4.0),
-                                                            child: Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'jzc0o03k' /* 3 */,
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .displaySmall
-                                                                  .override(
-                                                                    font: GoogleFonts
-                                                                        .poppins(
-                                                                      fontWeight: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .displaySmall
-                                                                          .fontWeight,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .displaySmall
-                                                                          .fontStyle,
-                                                                    ),
-                                                                    fontSize:
-                                                                        24.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .displaySmall
-                                                                        .fontWeight,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .displaySmall
-                                                                        .fontStyle,
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        4.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'yhmczqlg' /* 12 points to reach level 4 */,
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .labelLarge
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .labelLargeFamily,
-                                                                    fontSize:
-                                                                        14.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    useGoogleFonts:
-                                                                        !FlutterFlowTheme.of(context)
-                                                                            .labelLargeIsCustom,
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        6.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child:
-                                                                LinearPercentIndicator(
-                                                              percent: 0.3,
-                                                              width: 120.0,
-                                                              lineHeight: 12.0,
-                                                              animation: true,
-                                                              animateFromLastPercent:
-                                                                  true,
-                                                              progressColor:
-                                                                  FlutterFlowTheme.of(
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, -1.0),
+                                                            child: Container(
+                                                              width: 35.0,
+                                                              height: 35.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                shape: BoxShape
+                                                                    .circle,
+                                                                border:
+                                                                    Border.all(
+                                                                  color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .greenInit,
-                                                              backgroundColor:
-                                                                  Color(
-                                                                      0xFF232426),
-                                                              barRadius: Radius
-                                                                  .circular(
-                                                                      30.0),
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .zero,
+                                                                      .secondary,
+                                                                ),
+                                                              ),
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      0.0,
+                                                                      -1.0),
+                                                              child: Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        0.0,
+                                                                        -1.0),
+                                                                child: Text(
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    'jzc0o03k' /* 3 */,
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .displaySmall
+                                                                      .override(
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .displaySmall
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .displaySmall
+                                                                              .fontStyle,
+                                                                        ),
+                                                                        fontSize:
+                                                                            24.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .displaySmall
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .displaySmall
+                                                                            .fontStyle,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 1.0),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .center,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .end,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          7.0),
+                                                                  child: Icon(
+                                                                    Icons
+                                                                        .landscape,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .greenInit,
+                                                                    size: 20.0,
+                                                                  ).animateOnPageLoad(
+                                                                      animationsMap[
+                                                                          'iconOnPageLoadAnimation']!),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          4.0),
+                                                                  child: Icon(
+                                                                    Icons
+                                                                        .landscape,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .darkgray,
+                                                                    size: 32.0,
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          2.0),
+                                                                  child: Icon(
+                                                                    Icons
+                                                                        .landscape,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .darkgray,
+                                                                    size: 40.0,
+                                                                  ),
+                                                                ),
+                                                                Icon(
+                                                                  Icons
+                                                                      .landscape,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .darkgray,
+                                                                  size: 48.0,
+                                                                ),
+                                                              ],
                                                             ),
                                                           ),
                                                         ],
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    20.0),
-                                                        child: Image.network(
-                                                          'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Badges/sonbol1.png',
-                                                          width: 50.0,
-                                                          height: 25.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                    ],
+                                                    ),
                                                   ),
                                                   Opacity(
                                                     opacity: 0.5,
@@ -1347,9 +1368,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                               snapshot.data!;
 
                                                           return ListView
-                                                              .builder(
-                                                            padding:
-                                                                EdgeInsets.zero,
+                                                              .separated(
+                                                            padding: EdgeInsets
+                                                                .symmetric(
+                                                                    vertical:
+                                                                        16.0),
                                                             primary: false,
                                                             shrinkWrap: true,
                                                             scrollDirection:
@@ -1357,6 +1380,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                             itemCount:
                                                                 listViewViewPostFilterRowList
                                                                     .length,
+                                                            separatorBuilder: (_,
+                                                                    __) =>
+                                                                SizedBox(
+                                                                    height:
+                                                                        16.0),
                                                             itemBuilder: (context,
                                                                 listViewIndex) {
                                                               final listViewViewPostFilterRow =
@@ -1383,7 +1411,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                       'postID':
                                                                           serializeParam(
                                                                         listViewViewPostFilterRow
-                                                                            .sourceId,
+                                                                            .postId,
                                                                         ParamType
                                                                             .String,
                                                                       ),
@@ -1409,7 +1437,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                       .itemCardHorizentalModels1
                                                                       .getModel(
                                                                     listViewViewPostFilterRow
-                                                                        .sourceId!,
+                                                                        .postId!,
                                                                     listViewIndex,
                                                                   ),
                                                                   updateCallback: () =>
@@ -1418,7 +1446,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                   child:
                                                                       ItemCardHorizentalWidget(
                                                                     key: Key(
-                                                                      'Keyoke_${listViewViewPostFilterRow.sourceId!}',
+                                                                      'Keyoke_${listViewViewPostFilterRow.postId!}',
                                                                     ),
                                                                     profileId:
                                                                         widget
@@ -1449,7 +1477,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                               .userId,
                                                                     ),
                                                                     postId: listViewViewPostFilterRow
-                                                                        .sourceId,
+                                                                        .postId,
                                                                   ),
                                                                 ),
                                                               );
@@ -1585,10 +1613,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                 snapshot.data!;
 
                                                             return ListView
-                                                                .builder(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .zero,
+                                                                .separated(
+                                                              padding: EdgeInsets
+                                                                  .symmetric(
+                                                                      vertical:
+                                                                          16.0),
                                                               primary: false,
                                                               shrinkWrap: true,
                                                               scrollDirection:
@@ -1596,6 +1625,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                               itemCount:
                                                                   listViewViewUserFavoritesRowList
                                                                       .length,
+                                                              separatorBuilder: (_,
+                                                                      __) =>
+                                                                  SizedBox(
+                                                                      height:
+                                                                          16.0),
                                                               itemBuilder: (context,
                                                                   listViewIndex) {
                                                                 final listViewViewUserFavoritesRow =
@@ -1626,13 +1660,6 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                               .postId,
                                                                           ParamType
                                                                               .String,
-                                                                        ),
-                                                                        'mainCatID':
-                                                                            serializeParam(
-                                                                          listViewViewUserFavoritesRow
-                                                                              .mainCatId,
-                                                                          ParamType
-                                                                              .int,
                                                                         ),
                                                                         'detailDataName':
                                                                             serializeParam(
@@ -1813,8 +1840,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
 
                                                           return ListView
                                                               .separated(
-                                                            padding:
-                                                                EdgeInsets.zero,
+                                                            padding: EdgeInsets
+                                                                .symmetric(
+                                                                    vertical:
+                                                                        4.0),
                                                             primary: false,
                                                             shrinkWrap: true,
                                                             scrollDirection:

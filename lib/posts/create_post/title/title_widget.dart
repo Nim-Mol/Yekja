@@ -186,7 +186,7 @@ class _TitleWidgetState extends State<TitleWidget> {
                                     .titleMediumIsCustom,
                               ),
                           textAlign: TextAlign.center,
-                          maxLines: 2,
+                          maxLines: null,
                           maxLength: 40,
                           maxLengthEnforcement: MaxLengthEnforcement.enforced,
                           cursorColor: FlutterFlowTheme.of(context).primaryText,

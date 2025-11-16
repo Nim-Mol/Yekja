@@ -242,6 +242,10 @@ dynamic deserializeParam<T>(
             return MonitoringLogsRow(data);
           case ReportedRow:
             return ReportedRow(data);
+          case NewsRow:
+            return NewsRow(data);
+          case UserExtArchiveRow:
+            return UserExtArchiveRow(data);
           case PostImagesRow:
             return PostImagesRow(data);
           case ChatsRow:
@@ -250,6 +254,12 @@ dynamic deserializeParam<T>(
             return MonitoringGuestRow(data);
           case DetailsSwapItemsRow:
             return DetailsSwapItemsRow(data);
+          case ViewPostFilterNlRow:
+            return ViewPostFilterNlRow(data);
+          case DeletedPostsRow:
+            return DeletedPostsRow(data);
+          case ViewPostFilterEnRow:
+            return ViewPostFilterEnRow(data);
           case PostsLikesRow:
             return PostsLikesRow(data);
           case ViewUserChatsVisibleRow:
@@ -280,8 +290,12 @@ dynamic deserializeParam<T>(
             return ContactYekjaRow(data);
           case DeletionQueueRow:
             return DeletionQueueRow(data);
+          case ViewPostFilterFaRow:
+            return ViewPostFilterFaRow(data);
           case DetailsCareAndAssistanceRow:
             return DetailsCareAndAssistanceRow(data);
+          case DeletedMessagesRow:
+            return DeletedMessagesRow(data);
           case SubcatVocabRow:
             return SubcatVocabRow(data);
           case ViewPostSearchRow:
@@ -292,12 +306,16 @@ dynamic deserializeParam<T>(
             return DetailsTransferRow(data);
           case PostCreateMuxTblRow:
             return PostCreateMuxTblRow(data);
+          case DeletedChatsRow:
+            return DeletedChatsRow(data);
           case CommunityShoutoutRow:
             return CommunityShoutoutRow(data);
           case PostLikeRelationRow:
             return PostLikeRelationRow(data);
           case UserRolesRow:
             return UserRolesRow(data);
+          case ViewEventAttendeesRow:
+            return ViewEventAttendeesRow(data);
           case ViewUserPostsRow:
             return ViewUserPostsRow(data);
           case CitiesRow:
@@ -308,6 +326,8 @@ dynamic deserializeParam<T>(
             return MessagesRow(data);
           case DetailsGiveAwayRow:
             return DetailsGiveAwayRow(data);
+          case EventAttendeesRow:
+            return EventAttendeesRow(data);
           case DetailsSkillsAndExpertiseRow:
             return DetailsSkillsAndExpertiseRow(data);
           case ViewUnseenTotalsRow:

@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'reset_password_page_model.dart';
 export 'reset_password_page_model.dart';
 
+/// ResetPasswordPage
 class ResetPasswordPageWidget extends StatefulWidget {
   const ResetPasswordPageWidget({super.key});
 
@@ -147,7 +148,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                             AlignmentDirectional(-1.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'qvyltjge' /* Reset Password */,
+                                            'apdbizbi' /* Reset Password */,
                                           ),
                                           textAlign: TextAlign.start,
                                           style: FlutterFlowTheme.of(context)
@@ -178,7 +179,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                                   0.0, 12.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              '6baohfcj' /* Create a new password to log i... */,
+                                              'jr6jre2f' /* Create a new password to log i... */,
                                             ),
                                             textAlign: TextAlign.start,
                                             maxLines: 1,
@@ -213,7 +214,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                       isDense: false,
                                       labelText:
                                           FFLocalizations.of(context).getText(
-                                        '7qj4jthi' /* New password */,
+                                        '0peyon7h' /* New password */,
                                       ),
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -224,7 +225,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                           ),
                                       hintText:
                                           FFLocalizations.of(context).getText(
-                                        'hd56x034' /* New password */,
+                                        'c6lydnkl' /* New password */,
                                       ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
@@ -330,7 +331,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                     isDense: false,
                                     labelText:
                                         FFLocalizations.of(context).getText(
-                                      'ssuipl8e' /* Confirm password */,
+                                      'e3y7muka' /* Confirm password */,
                                     ),
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -341,7 +342,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                         ),
                                     hintText:
                                         FFLocalizations.of(context).getText(
-                                      'duge37vu' /* Confirm password */,
+                                      'gyid9abr' /* Confirm password */,
                                     ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -431,7 +432,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 48.0, 0.0, 24.0),
+                                      0.0, 24.0, 0.0, 24.0),
                                   child: FFButtonWidget(
                                     onPressed: (_model.isSubmitting == true)
                                         ? null
@@ -526,7 +527,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                             }
                                           },
                                     text: FFLocalizations.of(context).getText(
-                                      'j3fkaqso' /* Reset password */,
+                                      'tvflwo86' /* Reset password */,
                                     ),
                                     options: FFButtonOptions(
                                       width: double.infinity,

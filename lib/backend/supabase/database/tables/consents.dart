@@ -38,4 +38,7 @@ class ConsentsRow extends SupabaseDataRow {
 
   bool get showFav => getField<bool>('show_fav')!;
   set showFav(bool value) => setField<bool>('show_fav', value);
+
+  bool get termsAndPolicy => getField<bool>('terms_and_policy')!;
+  set termsAndPolicy(bool value) => setField<bool>('terms_and_policy', value);
 }

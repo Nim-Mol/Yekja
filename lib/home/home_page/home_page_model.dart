@@ -1,4 +1,3 @@
-import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/shared_components/main_header/main_header_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
@@ -11,10 +10,6 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
-  // Stores action output result for [Backend Call - Query Rows] action in HomePage widget.
-  List<CitiesRow>? citiesOutput;
-  // Stores action output result for [Backend Call - Query Rows] action in HomePage widget.
-  List<ViewTopSubcategoriesRow>? topsubcatOutput;
   // State field(s) for searchField widget.
   FocusNode? searchFieldFocusNode;
   TextEditingController? searchFieldTextController;

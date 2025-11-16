@@ -828,8 +828,6 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                     ),
                                   ),
                                 ),
-
-                                // You will have to add an action on this rich text to go to your login page.
                                 Align(
                                   alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Padding(

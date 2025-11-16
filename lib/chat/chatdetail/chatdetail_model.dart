@@ -28,10 +28,10 @@ class ChatdetailModel extends FlutterFlowModel<ChatdetailWidget> {
   Stream<List<MessagesRow>>? chatsListViewSupabaseStream;
   // Stores action output result for [Backend Call - Delete Row(s)] action in Row widget.
   List<PostsRow>? deletedPost;
-  // Stores action output result for [Backend Call - Query Rows] action in Row widget.
-  List<ChatsRow>? yekjaChat2Customer;
-  // Stores action output result for [Backend Call - Query Rows] action in Row widget.
-  List<ChatsRow>? yekjaChat2Owner;
+  // Stores action output result for [Backend Call - Insert Row] action in Row widget.
+  ChatsRow? yekjaChat2Customer;
+  // Stores action output result for [Backend Call - Insert Row] action in Row widget.
+  ChatsRow? yekjaChat2Owner;
   bool isDataUploading_inMemImg1 = false;
   FFUploadedFile uploadedLocalFile_inMemImg1 =
       FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');

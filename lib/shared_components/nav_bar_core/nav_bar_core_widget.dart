@@ -167,12 +167,24 @@ class _NavBarCoreWidgetState extends State<NavBarCoreWidget> {
                                                 .resolve(
                                                     Directionality.of(context)),
                                         child: ConfirmCancelPopUpWidget(
-                                          header:
-                                              'Complete profile before posting',
-                                          hintText:
-                                              'Take 2 minutes to add your info and start posting with maximum visibility.',
-                                          cancelText: 'Cancel',
-                                          confirmText: 'Go ',
+                                          header: FFLocalizations.of(context)
+                                              .getText(
+                                            'lmrhij3e' /* Complete profile before postin... */,
+                                          ),
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            '91puj2om' /* Take 2 minutes to add your inf... */,
+                                          ),
+                                          cancelText:
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                            't1t4f6fq' /* Cancel */,
+                                          ),
+                                          confirmText:
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                            'l1hz8qip' /* Go  */,
+                                          ),
                                           onConfirmAction: () async {
                                             context.pushNamed(
                                                 ProfileEditWidget.routeName);

@@ -1,5 +1,6 @@
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/main_overview_pages/post_detail_column/post_detail_column_widget.dart';
 import '/shared_components/comunication_bar/comunication_bar_widget.dart';
 import '/shared_components/photo_gallary/photo_gallary_widget.dart';
 import '/index.dart';
@@ -32,26 +33,33 @@ class PostModel extends FlutterFlowModel<PostWidget> {
 
   // Stores action output result for [Backend Call - Query Rows] action in Post widget.
   List<PostsLikesRow>? liked;
+  // Stores action output result for [Backend Call - Query Rows] action in Post widget.
+  List<EventAttendeesRow>? eventAttendeesOut;
   // Model for Photo_gallary component.
   late PhotoGallaryModel photoGallaryModel;
-  Completer<List<ViewPostSearchEnRow>>? requestCompleter;
+  Completer<List<ViewPostSearchEnRow>>? requestCompleter2;
+  // Model for PostDetailColumn component.
+  late PostDetailColumnModel postDetailColumnModel;
+  Completer<List<ViewEventAttendeesRow>>? requestCompleter1;
   // Model for Comunication_Bar component.
   late ComunicationBarModel comunicationBarModel;
 
   @override
   void initState(BuildContext context) {
     photoGallaryModel = createModel(context, () => PhotoGallaryModel());
+    postDetailColumnModel = createModel(context, () => PostDetailColumnModel());
     comunicationBarModel = createModel(context, () => ComunicationBarModel());
   }
 
   @override
   void dispose() {
     photoGallaryModel.dispose();
+    postDetailColumnModel.dispose();
     comunicationBarModel.dispose();
   }
 
   /// Additional helper methods.
-  Future waitForRequestCompleted({
+  Future waitForRequestCompleted2({
     double minWait = 0,
     double maxWait = double.infinity,
   }) async {
@@ -59,7 +67,22 @@ class PostModel extends FlutterFlowModel<PostWidget> {
     while (true) {
       await Future.delayed(Duration(milliseconds: 50));
       final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = requestCompleter?.isCompleted ?? false;
+      final requestComplete = requestCompleter2?.isCompleted ?? false;
+      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
+        break;
+      }
+    }
+  }
+
+  Future waitForRequestCompleted1({
+    double minWait = 0,
+    double maxWait = double.infinity,
+  }) async {
+    final stopwatch = Stopwatch()..start();
+    while (true) {
+      await Future.delayed(Duration(milliseconds: 50));
+      final timeElapsed = stopwatch.elapsedMilliseconds;
+      final requestComplete = requestCompleter1?.isCompleted ?? false;
       if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
         break;
       }

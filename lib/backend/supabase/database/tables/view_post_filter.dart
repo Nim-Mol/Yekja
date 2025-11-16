@@ -18,8 +18,8 @@ class ViewPostFilterRow extends SupabaseDataRow {
   int? get mainCatId => getField<int>('main_cat_id');
   set mainCatId(int? value) => setField<int>('main_cat_id', value);
 
-  String? get sourceId => getField<String>('source_id');
-  set sourceId(String? value) => setField<String>('source_id', value);
+  String? get postId => getField<String>('post_id');
+  set postId(String? value) => setField<String>('post_id', value);
 
   String? get detailTable => getField<String>('detail_table');
   set detailTable(String? value) => setField<String>('detail_table', value);
@@ -54,11 +54,24 @@ class ViewPostFilterRow extends SupabaseDataRow {
   String? get subCatName => getField<String>('sub_cat_name');
   set subCatName(String? value) => setField<String>('sub_cat_name', value);
 
+  String? get subCatCode => getField<String>('sub_cat_code');
+  set subCatCode(String? value) => setField<String>('sub_cat_code', value);
+
+  String? get subCatNameLabel => getField<String>('sub_cat_name_label');
+  set subCatNameLabel(String? value) =>
+      setField<String>('sub_cat_name_label', value);
+
   int? get catId => getField<int>('cat_id');
   set catId(int? value) => setField<int>('cat_id', value);
 
   String? get catName => getField<String>('cat_name');
   set catName(String? value) => setField<String>('cat_name', value);
+
+  String? get catCode => getField<String>('cat_code');
+  set catCode(String? value) => setField<String>('cat_code', value);
+
+  String? get catNameLabel => getField<String>('cat_name_label');
+  set catNameLabel(String? value) => setField<String>('cat_name_label', value);
 
   String? get mainCatName => getField<String>('main_cat_name');
   set mainCatName(String? value) => setField<String>('main_cat_name', value);

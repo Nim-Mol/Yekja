@@ -20,4 +20,12 @@ abstract class FFAppConstants {
       'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/zCfTnCN4IRBlV0rHAl5X/assets/kbaky2b9bqxx/rental_default.png';
   static const String EventsDefaultImage =
       'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/zCfTnCN4IRBlV0rHAl5X/assets/2pet0dzqoita/event_default.png';
+  static const String SupportImage =
+      'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/support.jpg';
+  static const String MarketImage =
+      'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/CommunityMarket.png';
+  static const String ServicesImage =
+      'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Onboardings/babysitter_1.jpg';
+  static const String EventsImage =
+      'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Events.png';
 }

@@ -28,6 +28,9 @@ class FilterModelStruct extends BaseStruct {
     String? mainCatName,
     bool? reported,
     String? createdAt,
+    String? effectiveColorHex,
+    String? catNameLabel,
+    String? subCatNameLabel,
   })  : _mainCatId = mainCatId,
         _postId = postId,
         _catName = catName,
@@ -48,7 +51,10 @@ class FilterModelStruct extends BaseStruct {
         _uniqueSubcatId = uniqueSubcatId,
         _mainCatName = mainCatName,
         _reported = reported,
-        _createdAt = createdAt;
+        _createdAt = createdAt,
+        _effectiveColorHex = effectiveColorHex,
+        _catNameLabel = catNameLabel,
+        _subCatNameLabel = subCatNameLabel;
 
   // "main_cat_id" field.
   int? _mainCatId;
@@ -214,6 +220,27 @@ class FilterModelStruct extends BaseStruct {
 
   bool hasCreatedAt() => _createdAt != null;
 
+  // "effective_color_hex" field.
+  String? _effectiveColorHex;
+  String get effectiveColorHex => _effectiveColorHex ?? '';
+  set effectiveColorHex(String? val) => _effectiveColorHex = val;
+
+  bool hasEffectiveColorHex() => _effectiveColorHex != null;
+
+  // "cat_name_label" field.
+  String? _catNameLabel;
+  String get catNameLabel => _catNameLabel ?? '';
+  set catNameLabel(String? val) => _catNameLabel = val;
+
+  bool hasCatNameLabel() => _catNameLabel != null;
+
+  // "sub_cat_name_label" field.
+  String? _subCatNameLabel;
+  String get subCatNameLabel => _subCatNameLabel ?? '';
+  set subCatNameLabel(String? val) => _subCatNameLabel = val;
+
+  bool hasSubCatNameLabel() => _subCatNameLabel != null;
+
   static FilterModelStruct fromMap(Map<String, dynamic> data) =>
       FilterModelStruct(
         mainCatId: castToType<int>(data['main_cat_id']),
@@ -237,6 +264,9 @@ class FilterModelStruct extends BaseStruct {
         mainCatName: data['main_cat_name'] as String?,
         reported: data['reported'] as bool?,
         createdAt: data['created_at'] as String?,
+        effectiveColorHex: data['effective_color_hex'] as String?,
+        catNameLabel: data['cat_name_label'] as String?,
+        subCatNameLabel: data['sub_cat_name_label'] as String?,
       );
 
   static FilterModelStruct? maybeFromMap(dynamic data) => data is Map
@@ -265,6 +295,9 @@ class FilterModelStruct extends BaseStruct {
         'main_cat_name': _mainCatName,
         'reported': _reported,
         'created_at': _createdAt,
+        'effective_color_hex': _effectiveColorHex,
+        'cat_name_label': _catNameLabel,
+        'sub_cat_name_label': _subCatNameLabel,
       }.withoutNulls;
 
   @override
@@ -352,6 +385,18 @@ class FilterModelStruct extends BaseStruct {
         ),
         'created_at': serializeParam(
           _createdAt,
+          ParamType.String,
+        ),
+        'effective_color_hex': serializeParam(
+          _effectiveColorHex,
+          ParamType.String,
+        ),
+        'cat_name_label': serializeParam(
+          _catNameLabel,
+          ParamType.String,
+        ),
+        'sub_cat_name_label': serializeParam(
+          _subCatNameLabel,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -463,6 +508,21 @@ class FilterModelStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        effectiveColorHex: deserializeParam(
+          data['effective_color_hex'],
+          ParamType.String,
+          false,
+        ),
+        catNameLabel: deserializeParam(
+          data['cat_name_label'],
+          ParamType.String,
+          false,
+        ),
+        subCatNameLabel: deserializeParam(
+          data['sub_cat_name_label'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -492,7 +552,10 @@ class FilterModelStruct extends BaseStruct {
         uniqueSubcatId == other.uniqueSubcatId &&
         mainCatName == other.mainCatName &&
         reported == other.reported &&
-        createdAt == other.createdAt;
+        createdAt == other.createdAt &&
+        effectiveColorHex == other.effectiveColorHex &&
+        catNameLabel == other.catNameLabel &&
+        subCatNameLabel == other.subCatNameLabel;
   }
 
   @override
@@ -517,7 +580,10 @@ class FilterModelStruct extends BaseStruct {
         uniqueSubcatId,
         mainCatName,
         reported,
-        createdAt
+        createdAt,
+        effectiveColorHex,
+        catNameLabel,
+        subCatNameLabel
       ]);
 }
 
@@ -542,6 +608,9 @@ FilterModelStruct createFilterModelStruct({
   String? mainCatName,
   bool? reported,
   String? createdAt,
+  String? effectiveColorHex,
+  String? catNameLabel,
+  String? subCatNameLabel,
 }) =>
     FilterModelStruct(
       mainCatId: mainCatId,
@@ -564,4 +633,7 @@ FilterModelStruct createFilterModelStruct({
       mainCatName: mainCatName,
       reported: reported,
       createdAt: createdAt,
+      effectiveColorHex: effectiveColorHex,
+      catNameLabel: catNameLabel,
+      subCatNameLabel: subCatNameLabel,
     );

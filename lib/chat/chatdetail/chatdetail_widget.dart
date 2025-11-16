@@ -785,33 +785,30 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                                                 .resolve(
                                                     Directionality.of(context)),
                                         child: ConfirmCancelPopUpWidget(
-                                          header: 'All done?',
-                                          hintText:
-                                              'Ready to close this post and collect your Yekja points?',
+                                          header: FFLocalizations.of(context)
+                                              .getText(
+                                            'uoqbv4g1' /* All done? */,
+                                          ),
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            'delpwk3s' /* Ready to close this post and g... */,
+                                          ),
                                           onConfirmAction: () async {
                                             await Future.wait([
                                               Future(() async {
                                                 _model.yekjaChat2Customer =
-                                                    await ChatsTable()
-                                                        .queryRows(
-                                                  queryFn: (q) => q
-                                                      .eqOrNull(
-                                                        'sender',
-                                                        FFAppConstants
-                                                            .YekjaAdminID,
-                                                      )
-                                                      .eqOrNull(
-                                                        'recipient',
-                                                        widget.senderID,
-                                                      ),
-                                                );
+                                                    await ChatsTable().insert({
+                                                  'sender': FFAppConstants
+                                                      .YekjaAdminID,
+                                                  'sender_name': 'Yekja',
+                                                  'recipient': widget.senderID,
+                                                  'post_id': widget.postID,
+                                                });
                                                 await MessagesTable().insert({
                                                   'sent_by': FFAppConstants
                                                       .YekjaAdminID,
                                                   'chat_id': _model
-                                                      .yekjaChat2Customer
-                                                      ?.firstOrNull
-                                                      ?.id,
+                                                      .yekjaChat2Customer?.id,
                                                   'message_text':
                                                       'Congratulations!! The post owner decided to go with you and close this post.   Please take a moment to review them to strengthen our community trust.',
                                                   'recipient': widget.senderID,
@@ -820,9 +817,7 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                                                   'sent_by': FFAppConstants
                                                       .YekjaAdminID,
                                                   'chat_id': _model
-                                                      .yekjaChat2Customer
-                                                      ?.firstOrNull
-                                                      ?.id,
+                                                      .yekjaChat2Customer?.id,
                                                   'recipient': widget.senderID,
                                                   'is_review': true,
                                                   'message_text':
@@ -835,30 +830,18 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                                               }),
                                               Future(() async {
                                                 _model.yekjaChat2Owner =
-                                                    await ChatsTable()
-                                                        .queryRows(
-                                                  queryFn: (q) => q
-                                                      .eqOrNull(
-                                                        'recipient',
-                                                        widget.ownerID,
-                                                      )
-                                                      .eqOrNull(
-                                                        'sender',
-                                                        FFAppConstants
-                                                            .YekjaAdminID,
-                                                      )
-                                                      .eqOrNull(
-                                                        'sender_name',
-                                                        'Yekja',
-                                                      ),
-                                                );
+                                                    await ChatsTable().insert({
+                                                  'sender': FFAppConstants
+                                                      .YekjaAdminID,
+                                                  'sender_name': 'Yekja',
+                                                  'recipient': widget.ownerID,
+                                                  'post_id': widget.postID,
+                                                });
                                                 await MessagesTable().insert({
                                                   'sent_by': FFAppConstants
                                                       .YekjaAdminID,
                                                   'chat_id': _model
-                                                      .yekjaChat2Owner
-                                                      ?.firstOrNull
-                                                      ?.id,
+                                                      .yekjaChat2Owner?.id,
                                                   'message_text':
                                                       'Congratulations you just sealed the deal! Your post is closed now successfully.  Please leave a quick review for the member you connected with to help build trust.',
                                                   'recipient': widget.ownerID,
@@ -867,9 +850,7 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                                                   'sent_by': FFAppConstants
                                                       .YekjaAdminID,
                                                   'chat_id': _model
-                                                      .yekjaChat2Owner
-                                                      ?.firstOrNull
-                                                      ?.id,
+                                                      .yekjaChat2Owner?.id,
                                                   'recipient': widget.ownerID,
                                                   'is_review': true,
                                                   'message_text':
@@ -937,7 +918,7 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                                   children: [
                                     FaIcon(
                                       FontAwesomeIcons.grinStars,
-                                      color: Color(0x690F9970),
+                                      color: Color(0xB90F9970),
                                       size: 18.0,
                                     ),
                                     Text(
@@ -951,7 +932,7 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMediumFamily,
                                             color: FlutterFlowTheme.of(context)
-                                                .bordergray,
+                                                .textgray,
                                             letterSpacing: 0.0,
                                             decoration:
                                                 TextDecoration.underline,

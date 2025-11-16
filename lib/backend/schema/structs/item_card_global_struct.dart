@@ -15,9 +15,10 @@ class ItemCardGlobalStruct extends BaseStruct {
     int? itemLikes,
     String? mainImagePath,
     String? postUserId,
-    String? details,
     String? avatar,
     String? subCatName,
+    Color? fillColor,
+    String? catName,
   })  : _title = title,
         _description = description,
         _itemLocation = itemLocation,
@@ -26,9 +27,10 @@ class ItemCardGlobalStruct extends BaseStruct {
         _itemLikes = itemLikes,
         _mainImagePath = mainImagePath,
         _postUserId = postUserId,
-        _details = details,
         _avatar = avatar,
-        _subCatName = subCatName;
+        _subCatName = subCatName,
+        _fillColor = fillColor,
+        _catName = catName;
 
   // "title" field.
   String? _title;
@@ -90,13 +92,6 @@ class ItemCardGlobalStruct extends BaseStruct {
 
   bool hasPostUserId() => _postUserId != null;
 
-  // "details" field.
-  String? _details;
-  String get details => _details ?? '';
-  set details(String? val) => _details = val;
-
-  bool hasDetails() => _details != null;
-
   // "Avatar" field.
   String? _avatar;
   String get avatar => _avatar ?? '';
@@ -111,6 +106,20 @@ class ItemCardGlobalStruct extends BaseStruct {
 
   bool hasSubCatName() => _subCatName != null;
 
+  // "fillColor" field.
+  Color? _fillColor;
+  Color? get fillColor => _fillColor;
+  set fillColor(Color? val) => _fillColor = val;
+
+  bool hasFillColor() => _fillColor != null;
+
+  // "catName" field.
+  String? _catName;
+  String get catName => _catName ?? '';
+  set catName(String? val) => _catName = val;
+
+  bool hasCatName() => _catName != null;
+
   static ItemCardGlobalStruct fromMap(Map<String, dynamic> data) =>
       ItemCardGlobalStruct(
         title: data['title'] as String?,
@@ -121,9 +130,10 @@ class ItemCardGlobalStruct extends BaseStruct {
         itemLikes: castToType<int>(data['itemLikes']),
         mainImagePath: data['main_imagePath'] as String?,
         postUserId: data['postUserId'] as String?,
-        details: data['details'] as String?,
         avatar: data['Avatar'] as String?,
         subCatName: data['sub_cat_name'] as String?,
+        fillColor: getSchemaColor(data['fillColor']),
+        catName: data['catName'] as String?,
       );
 
   static ItemCardGlobalStruct? maybeFromMap(dynamic data) => data is Map
@@ -139,9 +149,10 @@ class ItemCardGlobalStruct extends BaseStruct {
         'itemLikes': _itemLikes,
         'main_imagePath': _mainImagePath,
         'postUserId': _postUserId,
-        'details': _details,
         'Avatar': _avatar,
         'sub_cat_name': _subCatName,
+        'fillColor': _fillColor,
+        'catName': _catName,
       }.withoutNulls;
 
   @override
@@ -178,16 +189,20 @@ class ItemCardGlobalStruct extends BaseStruct {
           _postUserId,
           ParamType.String,
         ),
-        'details': serializeParam(
-          _details,
-          ParamType.String,
-        ),
         'Avatar': serializeParam(
           _avatar,
           ParamType.String,
         ),
         'sub_cat_name': serializeParam(
           _subCatName,
+          ParamType.String,
+        ),
+        'fillColor': serializeParam(
+          _fillColor,
+          ParamType.Color,
+        ),
+        'catName': serializeParam(
+          _catName,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -234,11 +249,6 @@ class ItemCardGlobalStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
-        details: deserializeParam(
-          data['details'],
-          ParamType.String,
-          false,
-        ),
         avatar: deserializeParam(
           data['Avatar'],
           ParamType.String,
@@ -246,6 +256,16 @@ class ItemCardGlobalStruct extends BaseStruct {
         ),
         subCatName: deserializeParam(
           data['sub_cat_name'],
+          ParamType.String,
+          false,
+        ),
+        fillColor: deserializeParam(
+          data['fillColor'],
+          ParamType.Color,
+          false,
+        ),
+        catName: deserializeParam(
+          data['catName'],
           ParamType.String,
           false,
         ),
@@ -265,9 +285,10 @@ class ItemCardGlobalStruct extends BaseStruct {
         itemLikes == other.itemLikes &&
         mainImagePath == other.mainImagePath &&
         postUserId == other.postUserId &&
-        details == other.details &&
         avatar == other.avatar &&
-        subCatName == other.subCatName;
+        subCatName == other.subCatName &&
+        fillColor == other.fillColor &&
+        catName == other.catName;
   }
 
   @override
@@ -280,9 +301,10 @@ class ItemCardGlobalStruct extends BaseStruct {
         itemLikes,
         mainImagePath,
         postUserId,
-        details,
         avatar,
-        subCatName
+        subCatName,
+        fillColor,
+        catName
       ]);
 }
 
@@ -295,9 +317,10 @@ ItemCardGlobalStruct createItemCardGlobalStruct({
   int? itemLikes,
   String? mainImagePath,
   String? postUserId,
-  String? details,
   String? avatar,
   String? subCatName,
+  Color? fillColor,
+  String? catName,
 }) =>
     ItemCardGlobalStruct(
       title: title,
@@ -308,7 +331,8 @@ ItemCardGlobalStruct createItemCardGlobalStruct({
       itemLikes: itemLikes,
       mainImagePath: mainImagePath,
       postUserId: postUserId,
-      details: details,
       avatar: avatar,
       subCatName: subCatName,
+      fillColor: fillColor,
+      catName: catName,
     );

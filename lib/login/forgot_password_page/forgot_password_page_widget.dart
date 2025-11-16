@@ -112,148 +112,160 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                             ),
                           ),
                         ),
-                        Align(
-                          alignment: AlignmentDirectional(-1.0, 0.0),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 24.0),
-                            child: Text(
-                              FFLocalizations.of(context).getText(
-                                'akc8n3xv' /* Forgot Password */,
-                              ),
-                              textAlign: TextAlign.start,
-                              style: FlutterFlowTheme.of(context)
-                                  .headlineMedium
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .headlineMediumFamily,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                    useGoogleFonts:
-                                        !FlutterFlowTheme.of(context)
-                                            .headlineMediumIsCustom,
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 24.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'akc8n3xv' /* Forgot Password */,
                                   ),
+                                  textAlign: TextAlign.start,
+                                  style: FlutterFlowTheme.of(context)
+                                      .headlineMedium
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .headlineMediumFamily,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                        useGoogleFonts:
+                                            !FlutterFlowTheme.of(context)
+                                                .headlineMediumIsCustom,
+                                      ),
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
-                          child: Text(
-                            FFLocalizations.of(context).getText(
-                              '7cx2kxrk' /* Type your email, we will send ... */,
-                            ),
-                            textAlign: TextAlign.start,
-                            maxLines: 2,
-                            style: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'FarsiFonts',
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  fontSize: 16.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.normal,
-                                  lineHeight: 1.2,
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  '7cx2kxrk' /* Type your email, we will send ... */,
                                 ),
-                          ),
-                        ),
-                        Form(
-                          key: _model.formKey,
-                          autovalidateMode: AutovalidateMode.disabled,
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 32.0, 0.0, 0.0),
-                            child: TextFormField(
-                              controller: _model.emailTextController,
-                              focusNode: _model.emailFocusNode,
-                              autofocus: false,
-                              textInputAction: TextInputAction.done,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                isDense: false,
-                                labelText: FFLocalizations.of(context).getText(
-                                  'ukwsa1lg' /* Email address */,
-                                ),
-                                labelStyle: FlutterFlowTheme.of(context)
-                                    .labelMedium
+                                textAlign: TextAlign.start,
+                                maxLines: 2,
+                                style: FlutterFlowTheme.of(context)
+                                    .titleSmall
                                     .override(
-                                      fontFamily: 'Satoshi',
+                                      fontFamily: 'FarsiFonts',
                                       color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      fontSize: 13.0,
-                                      letterSpacing: 0.0,
-                                    ),
-                                hintText: FFLocalizations.of(context).getText(
-                                  'b9qhzbmh' /* Email address */,
-                                ),
-                                hintStyle: FlutterFlowTheme.of(context)
-                                    .labelMedium
-                                    .override(
-                                      fontFamily: 'Satoshi',
-                                      color: FlutterFlowTheme.of(context)
-                                          .bordergray,
-                                      fontSize: 17.0,
-                                      letterSpacing: 0.0,
-                                    ),
-                                errorStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Satoshi',
-                                      color: FlutterFlowTheme.of(context).error,
-                                      fontSize: 17.0,
+                                          .primaryText,
+                                      fontSize: 16.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                       lineHeight: 1.2,
                                     ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color:
-                                        FlutterFlowTheme.of(context).textgray,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(12.0),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(12.0),
-                                ),
-                                errorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).error,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(12.0),
-                                ),
-                                focusedErrorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).error,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(12.0),
-                                ),
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 13.0, 0.0, 13.0),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'FarsiFonts',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    fontSize: 17.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                              keyboardType: TextInputType.emailAddress,
-                              cursorColor:
-                                  FlutterFlowTheme.of(context).primaryText,
-                              validator: _model.emailTextControllerValidator
-                                  .asValidator(context),
                             ),
-                          ),
+                            Form(
+                              key: _model.formKey,
+                              autovalidateMode: AutovalidateMode.disabled,
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 32.0, 0.0, 0.0),
+                                child: TextFormField(
+                                  controller: _model.emailTextController,
+                                  focusNode: _model.emailFocusNode,
+                                  autofocus: false,
+                                  textInputAction: TextInputAction.done,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    isDense: false,
+                                    labelText:
+                                        FFLocalizations.of(context).getText(
+                                      'ukwsa1lg' /* Email address */,
+                                    ),
+                                    labelStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .override(
+                                          fontFamily: 'Satoshi',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          fontSize: 13.0,
+                                          letterSpacing: 0.0,
+                                        ),
+                                    hintText:
+                                        FFLocalizations.of(context).getText(
+                                      'b9qhzbmh' /* Email address */,
+                                    ),
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .override(
+                                          fontFamily: 'Satoshi',
+                                          color: FlutterFlowTheme.of(context)
+                                              .bordergray,
+                                          fontSize: 17.0,
+                                          letterSpacing: 0.0,
+                                        ),
+                                    errorStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Satoshi',
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          fontSize: 17.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.normal,
+                                          lineHeight: 1.2,
+                                        ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .textgray,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                    errorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                    focusedErrorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                    contentPadding:
+                                        EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 13.0, 0.0, 13.0),
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'FarsiFonts',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        fontSize: 17.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                                  keyboardType: TextInputType.emailAddress,
+                                  cursorColor:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  validator: _model.emailTextControllerValidator
+                                      .asValidator(context),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -273,7 +285,6 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                               await authManager.resetPassword(
                                 email: _model.emailTextController.text,
                                 context: context,
-                                redirectTo: "yekja://resetPasswordPage",
                               );
                             },
                             text: FFLocalizations.of(context).getText(

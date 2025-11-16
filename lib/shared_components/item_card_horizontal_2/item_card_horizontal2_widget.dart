@@ -17,6 +17,7 @@ class ItemCardHorizontal2Widget extends StatefulWidget {
     this.city,
     this.likes,
     this.postID,
+    this.catColor,
   });
 
   final int? mainCatID;
@@ -28,6 +29,7 @@ class ItemCardHorizontal2Widget extends StatefulWidget {
   final String? city;
   final int? likes;
   final String? postID;
+  final Color? catColor;
 
   @override
   State<ItemCardHorizontal2Widget> createState() =>
@@ -82,7 +84,7 @@ class _ItemCardHorizontal2WidgetState extends State<ItemCardHorizontal2Widget> {
                   'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg',
                 ),
                 width: 100.0,
-                height: 100.0,
+                height: 9100.0,
                 fit: BoxFit.cover,
               ),
             ),
@@ -108,14 +110,16 @@ class _ItemCardHorizontal2WidgetState extends State<ItemCardHorizontal2Widget> {
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Container(
-                                    height: 18.0,
                                     decoration: BoxDecoration(
-                                      color: Color(0xC73B82F6),
+                                      color: valueOrDefault<Color>(
+                                        widget.catColor,
+                                        FlutterFlowTheme.of(context).accent2,
+                                      ),
                                       borderRadius: BorderRadius.circular(4.0),
                                     ),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          6.0, 0.0, 6.0, 0.0),
+                                          6.0, 1.0, 6.0, 1.0),
                                       child: Text(
                                         valueOrDefault<String>(
                                           widget.catName,
@@ -137,7 +141,6 @@ class _ItemCardHorizontal2WidgetState extends State<ItemCardHorizontal2Widget> {
                                     ),
                                   ),
                                   Container(
-                                    height: 18.0,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
@@ -145,7 +148,7 @@ class _ItemCardHorizontal2WidgetState extends State<ItemCardHorizontal2Widget> {
                                     ),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          6.0, 0.0, 6.0, 0.0),
+                                          6.0, 1.0, 6.0, 1.0),
                                       child: Text(
                                         valueOrDefault<String>(
                                           widget.subCatName,
@@ -173,9 +176,6 @@ class _ItemCardHorizontal2WidgetState extends State<ItemCardHorizontal2Widget> {
                               valueOrDefault<String>(
                                 widget.title,
                                 'title',
-                              ).maybeHandleOverflow(
-                                maxChars: 30,
-                                replacement: '…',
                               ),
                               maxLines: 1,
                               style: FlutterFlowTheme.of(context)
@@ -189,31 +189,35 @@ class _ItemCardHorizontal2WidgetState extends State<ItemCardHorizontal2Widget> {
                                         !FlutterFlowTheme.of(context)
                                             .bodyMediumIsCustom,
                                   ),
+                              overflow: TextOverflow.ellipsis,
                             ),
                             Flexible(
                               child: Align(
                                 alignment: AlignmentDirectional(-1.0, -1.0),
-                                child: Text(
-                                  valueOrDefault<String>(
-                                    widget.description,
-                                    'desc',
-                                  ).maybeHandleOverflow(
-                                    maxChars: 90,
-                                    replacement: '…',
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 2.0, 0.0, 0.0),
+                                  child: Text(
+                                    valueOrDefault<String>(
+                                      widget.description,
+                                      'desc',
+                                    ),
+                                    maxLines: 1,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMediumFamily,
+                                          fontSize: 12.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w300,
+                                          useGoogleFonts:
+                                              !FlutterFlowTheme.of(context)
+                                                  .bodyMediumIsCustom,
+                                        ),
+                                    overflow: TextOverflow.ellipsis,
                                   ),
-                                  maxLines: 2,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
-                                        fontSize: 12.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w300,
-                                        useGoogleFonts:
-                                            !FlutterFlowTheme.of(context)
-                                                .bodyMediumIsCustom,
-                                      ),
                                 ),
                               ),
                             ),
@@ -228,7 +232,7 @@ class _ItemCardHorizontal2WidgetState extends State<ItemCardHorizontal2Widget> {
                                       Icons.location_on_rounded,
                                       color: FlutterFlowTheme.of(context)
                                           .greenInit,
-                                      size: 20.0,
+                                      size: 18.0,
                                     ),
                                     Text(
                                       valueOrDefault<String>(
@@ -258,7 +262,7 @@ class _ItemCardHorizontal2WidgetState extends State<ItemCardHorizontal2Widget> {
                                       Icon(
                                         Icons.favorite_rounded,
                                         color: Color(0xFFCD0808),
-                                        size: 20.0,
+                                        size: 18.0,
                                       ),
                                       Text(
                                         valueOrDefault<String>(
@@ -289,7 +293,7 @@ class _ItemCardHorizontal2WidgetState extends State<ItemCardHorizontal2Widget> {
                 ),
               ),
             ),
-          ].divide(SizedBox(width: 16.0)).addToStart(SizedBox(width: 0.0)),
+          ].divide(SizedBox(width: 10.0)).addToStart(SizedBox(width: 0.0)),
         ),
       ),
     );

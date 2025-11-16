@@ -14,6 +14,8 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -21,7 +23,12 @@ import 'profile_edit_model.dart';
 export 'profile_edit_model.dart';
 
 class ProfileEditWidget extends StatefulWidget {
-  const ProfileEditWidget({super.key});
+  const ProfileEditWidget({
+    super.key,
+    int? selectedTab,
+  }) : this.selectedTab = selectedTab ?? 0;
+
+  final int selectedTab;
 
   static String routeName = 'ProfileEdit';
   static String routePath = '/editProfile';
@@ -35,6 +42,8 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
   late ProfileEditModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  bool expandableListenerRegistered1 = false;
+  bool expandableListenerRegistered2 = false;
 
   final animationsMap = <String, AnimationInfo>{};
 
@@ -42,6 +51,17 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => ProfileEditModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      safeSetState(() {
+        _model.tabBarController!.animateTo(
+          widget.selectedTab,
+          duration: Duration(milliseconds: 300),
+          curve: Curves.ease,
+        );
+      });
+    });
 
     _model.tabBarController = TabController(
       vsync: this,
@@ -113,77 +133,56 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        FocusScope.of(context).unfocus();
-        FocusManager.instance.primaryFocus?.unfocus();
-      },
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        body: SafeArea(
-          top: true,
-          child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
-            child: FutureBuilder<List<ConsentsRow>>(
-              future: ConsentsTable().querySingleRow(
-                queryFn: (q) => q.eqOrNull(
-                  'user_id',
-                  currentUserUid,
-                ),
-              ),
-              builder: (context, snapshot) {
-                // Customize what your widget looks like when it's loading.
-                if (!snapshot.hasData) {
-                  return Center(
-                    child: SizedBox(
-                      width: 50.0,
-                      height: 50.0,
-                      child: SpinKitChasingDots(
-                        color: FlutterFlowTheme.of(context).greenInit,
-                        size: 50.0,
+    return Scaffold(
+      key: scaffoldKey,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      body: SafeArea(
+        top: true,
+        child: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
+          child: SingleChildScrollView(
+            primary: false,
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Align(
+                  alignment: AlignmentDirectional(0.0, -1.0),
+                  child: SafeArea(
+                    child: Container(
+                      constraints: BoxConstraints(
+                        maxWidth: 480.0,
+                        maxHeight: 1000.0,
                       ),
-                    ),
-                  );
-                }
-                List<ConsentsRow> columnConsentsRowList = snapshot.data!;
-
-                final columnConsentsRow = columnConsentsRowList.isNotEmpty
-                    ? columnConsentsRowList.first
-                    : null;
-
-                return SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Align(
-                        alignment: AlignmentDirectional(0.0, -1.0),
-                        child: Container(
-                          constraints: BoxConstraints(
-                            maxWidth: 480.0,
-                            maxHeight: 1000.0,
-                          ),
-                          decoration: BoxDecoration(
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                          ),
-                          alignment: AlignmentDirectional(0.0, 1.0),
-                          child: Align(
-                            alignment: AlignmentDirectional(0.0, 1.0),
-                            child: Column(
-                              children: [
-                                Align(
-                                  alignment: Alignment(0.0, 0),
-                                  child: TabBar(
-                                    labelColor: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    unselectedLabelColor:
-                                        FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                    labelPadding:
-                                        EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 16.0, 0.0),
-                                    labelStyle: FlutterFlowTheme.of(context)
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).primaryBackground,
+                      ),
+                      alignment: AlignmentDirectional(0.0, -1.0),
+                      child: Align(
+                        alignment: AlignmentDirectional(0.0, 1.0),
+                        child: Column(
+                          children: [
+                            Align(
+                              alignment: Alignment(0.0, 0),
+                              child: TabBar(
+                                labelColor:
+                                    FlutterFlowTheme.of(context).primaryText,
+                                unselectedLabelColor:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                labelPadding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 0.0),
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .titleSmallFamily,
+                                      fontSize: 14.0,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .titleSmallIsCustom,
+                                    ),
+                                unselectedLabelStyle:
+                                    FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
                                           fontFamily:
@@ -195,271 +194,188 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                               !FlutterFlowTheme.of(context)
                                                   .titleSmallIsCustom,
                                         ),
-                                    unselectedLabelStyle:
-                                        FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmallFamily,
-                                              fontSize: 14.0,
-                                              letterSpacing: 0.0,
-                                              useGoogleFonts:
-                                                  !FlutterFlowTheme.of(context)
-                                                      .titleSmallIsCustom,
-                                            ),
-                                    indicatorColor:
-                                        FlutterFlowTheme.of(context).greenInit,
-                                    padding: EdgeInsets.all(2.0),
-                                    tabs: [
-                                      Tab(
-                                        text:
-                                            FFLocalizations.of(context).getText(
-                                          '1tg5n8be' /* Personal */,
-                                        ),
-                                      ),
-                                      Tab(
-                                        text:
-                                            FFLocalizations.of(context).getText(
-                                          '6a2fziro' /* Privacy Setting */,
-                                        ),
-                                      ),
-                                      Tab(
-                                        text:
-                                            FFLocalizations.of(context).getText(
-                                          '9w8zjkix' /* Terms & Conditions */,
-                                        ),
-                                      ),
-                                    ],
-                                    controller: _model.tabBarController,
-                                    onTap: (i) async {
-                                      [
-                                        () async {},
-                                        () async {},
-                                        () async {}
-                                      ][i]();
-                                    },
+                                indicatorColor:
+                                    FlutterFlowTheme.of(context).greenInit,
+                                padding: EdgeInsets.all(2.0),
+                                tabs: [
+                                  Tab(
+                                    text: FFLocalizations.of(context).getText(
+                                      '1tg5n8be' /* Personal */,
+                                    ),
                                   ),
-                                ),
-                                Expanded(
-                                  child: TabBarView(
-                                    controller: _model.tabBarController,
-                                    children: [
-                                      KeepAliveWidgetWrapper(
-                                        builder: (context) =>
-                                            FutureBuilder<List<UserExtRow>>(
-                                          future: UserExtTable().querySingleRow(
-                                            queryFn: (q) => q.eqOrNull(
-                                              'id',
-                                              currentUserUid,
-                                            ),
-                                          ),
-                                          builder: (context, snapshot) {
-                                            // Customize what your widget looks like when it's loading.
-                                            if (!snapshot.hasData) {
-                                              return Center(
-                                                child: SizedBox(
-                                                  width: 50.0,
-                                                  height: 50.0,
-                                                  child: SpinKitChasingDots(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
+                                  Tab(
+                                    text: FFLocalizations.of(context).getText(
+                                      '6a2fziro' /* Privacy Setting */,
+                                    ),
+                                  ),
+                                  Tab(
+                                    text: FFLocalizations.of(context).getText(
+                                      '9w8zjkix' /* Terms & Conditions */,
+                                    ),
+                                  ),
+                                ],
+                                controller: _model.tabBarController,
+                                onTap: (i) async {
+                                  [() async {}, () async {}, () async {}][i]();
+                                },
+                              ),
+                            ),
+                            Expanded(
+                              child: TabBarView(
+                                controller: _model.tabBarController,
+                                children: [
+                                  KeepAliveWidgetWrapper(
+                                    builder: (context) =>
+                                        FutureBuilder<List<UserExtRow>>(
+                                      future: UserExtTable().querySingleRow(
+                                        queryFn: (q) => q.eqOrNull(
+                                          'id',
+                                          currentUserUid,
+                                        ),
+                                      ),
+                                      builder: (context, snapshot) {
+                                        // Customize what your widget looks like when it's loading.
+                                        if (!snapshot.hasData) {
+                                          return Center(
+                                            child: SizedBox(
+                                              width: 50.0,
+                                              height: 50.0,
+                                              child: SpinKitChasingDots(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
                                                         .greenInit,
-                                                    size: 50.0,
-                                                  ),
-                                                ),
-                                              );
-                                            }
-                                            List<UserExtRow>
-                                                columnUserExtRowList =
-                                                snapshot.data!;
+                                                size: 50.0,
+                                              ),
+                                            ),
+                                          );
+                                        }
+                                        List<UserExtRow> columnUserExtRowList =
+                                            snapshot.data!;
 
-                                            final columnUserExtRow =
-                                                columnUserExtRowList.isNotEmpty
-                                                    ? columnUserExtRowList.first
-                                                    : null;
+                                        final columnUserExtRow =
+                                            columnUserExtRowList.isNotEmpty
+                                                ? columnUserExtRowList.first
+                                                : null;
 
-                                            return Column(
-                                              mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, -1.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Expanded(
+                                        return SingleChildScrollView(
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, -1.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Expanded(
+                                                      child: Container(
+                                                        width: double.infinity,
+                                                        height: 200.0,
+                                                        decoration:
+                                                            BoxDecoration(),
                                                         child: Container(
-                                                          width:
-                                                              double.infinity,
                                                           height: 200.0,
-                                                          decoration:
-                                                              BoxDecoration(),
-                                                          child: Container(
-                                                            height: 200.0,
-                                                            child: Stack(
-                                                              children: [
-                                                                ClipRRect(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              8.0),
-                                                                  child: Image
-                                                                      .network(
-                                                                    columnUserExtRow?.profileWallpaper !=
-                                                                                null &&
-                                                                            columnUserExtRow?.profileWallpaper !=
-                                                                                ''
-                                                                        ? columnUserExtRow!
-                                                                            .profileWallpaper!
-                                                                        : FFAppConstants
-                                                                            .DefultProfileWalpaper,
-                                                                    width: double
-                                                                        .infinity,
-                                                                    height:
-                                                                        150.0,
-                                                                    fit: BoxFit
-                                                                        .cover,
-                                                                  ),
+                                                          child: Stack(
+                                                            children: [
+                                                              ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                                child: Image
+                                                                    .network(
+                                                                  columnUserExtRow?.profileWallpaper !=
+                                                                              null &&
+                                                                          columnUserExtRow?.profileWallpaper !=
+                                                                              ''
+                                                                      ? columnUserExtRow!
+                                                                          .profileWallpaper!
+                                                                      : FFAppConstants
+                                                                          .DefultProfileWalpaper,
+                                                                  width: double
+                                                                      .infinity,
+                                                                  height: 150.0,
+                                                                  fit: BoxFit
+                                                                      .cover,
                                                                 ),
-                                                                Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
+                                                              ),
+                                                              Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        0.0,
+                                                                        1.0),
+                                                                child:
+                                                                    Container(
+                                                                  width: 100.0,
+                                                                  height: 120.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    boxShadow: [
+                                                                      BoxShadow(
+                                                                        blurRadius:
+                                                                            4.0,
+                                                                        color: Color(
+                                                                            0x33000000),
+                                                                        offset:
+                                                                            Offset(
                                                                           0.0,
-                                                                          1.0),
-                                                                  child:
-                                                                      Container(
-                                                                    width:
-                                                                        100.0,
-                                                                    height:
-                                                                        120.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      boxShadow: [
-                                                                        BoxShadow(
-                                                                          blurRadius:
-                                                                              4.0,
-                                                                          color:
-                                                                              Color(0x33000000),
-                                                                          offset:
-                                                                              Offset(
-                                                                            0.0,
-                                                                            2.0,
-                                                                          ),
-                                                                        )
-                                                                      ],
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8.0),
-                                                                      border:
-                                                                          Border
-                                                                              .all(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondaryBackground,
-                                                                      ),
+                                                                          2.0,
+                                                                        ),
+                                                                      )
+                                                                    ],
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                    border:
+                                                                        Border
+                                                                            .all(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryBackground,
                                                                     ),
-                                                                    child:
-                                                                        Stack(
-                                                                      children: [
-                                                                        Align(
-                                                                          alignment: AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
+                                                                  ),
+                                                                  child: Stack(
+                                                                    children: [
+                                                                      Align(
+                                                                        alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            ClipRRect(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(8.0),
                                                                           child:
-                                                                              ClipRRect(
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(8.0),
-                                                                            child:
-                                                                                Image.network(
-                                                                              columnUserExtRow?.profileAvatar != null && columnUserExtRow?.profileAvatar != '' ? columnUserExtRow!.profileAvatar! : FFAppConstants.DefultProfilePhoto,
-                                                                              width: 100.0,
-                                                                              height: 120.0,
-                                                                              fit: BoxFit.cover,
-                                                                            ),
+                                                                              Image.network(
+                                                                            columnUserExtRow?.profileAvatar != null && columnUserExtRow?.profileAvatar != ''
+                                                                                ? columnUserExtRow!.profileAvatar!
+                                                                                : FFAppConstants.DefultProfilePhoto,
+                                                                            width:
+                                                                                100.0,
+                                                                            height:
+                                                                                120.0,
+                                                                            fit:
+                                                                                BoxFit.cover,
                                                                           ),
                                                                         ),
-                                                                        Align(
-                                                                          alignment: AlignmentDirectional(
-                                                                              -1.0,
-                                                                              -1.0),
-                                                                          child:
-                                                                              Builder(
-                                                                            builder: (context) =>
-                                                                                Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(3.0, 3.0, 0.0, 0.0),
-                                                                              child: InkWell(
-                                                                                splashColor: Colors.transparent,
-                                                                                focusColor: Colors.transparent,
-                                                                                hoverColor: Colors.transparent,
-                                                                                highlightColor: Colors.transparent,
-                                                                                onTap: () async {
-                                                                                  await showDialog(
-                                                                                    context: context,
-                                                                                    builder: (dialogContext) {
-                                                                                      return Dialog(
-                                                                                        elevation: 0,
-                                                                                        insetPadding: EdgeInsets.zero,
-                                                                                        backgroundColor: Colors.transparent,
-                                                                                        alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                                        child: GestureDetector(
-                                                                                          onTap: () {
-                                                                                            FocusScope.of(dialogContext).unfocus();
-                                                                                            FocusManager.instance.primaryFocus?.unfocus();
-                                                                                          },
-                                                                                          child: ConfirmCancelPopUpWidget(
-                                                                                            header: 'Remove Profile photo',
-                                                                                            hintText: 'Are You sure you want to Remove your profile photo? ',
-                                                                                            confirmText: 'Remove',
-                                                                                            onConfirmAction: () async {
-                                                                                              await deleteSupabaseFileFromPublicUrl(columnUserExtRow!.profileAvatar!);
-                                                                                              await UserExtTable().update(
-                                                                                                data: {
-                                                                                                  'profile_avatar': 'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/anonymous.jpg',
-                                                                                                },
-                                                                                                matchingRows: (rows) => rows.eqOrNull(
-                                                                                                  'id',
-                                                                                                  currentUserUid,
-                                                                                                ),
-                                                                                              );
-                                                                                              FFAppState().userInfo = UserInfoStruct(
-                                                                                                avatar: FFAppConstants.DefultProfilePhoto,
-                                                                                              );
-                                                                                              safeSetState(() {});
-                                                                                            },
-                                                                                            onCancelAction: () async {},
-                                                                                          ),
-                                                                                        ),
-                                                                                      );
-                                                                                    },
-                                                                                  );
-                                                                                },
-                                                                                child: Icon(
-                                                                                  Icons.close_sharp,
-                                                                                  color: FlutterFlowTheme.of(context).secondary,
-                                                                                  size: 20.0,
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                        Align(
-                                                                          alignment: AlignmentDirectional(
-                                                                              1.0,
-                                                                              1.0),
-                                                                          child:
+                                                                      ),
+                                                                      Align(
+                                                                        alignment: AlignmentDirectional(
+                                                                            -1.0,
+                                                                            -1.0),
+                                                                        child:
+                                                                            Builder(
+                                                                          builder: (context) =>
                                                                               Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                3.0,
+                                                                                3.0,
                                                                                 0.0,
-                                                                                0.0,
-                                                                                2.0,
-                                                                                2.0),
+                                                                                0.0),
                                                                             child:
                                                                                 InkWell(
                                                                               splashColor: Colors.transparent,
@@ -467,340 +383,410 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                               hoverColor: Colors.transparent,
                                                                               highlightColor: Colors.transparent,
                                                                               onTap: () async {
-                                                                                var _shouldSetState = false;
-                                                                                final selectedMedia = await selectMediaWithSourceBottomSheet(
+                                                                                await showDialog(
                                                                                   context: context,
-                                                                                  storageFolderPath: 'UserProfile',
-                                                                                  maxWidth: 800.00,
-                                                                                  allowPhoto: true,
+                                                                                  builder: (dialogContext) {
+                                                                                    return Dialog(
+                                                                                      elevation: 0,
+                                                                                      insetPadding: EdgeInsets.zero,
+                                                                                      backgroundColor: Colors.transparent,
+                                                                                      alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                      child: ConfirmCancelPopUpWidget(
+                                                                                        header: 'Remove Profile photo',
+                                                                                        hintText: 'Are You sure you want to Remove your profile photo? ',
+                                                                                        confirmText: 'Remove',
+                                                                                        onConfirmAction: () async {
+                                                                                          await deleteSupabaseFileFromPublicUrl(columnUserExtRow!.profileAvatar!);
+                                                                                        },
+                                                                                        onCancelAction: () async {},
+                                                                                      ),
+                                                                                    );
+                                                                                  },
                                                                                 );
-                                                                                if (selectedMedia != null && selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
-                                                                                  safeSetState(() => _model.isDataUploading_newAvatar = true);
-                                                                                  var selectedUploadedFiles = <FFUploadedFile>[];
-
-                                                                                  var downloadUrls = <String>[];
-                                                                                  try {
-                                                                                    selectedUploadedFiles = selectedMedia
-                                                                                        .map((m) => FFUploadedFile(
-                                                                                              name: m.storagePath.split('/').last,
-                                                                                              bytes: m.bytes,
-                                                                                              height: m.dimensions?.height,
-                                                                                              width: m.dimensions?.width,
-                                                                                              blurHash: m.blurHash,
-                                                                                              originalFilename: m.originalFilename,
-                                                                                            ))
-                                                                                        .toList();
-
-                                                                                    downloadUrls = await uploadSupabaseStorageFiles(
-                                                                                      bucketName: 'yekja',
-                                                                                      selectedFiles: selectedMedia,
-                                                                                    );
-                                                                                  } finally {
-                                                                                    _model.isDataUploading_newAvatar = false;
-                                                                                  }
-                                                                                  if (selectedUploadedFiles.length == selectedMedia.length && downloadUrls.length == selectedMedia.length) {
-                                                                                    safeSetState(() {
-                                                                                      _model.uploadedLocalFile_newAvatar = selectedUploadedFiles.first;
-                                                                                      _model.uploadedFileUrl_newAvatar = downloadUrls.first;
-                                                                                    });
-                                                                                  } else {
-                                                                                    safeSetState(() {});
-                                                                                    return;
-                                                                                  }
-                                                                                }
-
-                                                                                if (_model.uploadedFileUrl_newAvatar != '') {
-                                                                                  if (columnUserExtRow?.profileAvatar != _model.uploadedFileUrl_newAvatar) {
-                                                                                    ScaffoldMessenger.of(context).showSnackBar(
-                                                                                      SnackBar(
-                                                                                        content: Text(
-                                                                                          'Profile image successfully changed.',
-                                                                                          style: TextStyle(
-                                                                                            color: FlutterFlowTheme.of(context).primary,
-                                                                                            fontWeight: FontWeight.w500,
-                                                                                            fontSize: 14.0,
-                                                                                          ),
-                                                                                          textAlign: TextAlign.center,
-                                                                                        ),
-                                                                                        duration: Duration(milliseconds: 5500),
-                                                                                        backgroundColor: Color(0x420F9970),
-                                                                                      ),
-                                                                                    );
-                                                                                    _model.updatedAvatar = await UserExtTable().update(
-                                                                                      data: {
-                                                                                        'profile_avatar': _model.uploadedFileUrl_newAvatar,
-                                                                                      },
-                                                                                      matchingRows: (rows) => rows.eqOrNull(
-                                                                                        'id',
-                                                                                        currentUserUid,
-                                                                                      ),
-                                                                                      returnRows: true,
-                                                                                    );
-                                                                                    _shouldSetState = true;
-                                                                                    await deleteSupabaseFileFromPublicUrl(columnUserExtRow!.profileAvatar!);
-                                                                                    FFAppState().updateUserInfoStruct(
-                                                                                      (e) => e..avatar = columnUserExtRow.profileAvatar,
-                                                                                    );
-                                                                                    safeSetState(() {});
-                                                                                    if (_shouldSetState) safeSetState(() {});
-                                                                                    return;
-                                                                                  } else {
-                                                                                    if (_shouldSetState) safeSetState(() {});
-                                                                                    return;
-                                                                                  }
-                                                                                } else {
-                                                                                  if (_shouldSetState) safeSetState(() {});
-                                                                                  return;
-                                                                                }
-
-                                                                                if (_shouldSetState) safeSetState(() {});
                                                                               },
                                                                               child: Icon(
-                                                                                Icons.camera_alt,
+                                                                                Icons.close_sharp,
                                                                                 color: FlutterFlowTheme.of(context).secondary,
-                                                                                size: 27.0,
+                                                                                size: 20.0,
                                                                               ),
                                                                             ),
                                                                           ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          16.0,
-                                                                          0.0,
-                                                                          16.0,
-                                                                          0.0),
-                                                                  child: Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .spaceBetween,
-                                                                    children: [
-                                                                      Align(
-                                                                        alignment: AlignmentDirectional(
-                                                                            -1.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            FlutterFlowIconButton(
-                                                                          borderRadius:
-                                                                              50.0,
-                                                                          buttonSize:
-                                                                              40.0,
-                                                                          fillColor:
-                                                                              FlutterFlowTheme.of(context).secondaryBackground,
-                                                                          icon:
-                                                                              Icon(
-                                                                            Icons.chevron_left,
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).info,
-                                                                            size:
-                                                                                24.0,
-                                                                          ),
-                                                                          onPressed:
-                                                                              () async {
-                                                                            context.safePop();
-                                                                          },
                                                                         ),
                                                                       ),
                                                                       Align(
                                                                         alignment: AlignmentDirectional(
                                                                             1.0,
-                                                                            0.0),
+                                                                            1.0),
                                                                         child:
-                                                                            FlutterFlowIconButton(
-                                                                          borderRadius:
-                                                                              50.0,
-                                                                          buttonSize:
-                                                                              40.0,
-                                                                          fillColor:
-                                                                              FlutterFlowTheme.of(context).secondaryBackground,
-                                                                          icon:
-                                                                              Icon(
-                                                                            Icons.edit_square,
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).info,
-                                                                            size:
-                                                                                16.0,
-                                                                          ),
-                                                                          onPressed:
-                                                                              () async {
-                                                                            var _shouldSetState =
-                                                                                false;
-                                                                            final selectedMedia =
-                                                                                await selectMediaWithSourceBottomSheet(
-                                                                              context: context,
-                                                                              storageFolderPath: 'UserProfile',
-                                                                              maxWidth: 800.00,
-                                                                              allowPhoto: true,
-                                                                            );
-                                                                            if (selectedMedia != null &&
-                                                                                selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
-                                                                              safeSetState(() => _model.isDataUploading_newBackground = true);
-                                                                              var selectedUploadedFiles = <FFUploadedFile>[];
+                                                                            Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              0.0,
+                                                                              2.0,
+                                                                              2.0),
+                                                                          child:
+                                                                              InkWell(
+                                                                            splashColor:
+                                                                                Colors.transparent,
+                                                                            focusColor:
+                                                                                Colors.transparent,
+                                                                            hoverColor:
+                                                                                Colors.transparent,
+                                                                            highlightColor:
+                                                                                Colors.transparent,
+                                                                            onTap:
+                                                                                () async {
+                                                                              var _shouldSetState = false;
+                                                                              final selectedMedia = await selectMediaWithSourceBottomSheet(
+                                                                                context: context,
+                                                                                storageFolderPath: 'UserProfile',
+                                                                                maxWidth: 800.00,
+                                                                                allowPhoto: true,
+                                                                              );
+                                                                              if (selectedMedia != null && selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
+                                                                                safeSetState(() => _model.isDataUploading_newAvatar = true);
+                                                                                var selectedUploadedFiles = <FFUploadedFile>[];
 
-                                                                              var downloadUrls = <String>[];
-                                                                              try {
-                                                                                selectedUploadedFiles = selectedMedia
-                                                                                    .map((m) => FFUploadedFile(
-                                                                                          name: m.storagePath.split('/').last,
-                                                                                          bytes: m.bytes,
-                                                                                          height: m.dimensions?.height,
-                                                                                          width: m.dimensions?.width,
-                                                                                          blurHash: m.blurHash,
-                                                                                          originalFilename: m.originalFilename,
-                                                                                        ))
-                                                                                    .toList();
+                                                                                var downloadUrls = <String>[];
+                                                                                try {
+                                                                                  selectedUploadedFiles = selectedMedia
+                                                                                      .map((m) => FFUploadedFile(
+                                                                                            name: m.storagePath.split('/').last,
+                                                                                            bytes: m.bytes,
+                                                                                            height: m.dimensions?.height,
+                                                                                            width: m.dimensions?.width,
+                                                                                            blurHash: m.blurHash,
+                                                                                            originalFilename: m.originalFilename,
+                                                                                          ))
+                                                                                      .toList();
 
-                                                                                downloadUrls = await uploadSupabaseStorageFiles(
-                                                                                  bucketName: 'yekja',
-                                                                                  selectedFiles: selectedMedia,
-                                                                                );
-                                                                              } finally {
-                                                                                _model.isDataUploading_newBackground = false;
+                                                                                  downloadUrls = await uploadSupabaseStorageFiles(
+                                                                                    bucketName: 'yekja',
+                                                                                    selectedFiles: selectedMedia,
+                                                                                  );
+                                                                                } finally {
+                                                                                  _model.isDataUploading_newAvatar = false;
+                                                                                }
+                                                                                if (selectedUploadedFiles.length == selectedMedia.length && downloadUrls.length == selectedMedia.length) {
+                                                                                  safeSetState(() {
+                                                                                    _model.uploadedLocalFile_newAvatar = selectedUploadedFiles.first;
+                                                                                    _model.uploadedFileUrl_newAvatar = downloadUrls.first;
+                                                                                  });
+                                                                                } else {
+                                                                                  safeSetState(() {});
+                                                                                  return;
+                                                                                }
                                                                               }
-                                                                              if (selectedUploadedFiles.length == selectedMedia.length && downloadUrls.length == selectedMedia.length) {
-                                                                                safeSetState(() {
-                                                                                  _model.uploadedLocalFile_newBackground = selectedUploadedFiles.first;
-                                                                                  _model.uploadedFileUrl_newBackground = downloadUrls.first;
-                                                                                });
+
+                                                                              if (_model.uploadedFileUrl_newAvatar != '') {
+                                                                                if (columnUserExtRow?.profileAvatar != _model.uploadedFileUrl_newAvatar) {
+                                                                                  ScaffoldMessenger.of(context).showSnackBar(
+                                                                                    SnackBar(
+                                                                                      content: Text(
+                                                                                        'Profile image successfully changed.',
+                                                                                        style: TextStyle(
+                                                                                          color: FlutterFlowTheme.of(context).primary,
+                                                                                          fontWeight: FontWeight.w500,
+                                                                                          fontSize: 14.0,
+                                                                                        ),
+                                                                                        textAlign: TextAlign.center,
+                                                                                      ),
+                                                                                      duration: Duration(milliseconds: 5500),
+                                                                                      backgroundColor: Color(0x420F9970),
+                                                                                    ),
+                                                                                  );
+                                                                                  _model.updatedAvatar = await UserExtTable().update(
+                                                                                    data: {
+                                                                                      'profile_avatar': _model.uploadedFileUrl_newAvatar,
+                                                                                    },
+                                                                                    matchingRows: (rows) => rows.eqOrNull(
+                                                                                      'id',
+                                                                                      currentUserUid,
+                                                                                    ),
+                                                                                    returnRows: true,
+                                                                                  );
+                                                                                  _shouldSetState = true;
+                                                                                  await deleteSupabaseFileFromPublicUrl(columnUserExtRow!.profileAvatar!);
+                                                                                  FFAppState().updateUserInfoStruct(
+                                                                                    (e) => e..avatar = columnUserExtRow.profileAvatar,
+                                                                                  );
+                                                                                  safeSetState(() {});
+                                                                                  if (_shouldSetState) safeSetState(() {});
+                                                                                  return;
+                                                                                } else {
+                                                                                  if (_shouldSetState) safeSetState(() {});
+                                                                                  return;
+                                                                                }
                                                                               } else {
-                                                                                safeSetState(() {});
+                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                 return;
                                                                               }
-                                                                            }
 
-                                                                            if (_model.uploadedFileUrl_newBackground != '') {
-                                                                              if (columnUserExtRow?.profileWallpaper == _model.uploadedFileUrl_newBackground) {
-                                                                                await Future.delayed(
-                                                                                  Duration(
-                                                                                    milliseconds: 1000,
-                                                                                  ),
-                                                                                );
-                                                                              }
-                                                                              _model.newwalpaper = await UserExtTable().update(
-                                                                                data: {
-                                                                                  'profile_wallpaper': _model.uploadedFileUrl_newBackground,
-                                                                                },
-                                                                                matchingRows: (rows) => rows.eqOrNull(
-                                                                                  'id',
-                                                                                  currentUserUid,
-                                                                                ),
-                                                                                returnRows: true,
-                                                                              );
-                                                                              _shouldSetState = true;
-                                                                              await deleteSupabaseFileFromPublicUrl(columnUserExtRow!.profileWallpaper!);
-                                                                            } else {
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
-                                                                              return;
-                                                                            }
-
-                                                                            if (_shouldSetState)
-                                                                              safeSetState(() {});
-                                                                          },
+                                                                            },
+                                                                            child:
+                                                                                Icon(
+                                                                              Icons.camera_alt,
+                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                              size: 27.0,
+                                                                            ),
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ],
                                                                   ),
                                                                 ),
-                                                                Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          1.0,
-                                                                          -1.0),
-                                                                  child:
-                                                                      Builder(
-                                                                    builder:
-                                                                        (context) =>
-                                                                            Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          5.0,
-                                                                          30.0,
-                                                                          0.0),
+                                                              ),
+                                                              Padding(
+                                                                padding: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        16.0,
+                                                                        0.0,
+                                                                        16.0,
+                                                                        0.0),
+                                                                child: Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              -1.0,
+                                                                              0.0),
                                                                       child:
-                                                                          InkWell(
-                                                                        splashColor:
-                                                                            Colors.transparent,
-                                                                        focusColor:
-                                                                            Colors.transparent,
-                                                                        hoverColor:
-                                                                            Colors.transparent,
-                                                                        highlightColor:
-                                                                            Colors.transparent,
-                                                                        onTap:
-                                                                            () async {
-                                                                          await showDialog(
-                                                                            context:
-                                                                                context,
-                                                                            builder:
-                                                                                (dialogContext) {
-                                                                              return Dialog(
-                                                                                elevation: 0,
-                                                                                insetPadding: EdgeInsets.zero,
-                                                                                backgroundColor: Colors.transparent,
-                                                                                alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                                child: GestureDetector(
-                                                                                  onTap: () {
-                                                                                    FocusScope.of(dialogContext).unfocus();
-                                                                                    FocusManager.instance.primaryFocus?.unfocus();
-                                                                                  },
-                                                                                  child: ConfirmCancelPopUpWidget(
-                                                                                    header: 'Remove Profile Wallpaper',
-                                                                                    hintText: 'Are You sure you want to Remove your profile wallpaper? ',
-                                                                                    cancelText: 'Cancel',
-                                                                                    confirmText: 'Remove',
-                                                                                    onConfirmAction: () async {
-                                                                                      await deleteSupabaseFileFromPublicUrl(columnUserExtRow!.profileWallpaper!);
-                                                                                      _model.removedWallpaperCopy = await UserExtTable().update(
-                                                                                        data: {
-                                                                                          'profile_wallpaper': 'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/defult-profile-walpaper.avif',
-                                                                                        },
-                                                                                        matchingRows: (rows) => rows.eqOrNull(
-                                                                                          'id',
-                                                                                          currentUserUid,
-                                                                                        ),
-                                                                                        returnRows: true,
-                                                                                      );
-                                                                                    },
-                                                                                    onCancelAction: () async {},
-                                                                                  ),
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                          );
-
-                                                                          safeSetState(
-                                                                              () {});
-                                                                        },
-                                                                        child:
+                                                                          FlutterFlowIconButton(
+                                                                        borderRadius:
+                                                                            50.0,
+                                                                        buttonSize:
+                                                                            40.0,
+                                                                        fillColor:
+                                                                            FlutterFlowTheme.of(context).secondaryBackground,
+                                                                        icon:
                                                                             Icon(
                                                                           Icons
-                                                                              .close_sharp,
+                                                                              .chevron_left,
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).primary,
+                                                                              FlutterFlowTheme.of(context).info,
                                                                           size:
-                                                                              20.0,
+                                                                              24.0,
                                                                         ),
+                                                                        onPressed:
+                                                                            () async {
+                                                                          context
+                                                                              .safePop();
+                                                                        },
+                                                                      ),
+                                                                    ),
+                                                                    Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              1.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          FlutterFlowIconButton(
+                                                                        borderRadius:
+                                                                            50.0,
+                                                                        buttonSize:
+                                                                            40.0,
+                                                                        fillColor:
+                                                                            FlutterFlowTheme.of(context).secondaryBackground,
+                                                                        icon:
+                                                                            Icon(
+                                                                          Icons
+                                                                              .edit_square,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).info,
+                                                                          size:
+                                                                              16.0,
+                                                                        ),
+                                                                        onPressed:
+                                                                            () async {
+                                                                          var _shouldSetState =
+                                                                              false;
+                                                                          final selectedMedia =
+                                                                              await selectMediaWithSourceBottomSheet(
+                                                                            context:
+                                                                                context,
+                                                                            storageFolderPath:
+                                                                                'UserProfile',
+                                                                            maxWidth:
+                                                                                800.00,
+                                                                            allowPhoto:
+                                                                                true,
+                                                                          );
+                                                                          if (selectedMedia != null &&
+                                                                              selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
+                                                                            safeSetState(() =>
+                                                                                _model.isDataUploading_newBackground = true);
+                                                                            var selectedUploadedFiles =
+                                                                                <FFUploadedFile>[];
+
+                                                                            var downloadUrls =
+                                                                                <String>[];
+                                                                            try {
+                                                                              selectedUploadedFiles = selectedMedia
+                                                                                  .map((m) => FFUploadedFile(
+                                                                                        name: m.storagePath.split('/').last,
+                                                                                        bytes: m.bytes,
+                                                                                        height: m.dimensions?.height,
+                                                                                        width: m.dimensions?.width,
+                                                                                        blurHash: m.blurHash,
+                                                                                        originalFilename: m.originalFilename,
+                                                                                      ))
+                                                                                  .toList();
+
+                                                                              downloadUrls = await uploadSupabaseStorageFiles(
+                                                                                bucketName: 'yekja',
+                                                                                selectedFiles: selectedMedia,
+                                                                              );
+                                                                            } finally {
+                                                                              _model.isDataUploading_newBackground = false;
+                                                                            }
+                                                                            if (selectedUploadedFiles.length == selectedMedia.length &&
+                                                                                downloadUrls.length == selectedMedia.length) {
+                                                                              safeSetState(() {
+                                                                                _model.uploadedLocalFile_newBackground = selectedUploadedFiles.first;
+                                                                                _model.uploadedFileUrl_newBackground = downloadUrls.first;
+                                                                              });
+                                                                            } else {
+                                                                              safeSetState(() {});
+                                                                              return;
+                                                                            }
+                                                                          }
+
+                                                                          if (_model.uploadedFileUrl_newBackground != '') {
+                                                                            if (columnUserExtRow?.profileWallpaper ==
+                                                                                _model.uploadedFileUrl_newBackground) {
+                                                                              await Future.delayed(
+                                                                                Duration(
+                                                                                  milliseconds: 1000,
+                                                                                ),
+                                                                              );
+                                                                            }
+                                                                            _model.newwalpaper =
+                                                                                await UserExtTable().update(
+                                                                              data: {
+                                                                                'profile_wallpaper': _model.uploadedFileUrl_newBackground,
+                                                                              },
+                                                                              matchingRows: (rows) => rows.eqOrNull(
+                                                                                'id',
+                                                                                currentUserUid,
+                                                                              ),
+                                                                              returnRows: true,
+                                                                            );
+                                                                            _shouldSetState =
+                                                                                true;
+                                                                            await deleteSupabaseFileFromPublicUrl(columnUserExtRow!.profileWallpaper!);
+                                                                          } else {
+                                                                            if (_shouldSetState)
+                                                                              safeSetState(() {});
+                                                                            return;
+                                                                          }
+
+                                                                          if (_shouldSetState)
+                                                                            safeSetState(() {});
+                                                                        },
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                              Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        1.0,
+                                                                        -1.0),
+                                                                child: Builder(
+                                                                  builder:
+                                                                      (context) =>
+                                                                          Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            5.0,
+                                                                            30.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        await showDialog(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (dialogContext) {
+                                                                            return Dialog(
+                                                                              elevation: 0,
+                                                                              insetPadding: EdgeInsets.zero,
+                                                                              backgroundColor: Colors.transparent,
+                                                                              alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                              child: ConfirmCancelPopUpWidget(
+                                                                                header: 'Remove Profile Wallpaper',
+                                                                                hintText: 'Are You sure you want to Remove your profile wallpaper? ',
+                                                                                cancelText: 'Cancel',
+                                                                                confirmText: 'Remove',
+                                                                                onConfirmAction: () async {
+                                                                                  await deleteSupabaseFileFromPublicUrl(columnUserExtRow!.profileWallpaper!);
+                                                                                  _model.removedWallpaperCopy = await UserExtTable().update(
+                                                                                    data: {
+                                                                                      'profile_wallpaper': 'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/defult-profile-walpaper.avif',
+                                                                                    },
+                                                                                    matchingRows: (rows) => rows.eqOrNull(
+                                                                                      'id',
+                                                                                      currentUserUid,
+                                                                                    ),
+                                                                                    returnRows: true,
+                                                                                  );
+                                                                                },
+                                                                                onCancelAction: () async {},
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        );
+
+                                                                        safeSetState(
+                                                                            () {});
+                                                                      },
+                                                                      child:
+                                                                          Icon(
+                                                                        Icons
+                                                                            .close_sharp,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        size:
+                                                                            20.0,
                                                                       ),
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ],
-                                                            ),
+                                                              ),
+                                                            ],
                                                           ),
                                                         ),
                                                       ),
-                                                    ],
-                                                  ),
+                                                    ),
+                                                  ],
                                                 ),
-                                                Padding(
+                                              ),
+                                              Flexible(
+                                                child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(16.0, 12.0,
                                                           16.0, 0.0),
@@ -826,76 +812,101 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                   8.0,
                                                                   16.0,
                                                                   8.0),
-                                                      child: Container(
-                                                        width: double.infinity,
-                                                        color:
-                                                            Color(0x00000000),
-                                                        child:
-                                                            ExpandableNotifier(
-                                                          controller: _model
-                                                              .expandableExpandableController1,
+                                                      child:
+                                                          Builder(builder: (_) {
+                                                        if (!expandableListenerRegistered1) {
+                                                          expandableListenerRegistered1 =
+                                                              true;
+                                                          _model
+                                                              .expandableExpandableController1
+                                                              .addListener(
+                                                            () async {
+                                                              if (_model
+                                                                      .expandableExpandableController1
+                                                                      .expanded ==
+                                                                  true) {
+                                                                _model.isPersonalOpen =
+                                                                    true;
+                                                                _model.isSocialOpen =
+                                                                    false;
+                                                                _model.isContactOpen =
+                                                                    false;
+                                                                safeSetState(
+                                                                    () {});
+                                                              } else {
+                                                                _model.isPersonalOpen =
+                                                                    false;
+                                                                safeSetState(
+                                                                    () {});
+                                                              }
+                                                            },
+                                                          );
+                                                        }
+                                                        return Container(
+                                                          width:
+                                                              double.infinity,
+                                                          color:
+                                                              Color(0x00000000),
                                                           child:
-                                                              ExpandablePanel(
-                                                            header: Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'eun17pjp' /* Personal Information */,
-                                                              ),
-                                                              maxLines: 1,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Satoshi',
-                                                                    fontSize:
-                                                                        16.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                  ),
-                                                            ),
-                                                            collapsed:
-                                                                Container(
-                                                              width: 100.0,
-                                                              height: 1.0,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
+                                                              ExpandableNotifier(
+                                                            controller: _model
+                                                                .expandableExpandableController1,
+                                                            child:
+                                                                ExpandablePanel(
+                                                              header: Text(
+                                                                FFLocalizations.of(
                                                                         context)
-                                                                    .secondaryBackground,
+                                                                    .getText(
+                                                                  'eun17pjp' /* Personal Information */,
+                                                                ),
+                                                                maxLines: 1,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Satoshi',
+                                                                      fontSize:
+                                                                          16.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                    ),
                                                               ),
-                                                            ),
-                                                            expanded: Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          1.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              child: Form(
-                                                                key: _model
-                                                                    .formKey2,
-                                                                autovalidateMode:
-                                                                    AutovalidateMode
-                                                                        .always,
-                                                                child: Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          8.0,
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0),
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .min,
-                                                                    children: [
-                                                                      Padding(
+                                                              collapsed:
+                                                                  Container(
+                                                                width: 100.0,
+                                                                height: 1.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                                ),
+                                                              ),
+                                                              expanded: Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            8.0,
+                                                                            0.0,
+                                                                            8.0,
+                                                                            0.0),
+                                                                child: Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .min,
+                                                                  children: [
+                                                                    Form(
+                                                                      key: _model
+                                                                          .formKey2,
+                                                                      autovalidateMode:
+                                                                          AutovalidateMode
+                                                                              .disabled,
+                                                                      child:
+                                                                          Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -910,6 +921,16 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                           ),
                                                                           focusNode:
                                                                               _model.userNameFocusNode,
+                                                                          onChanged: (_) =>
+                                                                              EasyDebounce.debounce(
+                                                                            '_model.userNameTextController',
+                                                                            Duration(milliseconds: 2000),
+                                                                            () async {
+                                                                              if (_model.formKey2.currentState == null || !_model.formKey2.currentState!.validate()) {
+                                                                                return;
+                                                                              }
+                                                                            },
+                                                                          ),
                                                                           autofocus:
                                                                               false,
                                                                           textInputAction:
@@ -990,6 +1011,22 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                                 13.0,
                                                                                 0.0,
                                                                                 13.0),
+                                                                            suffixIcon: _model.userNameTextController!.text.isNotEmpty
+                                                                                ? InkWell(
+                                                                                    onTap: () async {
+                                                                                      _model.userNameTextController?.clear();
+                                                                                      if (_model.formKey2.currentState == null || !_model.formKey2.currentState!.validate()) {
+                                                                                        return;
+                                                                                      }
+                                                                                      safeSetState(() {});
+                                                                                    },
+                                                                                    child: Icon(
+                                                                                      Icons.clear,
+                                                                                      color: FlutterFlowTheme.of(context).primary,
+                                                                                      size: 10.0,
+                                                                                    ),
+                                                                                  )
+                                                                                : null,
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .labelMedium
@@ -1004,7 +1041,15 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                               .asValidator(context),
                                                                         ),
                                                                       ),
-                                                                      TextFormField(
+                                                                    ),
+                                                                    Form(
+                                                                      key: _model
+                                                                          .formKey1,
+                                                                      autovalidateMode:
+                                                                          AutovalidateMode
+                                                                              .disabled,
+                                                                      child:
+                                                                          TextFormField(
                                                                         controller:
                                                                             _model.firstNameTextController ??=
                                                                                 TextEditingController(
@@ -1013,6 +1058,20 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                         ),
                                                                         focusNode:
                                                                             _model.firstNameFocusNode,
+                                                                        onChanged:
+                                                                            (_) =>
+                                                                                EasyDebounce.debounce(
+                                                                          '_model.firstNameTextController',
+                                                                          Duration(
+                                                                              milliseconds: 2000),
+                                                                          () async {
+                                                                            if (_model.firstNameTextController.text != '') {
+                                                                              if (_model.formKey1.currentState == null || !_model.formKey1.currentState!.validate()) {
+                                                                                return;
+                                                                              }
+                                                                            }
+                                                                          },
+                                                                        ),
                                                                         autofocus:
                                                                             false,
                                                                         textInputAction:
@@ -1107,6 +1166,24 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                               13.0,
                                                                               0.0,
                                                                               13.0),
+                                                                          suffixIcon: _model.firstNameTextController!.text.isNotEmpty
+                                                                              ? InkWell(
+                                                                                  onTap: () async {
+                                                                                    _model.firstNameTextController?.clear();
+                                                                                    if (_model.firstNameTextController.text != '') {
+                                                                                      if (_model.formKey1.currentState == null || !_model.formKey1.currentState!.validate()) {
+                                                                                        return;
+                                                                                      }
+                                                                                    }
+                                                                                    safeSetState(() {});
+                                                                                  },
+                                                                                  child: Icon(
+                                                                                    Icons.clear,
+                                                                                    color: FlutterFlowTheme.of(context).alternate,
+                                                                                    size: 10.0,
+                                                                                  ),
+                                                                                )
+                                                                              : null,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .labelMedium
@@ -1120,7 +1197,15 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                             .firstNameTextControllerValidator
                                                                             .asValidator(context),
                                                                       ),
-                                                                      TextFormField(
+                                                                    ),
+                                                                    Form(
+                                                                      key: _model
+                                                                          .formKey6,
+                                                                      autovalidateMode:
+                                                                          AutovalidateMode
+                                                                              .disabled,
+                                                                      child:
+                                                                          TextFormField(
                                                                         controller:
                                                                             _model.lastNameTextController ??=
                                                                                 TextEditingController(
@@ -1129,6 +1214,20 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                         ),
                                                                         focusNode:
                                                                             _model.lastNameFocusNode,
+                                                                        onChanged:
+                                                                            (_) =>
+                                                                                EasyDebounce.debounce(
+                                                                          '_model.lastNameTextController',
+                                                                          Duration(
+                                                                              milliseconds: 2000),
+                                                                          () async {
+                                                                            if (_model.lastNameTextController.text != '') {
+                                                                              if (_model.formKey6.currentState == null || !_model.formKey6.currentState!.validate()) {
+                                                                                return;
+                                                                              }
+                                                                            }
+                                                                          },
+                                                                        ),
                                                                         autofocus:
                                                                             false,
                                                                         textInputAction:
@@ -1221,6 +1320,24 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                               13.0,
                                                                               0.0,
                                                                               13.0),
+                                                                          suffixIcon: _model.lastNameTextController!.text.isNotEmpty
+                                                                              ? InkWell(
+                                                                                  onTap: () async {
+                                                                                    _model.lastNameTextController?.clear();
+                                                                                    if (_model.lastNameTextController.text != '') {
+                                                                                      if (_model.formKey6.currentState == null || !_model.formKey6.currentState!.validate()) {
+                                                                                        return;
+                                                                                      }
+                                                                                    }
+                                                                                    safeSetState(() {});
+                                                                                  },
+                                                                                  child: Icon(
+                                                                                    Icons.clear,
+                                                                                    color: FlutterFlowTheme.of(context).alternate,
+                                                                                    size: 10.0,
+                                                                                  ),
+                                                                                )
+                                                                              : null,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .labelMedium
@@ -1234,7 +1351,15 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                             .lastNameTextControllerValidator
                                                                             .asValidator(context),
                                                                       ),
-                                                                      TextFormField(
+                                                                    ),
+                                                                    Form(
+                                                                      key: _model
+                                                                          .formKey3,
+                                                                      autovalidateMode:
+                                                                          AutovalidateMode
+                                                                              .disabled,
+                                                                      child:
+                                                                          TextFormField(
                                                                         controller:
                                                                             _model.biographyTextController ??=
                                                                                 TextEditingController(
@@ -1243,6 +1368,20 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                         ),
                                                                         focusNode:
                                                                             _model.biographyFocusNode,
+                                                                        onChanged:
+                                                                            (_) =>
+                                                                                EasyDebounce.debounce(
+                                                                          '_model.biographyTextController',
+                                                                          Duration(
+                                                                              milliseconds: 2000),
+                                                                          () async {
+                                                                            if (_model.biographyTextController.text != '') {
+                                                                              if (_model.formKey3.currentState == null || !_model.formKey3.currentState!.validate()) {
+                                                                                return;
+                                                                              }
+                                                                            }
+                                                                          },
+                                                                        ),
                                                                         autofocus:
                                                                             false,
                                                                         textInputAction:
@@ -1338,6 +1477,24 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                               13.0,
                                                                               0.0,
                                                                               13.0),
+                                                                          suffixIcon: _model.biographyTextController!.text.isNotEmpty
+                                                                              ? InkWell(
+                                                                                  onTap: () async {
+                                                                                    _model.biographyTextController?.clear();
+                                                                                    if (_model.biographyTextController.text != '') {
+                                                                                      if (_model.formKey3.currentState == null || !_model.formKey3.currentState!.validate()) {
+                                                                                        return;
+                                                                                      }
+                                                                                    }
+                                                                                    safeSetState(() {});
+                                                                                  },
+                                                                                  child: Icon(
+                                                                                    Icons.clear,
+                                                                                    color: FlutterFlowTheme.of(context).alternate,
+                                                                                    size: 10.0,
+                                                                                  ),
+                                                                                )
+                                                                              : null,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .labelMedium
@@ -1347,69 +1504,101 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                             ),
                                                                         maxLines:
                                                                             7,
+                                                                        maxLength:
+                                                                            250,
+                                                                        maxLengthEnforcement:
+                                                                            MaxLengthEnforcement.enforced,
                                                                         cursorColor:
                                                                             FlutterFlowTheme.of(context).primary,
                                                                         validator: _model
                                                                             .biographyTextControllerValidator
                                                                             .asValidator(context),
                                                                       ),
-                                                                    ].divide(SizedBox(
-                                                                        height:
-                                                                            10.0)),
-                                                                  ),
+                                                                    ),
+                                                                  ].divide(SizedBox(
+                                                                      height:
+                                                                          10.0)),
                                                                 ),
                                                               ),
-                                                            ),
-                                                            theme:
-                                                                ExpandableThemeData(
-                                                              tapHeaderToExpand:
-                                                                  true,
-                                                              tapBodyToExpand:
-                                                                  false,
-                                                              tapBodyToCollapse:
-                                                                  false,
-                                                              headerAlignment:
-                                                                  ExpandablePanelHeaderAlignment
-                                                                      .top,
-                                                              hasIcon: true,
-                                                              iconSize: 20.0,
-                                                              iconColor: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryText,
+                                                              theme:
+                                                                  ExpandableThemeData(
+                                                                tapHeaderToExpand:
+                                                                    true,
+                                                                tapBodyToExpand:
+                                                                    false,
+                                                                tapBodyToCollapse:
+                                                                    false,
+                                                                headerAlignment:
+                                                                    ExpandablePanelHeaderAlignment
+                                                                        .top,
+                                                                hasIcon: true,
+                                                                iconSize: 20.0,
+                                                                iconColor: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                              ),
                                                             ),
                                                           ),
-                                                        ),
-                                                      ),
+                                                        );
+                                                      }),
                                                     ),
                                                   ),
                                                 ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(16.0, 12.0,
-                                                          16.0, 0.0),
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        16.0, 12.0, 16.0, 0.0),
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            16.0),
+                                                    border: Border.all(
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              16.0),
-                                                      border: Border.all(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                      ),
                                                     ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  16.0,
-                                                                  8.0,
-                                                                  16.0,
-                                                                  8.0),
-                                                      child: Container(
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(16.0, 8.0,
+                                                                16.0, 8.0),
+                                                    child:
+                                                        Builder(builder: (_) {
+                                                      if (!expandableListenerRegistered2) {
+                                                        expandableListenerRegistered2 =
+                                                            true;
+                                                        _model
+                                                            .expandableExpandableController2
+                                                            .addListener(
+                                                          () async {
+                                                            if (_model
+                                                                    .expandableExpandableController2
+                                                                    .expanded ==
+                                                                true) {
+                                                              _model.isPersonalOpen =
+                                                                  false;
+                                                              _model.isSocialOpen =
+                                                                  false;
+                                                              _model.isContactOpen =
+                                                                  true;
+                                                              safeSetState(
+                                                                  () {});
+                                                            } else {
+                                                              _model.isContactOpen =
+                                                                  false;
+                                                              safeSetState(
+                                                                  () {});
+                                                            }
+                                                          },
+                                                        );
+                                                      }
+                                                      return Container(
                                                         width: double.infinity,
                                                         color:
                                                             Color(0x00000000),
@@ -1452,156 +1641,179 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                     .secondaryBackground,
                                                               ),
                                                             ),
-                                                            expanded: Form(
-                                                              key: _model
-                                                                  .formKey3,
-                                                              autovalidateMode:
-                                                                  AutovalidateMode
-                                                                      .always,
-                                                              child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            8.0,
-                                                                            10.0,
-                                                                            8.0,
-                                                                            0.0),
-                                                                child: Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .min,
-                                                                  children: [
-                                                                    TextFormField(
-                                                                      controller:
-                                                                          _model.emailTextController ??=
-                                                                              TextEditingController(
-                                                                        text: columnUserExtRow
-                                                                            ?.email,
-                                                                      ),
-                                                                      focusNode:
-                                                                          _model
-                                                                              .emailFocusNode,
-                                                                      autofocus:
-                                                                          false,
-                                                                      textInputAction:
-                                                                          TextInputAction
-                                                                              .next,
-                                                                      obscureText:
-                                                                          false,
-                                                                      decoration:
-                                                                          InputDecoration(
-                                                                        isDense:
-                                                                            false,
-                                                                        labelText:
-                                                                            FFLocalizations.of(context).getText(
-                                                                          'nyh2lv1e' /* Email */,
-                                                                        ),
-                                                                        labelStyle: FlutterFlowTheme.of(context)
-                                                                            .labelMedium
-                                                                            .override(
-                                                                              fontFamily: 'Satoshi',
-                                                                              color: FlutterFlowTheme.of(context).primaryText,
-                                                                              fontSize: 13.0,
-                                                                              letterSpacing: 0.0,
-                                                                            ),
-                                                                        hintText:
-                                                                            FFLocalizations.of(context).getText(
-                                                                          'malfam0q' /* example@example.com */,
-                                                                        ),
-                                                                        hintStyle: FlutterFlowTheme.of(context)
-                                                                            .labelMedium
-                                                                            .override(
-                                                                              fontFamily: 'Satoshi',
-                                                                              color: FlutterFlowTheme.of(context).bordergray,
-                                                                              fontSize: 17.0,
-                                                                              letterSpacing: 0.0,
-                                                                            ),
-                                                                        errorStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Satoshi',
-                                                                              color: FlutterFlowTheme.of(context).error,
-                                                                              fontSize: 12.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.normal,
-                                                                              lineHeight: 1.2,
-                                                                            ),
-                                                                        enabledBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondaryBackground,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                        ),
-                                                                        focusedBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondaryText,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                        ),
-                                                                        errorBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).error,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                        ),
-                                                                        focusedErrorBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).error,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                        ),
-                                                                        filled:
-                                                                            true,
-                                                                        fillColor:
-                                                                            FlutterFlowTheme.of(context).primaryBackground,
-                                                                        contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                            16.0,
-                                                                            13.0,
+                                                            expanded: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          8.0,
+                                                                          10.0,
+                                                                          8.0,
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .min,
+                                                                children: [
+                                                                  Align(
+                                                                    alignment:
+                                                                        AlignmentDirectional(
                                                                             0.0,
-                                                                            13.0),
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .labelMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Satoshi',
-                                                                            letterSpacing:
-                                                                                0.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        Stack(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              1.0,
+                                                                              0.0),
+                                                                      children: [
+                                                                        TextFormField(
+                                                                          controller: _model.emailTextController ??=
+                                                                              TextEditingController(
+                                                                            text:
+                                                                                columnUserExtRow?.email,
                                                                           ),
-                                                                      cursorColor:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .primary,
-                                                                      validator: _model
-                                                                          .emailTextControllerValidator
-                                                                          .asValidator(
-                                                                              context),
+                                                                          focusNode:
+                                                                              _model.emailFocusNode,
+                                                                          autofocus:
+                                                                              false,
+                                                                          textInputAction:
+                                                                              TextInputAction.next,
+                                                                          readOnly:
+                                                                              true,
+                                                                          obscureText:
+                                                                              false,
+                                                                          decoration:
+                                                                              InputDecoration(
+                                                                            isDense:
+                                                                                false,
+                                                                            labelText:
+                                                                                FFLocalizations.of(context).getText(
+                                                                              '2hyki5q1' /* Email */,
+                                                                            ),
+                                                                            labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                  fontFamily: 'Satoshi',
+                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                  fontSize: 13.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
+                                                                            hintText:
+                                                                                FFLocalizations.of(context).getText(
+                                                                              'uzu5pe2d' /* City */,
+                                                                            ),
+                                                                            hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                  fontFamily: 'Satoshi',
+                                                                                  color: FlutterFlowTheme.of(context).bordergray,
+                                                                                  fontSize: 17.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
+                                                                            errorStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: 'Satoshi',
+                                                                                  color: FlutterFlowTheme.of(context).error,
+                                                                                  fontSize: 12.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  lineHeight: 1.2,
+                                                                                ),
+                                                                            enabledBorder:
+                                                                                OutlineInputBorder(
+                                                                              borderSide: BorderSide(
+                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                width: 1.0,
+                                                                              ),
+                                                                              borderRadius: BorderRadius.circular(8.0),
+                                                                            ),
+                                                                            focusedBorder:
+                                                                                OutlineInputBorder(
+                                                                              borderSide: BorderSide(
+                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                width: 1.0,
+                                                                              ),
+                                                                              borderRadius: BorderRadius.circular(8.0),
+                                                                            ),
+                                                                            errorBorder:
+                                                                                OutlineInputBorder(
+                                                                              borderSide: BorderSide(
+                                                                                color: FlutterFlowTheme.of(context).error,
+                                                                                width: 1.0,
+                                                                              ),
+                                                                              borderRadius: BorderRadius.circular(8.0),
+                                                                            ),
+                                                                            focusedErrorBorder:
+                                                                                OutlineInputBorder(
+                                                                              borderSide: BorderSide(
+                                                                                color: FlutterFlowTheme.of(context).error,
+                                                                                width: 1.0,
+                                                                              ),
+                                                                              borderRadius: BorderRadius.circular(8.0),
+                                                                            ),
+                                                                            filled:
+                                                                                true,
+                                                                            fillColor:
+                                                                                FlutterFlowTheme.of(context).primaryBackground,
+                                                                            contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                                16.0,
+                                                                                13.0,
+                                                                                0.0,
+                                                                                13.0),
+                                                                          ),
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .override(
+                                                                                fontFamily: 'Satoshi',
+                                                                                letterSpacing: 0.0,
+                                                                              ),
+                                                                          cursorColor:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                          validator: _model
+                                                                              .emailTextControllerValidator
+                                                                              .asValidator(context),
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              0.0,
+                                                                              8.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              FFButtonWidget(
+                                                                            onPressed:
+                                                                                () async {
+                                                                              context.pushNamed(ChangeEmailPageWidget.routeName);
+                                                                            },
+                                                                            text:
+                                                                                FFLocalizations.of(context).getText(
+                                                                              'zzq7g7vx' /* Change Email */,
+                                                                            ),
+                                                                            options:
+                                                                                FFButtonOptions(
+                                                                              height: 20.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              color: FlutterFlowTheme.of(context).success,
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                    fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
+                                                                                    color: Colors.white,
+                                                                                    fontSize: 10.0,
+                                                                                    letterSpacing: 0.0,
+                                                                                    fontWeight: FontWeight.w100,
+                                                                                    useGoogleFonts: !FlutterFlowTheme.of(context).titleSmallIsCustom,
+                                                                                  ),
+                                                                              elevation: 0.0,
+                                                                              borderRadius: BorderRadius.circular(8.0),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ],
                                                                     ),
-                                                                    TextFormField(
+                                                                  ),
+                                                                  Form(
+                                                                    key: _model
+                                                                        .formKey5,
+                                                                    autovalidateMode:
+                                                                        AutovalidateMode
+                                                                            .disabled,
+                                                                    child:
+                                                                        TextFormField(
                                                                       controller:
                                                                           _model.phoneNumberTextController ??=
                                                                               TextEditingController(
@@ -1619,10 +1831,12 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                             milliseconds:
                                                                                 2000),
                                                                         () async {
-                                                                          _model.phoneNumberChanged =
-                                                                              true;
-                                                                          safeSetState(
-                                                                              () {});
+                                                                          if (_model.phoneNumberTextController.text != '') {
+                                                                            if (_model.formKey5.currentState == null ||
+                                                                                !_model.formKey5.currentState!.validate()) {
+                                                                              return;
+                                                                            }
+                                                                          }
                                                                         },
                                                                       ),
                                                                       autofocus:
@@ -1745,140 +1959,162 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                           .asValidator(
                                                                               context),
                                                                     ),
-                                                                    TextFormField(
-                                                                      controller:
-                                                                          _model.cityTextController ??=
-                                                                              TextEditingController(
-                                                                        text: columnUserExtRow
-                                                                            ?.userCity,
-                                                                      ),
-                                                                      focusNode:
-                                                                          _model
-                                                                              .cityFocusNode,
-                                                                      autofocus:
+                                                                  ),
+                                                                  TextFormField(
+                                                                    controller:
+                                                                        _model.cityTextController ??=
+                                                                            TextEditingController(
+                                                                      text: columnUserExtRow
+                                                                          ?.userCity,
+                                                                    ),
+                                                                    focusNode:
+                                                                        _model
+                                                                            .cityFocusNode,
+                                                                    autofocus:
+                                                                        false,
+                                                                    enabled:
+                                                                        true,
+                                                                    textInputAction:
+                                                                        TextInputAction
+                                                                            .next,
+                                                                    obscureText:
+                                                                        false,
+                                                                    decoration:
+                                                                        InputDecoration(
+                                                                      isDense:
                                                                           false,
-                                                                      textInputAction:
-                                                                          TextInputAction
-                                                                              .next,
-                                                                      obscureText:
-                                                                          false,
-                                                                      decoration:
-                                                                          InputDecoration(
-                                                                        isDense:
-                                                                            false,
-                                                                        labelText:
-                                                                            FFLocalizations.of(context).getText(
-                                                                          '2hyki5q1' /* City */,
-                                                                        ),
-                                                                        labelStyle: FlutterFlowTheme.of(context)
-                                                                            .labelMedium
-                                                                            .override(
-                                                                              fontFamily: 'Satoshi',
-                                                                              color: FlutterFlowTheme.of(context).primaryText,
-                                                                              fontSize: 13.0,
-                                                                              letterSpacing: 0.0,
-                                                                            ),
-                                                                        hintText:
-                                                                            FFLocalizations.of(context).getText(
-                                                                          'uzu5pe2d' /* City */,
-                                                                        ),
-                                                                        hintStyle: FlutterFlowTheme.of(context)
-                                                                            .labelMedium
-                                                                            .override(
-                                                                              fontFamily: 'Satoshi',
-                                                                              color: FlutterFlowTheme.of(context).bordergray,
-                                                                              fontSize: 17.0,
-                                                                              letterSpacing: 0.0,
-                                                                            ),
-                                                                        errorStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Satoshi',
-                                                                              color: FlutterFlowTheme.of(context).error,
-                                                                              fontSize: 12.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.normal,
-                                                                              lineHeight: 1.2,
-                                                                            ),
-                                                                        enabledBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondaryBackground,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                        ),
-                                                                        focusedBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryText,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                        ),
-                                                                        errorBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).error,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                        ),
-                                                                        focusedErrorBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).error,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                        ),
-                                                                        filled:
-                                                                            true,
-                                                                        fillColor:
-                                                                            FlutterFlowTheme.of(context).primaryBackground,
-                                                                        contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                            16.0,
-                                                                            13.0,
-                                                                            0.0,
-                                                                            13.0),
+                                                                      labelText:
+                                                                          FFLocalizations.of(context)
+                                                                              .getText(
+                                                                        'u1f2e7t6' /* City */,
                                                                       ),
-                                                                      style: FlutterFlowTheme.of(
+                                                                      labelStyle: FlutterFlowTheme.of(
                                                                               context)
                                                                           .labelMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Satoshi',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            fontSize:
+                                                                                13.0,
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
-                                                                      cursorColor:
+                                                                      hintText:
+                                                                          FFLocalizations.of(context)
+                                                                              .getText(
+                                                                        'l3o8p42c' /* City */,
+                                                                      ),
+                                                                      hintStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Satoshi',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).bordergray,
+                                                                            fontSize:
+                                                                                17.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
+                                                                      errorStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Satoshi',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).error,
+                                                                            fontSize:
+                                                                                12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            lineHeight:
+                                                                                1.2,
+                                                                          ),
+                                                                      enabledBorder:
+                                                                          OutlineInputBorder(
+                                                                        borderSide:
+                                                                            BorderSide(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryBackground,
+                                                                          width:
+                                                                              1.0,
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(8.0),
+                                                                      ),
+                                                                      focusedBorder:
+                                                                          OutlineInputBorder(
+                                                                        borderSide:
+                                                                            BorderSide(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primaryText,
+                                                                          width:
+                                                                              1.0,
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(8.0),
+                                                                      ),
+                                                                      errorBorder:
+                                                                          OutlineInputBorder(
+                                                                        borderSide:
+                                                                            BorderSide(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).error,
+                                                                          width:
+                                                                              1.0,
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(8.0),
+                                                                      ),
+                                                                      focusedErrorBorder:
+                                                                          OutlineInputBorder(
+                                                                        borderSide:
+                                                                            BorderSide(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).error,
+                                                                          width:
+                                                                              1.0,
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(8.0),
+                                                                      ),
+                                                                      filled:
+                                                                          true,
+                                                                      fillColor:
                                                                           FlutterFlowTheme.of(context)
-                                                                              .primary,
-                                                                      validator: _model
-                                                                          .cityTextControllerValidator
-                                                                          .asValidator(
-                                                                              context),
+                                                                              .primaryBackground,
+                                                                      contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                          16.0,
+                                                                          13.0,
+                                                                          0.0,
+                                                                          13.0),
                                                                     ),
-                                                                  ].divide(SizedBox(
-                                                                      height:
-                                                                          10.0)),
-                                                                ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Satoshi',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
+                                                                    cursorColor:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                    validator: _model
+                                                                        .cityTextControllerValidator
+                                                                        .asValidator(
+                                                                            context),
+                                                                  ),
+                                                                ].divide(SizedBox(
+                                                                    height:
+                                                                        10.0)),
                                                               ),
                                                             ),
                                                             theme:
@@ -1900,814 +2136,762 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                             ),
                                                           ),
                                                         ),
+                                                      );
+                                                    }),
+                                                  ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        16.0, 12.0, 16.0, 0.0),
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            16.0),
+                                                    border: Border.all(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(16.0, 8.0,
+                                                                16.0, 8.0),
+                                                    child: Container(
+                                                      width: double.infinity,
+                                                      color: Color(0x00000000),
+                                                      child: ExpandableNotifier(
+                                                        controller: _model
+                                                            .expandableExpandableController3,
+                                                        child: ExpandablePanel(
+                                                          header: Text(
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'cvyikj5w' /* Social Media Links */,
+                                                            ),
+                                                            maxLines: 1,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Satoshi',
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                ),
+                                                          ),
+                                                          collapsed: Container(
+                                                            width: 100.0,
+                                                            height: 1.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                            ),
+                                                          ),
+                                                          expanded: Form(
+                                                            key:
+                                                                _model.formKey4,
+                                                            autovalidateMode:
+                                                                AutovalidateMode
+                                                                    .disabled,
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          10.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  TextFormField(
+                                                                    controller:
+                                                                        _model.instagramLinkTextController ??=
+                                                                            TextEditingController(
+                                                                      text: columnUserExtRow
+                                                                          ?.instagramLink,
+                                                                    ),
+                                                                    focusNode:
+                                                                        _model
+                                                                            .instagramLinkFocusNode,
+                                                                    onChanged: (_) =>
+                                                                        EasyDebounce
+                                                                            .debounce(
+                                                                      '_model.instagramLinkTextController',
+                                                                      Duration(
+                                                                          milliseconds:
+                                                                              2000),
+                                                                      () async {
+                                                                        if (_model.instagramLinkTextController.text !=
+                                                                                '') {
+                                                                          if (_model.formKey4.currentState == null ||
+                                                                              !_model.formKey4.currentState!.validate()) {
+                                                                            return;
+                                                                          }
+                                                                        }
+                                                                      },
+                                                                    ),
+                                                                    autofocus:
+                                                                        false,
+                                                                    textInputAction:
+                                                                        TextInputAction
+                                                                            .next,
+                                                                    obscureText:
+                                                                        false,
+                                                                    decoration:
+                                                                        InputDecoration(
+                                                                      isDense:
+                                                                          false,
+                                                                      labelText:
+                                                                          FFLocalizations.of(context)
+                                                                              .getText(
+                                                                        'qne00b69' /* Instagram link */,
+                                                                      ),
+                                                                      labelStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Satoshi',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            fontSize:
+                                                                                13.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
+                                                                      hintText:
+                                                                          FFLocalizations.of(context)
+                                                                              .getText(
+                                                                        'flzqxlxk' /* Instagram link */,
+                                                                      ),
+                                                                      hintStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Satoshi',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).bordergray,
+                                                                            fontSize:
+                                                                                17.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
+                                                                      errorStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Satoshi',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).error,
+                                                                            fontSize:
+                                                                                12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            lineHeight:
+                                                                                1.2,
+                                                                          ),
+                                                                      enabledBorder:
+                                                                          OutlineInputBorder(
+                                                                        borderSide:
+                                                                            BorderSide(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryBackground,
+                                                                          width:
+                                                                              1.0,
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(8.0),
+                                                                      ),
+                                                                      focusedBorder:
+                                                                          OutlineInputBorder(
+                                                                        borderSide:
+                                                                            BorderSide(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primaryText,
+                                                                          width:
+                                                                              1.0,
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(8.0),
+                                                                      ),
+                                                                      errorBorder:
+                                                                          OutlineInputBorder(
+                                                                        borderSide:
+                                                                            BorderSide(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).error,
+                                                                          width:
+                                                                              1.0,
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(8.0),
+                                                                      ),
+                                                                      focusedErrorBorder:
+                                                                          OutlineInputBorder(
+                                                                        borderSide:
+                                                                            BorderSide(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).error,
+                                                                          width:
+                                                                              1.0,
+                                                                        ),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(8.0),
+                                                                      ),
+                                                                      filled:
+                                                                          true,
+                                                                      fillColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .primaryBackground,
+                                                                      contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                          16.0,
+                                                                          13.0,
+                                                                          0.0,
+                                                                          13.0),
+                                                                    ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Satoshi',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
+                                                                    cursorColor:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                    validator: _model
+                                                                        .instagramLinkTextControllerValidator
+                                                                        .asValidator(
+                                                                            context),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          theme:
+                                                              ExpandableThemeData(
+                                                            tapHeaderToExpand:
+                                                                _model
+                                                                    .isSocialOpen,
+                                                            tapBodyToExpand:
+                                                                false,
+                                                            tapBodyToCollapse:
+                                                                false,
+                                                            headerAlignment:
+                                                                ExpandablePanelHeaderAlignment
+                                                                    .top,
+                                                            hasIcon: true,
+                                                            iconSize: 20.0,
+                                                            iconColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                          ),
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
                                                 ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(16.0, 12.0,
-                                                          16.0, 0.0),
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              16.0),
-                                                      border: Border.all(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                      ),
-                                                    ),
-                                                    child: Padding(
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 32.0, 0.0, 0.0),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  children: [
+                                                    Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
-                                                                  8.0,
+                                                                  0.0,
                                                                   16.0,
-                                                                  8.0),
+                                                                  12.0),
                                                       child: Container(
                                                         width: double.infinity,
-                                                        color:
-                                                            Color(0x00000000),
-                                                        child:
-                                                            ExpandableNotifier(
-                                                          controller: _model
-                                                              .expandableExpandableController3,
-                                                          child:
-                                                              ExpandablePanel(
-                                                            header: Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'cvyikj5w' /* Social Media Links */,
+                                                        constraints:
+                                                            BoxConstraints(
+                                                          maxWidth: 480.0,
+                                                        ),
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius.only(
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    8.0),
+                                                            bottomRight:
+                                                                Radius.circular(
+                                                                    8.0),
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    8.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    8.0),
+                                                          ),
+                                                        ),
+                                                        child: FFButtonWidget(
+                                                          onPressed: () async {
+                                                            _model.updatedUser =
+                                                                await UserExtTable()
+                                                                    .update(
+                                                              data: {
+                                                                'user_name': _model
+                                                                    .userNameTextController
+                                                                    .text,
+                                                                'phonenumber':
+                                                                    _model
+                                                                        .phoneNumberTextController
+                                                                        .text,
+                                                                'biography': _model
+                                                                    .biographyTextController
+                                                                    .text,
+                                                                'first_name': _model
+                                                                    .firstNameTextController
+                                                                    .text,
+                                                                'last_name': _model
+                                                                    .lastNameTextController
+                                                                    .text,
+                                                                'user_city': _model
+                                                                    .emailTextController
+                                                                    .text,
+                                                                'instagram_link':
+                                                                    _model
+                                                                        .instagramLinkTextController
+                                                                        .text,
+                                                              },
+                                                              matchingRows:
+                                                                  (rows) => rows
+                                                                      .eqOrNull(
+                                                                'id',
+                                                                currentUserUid,
                                                               ),
-                                                              maxLines: 1,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Satoshi',
-                                                                    fontSize:
-                                                                        16.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                  ),
-                                                            ),
-                                                            collapsed:
-                                                                Container(
-                                                              width: 100.0,
-                                                              height: 1.0,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                              ),
-                                                            ),
-                                                            expanded: Form(
-                                                              key: _model
-                                                                  .formKey1,
-                                                              autovalidateMode:
-                                                                  AutovalidateMode
-                                                                      .always,
-                                                              child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  children: [
-                                                                    TextFormField(
-                                                                      controller:
-                                                                          _model.instagramLinkTextController ??=
-                                                                              TextEditingController(
-                                                                        text: columnUserExtRow
-                                                                            ?.instagramLink,
-                                                                      ),
-                                                                      focusNode:
-                                                                          _model
-                                                                              .instagramLinkFocusNode,
-                                                                      autofocus:
-                                                                          false,
-                                                                      textInputAction:
-                                                                          TextInputAction
-                                                                              .next,
-                                                                      obscureText:
-                                                                          false,
-                                                                      decoration:
-                                                                          InputDecoration(
-                                                                        isDense:
-                                                                            false,
-                                                                        labelText:
-                                                                            FFLocalizations.of(context).getText(
-                                                                          'qne00b69' /* Instagram link */,
-                                                                        ),
-                                                                        labelStyle: FlutterFlowTheme.of(context)
-                                                                            .labelMedium
-                                                                            .override(
-                                                                              fontFamily: 'Satoshi',
-                                                                              color: FlutterFlowTheme.of(context).primaryText,
-                                                                              fontSize: 13.0,
-                                                                              letterSpacing: 0.0,
-                                                                            ),
-                                                                        hintText:
-                                                                            FFLocalizations.of(context).getText(
-                                                                          'flzqxlxk' /* Instagram link */,
-                                                                        ),
-                                                                        hintStyle: FlutterFlowTheme.of(context)
-                                                                            .labelMedium
-                                                                            .override(
-                                                                              fontFamily: 'Satoshi',
-                                                                              color: FlutterFlowTheme.of(context).bordergray,
-                                                                              fontSize: 17.0,
-                                                                              letterSpacing: 0.0,
-                                                                            ),
-                                                                        errorStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Satoshi',
-                                                                              color: FlutterFlowTheme.of(context).error,
-                                                                              fontSize: 12.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.normal,
-                                                                              lineHeight: 1.2,
-                                                                            ),
-                                                                        enabledBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondaryBackground,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                        ),
-                                                                        focusedBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryText,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                        ),
-                                                                        errorBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).error,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                        ),
-                                                                        focusedErrorBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).error,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                        ),
-                                                                        filled:
-                                                                            true,
-                                                                        fillColor:
-                                                                            FlutterFlowTheme.of(context).primaryBackground,
-                                                                        contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                            16.0,
-                                                                            13.0,
-                                                                            0.0,
-                                                                            13.0),
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .labelMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Satoshi',
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                          ),
-                                                                      cursorColor:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .primary,
-                                                                      validator: _model
-                                                                          .instagramLinkTextControllerValidator
-                                                                          .asValidator(
-                                                                              context),
-                                                                    ),
-                                                                  ],
+                                                              returnRows: true,
+                                                            );
+                                                            FFAppState()
+                                                                .updateUserInfoStruct(
+                                                              (e) => e
+                                                                ..userName = _model
+                                                                    .updatedUser
+                                                                    ?.firstOrNull
+                                                                    ?.userName
+                                                                ..name = _model
+                                                                    .updatedUser
+                                                                    ?.firstOrNull
+                                                                    ?.firstName
+                                                                ..lastName = _model
+                                                                    .updatedUser
+                                                                    ?.firstOrNull
+                                                                    ?.lastName
+                                                                ..city = _model
+                                                                    .updatedUser
+                                                                    ?.firstOrNull
+                                                                    ?.userCity
+                                                                ..instaLink = _model
+                                                                    .updatedUser
+                                                                    ?.firstOrNull
+                                                                    ?.instagramLink,
+                                                            );
+                                                            safeSetState(() {});
+
+                                                            context.pushNamed(
+                                                              ProfilePageWidget
+                                                                  .routeName,
+                                                              queryParameters: {
+                                                                'profileId':
+                                                                    serializeParam(
+                                                                  currentUserUid,
+                                                                  ParamType
+                                                                      .String,
                                                                 ),
+                                                              }.withoutNulls,
+                                                            );
+
+                                                            ScaffoldMessenger
+                                                                    .of(context)
+                                                                .showSnackBar(
+                                                              SnackBar(
+                                                                content: Text(
+                                                                  'Your changes were successfully saved.',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    color: Color(
+                                                                        0x4240C057),
+                                                                  ),
+                                                                ),
+                                                                duration: Duration(
+                                                                    milliseconds:
+                                                                        4000),
+                                                                backgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondary,
                                                               ),
-                                                            ),
-                                                            theme:
-                                                                ExpandableThemeData(
-                                                              tapHeaderToExpand:
-                                                                  true,
-                                                              tapBodyToExpand:
-                                                                  false,
-                                                              tapBodyToCollapse:
-                                                                  false,
-                                                              headerAlignment:
-                                                                  ExpandablePanelHeaderAlignment
-                                                                      .top,
-                                                              hasIcon: true,
-                                                              iconSize: 20.0,
-                                                              iconColor: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryText,
-                                                            ),
+                                                            );
+
+                                                            safeSetState(() {});
+                                                          },
+                                                          text: FFLocalizations
+                                                                  .of(context)
+                                                              .getText(
+                                                            'mb8qxwm3' /* Save */,
+                                                          ),
+                                                          options:
+                                                              FFButtonOptions(
+                                                            height: 40.0,
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        16.0,
+                                                                        0.0,
+                                                                        16.0,
+                                                                        0.0),
+                                                            iconPadding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .greenInit,
+                                                            textStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .titleSmallFamily,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      useGoogleFonts:
+                                                                          !FlutterFlowTheme.of(context)
+                                                                              .titleSmallIsCustom,
+                                                                    ),
+                                                            elevation: 0.0,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
                                                           ),
                                                         ),
                                                       ),
                                                     ),
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 32.0, 0.0, 0.0),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    16.0,
-                                                                    0.0,
-                                                                    16.0,
-                                                                    12.0),
-                                                        child: Container(
-                                                          width:
-                                                              double.infinity,
-                                                          constraints:
-                                                              BoxConstraints(
-                                                            maxWidth: 480.0,
-                                                          ),
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .only(
-                                                              bottomLeft: Radius
-                                                                  .circular(
-                                                                      8.0),
-                                                              bottomRight:
-                                                                  Radius
-                                                                      .circular(
-                                                                          8.0),
-                                                              topLeft: Radius
-                                                                  .circular(
-                                                                      8.0),
-                                                              topRight: Radius
-                                                                  .circular(
-                                                                      8.0),
-                                                            ),
-                                                          ),
-                                                          child: FFButtonWidget(
-                                                            onPressed:
-                                                                () async {
-                                                              var _shouldSetState =
-                                                                  false;
-                                                              _model.valid =
-                                                                  true;
-                                                              if (_model.formKey2
-                                                                          .currentState ==
-                                                                      null ||
-                                                                  !_model
-                                                                      .formKey2
-                                                                      .currentState!
-                                                                      .validate()) {
-                                                                safeSetState(() =>
-                                                                    _model.valid =
-                                                                        false);
-                                                                return;
-                                                              }
-                                                              _shouldSetState =
-                                                                  true;
-                                                              if (_model
-                                                                  .valid!) {
-                                                                _model.updatedUser =
-                                                                    await UserExtTable()
-                                                                        .update(
-                                                                  data: {
-                                                                    'user_name':
-                                                                        _model
-                                                                            .userNameTextController
-                                                                            .text,
-                                                                    'phonenumber':
-                                                                        _model
-                                                                            .phoneNumberTextController
-                                                                            .text,
-                                                                    'email': _model
-                                                                        .emailTextController
-                                                                        .text,
-                                                                    'biography':
-                                                                        _model
-                                                                            .biographyTextController
-                                                                            .text,
-                                                                    'first_name':
-                                                                        _model
-                                                                            .firstNameTextController
-                                                                            .text,
-                                                                    'last_name':
-                                                                        _model
-                                                                            .lastNameTextController
-                                                                            .text,
-                                                                    'user_city':
-                                                                        _model
-                                                                            .cityTextController
-                                                                            .text,
-                                                                    'instagram_link':
-                                                                        _model
-                                                                            .instagramLinkTextController
-                                                                            .text,
-                                                                  },
-                                                                  matchingRows:
-                                                                      (rows) =>
-                                                                          rows.eqOrNull(
-                                                                    'id',
-                                                                    currentUserUid,
-                                                                  ),
-                                                                  returnRows:
-                                                                      true,
-                                                                );
-                                                                _shouldSetState =
-                                                                    true;
-                                                                FFAppState()
-                                                                    .updateUserInfoStruct(
-                                                                  (e) => e
-                                                                    ..userName = _model
-                                                                        .updatedUser
-                                                                        ?.firstOrNull
-                                                                        ?.userName
-                                                                    ..name = _model
-                                                                        .updatedUser
-                                                                        ?.firstOrNull
-                                                                        ?.firstName
-                                                                    ..lastName = _model
-                                                                        .updatedUser
-                                                                        ?.firstOrNull
-                                                                        ?.lastName
-                                                                    ..city = _model
-                                                                        .updatedUser
-                                                                        ?.firstOrNull
-                                                                        ?.userCity
-                                                                    ..instaLink = _model
-                                                                        .updatedUser
-                                                                        ?.firstOrNull
-                                                                        ?.instagramLink,
-                                                                );
-                                                                safeSetState(
-                                                                    () {});
-                                                                if (columnUserExtRow
-                                                                        ?.email !=
-                                                                    currentUserEmail) {
-                                                                  if (_model
-                                                                      .emailTextController
-                                                                      .text
-                                                                      .isEmpty) {
-                                                                    ScaffoldMessenger.of(
-                                                                            context)
-                                                                        .showSnackBar(
-                                                                      SnackBar(
-                                                                        content:
-                                                                            Text(
-                                                                          'Email required!',
-                                                                        ),
-                                                                      ),
-                                                                    );
-                                                                    return;
-                                                                  }
-
-                                                                  await authManager
-                                                                      .updateEmail(
-                                                                    email: _model
-                                                                        .emailTextController
-                                                                        .text,
-                                                                    context:
-                                                                        context,
-                                                                  );
-                                                                  safeSetState(
-                                                                      () {});
-
-                                                                  context
-                                                                      .pushNamed(
-                                                                    ProfilePageWidget
-                                                                        .routeName,
-                                                                    queryParameters:
-                                                                        {
-                                                                      'profileId':
-                                                                          serializeParam(
-                                                                        currentUserUid,
-                                                                        ParamType
-                                                                            .String,
-                                                                      ),
-                                                                    }.withoutNulls,
-                                                                  );
-
-                                                                  ScaffoldMessenger.of(
-                                                                          context)
-                                                                      .showSnackBar(
-                                                                    SnackBar(
-                                                                      content:
-                                                                          Text(
-                                                                        'Your changes were successfully saved.',
-                                                                        style:
-                                                                            TextStyle(
-                                                                          color:
-                                                                              Color(0x4240C057),
-                                                                        ),
-                                                                      ),
-                                                                      duration: Duration(
-                                                                          milliseconds:
-                                                                              4000),
-                                                                      backgroundColor:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .secondary,
-                                                                    ),
-                                                                  );
-                                                                  if (_shouldSetState)
-                                                                    safeSetState(
-                                                                        () {});
-                                                                  return;
-                                                                } else {
-                                                                  context
-                                                                      .pushNamed(
-                                                                    ProfilePageWidget
-                                                                        .routeName,
-                                                                    queryParameters:
-                                                                        {
-                                                                      'profileId':
-                                                                          serializeParam(
-                                                                        currentUserUid,
-                                                                        ParamType
-                                                                            .String,
-                                                                      ),
-                                                                    }.withoutNulls,
-                                                                  );
-
-                                                                  if (_shouldSetState)
-                                                                    safeSetState(
-                                                                        () {});
-                                                                  return;
-                                                                }
-                                                              } else {
-                                                                ScaffoldMessenger.of(
-                                                                        context)
-                                                                    .showSnackBar(
-                                                                  SnackBar(
-                                                                    content:
-                                                                        Text(
-                                                                      'Please, Make sure you entered valid data.',
-                                                                      style:
-                                                                          TextStyle(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .error,
-                                                                      ),
-                                                                    ),
-                                                                    duration: Duration(
-                                                                        milliseconds:
-                                                                            4000),
-                                                                    backgroundColor:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .secondary,
-                                                                  ),
-                                                                );
-                                                              }
-
-                                                              if (_shouldSetState)
-                                                                safeSetState(
-                                                                    () {});
-                                                            },
-                                                            text: FFLocalizations
-                                                                    .of(context)
-                                                                .getText(
-                                                              'mb8qxwm3' /* Save */,
-                                                            ),
-                                                            options:
-                                                                FFButtonOptions(
-                                                              height: 40.0,
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          16.0,
-                                                                          0.0,
-                                                                          16.0,
-                                                                          0.0),
-                                                              iconPadding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .greenInit,
-                                                              textStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).titleSmallFamily,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primary,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        useGoogleFonts:
-                                                                            !FlutterFlowTheme.of(context).titleSmallIsCustom,
-                                                                      ),
-                                                              elevation: 0.0,
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8.0),
-                                                            ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  16.0,
+                                                                  0.0,
+                                                                  16.0,
+                                                                  0.0),
+                                                      child: Container(
+                                                        width: double.infinity,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius.only(
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    8.0),
+                                                            bottomRight:
+                                                                Radius.circular(
+                                                                    8.0),
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    8.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    8.0),
                                                           ),
                                                         ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    16.0,
-                                                                    0.0,
-                                                                    16.0,
-                                                                    0.0),
-                                                        child: Container(
-                                                          width:
-                                                              double.infinity,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .only(
-                                                              bottomLeft: Radius
-                                                                  .circular(
-                                                                      8.0),
-                                                              bottomRight:
-                                                                  Radius
-                                                                      .circular(
-                                                                          8.0),
-                                                              topLeft: Radius
-                                                                  .circular(
-                                                                      8.0),
-                                                              topRight: Radius
-                                                                  .circular(
-                                                                      8.0),
-                                                            ),
-                                                          ),
-                                                          child: FFButtonWidget(
-                                                            onPressed:
-                                                                () async {
-                                                              context.goNamed(
-                                                                  ResetPasswordPageWidget
-                                                                      .routeName);
-                                                            },
-                                                            text: FFLocalizations
-                                                                    .of(context)
-                                                                .getText(
-                                                              'nbv3szt9' /* Change password */,
-                                                            ),
-                                                            options:
-                                                                FFButtonOptions(
-                                                              height: 40.0,
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          16.0,
-                                                                          0.0,
-                                                                          16.0,
-                                                                          0.0),
-                                                              iconPadding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              color: Color(
-                                                                  0x42228BE6),
-                                                              textStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).titleSmallFamily,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primary,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        useGoogleFonts:
-                                                                            !FlutterFlowTheme.of(context).titleSmallIsCustom,
-                                                                      ),
-                                                              elevation: 0.0,
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8.0),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 16.0, 16.0, 0.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.end,
-                                                    children: [
-                                                      RichText(
-                                                        textScaler:
-                                                            MediaQuery.of(
-                                                                    context)
-                                                                .textScaler,
-                                                        text: TextSpan(
-                                                          children: [
-                                                            TextSpan(
-                                                              text: FFLocalizations
-                                                                      .of(context)
-                                                                  .getText(
-                                                                'j2hj0yzw' /* To delete your account,  */,
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    useGoogleFonts:
-                                                                        !FlutterFlowTheme.of(context)
-                                                                            .bodyMediumIsCustom,
-                                                                  ),
-                                                            ),
-                                                            TextSpan(
-                                                              text: FFLocalizations
-                                                                      .of(context)
-                                                                  .getText(
-                                                                'ayyq9da0' /* click here. */,
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    useGoogleFonts:
-                                                                        !FlutterFlowTheme.of(context)
-                                                                            .bodyMediumIsCustom,
-                                                                  ),
-                                                              mouseCursor:
-                                                                  SystemMouseCursors
-                                                                      .click,
-                                                              recognizer:
-                                                                  TapGestureRecognizer()
-                                                                    ..onTap =
-                                                                        () async {
-                                                                      await showDialog(
-                                                                        context:
-                                                                            context,
-                                                                        builder:
-                                                                            (dialogContext) {
-                                                                          return Dialog(
-                                                                            elevation:
-                                                                                0,
-                                                                            insetPadding:
-                                                                                EdgeInsets.zero,
-                                                                            backgroundColor:
-                                                                                Colors.transparent,
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                            child:
-                                                                                GestureDetector(
-                                                                              onTap: () {
-                                                                                FocusScope.of(dialogContext).unfocus();
-                                                                                FocusManager.instance.primaryFocus?.unfocus();
-                                                                              },
-                                                                              child: ConfirmCancelPopUpWidget(
-                                                                                header: FFLocalizations.of(context).getText(
-                                                                                  'c1ajh2vc' /* Are you sure you want to delet... */,
-                                                                                ),
-                                                                                hintText: FFLocalizations.of(context).getText(
-                                                                                  'cpxsrki1' /* By confirming you cannot reviv... */,
-                                                                                ),
-                                                                                onConfirmAction: () async {
-                                                                                  // CompeleteSoft Delete
-                                                                                  _model.succes = await actions.userSoftDeleteAsync();
-                                                                                  if (_model.succes!) {
-                                                                                    await launchUrl(Uri(
-                                                                                        scheme: 'mailto',
-                                                                                        path: currentUserEmail,
-                                                                                        query: {
-                                                                                          'subject': 'Delete account',
-                                                                                          'body': 'We are sorry that you decided to remove your account. We hope to see you back soon.',
-                                                                                        }.entries.map((MapEntry<String, String> e) => '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}').join('&')));
-                                                                                    FFAppState().userInfo = UserInfoStruct.fromSerializableMap(jsonDecode('{\"Fav_List\":\"[]\"}'));
-                                                                                    safeSetState(() {});
-                                                                                  } else {
-                                                                                    ScaffoldMessenger.of(context).showSnackBar(
-                                                                                      SnackBar(
-                                                                                        content: Text(
-                                                                                          'Sorry! something went wrong. please try  again later.',
-                                                                                          style: TextStyle(
-                                                                                            color: FlutterFlowTheme.of(context).primaryText,
-                                                                                          ),
-                                                                                        ),
-                                                                                        duration: Duration(milliseconds: 4000),
-                                                                                        backgroundColor: Color(0x75EA1713),
-                                                                                      ),
-                                                                                    );
-                                                                                  }
-                                                                                },
-                                                                                onCancelAction: () async {},
-                                                                              ),
-                                                                            ),
-                                                                          );
-                                                                        },
-                                                                      );
-
-                                                                      safeSetState(
-                                                                          () {});
-                                                                    },
-                                                            )
-                                                          ],
-                                                          style: FlutterFlowTheme
+                                                        child: FFButtonWidget(
+                                                          onPressed: () async {
+                                                            context.goNamed(
+                                                                ResetPasswordPageWidget
+                                                                    .routeName);
+                                                          },
+                                                          text: FFLocalizations
                                                                   .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
+                                                              .getText(
+                                                            'nbv3szt9' /* Change password */,
+                                                          ),
+                                                          options:
+                                                              FFButtonOptions(
+                                                            height: 40.0,
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        16.0,
+                                                                        0.0,
+                                                                        16.0,
+                                                                        0.0),
+                                                            iconPadding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            color: Color(
+                                                                0x42228BE6),
+                                                            textStyle:
+                                                                FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMediumFamily,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                useGoogleFonts:
-                                                                    !FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMediumIsCustom,
-                                                              ),
+                                                                    .titleSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .titleSmallFamily,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      useGoogleFonts:
+                                                                          !FlutterFlowTheme.of(context)
+                                                                              .titleSmallIsCustom,
+                                                                    ),
+                                                            elevation: 0.0,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
                                                         ),
                                                       ),
-                                                    ],
-                                                  ),
+                                                    ),
+                                                  ],
                                                 ),
-                                              ].addToEnd(
-                                                  SizedBox(height: 50.0)),
-                                            );
-                                          },
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 16.0, 16.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.end,
+                                                  children: [
+                                                    RichText(
+                                                      textScaler:
+                                                          MediaQuery.of(context)
+                                                              .textScaler,
+                                                      text: TextSpan(
+                                                        children: [
+                                                          TextSpan(
+                                                            text: FFLocalizations
+                                                                    .of(context)
+                                                                .getText(
+                                                              'j2hj0yzw' /* To delete your account,  */,
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMediumIsCustom,
+                                                                ),
+                                                          ),
+                                                          TextSpan(
+                                                            text: FFLocalizations
+                                                                    .of(context)
+                                                                .getText(
+                                                              'ayyq9da0' /* click here. */,
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMediumIsCustom,
+                                                                ),
+                                                            mouseCursor:
+                                                                SystemMouseCursors
+                                                                    .click,
+                                                            recognizer:
+                                                                TapGestureRecognizer()
+                                                                  ..onTap =
+                                                                      () async {
+                                                                    await showDialog(
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (dialogContext) {
+                                                                        return Dialog(
+                                                                          elevation:
+                                                                              0,
+                                                                          insetPadding:
+                                                                              EdgeInsets.zero,
+                                                                          backgroundColor:
+                                                                              Colors.transparent,
+                                                                          alignment:
+                                                                              AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                          child:
+                                                                              ConfirmCancelPopUpWidget(
+                                                                            header:
+                                                                                FFLocalizations.of(context).getText(
+                                                                              'c1ajh2vc' /* Are you sure you want to delet... */,
+                                                                            ),
+                                                                            hintText:
+                                                                                FFLocalizations.of(context).getText(
+                                                                              'cpxsrki1' /* By confirming you cannot reviv... */,
+                                                                            ),
+                                                                            onConfirmAction:
+                                                                                () async {
+                                                                              // CompeleteSoft Delete
+                                                                              _model.succes = await actions.userSoftDeleteAsync();
+                                                                              if (_model.succes!) {
+                                                                                await launchUrl(Uri(
+                                                                                    scheme: 'mailto',
+                                                                                    path: currentUserEmail,
+                                                                                    query: {
+                                                                                      'subject': 'Delete account',
+                                                                                      'body': 'We are sorry that you decided to remove your account. We hope to see you back soon.',
+                                                                                    }.entries.map((MapEntry<String, String> e) => '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}').join('&')));
+                                                                                FFAppState().userInfo = UserInfoStruct.fromSerializableMap(jsonDecode('{\"Fav_List\":\"[]\"}'));
+                                                                                safeSetState(() {});
+                                                                              } else {
+                                                                                ScaffoldMessenger.of(context).showSnackBar(
+                                                                                  SnackBar(
+                                                                                    content: Text(
+                                                                                      'Sorry! something went wrong. please try  again later.',
+                                                                                      style: TextStyle(
+                                                                                        color: FlutterFlowTheme.of(context).primaryText,
+                                                                                      ),
+                                                                                    ),
+                                                                                    duration: Duration(milliseconds: 4000),
+                                                                                    backgroundColor: Color(0x75EA1713),
+                                                                                  ),
+                                                                                );
+                                                                              }
+                                                                            },
+                                                                            onCancelAction:
+                                                                                () async {},
+                                                                          ),
+                                                                        );
+                                                                      },
+                                                                    );
+
+                                                                    safeSetState(
+                                                                        () {});
+                                                                  },
+                                                          )
+                                                        ],
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMediumIsCustom,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                  KeepAliveWidgetWrapper(
+                                    builder: (context) => Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 16.0, 16.0, 0.0),
+                                      child: FutureBuilder<List<ConsentsRow>>(
+                                        future: ConsentsTable().querySingleRow(
+                                          queryFn: (q) => q.eqOrNull(
+                                            'user_id',
+                                            currentUserUid,
+                                          ),
                                         ),
-                                      ),
-                                      KeepAliveWidgetWrapper(
-                                        builder: (context) => Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 16.0, 16.0, 0.0),
-                                          child: Column(
+                                        builder: (context, snapshot) {
+                                          // Customize what your widget looks like when it's loading.
+                                          if (!snapshot.hasData) {
+                                            return Center(
+                                              child: SizedBox(
+                                                width: 50.0,
+                                                height: 50.0,
+                                                child: SpinKitChasingDots(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .greenInit,
+                                                  size: 50.0,
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                          List<ConsentsRow>
+                                              columnConsentsRowList =
+                                              snapshot.data!;
+
+                                          final columnConsentsRow =
+                                              columnConsentsRowList.isNotEmpty
+                                                  ? columnConsentsRowList.first
+                                                  : null;
+
+                                          return Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Row(
@@ -3060,13 +3244,13 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                     scaleY: 0.8,
                                                     child: Switch.adaptive(
                                                       value: _model
-                                                              .allowMessageValue ??=
+                                                              .allowMessageValue1 ??=
                                                           columnConsentsRow!
                                                               .allowMessage!,
                                                       onChanged:
                                                           (newValue) async {
                                                         safeSetState(() => _model
-                                                                .allowMessageValue =
+                                                                .allowMessageValue1 =
                                                             newValue);
                                                         if (newValue) {
                                                           _model.allowMessage =
@@ -3076,6 +3260,79 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                               false;
                                                         }
                                                       },
+                                                      activeColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .customColor1,
+                                                      activeTrackColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .customColor1,
+                                                      inactiveTrackColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bordergray,
+                                                      inactiveThumbColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Flexible(
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'yz5gspss' /* Agreed to the terms and privic... */,
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmallFamily,
+                                                            letterSpacing: 0.0,
+                                                            useGoogleFonts:
+                                                                !FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmallIsCustom,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  Transform.scale(
+                                                    scaleX: 0.8,
+                                                    scaleY: 0.8,
+                                                    child: Switch.adaptive(
+                                                      value: _model
+                                                              .allowMessageValue2 ??=
+                                                          columnConsentsRow!
+                                                              .termsAndPolicy,
+                                                      onChanged: (columnConsentsRow
+                                                                  ?.termsAndPolicy ==
+                                                              true)
+                                                          ? null
+                                                          : (newValue) async {
+                                                              safeSetState(() =>
+                                                                  _model.allowMessageValue2 =
+                                                                      newValue);
+                                                              if (newValue) {
+                                                                _model.allowMessage =
+                                                                    true;
+                                                              } else {
+                                                                _model.allowMessage =
+                                                                    false;
+                                                              }
+                                                            },
                                                       activeColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -3122,7 +3379,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                       .allowProfilePhotoValue,
                                                               'allow_message':
                                                                   _model
-                                                                      .allowMessageValue,
+                                                                      .allowMessageValue1,
                                                               'show_fav': _model
                                                                   .allowFavListValue,
                                                             },
@@ -3146,7 +3403,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                               .allowCallValue!;
                                                           _model.allowMessage =
                                                               _model
-                                                                  .allowMessageValue!;
+                                                                  .allowMessageValue1!;
                                                           safeSetState(() {});
                                                           ScaffoldMessenger.of(
                                                                   context)
@@ -3175,10 +3432,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                   2000,
                                                             ),
                                                           );
-
-                                                          context.goNamed(
-                                                              ProfileEditWidget
-                                                                  .routeName);
+                                                          context.safePop();
 
                                                           safeSetState(() {});
                                                         },
@@ -3239,98 +3493,87 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                 ),
                                               ),
                                             ],
-                                          ),
-                                        ),
+                                          );
+                                        },
                                       ),
-                                      KeepAliveWidgetWrapper(
-                                        builder: (context) => Column(
-                                          mainAxisSize: MainAxisSize.max,
+                                    ),
+                                  ),
+                                  KeepAliveWidgetWrapper(
+                                    builder: (context) => Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        ListView(
+                                          padding: EdgeInsets.fromLTRB(
+                                            0,
+                                            16.0,
+                                            0,
+                                            24.0,
+                                          ),
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.vertical,
                                           children: [
-                                            ListView(
-                                              padding: EdgeInsets.fromLTRB(
-                                                0,
-                                                16.0,
-                                                0,
-                                                24.0,
-                                              ),
-                                              shrinkWrap: true,
-                                              scrollDirection: Axis.vertical,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          20.0, 0.0, 0.0, 0.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          '0eqbpyfb' /* Last update: */,
-                                                        ),
-                                                        maxLines: 1,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Satoshi',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  fontSize:
-                                                                      17.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                      ),
-                                                      Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          '86b9dl0z' /*  27/12/2023 */,
-                                                        ),
-                                                        maxLines: 1,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Satoshi',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  fontSize:
-                                                                      17.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(20.0, 8.0, 20.0,
-                                                          24.0),
-                                                  child: Text(
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      20.0, 0.0, 0.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      '5rxx4eqd' /* Please read these terms of ser... */,
+                                                      '0eqbpyfb' /* Last update: */,
                                                     ),
-                                                    maxLines: 2,
+                                                    maxLines: 1,
                                                     style: FlutterFlowTheme.of(
                                                             context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily: 'Satoshi',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText,
+                                                          fontSize: 17.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                                  ),
+                                                  Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      '86b9dl0z' /*  27/12/2023 */,
+                                                    ),
+                                                    maxLines: 1,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily: 'Satoshi',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText,
+                                                          fontSize: 17.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      20.0, 8.0, 20.0, 24.0),
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '5rxx4eqd' /* Please read these terms of ser... */,
+                                                ),
+                                                maxLines: 2,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
                                                         .titleSmall
                                                         .override(
                                                           fontFamily: 'Satoshi',
@@ -3342,18 +3585,92 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
-                                                  ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      20.0, 0.0, 0.0, 0.0),
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'z6oq407a' /* Conditions of Uses */,
                                                 ),
+                                                textAlign: TextAlign.start,
+                                                maxLines: 1,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Satoshi',
+                                                          fontSize: 20.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          lineHeight: 1.5,
+                                                        ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      20.0, 16.0, 20.0, 0.0),
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '4hmiyku9' /* It is a long established fact ... */,
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily: 'Satoshi',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                          fontSize: 16.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                              ),
+                                            ),
+                                          ],
+                                        ).animateOnPageLoad(animationsMap[
+                                            'listViewOnPageLoadAnimation1']!),
+                                        SizedBox(
+                                          width: 300.0,
+                                          child: Divider(
+                                            thickness: 2.0,
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    20.0, 0.0, 20.0, 0.0),
+                                            child: ListView(
+                                              padding: EdgeInsets.fromLTRB(
+                                                0,
+                                                16.0,
+                                                0,
+                                                24.0,
+                                              ),
+                                              primary: false,
+                                              shrinkWrap: true,
+                                              scrollDirection: Axis.vertical,
+                                              children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          20.0, 0.0, 0.0, 0.0),
+                                                          0.0, 0.0, 0.0, 8.0),
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'z6oq407a' /* Conditions of Uses */,
+                                                      'bugt9s1t' /* Types of data we collect */,
                                                     ),
-                                                    textAlign: TextAlign.start,
                                                     maxLines: 1,
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -3368,14 +3685,56 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                         ),
                                                   ),
                                                 ),
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '7nzis5rd' /* Torem ipsum dolor sit amet, co... */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Satoshi',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                                ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(20.0, 16.0,
-                                                          20.0, 0.0),
+                                                      .fromSTEB(
+                                                          0.0, 24.0, 0.0, 0.0),
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      '4hmiyku9' /* It is a long established fact ... */,
+                                                      'fiujz5ly' /* Use of your personal data */,
+                                                    ),
+                                                    maxLines: 1,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Satoshi',
+                                                          fontSize: 20.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 8.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      '874gf5jc' /* Torem ipsum dolor sit amet, co... */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -3384,8 +3743,54 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                           fontFamily: 'Satoshi',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryText,
+                                                              .secondaryText,
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 24.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'stvk2rzm' /* Disclosure of your data */,
+                                                    ),
+                                                    maxLines: 1,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Satoshi',
+                                                          fontSize: 20.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 8.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'gbbs7qhx' /* Lorem ipsum dolor sit amet, co... */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily: 'Satoshi',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText,
+                                                          fontSize: 17.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
@@ -3394,236 +3799,22 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                 ),
                                               ],
                                             ).animateOnPageLoad(animationsMap[
-                                                'listViewOnPageLoadAnimation1']!),
-                                            SizedBox(
-                                              width: 300.0,
-                                              child: Divider(
-                                                thickness: 2.0,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                              ),
-                                            ),
-                                            Expanded(
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        20.0, 0.0, 20.0, 0.0),
-                                                child: ListView(
-                                                  padding: EdgeInsets.fromLTRB(
-                                                    0,
-                                                    16.0,
-                                                    0,
-                                                    24.0,
-                                                  ),
-                                                  primary: false,
-                                                  shrinkWrap: true,
-                                                  scrollDirection:
-                                                      Axis.vertical,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  8.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'bugt9s1t' /* Types of data we collect */,
-                                                        ),
-                                                        maxLines: 1,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Satoshi',
-                                                              fontSize: 20.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                              lineHeight: 1.5,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        '7nzis5rd' /* Torem ipsum dolor sit amet, co... */,
-                                                      ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Satoshi',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                                fontSize: 16.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  24.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'fiujz5ly' /* Use of your personal data */,
-                                                        ),
-                                                        maxLines: 1,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Satoshi',
-                                                              fontSize: 20.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  8.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          '874gf5jc' /* Torem ipsum dolor sit amet, co... */,
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Satoshi',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  fontSize:
-                                                                      16.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  24.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'stvk2rzm' /* Disclosure of your data */,
-                                                        ),
-                                                        maxLines: 1,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Satoshi',
-                                                              fontSize: 20.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  8.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'gbbs7qhx' /* Lorem ipsum dolor sit amet, co... */,
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Satoshi',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  fontSize:
-                                                                      17.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'listViewOnPageLoadAnimation2']!),
-                                              ),
-                                            ),
-                                          ],
+                                                'listViewOnPageLoadAnimation2']!),
+                                          ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
+                          ],
                         ),
                       ),
-                    ],
+                    ),
                   ),
-                );
-              },
+                ),
+              ],
             ),
           ),
         ),

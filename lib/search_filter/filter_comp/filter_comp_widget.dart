@@ -7,14 +7,14 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'filter_comp_model.dart';
 export 'filter_comp_model.dart';
@@ -100,7 +100,7 @@ class _FilterCompWidgetState extends State<FilterCompWidget>
           color: Color(0xB40E0E0E),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
+          padding: EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 24.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -426,111 +426,316 @@ class _FilterCompWidgetState extends State<FilterCompWidget>
                                         .secondaryBackground,
                                   ),
                                 ),
-                                expanded: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 12.0, 0.0, 12.0),
-                                  child: GridView(
-                                    padding: EdgeInsets.zero,
-                                    gridDelegate:
-                                        SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 3,
-                                      crossAxisSpacing: 10.0,
-                                      mainAxisSpacing: 10.0,
-                                      childAspectRatio: 1.0,
+                                expanded: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 16.0, 0.0, 12.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              _model.selectedMainCat = 1;
+                                              safeSetState(() {});
+                                              FFAppState()
+                                                  .updateFilterAppStateStruct(
+                                                (e) => e
+                                                  ..catId = []
+                                                  ..subCatId = [],
+                                              );
+                                              safeSetState(() {});
+                                            },
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              elevation: 5.0,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFF1D2021),
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      blurRadius: 2.0,
+                                                      color: Color(0x33000000),
+                                                      offset: Offset(
+                                                        2.0,
+                                                        2.0,
+                                                      ),
+                                                      spreadRadius: 2.0,
+                                                    )
+                                                  ],
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  border: Border.all(
+                                                    color:
+                                                        _model.selectedMainCat ==
+                                                                1
+                                                            ? FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondary
+                                                            : Color(0xFF1D2021),
+                                                    width: 0.4,
+                                                  ),
+                                                ),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.only(
+                                                        bottomLeft:
+                                                            Radius.circular(
+                                                                8.0),
+                                                        bottomRight:
+                                                            Radius.circular(
+                                                                0.0),
+                                                        topLeft:
+                                                            Radius.circular(
+                                                                8.0),
+                                                        topRight:
+                                                            Radius.circular(
+                                                                0.0),
+                                                      ),
+                                                      child: Image.network(
+                                                        FFAppConstants
+                                                            .SupportImage,
+                                                        width: 36.0,
+                                                        height: 36.0,
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  12.0,
+                                                                  4.0,
+                                                                  12.0,
+                                                                  4.0),
+                                                      child: Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'jug5o44h' /* Voluntray Support */,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMediumIsCustom,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              _model.selectedMainCat = 2;
+                                              safeSetState(() {});
+                                              FFAppState()
+                                                  .updateFilterAppStateStruct(
+                                                (e) => e
+                                                  ..catId = []
+                                                  ..subCatId = [],
+                                              );
+                                              safeSetState(() {});
+                                            },
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              elevation: 5.0,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFF1D2021),
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      blurRadius: 2.0,
+                                                      color: Color(0x33000000),
+                                                      offset: Offset(
+                                                        2.0,
+                                                        2.0,
+                                                      ),
+                                                      spreadRadius: 2.0,
+                                                    )
+                                                  ],
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  border: Border.all(
+                                                    color:
+                                                        _model.selectedMainCat ==
+                                                                2
+                                                            ? FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondary
+                                                            : Color(0xFF1D2021),
+                                                    width: 0.4,
+                                                  ),
+                                                ),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.only(
+                                                        bottomLeft:
+                                                            Radius.circular(
+                                                                8.0),
+                                                        bottomRight:
+                                                            Radius.circular(
+                                                                0.0),
+                                                        topLeft:
+                                                            Radius.circular(
+                                                                8.0),
+                                                        topRight:
+                                                            Radius.circular(
+                                                                0.0),
+                                                      ),
+                                                      child: Image.network(
+                                                        FFAppConstants
+                                                            .MarketImage,
+                                                        width: 36.0,
+                                                        height: 36.0,
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  12.0,
+                                                                  4.0,
+                                                                  12.0,
+                                                                  4.0),
+                                                      child: Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'myphja0c' /* Market */,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMediumIsCustom,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ].divide(SizedBox(width: 10.0)),
+                                      ),
                                     ),
-                                    shrinkWrap: true,
-                                    scrollDirection: Axis.vertical,
-                                    children: [
-                                      InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          _model.selectedCat = 1;
-                                          safeSetState(() {});
-                                          if (functions.listContainsInt(
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 16.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              _model.selectedMainCat = 3;
+                                              safeSetState(() {});
                                               FFAppState()
-                                                  .filterAppState
-                                                  .catId
-                                                  .toList(),
-                                              _model.selectedCat!)) {
-                                            FFAppState()
-                                                .updateFilterAppStateStruct(
-                                              (e) => e
-                                                ..updateCatId(
-                                                  (e) => e.remove(
-                                                      _model.selectedCat),
-                                                ),
-                                            );
-                                            safeSetState(() {});
-                                          } else {
-                                            FFAppState()
-                                                .updateFilterAppStateStruct(
-                                              (e) => e
-                                                ..updateCatId(
-                                                  (e) => e
-                                                      .add(_model.selectedCat!),
-                                                ),
-                                            );
-                                            safeSetState(() {});
-                                          }
-                                        },
-                                        child: Material(
-                                          color: Colors.transparent,
-                                          elevation: 5.0,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFF1D2021),
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  blurRadius: 2.0,
-                                                  color: Color(0x33000000),
-                                                  offset: Offset(
-                                                    2.0,
-                                                    2.0,
-                                                  ),
-                                                  spreadRadius: 2.0,
-                                                )
-                                              ],
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
-                                              border: Border.all(
-                                                color:
-                                                    functions.listContainsInt(
-                                                            FFAppState()
-                                                                .filterAppState
-                                                                .catId
-                                                                .toList(),
-                                                            1)
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondary
-                                                        : Color(0xFF232426),
-                                                width: 0.4,
+                                                  .updateFilterAppStateStruct(
+                                                (e) => e
+                                                  ..catId = []
+                                                  ..subCatId = [],
+                                              );
+                                              safeSetState(() {});
+                                            },
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              elevation: 5.0,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
                                               ),
-                                            ),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 8.0, 0.0, 8.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceEvenly,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Container(
-                                                    width: 32.0,
-                                                    height: 32.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0x42F25081),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFF1D2021),
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      blurRadius: 2.0,
+                                                      color: Color(0x33000000),
+                                                      offset: Offset(
+                                                        2.0,
+                                                        2.0,
+                                                      ),
+                                                      spreadRadius: 2.0,
+                                                    )
+                                                  ],
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  border: Border.all(
+                                                    color:
+                                                        _model.selectedMainCat ==
+                                                                3
+                                                            ? FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondary
+                                                            : Color(0xFF1D2021),
+                                                    width: 0.4,
+                                                  ),
+                                                ),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.only(
                                                         bottomLeft:
@@ -538,161 +743,117 @@ class _FilterCompWidgetState extends State<FilterCompWidget>
                                                                 8.0),
                                                         bottomRight:
                                                             Radius.circular(
-                                                                8.0),
+                                                                0.0),
                                                         topLeft:
                                                             Radius.circular(
                                                                 8.0),
                                                         topRight:
                                                             Radius.circular(
-                                                                8.0),
+                                                                0.0),
                                                       ),
-                                                      shape: BoxShape.rectangle,
+                                                      child: Image.network(
+                                                        FFAppConstants
+                                                            .ServicesImage,
+                                                        width: 36.0,
+                                                        height: 36.0,
+                                                        fit: BoxFit.cover,
+                                                      ),
                                                     ),
-                                                    child: Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                      child: Icon(
-                                                        Icons.back_hand,
-                                                        color:
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  12.0,
+                                                                  4.0,
+                                                                  12.0,
+                                                                  4.0),
+                                                      child: Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          '67tk0h49' /* Services */,
+                                                        ),
+                                                        style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .red2,
-                                                        size: 20.0,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMediumIsCustom,
+                                                                ),
                                                       ),
                                                     ),
-                                                  ),
-                                                  Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'wyeesjpx' /* Help
-Requests */
-                                                      ,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleMedium
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .poppins(
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondary,
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                  ),
-                                                ],
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                           ),
-                                        ),
-                                      ),
-                                      InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          _model.selectedCat = 2;
-                                          safeSetState(() {});
-                                          if (functions.listContainsInt(
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              _model.selectedMainCat = 4;
+                                              safeSetState(() {});
                                               FFAppState()
-                                                  .filterAppState
-                                                  .catId
-                                                  .toList(),
-                                              _model.selectedCat!)) {
-                                            FFAppState()
-                                                .updateFilterAppStateStruct(
-                                              (e) => e
-                                                ..updateCatId(
-                                                  (e) => e.remove(
-                                                      _model.selectedCat),
-                                                ),
-                                            );
-                                            safeSetState(() {});
-                                          } else {
-                                            FFAppState()
-                                                .updateFilterAppStateStruct(
-                                              (e) => e
-                                                ..updateCatId(
-                                                  (e) => e
-                                                      .add(_model.selectedCat!),
-                                                ),
-                                            );
-                                            safeSetState(() {});
-                                          }
-                                        },
-                                        child: Material(
-                                          color: Colors.transparent,
-                                          elevation: 5.0,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFF1D2021),
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  blurRadius: 2.0,
-                                                  color: Color(0x33000000),
-                                                  offset: Offset(
-                                                    2.0,
-                                                    2.0,
-                                                  ),
-                                                  spreadRadius: 2.0,
-                                                )
-                                              ],
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
-                                              border: Border.all(
-                                                color:
-                                                    functions.listContainsInt(
-                                                            FFAppState()
-                                                                .filterAppState
-                                                                .catId
-                                                                .toList(),
-                                                            2)
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondary
-                                                        : Color(0xFF232426),
-                                                width: 0.4,
+                                                  .updateFilterAppStateStruct(
+                                                (e) => e
+                                                  ..catId = []
+                                                  ..subCatId = [],
+                                              );
+                                              safeSetState(() {});
+                                            },
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              elevation: 5.0,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
                                               ),
-                                            ),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 8.0, 0.0, 8.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceEvenly,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Container(
-                                                    width: 32.0,
-                                                    height: 32.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0x4040C057),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFF1D2021),
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      blurRadius: 2.0,
+                                                      color: Color(0x33000000),
+                                                      offset: Offset(
+                                                        2.0,
+                                                        2.0,
+                                                      ),
+                                                      spreadRadius: 2.0,
+                                                    )
+                                                  ],
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  border: Border.all(
+                                                    color:
+                                                        _model.selectedMainCat ==
+                                                                4
+                                                            ? FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondary
+                                                            : Color(0xFF1D2021),
+                                                    width: 0.4,
+                                                  ),
+                                                ),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.only(
                                                         bottomLeft:
@@ -700,561 +861,256 @@ Requests */
                                                                 8.0),
                                                         bottomRight:
                                                             Radius.circular(
-                                                                8.0),
+                                                                0.0),
                                                         topLeft:
                                                             Radius.circular(
                                                                 8.0),
                                                         topRight:
                                                             Radius.circular(
-                                                                8.0),
+                                                                0.0),
                                                       ),
-                                                      shape: BoxShape.rectangle,
-                                                    ),
-                                                    child: Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                      child: FaIcon(
-                                                        FontAwesomeIcons
-                                                            .handsHelping,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .customColor1,
-                                                        size: 20.0,
+                                                      child: Image.network(
+                                                        FFAppConstants
+                                                            .EventsImage,
+                                                        width: 36.0,
+                                                        height: 36.0,
+                                                        fit: BoxFit.cover,
                                                       ),
                                                     ),
-                                                  ),
-                                                  Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      '4v5j6x7d' /* Help
-Offers */
-                                                      ,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleMedium
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .poppins(
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondary,
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          _model.selectedCat = 3;
-                                          safeSetState(() {});
-                                          if (functions.listContainsInt(
-                                              FFAppState()
-                                                  .filterAppState
-                                                  .catId
-                                                  .toList(),
-                                              _model.selectedCat!)) {
-                                            FFAppState()
-                                                .updateFilterAppStateStruct(
-                                              (e) => e
-                                                ..updateCatId(
-                                                  (e) => e.remove(
-                                                      _model.selectedCat),
-                                                ),
-                                            );
-                                            safeSetState(() {});
-                                          } else {
-                                            FFAppState()
-                                                .updateFilterAppStateStruct(
-                                              (e) => e
-                                                ..updateCatId(
-                                                  (e) => e
-                                                      .add(_model.selectedCat!),
-                                                ),
-                                            );
-                                            safeSetState(() {});
-                                          }
-                                        },
-                                        child: Material(
-                                          color: Colors.transparent,
-                                          elevation: 5.0,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFF1D2021),
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  blurRadius: 2.0,
-                                                  color: Color(0x33000000),
-                                                  offset: Offset(
-                                                    2.0,
-                                                    2.0,
-                                                  ),
-                                                  spreadRadius: 2.0,
-                                                )
-                                              ],
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
-                                              border: Border.all(
-                                                color:
-                                                    functions.listContainsInt(
-                                                            FFAppState()
-                                                                .filterAppState
-                                                                .catId
-                                                                .toList(),
-                                                            3)
-                                                        ? FlutterFlowTheme.of(
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  12.0,
+                                                                  4.0,
+                                                                  12.0,
+                                                                  4.0),
+                                                      child: Text(
+                                                        FFLocalizations.of(
                                                                 context)
-                                                            .secondary
-                                                        : Color(0xFF1D2021),
-                                                width: 0.5,
-                                              ),
-                                            ),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 8.0, 0.0, 8.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceEvenly,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Container(
-                                                    width: 32.0,
-                                                    height: 32.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0x430593D7),
-                                                      borderRadius:
-                                                          BorderRadius.only(
-                                                        bottomLeft:
-                                                            Radius.circular(
-                                                                8.0),
-                                                        bottomRight:
-                                                            Radius.circular(
-                                                                8.0),
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                8.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                8.0),
-                                                      ),
-                                                      shape: BoxShape.rectangle,
-                                                    ),
-                                                    child: Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                      child: FaIcon(
-                                                        FontAwesomeIcons
-                                                            .peopleArrows,
-                                                        color:
+                                                            .getText(
+                                                          'pczy2tae' /* Events */,
+                                                        ),
+                                                        style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .iconEventy,
-                                                        size: 20.0,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMediumIsCustom,
+                                                                ),
                                                       ),
                                                     ),
-                                                  ),
-                                                  Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'dizhta1q' /* Items for
-Exchange */
-                                                      ,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleMedium
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .poppins(
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondary,
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                  ),
-                                                ],
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                           ),
-                                        ),
+                                        ].divide(SizedBox(width: 10.0)),
                                       ),
-                                      InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          _model.selectedCat = 4;
-                                          safeSetState(() {});
-                                          if (functions.listContainsInt(
-                                              FFAppState()
-                                                  .filterAppState
-                                                  .catId
-                                                  .toList(),
-                                              _model.selectedCat!)) {
-                                            FFAppState()
-                                                .updateFilterAppStateStruct(
-                                              (e) => e
-                                                ..updateCatId(
-                                                  (e) => e.remove(
-                                                      _model.selectedCat),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 12.0, 0.0, 12.0),
+                                      child: Builder(
+                                        builder: (context) {
+                                          final categories = FFAppState()
+                                              .SubcatApp
+                                              .where((e) =>
+                                                  e.mainCatId ==
+                                                  _model.selectedMainCat)
+                                              .toList()
+                                              .unique((e) => e.catId)
+                                              .toList();
+
+                                          return GridView.builder(
+                                            padding: EdgeInsets.zero,
+                                            gridDelegate:
+                                                SliverGridDelegateWithFixedCrossAxisCount(
+                                              crossAxisCount: 4,
+                                              crossAxisSpacing: 10.0,
+                                              mainAxisSpacing: 10.0,
+                                              childAspectRatio: 1.0,
+                                            ),
+                                            primary: false,
+                                            shrinkWrap: true,
+                                            scrollDirection: Axis.vertical,
+                                            itemCount: categories.length,
+                                            itemBuilder:
+                                                (context, categoriesIndex) {
+                                              final categoriesItem =
+                                                  categories[categoriesIndex];
+                                              return InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  _model.selectedCat =
+                                                      categoriesItem.catId;
+                                                  safeSetState(() {});
+                                                  if (functions.listContainsInt(
+                                                      FFAppState()
+                                                          .filterAppState
+                                                          .catId
+                                                          .toList(),
+                                                      _model.selectedCat!)) {
+                                                    FFAppState()
+                                                        .updateFilterAppStateStruct(
+                                                      (e) => e
+                                                        ..updateCatId(
+                                                          (e) => e.remove(_model
+                                                              .selectedCat),
+                                                        ),
+                                                    );
+                                                    safeSetState(() {});
+                                                  } else {
+                                                    FFAppState()
+                                                        .updateFilterAppStateStruct(
+                                                      (e) => e
+                                                        ..updateCatId(
+                                                          (e) => e.add(_model
+                                                              .selectedCat!),
+                                                        ),
+                                                    );
+                                                    safeSetState(() {});
+                                                  }
+                                                },
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    color:
+                                                        valueOrDefault<Color>(
+                                                      functions.hexToColor(
+                                                          categoriesItem
+                                                              .fillColorHex,
+                                                          Color(0xFF213A21)),
+                                                      Color(0xFF213A21),
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            16.0),
+                                                    border: Border.all(
+                                                      color: functions
+                                                              .listContainsInt(
+                                                                  FFAppState()
+                                                                      .filterAppState
+                                                                      .catId
+                                                                      .toList(),
+                                                                  categoriesItem
+                                                                      .catId)
+                                                          ? FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText
+                                                          : FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryBackground,
+                                                      width: 0.4,
+                                                    ),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsets.all(4.0),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        custom_widgets
+                                                            .SvgRenderer(
+                                                          width: 24.0,
+                                                          height: 24.0,
+                                                          svgCode: categoriesItem
+                                                              .effectiveIconImage,
+                                                          iconColor: functions
+                                                              .hexToColor(
+                                                                  categoriesItem
+                                                                      .effectiveColorHex,
+                                                                  Color(
+                                                                      0x00000000)),
+                                                        ),
+                                                        Flexible(
+                                                          child: AutoSizeText(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              FFLocalizations.of(
+                                                                              context)
+                                                                          .languageCode ==
+                                                                      'fa'
+                                                                  ? categoriesItem
+                                                                      .catNameFa
+                                                                  : (FFLocalizations.of(context)
+                                                                              .languageCode ==
+                                                                          'nl'
+                                                                      ? categoriesItem
+                                                                          .catNameNl
+                                                                      : categoriesItem
+                                                                          .catName),
+                                                              'category',
+                                                            ),
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            maxLines: 2,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .titleSmall
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmallFamily,
+                                                                  color: functions.listContainsInt(
+                                                                          FFAppState()
+                                                                              .filterAppState
+                                                                              .catId
+                                                                              .toList(),
+                                                                          categoriesItem
+                                                                              .catId)
+                                                                      ? FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText
+                                                                      : FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .textgray,
+                                                                  fontSize:
+                                                                      13.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmallIsCustom,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
                                                 ),
-                                            );
-                                            safeSetState(() {});
-                                          } else {
-                                            FFAppState()
-                                                .updateFilterAppStateStruct(
-                                              (e) => e
-                                                ..updateCatId(
-                                                  (e) => e
-                                                      .add(_model.selectedCat!),
-                                                ),
-                                            );
-                                            safeSetState(() {});
-                                          }
+                                              );
+                                            },
+                                          );
                                         },
-                                        child: Material(
-                                          color: Colors.transparent,
-                                          elevation: 5.0,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFF1D2021),
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  blurRadius: 2.0,
-                                                  color: Color(0x33000000),
-                                                  offset: Offset(
-                                                    2.0,
-                                                    2.0,
-                                                  ),
-                                                  spreadRadius: 2.0,
-                                                )
-                                              ],
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
-                                              border: Border.all(
-                                                color:
-                                                    functions.listContainsInt(
-                                                            FFAppState()
-                                                                .filterAppState
-                                                                .catId
-                                                                .toList(),
-                                                            4)
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondary
-                                                        : Color(0xFF232426),
-                                                width: 0.5,
-                                              ),
-                                            ),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 8.0, 0.0, 8.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceEvenly,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Container(
-                                                    width: 32.0,
-                                                    height: 32.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0x42FAB005),
-                                                      borderRadius:
-                                                          BorderRadius.only(
-                                                        bottomLeft:
-                                                            Radius.circular(
-                                                                8.0),
-                                                        bottomRight:
-                                                            Radius.circular(
-                                                                8.0),
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                8.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                8.0),
-                                                      ),
-                                                      shape: BoxShape.rectangle,
-                                                    ),
-                                                    child: Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                      child: Icon(
-                                                        Icons.restore_sharp,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .yellow1,
-                                                        size: 20.0,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      '6k23jjcj' /* Borrow
-Requests */
-                                                      ,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleMedium
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .poppins(
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondary,
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ),
                                       ),
-                                      InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          _model.selectedCat = 5;
-                                          safeSetState(() {});
-                                          if (functions.listContainsInt(
-                                              FFAppState()
-                                                  .filterAppState
-                                                  .catId
-                                                  .toList(),
-                                              _model.selectedCat!)) {
-                                            FFAppState()
-                                                .updateFilterAppStateStruct(
-                                              (e) => e
-                                                ..updateCatId(
-                                                  (e) => e.remove(
-                                                      _model.selectedCat),
-                                                ),
-                                            );
-                                            safeSetState(() {});
-                                          } else {
-                                            FFAppState()
-                                                .updateFilterAppStateStruct(
-                                              (e) => e
-                                                ..updateCatId(
-                                                  (e) => e
-                                                      .add(_model.selectedCat!),
-                                                ),
-                                            );
-                                            safeSetState(() {});
-                                          }
-                                        },
-                                        child: Material(
-                                          color: Colors.transparent,
-                                          elevation: 5.0,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFF1D2021),
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  blurRadius: 2.0,
-                                                  color: Color(0x33000000),
-                                                  offset: Offset(
-                                                    2.0,
-                                                    2.0,
-                                                  ),
-                                                  spreadRadius: 2.0,
-                                                )
-                                              ],
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
-                                              border: Border.all(
-                                                color:
-                                                    functions.listContainsInt(
-                                                            FFAppState()
-                                                                .filterAppState
-                                                                .catId
-                                                                .toList(),
-                                                            5)
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondary
-                                                        : Color(0xFF232426),
-                                                width: 0.5,
-                                              ),
-                                            ),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 8.0, 8.0, 8.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceEvenly,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Container(
-                                                    width: 32.0,
-                                                    height: 32.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0x42C850F2),
-                                                      borderRadius:
-                                                          BorderRadius.only(
-                                                        bottomLeft:
-                                                            Radius.circular(
-                                                                8.0),
-                                                        bottomRight:
-                                                            Radius.circular(
-                                                                8.0),
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                8.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                8.0),
-                                                      ),
-                                                      shape: BoxShape.rectangle,
-                                                    ),
-                                                    child: Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                      child: FaIcon(
-                                                        FontAwesomeIcons.gift,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .magenta1,
-                                                        size: 20.0,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'ms5wvss5' /* Items for 
-Free */
-                                                      ,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleMedium
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .poppins(
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondary,
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
                                 theme: ExpandableThemeData(
                                   tapHeaderToExpand: true,
@@ -1487,8 +1343,20 @@ Free */
                                                                           8.0,
                                                                           4.0),
                                                               child: Text(
-                                                                uniqueSubsItem
-                                                                    .subCatName,
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  FFLocalizations.of(context).languageCode ==
+                                                                          'fa'
+                                                                      ? uniqueSubsItem
+                                                                          .subCatNameFa
+                                                                      : (FFLocalizations.of(context).languageCode ==
+                                                                              'nl'
+                                                                          ? uniqueSubsItem
+                                                                              .subCatNameNl
+                                                                          : uniqueSubsItem
+                                                                              .subCatName),
+                                                                  'category',
+                                                                ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium

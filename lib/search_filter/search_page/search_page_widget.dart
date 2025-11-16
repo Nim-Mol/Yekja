@@ -8,12 +8,10 @@ import '/search_filter/filter_comp/filter_comp_widget.dart';
 import '/shared_components/item_card_horizontal_2/item_card_horizontal2_widget.dart';
 import '/shared_components/loading_comp/loading_comp_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'search_page_model.dart';
@@ -97,751 +95,9 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Align(
-                        alignment: AlignmentDirectional(-1.0, 0.0),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 16.0, 0.0, 0.0),
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    _model.selectedCat = 1;
-                                    safeSetState(() {});
-                                    if (functions.listContainsInt(
-                                        FFAppState()
-                                            .filterAppState
-                                            .catId
-                                            .toList(),
-                                        _model.selectedCat!)) {
-                                      FFAppState().updateFilterAppStateStruct(
-                                        (e) => e
-                                          ..updateCatId(
-                                            (e) => e.remove(_model.selectedCat),
-                                          ),
-                                      );
-                                      safeSetState(() {});
-                                    } else {
-                                      FFAppState().updateFilterAppStateStruct(
-                                        (e) => e
-                                          ..updateCatId(
-                                            (e) => e.add(_model.selectedCat!),
-                                          ),
-                                      );
-                                      safeSetState(() {});
-                                    }
-
-                                    safeSetState(() => _model
-                                        .listViewSearchPagingController
-                                        ?.refresh());
-                                    await _model
-                                        .waitForOnePageForListViewSearch();
-                                  },
-                                  child: Container(
-                                    width: 100.0,
-                                    height: 100.0,
-                                    decoration: BoxDecoration(),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        border: Border.all(
-                                          color: functions.listContainsInt(
-                                                  FFAppState()
-                                                      .filterAppState
-                                                      .catId
-                                                      .toList(),
-                                                  1)
-                                              ? FlutterFlowTheme.of(context)
-                                                  .secondary
-                                              : FlutterFlowTheme.of(context)
-                                                  .secondaryBackground,
-                                          width: 0.5,
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 8.0, 8.0, 8.0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Container(
-                                              width: 35.0,
-                                              height: 32.0,
-                                              decoration: BoxDecoration(
-                                                color: Color(0x42F25081),
-                                                borderRadius: BorderRadius.only(
-                                                  bottomLeft:
-                                                      Radius.circular(8.0),
-                                                  bottomRight:
-                                                      Radius.circular(8.0),
-                                                  topLeft: Radius.circular(8.0),
-                                                  topRight:
-                                                      Radius.circular(8.0),
-                                                ),
-                                                shape: BoxShape.rectangle,
-                                              ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Icon(
-                                                  Icons.back_hand,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .red2,
-                                                  size: 20.0,
-                                                ),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 2.0, 0.0, 0.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'qlxrtif2' /* Help
-Requests */
-                                                  ,
-                                                ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleMedium
-                                                    .override(
-                                                      font: GoogleFonts.poppins(
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleMedium
-                                                                .fontStyle,
-                                                      ),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      fontSize: 14.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleMedium
-                                                              .fontStyle,
-                                                    ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    _model.selectedCat = 2;
-                                    safeSetState(() {});
-                                    if (functions.listContainsInt(
-                                        FFAppState()
-                                            .filterAppState
-                                            .catId
-                                            .toList(),
-                                        _model.selectedCat!)) {
-                                      FFAppState().updateFilterAppStateStruct(
-                                        (e) => e
-                                          ..updateCatId(
-                                            (e) => e.remove(_model.selectedCat),
-                                          ),
-                                      );
-                                      safeSetState(() {});
-                                    } else {
-                                      FFAppState().updateFilterAppStateStruct(
-                                        (e) => e
-                                          ..updateCatId(
-                                            (e) => e.add(_model.selectedCat!),
-                                          ),
-                                      );
-                                      safeSetState(() {});
-                                    }
-
-                                    safeSetState(() => _model
-                                        .listViewSearchPagingController
-                                        ?.refresh());
-                                    await _model
-                                        .waitForOnePageForListViewSearch();
-                                  },
-                                  child: Container(
-                                    width: 100.0,
-                                    height: 100.0,
-                                    decoration: BoxDecoration(),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        border: Border.all(
-                                          color: functions.listContainsInt(
-                                                  FFAppState()
-                                                      .filterAppState
-                                                      .catId
-                                                      .toList(),
-                                                  2)
-                                              ? FlutterFlowTheme.of(context)
-                                                  .secondary
-                                              : FlutterFlowTheme.of(context)
-                                                  .secondaryBackground,
-                                          width: 0.5,
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 8.0, 8.0, 8.0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Container(
-                                              width: 35.0,
-                                              height: 32.0,
-                                              decoration: BoxDecoration(
-                                                color: Color(0x4040C057),
-                                                borderRadius: BorderRadius.only(
-                                                  bottomLeft:
-                                                      Radius.circular(8.0),
-                                                  bottomRight:
-                                                      Radius.circular(8.0),
-                                                  topLeft: Radius.circular(8.0),
-                                                  topRight:
-                                                      Radius.circular(8.0),
-                                                ),
-                                                shape: BoxShape.rectangle,
-                                              ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: FaIcon(
-                                                  FontAwesomeIcons.handsHelping,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .customColor1,
-                                                  size: 20.0,
-                                                ),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 2.0, 0.0, 0.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'zxm6qhi3' /* Help
-Offers */
-                                                  ,
-                                                ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleMedium
-                                                    .override(
-                                                      font: GoogleFonts.poppins(
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleMedium
-                                                                .fontStyle,
-                                                      ),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      fontSize: 14.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleMedium
-                                                              .fontStyle,
-                                                    ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    _model.selectedCat = 3;
-                                    safeSetState(() {});
-                                    if (functions.listContainsInt(
-                                        FFAppState()
-                                            .filterAppState
-                                            .catId
-                                            .toList(),
-                                        _model.selectedCat!)) {
-                                      FFAppState().updateFilterAppStateStruct(
-                                        (e) => e
-                                          ..updateCatId(
-                                            (e) => e.remove(_model.selectedCat),
-                                          ),
-                                      );
-                                      safeSetState(() {});
-                                    } else {
-                                      FFAppState().updateFilterAppStateStruct(
-                                        (e) => e
-                                          ..updateCatId(
-                                            (e) => e.add(_model.selectedCat!),
-                                          ),
-                                      );
-                                      safeSetState(() {});
-                                    }
-
-                                    safeSetState(() => _model
-                                        .listViewSearchPagingController
-                                        ?.refresh());
-                                    await _model
-                                        .waitForOnePageForListViewSearch();
-                                  },
-                                  child: Container(
-                                    width: 100.0,
-                                    height: 100.0,
-                                    decoration: BoxDecoration(),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        border: Border.all(
-                                          color: functions.listContainsInt(
-                                                  FFAppState()
-                                                      .filterAppState
-                                                      .catId
-                                                      .toList(),
-                                                  3)
-                                              ? FlutterFlowTheme.of(context)
-                                                  .secondary
-                                              : FlutterFlowTheme.of(context)
-                                                  .secondaryBackground,
-                                          width: 0.5,
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 8.0, 8.0, 8.0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Container(
-                                              width: 35.0,
-                                              height: 32.0,
-                                              decoration: BoxDecoration(
-                                                color: Color(0x430593D7),
-                                                borderRadius: BorderRadius.only(
-                                                  bottomLeft:
-                                                      Radius.circular(8.0),
-                                                  bottomRight:
-                                                      Radius.circular(8.0),
-                                                  topLeft: Radius.circular(8.0),
-                                                  topRight:
-                                                      Radius.circular(8.0),
-                                                ),
-                                                shape: BoxShape.rectangle,
-                                              ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: FaIcon(
-                                                  FontAwesomeIcons.peopleArrows,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .iconEventy,
-                                                  size: 20.0,
-                                                ),
-                                              ),
-                                            ),
-                                            Flexible(
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 2.0, 0.0, 0.0),
-                                                child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    '7kdb5dt1' /* Items for Exchange */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .titleMedium
-                                                      .override(
-                                                        font:
-                                                            GoogleFonts.poppins(
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        fontSize: 14.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleMedium
-                                                                .fontStyle,
-                                                      ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    _model.selectedCat = 4;
-                                    safeSetState(() {});
-                                    if (functions.listContainsInt(
-                                        FFAppState()
-                                            .filterAppState
-                                            .catId
-                                            .toList(),
-                                        _model.selectedCat!)) {
-                                      FFAppState().updateFilterAppStateStruct(
-                                        (e) => e
-                                          ..updateCatId(
-                                            (e) => e.remove(_model.selectedCat),
-                                          ),
-                                      );
-                                      safeSetState(() {});
-                                    } else {
-                                      FFAppState().updateFilterAppStateStruct(
-                                        (e) => e
-                                          ..updateCatId(
-                                            (e) => e.add(_model.selectedCat!),
-                                          ),
-                                      );
-                                      safeSetState(() {});
-                                    }
-
-                                    safeSetState(() => _model
-                                        .listViewSearchPagingController
-                                        ?.refresh());
-                                    await _model
-                                        .waitForOnePageForListViewSearch();
-                                  },
-                                  child: Container(
-                                    width: 100.0,
-                                    height: 100.0,
-                                    decoration: BoxDecoration(),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        border: Border.all(
-                                          color: functions.listContainsInt(
-                                                  FFAppState()
-                                                      .filterAppState
-                                                      .catId
-                                                      .toList(),
-                                                  4)
-                                              ? FlutterFlowTheme.of(context)
-                                                  .secondary
-                                              : FlutterFlowTheme.of(context)
-                                                  .secondaryBackground,
-                                          width: 0.5,
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 8.0, 8.0, 8.0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Container(
-                                              width: 35.0,
-                                              height: 32.0,
-                                              decoration: BoxDecoration(
-                                                color: Color(0x42FAB005),
-                                                borderRadius: BorderRadius.only(
-                                                  bottomLeft:
-                                                      Radius.circular(8.0),
-                                                  bottomRight:
-                                                      Radius.circular(8.0),
-                                                  topLeft: Radius.circular(8.0),
-                                                  topRight:
-                                                      Radius.circular(8.0),
-                                                ),
-                                                shape: BoxShape.rectangle,
-                                              ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Icon(
-                                                  Icons.restore_sharp,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .yellow1,
-                                                  size: 26.0,
-                                                ),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 2.0, 0.0, 0.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'iqukbo0v' /* Borrow
-Requests */
-                                                  ,
-                                                ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleMedium
-                                                    .override(
-                                                      font: GoogleFonts.poppins(
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleMedium
-                                                                .fontStyle,
-                                                      ),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      fontSize: 14.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleMedium
-                                                              .fontStyle,
-                                                    ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    _model.selectedCat = 5;
-                                    safeSetState(() {});
-                                    if (functions.listContainsInt(
-                                        FFAppState()
-                                            .filterAppState
-                                            .catId
-                                            .toList(),
-                                        _model.selectedCat!)) {
-                                      FFAppState().updateFilterAppStateStruct(
-                                        (e) => e
-                                          ..updateCatId(
-                                            (e) => e.remove(_model.selectedCat),
-                                          ),
-                                      );
-                                      safeSetState(() {});
-                                    } else {
-                                      FFAppState().updateFilterAppStateStruct(
-                                        (e) => e
-                                          ..updateCatId(
-                                            (e) => e.add(_model.selectedCat!),
-                                          ),
-                                      );
-                                      safeSetState(() {});
-                                    }
-
-                                    safeSetState(() => _model
-                                        .listViewSearchPagingController
-                                        ?.refresh());
-                                    await _model
-                                        .waitForOnePageForListViewSearch();
-                                  },
-                                  child: Container(
-                                    width: 100.0,
-                                    height: 100.0,
-                                    decoration: BoxDecoration(),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        border: Border.all(
-                                          color: functions.listContainsInt(
-                                                  FFAppState()
-                                                      .filterAppState
-                                                      .catId
-                                                      .toList(),
-                                                  5)
-                                              ? FlutterFlowTheme.of(context)
-                                                  .secondary
-                                              : FlutterFlowTheme.of(context)
-                                                  .secondaryBackground,
-                                          width: 0.5,
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 8.0, 8.0, 8.0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Container(
-                                              width: 35.0,
-                                              height: 32.0,
-                                              decoration: BoxDecoration(
-                                                color: Color(0x42C850F2),
-                                                borderRadius: BorderRadius.only(
-                                                  bottomLeft:
-                                                      Radius.circular(8.0),
-                                                  bottomRight:
-                                                      Radius.circular(8.0),
-                                                  topLeft: Radius.circular(8.0),
-                                                  topRight:
-                                                      Radius.circular(8.0),
-                                                ),
-                                                shape: BoxShape.rectangle,
-                                              ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: FaIcon(
-                                                  FontAwesomeIcons.gift,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .magenta1,
-                                                  size: 22.0,
-                                                ),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 2.0, 0.0, 0.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'ix9u3yl7' /* Items for
-Free */
-                                                  ,
-                                                ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleMedium
-                                                    .override(
-                                                      font: GoogleFonts.poppins(
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleMedium
-                                                                .fontStyle,
-                                                      ),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      fontSize: 14.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleMedium
-                                                              .fontStyle,
-                                                    ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ]
-                                  .divide(SizedBox(width: 10.0))
-                                  .addToStart(SizedBox(width: 16.0))
-                                  .addToEnd(SizedBox(width: 16.0)),
-                            ),
-                          ),
-                        ),
-                      ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 16.0, 16.0, 0.0),
+                            12.0, 24.0, 12.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -856,18 +112,12 @@ Free */
                                 style: FlutterFlowTheme.of(context)
                                     .titleLarge
                                     .override(
-                                      font: GoogleFonts.poppins(
-                                        fontWeight: FontWeight.w600,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .titleLarge
-                                            .fontStyle,
-                                      ),
-                                      fontSize: 20.0,
+                                      fontFamily: 'FarsiFonts',
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      fontSize: 16.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .titleLarge
-                                          .fontStyle,
                                     ),
                               ),
                             ),
@@ -950,7 +200,7 @@ Free */
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
+                            12.0, 0.0, 12.0, 0.0),
                         child: RefreshIndicator(
                           onRefresh: () async {
                             safeSetState(() => _model
@@ -990,9 +240,16 @@ Free */
                                     : FFAppState().filterAppState.likes,
                                 hasimg: functions.csvBoolorNull(
                                     FFAppState().filterAppState.yekjaVerified),
+                                langCode:
+                                    FFLocalizations.of(context).languageCode,
                               ),
                             ),
-                            padding: EdgeInsets.symmetric(vertical: 16.0),
+                            padding: EdgeInsets.fromLTRB(
+                              0,
+                              12.0,
+                              0,
+                              50.0,
+                            ),
                             primary: false,
                             shrinkWrap: true,
                             reverse: false,
@@ -1010,33 +267,51 @@ Free */
                                 final searchResultsItem = _model
                                     .listViewSearchPagingController!
                                     .itemList![searchResultsIndex];
-                                return Container(
-                                  width: 1000.0,
-                                  height: 100.0,
-                                  child: custom_widgets.LtrWrapper(
-                                    width: 1000.0,
-                                    height: 100.0,
-                                    builder: () => ItemCardHorizontal2Widget(
-                                      mainCatID: searchResultsItem.mainCatId,
-                                      image: getJsonField(
-                                                searchResultsItem.toMap(),
-                                                r'''$.images[0]''',
-                                              ) !=
-                                              null
-                                          ? getJsonField(
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed(
+                                      PostWidget.routeName,
+                                      queryParameters: {
+                                        'postID': serializeParam(
+                                          searchResultsItem.postId,
+                                          ParamType.String,
+                                        ),
+                                        'detailDataName': serializeParam(
+                                          searchResultsItem.detailTable,
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  },
+                                  child: ItemCardHorizontal2Widget(
+                                    key: Key(
+                                        'Keyedx_${searchResultsIndex}_of_${_model.listViewSearchPagingController!.itemList!.length}'),
+                                    mainCatID: searchResultsItem.mainCatId,
+                                    image: getJsonField(
                                               searchResultsItem.toMap(),
                                               r'''$.images[0]''',
-                                            ).toString()
-                                          : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg',
-                                      catName: searchResultsItem.catName,
-                                      subCatName: searchResultsItem.subCatName,
-                                      title: searchResultsItem.title,
-                                      description:
-                                          searchResultsItem.description,
-                                      city: searchResultsItem.city,
-                                      likes: searchResultsItem.postLikes,
-                                      postID: searchResultsItem.postId,
-                                    ),
+                                            ) !=
+                                            null
+                                        ? getJsonField(
+                                            searchResultsItem.toMap(),
+                                            r'''$.images[0]''',
+                                          ).toString()
+                                        : FFAppConstants.DefaultPostImage,
+                                    catName: searchResultsItem.catNameLabel,
+                                    subCatName:
+                                        searchResultsItem.subCatNameLabel,
+                                    title: searchResultsItem.title,
+                                    description: searchResultsItem.description,
+                                    city: searchResultsItem.city,
+                                    likes: searchResultsItem.postLikes,
+                                    postID: searchResultsItem.postId,
+                                    catColor: functions.hexToColor(
+                                        searchResultsItem.effectiveColorHex,
+                                        Color(0x00000000)),
                                   ),
                                 );
                               },
@@ -1072,7 +347,7 @@ Free */
                           ),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 10.0, 16.0, 10.0),
+                                12.0, 10.0, 12.0, 10.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -1095,8 +370,8 @@ Free */
                                             context.safePop();
                                           },
                                           child: Container(
-                                            width: 44.0,
-                                            height: 44.0,
+                                            width: 48.0,
+                                            height: 48.0,
                                             decoration: BoxDecoration(
                                               color: Color(0xFF232426),
                                               borderRadius:
@@ -1119,8 +394,10 @@ Free */
                                       child: Stack(
                                         children: [
                                           Container(
-                                            height: 44.0,
+                                            height: 48.0,
                                             decoration: BoxDecoration(),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
@@ -1398,14 +675,22 @@ Free */
                                                 highlightColor:
                                                     Colors.transparent,
                                                 onTap: () async {
-                                                  FFAppState()
-                                                      .updateFilterAppStateStruct(
-                                                    (e) => e
-                                                      ..searchTerm = _model
-                                                          .searchwidgetTextController
-                                                          .text,
-                                                  );
+                                                  _model.isSearch = false;
+                                                  _model.searchText = '';
                                                   safeSetState(() {});
+                                                  FFAppState().filterAppState =
+                                                      FilterModel2Struct
+                                                          .fromSerializableMap(
+                                                              jsonDecode(
+                                                                  '{\"main_cat_id\":\"[]\",\"user_city\":\"[]\",\"cat_id\":\"[]\",\"cat_name\":\"[]\",\"sub_cat_id\":\"[]\",\"sub_cat_name\":\"[]\",\"exchange_wishlist_id\":\"[]\",\"YekjaVerified\":\"[]\",\"city_id\":\"[]\"}'));
+                                                  safeSetState(() {});
+                                                  safeSetState(() {
+                                                    _model.searchwidgetTextController
+                                                            ?.text =
+                                                        FFAppState()
+                                                            .filterAppState
+                                                            .searchTerm;
+                                                  });
                                                   safeSetState(() => _model
                                                       .listViewSearchPagingController
                                                       ?.refresh());
@@ -1413,11 +698,11 @@ Free */
                                                       .waitForOnePageForListViewSearch();
                                                 },
                                                 child: Icon(
-                                                  Icons.search_outlined,
+                                                  Icons.refresh,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryText,
-                                                  size: 26.0,
+                                                  size: 24.0,
                                                 ),
                                               ),
                                             ),
@@ -1434,21 +719,14 @@ Free */
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          _model.isSearch = false;
-                                          _model.searchText = '';
+                                          FFAppState()
+                                              .updateFilterAppStateStruct(
+                                            (e) => e
+                                              ..searchTerm = _model
+                                                  .searchwidgetTextController
+                                                  .text,
+                                          );
                                           safeSetState(() {});
-                                          FFAppState().filterAppState =
-                                              FilterModel2Struct
-                                                  .fromSerializableMap(jsonDecode(
-                                                      '{\"main_cat_id\":\"[]\",\"user_city\":\"[]\",\"cat_id\":\"[]\",\"cat_name\":\"[]\",\"sub_cat_id\":\"[]\",\"sub_cat_name\":\"[]\",\"exchange_wishlist_id\":\"[]\",\"YekjaVerified\":\"[]\",\"city_id\":\"[]\"}'));
-                                          safeSetState(() {});
-                                          safeSetState(() {
-                                            _model.searchwidgetTextController
-                                                    ?.text =
-                                                FFAppState()
-                                                    .filterAppState
-                                                    .searchTerm;
-                                          });
                                           safeSetState(() => _model
                                               .listViewSearchPagingController
                                               ?.refresh());
@@ -1456,8 +734,8 @@ Free */
                                               .waitForOnePageForListViewSearch();
                                         },
                                         child: Container(
-                                          width: 44.0,
-                                          height: 44.0,
+                                          width: 48.0,
+                                          height: 48.0,
                                           decoration: BoxDecoration(
                                             color: Color(0xFF232426),
                                             borderRadius: BorderRadius.only(
@@ -1473,7 +751,7 @@ Free */
                                           alignment:
                                               AlignmentDirectional(0.0, 0.0),
                                           child: Icon(
-                                            Icons.refresh,
+                                            Icons.search_sharp,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                             size: 24.0,
@@ -1498,7 +776,7 @@ Free */
                           ),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 10.0, 16.0, 10.0),
+                                12.0, 10.0, 12.0, 10.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -1515,21 +793,14 @@ Free */
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          _model.isSearch = false;
-                                          _model.searchText = '';
+                                          FFAppState()
+                                              .updateFilterAppStateStruct(
+                                            (e) => e
+                                              ..searchTerm = _model
+                                                  .searchwidget2TextController
+                                                  .text,
+                                          );
                                           safeSetState(() {});
-                                          FFAppState().filterAppState =
-                                              FilterModel2Struct
-                                                  .fromSerializableMap(jsonDecode(
-                                                      '{\"main_cat_id\":\"[]\",\"user_city\":\"[]\",\"cat_id\":\"[]\",\"cat_name\":\"[]\",\"sub_cat_id\":\"[]\",\"sub_cat_name\":\"[]\",\"exchange_wishlist_id\":\"[]\",\"YekjaVerified\":\"[]\",\"city_id\":\"[]\"}'));
-                                          safeSetState(() {});
-                                          safeSetState(() {
-                                            _model.searchwidget2TextController
-                                                    ?.text =
-                                                FFAppState()
-                                                    .filterAppState
-                                                    .searchTerm;
-                                          });
                                           safeSetState(() => _model
                                               .listViewSearchPagingController
                                               ?.refresh());
@@ -1537,8 +808,8 @@ Free */
                                               .waitForOnePageForListViewSearch();
                                         },
                                         child: Container(
-                                          width: 44.0,
-                                          height: 44.0,
+                                          width: 48.0,
+                                          height: 48.0,
                                           decoration: BoxDecoration(
                                             color: Color(0xFF232426),
                                             borderRadius: BorderRadius.only(
@@ -1554,7 +825,7 @@ Free */
                                           alignment:
                                               AlignmentDirectional(0.0, 0.0),
                                           child: Icon(
-                                            Icons.refresh,
+                                            Icons.search,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                             size: 24.0,
@@ -1566,7 +837,7 @@ Free */
                                       child: Stack(
                                         children: [
                                           Container(
-                                            height: 44.0,
+                                            height: 48.0,
                                             decoration: BoxDecoration(),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
@@ -1838,7 +1109,7 @@ Free */
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      0.0, 10.0, 16.0, 0.0),
+                                                      0.0, 10.0, 10.0, 0.0),
                                               child: InkWell(
                                                 splashColor: Colors.transparent,
                                                 focusColor: Colors.transparent,
@@ -1846,14 +1117,22 @@ Free */
                                                 highlightColor:
                                                     Colors.transparent,
                                                 onTap: () async {
-                                                  FFAppState()
-                                                      .updateFilterAppStateStruct(
-                                                    (e) => e
-                                                      ..searchTerm = _model
-                                                          .searchwidget2TextController
-                                                          .text,
-                                                  );
+                                                  _model.isSearch = false;
+                                                  _model.searchText = '';
                                                   safeSetState(() {});
+                                                  FFAppState().filterAppState =
+                                                      FilterModel2Struct
+                                                          .fromSerializableMap(
+                                                              jsonDecode(
+                                                                  '{\"main_cat_id\":\"[]\",\"user_city\":\"[]\",\"cat_id\":\"[]\",\"cat_name\":\"[]\",\"sub_cat_id\":\"[]\",\"sub_cat_name\":\"[]\",\"exchange_wishlist_id\":\"[]\",\"YekjaVerified\":\"[]\",\"city_id\":\"[]\"}'));
+                                                  safeSetState(() {});
+                                                  safeSetState(() {
+                                                    _model.searchwidget2TextController
+                                                            ?.text =
+                                                        FFAppState()
+                                                            .filterAppState
+                                                            .searchTerm;
+                                                  });
                                                   safeSetState(() => _model
                                                       .listViewSearchPagingController
                                                       ?.refresh());
@@ -1861,11 +1140,11 @@ Free */
                                                       .waitForOnePageForListViewSearch();
                                                 },
                                                 child: Icon(
-                                                  Icons.search_outlined,
+                                                  Icons.refresh_sharp,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryText,
-                                                  size: 26.0,
+                                                  size: 24.0,
                                                 ),
                                               ),
                                             ),
@@ -1888,8 +1167,8 @@ Free */
                                             context.safePop();
                                           },
                                           child: Container(
-                                            width: 44.0,
-                                            height: 44.0,
+                                            width: 48.0,
+                                            height: 48.0,
                                             decoration: BoxDecoration(
                                               color: Color(0xFF232426),
                                               borderRadius:

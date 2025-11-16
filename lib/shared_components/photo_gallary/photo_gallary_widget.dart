@@ -45,7 +45,7 @@ class _PhotoGallaryWidgetState extends State<PhotoGallaryWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: AlignmentDirectional(0.0, 0.0),
+      alignment: AlignmentDirectional(0.0, -1.0),
       child: Builder(
         builder: (context) {
           final img = widget.photoList!.map((e) => e).toList();
@@ -71,10 +71,10 @@ class _PhotoGallaryWidgetState extends State<PhotoGallaryWidget> {
                   },
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.0, 0.8),
+                  alignment: AlignmentDirectional(0.0, 0.76),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 42.0),
                     child: smooth_page_indicator.SmoothPageIndicator(
                       controller: _model.pageViewController ??= PageController(
                           initialPage: max(0, min(0, img.length - 1))),
@@ -91,9 +91,9 @@ class _PhotoGallaryWidgetState extends State<PhotoGallaryWidget> {
                       effect: smooth_page_indicator.SlideEffect(
                         spacing: 8.0,
                         radius: 8.0,
-                        dotWidth: 8.0,
-                        dotHeight: 8.0,
-                        dotColor: FlutterFlowTheme.of(context).accent1,
+                        dotWidth: 10.0,
+                        dotHeight: 10.0,
+                        dotColor: FlutterFlowTheme.of(context).bordergray,
                         activeDotColor: FlutterFlowTheme.of(context).primary,
                         paintStyle: PaintingStyle.fill,
                       ),

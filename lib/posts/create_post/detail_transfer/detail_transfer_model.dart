@@ -35,27 +35,10 @@ class DetailTransferModel extends FlutterFlowModel<DetailTransferWidget> {
   String? Function(BuildContext, String?)? textController5Validator;
   // State field(s) for NegotiableSwitch widget.
   bool? negotiableSwitchValue;
-  // State field(s) for PriceChoice widget.
-  FormFieldController<List<String>>? priceChoiceValueController;
-  String? get priceChoiceValue =>
-      priceChoiceValueController?.value?.firstOrNull;
-  set priceChoiceValue(String? val) =>
-      priceChoiceValueController?.value = val != null ? [val] : [];
   // State field(s) for RegistrationSwitch widget.
   bool? registrationSwitchValue1;
   // State field(s) for RegistrationSwitch widget.
   bool? registrationSwitchValue2;
-  // State field(s) for WeightChoice widget.
-  FormFieldController<List<String>>? weightChoiceValueController;
-  String? get weightChoiceValue =>
-      weightChoiceValueController?.value?.firstOrNull;
-  set weightChoiceValue(String? val) =>
-      weightChoiceValueController?.value = val != null ? [val] : [];
-  // State field(s) for SizeChoice widget.
-  FormFieldController<List<String>>? sizeChoiceValueController;
-  String? get sizeChoiceValue => sizeChoiceValueController?.value?.firstOrNull;
-  set sizeChoiceValue(String? val) =>
-      sizeChoiceValueController?.value = val != null ? [val] : [];
 
   @override
   void initState(BuildContext context) {}

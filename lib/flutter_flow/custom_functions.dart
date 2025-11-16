@@ -301,7 +301,7 @@ bool isNullJSON(dynamic widgetState) {
   return false;
 }
 
-String formatIsoDate(String? iso) {
+String formatIsoDatetime(String? iso) {
   if (iso == null) return '';
   final s = iso.trim();
   if (s.isEmpty) return '';
@@ -341,4 +341,62 @@ String formatIsoDate(String? iso) {
 
 String stringListToCommaString(List<String>? stringList) {
   return stringList?.join(', ') ?? '';
+}
+
+String formatIsoDate(String? iso) {
+  if (iso == null) return '';
+  final s = iso.trim();
+  if (s.isEmpty) return '';
+  DateTime dt;
+  try {
+    // Parse the ISO date string and convert to local time
+    dt = DateTime.parse(s).toLocal();
+  } catch (_) {
+    return s; // fallback to raw string if not parseable
+  }
+
+  // Month short names (English)
+  const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec'
+  ];
+
+  // Extract date components
+  final mon = months[dt.month - 1];
+  final day = dt.day;
+  final year = dt.year;
+
+  // Return only the formatted date: "Mon Day, Year"
+  return '$mon $day, $year';
+}
+
+bool isGTx(
+  String? input,
+  int x,
+) {
+// 1. Check for invalid or unparseable string states first.
+  if (input == null || input.isEmpty || input.toLowerCase() == 'null') {
+    return false;
+  }
+
+  // 2. Attempt to parse the non-null string into a double.
+  final value = double.tryParse(input);
+
+  // 3. If parsing failed, it's not a number, so return false.
+  if (value == null) {
+    return false;
+  }
+
+  // 4. Check the condition: is the parsed number strictly greater than 1?
+  return value > x;
 }

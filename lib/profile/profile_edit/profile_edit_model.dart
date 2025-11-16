@@ -20,8 +20,6 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
 
   bool allowMessage = true;
 
-  bool phoneNumberChanged = false;
-
   bool isPersonalOpen = false;
 
   bool isContactOpen = false;
@@ -31,8 +29,11 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey2 = GlobalKey<FormState>();
-  final formKey3 = GlobalKey<FormState>();
   final formKey1 = GlobalKey<FormState>();
+  final formKey6 = GlobalKey<FormState>();
+  final formKey3 = GlobalKey<FormState>();
+  final formKey5 = GlobalKey<FormState>();
+  final formKey4 = GlobalKey<FormState>();
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
@@ -66,13 +67,13 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
   String? _userNameTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'xuzvu4aw' /* This field is required. */,
+        'k8yaifxp' /* This field is required. */,
       );
     }
 
     if (val.length < 3) {
       return FFLocalizations.of(context).getText(
-        'z0nckav1' /* Minimum 3 letters are required... */,
+        'zi1ckidc' /* Minimum 3 letters are required... */,
       );
     }
     if (val.length > 10) {
@@ -81,7 +82,7 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
     if (!RegExp('^[\\u0600-\\u06FF\\s_\\u0660-\\u06690-9a-zA-Z]+\$')
         .hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        'ybuk2xid' /* Please use only letters (Engli... */,
+        'bjz0w81s' /* Please use only letters (Engli... */,
       );
     }
     return null;
@@ -96,10 +97,10 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
       return 'Field is required';
     }
 
-    if (!RegExp('^[\\u0600-\\u06FF\\u0660-\\u06690-9a-zA-Z]+\$')
+    if (!RegExp('^\$|^[\\u0600-\\u06FF\\u0660-\\u06690-9a-zA-Z]+\$')
         .hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        'qblk083h' /* Please use only letters (Engli... */,
+        'k1cds13e' /* Please use only letters (Engli... */,
       );
     }
     return null;
@@ -111,12 +112,10 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
   String? Function(BuildContext, String?)? lastNameTextControllerValidator;
   String? _lastNameTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        't9o3nrj6' /* last_name is required */,
-      );
+      return 'Field is required';
     }
 
-    if (!RegExp('^[\\u0600-\\u06FF\\u0660-\\u06690-9a-zA-Z]+\$')
+    if (!RegExp('^\$|^[\\u0600-\\u06FF\\u0660-\\u06690-9a-zA-Z]+\$')
         .hasMatch(val)) {
       return FFLocalizations.of(context).getText(
         '6jovzf1s' /* Please use only letters (Engli... */,
@@ -137,7 +136,7 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
     if (!RegExp('^[\\u0600-\\u06FF\\s_\\u0660-\\u06690-9a-zA-Z\\.\\!\\?]+\$')
         .hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        'cdhvvav3' /* Please use only letters (Engli... */,
+        'sd7ryerl' /* Please use only letters (Engli... */,
       );
     }
     return null;
@@ -150,22 +149,6 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
   FocusNode? emailFocusNode;
   TextEditingController? emailTextController;
   String? Function(BuildContext, String?)? emailTextControllerValidator;
-  String? _emailTextControllerValidator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        'qkqbfayb' /* This field is required. */,
-      );
-    }
-
-    if (!RegExp('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}')
-        .hasMatch(val)) {
-      return FFLocalizations.of(context).getText(
-        '9y4wu9mm' /* Please use a valid email addre... */,
-      );
-    }
-    return null;
-  }
-
   // State field(s) for PhoneNumber widget.
   FocusNode? phoneNumberFocusNode;
   TextEditingController? phoneNumberTextController;
@@ -173,12 +156,14 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
   String? _phoneNumberTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return FFLocalizations.of(context).getText(
+        'ysvww2jk' /* phonenumber is required */,
+      );
     }
 
     if (!RegExp('^06\\d{8}\$').hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        'yh5jjfvv' /* Use a valid phone number. e.g ... */,
+        's3m0a7lo' /* Use a valid phone number. e.g ... */,
       );
     }
     return null;
@@ -188,21 +173,6 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
   FocusNode? cityFocusNode;
   TextEditingController? cityTextController;
   String? Function(BuildContext, String?)? cityTextControllerValidator;
-  String? _cityTextControllerValidator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        '313urfz2' /* user_city is required */,
-      );
-    }
-
-    if (!RegExp('^[A-Za-z]+\$').hasMatch(val)) {
-      return FFLocalizations.of(context).getText(
-        's8eav7fd' /* Please only use letters. */,
-      );
-    }
-    return null;
-  }
-
   // State field(s) for Expandable widget.
   late ExpandableController expandableExpandableController3;
 
@@ -226,8 +196,6 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
     return null;
   }
 
-  // Stores action output result for [Validate Form] action in Save widget.
-  bool? valid;
   // Stores action output result for [Backend Call - Update Row(s)] action in Save widget.
   List<UserExtRow>? updatedUser;
   // Stores action output result for [Custom Action - userSoftDeleteAsync] action in RichTextSpan widget.
@@ -241,7 +209,9 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
   // State field(s) for AllowCall widget.
   bool? allowCallValue;
   // State field(s) for AllowMessage widget.
-  bool? allowMessageValue;
+  bool? allowMessageValue1;
+  // State field(s) for AllowMessage widget.
+  bool? allowMessageValue2;
   // Stores action output result for [Backend Call - Update Row(s)] action in Save widget.
   List<ConsentsRow>? savedInfo;
 
@@ -251,9 +221,7 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
     firstNameTextControllerValidator = _firstNameTextControllerValidator;
     lastNameTextControllerValidator = _lastNameTextControllerValidator;
     biographyTextControllerValidator = _biographyTextControllerValidator;
-    emailTextControllerValidator = _emailTextControllerValidator;
     phoneNumberTextControllerValidator = _phoneNumberTextControllerValidator;
-    cityTextControllerValidator = _cityTextControllerValidator;
     instagramLinkTextControllerValidator =
         _instagramLinkTextControllerValidator;
   }

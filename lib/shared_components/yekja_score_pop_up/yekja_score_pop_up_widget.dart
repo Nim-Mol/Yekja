@@ -231,119 +231,135 @@ class _YekjaScorePopUpWidgetState extends State<YekjaScorePopUpWidget>
                           ),
                         ],
                       ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(4.0, 16.0, 8.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 7.0),
-                              child: Icon(
-                                Icons.landscape,
-                                color: FlutterFlowTheme.of(context).greenInit,
-                                size: 20.0,
-                              ).animateOnPageLoad(
-                                  animationsMap['iconOnPageLoadAnimation']!),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 4.0),
-                              child: Icon(
-                                Icons.landscape,
-                                color: FlutterFlowTheme.of(context).darkgray,
-                                size: 32.0,
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 2.0),
-                              child: Icon(
-                                Icons.landscape,
-                                color: FlutterFlowTheme.of(context).darkgray,
-                                size: 40.0,
-                              ),
-                            ),
-                            Icon(
-                              Icons.landscape,
-                              color: FlutterFlowTheme.of(context).darkgray,
-                              size: 48.0,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Row(
+                      Column(
                         mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            FFLocalizations.of(context).getText(
-                              'hyrcnjok' /* Dena */,
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily,
-                                  color: FlutterFlowTheme.of(context).greenInit,
-                                  fontSize: 12.0,
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .bodyMediumIsCustom,
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                4.0, 16.0, 8.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 7.0),
+                                  child: Icon(
+                                    Icons.landscape,
+                                    color:
+                                        FlutterFlowTheme.of(context).greenInit,
+                                    size: 20.0,
+                                  ).animateOnPageLoad(animationsMap[
+                                      'iconOnPageLoadAnimation']!),
                                 ),
-                          ),
-                          Text(
-                            FFLocalizations.of(context).getText(
-                              '8oqhe5wf' /* Sabalan */,
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily,
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 4.0),
+                                  child: Icon(
+                                    Icons.landscape,
+                                    color:
+                                        FlutterFlowTheme.of(context).darkgray,
+                                    size: 32.0,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 2.0),
+                                  child: Icon(
+                                    Icons.landscape,
+                                    color:
+                                        FlutterFlowTheme.of(context).darkgray,
+                                    size: 40.0,
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.landscape,
                                   color: FlutterFlowTheme.of(context).darkgray,
-                                  fontSize: 12.0,
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .bodyMediumIsCustom,
+                                  size: 48.0,
                                 ),
-                          ),
-                          Text(
-                            FFLocalizations.of(context).getText(
-                              '3l2wyu39' /* Alam Kooh */,
+                              ],
                             ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily,
-                                  color: FlutterFlowTheme.of(context).darkgray,
-                                  fontSize: 12.0,
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .bodyMediumIsCustom,
-                                ),
                           ),
-                          Text(
-                            FFLocalizations.of(context).getText(
-                              'xda20r4w' /* Damavand */,
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily,
-                                  color: FlutterFlowTheme.of(context).darkgray,
-                                  fontSize: 12.0,
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .bodyMediumIsCustom,
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'x8y52jsy' /* Dena */,
                                 ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      color: FlutterFlowTheme.of(context)
+                                          .greenInit,
+                                      fontSize: 12.0,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
+                                    ),
+                              ),
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'uju72slx' /* Sabalan */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      color:
+                                          FlutterFlowTheme.of(context).darkgray,
+                                      fontSize: 12.0,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
+                                    ),
+                              ),
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  '9oprtrph' /* Alam Kooh */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      color:
+                                          FlutterFlowTheme.of(context).darkgray,
+                                      fontSize: 12.0,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
+                                    ),
+                              ),
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'n5fv9i65' /* Damavand */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      color:
+                                          FlutterFlowTheme.of(context).darkgray,
+                                      fontSize: 12.0,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
+                                    ),
+                              ),
+                            ].divide(SizedBox(width: 5.0)),
                           ),
-                        ].divide(SizedBox(width: 5.0)),
+                        ],
                       ),
                       Padding(
                         padding:

@@ -136,11 +136,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           ),
         ),
         FFRoute(
-          name: EventItmePageWidget.routeName,
-          path: EventItmePageWidget.routePath,
-          builder: (context, params) => EventItmePageWidget(),
-        ),
-        FFRoute(
           name: IranNLItemPageWidget.routeName,
           path: IranNLItemPageWidget.routePath,
           builder: (context, params) => IranNLItemPageWidget(),
@@ -164,11 +159,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           name: PostPreviewWidget.routeName,
           path: PostPreviewWidget.routePath,
           builder: (context, params) => PostPreviewWidget(),
-        ),
-        FFRoute(
-          name: SplashWidget.routeName,
-          path: SplashWidget.routePath,
-          builder: (context, params) => SplashWidget(),
         ),
         FFRoute(
           name: PostCatWidget.routeName,
@@ -195,9 +185,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           ),
         ),
         FFRoute(
-          name: ResetPasswordPageWidget.routeName,
-          path: ResetPasswordPageWidget.routePath,
-          builder: (context, params) => ResetPasswordPageWidget(),
+          name: ChangeEmailPageWidget.routeName,
+          path: ChangeEmailPageWidget.routePath,
+          builder: (context, params) => ChangeEmailPageWidget(),
         ),
         FFRoute(
           name: TermsConditionsPageWidget.routeName,
@@ -213,11 +203,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           name: ReportedUserWidget.routeName,
           path: ReportedUserWidget.routePath,
           builder: (context, params) => ReportedUserWidget(),
-        ),
-        FFRoute(
-          name: PostMainCatWidget.routeName,
-          path: PostMainCatWidget.routePath,
-          builder: (context, params) => PostMainCatWidget(),
         ),
         FFRoute(
           name: SwipableWidget.routeName,
@@ -241,16 +226,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
             selectedTab: params.getParam(
               'selectedTab',
               ParamType.int,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: ChatPageWidget.routeName,
-          path: ChatPageWidget.routePath,
-          builder: (context, params) => ChatPageWidget(
-            profileid: params.getParam(
-              'profileid',
-              ParamType.String,
             ),
           ),
         ),
@@ -298,25 +273,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => ContactYEKJAWidget(),
         ),
         FFRoute(
-          name: SearchPageWidget.routeName,
-          path: SearchPageWidget.routePath,
-          builder: (context, params) => SearchPageWidget(
-            searchTermParam: params.getParam(
-              'searchTermParam',
-              ParamType.String,
-            ),
-            navigateBackTo: params.getParam(
-              'navigateBackTo',
-              ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: HomePageWidget.routeName,
-          path: HomePageWidget.routePath,
-          builder: (context, params) => HomePageWidget(),
-        ),
-        FFRoute(
           name: ChatdetailWidget.routeName,
           path: ChatdetailWidget.routePath,
           requireAuth: true,
@@ -356,9 +312,108 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           ),
         ),
         FFRoute(
-          name: MarketWidget.routeName,
-          path: MarketWidget.routePath,
-          builder: (context, params) => MarketWidget(
+          name: PostGeneralDetailCopy2Widget.routeName,
+          path: PostGeneralDetailCopy2Widget.routePath,
+          builder: (context, params) => PostGeneralDetailCopy2Widget(),
+        ),
+        FFRoute(
+          name: DetailRentalsWidget.routeName,
+          path: DetailRentalsWidget.routePath,
+          builder: (context, params) => DetailRentalsWidget(),
+        ),
+        FFRoute(
+          name: DetailSalesWidget.routeName,
+          path: DetailSalesWidget.routePath,
+          builder: (context, params) => DetailSalesWidget(),
+        ),
+        FFRoute(
+          name: DetailGiveAwayWidget.routeName,
+          path: DetailGiveAwayWidget.routePath,
+          builder: (context, params) => DetailGiveAwayWidget(),
+        ),
+        FFRoute(
+          name: DetailSwapItemsWidget.routeName,
+          path: DetailSwapItemsWidget.routePath,
+          builder: (context, params) => DetailSwapItemsWidget(),
+        ),
+        FFRoute(
+          name: DetailTicketSwapWidget.routeName,
+          path: DetailTicketSwapWidget.routePath,
+          builder: (context, params) => DetailTicketSwapWidget(),
+        ),
+        FFRoute(
+          name: DetailCurrencyExchangeWidget.routeName,
+          path: DetailCurrencyExchangeWidget.routePath,
+          builder: (context, params) => DetailCurrencyExchangeWidget(),
+        ),
+        FFRoute(
+          name: DetailCareAndAssistanceWidget.routeName,
+          path: DetailCareAndAssistanceWidget.routePath,
+          builder: (context, params) => DetailCareAndAssistanceWidget(),
+        ),
+        FFRoute(
+          name: DetailEventsWidget.routeName,
+          path: DetailEventsWidget.routePath,
+          builder: (context, params) => DetailEventsWidget(),
+        ),
+        FFRoute(
+          name: BlankPageWidget.routeName,
+          path: BlankPageWidget.routePath,
+          builder: (context, params) => BlankPageWidget(),
+        ),
+        FFRoute(
+          name: DetailSkillsWidget.routeName,
+          path: DetailSkillsWidget.routePath,
+          builder: (context, params) => DetailSkillsWidget(),
+        ),
+        FFRoute(
+          name: ResetPasswordPageWidget.routeName,
+          path: ResetPasswordPageWidget.routePath,
+          builder: (context, params) => ResetPasswordPageWidget(),
+        ),
+        FFRoute(
+          name: SplashWidget.routeName,
+          path: SplashWidget.routePath,
+          builder: (context, params) => SplashWidget(),
+        ),
+        FFRoute(
+          name: PostMainCatWidget.routeName,
+          path: PostMainCatWidget.routePath,
+          builder: (context, params) => PostMainCatWidget(),
+        ),
+        FFRoute(
+          name: ChatPageWidget.routeName,
+          path: ChatPageWidget.routePath,
+          builder: (context, params) => ChatPageWidget(
+            profileid: params.getParam(
+              'profileid',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: SearchPageWidget.routeName,
+          path: SearchPageWidget.routePath,
+          builder: (context, params) => SearchPageWidget(
+            searchTermParam: params.getParam(
+              'searchTermParam',
+              ParamType.String,
+            ),
+            navigateBackTo: params.getParam(
+              'navigateBackTo',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: HomePageWidget.routeName,
+          path: HomePageWidget.routePath,
+          builder: (context, params) => HomePageWidget(),
+        ),
+        FFRoute(
+          name: MainPageWidget.routeName,
+          path: MainPageWidget.routePath,
+          builder: (context, params) => MainPageWidget(
             selectedTab: params.getParam(
               'selectedTab',
               ParamType.int,
@@ -397,27 +452,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
         FFRoute(
           name: ProfileEditWidget.routeName,
           path: ProfileEditWidget.routePath,
-          builder: (context, params) => ProfileEditWidget(),
-        ),
-        FFRoute(
-          name: PostGeneralDetailCopy2Widget.routeName,
-          path: PostGeneralDetailCopy2Widget.routePath,
-          builder: (context, params) => PostGeneralDetailCopy2Widget(),
-        ),
-        FFRoute(
-          name: DetailRentalsWidget.routeName,
-          path: DetailRentalsWidget.routePath,
-          builder: (context, params) => DetailRentalsWidget(),
-        ),
-        FFRoute(
-          name: DetailSalesWidget.routeName,
-          path: DetailSalesWidget.routePath,
-          builder: (context, params) => DetailSalesWidget(),
-        ),
-        FFRoute(
-          name: DetailGiveAwayWidget.routeName,
-          path: DetailGiveAwayWidget.routePath,
-          builder: (context, params) => DetailGiveAwayWidget(),
+          builder: (context, params) => ProfileEditWidget(
+            selectedTab: params.getParam(
+              'selectedTab',
+              ParamType.int,
+            ),
+          ),
         ),
         FFRoute(
           name: DetailTransferWidget.routeName,
@@ -425,44 +465,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => DetailTransferWidget(),
         ),
         FFRoute(
-          name: DetailSwapItemsWidget.routeName,
-          path: DetailSwapItemsWidget.routePath,
-          builder: (context, params) => DetailSwapItemsWidget(),
-        ),
-        FFRoute(
-          name: DetailTicketSwapWidget.routeName,
-          path: DetailTicketSwapWidget.routePath,
-          builder: (context, params) => DetailTicketSwapWidget(),
-        ),
-        FFRoute(
-          name: DetailCurrencyExchangeWidget.routeName,
-          path: DetailCurrencyExchangeWidget.routePath,
-          builder: (context, params) => DetailCurrencyExchangeWidget(),
-        ),
-        FFRoute(
-          name: DetailCareAndAssistanceWidget.routeName,
-          path: DetailCareAndAssistanceWidget.routePath,
-          builder: (context, params) => DetailCareAndAssistanceWidget(),
-        ),
-        FFRoute(
-          name: DetailEventsWidget.routeName,
-          path: DetailEventsWidget.routePath,
-          builder: (context, params) => DetailEventsWidget(),
-        ),
-        FFRoute(
-          name: BlankPageWidget.routeName,
-          path: BlankPageWidget.routePath,
-          builder: (context, params) => BlankPageWidget(),
-        ),
-        FFRoute(
           name: SignUpPageWidget.routeName,
           path: SignUpPageWidget.routePath,
           builder: (context, params) => SignUpPageWidget(),
         ),
         FFRoute(
-          name: DetailSkillsWidget.routeName,
-          path: DetailSkillsWidget.routePath,
-          builder: (context, params) => DetailSkillsWidget(),
+          name: XXXBusinesWidget.routeName,
+          path: XXXBusinesWidget.routePath,
+          builder: (context, params) => XXXBusinesWidget(),
+        ),
+        FFRoute(
+          name: NewsWidget.routeName,
+          path: NewsWidget.routePath,
+          builder: (context, params) => NewsWidget(),
+        ),
+        FFRoute(
+          name: XxxWidget.routeName,
+          path: XxxWidget.routePath,
+          builder: (context, params) => XxxWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -583,7 +583,7 @@ class PostModelStruct extends BaseStruct {
 
   // "capacity" field.
   int? _capacity;
-  int get capacity => _capacity ?? 0;
+  int get capacity => _capacity ?? 1;
   set capacity(int? val) => _capacity = val;
 
   void incrementCapacity(int amount) => capacity = capacity + amount;

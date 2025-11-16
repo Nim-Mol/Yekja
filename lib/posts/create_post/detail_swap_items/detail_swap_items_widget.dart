@@ -2168,11 +2168,6 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                         ].divide(SizedBox(height: 6.0)),
                                       ),
                                     ),
-                                    Divider(
-                                      thickness: 0.3,
-                                      color: FlutterFlowTheme.of(context)
-                                          .bordergray,
-                                    ),
                                   ],
                                 ),
                                 Divider(
@@ -2323,12 +2318,81 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                               },
                                             );
 
+                                            TimeOfDay? _datePickedTime;
                                             if (_datePickedDate != null) {
+                                              _datePickedTime =
+                                                  await showTimePicker(
+                                                context: context,
+                                                initialTime:
+                                                    TimeOfDay.fromDateTime(
+                                                        getCurrentTimestamp),
+                                                builder: (context, child) {
+                                                  return wrapInMaterialTimePickerTheme(
+                                                    context,
+                                                    child!,
+                                                    headerBackgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryBackground,
+                                                    headerForegroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText,
+                                                    headerTextStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .headlineLarge
+                                                            .override(
+                                                              fontFamily:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineLargeFamily,
+                                                              fontSize: 32.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                              useGoogleFonts:
+                                                                  !FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineLargeIsCustom,
+                                                            ),
+                                                    pickerBackgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryBackground,
+                                                    pickerForegroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText,
+                                                    selectedDateTimeBackgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .greenInit,
+                                                    selectedDateTimeForegroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryBackground,
+                                                    actionButtonForegroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .greenInit,
+                                                    iconSize: 20.0,
+                                                  );
+                                                },
+                                              );
+                                            }
+
+                                            if (_datePickedDate != null &&
+                                                _datePickedTime != null) {
                                               safeSetState(() {
                                                 _model.datePicked = DateTime(
                                                   _datePickedDate.year,
                                                   _datePickedDate.month,
                                                   _datePickedDate.day,
+                                                  _datePickedTime!.hour,
+                                                  _datePickedTime.minute,
                                                 );
                                               });
                                             } else if (_model.datePicked !=
@@ -3002,6 +3066,8 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                   'price_text':
                                       FFAppState().postState.priceText,
                                   'price': FFAppState().postState.price,
+                                  'deadline': functions.dateTimeToString(
+                                      FFAppState().postState.deadline),
                                 };
                                 safeSetState(() {});
 

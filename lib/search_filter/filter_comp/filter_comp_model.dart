@@ -23,6 +23,8 @@ class FilterCompModel extends FlutterFlowModel<FilterCompWidget> {
 
   String sortState = 'Recent';
 
+  int? selectedMainCat;
+
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for Expandable widget.

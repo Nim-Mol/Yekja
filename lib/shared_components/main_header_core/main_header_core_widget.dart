@@ -1,6 +1,5 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/supabase/supabase.dart';
-import '/flutter_flow/flutter_flow_language_selector.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/shared_components/yekja_score_pop_up/yekja_score_pop_up_widget.dart';
@@ -178,83 +177,38 @@ class _MainHeaderCoreWidgetState extends State<MainHeaderCoreWidget> {
                               ),
                             ),
                           ),
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: FlutterFlowLanguageSelector(
-                              width: 140.0,
-                              height: 32.0,
-                              backgroundColor: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              borderColor: Colors.transparent,
-                              dropdownIconColor:
-                                  FlutterFlowTheme.of(context).secondaryText,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .labelSmall
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .labelSmallFamily,
-                                    fontSize: 10.0,
-                                    letterSpacing: 0.0,
-                                    useGoogleFonts:
-                                        !FlutterFlowTheme.of(context)
-                                            .labelSmallIsCustom,
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed(
+                                ProfilePageWidget.routeName,
+                                queryParameters: {
+                                  'profileId': serializeParam(
+                                    currentUserUid,
+                                    ParamType.String,
                                   ),
-                              hideFlags: false,
-                              flagSize: 24.0,
-                              currentLanguage:
-                                  FFLocalizations.of(context).languageCode,
-                              languages: FFLocalizations.languages(),
-                              onChanged: (lang) =>
-                                  setAppLanguage(context, lang),
-                            ),
-                          ),
-                          Container(
-                            width: 55.0,
-                            height: 55.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              shape: BoxShape.circle,
-                            ),
-                            child: Stack(
-                              children: [
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    context.pushNamed(
-                                      ProfilePageWidget.routeName,
-                                      queryParameters: {
-                                        'profileId': serializeParam(
-                                          currentUserUid,
-                                          ParamType.String,
-                                        ),
-                                      }.withoutNulls,
-                                    );
-                                  },
-                                  child: Container(
-                                    width: 50.0,
-                                    height: 50.0,
-                                    clipBehavior: Clip.antiAlias,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: Image.network(
-                                      (stackConsentsRow.showProfileImage ==
-                                                  true) &&
-                                              (FFAppState()
-                                                          .userInfo
-                                                          .avatar !=
-                                                      '')
-                                          ? FFAppState().userInfo.avatar
-                                          : FFAppConstants.DefultProfilePhoto,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                                }.withoutNulls,
+                              );
+                            },
+                            child: Container(
+                              width: 55.0,
+                              height: 55.0,
+                              clipBehavior: Clip.antiAlias,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                              ),
+                              child: Image.network(
+                                (FFAppState().userInfo.avatar ==
+                                                '') ||
+                                        (stackConsentsRow.showProfileImage ==
+                                            false)
+                                    ? FFAppConstants.DefultProfilePhoto
+                                    : FFAppState().userInfo.avatar,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ],

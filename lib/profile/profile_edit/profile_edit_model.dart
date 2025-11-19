@@ -1,5 +1,6 @@
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/form_field_controller.dart';
 import '/index.dart';
 import 'profile_edit_widget.dart' show ProfileEditWidget;
 import 'package:expandable/expandable.dart';
@@ -41,6 +42,8 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
   int get tabBarPreviousIndex =>
       tabBarController != null ? tabBarController!.previousIndex : 0;
 
+  // Stores action output result for [Backend Call - Update Row(s)] action in Remove widget.
+  List<UserExtRow>? removeAvatar;
   bool isDataUploading_newAvatar = false;
   FFUploadedFile uploadedLocalFile_newAvatar =
       FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
@@ -55,8 +58,6 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
 
   // Stores action output result for [Backend Call - Update Row(s)] action in IconButton widget.
   List<UserExtRow>? newwalpaper;
-  // Stores action output result for [Backend Call - Update Row(s)] action in RemoveWallpaper widget.
-  List<UserExtRow>? removedWallpaperCopy;
   // State field(s) for Expandable widget.
   late ExpandableController expandableExpandableController1;
 
@@ -169,10 +170,9 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
     return null;
   }
 
-  // State field(s) for City widget.
-  FocusNode? cityFocusNode;
-  TextEditingController? cityTextController;
-  String? Function(BuildContext, String?)? cityTextControllerValidator;
+  // State field(s) for dropdownCity widget.
+  String? dropdownCityValue;
+  FormFieldController<String>? dropdownCityValueController;
   // State field(s) for Expandable widget.
   late ExpandableController expandableExpandableController3;
 
@@ -248,9 +248,6 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
 
     phoneNumberFocusNode?.dispose();
     phoneNumberTextController?.dispose();
-
-    cityFocusNode?.dispose();
-    cityTextController?.dispose();
 
     expandableExpandableController3.dispose();
     instagramLinkFocusNode?.dispose();

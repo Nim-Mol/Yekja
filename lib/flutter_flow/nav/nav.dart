@@ -357,9 +357,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => DetailEventsWidget(),
         ),
         FFRoute(
-          name: BlankPageWidget.routeName,
-          path: BlankPageWidget.routePath,
-          builder: (context, params) => BlankPageWidget(),
+          name: FinalizedLoginWidget.routeName,
+          path: FinalizedLoginWidget.routePath,
+          builder: (context, params) => FinalizedLoginWidget(),
         ),
         FFRoute(
           name: DetailSkillsWidget.routeName,
@@ -483,6 +483,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           name: XxxWidget.routeName,
           path: XxxWidget.routePath,
           builder: (context, params) => XxxWidget(),
+        ),
+        FFRoute(
+          name: PostPrevWidget.routeName,
+          path: PostPrevWidget.routePath,
+          builder: (context, params) => PostPrevWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

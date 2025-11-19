@@ -404,7 +404,7 @@ class _ProfileSettingWidgetState extends State<ProfileSettingWidget>
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.goNamed(BlankPageWidget.routeName);
+                              context.goNamed(FinalizedLoginWidget.routeName);
                             },
                             child: Row(
                               mainAxisSize: MainAxisSize.max,

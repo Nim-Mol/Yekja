@@ -5,28 +5,28 @@ import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'blank_page_model.dart';
-export 'blank_page_model.dart';
+import 'finalized_login_model.dart';
+export 'finalized_login_model.dart';
 
-class BlankPageWidget extends StatefulWidget {
-  const BlankPageWidget({super.key});
+class FinalizedLoginWidget extends StatefulWidget {
+  const FinalizedLoginWidget({super.key});
 
-  static String routeName = 'BlankPage';
-  static String routePath = '/blankPage';
+  static String routeName = 'FinalizedLogin';
+  static String routePath = '/finalizedLogin';
 
   @override
-  State<BlankPageWidget> createState() => _BlankPageWidgetState();
+  State<FinalizedLoginWidget> createState() => _FinalizedLoginWidgetState();
 }
 
-class _BlankPageWidgetState extends State<BlankPageWidget> {
-  late BlankPageModel _model;
+class _FinalizedLoginWidgetState extends State<FinalizedLoginWidget> {
+  late FinalizedLoginModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => BlankPageModel());
+    _model = createModel(context, () => FinalizedLoginModel());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -36,7 +36,7 @@ class _BlankPageWidgetState extends State<BlankPageWidget> {
 
       await actions.resetAppStateOnLogout();
 
-      context.goNamedAuth(SignInPageWidget.routeName, context.mounted);
+      context.goNamedAuth(SplashWidget.routeName, context.mounted);
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));

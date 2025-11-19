@@ -151,7 +151,7 @@ class _ImagesWidgetState extends State<ImagesWidget> {
                                                                 FlutterFlowTheme.of(
                                                                         context)
                                                                     .headlineLargeFamily,
-                                                            fontSize: 20.0,
+                                                            fontSize: 16.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w600,
@@ -186,6 +186,8 @@ class _ImagesWidgetState extends State<ImagesWidget> {
                                                                   .of(context)
                                                               .secondaryText,
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w300,
                                                           useGoogleFonts:
                                                               !FlutterFlowTheme
                                                                       .of(context)

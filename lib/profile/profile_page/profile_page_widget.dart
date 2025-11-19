@@ -209,8 +209,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                         ''
                                                 ? containerUserExtRow!
                                                     .profileWallpaper!
-                                                : FFAppConstants
-                                                    .DefultProfileWalpaper,
+                                                : valueOrDefault<String>(
+                                                    FFAppConstants
+                                                        .DefultProfileWalpaper,
+                                                    'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Defults/Defult profile_avatar.png',
+                                                  ),
                                             width: double.infinity,
                                             height: double.infinity,
                                             fit: BoxFit.cover,
@@ -252,19 +255,20 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
                                               child: Image.network(
-                                                (_model.userConsent?.firstOrNull
-                                                                ?.showProfileImage ==
-                                                            true) &&
-                                                        (containerUserExtRow
-                                                                    ?.profileAvatar !=
-                                                                null &&
+                                                (containerUserExtRow?.profileAvatar ==
+                                                                null ||
                                                             containerUserExtRow
-                                                                    ?.profileAvatar !=
-                                                                '')
-                                                    ? containerUserExtRow!
-                                                        .profileAvatar!
-                                                    : FFAppConstants
-                                                        .DefultProfilePhoto,
+                                                                    ?.profileAvatar ==
+                                                                '') ||
+                                                        (_model
+                                                                .userConsent
+                                                                ?.firstOrNull
+                                                                ?.showProfileImage ==
+                                                            false)
+                                                    ? FFAppConstants
+                                                        .DefultProfilePhoto
+                                                    : containerUserExtRow!
+                                                        .profileAvatar!,
                                                 width: 99.3,
                                                 height: 200.0,
                                                 fit: BoxFit.cover,
@@ -663,7 +667,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .secondaryText,
-                                                        size: 22.0,
+                                                        size: 20.0,
                                                       ),
                                                       Text(
                                                         valueOrDefault<String>(
@@ -688,7 +692,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                 ),
                                                       ),
                                                     ].divide(
-                                                        SizedBox(width: 8.0)),
+                                                        SizedBox(width: 3.0)),
                                                   ),
                                                 ]
                                                     .divide(
@@ -699,7 +703,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 8.0, 0.0, 0.0),
+                                                  .fromSTEB(
+                                                      0.0, 10.0, 0.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -787,54 +792,75 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                     alignment:
                                                         AlignmentDirectional(
                                                             0.0, 0.0),
-                                                    child: Container(
-                                                      height: 71.32,
-                                                      decoration:
-                                                          BoxDecoration(),
-                                                      child: Stack(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Container(
+                                                        height: 71.32,
+                                                        decoration:
+                                                            BoxDecoration(),
                                                         alignment:
                                                             AlignmentDirectional(
                                                                 0.0, 0.0),
-                                                        children: [
-                                                          Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.0, -1.0),
-                                                            child: Container(
-                                                              width: 35.0,
-                                                              height: 35.0,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                shape: BoxShape
-                                                                    .circle,
-                                                                border:
-                                                                    Border.all(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondary,
-                                                                ),
-                                                              ),
+                                                        child: Stack(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, 0.0),
+                                                          children: [
+                                                            Align(
                                                               alignment:
                                                                   AlignmentDirectional(
                                                                       0.0,
                                                                       -1.0),
-                                                              child: Align(
+                                                              child: Container(
+                                                                width: 35.0,
+                                                                height: 35.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  shape: BoxShape
+                                                                      .circle,
+                                                                  border: Border
+                                                                      .all(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondary,
+                                                                  ),
+                                                                ),
                                                                 alignment:
                                                                     AlignmentDirectional(
                                                                         0.0,
                                                                         -1.0),
-                                                                child: Text(
-                                                                  FFLocalizations.of(
-                                                                          context)
-                                                                      .getText(
-                                                                    'jzc0o03k' /* 3 */,
-                                                                  ),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .displaySmall
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .poppins(
+                                                                child: Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          0.0,
+                                                                          -1.0),
+                                                                  child: Text(
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      'jzc0o03k' /* 3 */,
+                                                                    ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .displaySmall
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.poppins(
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).displaySmall.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).displaySmall.fontStyle,
+                                                                          ),
+                                                                          fontSize:
+                                                                              24.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight: FlutterFlowTheme.of(context)
                                                                               .displaySmall
                                                                               .fontWeight,
@@ -842,98 +868,91 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                               .displaySmall
                                                                               .fontStyle,
                                                                         ),
-                                                                        fontSize:
-                                                                            24.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight: FlutterFlowTheme.of(context)
-                                                                            .displaySmall
-                                                                            .fontWeight,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .displaySmall
-                                                                            .fontStyle,
-                                                                      ),
+                                                                  ),
                                                                 ),
                                                               ),
                                                             ),
-                                                          ),
-                                                          Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.0, 1.0),
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .end,
-                                                              children: [
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          7.0),
-                                                                  child: Icon(
-                                                                    Icons
-                                                                        .landscape,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .greenInit,
-                                                                    size: 20.0,
-                                                                  ).animateOnPageLoad(
-                                                                      animationsMap[
-                                                                          'iconOnPageLoadAnimation']!),
-                                                                ),
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          4.0),
-                                                                  child: Icon(
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      0.0, 1.0),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .center,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .end,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            7.0),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .landscape,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .greenInit,
+                                                                      size:
+                                                                          20.0,
+                                                                    ).animateOnPageLoad(
+                                                                        animationsMap[
+                                                                            'iconOnPageLoadAnimation']!),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            4.0),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .landscape,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .darkgray,
+                                                                      size:
+                                                                          32.0,
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            2.0),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .landscape,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .darkgray,
+                                                                      size:
+                                                                          40.0,
+                                                                    ),
+                                                                  ),
+                                                                  Icon(
                                                                     Icons
                                                                         .landscape,
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .darkgray,
-                                                                    size: 32.0,
+                                                                    size: 48.0,
                                                                   ),
-                                                                ),
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          2.0),
-                                                                  child: Icon(
-                                                                    Icons
-                                                                        .landscape,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .darkgray,
-                                                                    size: 40.0,
-                                                                  ),
-                                                                ),
-                                                                Icon(
-                                                                  Icons
-                                                                      .landscape,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .darkgray,
-                                                                  size: 48.0,
-                                                                ),
-                                                              ],
+                                                                ],
+                                                              ),
                                                             ),
-                                                          ),
-                                                        ],
+                                                          ],
+                                                        ),
                                                       ),
                                                     ),
                                                   ),

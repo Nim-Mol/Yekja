@@ -836,7 +836,7 @@ class _PostImageWidgetState extends State<PostImageWidget> {
                                   safeSetState(() {});
                                 }
 
-                                context.pushNamed(PostPreviewWidget.routeName);
+                                context.pushNamed(PostPrevWidget.routeName);
                               },
                               child: Container(
                                 width: double.infinity,

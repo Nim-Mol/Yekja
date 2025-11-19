@@ -2132,28 +2132,28 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // chatdetail
   {
-    'v838atpy': {
+    'wsj9su2t': {
       'en': 'Accept & close post when ready!',
       'fa': 'وقتی آماده شد، پست را بپذیرید و ببندید!',
       'nl': 'Accepteer en sluit het bericht als je klaar bent!',
     },
-    'uoqbv4g1': {
+    'p1eefnvj': {
       'en': 'All done?',
       'fa': ' تمام؟',
       'nl': 'Alles klaar?',
     },
-    'delpwk3s': {
+    '6u0sie6q': {
       'en': 'Ready to close this post and give each other review scores?',
       'fa': 'آماده‌ای این پست را ببندی و به یکدیگر امتیاز بدهید؟',
       'nl':
           'Bent u klaar om dit bericht te sluiten en elkaar beoordelingen te geven?',
     },
-    'swnn4nwr': {
+    '8xgki3cf': {
       'en': '',
       'fa': '',
       'nl': '',
     },
-    'm04p2p42': {
+    'obpbp262': {
       'en': 'Type here',
       'fa': 'اینجا تایپ کنید',
       'nl': 'Typ hier',
@@ -3835,7 +3835,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Na',
     },
   },
-  // BlankPage
+  // FinalizedLogin
   {
     'o0gdhtwy': {
       'en': 'Home',
@@ -4507,6 +4507,21 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'خانواده‌ی بزرگ ما',
       'nl': '',
     },
+    'wygkig9v': {
+      'en': 'Mood Change',
+      'fa': '',
+      'nl': '',
+    },
+    'u8oouucd': {
+      'en': 'Check FAQ',
+      'fa': '',
+      'nl': '',
+    },
+    'cqrhygau': {
+      'en': 'Contact US',
+      'fa': '',
+      'nl': '',
+    },
     'qv3strvd': {
       'en': '',
       'fa': '',
@@ -4640,8 +4655,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '8a9n5ce1': {
       'en': 'People who are going to this event.',
-      'fa': 'شرکت‌کنندگان',
-      'nl': 'DEELNEMERS',
+      'fa': 'افرادی که قرار است در این مراسم شرکت کنند.',
+      'nl': 'Mensen die naar dit evenement gaan.',
     },
     'boz0byfv': {
       'en': 'Join Event',
@@ -4923,15 +4938,50 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
       'nl': 'Kies een optie uit de keuzelijst',
     },
-    'u1f2e7t6': {
-      'en': 'City',
-      'fa': 'شهر',
-      'nl': 'Stad',
+    '25ca7h3c': {
+      'en': 'Select',
+      'fa': 'انتخاب کنید',
+      'nl': 'Selecteer',
     },
-    'l3o8p42c': {
+    'b4y4scus': {
+      'en': 'Search...',
+      'fa': 'جستجو...',
+      'nl': 'Zoekopdracht...',
+    },
+    '8dbe5t8r': {
+      'en': 'None',
+      'fa': 'هیچکدام',
+      'nl': 'Geen',
+    },
+    'ftwlpb6q': {
+      'en': 'Per day',
+      'fa': 'در هر روز',
+      'nl': 'Per dag',
+    },
+    'vi9dn7b7': {
+      'en': 'Per night',
+      'fa': 'به ازای هر شب',
+      'nl': 'Per nacht',
+    },
+    '8ysj0tlv': {
+      'en': 'Per week',
+      'fa': 'در هر هفته',
+      'nl': 'Per week',
+    },
+    'c9fzxw25': {
+      'en': 'Per month',
+      'fa': 'در هر ماه',
+      'nl': 'Per maand',
+    },
+    '2fq6obmq': {
+      'en': 'Per year',
+      'fa': 'در هر سال',
+      'nl': 'Per jaar',
+    },
+    'padtwd63': {
       'en': 'City',
-      'fa': 'شهر',
-      'nl': 'Stad',
+      'fa': '',
+      'nl': '',
     },
     'cvyikj5w': {
       'en': 'Social Media Links',
@@ -5652,6 +5702,75 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Thuis',
     },
   },
+  // PostPrev
+  {
+    'xd1m7vtn': {
+      'en': 'PARTICIPANTS',
+      'fa': 'شرکت‌کنندگان',
+      'nl': 'DEELNEMERS',
+    },
+    'kq1qli0i': {
+      'en': 'People who are going to this event.',
+      'fa': 'افرادی که قرار است در این مراسم شرکت کنند.',
+      'nl': 'Mensen die naar dit evenement gaan.',
+    },
+    'uaqcxwb9': {
+      'en': 'Join Event',
+      'fa': 'شرکت در رویداد',
+      'nl': 'Deelnemen',
+    },
+    'x38gfydx': {
+      'en': 'REVIEWS',
+      'fa': 'نقد و بررسی‌ها',
+      'nl': 'RECENSIES',
+    },
+    '5xowzjvx': {
+      'en': 'Fresh start',
+      'fa': 'شروع تازه',
+      'nl': 'Nieuwe start',
+    },
+    'y0z6k9dl': {
+      'en': 'Publish',
+      'fa': 'منتشر کردن',
+      'nl': 'Publiceren',
+    },
+    'mv96nsrq': {
+      'en': 'Ready to Publish Your Post?',
+      'fa': 'آماده انتشار پست خود هستید؟',
+      'nl': 'Klaar om uw bericht te publiceren?',
+    },
+    'zou0thk2': {
+      'en':
+          'Note: Yekja never gets involved in your transactions. It is recommended to verify the identity of counterparty through mutual friends, business or student email, mobile phone, or LinkedIn page.',
+      'fa':
+          'توجه: یکجا هرگز در تراکنش‌های شما دخالت نمی‌کند. توصیه می‌شود هویت طرف مقابل را از طریق دوستان مشترک، ایمیل کاری یا دانشجویی، تلفن همراه یا صفحه لینکدین تأیید کنید.',
+      'nl':
+          'Let op: Yekja bemoeit zich nooit met uw transacties. Het is raadzaam de identiteit van de wederpartij te verifiëren via gemeenschappelijke vrienden, het e-mailadres van een bedrijf of student, een mobiel telefoonnummer of een LinkedIn-pagina.',
+    },
+    'eqlfruyj': {
+      'en': 'Cancel',
+      'fa': 'لغو',
+      'nl': 'Annuleren',
+    },
+    'wq33332n': {
+      'en':
+          'Post Limit Reached! You currently have 5 active posts. Please **delete an existing post** or **upgrade your subscription** to publish more.',
+      'fa':
+          'محدودیت ارسال پست به پایان رسید! شما در حال حاضر ۵ پست فعال دارید. لطفاً **یک پست موجود را حذف کنید** یا **اشتراک خود را ارتقا دهید** تا پست‌های بیشتری منتشر کنید.',
+      'nl':
+          'Berichtenlimiet bereikt! Je hebt momenteel 5 actieve berichten. **Verwijder een bestaand bericht** of **upgrade je abonnement** om er meer te plaatsen.',
+    },
+    'jm9epl0b': {
+      'en': 'Confirm',
+      'fa': 'تأیید',
+      'nl': 'Bevestigen',
+    },
+    'g0htcucn': {
+      'en': 'Home',
+      'fa': 'خانه',
+      'nl': 'Thuis',
+    },
+  },
   // BottonStandard
   {
     'bmqd8rae': {
@@ -6337,19 +6456,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Redden',
     },
   },
-  // More_Menu
-  {
-    'gqwl0yb6': {
-      'en': 'Bookmark',
-      'fa': 'نشانه‌گذاری',
-      'nl': 'Bladwijzer',
-    },
-    'mn4jxoun': {
-      'en': 'Report',
-      'fa': 'گزارش',
-      'nl': 'Rapport',
-    },
-  },
   // ReviewAndRating
   {
     'bgtfx9oz': {
@@ -6432,9 +6538,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Cat
   {
     '2sh31bj5': {
-      'en': 'What would you\nlike to do?',
-      'fa': 'در چه زمینه ای؟',
-      'nl': 'Wat zou je\nwillen doen?',
+      'en': 'Select the category\nbest fitting your post',
+      'fa': 'دسته بندی متناسب با پست خود را انتخاب کنید',
+      'nl': 'Selecteer de categorie die het beste bij je bericht past',
     },
   },
   // SubCat
@@ -7386,6 +7492,24 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'yrmu7axp': {
       'en': 'Damavand',
+      'fa': '',
+      'nl': '',
+    },
+  },
+  // HomeUserMenu
+  {
+    'l524nlog': {
+      'en': 'Mood Change',
+      'fa': '',
+      'nl': '',
+    },
+    '70k6q36g': {
+      'en': 'Check FAQ',
+      'fa': '',
+      'nl': '',
+    },
+    '1x1sasly': {
+      'en': 'Contact US',
       'fa': '',
       'nl': '',
     },

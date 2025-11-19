@@ -249,7 +249,7 @@ new post about? */
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
                                                     .headlineLargeFamily,
-                                            fontSize: 22.0,
+                                            fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                             useGoogleFonts:
@@ -332,7 +332,7 @@ new post about? */
                                                         .override(
                                                           fontFamily:
                                                               'FarsiFonts',
-                                                          fontSize: 18.0,
+                                                          fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -353,6 +353,8 @@ new post about? */
                                                                   .of(context)
                                                               .secondaryText,
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w300,
                                                           useGoogleFonts:
                                                               !FlutterFlowTheme
                                                                       .of(context)
@@ -435,7 +437,7 @@ new post about? */
                                                         .override(
                                                           fontFamily:
                                                               'FarsiFonts',
-                                                          fontSize: 18.0,
+                                                          fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -450,24 +452,25 @@ new post about? */
                                                           .getText(
                                                         '9exgqc2a' /* Sell, rent, transfer parcels, ... */,
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMediumFamily,
-                                                                color: FlutterFlowTheme.of(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w300,
+                                                            useGoogleFonts:
+                                                                !FlutterFlowTheme.of(
                                                                         context)
-                                                                    .secondaryText,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                useGoogleFonts:
-                                                                    !FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMediumIsCustom,
-                                                              ),
+                                                                    .bodyMediumIsCustom,
+                                                          ),
                                                     ),
                                                   ),
                                                 ],
@@ -550,7 +553,7 @@ new post about? */
                                                           .override(
                                                             fontFamily:
                                                                 'FarsiFonts',
-                                                            fontSize: 18.0,
+                                                            fontSize: 16.0,
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -581,6 +584,9 @@ new post about? */
                                                                       .secondaryText,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w300,
                                                                   useGoogleFonts:
                                                                       !FlutterFlowTheme.of(
                                                                               context)
@@ -667,7 +673,7 @@ Announcements */
                                                         .override(
                                                           fontFamily:
                                                               'FarsiFonts',
-                                                          fontSize: 18.0,
+                                                          fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -688,6 +694,8 @@ Announcements */
                                                                   .of(context)
                                                               .secondaryText,
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w300,
                                                           useGoogleFonts:
                                                               !FlutterFlowTheme
                                                                       .of(context)

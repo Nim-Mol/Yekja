@@ -85,13 +85,16 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                 children: [
                   Opacity(
                     opacity: 0.5,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
-                      child: Image.network(
-                        'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/azadi_compressed.jpg',
-                        width: double.infinity,
-                        height: double.infinity,
-                        fit: BoxFit.cover,
+                    child: Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image.network(
+                          'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/azadi_compressed.jpg',
+                          width: double.infinity,
+                          height: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),

@@ -1,7 +1,7 @@
 
 abstract class FFAppConstants {
   static const String DefultProfilePhoto =
-      'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Defult_User_Profile.png';
+      'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Defults/Defult_profile_avatar.png';
   static const String YekjaAdminID = '91ada963-4f51-4b0f-b116-0a5a325dbbcf';
   static const String YekjaLogoChat =
       'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Icons/Yekja%20Logos/logo_1.png';
@@ -10,10 +10,10 @@ abstract class FFAppConstants {
   static const String PostWithoutImage =
       'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Icons/default_image.jpg';
   static const String DefultProfileWalpaper =
-      'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Defult_ProfileWallpaper.png';
+      'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Defults/DefultProfileWallpaper.png';
   static const List<int> catsOpenForSwap = [4, 5];
   static const String profileAvatarCircular =
-      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/n2imhdlvogb3/profile_avatar_circular.png';
+      'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Defults/Defult_profile_avatar_circular.png';
   static const String DefaultPostImage =
       'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg';
   static const String RentalDefaultImage =

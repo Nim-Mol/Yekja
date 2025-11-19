@@ -7,6 +7,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class HomePageModel extends FlutterFlowModel<HomePageWidget> {
+  ///  Local state fields for this page.
+
+  bool showMenu = false;
+
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -38,6 +42,8 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   late MainHeaderModel mainHeaderModel;
   // Model for NavBar component.
   late NavBarModel navBarModel;
+  // State field(s) for Switch widget.
+  bool? switchValue;
 
   @override
   void initState(BuildContext context) {

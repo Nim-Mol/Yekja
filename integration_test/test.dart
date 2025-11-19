@@ -26,6 +26,8 @@ void main() async {
   setUpAll(() async {
     await SupaFlow.initialize();
 
+    await FlutterFlowTheme.initialize();
+
     await FFLocalizations.initialize();
   });
 

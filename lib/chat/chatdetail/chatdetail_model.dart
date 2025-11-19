@@ -32,23 +32,23 @@ class ChatdetailModel extends FlutterFlowModel<ChatdetailWidget> {
   ChatsRow? yekjaChat2Customer;
   // Stores action output result for [Backend Call - Insert Row] action in Row widget.
   ChatsRow? yekjaChat2Owner;
-  bool isDataUploading_inMemImg1 = false;
-  FFUploadedFile uploadedLocalFile_inMemImg1 =
+  bool isDataUploading_inMemImg1En = false;
+  FFUploadedFile uploadedLocalFile_inMemImg1En =
       FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  bool isDataUploading_uploadToDB1 = false;
-  FFUploadedFile uploadedLocalFile_uploadToDB1 =
+  bool isDataUploading_uploadToDB1En = false;
+  FFUploadedFile uploadedLocalFile_uploadToDB1En =
       FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
-  String uploadedFileUrl_uploadToDB1 = '';
+  String uploadedFileUrl_uploadToDB1En = '';
 
   // Stores action output result for [Backend Call - Insert Row] action in IconButton widget.
-  MessagesRow? imgMessage;
+  MessagesRow? imgMessageEn;
   // Stores action output result for [Backend Call - Insert Row] action in IconButton widget.
-  MessagesRow? message;
+  MessagesRow? messageEn;
 
   @override
   void initState(BuildContext context) {

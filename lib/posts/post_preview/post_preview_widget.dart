@@ -1529,7 +1529,7 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                                         backgroundColor:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .accent3,
+                                                                .successSnack,
                                                       ),
                                                     );
 

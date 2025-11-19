@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
-import 'blank_page_widget.dart' show BlankPageWidget;
+import 'finalized_login_widget.dart' show FinalizedLoginWidget;
 import 'package:flutter/material.dart';
 
-class BlankPageModel extends FlutterFlowModel<BlankPageWidget> {
+class FinalizedLoginModel extends FlutterFlowModel<FinalizedLoginWidget> {
   @override
   void initState(BuildContext context) {}
 

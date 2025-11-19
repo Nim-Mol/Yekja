@@ -480,7 +480,7 @@ ongoing ser... */
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .headlineLargeFamily,
-                                    fontSize: 20.0,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                     useGoogleFonts:
@@ -513,7 +513,7 @@ ongoing ser... */
                                             .titleSmallFamily,
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
-                                        fontSize: 16.0,
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                         useGoogleFonts:
@@ -584,7 +584,7 @@ ongoing ser... */
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .bodyMediumFamily,
-                                                    fontSize: 16.0,
+                                                    fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                     useGoogleFonts:
@@ -609,6 +609,7 @@ ongoing ser... */
                                                           context)
                                                       .secondaryText,
                                                   letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w300,
                                                   useGoogleFonts:
                                                       !FlutterFlowTheme.of(
                                                               context)
@@ -674,7 +675,7 @@ ongoing ser... */
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .bodyMediumFamily,
-                                                    fontSize: 16.0,
+                                                    fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                     useGoogleFonts:
@@ -699,6 +700,7 @@ ongoing ser... */
                                                           context)
                                                       .secondaryText,
                                                   letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w300,
                                                   useGoogleFonts:
                                                       !FlutterFlowTheme.of(
                                                               context)

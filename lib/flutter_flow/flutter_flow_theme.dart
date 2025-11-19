@@ -3,6 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'package:shared_preferences/shared_preferences.dart';
+
+const kThemeModeKey = '__theme_mode__';
+
+SharedPreferences? _prefs;
+
 enum DeviceSize {
   mobile,
   tablet,
@@ -12,9 +18,27 @@ enum DeviceSize {
 abstract class FlutterFlowTheme {
   static DeviceSize deviceSize = DeviceSize.mobile;
 
+  static Future initialize() async =>
+      _prefs = await SharedPreferences.getInstance();
+
+  static ThemeMode get themeMode {
+    final darkMode = _prefs?.getBool(kThemeModeKey);
+    return darkMode == null
+        ? ThemeMode.system
+        : darkMode
+            ? ThemeMode.dark
+            : ThemeMode.light;
+  }
+
+  static void saveThemeMode(ThemeMode mode) => mode == ThemeMode.system
+      ? _prefs?.remove(kThemeModeKey)
+      : _prefs?.setBool(kThemeModeKey, mode == ThemeMode.dark);
+
   static FlutterFlowTheme of(BuildContext context) {
     deviceSize = getDeviceSize(context);
-    return LightModeTheme();
+    return Theme.of(context).brightness == Brightness.dark
+        ? DarkModeTheme()
+        : LightModeTheme();
   }
 
   @Deprecated('Use primary instead')
@@ -74,6 +98,8 @@ abstract class FlutterFlowTheme {
   late Color successSnack;
   late Color warningSnack;
   late Color errorSnack;
+  late Color onImageText;
+  late Color newsCard;
 
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
@@ -176,13 +202,13 @@ class LightModeTheme extends FlutterFlowTheme {
   @Deprecated('Use tertiary instead')
   Color get tertiaryColor => tertiary;
 
-  late Color primary = const Color(0xFFFFFFFF);
+  late Color primary = const Color(0xFF050505);
   late Color secondary = const Color(0xFFDEEEEB);
   late Color tertiary = const Color(0xFFEE8B60);
   late Color alternate = const Color(0xFFE0E3E7);
-  late Color primaryText = const Color(0xFFFFFFFF);
-  late Color secondaryText = const Color(0xFFD4D4D4);
-  late Color primaryBackground = const Color(0xFF0E0E0E);
+  late Color primaryText = const Color(0xFF050505);
+  late Color secondaryText = const Color(0xFF000000);
+  late Color primaryBackground = const Color(0xFFA9B1A9);
   late Color secondaryBackground = const Color(0xC2232426);
   late Color accent1 = const Color(0x4C4B39EF);
   late Color accent2 = const Color(0x4D39D2C0);
@@ -226,6 +252,8 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color successSnack = const Color(0xFF01410C);
   late Color warningSnack = const Color(0xFFAA8102);
   late Color errorSnack = const Color(0xFF7C0401);
+  late Color onImageText = const Color(0xFFFFFFFF);
+  late Color newsCard = const Color(0x41013C09);
 }
 
 abstract class Typography {
@@ -655,6 +683,68 @@ class DesktopTypography extends Typography {
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
+}
+
+class DarkModeTheme extends FlutterFlowTheme {
+  @Deprecated('Use primary instead')
+  Color get primaryColor => primary;
+  @Deprecated('Use secondary instead')
+  Color get secondaryColor => secondary;
+  @Deprecated('Use tertiary instead')
+  Color get tertiaryColor => tertiary;
+
+  late Color primary = const Color(0xFFFFFFFF);
+  late Color secondary = const Color(0xFFDEEEEB);
+  late Color tertiary = const Color(0xFFEE8B60);
+  late Color alternate = const Color(0xFFE0E3E7);
+  late Color primaryText = const Color(0xFFFFFFFF);
+  late Color secondaryText = const Color(0xFFD4D4D4);
+  late Color primaryBackground = const Color(0xFF0E0E0E);
+  late Color secondaryBackground = const Color(0xC2232426);
+  late Color accent1 = const Color(0x4C4B39EF);
+  late Color accent2 = const Color(0x4D39D2C0);
+  late Color accent3 = const Color(0x4DEE8B60);
+  late Color accent4 = const Color(0xB2262D34);
+  late Color success = const Color(0xFF249689);
+  late Color warning = const Color(0xFFAA8102);
+  late Color error = const Color(0xFFFF0400);
+  late Color info = const Color(0xFFFFFFFF);
+
+  late Color textgray = const Color(0xCFD4D4D4);
+  late Color lightGray = const Color(0xFFF5F5F5);
+  late Color bordergray = const Color(0xFF696969);
+  late Color lighterSecBackground = const Color(0xFF2A2A2A);
+  late Color logoGreen = const Color(0xFF587858);
+  late Color lighterGreen = const Color(0xFF6A966A);
+  late Color priceTagEventy = const Color(0xFF00A1E7);
+  late Color navBarEventy = const Color(0xFF00A1E7);
+  late Color iconEventy = const Color(0xFF0593D7);
+  late Color greenInit = const Color(0xFF0F9970);
+  late Color customColor1 = const Color(0xFF40C057);
+  late Color red1 = const Color(0xFFFA5252);
+  late Color red2 = const Color(0xFFF25081);
+  late Color orange1 = const Color(0xFFFD7E14);
+  late Color yellow1 = const Color(0xFFFAB005);
+  late Color blue1 = const Color(0xFF22C3E6);
+  late Color blue2 = const Color(0xFF228BE6);
+  late Color purple1 = const Color(0xFF7950F2);
+  late Color magenta1 = const Color(0xFFC850F2);
+  late Color lightgray1 = const Color(0xFFEBEBEB);
+  late Color midgray = const Color(0xFF737373);
+  late Color darkgray = const Color(0xFF4D4D4D);
+  late Color customColor2 = const Color(0xFFAA72E8);
+  late Color customColor3 = const Color(0xFF089F88);
+  late Color green1 = const Color(0xFF12B886);
+  late Color care = const Color(0xFF40C057);
+  late Color market = const Color(0xFF0593D7);
+  late Color service = const Color(0xFFF5C31E);
+  late Color event = const Color(0xFFA70D0A);
+  late Color business = const Color(0xFF012459);
+  late Color successSnack = const Color(0xFF01410C);
+  late Color warningSnack = const Color(0xFFAA8102);
+  late Color errorSnack = const Color(0xFF7C0401);
+  late Color onImageText = const Color(0xFFFFFFFF);
+  late Color newsCard = const Color(0xFF030400);
 }
 
 extension TextStyleHelper on TextStyle {

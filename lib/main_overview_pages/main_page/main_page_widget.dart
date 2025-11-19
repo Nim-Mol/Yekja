@@ -281,7 +281,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                       : FlutterFlowTheme.of(
                                                               context)
                                                           .primaryBackground,
-                                                  width: 0.4,
+                                                  width: 0.3,
                                                 ),
                                               ),
                                               child: Padding(
@@ -780,7 +780,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                           : FlutterFlowTheme.of(
                                                                   context)
                                                               .primaryBackground,
-                                                      width: 0.4,
+                                                      width: 0.3,
                                                     ),
                                                   ),
                                                   child: Padding(
@@ -1311,7 +1311,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                           : FlutterFlowTheme.of(
                                                                   context)
                                                               .primaryBackground,
-                                                      width: 0.4,
+                                                      width: 0.3,
                                                     ),
                                                   ),
                                                   child: Padding(
@@ -1846,7 +1846,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                       : FlutterFlowTheme.of(
                                                               context)
                                                           .primaryBackground,
-                                                  width: 0.4,
+                                                  width: 0.3,
                                                 ),
                                               ),
                                               child: Padding(

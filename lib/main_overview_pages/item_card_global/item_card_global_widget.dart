@@ -2722,26 +2722,45 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                       ].divide(SizedBox(width: 6.0)),
                                     ),
                                   ),
-                                  if (!functions.isNullJSON(getJsonField(
-                                    widget.details,
-                                    r'''$.capacity''',
-                                  )))
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 4.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Icon(
-                                            Icons.people_alt,
-                                            color: FlutterFlowTheme.of(context)
-                                                .bordergray,
-                                            size: 16.0,
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 4.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Icon(
+                                          Icons.people_alt,
+                                          color: FlutterFlowTheme.of(context)
+                                              .bordergray,
+                                          size: 16.0,
+                                        ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'd8qll1yl' /* Capacity: */,
                                           ),
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'd8qll1yl' /* Capacity: */,
-                                            ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .labelSmall
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelSmallFamily,
+                                                fontSize: 14.0,
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    !FlutterFlowTheme.of(
+                                                            context)
+                                                        .labelSmallIsCustom,
+                                              ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 12.0, 0.0),
+                                          child: Text(
+                                            getJsonField(
+                                              widget.details,
+                                              r'''$.capacity''',
+                                            ).toString(),
                                             style: FlutterFlowTheme.of(context)
                                                 .labelSmall
                                                 .override(
@@ -2749,6 +2768,9 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .labelSmallFamily,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   useGoogleFonts:
@@ -2757,38 +2779,10 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                                           .labelSmallIsCustom,
                                                 ),
                                           ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 12.0, 0.0),
-                                            child: Text(
-                                              getJsonField(
-                                                widget.details,
-                                                r'''$.capacity''',
-                                              ).toString(),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .labelSmall
-                                                  .override(
-                                                    fontFamily:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelSmallFamily,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                    fontSize: 14.0,
-                                                    letterSpacing: 0.0,
-                                                    useGoogleFonts:
-                                                        !FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelSmallIsCustom,
-                                                  ),
-                                            ),
-                                          ),
-                                        ].divide(SizedBox(width: 6.0)),
-                                      ),
+                                        ),
+                                      ].divide(SizedBox(width: 6.0)),
                                     ),
+                                  ),
                                 ],
                               ),
                               Padding(

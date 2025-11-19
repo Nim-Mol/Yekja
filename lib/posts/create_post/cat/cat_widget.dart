@@ -88,8 +88,8 @@ class _CatWidgetState extends State<CatWidget> {
                               children: [
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    '2sh31bj5' /* What would you
-like to do? */
+                                    '2sh31bj5' /* Select the category
+best fitti... */
                                     ,
                                   ),
                                   textAlign: TextAlign.center,
@@ -98,7 +98,7 @@ like to do? */
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .headlineLargeFamily,
-                                        fontSize: 20.0,
+                                        fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         useGoogleFonts:
                                             !FlutterFlowTheme.of(context)
@@ -177,7 +177,7 @@ like to do? */
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 16.0, 12.0, 8.0),
+                                                  12.0, 8.0, 12.0, 8.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -189,8 +189,8 @@ like to do? */
                                                 alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Container(
-                                                  width: 50.0,
-                                                  height: 50.0,
+                                                  width: 40.0,
+                                                  height: 40.0,
                                                   decoration: BoxDecoration(
                                                     color:
                                                         valueOrDefault<Color>(
@@ -215,11 +215,11 @@ like to do? */
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsets.all(8.0),
+                                                        EdgeInsets.all(4.0),
                                                     child: custom_widgets
                                                         .SvgRenderer(
-                                                      width: 30.0,
-                                                      height: 30.0,
+                                                      width: 36.0,
+                                                      height: 36.0,
                                                       svgCode: categoriesItem
                                                           .effectiveIconImage,
                                                       iconColor:

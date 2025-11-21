@@ -316,7 +316,7 @@ details  */
                                 height: 60.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                      .lighterSecBackground,
                                   borderRadius: BorderRadius.circular(12.0),
                                   border: Border.all(
                                     color: FFAppState().postState.title != ''
@@ -475,7 +475,7 @@ details  */
                                 height: 60.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                      .lighterSecBackground,
                                   borderRadius: BorderRadius.circular(12.0),
                                   border: Border.all(
                                     color: FFAppState()
@@ -640,7 +640,7 @@ details  */
                                         height: 60.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
+                                              .lighterSecBackground,
                                           borderRadius:
                                               BorderRadius.circular(12.0),
                                           border: Border.all(
@@ -745,9 +745,13 @@ details  */
                                                       .secondaryBackground,
                                               size: 15.0,
                                             ),
-                                            fillColor: Color(0xFF232426),
+                                            fillColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .lighterSecBackground,
                                             elevation: 0.0,
-                                            borderColor: Colors.transparent,
+                                            borderColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .lighterSecBackground,
                                             borderWidth: 0.0,
                                             borderRadius: 12.0,
                                             margin:
@@ -794,7 +798,7 @@ details  */
                                   Container(
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                          .lighterSecBackground,
                                       borderRadius: BorderRadius.circular(12.0),
                                       border: Border.all(
                                         color:
@@ -1015,7 +1019,7 @@ details  */
                                   Container(
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                          .lighterSecBackground,
                                       borderRadius: BorderRadius.circular(12.0),
                                       border: Border.all(
                                         color:
@@ -1264,7 +1268,7 @@ details  */
                                                       inactiveTrackColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bordergray,
+                                                              .secondaryBackground,
                                                       inactiveThumbColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1297,7 +1301,7 @@ details  */
                                   Container(
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                          .lighterSecBackground,
                                       borderRadius: BorderRadius.circular(12.0),
                                       border: Border.all(
                                         color: FFAppState()
@@ -1557,7 +1561,7 @@ details  */
                                               .greenInit,
                                       inactiveTrackColor:
                                           FlutterFlowTheme.of(context)
-                                              .bordergray,
+                                              .secondaryBackground,
                                       inactiveThumbColor:
                                           FlutterFlowTheme.of(context)
                                               .secondaryText,
@@ -1633,7 +1637,7 @@ details  */
                                     ),
                                     filled: true,
                                     fillColor: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
+                                        .lighterSecBackground,
                                     prefixIcon: Icon(
                                       Icons.recycling,
                                       color: FlutterFlowTheme.of(context)

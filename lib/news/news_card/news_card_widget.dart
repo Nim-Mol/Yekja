@@ -201,7 +201,7 @@ class _NewsCardWidgetState extends State<NewsCardWidget> {
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily:
                                   FlutterFlowTheme.of(context).bodyMediumFamily,
-                              color: FlutterFlowTheme.of(context).greenInit,
+                              color: FlutterFlowTheme.of(context).primaryWhite,
                               fontSize: 10.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w600,

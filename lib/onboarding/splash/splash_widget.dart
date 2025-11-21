@@ -86,7 +86,7 @@ class _SplashWidgetState extends State<SplashWidget>
         safeSetState(() {});
       }
 
-      context.pushNamed(OnboardingPageWidget.routeName);
+      context.goNamed(OnboardingPageWidget.routeName);
     });
 
     animationsMap.addAll({
@@ -140,16 +140,43 @@ class _SplashWidgetState extends State<SplashWidget>
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: Image.asset(
-                  'assets/images/yekja_logo_verified_transparent.png',
-                  width: 220.0,
-                  height: 220.0,
-                  fit: BoxFit.contain,
-                  alignment: Alignment(0.0, -1.0),
+              Align(
+                alignment: AlignmentDirectional(0.0, -1.0),
+                child: Transform.scale(
+                  scaleX: 1.4,
+                  scaleY: 1.5,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      'assets/images/yekja_logo_verified_transparent.png',
+                      width: 220.0,
+                      height: 128.34,
+                      fit: BoxFit.contain,
+                      alignment: Alignment(0.0, -1.0),
+                    ),
+                  ).animateOnPageLoad(
+                      animationsMap['imageOnPageLoadAnimation']!),
                 ),
-              ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation']!),
+              ),
+              Align(
+                alignment: AlignmentDirectional(0.0, 1.0),
+                child: Container(
+                  width: 179.6,
+                  height: 67.51,
+                  decoration: BoxDecoration(),
+                  alignment: AlignmentDirectional(0.0, 1.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      'assets/images/000.gif',
+                      width: 111.3,
+                      height: 314.8,
+                      fit: BoxFit.contain,
+                      alignment: Alignment(0.0, 1.0),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

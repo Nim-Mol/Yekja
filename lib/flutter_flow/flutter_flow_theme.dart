@@ -98,8 +98,10 @@ abstract class FlutterFlowTheme {
   late Color successSnack;
   late Color warningSnack;
   late Color errorSnack;
-  late Color onImageText;
+  late Color primaryWhite;
   late Color newsCard;
+  late Color navBar;
+  late Color itemBoxExtraInfo;
 
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
@@ -204,32 +206,32 @@ class LightModeTheme extends FlutterFlowTheme {
 
   late Color primary = const Color(0xFF050505);
   late Color secondary = const Color(0xFFDEEEEB);
-  late Color tertiary = const Color(0xFFEE8B60);
+  late Color tertiary = const Color(0xFF798D79);
   late Color alternate = const Color(0xFFE0E3E7);
   late Color primaryText = const Color(0xFF050505);
-  late Color secondaryText = const Color(0xFF000000);
-  late Color primaryBackground = const Color(0xFFA9B1A9);
-  late Color secondaryBackground = const Color(0xC2232426);
+  late Color secondaryText = const Color(0xFF1A1A1A);
+  late Color primaryBackground = const Color(0xFFA8B6A8);
+  late Color secondaryBackground = const Color(0xFF8FA18F);
   late Color accent1 = const Color(0x4C4B39EF);
   late Color accent2 = const Color(0x4D39D2C0);
   late Color accent3 = const Color(0xC4115624);
   late Color accent4 = const Color(0xFF1A8D9A);
-  late Color success = const Color(0xFF00798A);
+  late Color success = const Color(0xFF1A551A);
   late Color warning = const Color(0xFFAA8102);
   late Color error = const Color(0xFFFF0400);
   late Color info = const Color(0xFFDCDCDC);
 
-  late Color textgray = const Color(0xCFD4D4D4);
+  late Color textgray = const Color(0xFF434343);
   late Color lightGray = const Color(0xFFF5F5F5);
   late Color bordergray = const Color(0xFF696969);
-  late Color lighterSecBackground = const Color(0xFF2A2A2A);
+  late Color lighterSecBackground = const Color(0xFF404F42);
   late Color logoGreen = const Color(0xFF587858);
   late Color lighterGreen = const Color(0xFF6A966A);
   late Color priceTagEventy = const Color(0xFF00A1E7);
   late Color navBarEventy = const Color(0xFF00A1E7);
   late Color iconEventy = const Color(0xFF0593D7);
   late Color greenInit = const Color(0xFF0F9970);
-  late Color customColor1 = const Color(0xFF40C057);
+  late Color customColor1 = const Color(0xFF65CD73);
   late Color red1 = const Color(0xFFFA5252);
   late Color red2 = const Color(0xFFF25081);
   late Color orange1 = const Color(0xFFFD7E14);
@@ -240,10 +242,10 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color magenta1 = const Color(0xFFC850F2);
   late Color lightgray1 = const Color(0xFFEBEBEB);
   late Color midgray = const Color(0xFF737373);
-  late Color darkgray = const Color(0xFF4D4D4D);
+  late Color darkgray = const Color(0xFF8CB893);
   late Color customColor2 = const Color(0xFFAA72E8);
   late Color customColor3 = const Color(0xFF089F88);
-  late Color green1 = const Color(0xFF12B886);
+  late Color green1 = const Color(0xFF055743);
   late Color care = const Color(0xFF40C057);
   late Color market = const Color(0xFF0593D7);
   late Color service = const Color(0xFFF0C206);
@@ -252,8 +254,10 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color successSnack = const Color(0xFF01410C);
   late Color warningSnack = const Color(0xFFAA8102);
   late Color errorSnack = const Color(0xFF7C0401);
-  late Color onImageText = const Color(0xFFFFFFFF);
-  late Color newsCard = const Color(0x41013C09);
+  late Color primaryWhite = const Color(0xFFFFFFFF);
+  late Color newsCard = const Color(0x905F7A5F);
+  late Color navBar = const Color(0xFF404F42);
+  late Color itemBoxExtraInfo = const Color(0xFF38696D);
 }
 
 abstract class Typography {
@@ -695,7 +699,7 @@ class DarkModeTheme extends FlutterFlowTheme {
 
   late Color primary = const Color(0xFFFFFFFF);
   late Color secondary = const Color(0xFFDEEEEB);
-  late Color tertiary = const Color(0xFFEE8B60);
+  late Color tertiary = const Color(0xFF232426);
   late Color alternate = const Color(0xFFE0E3E7);
   late Color primaryText = const Color(0xFFFFFFFF);
   late Color secondaryText = const Color(0xFFD4D4D4);
@@ -713,7 +717,7 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color textgray = const Color(0xCFD4D4D4);
   late Color lightGray = const Color(0xFFF5F5F5);
   late Color bordergray = const Color(0xFF696969);
-  late Color lighterSecBackground = const Color(0xFF2A2A2A);
+  late Color lighterSecBackground = const Color(0xFF232426);
   late Color logoGreen = const Color(0xFF587858);
   late Color lighterGreen = const Color(0xFF6A966A);
   late Color priceTagEventy = const Color(0xFF00A1E7);
@@ -734,7 +738,7 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color darkgray = const Color(0xFF4D4D4D);
   late Color customColor2 = const Color(0xFFAA72E8);
   late Color customColor3 = const Color(0xFF089F88);
-  late Color green1 = const Color(0xFF12B886);
+  late Color green1 = const Color(0xFF0BD9A1);
   late Color care = const Color(0xFF40C057);
   late Color market = const Color(0xFF0593D7);
   late Color service = const Color(0xFFF5C31E);
@@ -743,8 +747,10 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color successSnack = const Color(0xFF01410C);
   late Color warningSnack = const Color(0xFFAA8102);
   late Color errorSnack = const Color(0xFF7C0401);
-  late Color onImageText = const Color(0xFFFFFFFF);
+  late Color primaryWhite = const Color(0xFFFFFFFF);
   late Color newsCard = const Color(0xFF030400);
+  late Color navBar = const Color(0xFF232426);
+  late Color itemBoxExtraInfo = const Color(0x420593D7);
 }
 
 extension TextStyleHelper on TextStyle {

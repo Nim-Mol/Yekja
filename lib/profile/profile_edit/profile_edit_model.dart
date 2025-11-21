@@ -212,6 +212,8 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
   bool? allowMessageValue1;
   // State field(s) for AllowMessage widget.
   bool? allowMessageValue2;
+  // State field(s) for AllowMessage widget.
+  bool? allowMessageValue3;
   // Stores action output result for [Backend Call - Update Row(s)] action in Save widget.
   List<ConsentsRow>? savedInfo;
 

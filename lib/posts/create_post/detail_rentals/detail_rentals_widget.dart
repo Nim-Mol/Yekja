@@ -18,7 +18,12 @@ import 'detail_rentals_model.dart';
 export 'detail_rentals_model.dart';
 
 class DetailRentalsWidget extends StatefulWidget {
-  const DetailRentalsWidget({super.key});
+  const DetailRentalsWidget({
+    super.key,
+    this.navRoute,
+  });
+
+  final String? navRoute;
 
   static String routeName = 'DetailRentals';
   static String routePath = '/detailRentals';
@@ -85,148 +90,141 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Align(
-                    alignment: AlignmentDirectional(0.0, -1.0),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
-                      child: Container(
-                        constraints: BoxConstraints(
-                          maxWidth: 480.0,
-                        ),
-                        decoration: BoxDecoration(),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Container(
-                                    width: 45.0,
-                                    height: 45.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.safePop();
-                                      },
-                                      child: Icon(
-                                        Icons.arrow_back,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        size: 24.0,
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    height: 45.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      borderRadius: BorderRadius.circular(24.0),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Icon(
-                                              Icons.border_color,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .greenInit,
-                                              size: 24.0,
-                                            ),
-                                            Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'pd2h46tz' /* Details */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMediumFamily,
-                                                        letterSpacing: 0.0,
-                                                        useGoogleFonts:
-                                                            !FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMediumIsCustom,
-                                                      ),
-                                            ),
-                                          ].divide(SizedBox(width: 8.0)),
-                                        ),
-                                        Text(
-                                          '${functions.isInSetInt(FFAppState().postState.catId, FFAppConstants.catsOpenForSwap.toList()) == true ? '4' : '5'} of 6',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMediumIsCustom,
-                                              ),
-                                        ),
-                                      ]
-                                          .divide(SizedBox(width: 10.0))
-                                          .addToStart(SizedBox(width: 16.0))
-                                          .addToEnd(SizedBox(width: 16.0)),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 45.0,
-                                    height: 45.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.pushNamed(
-                                            HomePageWidget.routeName);
-                                      },
-                                      child: Icon(
-                                        Icons.close,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        size: 24.0,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 16.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                          width: 40.0,
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            shape: BoxShape.circle,
+                          ),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.safePop();
+                            },
+                            child: Icon(
+                              Icons.arrow_back,
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 20.0,
                             ),
-                          ],
+                          ),
                         ),
-                      ),
+                        Container(
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            borderRadius: BorderRadius.circular(24.0),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Icon(
+                                  Icons.border_color,
+                                  color: FlutterFlowTheme.of(context).greenInit,
+                                  size: 20.0,
+                                ),
+                              ),
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'i2k2zt4c' /* Details */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
+                                    ),
+                              ),
+                              RichText(
+                                textScaler: MediaQuery.of(context).textScaler,
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: FFLocalizations.of(context).getText(
+                                        'kjzhkoro' /* 5 */,
+                                      ),
+                                      style: TextStyle(),
+                                    ),
+                                    TextSpan(
+                                      text: FFLocalizations.of(context).getText(
+                                        '0t9ks399' /*  of  */,
+                                      ),
+                                      style: TextStyle(),
+                                    ),
+                                    TextSpan(
+                                      text: FFLocalizations.of(context).getText(
+                                        'xmtjj0up' /* 6 */,
+                                      ),
+                                      style: TextStyle(),
+                                    )
+                                  ],
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .bodyMediumFamily,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        letterSpacing: 0.0,
+                                        useGoogleFonts:
+                                            !FlutterFlowTheme.of(context)
+                                                .bodyMediumIsCustom,
+                                      ),
+                                ),
+                              ),
+                            ]
+                                .divide(SizedBox(width: 16.0))
+                                .addToStart(SizedBox(width: 24.0))
+                                .addToEnd(SizedBox(width: 24.0)),
+                          ),
+                        ),
+                        Container(
+                          width: 40.0,
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            shape: BoxShape.circle,
+                          ),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              if (widget.navRoute == 'PostPreview') {
+                                context.pushNamed(PostPreviewWidget.routeName);
+                              } else {
+                                context.pushNamed(HomePageWidget.routeName);
+                              }
+                            },
+                            child: Icon(
+                              Icons.close,
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 20.0,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Expanded(
@@ -756,7 +754,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryText,
+                                                              .primary,
                                                       letterSpacing: 0.0,
                                                       useGoogleFonts:
                                                           !FlutterFlowTheme.of(
@@ -819,9 +817,13 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                       .textgray,
                                               size: 16.0,
                                             ),
-                                            fillColor: Color(0xE4232426),
+                                            fillColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
                                             elevation: 0.0,
-                                            borderColor: Color(0xE4232426),
+                                            borderColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
                                             borderWidth: 0.0,
                                             borderRadius: 4.0,
                                             margin:
@@ -874,7 +876,10 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .titleMediumFamily,
-                                                      color: Color(0xFF0BD9A1),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .green1,
                                                       fontSize: 16.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -970,7 +975,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                   iconColor:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .primaryText,
+                                                          .primary,
                                                   iconSize: 16.0,
                                                   labelPadding:
                                                       EdgeInsetsDirectional
@@ -1010,7 +1015,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                   iconColor:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .secondaryText,
+                                                          .primary,
                                                   iconSize: 16.0,
                                                   labelPadding:
                                                       EdgeInsetsDirectional
@@ -1020,7 +1025,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                   borderColor:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .bordergray,
+                                                          .secondaryBackground,
                                                   borderWidth: 0.2,
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -1077,7 +1082,9 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                                     context)
                                                                 .bodyMediumFamily,
                                                         color:
-                                                            Color(0xCFD4D4D4),
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
                                                         letterSpacing: 0.0,
                                                         useGoogleFonts:
                                                             !FlutterFlowTheme
@@ -1271,7 +1278,8 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
                                                     .titleMediumFamily,
-                                            color: Color(0xFF0BD9A1),
+                                            color: FlutterFlowTheme.of(context)
+                                                .green1,
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
@@ -1720,8 +1728,9 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .titleMediumFamily,
-                                                          color:
-                                                              Color(0xFF0BD9A1),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .green1,
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -1930,7 +1939,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .secondaryText,
+                                                                .primary,
                                                         letterSpacing: 0.0,
                                                         useGoogleFonts:
                                                             !FlutterFlowTheme
@@ -2050,22 +2059,24 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                           .getText(
                                                         'szljnmug' /* Deposit: */,
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMediumFamily,
-                                                            color: Color(
-                                                                0xCFD4D4D4),
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
+                                                                color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMediumIsCustom,
-                                                          ),
+                                                                    .primary,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
                                                     ),
                                                   ),
                                                   Container(
@@ -2253,22 +2264,24 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                           .getText(
                                                         '9s1vxa8a' /* Negotiable: */,
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMediumFamily,
-                                                            color: Color(
-                                                                0xCFD4D4D4),
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
+                                                                color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMediumIsCustom,
-                                                          ),
+                                                                    .primary,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
                                                     ),
                                                   ),
                                                   Transform.scale(
@@ -2313,7 +2326,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                       inactiveTrackColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bordergray,
+                                                              .secondaryBackground,
                                                       inactiveThumbColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -2588,7 +2601,9 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMediumFamily,
-                                              color: Color(0xCFD4D4D4),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
                                               letterSpacing: 0.0,
                                               useGoogleFonts:
                                                   !FlutterFlowTheme.of(context)
@@ -2631,7 +2646,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                   .greenInit,
                                           inactiveTrackColor:
                                               FlutterFlowTheme.of(context)
-                                                  .bordergray,
+                                                  .secondaryBackground,
                                           inactiveThumbColor:
                                               FlutterFlowTheme.of(context)
                                                   .secondaryText,
@@ -2654,7 +2669,9 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMediumFamily,
-                                              color: Color(0xCFD4D4D4),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
                                               letterSpacing: 0.0,
                                               useGoogleFonts:
                                                   !FlutterFlowTheme.of(context)
@@ -2697,7 +2714,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                   .greenInit,
                                           inactiveTrackColor:
                                               FlutterFlowTheme.of(context)
-                                                  .bordergray,
+                                                  .secondaryBackground,
                                           inactiveThumbColor:
                                               FlutterFlowTheme.of(context)
                                                   .secondaryText,
@@ -2720,7 +2737,9 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMediumFamily,
-                                              color: Color(0xCFD4D4D4),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
                                               letterSpacing: 0.0,
                                               useGoogleFonts:
                                                   !FlutterFlowTheme.of(context)
@@ -2763,7 +2782,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                   .greenInit,
                                           inactiveTrackColor:
                                               FlutterFlowTheme.of(context)
-                                                  .bordergray,
+                                                  .secondaryBackground,
                                           inactiveThumbColor:
                                               FlutterFlowTheme.of(context)
                                                   .secondaryText,

@@ -265,7 +265,7 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                   Icons.chevron_left,
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .info,
+                                                      .primary,
                                                   size: 24.0,
                                                 ),
                                                 onPressed: () async {
@@ -653,6 +653,7 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                                                                       postTitle: postViewPostSearchEnRow.title,
                                                                                                       isProfile: false,
                                                                                                       profileOwnerName: postViewPostSearchEnRow.userName,
+                                                                                                      profileId: postViewPostSearchEnRow.ownerId,
                                                                                                     ),
                                                                                                   ),
                                                                                                 );
@@ -770,6 +771,9 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .titleLargeFamily,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryWhite,
                                                           fontSize: 28.0,
                                                           letterSpacing: 0.0,
                                                           lineHeight: 1.1,
@@ -1992,6 +1996,7 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                           postId: postViewPostSearchEnRow.postId!,
                           allowMessage: postViewPostSearchEnRow.allowMessage!,
                           allowCall: postViewPostSearchEnRow.allowCall!,
+                          allowShare: false,
                         ),
                       ),
                     ),

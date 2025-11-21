@@ -184,7 +184,7 @@ class _ImagesWidgetState extends State<ImagesWidget> {
                                                                   .bodyMediumFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .secondaryText,
+                                                              .primary,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w300,

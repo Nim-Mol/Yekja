@@ -28,4 +28,6 @@ abstract class FFAppConstants {
       'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Onboardings/babysitter_1.jpg';
   static const String EventsImage =
       'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Events.png';
+  static const String YekjaCertified =
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/snefce4g15um/Yekja_badge_small.png';
 }

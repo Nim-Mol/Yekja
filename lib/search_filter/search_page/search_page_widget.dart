@@ -373,9 +373,16 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                             width: 48.0,
                                             height: 48.0,
                                             decoration: BoxDecoration(
-                                              color: Color(0xFF232426),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                              ),
                                             ),
                                             alignment:
                                                 AlignmentDirectional(0.0, 0.0),
@@ -383,7 +390,7 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                               Icons.arrow_back,
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                                      .primary,
                                               size: 24.0,
                                             ),
                                           ),
@@ -505,6 +512,9 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .labelMediumFamily,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 useGoogleFonts:
@@ -526,6 +536,9 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .labelMediumFamily,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -537,8 +550,9 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                                       enabledBorder:
                                                           OutlineInputBorder(
                                                         borderSide: BorderSide(
-                                                          color:
-                                                              Color(0xFF232426),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
                                                           width: 1.0,
                                                         ),
                                                         borderRadius:
@@ -629,8 +643,9 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                                         ),
                                                       ),
                                                       filled: true,
-                                                      fillColor:
-                                                          Color(0xFF232426),
+                                                      fillColor: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -642,7 +657,7 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                                                   .bodyMediumFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .secondaryText,
+                                                              .primary,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts:
                                                               !FlutterFlowTheme
@@ -701,7 +716,7 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                                   Icons.refresh,
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .primaryText,
+                                                      .primary,
                                                   size: 24.0,
                                                 ),
                                               ),
@@ -737,7 +752,8 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                           width: 48.0,
                                           height: 48.0,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFF232426),
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
                                             borderRadius: BorderRadius.only(
                                               bottomLeft: Radius.circular(8.0),
                                               bottomRight: Radius.circular(8.0),
@@ -745,7 +761,9 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                               topRight: Radius.circular(8.0),
                                             ),
                                             border: Border.all(
-                                              color: Color(0xFF232426),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
                                             ),
                                           ),
                                           alignment:
@@ -753,7 +771,7 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                           child: Icon(
                                             Icons.search_sharp,
                                             color: FlutterFlowTheme.of(context)
-                                                .primaryText,
+                                                .primary,
                                             size: 24.0,
                                           ),
                                         ),

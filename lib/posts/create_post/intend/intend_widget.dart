@@ -193,6 +193,14 @@ ongoing ser... */
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .bodyMediumFamily,
+                                                    color: FFAppState().postState.intend !=
+                                                                ''
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .textgray,
                                                     fontSize: 16.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
@@ -317,23 +325,27 @@ ongoing ser... */
                                                     .getText(
                                                   'x2t6sox5' /* Permanent post */,
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMediumIsCustom,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .textgray,
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumIsCustom,
+                                                    ),
                                               ),
                                             ),
                                             RichText(
@@ -584,6 +596,16 @@ ongoing ser... */
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .bodyMediumFamily,
+                                                    color: FFAppState()
+                                                                .postState
+                                                                .intend ==
+                                                            'Hosting'
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .textgray,
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
@@ -675,6 +697,16 @@ ongoing ser... */
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .bodyMediumFamily,
+                                                    color: FFAppState()
+                                                                .postState
+                                                                .intend ==
+                                                            'Announcing'
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .textgray,
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
@@ -905,7 +937,7 @@ ongoing ser... */
                                                   ? FlutterFlowTheme.of(context)
                                                       .primaryText
                                                   : FlutterFlowTheme.of(context)
-                                                      .secondaryText,
+                                                      .textgray,
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
@@ -965,7 +997,7 @@ ongoing ser... */
                                                   ? FlutterFlowTheme.of(context)
                                                       .primaryText
                                                   : FlutterFlowTheme.of(context)
-                                                      .secondaryText,
+                                                      .textgray,
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
@@ -1169,7 +1201,7 @@ ongoing ser... */
                                                   ? FlutterFlowTheme.of(context)
                                                       .primaryText
                                                   : FlutterFlowTheme.of(context)
-                                                      .secondaryText,
+                                                      .textgray,
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
@@ -1228,7 +1260,7 @@ ongoing ser... */
                                                   ? FlutterFlowTheme.of(context)
                                                       .primaryText
                                                   : FlutterFlowTheme.of(context)
-                                                      .secondaryText,
+                                                      .textgray,
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
@@ -1431,7 +1463,7 @@ ongoing ser... */
                                                   ? FlutterFlowTheme.of(context)
                                                       .primaryText
                                                   : FlutterFlowTheme.of(context)
-                                                      .secondaryText,
+                                                      .textgray,
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
@@ -1491,7 +1523,7 @@ ongoing ser... */
                                                   ? FlutterFlowTheme.of(context)
                                                       .primaryText
                                                   : FlutterFlowTheme.of(context)
-                                                      .secondaryText,
+                                                      .textgray,
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,

@@ -113,7 +113,7 @@ class _TermsConditionsPageWidgetState extends State<TermsConditionsPageWidget>
                         ),
                         Text(
                           FFLocalizations.of(context).getText(
-                            'gt5ezvts' /*  27/12/2023 */,
+                            'gt5ezvts' /*  27/12/2025 */,
                           ),
                           maxLines: 1,
                           style: FlutterFlowTheme.of(context)

@@ -19,6 +19,7 @@ class ComunicationBarWidget extends StatefulWidget {
     required this.postId,
     bool? allowMessage,
     bool? allowCall,
+    required this.allowShare,
   })  : this.allowMessage = allowMessage ?? true,
         this.allowCall = allowCall ?? true;
 
@@ -27,6 +28,7 @@ class ComunicationBarWidget extends StatefulWidget {
   final String? postId;
   final bool allowMessage;
   final bool allowCall;
+  final bool? allowShare;
 
   @override
   State<ComunicationBarWidget> createState() => _ComunicationBarWidgetState();
@@ -348,9 +350,6 @@ class _ComunicationBarWidgetState extends State<ComunicationBarWidget>
                                       .fontStyle,
                                 ),
                         elevation: 0.0,
-                        borderSide: BorderSide(
-                          width: 1.0,
-                        ),
                         borderRadius: BorderRadius.circular(50.0),
                         disabledColor:
                             FlutterFlowTheme.of(context).lighterSecBackground,
@@ -401,9 +400,6 @@ class _ComunicationBarWidgetState extends State<ComunicationBarWidget>
                                       .fontStyle,
                                 ),
                         elevation: 0.0,
-                        borderSide: BorderSide(
-                          width: 1.0,
-                        ),
                         borderRadius: BorderRadius.circular(50.0),
                         disabledColor:
                             FlutterFlowTheme.of(context).lighterSecBackground,
@@ -416,12 +412,16 @@ class _ComunicationBarWidgetState extends State<ComunicationBarWidget>
                     alignment: AlignmentDirectional(0.0, -1.0),
                     child: Builder(
                       builder: (context) => FFButtonWidget(
-                        onPressed: () async {
-                          await Share.share(
-                            'yekja://yekja.nl${GoRouterState.of(context).uri.toString()}',
-                            sharePositionOrigin: getWidgetBoundingBox(context),
-                          );
-                        },
+                        onPressed: (!widget.allowShare! ||
+                                (currentUserUid == ''))
+                            ? null
+                            : () async {
+                                await Share.share(
+                                  'yekja://yekja.nl${GoRouterState.of(context).uri.toString()}',
+                                  sharePositionOrigin:
+                                      getWidgetBoundingBox(context),
+                                );
+                              },
                         text: FFLocalizations.of(context).getText(
                           '8f99d8cs' /*  */,
                         ),
@@ -455,6 +455,10 @@ class _ComunicationBarWidgetState extends State<ComunicationBarWidget>
                                   ),
                           elevation: 0.0,
                           borderRadius: BorderRadius.circular(50.0),
+                          disabledColor:
+                              FlutterFlowTheme.of(context).lighterSecBackground,
+                          disabledTextColor:
+                              FlutterFlowTheme.of(context).bordergray,
                         ),
                       ),
                     ),

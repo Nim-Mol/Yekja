@@ -176,14 +176,14 @@ fits your post ... */
                         child: Container(
                           height: 36.0,
                           decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
                             borderRadius: BorderRadius.circular(8.0),
                             border: Border.all(
                               color: FFAppState().postState.subCatId ==
                                       wrapSubCategoriesRow.subCatId
-                                  ? FlutterFlowTheme.of(context).primaryText
-                                  : FlutterFlowTheme.of(context).darkgray,
+                                  ? FlutterFlowTheme.of(context).primary
+                                  : FlutterFlowTheme.of(context).bordergray,
                               width: 0.5,
                             ),
                           ),
@@ -205,7 +205,16 @@ fits your post ... */
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .bodyMediumFamily,
+                                        color: FFAppState()
+                                                    .postState
+                                                    .subCatId ==
+                                                wrapSubCategoriesRow.subCatId
+                                            ? FlutterFlowTheme.of(context)
+                                                .primary
+                                            : FlutterFlowTheme.of(context)
+                                                .textgray,
                                         letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w500,
                                         useGoogleFonts:
                                             !FlutterFlowTheme.of(context)
                                                 .bodyMediumIsCustom,

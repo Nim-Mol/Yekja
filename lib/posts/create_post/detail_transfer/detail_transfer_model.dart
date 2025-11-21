@@ -26,7 +26,8 @@ class DetailTransferModel extends FlutterFlowModel<DetailTransferWidget> {
   FocusNode? textFieldFocusNode4;
   TextEditingController? textController4;
   String? Function(BuildContext, String?)? textController4Validator;
-  DateTime? datePicked;
+  DateTime? datePicked1;
+  DateTime? datePicked2;
   // State field(s) for PriceBoolSwitch widget.
   bool? priceBoolSwitchValue;
   // State field(s) for TextField widget.
@@ -36,9 +37,7 @@ class DetailTransferModel extends FlutterFlowModel<DetailTransferWidget> {
   // State field(s) for NegotiableSwitch widget.
   bool? negotiableSwitchValue;
   // State field(s) for RegistrationSwitch widget.
-  bool? registrationSwitchValue1;
-  // State field(s) for RegistrationSwitch widget.
-  bool? registrationSwitchValue2;
+  bool? registrationSwitchValue;
 
   @override
   void initState(BuildContext context) {}

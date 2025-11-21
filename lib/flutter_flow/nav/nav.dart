@@ -143,7 +143,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
         FFRoute(
           name: PostSubCatWidget.routeName,
           path: PostSubCatWidget.routePath,
-          builder: (context, params) => PostSubCatWidget(),
+          builder: (context, params) => PostSubCatWidget(
+            navRoute: params.getParam(
+              'navRoute',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: PostWishListWidget.routeName,
@@ -156,19 +161,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => SignInConfirmWidget(),
         ),
         FFRoute(
-          name: PostPreviewWidget.routeName,
-          path: PostPreviewWidget.routePath,
-          builder: (context, params) => PostPreviewWidget(),
-        ),
-        FFRoute(
           name: PostCatWidget.routeName,
           path: PostCatWidget.routePath,
-          builder: (context, params) => PostCatWidget(),
+          builder: (context, params) => PostCatWidget(
+            navRoute: params.getParam(
+              'navRoute',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: PostImageWidget.routeName,
           path: PostImageWidget.routePath,
-          builder: (context, params) => PostImageWidget(),
+          builder: (context, params) => PostImageWidget(
+            navRoute: params.getParam(
+              'navRoute',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: PostEditWidget.routeName,
@@ -260,7 +270,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
         FFRoute(
           name: PostIntendWidget.routeName,
           path: PostIntendWidget.routePath,
-          builder: (context, params) => PostIntendWidget(),
+          builder: (context, params) => PostIntendWidget(
+            navRoute: params.getParam(
+              'navRoute',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: OverviewCareXXXWidget.routeName,
@@ -319,42 +334,82 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
         FFRoute(
           name: DetailRentalsWidget.routeName,
           path: DetailRentalsWidget.routePath,
-          builder: (context, params) => DetailRentalsWidget(),
+          builder: (context, params) => DetailRentalsWidget(
+            navRoute: params.getParam(
+              'navRoute',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: DetailSalesWidget.routeName,
           path: DetailSalesWidget.routePath,
-          builder: (context, params) => DetailSalesWidget(),
+          builder: (context, params) => DetailSalesWidget(
+            navRoute: params.getParam(
+              'navRoute',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: DetailGiveAwayWidget.routeName,
           path: DetailGiveAwayWidget.routePath,
-          builder: (context, params) => DetailGiveAwayWidget(),
+          builder: (context, params) => DetailGiveAwayWidget(
+            navRoute: params.getParam(
+              'navRoute',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: DetailSwapItemsWidget.routeName,
           path: DetailSwapItemsWidget.routePath,
-          builder: (context, params) => DetailSwapItemsWidget(),
+          builder: (context, params) => DetailSwapItemsWidget(
+            navRoute: params.getParam(
+              'navRoute',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: DetailTicketSwapWidget.routeName,
           path: DetailTicketSwapWidget.routePath,
-          builder: (context, params) => DetailTicketSwapWidget(),
+          builder: (context, params) => DetailTicketSwapWidget(
+            navRoute: params.getParam(
+              'navRoute',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: DetailCurrencyExchangeWidget.routeName,
           path: DetailCurrencyExchangeWidget.routePath,
-          builder: (context, params) => DetailCurrencyExchangeWidget(),
+          builder: (context, params) => DetailCurrencyExchangeWidget(
+            navRoute: params.getParam(
+              'navRoute',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: DetailCareAndAssistanceWidget.routeName,
           path: DetailCareAndAssistanceWidget.routePath,
-          builder: (context, params) => DetailCareAndAssistanceWidget(),
+          builder: (context, params) => DetailCareAndAssistanceWidget(
+            navRoute: params.getParam(
+              'navRoute',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: DetailEventsWidget.routeName,
           path: DetailEventsWidget.routePath,
-          builder: (context, params) => DetailEventsWidget(),
+          builder: (context, params) => DetailEventsWidget(
+            navRoute: params.getParam(
+              'navRoute',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: FinalizedLoginWidget.routeName,
@@ -364,7 +419,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
         FFRoute(
           name: DetailSkillsWidget.routeName,
           path: DetailSkillsWidget.routePath,
-          builder: (context, params) => DetailSkillsWidget(),
+          builder: (context, params) => DetailSkillsWidget(
+            navRoute: params.getParam(
+              'navRoute',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: ResetPasswordPageWidget.routeName,
@@ -379,7 +439,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
         FFRoute(
           name: PostMainCatWidget.routeName,
           path: PostMainCatWidget.routePath,
-          builder: (context, params) => PostMainCatWidget(),
+          builder: (context, params) => PostMainCatWidget(
+            navRoute: params.getParam(
+              'navRoute',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: ChatPageWidget.routeName,
@@ -462,7 +527,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
         FFRoute(
           name: DetailTransferWidget.routeName,
           path: DetailTransferWidget.routePath,
-          builder: (context, params) => DetailTransferWidget(),
+          builder: (context, params) => DetailTransferWidget(
+            navRoute: params.getParam(
+              'navRoute',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: SignUpPageWidget.routeName,
@@ -485,9 +555,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => XxxWidget(),
         ),
         FFRoute(
-          name: PostPrevWidget.routeName,
-          path: PostPrevWidget.routePath,
-          builder: (context, params) => PostPrevWidget(),
+          name: PostPreviewWidget.routeName,
+          path: PostPreviewWidget.routePath,
+          builder: (context, params) => PostPreviewWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

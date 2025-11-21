@@ -130,12 +130,13 @@ class _ProfileSettingWidgetState extends State<ProfileSettingWidget>
                                   width: 25.0,
                                   height: 25.0,
                                   decoration: BoxDecoration(
-                                    color: Color(0x1B12B886),
+                                    color: Color(0xFF073D2E),
                                     shape: BoxShape.circle,
                                   ),
                                   child: Icon(
                                     Icons.edit_rounded,
-                                    color: Color(0xFF12B886),
+                                    color:
+                                        FlutterFlowTheme.of(context).greenInit,
                                     size: 15.0,
                                   ),
                                 ),
@@ -149,6 +150,8 @@ class _ProfileSettingWidgetState extends State<ProfileSettingWidget>
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
                                           .titleSmallFamily,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                       letterSpacing: 0.0,
                                       useGoogleFonts:
                                           !FlutterFlowTheme.of(context)
@@ -201,7 +204,7 @@ class _ProfileSettingWidgetState extends State<ProfileSettingWidget>
                                   width: 25.0,
                                   height: 25.0,
                                   decoration: BoxDecoration(
-                                    color: Color(0x42228BE6),
+                                    color: Color(0xFB0D375D),
                                     shape: BoxShape.circle,
                                   ),
                                   child: Icon(
@@ -220,6 +223,8 @@ class _ProfileSettingWidgetState extends State<ProfileSettingWidget>
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
                                           .titleSmallFamily,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                       letterSpacing: 0.0,
                                       useGoogleFonts:
                                           !FlutterFlowTheme.of(context)
@@ -277,7 +282,7 @@ class _ProfileSettingWidgetState extends State<ProfileSettingWidget>
                                     width: 25.0,
                                     height: 25.0,
                                     decoration: BoxDecoration(
-                                      color: Color(0x42C850F2),
+                                      color: Color(0xFF3D164B),
                                       shape: BoxShape.circle,
                                     ),
                                     child: Icon(
@@ -297,6 +302,8 @@ class _ProfileSettingWidgetState extends State<ProfileSettingWidget>
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .titleSmallFamily,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
                                         letterSpacing: 0.0,
                                         useGoogleFonts:
                                             !FlutterFlowTheme.of(context)
@@ -347,7 +354,7 @@ class _ProfileSettingWidgetState extends State<ProfileSettingWidget>
                                 width: 25.0,
                                 height: 25.0,
                                 decoration: BoxDecoration(
-                                  color: Color(0x42F25081),
+                                  color: Color(0xFF4F1829),
                                   shape: BoxShape.circle,
                                 ),
                                 child: Align(
@@ -368,6 +375,8 @@ class _ProfileSettingWidgetState extends State<ProfileSettingWidget>
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
                                           .titleSmallFamily,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                       letterSpacing: 0.0,
                                       useGoogleFonts:
                                           !FlutterFlowTheme.of(context)
@@ -416,7 +425,7 @@ class _ProfileSettingWidgetState extends State<ProfileSettingWidget>
                                     width: 25.0,
                                     height: 25.0,
                                     decoration: BoxDecoration(
-                                      color: Color(0x42FAB005),
+                                      color: Color(0xFE513900),
                                       shape: BoxShape.circle,
                                     ),
                                     child: Align(
@@ -442,6 +451,7 @@ class _ProfileSettingWidgetState extends State<ProfileSettingWidget>
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w500,
                                         useGoogleFonts:
                                             !FlutterFlowTheme.of(context)
                                                 .labelMediumIsCustom,

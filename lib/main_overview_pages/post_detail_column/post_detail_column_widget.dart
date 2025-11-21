@@ -102,7 +102,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                         borderRadius:
                                             BorderRadius.circular(4.0),
                                         border: Border.all(
-                                          color: Color(0x890F9970),
+                                          color: FlutterFlowTheme.of(context)
+                                              .green1,
                                         ),
                                       ),
                                       child: Padding(
@@ -120,7 +121,9 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .bodySmallFamily,
-                                                color: Color(0xFF1DD6A1),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .green1,
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
@@ -719,7 +722,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                         .primaryBackground,
                                     borderRadius: BorderRadius.circular(4.0),
                                     border: Border.all(
-                                      color: Color(0x890F9970),
+                                      color:
+                                          FlutterFlowTheme.of(context).green1,
                                     ),
                                   ),
                                   child: Padding(
@@ -737,7 +741,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
                                                     .bodySmallFamily,
-                                            color: Color(0xFF1DD6A1),
+                                            color: FlutterFlowTheme.of(context)
+                                                .green1,
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
@@ -1279,7 +1284,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                         .primaryBackground,
                                     borderRadius: BorderRadius.circular(4.0),
                                     border: Border.all(
-                                      color: Color(0x890F9970),
+                                      color:
+                                          FlutterFlowTheme.of(context).green1,
                                     ),
                                   ),
                                   child: Padding(
@@ -1297,7 +1303,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
                                                     .bodySmallFamily,
-                                            color: Color(0xFF1DD6A1),
+                                            color: FlutterFlowTheme.of(context)
+                                                .green1,
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
@@ -2481,7 +2488,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                         borderRadius:
                                             BorderRadius.circular(4.0),
                                         border: Border.all(
-                                          color: Color(0x890F9970),
+                                          color: FlutterFlowTheme.of(context)
+                                              .green1,
                                         ),
                                       ),
                                       child: Padding(
@@ -2499,7 +2507,9 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .bodySmallFamily,
-                                                color: Color(0xFF1DD6A1),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .green1,
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
@@ -3323,7 +3333,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                         .primaryBackground,
                                     borderRadius: BorderRadius.circular(4.0),
                                     border: Border.all(
-                                      color: Color(0x890F9970),
+                                      color:
+                                          FlutterFlowTheme.of(context).green1,
                                     ),
                                   ),
                                   child: Padding(
@@ -3341,7 +3352,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
                                                     .bodySmallFamily,
-                                            color: Color(0xFF1DD6A1),
+                                            color: FlutterFlowTheme.of(context)
+                                                .green1,
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
@@ -4006,7 +4018,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                         .primaryBackground,
                                     borderRadius: BorderRadius.circular(4.0),
                                     border: Border.all(
-                                      color: Color(0x890F9970),
+                                      color:
+                                          FlutterFlowTheme.of(context).green1,
                                     ),
                                   ),
                                   child: Padding(
@@ -4024,7 +4037,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
                                                     .bodySmallFamily,
-                                            color: Color(0xFF1DD6A1),
+                                            color: FlutterFlowTheme.of(context)
+                                                .green1,
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
@@ -4953,7 +4967,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                         .primaryBackground,
                                     borderRadius: BorderRadius.circular(4.0),
                                     border: Border.all(
-                                      color: Color(0x890F9970),
+                                      color:
+                                          FlutterFlowTheme.of(context).green1,
                                     ),
                                   ),
                                   child: Padding(
@@ -4971,7 +4986,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
                                                     .bodySmallFamily,
-                                            color: Color(0xFF1DD6A1),
+                                            color: FlutterFlowTheme.of(context)
+                                                .green1,
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
@@ -5511,7 +5527,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                         .primaryBackground,
                                     borderRadius: BorderRadius.circular(4.0),
                                     border: Border.all(
-                                      color: Color(0x890F9970),
+                                      color:
+                                          FlutterFlowTheme.of(context).green1,
                                     ),
                                   ),
                                   child: Padding(
@@ -5529,7 +5546,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
                                                     .bodySmallFamily,
-                                            color: Color(0xFF1DD6A1),
+                                            color: FlutterFlowTheme.of(context)
+                                                .green1,
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
@@ -5968,7 +5986,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                         .primaryBackground,
                                     borderRadius: BorderRadius.circular(4.0),
                                     border: Border.all(
-                                      color: Color(0x890F9970),
+                                      color:
+                                          FlutterFlowTheme.of(context).green1,
                                     ),
                                   ),
                                   child: Padding(
@@ -5986,7 +6005,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
                                                     .bodySmallFamily,
-                                            color: Color(0xFF1DD6A1),
+                                            color: FlutterFlowTheme.of(context)
+                                                .green1,
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
@@ -6730,7 +6750,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                         .primaryBackground,
                                     borderRadius: BorderRadius.circular(4.0),
                                     border: Border.all(
-                                      color: Color(0x890F9970),
+                                      color:
+                                          FlutterFlowTheme.of(context).green1,
                                     ),
                                   ),
                                   child: Padding(
@@ -6748,7 +6769,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
                                                     .bodySmallFamily,
-                                            color: Color(0xFF1DD6A1),
+                                            color: FlutterFlowTheme.of(context)
+                                                .green1,
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,

@@ -47,7 +47,7 @@ class _TermsPopupWidgetState extends State<TermsPopupWidget> {
           boxShadow: [
             BoxShadow(
               blurRadius: 7.0,
-              color: Color(0x2F1D2429),
+              color: FlutterFlowTheme.of(context).navBar,
               offset: Offset(
                 0.0,
                 3.0,

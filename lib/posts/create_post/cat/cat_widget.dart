@@ -168,16 +168,14 @@ best fitti... */
                                             color: categoriesItem.catId ==
                                                     FFAppState().postState.catId
                                                 ? FlutterFlowTheme.of(context)
-                                                    .primaryText
+                                                    .primary
                                                 : FlutterFlowTheme.of(context)
-                                                    .darkgray,
+                                                    .bordergray,
                                             width: 0.4,
                                           ),
                                         ),
                                         child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 8.0, 12.0, 8.0),
+                                          padding: EdgeInsets.all(4.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -188,46 +186,55 @@ best fitti... */
                                               Align(
                                                 alignment: AlignmentDirectional(
                                                     0.0, 0.0),
-                                                child: Container(
-                                                  width: 40.0,
-                                                  height: 40.0,
-                                                  decoration: BoxDecoration(
-                                                    color:
-                                                        valueOrDefault<Color>(
-                                                      functions.hexToColor(
-                                                          categoriesItem
-                                                              .fillColorHex,
-                                                          Color(0xFF213A21)),
-                                                      Color(0xFF213A21),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 4.0, 0.0, 6.0),
+                                                  child: Container(
+                                                    width: 40.0,
+                                                    height: 40.0,
+                                                    decoration: BoxDecoration(
+                                                      color:
+                                                          valueOrDefault<Color>(
+                                                        functions.hexToColor(
+                                                            categoriesItem
+                                                                .fillColorHex,
+                                                            Color(0xFF213A21)),
+                                                        Color(0xFF213A21),
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.only(
+                                                        bottomLeft:
+                                                            Radius.circular(
+                                                                8.0),
+                                                        bottomRight:
+                                                            Radius.circular(
+                                                                8.0),
+                                                        topLeft:
+                                                            Radius.circular(
+                                                                8.0),
+                                                        topRight:
+                                                            Radius.circular(
+                                                                8.0),
+                                                      ),
+                                                      shape: BoxShape.rectangle,
                                                     ),
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                      bottomLeft:
-                                                          Radius.circular(8.0),
-                                                      bottomRight:
-                                                          Radius.circular(8.0),
-                                                      topLeft:
-                                                          Radius.circular(8.0),
-                                                      topRight:
-                                                          Radius.circular(8.0),
-                                                    ),
-                                                    shape: BoxShape.rectangle,
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsets.all(4.0),
-                                                    child: custom_widgets
-                                                        .SvgRenderer(
-                                                      width: 36.0,
-                                                      height: 36.0,
-                                                      svgCode: categoriesItem
-                                                          .effectiveIconImage,
-                                                      iconColor:
-                                                          functions.hexToColor(
-                                                              categoriesItem
-                                                                  .effectiveColorHex,
-                                                              Color(
-                                                                  0x00000000)),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsets.all(4.0),
+                                                      child: custom_widgets
+                                                          .SvgRenderer(
+                                                        width: 36.0,
+                                                        height: 36.0,
+                                                        svgCode: categoriesItem
+                                                            .effectiveIconImage,
+                                                        iconColor: functions
+                                                            .hexToColor(
+                                                                categoriesItem
+                                                                    .effectiveColorHex,
+                                                                Color(
+                                                                    0x00000000)),
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
@@ -236,7 +243,7 @@ best fitti... */
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          0.0, 4.0, 0.0, 0.0),
+                                                          4.0, 0.0, 4.0, 4.0),
                                                   child: AutoSizeText(
                                                     valueOrDefault<String>(
                                                       FFLocalizations.of(
@@ -267,7 +274,7 @@ best fitti... */
                                                                           .catId
                                                                   ? FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primaryText
+                                                                      .primary
                                                                   : FlutterFlowTheme.of(
                                                                           context)
                                                                       .textgray,
@@ -278,6 +285,7 @@ best fitti... */
                                                                           context)
                                                                       .titleSmallIsCustom,
                                                             ),
+                                                    overflow: TextOverflow.fade,
                                                   ),
                                                 ),
                                               ),

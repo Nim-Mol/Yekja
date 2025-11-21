@@ -2,7 +2,6 @@ import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -30,7 +29,7 @@ class ItemCardGlobalWidget extends StatefulWidget {
   final dynamic details;
   final String? username;
   final int ratings;
-  final String? review;
+  final double? review;
   final dynamic detailLabels;
 
   @override
@@ -81,419 +80,191 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
               ),
               child: Padding(
                 padding: EdgeInsets.all(12.0),
-                child: Row(
+                child: Column(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Expanded(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Column(
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Align(
+                          alignment: AlignmentDirectional(-1.0, 0.0),
+                          child: Row(
                             mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          valueOrDefault<String>(
-                                            widget.itemData?.title,
-                                            'Service Title',
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.normal,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMediumIsCustom,
-                                              ),
-                                        ),
-                                      ].divide(SizedBox(width: 6.0)),
+                              Text(
+                                valueOrDefault<String>(
+                                  widget.itemData?.title,
+                                  'Service Title',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontSize: 14.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w500,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
                                     ),
-                                  ),
-                                  Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(6.0),
-                                        border: Border.all(
-                                          color: Color(0x890F9970),
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 2.0, 8.0, 2.0),
-                                        child: Text(
-                                          valueOrDefault<String>(
-                                            widget.itemData?.subCatName,
-                                            'Subcategory',
-                                          ),
-                                          textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodySmall
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmallFamily,
-                                                color: Color(0xFF1DD6A1),
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w500,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodySmallIsCustom,
-                                              ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                                overflow: TextOverflow.ellipsis,
                               ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 8.0, 0.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Stack(
-                                      children: [
-                                        Container(
-                                          width: 70.0,
-                                          height: 70.0,
-                                          clipBehavior: Clip.antiAlias,
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                          ),
-                                          child: Image.network(
-                                            widget.itemData!.avatar,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(1.0, 1.0),
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: Image.network(
-                                              'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Yekja_badge.png',
-                                              width: 25.0,
-                                              height: 25.0,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
+                            ].divide(SizedBox(width: 6.0)),
+                          ),
+                        ),
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 0.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .lighterSecBackground,
+                              borderRadius: BorderRadius.circular(6.0),
+                              border: Border.all(
+                                color: Color(0x890F9970),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  8.0, 2.0, 8.0, 2.0),
+                              child: Text(
+                                valueOrDefault<String>(
+                                  widget.itemData?.subCatName,
+                                  'Subcategory',
+                                ),
+                                textAlign: TextAlign.center,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodySmallFamily,
+                                      color: Color(0xFF1DD6A1),
+                                      fontSize: 14.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w500,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodySmallIsCustom,
                                     ),
-                                    Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          valueOrDefault<String>(
-                                            widget.username,
-                                            'User name',
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'FarsiFonts',
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                        ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Icon(
-                                              Icons.location_on_rounded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bordergray,
-                                              size: 16.0,
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 12.0, 0.0),
-                                              child: Text(
-                                                valueOrDefault<String>(
-                                                  widget
-                                                      .itemData?.itemLocation,
-                                                  'location',
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelSmall
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelSmallFamily,
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .labelSmallIsCustom,
-                                                        ),
-                                              ),
-                                            ),
-                                          ].divide(SizedBox(width: 6.0)),
-                                        ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            RatingBarIndicator(
-                                              itemBuilder: (context, index) =>
-                                                  Icon(
-                                                Icons.star_rounded,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .yellow1,
-                                              ),
-                                              direction: Axis.horizontal,
-                                              rating: 4.1,
-                                              unratedColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bordergray,
-                                              itemCount: 5,
-                                              itemSize: 16.0,
-                                            ),
-                                            Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'fjd2sxq4' /* 4.1/5 (11)  */,
-                                              ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily,
-                                                    fontSize: 12.0,
-                                                    letterSpacing: 2.0,
-                                                    fontWeight: FontWeight.w500,
-                                                    useGoogleFonts:
-                                                        !FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumIsCustom,
-                                                  ),
-                                            ),
-                                          ].divide(SizedBox(width: 4.0)),
-                                        ),
-                                      ],
-                                    ),
-                                  ].divide(SizedBox(width: 12.0)),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Stack(
+                            children: [
+                              Container(
+                                width: 75.0,
+                                height: 75.0,
+                                clipBehavior: Clip.antiAlias,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Image.network(
+                                  widget.itemData!.avatar,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 12.0, 0.0, 0.0),
-                                child: Text(
-                                  valueOrDefault<String>(
-                                    widget.itemData?.description,
-                                    'Description',
+                              Align(
+                                alignment: AlignmentDirectional(1.0, 1.0),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.network(
+                                    FFAppConstants.YekjaCertified,
+                                    width: 25.0,
+                                    height: 25.0,
+                                    fit: BoxFit.cover,
                                   ),
-                                  maxLines: 2,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        fontSize: 14.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.normal,
-                                        useGoogleFonts:
-                                            !FlutterFlowTheme.of(context)
-                                                .bodyMediumIsCustom,
-                                      ),
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 4.0, 0.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFF3D3C3C),
-                                        borderRadius:
-                                            BorderRadius.circular(4.0),
-                                        border: Border.all(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          width: 1.0,
-                                        ),
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    6.0, 0.0, 0.0, 0.0),
-                                            child: FaIcon(
-                                              FontAwesomeIcons.suitcase,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .textgray,
-                                              size: 16.0,
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 4.0, 0.0, 4.0),
-                                            child: Text(
-                                              getJsonField(
-                                                widget.details,
-                                                r'''$.experience_years''',
-                                              ).toString(),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                    fontSize: 12.0,
-                                                    letterSpacing: 0.0,
-                                                    useGoogleFonts:
-                                                        !FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumIsCustom,
-                                                  ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 4.0, 8.0, 4.0),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'vpd49szk' /*  experience */,
-                                              ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                    fontSize: 12.0,
-                                                    letterSpacing: 0.0,
-                                                    useGoogleFonts:
-                                                        !FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumIsCustom,
-                                                  ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ].divide(SizedBox(width: 6.0)),
                                 ),
                               ),
                             ],
                           ),
-                          Row(
+                          Column(
                             mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              Text(
+                                valueOrDefault<String>(
+                                  widget.username,
+                                  'User name',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'FarsiFonts',
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                              ),
                               Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Text(
-                                    dateTimeFormat(
-                                      "yMMMd",
-                                      widget.itemData!.createdAt!,
-                                      locale: FFLocalizations.of(context)
-                                          .languageCode,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmallFamily,
-                                          color: FlutterFlowTheme.of(context)
-                                              .success,
-                                          fontSize: 12.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w200,
-                                          useGoogleFonts:
-                                              !FlutterFlowTheme.of(context)
-                                                  .bodySmallIsCustom,
-                                        ),
+                                  Icon(
+                                    Icons.location_on_rounded,
+                                    color:
+                                        FlutterFlowTheme.of(context).bordergray,
+                                    size: 16.0,
                                   ),
-                                ].divide(SizedBox(width: 30.0)),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 12.0, 0.0),
+                                    child: Text(
+                                      valueOrDefault<String>(
+                                        widget.itemData?.itemLocation,
+                                        'location',
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelSmallFamily,
+                                            fontSize: 14.0,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts:
+                                                !FlutterFlowTheme.of(context)
+                                                    .labelSmallIsCustom,
+                                          ),
+                                    ),
+                                  ),
+                                ].divide(SizedBox(width: 6.0)),
                               ),
                               Row(
-                                mainAxisSize: MainAxisSize.min,
+                                mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Icon(
-                                    Icons.favorite_rounded,
-                                    color: Color(0xFFCD0808),
-                                    size: 18.0,
+                                  RatingBarIndicator(
+                                    itemBuilder: (context, index) => Icon(
+                                      Icons.star_rounded,
+                                      color:
+                                          FlutterFlowTheme.of(context).yellow1,
+                                    ),
+                                    direction: Axis.horizontal,
+                                    rating: widget.review!,
+                                    unratedColor:
+                                        FlutterFlowTheme.of(context).bordergray,
+                                    itemCount: 5,
+                                    itemSize: 16.0,
                                   ),
                                   Text(
-                                    valueOrDefault<String>(
-                                      widget.itemData?.itemLikes.toString(),
-                                      '0',
-                                    ),
+                                    '${widget.review?.toString()} (${widget.ratings.toString()})',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -501,7 +272,8 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .bodyMediumFamily,
                                           fontSize: 12.0,
-                                          letterSpacing: 0.0,
+                                          letterSpacing: 2.0,
+                                          fontWeight: FontWeight.w500,
                                           useGoogleFonts:
                                               !FlutterFlowTheme.of(context)
                                                   .bodyMediumIsCustom,
@@ -511,10 +283,185 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                               ),
                             ],
                           ),
+                        ].divide(SizedBox(width: 12.0)),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                      child: Text(
+                        valueOrDefault<String>(
+                          widget.itemData?.description,
+                          'Description',
+                        ),
+                        textAlign: TextAlign.start,
+                        maxLines: 2,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodyMediumFamily,
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              fontSize: 14.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.normal,
+                              useGoogleFonts: !FlutterFlowTheme.of(context)
+                                  .bodyMediumIsCustom,
+                            ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          if (!functions.isNullSingleString(getJsonField(
+                            widget.details,
+                            r'''$.experience_years''',
+                          ).toString()))
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Color(0xFF3D3C3C),
+                                borderRadius: BorderRadius.circular(4.0),
+                                border: Border.all(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  width: 1.0,
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        6.0, 0.0, 0.0, 0.0),
+                                    child: FaIcon(
+                                      FontAwesomeIcons.suitcase,
+                                      color:
+                                          FlutterFlowTheme.of(context).textgray,
+                                      size: 16.0,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        8.0, 4.0, 0.0, 4.0),
+                                    child: Text(
+                                      getJsonField(
+                                        widget.details,
+                                        r'''$.experience_years''',
+                                      ).toString(),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            fontSize: 12.0,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts:
+                                                !FlutterFlowTheme.of(context)
+                                                    .bodyMediumIsCustom,
+                                          ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 4.0, 8.0, 4.0),
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        'vpd49szk' /*  experience */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            fontSize: 12.0,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts:
+                                                !FlutterFlowTheme.of(context)
+                                                    .bodyMediumIsCustom,
+                                          ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                        ].divide(SizedBox(width: 6.0)),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                dateTimeFormat(
+                                  "yMMMd",
+                                  widget.itemData!.createdAt!,
+                                  locale:
+                                      FFLocalizations.of(context).languageCode,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodySmallFamily,
+                                      color:
+                                          FlutterFlowTheme.of(context).success,
+                                      fontSize: 12.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w200,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodySmallIsCustom,
+                                    ),
+                              ),
+                            ].divide(SizedBox(width: 30.0)),
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                Icons.favorite_rounded,
+                                color: Color(0xFFCD0808),
+                                size: 18.0,
+                              ),
+                              Text(
+                                valueOrDefault<String>(
+                                  widget.itemData?.itemLikes.toString(),
+                                  '0',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      fontSize: 12.0,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
+                                    ),
+                              ),
+                            ].divide(SizedBox(width: 4.0)),
+                          ),
                         ],
                       ),
                     ),
-                  ].addToStart(SizedBox(width: 0.0)),
+                  ],
                 ),
               ),
             ),
@@ -590,12 +537,18 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .titleMediumFamily,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                fontSize: 14.0,
                                                 letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w500,
                                                 useGoogleFonts:
                                                     !FlutterFlowTheme.of(
                                                             context)
                                                         .titleMediumIsCustom,
                                               ),
+                                          overflow: TextOverflow.ellipsis,
                                         ),
                                       ].divide(SizedBox(width: 6.0)),
                                     ),
@@ -609,7 +562,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                         child: Container(
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
+                                                .lighterSecBackground,
                                             borderRadius:
                                                 BorderRadius.circular(6.0),
                                             border: Border.all(
@@ -657,7 +610,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                         child: Container(
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
+                                                .lighterSecBackground,
                                             borderRadius:
                                                 BorderRadius.circular(6.0),
                                             border: Border.all(
@@ -699,13 +652,48 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                   ),
                                 ],
                               ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Flexible(
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 10.0, 0.0, 0.0),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 10.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Flexible(
+                                      child: Text(
+                                        valueOrDefault<String>(
+                                          widget.itemData?.title,
+                                          'title',
+                                        ),
+                                        maxLines: 1,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              fontSize: 14.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .bodyMediumIsCustom,
+                                            ),
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 2.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Flexible(
                                       child: Text(
                                         valueOrDefault<String>(
                                           widget.itemData?.description,
@@ -721,7 +709,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
-                                              fontSize: 16.0,
+                                              fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                               useGoogleFonts:
@@ -731,193 +719,204 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                         overflow: TextOverflow.ellipsis,
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                               if (!functions.isNullJSON(getJsonField(
                                 widget.details,
                                 r'''$.deadline''',
                               )))
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    RichText(
-                                      textScaler:
-                                          MediaQuery.of(context).textScaler,
-                                      text: TextSpan(
-                                        children: [
-                                          TextSpan(
-                                            text: FFLocalizations.of(context)
-                                                .getText(
-                                              '6h0218xd' /* Deadline:  */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  useGoogleFonts:
-                                                      !FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumIsCustom,
-                                                ),
-                                          ),
-                                          TextSpan(
-                                            text: functions.formatIsoDatetime(
-                                                valueOrDefault<String>(
-                                              getJsonField(
-                                                widget.details,
-                                                r'''$.deadline''',
-                                              )?.toString(),
-                                              '01-02-2025 10 PM',
-                                            )),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .orange1,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  useGoogleFonts:
-                                                      !FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumIsCustom,
-                                                ),
-                                          )
-                                        ],
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily,
-                                              letterSpacing: 0.0,
-                                              useGoogleFonts:
-                                                  !FlutterFlowTheme.of(context)
-                                                      .bodyMediumIsCustom,
-                                            ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Row(
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 6.0, 0.0, 0.0),
+                                  child: Row(
                                     mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Icon(
-                                        Icons.location_on_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .bordergray,
-                                        size: 12.0,
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 12.0, 0.0),
-                                        child: Text(
-                                          valueOrDefault<String>(
-                                            widget.itemData?.itemLocation,
-                                            'location',
-                                          ),
+                                      RichText(
+                                        textScaler:
+                                            MediaQuery.of(context).textScaler,
+                                        text: TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                '6h0218xd' /* Deadline:  */,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        useGoogleFonts:
+                                                            !FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMediumIsCustom,
+                                                      ),
+                                            ),
+                                            TextSpan(
+                                              text: functions.formatIsoDatetime(
+                                                  valueOrDefault<String>(
+                                                getJsonField(
+                                                  widget.details,
+                                                  r'''$.deadline''',
+                                                )?.toString(),
+                                                '01-02-2025 10 PM',
+                                              )),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .orange1,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
+                                            )
+                                          ],
                                           style: FlutterFlowTheme.of(context)
-                                              .labelSmall
+                                              .bodyMedium
                                               .override(
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
-                                                        .labelSmallFamily,
-                                                fontSize: 12.0,
+                                                        .bodyMediumFamily,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts:
                                                     !FlutterFlowTheme.of(
                                                             context)
-                                                        .labelSmallIsCustom,
+                                                        .bodyMediumIsCustom,
                                               ),
                                         ),
                                       ),
-                                    ].divide(SizedBox(width: 4.0)),
+                                    ],
                                   ),
-                                ],
+                                ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 4.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Icon(
+                                          Icons.location_on_rounded,
+                                          color: FlutterFlowTheme.of(context)
+                                              .bordergray,
+                                          size: 12.0,
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 12.0, 0.0),
+                                          child: Text(
+                                            valueOrDefault<String>(
+                                              widget.itemData?.itemLocation,
+                                              'location',
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .labelSmall
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelSmallFamily,
+                                                  fontSize: 12.0,
+                                                  letterSpacing: 0.0,
+                                                  useGoogleFonts:
+                                                      !FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelSmallIsCustom,
+                                                ),
+                                          ),
+                                        ),
+                                      ].divide(SizedBox(width: 4.0)),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 6.0, 0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Text(
-                                      dateTimeFormat(
-                                        "yMMMd",
-                                        widget.itemData!.createdAt!,
-                                        locale: FFLocalizations.of(context)
-                                            .languageCode,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodySmallFamily,
-                                            color: FlutterFlowTheme.of(context)
-                                                .success,
-                                            fontSize: 12.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w200,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .bodySmallIsCustom,
-                                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Text(
+                                    dateTimeFormat(
+                                      "yMMMd",
+                                      widget.itemData!.createdAt!,
+                                      locale: FFLocalizations.of(context)
+                                          .languageCode,
                                     ),
-                                  ].divide(SizedBox(width: 30.0)),
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Icon(
-                                      Icons.favorite_rounded,
-                                      color: Color(0xFFCD0808),
-                                      size: 20.0,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmallFamily,
+                                          color: FlutterFlowTheme.of(context)
+                                              .success,
+                                          fontSize: 12.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w200,
+                                          useGoogleFonts:
+                                              !FlutterFlowTheme.of(context)
+                                                  .bodySmallIsCustom,
+                                        ),
+                                  ),
+                                ].divide(SizedBox(width: 30.0)),
+                              ),
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(
+                                    Icons.favorite_rounded,
+                                    color: Color(0xFFCD0808),
+                                    size: 20.0,
+                                  ),
+                                  Text(
+                                    valueOrDefault<String>(
+                                      widget.itemData?.itemLikes.toString(),
+                                      '0',
                                     ),
-                                    Text(
-                                      valueOrDefault<String>(
-                                        widget.itemData?.itemLikes.toString(),
-                                        '0',
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
-                                            fontSize: 12.0,
-                                            letterSpacing: 0.0,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .bodyMediumIsCustom,
-                                          ),
-                                    ),
-                                  ].divide(SizedBox(width: 6.0)),
-                                ),
-                              ],
-                            ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMediumFamily,
+                                          fontSize: 12.0,
+                                          letterSpacing: 0.0,
+                                          useGoogleFonts:
+                                              !FlutterFlowTheme.of(context)
+                                                  .bodyMediumIsCustom,
+                                        ),
+                                  ),
+                                ].divide(SizedBox(width: 6.0)),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -987,6 +986,10 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .titleSmallFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               useGoogleFonts:
                                                   !FlutterFlowTheme.of(context)
@@ -1005,7 +1008,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                         child: Container(
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
+                                                .lighterSecBackground,
                                             borderRadius:
                                                 BorderRadius.circular(6.0),
                                             border: Border.all(
@@ -1053,7 +1056,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                         child: Container(
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
+                                                .lighterSecBackground,
                                             borderRadius:
                                                 BorderRadius.circular(6.0),
                                             border: Border.all(
@@ -1097,13 +1100,48 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                   ),
                                 ],
                               ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Flexible(
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 10.0, 0.0, 0.0),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 10.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Flexible(
+                                      child: Text(
+                                        valueOrDefault<String>(
+                                          widget.itemData?.title,
+                                          'Description',
+                                        ),
+                                        maxLines: 1,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              fontSize: 14.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .bodyMediumIsCustom,
+                                            ),
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 2.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Flexible(
                                       child: Text(
                                         valueOrDefault<String>(
                                           widget.itemData?.description,
@@ -1129,81 +1167,90 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                         overflow: TextOverflow.ellipsis,
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                               if (!functions.isNullJSON(getJsonField(
                                 widget.details,
                                 r'''$.deadline''',
                               )))
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    RichText(
-                                      textScaler:
-                                          MediaQuery.of(context).textScaler,
-                                      text: TextSpan(
-                                        children: [
-                                          TextSpan(
-                                            text: FFLocalizations.of(context)
-                                                .getText(
-                                              'tdw1ixid' /* Deadline:  */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  useGoogleFonts:
-                                                      !FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumIsCustom,
-                                                ),
-                                          ),
-                                          TextSpan(
-                                            text: getJsonField(
-                                              widget.details,
-                                              r'''$.deadline''',
-                                            ).toString(),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .orange1,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  useGoogleFonts:
-                                                      !FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumIsCustom,
-                                                ),
-                                          )
-                                        ],
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily:
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 6.0, 0.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      RichText(
+                                        textScaler:
+                                            MediaQuery.of(context).textScaler,
+                                        text: TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                'tdw1ixid' /* Deadline:  */,
+                                              ),
+                                              style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily,
-                                              letterSpacing: 0.0,
-                                              useGoogleFonts:
-                                                  !FlutterFlowTheme.of(context)
-                                                      .bodyMediumIsCustom,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        useGoogleFonts:
+                                                            !FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMediumIsCustom,
+                                                      ),
                                             ),
+                                            TextSpan(
+                                              text: getJsonField(
+                                                widget.details,
+                                                r'''$.deadline''',
+                                              ).toString(),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .orange1,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
+                                            )
+                                          ],
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    !FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMediumIsCustom,
+                                              ),
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                             ],
                           ),
@@ -1342,12 +1389,14 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmallFamily,
+                                                fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts:
                                                     !FlutterFlowTheme.of(
                                                             context)
                                                         .titleSmallIsCustom,
                                               ),
+                                          overflow: TextOverflow.ellipsis,
                                         ),
                                       ].divide(SizedBox(width: 5.0)),
                                     ),
@@ -1361,7 +1410,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                         child: Container(
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
+                                                .lighterSecBackground,
                                             borderRadius:
                                                 BorderRadius.circular(6.0),
                                             border: Border.all(
@@ -1409,7 +1458,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                         child: Container(
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
+                                                .lighterSecBackground,
                                             borderRadius:
                                                 BorderRadius.circular(6.0),
                                             border: Border.all(
@@ -1670,7 +1719,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                                             .bodySmallFamily,
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryText,
+                                                        .primaryWhite,
                                                     fontSize: 12.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight:
@@ -1735,7 +1784,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                                             .bodySmallFamily,
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryText,
+                                                        .primaryWhite,
                                                     fontSize: 12.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight:
@@ -1904,12 +1953,14 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmallFamily,
+                                                fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts:
                                                     !FlutterFlowTheme.of(
                                                             context)
                                                         .titleSmallIsCustom,
                                               ),
+                                          overflow: TextOverflow.ellipsis,
                                         ),
                                       ].divide(SizedBox(width: 6.0)),
                                     ),
@@ -1923,7 +1974,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                         child: Container(
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
+                                                .lighterSecBackground,
                                             borderRadius:
                                                 BorderRadius.circular(6.0),
                                             border: Border.all(
@@ -1971,7 +2022,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                         child: Container(
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
+                                                .lighterSecBackground,
                                             borderRadius:
                                                 BorderRadius.circular(6.0),
                                             border: Border.all(
@@ -2035,6 +2086,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
                                                     .titleLargeFamily,
+                                            fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             useGoogleFonts:
                                                 !FlutterFlowTheme.of(context)
@@ -2142,7 +2194,8 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                           Container(
                             width: double.infinity,
                             decoration: BoxDecoration(
-                              color: Color(0x420593D7),
+                              color:
+                                  FlutterFlowTheme.of(context).itemBoxExtraInfo,
                             ),
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
@@ -2333,10 +2386,11 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                     fontFamily: 'FarsiFonts',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
-                                    fontSize: 18.0,
+                                    fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
+                              overflow: TextOverflow.fade,
                             ),
                           ].divide(SizedBox(width: 5.0)),
                         ),
@@ -2348,7 +2402,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                      .lighterSecBackground,
                                   borderRadius: BorderRadius.circular(6.0),
                                   border: Border.all(
                                     color: FlutterFlowTheme.of(context).yellow1,
@@ -2387,7 +2441,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                      .lighterSecBackground,
                                   borderRadius: BorderRadius.circular(6.0),
                                   border: Border.all(
                                     color: Color(0xFFBE0502),
@@ -2920,7 +2974,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 4.0, 8.0, 4.0),
-                                  child: AutoSizeText(
+                                  child: Text(
                                     FFLocalizations.of(context).getText(
                                       '0qhi38vm' /* See participants */,
                                     ),
@@ -2939,6 +2993,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                               !FlutterFlowTheme.of(context)
                                                   .bodyMediumIsCustom,
                                         ),
+                                    overflow: TextOverflow.ellipsis,
                                   ),
                                 ),
                               ),
@@ -3087,11 +3142,13 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .titleSmallFamily,
+                                              fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               useGoogleFonts:
                                                   !FlutterFlowTheme.of(context)
                                                       .titleSmallIsCustom,
                                             ),
+                                        overflow: TextOverflow.fade,
                                       ),
                                     ].divide(SizedBox(width: 5.0)),
                                   ),
@@ -3104,7 +3161,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                         child: Container(
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
+                                                .lighterSecBackground,
                                             borderRadius:
                                                 BorderRadius.circular(6.0),
                                             border: Border.all(
@@ -3156,6 +3213,8 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                   Flexible(
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
@@ -3167,7 +3226,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                                 widget.itemData?.title,
                                                 'Title',
                                               ),
-                                              maxLines: 1,
+                                              maxLines: 2,
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyMedium
@@ -3181,8 +3240,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                                         .primary,
                                                     fontSize: 16.0,
                                                     letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
+                                                    fontWeight: FontWeight.w500,
                                                     useGoogleFonts:
                                                         !FlutterFlowTheme.of(
                                                                 context)
@@ -3192,44 +3250,50 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                             ),
                                           ],
                                         ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Icon(
-                                              Icons.location_on_rounded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bordergray,
-                                              size: 16.0,
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 12.0, 0.0),
-                                              child: Text(
-                                                valueOrDefault<String>(
-                                                  widget
-                                                      .itemData?.itemLocation,
-                                                  'location',
-                                                ),
-                                                style:
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Icon(
+                                                Icons.location_on_rounded,
+                                                color:
                                                     FlutterFlowTheme.of(context)
-                                                        .labelSmall
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelSmallFamily,
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .labelSmallIsCustom,
-                                                        ),
+                                                        .bordergray,
+                                                size: 16.0,
                                               ),
-                                            ),
-                                          ].divide(SizedBox(width: 6.0)),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 12.0, 0.0),
+                                                child: Text(
+                                                  valueOrDefault<String>(
+                                                    widget
+                                                        .itemData?.itemLocation,
+                                                    'location',
+                                                  ),
+                                                  style:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelSmallFamily,
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            useGoogleFonts:
+                                                                !FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelSmallIsCustom,
+                                                          ),
+                                                ),
+                                              ),
+                                            ].divide(SizedBox(width: 6.0)),
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -3241,8 +3305,8 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                         widget.itemData?.mainImagePath,
                                         'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg',
                                       ),
-                                      width: 100.0,
-                                      height: 100.0,
+                                      width: 85.0,
+                                      height: 85.0,
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -3253,6 +3317,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                     0.0, 8.0, 0.0, 0.0),
                                 child: Container(
                                   width: double.infinity,
+                                  height: 30.0,
                                   decoration: BoxDecoration(
                                     color: Color(0x420593D7),
                                   ),
@@ -3291,73 +3356,79 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                   ),
                                 ),
                               ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 2.0, 0.0, 0.0),
-                                    child: Text(
-                                      dateTimeFormat(
-                                        "yMMMd",
-                                        widget.itemData!.createdAt!,
-                                        locale: FFLocalizations.of(context)
-                                            .languageCode,
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 6.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 2.0, 0.0, 0.0),
+                                      child: Text(
+                                        dateTimeFormat(
+                                          "yMMMd",
+                                          widget.itemData!.createdAt!,
+                                          locale: FFLocalizations.of(context)
+                                              .languageCode,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmallFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .success,
+                                              fontSize: 12.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w200,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .bodySmallIsCustom,
+                                            ),
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodySmallFamily,
-                                            color: FlutterFlowTheme.of(context)
-                                                .success,
-                                            fontSize: 10.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w200,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .bodySmallIsCustom,
-                                          ),
                                     ),
-                                  ),
-                                  Align(
-                                    alignment: AlignmentDirectional(1.0, 1.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Icon(
-                                          Icons.favorite_rounded,
-                                          color: Color(0xFFCD0808),
-                                          size: 20.0,
-                                        ),
-                                        Text(
-                                          valueOrDefault<String>(
-                                            widget.itemData?.itemLikes
-                                                .toString(),
-                                            '0',
+                                    Align(
+                                      alignment: AlignmentDirectional(1.0, 1.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Icon(
+                                            Icons.favorite_rounded,
+                                            color: Color(0xFFCD0808),
+                                            size: 20.0,
                                           ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                fontSize: 12.0,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMediumIsCustom,
-                                              ),
-                                        ),
-                                      ].divide(SizedBox(width: 6.0)),
+                                          Text(
+                                            valueOrDefault<String>(
+                                              widget.itemData?.itemLikes
+                                                  .toString(),
+                                              '0',
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily,
+                                                  fontSize: 12.0,
+                                                  letterSpacing: 0.0,
+                                                  useGoogleFonts:
+                                                      !FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumIsCustom,
+                                                ),
+                                          ),
+                                        ].divide(SizedBox(width: 6.0)),
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ],
                           ),
@@ -3430,11 +3501,16 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .titleSmallFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               useGoogleFonts:
                                                   !FlutterFlowTheme.of(context)
                                                       .titleSmallIsCustom,
                                             ),
+                                        overflow: TextOverflow.ellipsis,
                                       ),
                                     ].divide(SizedBox(width: 5.0)),
                                   ),
@@ -3447,7 +3523,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                         child: Container(
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
+                                                .lighterSecBackground,
                                             borderRadius:
                                                 BorderRadius.circular(6.0),
                                             border: Border.all(
@@ -3505,146 +3581,89 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Flexible(
-                                              child: Text(
-                                                valueOrDefault<String>(
-                                                  widget.itemData?.title,
-                                                  'Title',
-                                                ),
-                                                maxLines: 2,
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumFamily,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryText,
-                                                      fontSize: 16.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      useGoogleFonts:
-                                                          !FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumIsCustom,
-                                                    ),
-                                                overflow: TextOverflow.ellipsis,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Icon(
-                                              Icons.location_on_rounded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bordergray,
-                                              size: 16.0,
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 12.0, 0.0),
-                                              child: Text(
-                                                valueOrDefault<String>(
-                                                  widget
-                                                      .itemData?.itemLocation,
-                                                  'location',
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelSmall
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelSmallFamily,
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .labelSmallIsCustom,
-                                                        ),
-                                              ),
-                                            ),
-                                          ].divide(SizedBox(width: 6.0)),
-                                        ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(-1.0, 1.0),
-                                          child: Text(
-                                            dateTimeFormat(
-                                              "yMMMd",
-                                              widget.itemData!.createdAt!,
-                                              locale:
-                                                  FFLocalizations.of(context)
-                                                      .languageCode,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodySmall
-                                                .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmallFamily,
-                                                  color: FlutterFlowTheme.of(
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Flexible(
+                                                child: Text(
+                                                  valueOrDefault<String>(
+                                                    widget.itemData?.title,
+                                                    'Title',
+                                                  ),
+                                                  maxLines: 2,
+                                                  style: FlutterFlowTheme.of(
                                                           context)
-                                                      .success,
-                                                  fontSize: 10.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w200,
-                                                  useGoogleFonts:
-                                                      !FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmallIsCustom,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        useGoogleFonts:
+                                                            !FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMediumIsCustom,
+                                                      ),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
+                                              ),
+                                            ].divide(SizedBox(width: 8.0)),
                                           ),
                                         ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(-1.0, 1.0),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 6.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.min,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
                                             children: [
                                               Icon(
-                                                Icons.favorite_rounded,
-                                                color: Color(0xFFCD0808),
-                                                size: 20.0,
-                                              ),
-                                              Text(
-                                                valueOrDefault<String>(
-                                                  widget.itemData?.itemLikes
-                                                      .toString(),
-                                                  '0',
-                                                ),
-                                                style:
+                                                Icons.location_on_rounded,
+                                                color:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMediumIsCustom,
-                                                        ),
+                                                        .bordergray,
+                                                size: 16.0,
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 12.0, 0.0),
+                                                child: Text(
+                                                  valueOrDefault<String>(
+                                                    widget
+                                                        .itemData?.itemLocation,
+                                                    'location',
+                                                  ),
+                                                  style:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelSmallFamily,
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            useGoogleFonts:
+                                                                !FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelSmallIsCustom,
+                                                          ),
+                                                ),
                                               ),
                                             ].divide(SizedBox(width: 6.0)),
                                           ),
@@ -3659,13 +3678,87 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                         widget.itemData?.mainImagePath,
                                         'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg',
                                       ),
-                                      width: 100.0,
-                                      height: 100.0,
+                                      width: 85.0,
+                                      height: 85.0,
                                       fit: BoxFit.cover,
                                       alignment: Alignment(1.0, -1.0),
                                     ),
                                   ),
                                 ],
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 6.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 2.0, 0.0, 0.0),
+                                      child: Text(
+                                        dateTimeFormat(
+                                          "yMMMd",
+                                          widget.itemData!.createdAt!,
+                                          locale: FFLocalizations.of(context)
+                                              .languageCode,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmallFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .success,
+                                              fontSize: 12.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w200,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .bodySmallIsCustom,
+                                            ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: AlignmentDirectional(1.0, 1.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Icon(
+                                            Icons.favorite_rounded,
+                                            color: Color(0xFFCD0808),
+                                            size: 20.0,
+                                          ),
+                                          Text(
+                                            valueOrDefault<String>(
+                                              widget.itemData?.itemLikes
+                                                  .toString(),
+                                              '0',
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily,
+                                                  fontSize: 12.0,
+                                                  letterSpacing: 0.0,
+                                                  useGoogleFonts:
+                                                      !FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumIsCustom,
+                                                ),
+                                          ),
+                                        ].divide(SizedBox(width: 6.0)),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),
@@ -3738,11 +3831,13 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .titleSmallFamily,
+                                              fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               useGoogleFonts:
                                                   !FlutterFlowTheme.of(context)
                                                       .titleSmallIsCustom,
                                             ),
+                                        overflow: TextOverflow.ellipsis,
                                       ),
                                     ].divide(SizedBox(width: 5.0)),
                                   ),
@@ -3756,7 +3851,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                         child: Container(
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
+                                                .lighterSecBackground,
                                             borderRadius:
                                                 BorderRadius.circular(6.0),
                                             border: Border.all(
@@ -3804,7 +3899,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                         child: Container(
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
+                                                .lighterSecBackground,
                                             borderRadius:
                                                 BorderRadius.circular(6.0),
                                             border: Border.all(
@@ -3840,6 +3935,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                                                 context)
                                                             .bodySmallIsCustom,
                                                   ),
+                                              overflow: TextOverflow.fade,
                                             ),
                                           ),
                                         ),
@@ -3857,20 +3953,20 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Flexible(
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 10.0, 0.0, 0.0),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Flexible(
                                                 child: Text(
                                                   valueOrDefault<String>(
                                                     widget.itemData?.title,
                                                     'Title',
                                                   ),
-                                                  maxLines: 1,
+                                                  maxLines: 2,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -3886,7 +3982,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
-                                                            FontWeight.normal,
+                                                            FontWeight.w500,
                                                         useGoogleFonts:
                                                             !FlutterFlowTheme
                                                                     .of(context)
@@ -3896,119 +3992,55 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                                       TextOverflow.ellipsis,
                                                 ),
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(-1.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: [
-                                              Icon(
-                                                Icons.location_on_rounded,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bordergray,
-                                                size: 14.0,
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 12.0, 0.0),
-                                                child: Text(
-                                                  valueOrDefault<String>(
-                                                    widget
-                                                        .itemData?.itemLocation,
-                                                    'location',
-                                                  ),
-                                                  style:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelSmall
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelSmallFamily,
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelSmallIsCustom,
-                                                          ),
-                                                ),
-                                              ),
-                                            ].divide(SizedBox(width: 2.0)),
+                                            ],
                                           ),
                                         ),
                                         Align(
                                           alignment:
                                               AlignmentDirectional(-1.0, 0.0),
-                                          child: Text(
-                                            dateTimeFormat(
-                                              "yMMMd",
-                                              widget.itemData!.createdAt!,
-                                              locale:
-                                                  FFLocalizations.of(context)
-                                                      .languageCode,
-                                            ),
-                                            textAlign: TextAlign.start,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodySmall
-                                                .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmallFamily,
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 10.0, 0.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Icon(
+                                                  Icons.location_on_rounded,
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .success,
-                                                  fontSize: 12.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w200,
-                                                  useGoogleFonts:
-                                                      !FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmallIsCustom,
+                                                      .bordergray,
+                                                  size: 14.0,
                                                 ),
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(-1.0, 1.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: [
-                                              Icon(
-                                                Icons.favorite_rounded,
-                                                color: Color(0xFFCD0808),
-                                                size: 20.0,
-                                              ),
-                                              Text(
-                                                valueOrDefault<String>(
-                                                  widget.itemData?.itemLikes
-                                                      .toString(),
-                                                  '0',
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 12.0, 0.0),
+                                                  child: Text(
+                                                    valueOrDefault<String>(
+                                                      widget.itemData
+                                                          ?.itemLocation,
+                                                      'location',
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .labelSmall
                                                         .override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodyMediumFamily,
-                                                          fontSize: 12.0,
+                                                                  .labelSmallFamily,
+                                                          fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts:
                                                               !FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMediumIsCustom,
+                                                                  .labelSmallIsCustom,
                                                         ),
-                                              ),
-                                            ].divide(SizedBox(width: 6.0)),
+                                                  ),
+                                                ),
+                                              ].divide(SizedBox(width: 2.0)),
+                                            ),
                                           ),
                                         ),
                                       ].divide(SizedBox(height: 3.0)),
@@ -4021,12 +4053,86 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                         widget.itemData?.mainImagePath,
                                         'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg',
                                       ),
-                                      width: 100.0,
-                                      height: 100.0,
+                                      width: 85.0,
+                                      height: 85.0,
                                       fit: BoxFit.cover,
                                     ),
                                   ),
                                 ],
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 6.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 2.0, 0.0, 0.0),
+                                      child: Text(
+                                        dateTimeFormat(
+                                          "yMMMd",
+                                          widget.itemData!.createdAt!,
+                                          locale: FFLocalizations.of(context)
+                                              .languageCode,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmallFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .success,
+                                              fontSize: 12.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w200,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .bodySmallIsCustom,
+                                            ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: AlignmentDirectional(1.0, 1.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Icon(
+                                            Icons.favorite_rounded,
+                                            color: Color(0xFFCD0808),
+                                            size: 20.0,
+                                          ),
+                                          Text(
+                                            valueOrDefault<String>(
+                                              widget.itemData?.itemLikes
+                                                  .toString(),
+                                              '0',
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily,
+                                                  fontSize: 12.0,
+                                                  letterSpacing: 0.0,
+                                                  useGoogleFonts:
+                                                      !FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumIsCustom,
+                                                ),
+                                          ),
+                                        ].divide(SizedBox(width: 6.0)),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),
@@ -4100,11 +4206,13 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
                                                     .titleSmallFamily,
+                                            fontSize: 14.0,
                                             letterSpacing: 0.0,
                                             useGoogleFonts:
                                                 !FlutterFlowTheme.of(context)
                                                     .titleSmallIsCustom,
                                           ),
+                                      overflow: TextOverflow.ellipsis,
                                     ),
                                   ].divide(SizedBox(width: 6.0)),
                                 ),
@@ -4119,7 +4227,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                 child: Container(
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
+                                        .lighterSecBackground,
                                     borderRadius: BorderRadius.circular(6.0),
                                     border: Border.all(
                                       color:
@@ -4159,7 +4267,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                 child: Container(
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
+                                        .lighterSecBackground,
                                     borderRadius: BorderRadius.circular(6.0),
                                     border: Border.all(
                                       color:

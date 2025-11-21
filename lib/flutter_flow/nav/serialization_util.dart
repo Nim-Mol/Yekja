@@ -230,8 +230,6 @@ dynamic deserializeParam<T>(
             return UserExtRow(data);
           case ViewSubcategoriesRow:
             return ViewSubcategoriesRow(data);
-          case TriggerLogRow:
-            return TriggerLogRow(data);
           case VPostLookupRow:
             return VPostLookupRow(data);
           case MainCategoriesRow:

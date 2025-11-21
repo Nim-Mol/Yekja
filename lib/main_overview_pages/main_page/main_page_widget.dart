@@ -285,7 +285,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                 ),
                                               ),
                                               child: Padding(
-                                                padding: EdgeInsets.all(4.0),
+                                                padding: EdgeInsets.all(2.0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -296,7 +296,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsets.all(4.0),
+                                                          EdgeInsets.all(2.0),
                                                       child: custom_widgets
                                                           .SvgRenderer(
                                                         width: 30.0,
@@ -312,54 +312,62 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                       ),
                                                     ),
                                                     Flexible(
-                                                      child: AutoSizeText(
-                                                        valueOrDefault<String>(
-                                                          FFLocalizations.of(
-                                                                          context)
-                                                                      .languageCode ==
-                                                                  'fa'
-                                                              ? categoriesItem
-                                                                  .catNameFa
-                                                              : (FFLocalizations.of(
-                                                                              context)
-                                                                          .languageCode ==
-                                                                      'nl'
-                                                                  ? categoriesItem
-                                                                      .catNameNl
-                                                                  : categoriesItem
-                                                                      .catName),
-                                                          'category',
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    2.0),
+                                                        child: AutoSizeText(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            FFLocalizations.of(
+                                                                            context)
+                                                                        .languageCode ==
+                                                                    'fa'
+                                                                ? categoriesItem
+                                                                    .catNameFa
+                                                                : (FFLocalizations.of(context)
+                                                                            .languageCode ==
+                                                                        'nl'
+                                                                    ? categoriesItem
+                                                                        .catNameNl
+                                                                    : categoriesItem
+                                                                        .catName),
+                                                            'category',
+                                                          ),
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          maxLines: 2,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmallFamily,
+                                                                color: categoriesItem
+                                                                            .catId ==
+                                                                        FFAppState()
+                                                                            .filterSmall
+                                                                            .catId
+                                                                    ? FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryWhite
+                                                                    : FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .textgray,
+                                                                fontSize: 13.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmallIsCustom,
+                                                              ),
                                                         ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        maxLines: 2,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .titleSmall
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmallFamily,
-                                                              color: categoriesItem
-                                                                          .catId ==
-                                                                      FFAppState()
-                                                                          .filterSmall
-                                                                          .catId
-                                                                  ? FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText
-                                                                  : FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .textgray,
-                                                              fontSize: 13.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmallIsCustom,
-                                                            ),
                                                       ),
                                                     ),
                                                   ],
@@ -785,7 +793,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsets.all(4.0),
+                                                        EdgeInsets.all(2.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -799,7 +807,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                         Padding(
                                                           padding:
                                                               EdgeInsets.all(
-                                                                  4.0),
+                                                                  2.0),
                                                           child: custom_widgets
                                                               .SvgRenderer(
                                                             width: 30.0,
@@ -815,54 +823,59 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                           ),
                                                         ),
                                                         Flexible(
-                                                          child: AutoSizeText(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              FFLocalizations.of(
-                                                                              context)
-                                                                          .languageCode ==
-                                                                      'fa'
-                                                                  ? categoriesItem
-                                                                      .catNameFa
-                                                                  : (FFLocalizations.of(context)
-                                                                              .languageCode ==
-                                                                          'nl'
-                                                                      ? categoriesItem
-                                                                          .catNameNl
-                                                                      : categoriesItem
-                                                                          .catName),
-                                                              'category',
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        2.0),
+                                                            child: AutoSizeText(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                FFLocalizations.of(
+                                                                                context)
+                                                                            .languageCode ==
+                                                                        'fa'
+                                                                    ? categoriesItem
+                                                                        .catNameFa
+                                                                    : (FFLocalizations.of(context).languageCode ==
+                                                                            'nl'
+                                                                        ? categoriesItem
+                                                                            .catNameNl
+                                                                        : categoriesItem
+                                                                            .catName),
+                                                                'category',
+                                                              ),
+                                                              textAlign:
+                                                                  TextAlign
+                                                                      .center,
+                                                              maxLines: 2,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .titleSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .titleSmallFamily,
+                                                                    color: categoriesItem.catId ==
+                                                                            FFAppState()
+                                                                                .filterSmall
+                                                                                .catId
+                                                                        ? FlutterFlowTheme.of(context)
+                                                                            .primaryText
+                                                                        : FlutterFlowTheme.of(context)
+                                                                            .textgray,
+                                                                    fontSize:
+                                                                        13.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    useGoogleFonts:
+                                                                        !FlutterFlowTheme.of(context)
+                                                                            .titleSmallIsCustom,
+                                                                  ),
                                                             ),
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                            maxLines: 2,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmallFamily,
-                                                                  color: categoriesItem
-                                                                              .catId ==
-                                                                          FFAppState()
-                                                                              .filterSmall
-                                                                              .catId
-                                                                      ? FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryText
-                                                                      : FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .textgray,
-                                                                  fontSize:
-                                                                      13.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .titleSmallIsCustom,
-                                                                ),
                                                           ),
                                                         ),
                                                       ],
@@ -1177,11 +1190,6 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                         ),
                                       ),
                                     ),
-                                    Divider(
-                                      thickness: 2.0,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
                                   ].addToEnd(SizedBox(height: 80.0)),
                                 ),
                               ),
@@ -1213,6 +1221,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                   .bodyMediumFamily,
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
+                                          fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                           useGoogleFonts:
@@ -1316,7 +1325,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsets.all(4.0),
+                                                        EdgeInsets.all(2.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1330,7 +1339,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                         Padding(
                                                           padding:
                                                               EdgeInsets.all(
-                                                                  4.0),
+                                                                  2.0),
                                                           child: custom_widgets
                                                               .SvgRenderer(
                                                             width: 30.0,
@@ -1346,54 +1355,59 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                           ),
                                                         ),
                                                         Flexible(
-                                                          child: AutoSizeText(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              FFLocalizations.of(
-                                                                              context)
-                                                                          .languageCode ==
-                                                                      'fa'
-                                                                  ? categoriesItem
-                                                                      .catNameFa
-                                                                  : (FFLocalizations.of(context)
-                                                                              .languageCode ==
-                                                                          'nl'
-                                                                      ? categoriesItem
-                                                                          .catNameNl
-                                                                      : categoriesItem
-                                                                          .catName),
-                                                              'category',
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        2.0),
+                                                            child: AutoSizeText(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                FFLocalizations.of(
+                                                                                context)
+                                                                            .languageCode ==
+                                                                        'fa'
+                                                                    ? categoriesItem
+                                                                        .catNameFa
+                                                                    : (FFLocalizations.of(context).languageCode ==
+                                                                            'nl'
+                                                                        ? categoriesItem
+                                                                            .catNameNl
+                                                                        : categoriesItem
+                                                                            .catName),
+                                                                'category',
+                                                              ),
+                                                              textAlign:
+                                                                  TextAlign
+                                                                      .center,
+                                                              maxLines: 2,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .titleSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .titleSmallFamily,
+                                                                    color: categoriesItem.catId ==
+                                                                            FFAppState()
+                                                                                .filterSmall
+                                                                                .catId
+                                                                        ? FlutterFlowTheme.of(context)
+                                                                            .primaryText
+                                                                        : FlutterFlowTheme.of(context)
+                                                                            .textgray,
+                                                                    fontSize:
+                                                                        13.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    useGoogleFonts:
+                                                                        !FlutterFlowTheme.of(context)
+                                                                            .titleSmallIsCustom,
+                                                                  ),
                                                             ),
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                            maxLines: 2,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmallFamily,
-                                                                  color: categoriesItem
-                                                                              .catId ==
-                                                                          FFAppState()
-                                                                              .filterSmall
-                                                                              .catId
-                                                                      ? FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryText
-                                                                      : FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .textgray,
-                                                                  fontSize:
-                                                                      13.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .titleSmallIsCustom,
-                                                                ),
                                                           ),
                                                         ),
                                                       ],
@@ -1704,8 +1718,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                       ratings: filterResultsItem
                                                           .ratings,
                                                       review: filterResultsItem
-                                                          .review
-                                                          .toString(),
+                                                          .review,
                                                       detailLabels: functions
                                                           .decodeDetails(
                                                               filterResultsItem
@@ -1753,6 +1766,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                     .bodyMediumFamily,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
+                                            fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                             useGoogleFonts:
@@ -1850,7 +1864,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                 ),
                                               ),
                                               child: Padding(
-                                                padding: EdgeInsets.all(4.0),
+                                                padding: EdgeInsets.all(2.0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -1861,7 +1875,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsets.all(4.0),
+                                                          EdgeInsets.all(2.0),
                                                       child: custom_widgets
                                                           .SvgRenderer(
                                                         width: 30.0,
@@ -1877,54 +1891,62 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                       ),
                                                     ),
                                                     Flexible(
-                                                      child: AutoSizeText(
-                                                        valueOrDefault<String>(
-                                                          FFLocalizations.of(
-                                                                          context)
-                                                                      .languageCode ==
-                                                                  'fa'
-                                                              ? categoriesItem
-                                                                  .catNameFa
-                                                              : (FFLocalizations.of(
-                                                                              context)
-                                                                          .languageCode ==
-                                                                      'nl'
-                                                                  ? categoriesItem
-                                                                      .catNameNl
-                                                                  : categoriesItem
-                                                                      .catName),
-                                                          'category',
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    2.0),
+                                                        child: AutoSizeText(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            FFLocalizations.of(
+                                                                            context)
+                                                                        .languageCode ==
+                                                                    'fa'
+                                                                ? categoriesItem
+                                                                    .catNameFa
+                                                                : (FFLocalizations.of(context)
+                                                                            .languageCode ==
+                                                                        'nl'
+                                                                    ? categoriesItem
+                                                                        .catNameNl
+                                                                    : categoriesItem
+                                                                        .catName),
+                                                            'category',
+                                                          ),
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          maxLines: 2,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmallFamily,
+                                                                color: categoriesItem
+                                                                            .catId ==
+                                                                        FFAppState()
+                                                                            .filterSmall
+                                                                            .catId
+                                                                    ? FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText
+                                                                    : FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .textgray,
+                                                                fontSize: 13.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmallIsCustom,
+                                                              ),
                                                         ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        maxLines: 2,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .titleSmall
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmallFamily,
-                                                              color: categoriesItem
-                                                                          .catId ==
-                                                                      FFAppState()
-                                                                          .filterSmall
-                                                                          .catId
-                                                                  ? FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText
-                                                                  : FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .textgray,
-                                                              fontSize: 13.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmallIsCustom,
-                                                            ),
                                                       ),
                                                     ),
                                                   ],

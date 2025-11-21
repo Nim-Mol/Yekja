@@ -78,7 +78,7 @@ class _MainHeaderCoreWidgetState extends State<MainHeaderCoreWidget> {
                 child: Container(
                   height: 70.0,
                   decoration: BoxDecoration(
-                    color: Color(0xFF232426),
+                    color: FlutterFlowTheme.of(context).navBar,
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(0.0),
                       bottomRight: Radius.circular(0.0),

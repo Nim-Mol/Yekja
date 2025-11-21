@@ -65,7 +65,7 @@ class _ConfirmCancelPopUpWidgetState extends State<ConfirmCancelPopUpWidget> {
           maxHeight: 400.0,
         ),
         decoration: BoxDecoration(
-          color: Color(0xFF232426),
+          color: FlutterFlowTheme.of(context).navBar,
           borderRadius: BorderRadius.circular(24.0),
           border: Border.all(
             color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -85,6 +85,7 @@ class _ConfirmCancelPopUpWidgetState extends State<ConfirmCancelPopUpWidget> {
                       widget.header,
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'FarsiFonts',
+                            color: FlutterFlowTheme.of(context).primaryWhite,
                             fontSize: 16.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w500,
@@ -95,7 +96,7 @@ class _ConfirmCancelPopUpWidgetState extends State<ConfirmCancelPopUpWidget> {
                         widget.hintText,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'FarsiFonts',
-                              color: FlutterFlowTheme.of(context).primaryText,
+                              color: FlutterFlowTheme.of(context).primaryWhite,
                               fontSize: 14.0,
                               letterSpacing: 0.0,
                             ),

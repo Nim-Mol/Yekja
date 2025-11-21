@@ -85,7 +85,7 @@ class _NavBarCoreWidgetState extends State<NavBarCoreWidget> {
               child: Container(
                 height: 60.0,
                 decoration: BoxDecoration(
-                  color: Color(0xFF232426),
+                  color: FlutterFlowTheme.of(context).navBar,
                 ),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
@@ -132,7 +132,7 @@ class _NavBarCoreWidgetState extends State<NavBarCoreWidget> {
                           Icons.search,
                           color: functions.routeStartsWithPrefix(
                                   getCurrentRoute(context), '/searchPage')
-                              ? FlutterFlowTheme.of(context).primaryText
+                              ? FlutterFlowTheme.of(context).primary
                               : FlutterFlowTheme.of(context).darkgray,
                           size: 30.0,
                         ),

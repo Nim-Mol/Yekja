@@ -8,7 +8,12 @@ import 'post_main_cat_model.dart';
 export 'post_main_cat_model.dart';
 
 class PostMainCatWidget extends StatefulWidget {
-  const PostMainCatWidget({super.key});
+  const PostMainCatWidget({
+    super.key,
+    this.navRoute,
+  });
+
+  final String? navRoute;
 
   static String routeName = 'PostMainCat';
   static String routePath = '/postMainCat';
@@ -57,150 +62,138 @@ class _PostMainCatWidgetState extends State<PostMainCatWidget> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Align(
-                    alignment: AlignmentDirectional(0.0, -1.0),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
-                      child: Container(
-                        constraints: BoxConstraints(
-                          maxWidth: 480.0,
-                        ),
-                        decoration: BoxDecoration(),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Container(
-                                    width: 45.0,
-                                    height: 45.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.safePop();
-                                      },
-                                      child: Icon(
-                                        Icons.arrow_back,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        size: 24.0,
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    height: 45.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      borderRadius: BorderRadius.circular(24.0),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Icon(
-                                              Icons.layers_rounded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .greenInit,
-                                              size: 24.0,
-                                            ),
-                                            Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                's59m0mxv' /* Main Category */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMediumFamily,
-                                                        letterSpacing: 0.0,
-                                                        useGoogleFonts:
-                                                            !FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMediumIsCustom,
-                                                      ),
-                                            ),
-                                          ].divide(SizedBox(width: 8.0)),
-                                        ),
-                                        Text(
-                                          FFLocalizations.of(context).getText(
-                                            'cisjybuu' /* 1 of 6 */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMediumIsCustom,
-                                              ),
-                                        ),
-                                      ]
-                                          .divide(SizedBox(width: 10.0))
-                                          .addToStart(SizedBox(width: 16.0))
-                                          .addToEnd(SizedBox(width: 16.0)),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 45.0,
-                                    height: 45.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.pushNamed(
-                                            HomePageWidget.routeName);
-                                      },
-                                      child: Icon(
-                                        Icons.close,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        size: 24.0,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 16.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                          width: 40.0,
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            shape: BoxShape.circle,
+                          ),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.safePop();
+                            },
+                            child: Icon(
+                              Icons.arrow_back,
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 20.0,
                             ),
-                          ],
+                          ),
                         ),
-                      ),
+                        Container(
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            borderRadius: BorderRadius.circular(24.0),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.layers_sharp,
+                                color: FlutterFlowTheme.of(context).greenInit,
+                                size: 20.0,
+                              ),
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'gbvj8ngz' /* Main Category */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
+                                    ),
+                              ),
+                              RichText(
+                                textScaler: MediaQuery.of(context).textScaler,
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: FFLocalizations.of(context).getText(
+                                        'i2d479eh' /* 1  */,
+                                      ),
+                                      style: TextStyle(),
+                                    ),
+                                    TextSpan(
+                                      text: FFLocalizations.of(context).getText(
+                                        '30yqurbu' /* of  */,
+                                      ),
+                                      style: TextStyle(),
+                                    ),
+                                    TextSpan(
+                                      text: FFLocalizations.of(context).getText(
+                                        'jbvgtm1l' /* 6 */,
+                                      ),
+                                      style: TextStyle(),
+                                    )
+                                  ],
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .bodyMediumFamily,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        letterSpacing: 0.0,
+                                        useGoogleFonts:
+                                            !FlutterFlowTheme.of(context)
+                                                .bodyMediumIsCustom,
+                                      ),
+                                ),
+                              ),
+                            ]
+                                .divide(SizedBox(width: 6.0))
+                                .addToStart(SizedBox(width: 12.0))
+                                .addToEnd(SizedBox(width: 12.0)),
+                          ),
+                        ),
+                        Container(
+                          width: 40.0,
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            shape: BoxShape.circle,
+                          ),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              if (widget.navRoute == 'PostPreview') {
+                                context.pushNamed(PostPreviewWidget.routeName);
+                              } else {
+                                context.pushNamed(HomePageWidget.routeName);
+                              }
+                            },
+                            child: Icon(
+                              Icons.close,
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 20.0,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Align(
@@ -284,14 +277,17 @@ new post about? */
                                           borderRadius:
                                               BorderRadius.circular(20.0),
                                           border: Border.all(
-                                            color: FFAppState()
-                                                        .postState
-                                                        .mainCatId ==
-                                                    1
-                                                ? FlutterFlowTheme.of(context)
-                                                    .primaryText
-                                                : FlutterFlowTheme.of(context)
-                                                    .darkgray,
+                                            color:
+                                                FFAppState()
+                                                            .postState
+                                                            .mainCatId ==
+                                                        1
+                                                    ? FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .bordergray,
                                             width: 0.5,
                                           ),
                                         ),
@@ -389,14 +385,17 @@ new post about? */
                                           borderRadius:
                                               BorderRadius.circular(20.0),
                                           border: Border.all(
-                                            color: FFAppState()
-                                                        .postState
-                                                        .mainCatId ==
-                                                    2
-                                                ? FlutterFlowTheme.of(context)
-                                                    .primaryText
-                                                : FlutterFlowTheme.of(context)
-                                                    .darkgray,
+                                            color:
+                                                FFAppState()
+                                                            .postState
+                                                            .mainCatId ==
+                                                        2
+                                                    ? FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .bordergray,
                                             width: 0.5,
                                           ),
                                         ),
@@ -502,14 +501,17 @@ new post about? */
                                           borderRadius:
                                               BorderRadius.circular(20.0),
                                           border: Border.all(
-                                            color: FFAppState()
-                                                        .postState
-                                                        .mainCatId ==
-                                                    3
-                                                ? FlutterFlowTheme.of(context)
-                                                    .primaryText
-                                                : FlutterFlowTheme.of(context)
-                                                    .darkgray,
+                                            color:
+                                                FFAppState()
+                                                            .postState
+                                                            .mainCatId ==
+                                                        3
+                                                    ? FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .bordergray,
                                             width: 0.5,
                                           ),
                                         ),
@@ -623,14 +625,17 @@ new post about? */
                                           borderRadius:
                                               BorderRadius.circular(20.0),
                                           border: Border.all(
-                                            color: FFAppState()
-                                                        .postState
-                                                        .mainCatId ==
-                                                    4
-                                                ? FlutterFlowTheme.of(context)
-                                                    .primaryText
-                                                : FlutterFlowTheme.of(context)
-                                                    .darkgray,
+                                            color:
+                                                FFAppState()
+                                                            .postState
+                                                            .mainCatId ==
+                                                        4
+                                                    ? FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .bordergray,
                                             width: 0.5,
                                           ),
                                         ),

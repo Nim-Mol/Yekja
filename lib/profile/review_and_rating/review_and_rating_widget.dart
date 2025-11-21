@@ -70,7 +70,7 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
             maxHeight: 540.0,
           ),
           decoration: BoxDecoration(
-            color: Color(0xFF232426),
+            color: FlutterFlowTheme.of(context).secondaryBackground,
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(24.0),
               bottomRight: Radius.circular(24.0),
@@ -107,6 +107,7 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .titleSmallFamily,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                     useGoogleFonts:
@@ -142,7 +143,7 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                                       width: 100.0,
                                       height: 30.0,
                                       decoration: BoxDecoration(
-                                        color: Color(0x4240C057),
+                                        color: Color(0xFF16461E),
                                         borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(0.0),
                                           bottomRight: Radius.circular(30.0),
@@ -189,7 +190,7 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                                   width: 38.0,
                                   height: 38.0,
                                   decoration: BoxDecoration(
-                                    color: Color(0xD5F9CF58),
+                                    color: Color(0xFFF9CF58),
                                     shape: BoxShape.circle,
                                   ),
                                   child: Align(
@@ -214,6 +215,8 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                                           fontFamily:
                                               FlutterFlowTheme.of(context)
                                                   .labelSmallFamily,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
                                           letterSpacing: 0.0,
                                           useGoogleFonts:
                                               !FlutterFlowTheme.of(context)
@@ -241,7 +244,7 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                                       width: 100.0,
                                       height: 30.0,
                                       decoration: BoxDecoration(
-                                        color: Color(0x4240C057),
+                                        color: Color(0xFF16461E),
                                         borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(0.0),
                                           bottomRight: Radius.circular(30.0),
@@ -287,7 +290,7 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                                   width: 38.0,
                                   height: 38.0,
                                   decoration: BoxDecoration(
-                                    color: Color(0xD5F9CF58),
+                                    color: Color(0xFFF9CF58),
                                     shape: BoxShape.circle,
                                   ),
                                   child: Align(
@@ -312,6 +315,8 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                                           fontFamily:
                                               FlutterFlowTheme.of(context)
                                                   .labelSmallFamily,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
                                           letterSpacing: 0.0,
                                           useGoogleFonts:
                                               !FlutterFlowTheme.of(context)
@@ -349,7 +354,7 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                                       width: 100.0,
                                       height: 30.0,
                                       decoration: BoxDecoration(
-                                        color: Color(0x4240C057),
+                                        color: Color(0xFF16461E),
                                         borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(0.0),
                                           bottomRight: Radius.circular(30.0),
@@ -395,7 +400,7 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                                   width: 38.0,
                                   height: 38.0,
                                   decoration: BoxDecoration(
-                                    color: Color(0xD5F9CF58),
+                                    color: Color(0xFFF9CF58),
                                     shape: BoxShape.circle,
                                   ),
                                   child: Align(
@@ -447,7 +452,7 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                                       width: 100.0,
                                       height: 30.0,
                                       decoration: BoxDecoration(
-                                        color: Color(0x4240C057),
+                                        color: Color(0xFF16461E),
                                         borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(0.0),
                                           bottomRight: Radius.circular(30.0),
@@ -493,7 +498,7 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                                   width: 38.0,
                                   height: 38.0,
                                   decoration: BoxDecoration(
-                                    color: Color(0xD5F9CF58),
+                                    color: Color(0xFFF9CF58),
                                     shape: BoxShape.circle,
                                   ),
                                   child: Align(
@@ -518,6 +523,8 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                                           fontFamily:
                                               FlutterFlowTheme.of(context)
                                                   .labelSmallFamily,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
                                           letterSpacing: 0.0,
                                           useGoogleFonts:
                                               !FlutterFlowTheme.of(context)
@@ -557,6 +564,8 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .labelMediumFamily,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryWhite,
                                     letterSpacing: 0.0,
                                     useGoogleFonts:
                                         !FlutterFlowTheme.of(context)
@@ -569,6 +578,7 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .labelMediumFamily,
+                                    color: FlutterFlowTheme.of(context).info,
                                     letterSpacing: 0.0,
                                     useGoogleFonts:
                                         !FlutterFlowTheme.of(context)
@@ -604,15 +614,14 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               filled: true,
-                              fillColor: Color(0xFF181D03),
+                              fillColor: FlutterFlowTheme.of(context).navBar,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
                                       .bodyMediumFamily,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   letterSpacing: 0.0,
                                   useGoogleFonts: !FlutterFlowTheme.of(context)
                                       .bodyMediumIsCustom,
@@ -721,7 +730,7 @@ class _ReviewAndRatingWidgetState extends State<ReviewAndRatingWidget> {
                             .override(
                               fontFamily:
                                   FlutterFlowTheme.of(context).titleSmallFamily,
-                              color: Colors.white,
+                              color: FlutterFlowTheme.of(context).primary,
                               letterSpacing: 0.0,
                               useGoogleFonts: !FlutterFlowTheme.of(context)
                                   .titleSmallIsCustom,

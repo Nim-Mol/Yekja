@@ -17,7 +17,6 @@ export '/posts/create_post/post_wish_list/post_wish_list_widget.dart'
     show PostWishListWidget;
 export '/login/sign_in_confirm/sign_in_confirm_widget.dart'
     show SignInConfirmWidget;
-export '/posts/post_preview/post_preview_widget.dart' show PostPreviewWidget;
 export '/posts/create_post/post_cat/post_cat_widget.dart' show PostCatWidget;
 export '/posts/create_post/post_image/post_image_widget.dart'
     show PostImageWidget;
@@ -86,4 +85,4 @@ export '/login/sign_up_page/sign_up_page_widget.dart' show SignUpPageWidget;
 export '/x_x_x_busines/x_x_x_busines_widget.dart' show XXXBusinesWidget;
 export '/news/news/news_widget.dart' show NewsWidget;
 export '/xxx/xxx_widget.dart' show XxxWidget;
-export '/posts/post_prev/post_prev_widget.dart' show PostPrevWidget;
+export '/posts/post_preview/post_preview_widget.dart' show PostPreviewWidget;

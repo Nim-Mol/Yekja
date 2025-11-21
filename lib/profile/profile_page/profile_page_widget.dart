@@ -297,7 +297,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                 Icons.chevron_left,
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .info,
+                                                        .primary,
                                                 size: 24.0,
                                               ),
                                               onPressed: () async {
@@ -828,7 +828,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                       .all(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .secondary,
+                                                                        .secondaryBackground,
                                                                   ),
                                                                 ),
                                                                 alignment:
@@ -918,7 +918,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                           .landscape,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .darkgray,
+                                                                          .navBar,
                                                                       size:
                                                                           32.0,
                                                                     ),
@@ -935,7 +935,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                           .landscape,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .darkgray,
+                                                                          .navBar,
                                                                       size:
                                                                           40.0,
                                                                     ),
@@ -945,7 +945,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                         .landscape,
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .darkgray,
+                                                                        .navBar,
                                                                     size: 48.0,
                                                                   ),
                                                                 ],

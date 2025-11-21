@@ -11,7 +11,13 @@ class ReportingPopupModel extends FlutterFlowModel<ReportingPopupWidget> {
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
   // Stores action output result for [Backend Call - Insert Row] action in Button widget.
-  ReportedRow? reported;
+  ReportedRow? reportedPOst;
+  // Stores action output result for [Backend Call - Insert Row] action in Button widget.
+  ChatsRow? chatForpost;
+  // Stores action output result for [Backend Call - Insert Row] action in Button widget.
+  ReportedRow? reportedProfile;
+  // Stores action output result for [Backend Call - Insert Row] action in Button widget.
+  ChatsRow? chatForProfile;
 
   @override
   void initState(BuildContext context) {}

@@ -16,7 +16,12 @@ import 'detail_transfer_model.dart';
 export 'detail_transfer_model.dart';
 
 class DetailTransferWidget extends StatefulWidget {
-  const DetailTransferWidget({super.key});
+  const DetailTransferWidget({
+    super.key,
+    this.navRoute,
+  });
+
+  final String? navRoute;
 
   static String routeName = 'DetailTransfer';
   static String routePath = '/detailTransfer';
@@ -58,8 +63,7 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
     _model.textFieldFocusNode5 ??= FocusNode();
 
     _model.negotiableSwitchValue = FFAppState().postState.isNegotiable;
-    _model.registrationSwitchValue1 = FFAppState().postState.isDocument;
-    _model.registrationSwitchValue2 = FFAppState().postState.isFragile;
+    _model.registrationSwitchValue = FFAppState().postState.isDocument;
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
@@ -90,148 +94,141 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Align(
-                    alignment: AlignmentDirectional(0.0, -1.0),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
-                      child: Container(
-                        constraints: BoxConstraints(
-                          maxWidth: 480.0,
-                        ),
-                        decoration: BoxDecoration(),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Container(
-                                    width: 45.0,
-                                    height: 45.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.safePop();
-                                      },
-                                      child: Icon(
-                                        Icons.arrow_back,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        size: 24.0,
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    height: 45.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      borderRadius: BorderRadius.circular(24.0),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Icon(
-                                              Icons.border_color,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .greenInit,
-                                              size: 24.0,
-                                            ),
-                                            Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '53yok1ze' /* Details */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMediumFamily,
-                                                        letterSpacing: 0.0,
-                                                        useGoogleFonts:
-                                                            !FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMediumIsCustom,
-                                                      ),
-                                            ),
-                                          ].divide(SizedBox(width: 8.0)),
-                                        ),
-                                        Text(
-                                          '${functions.isInSetInt(FFAppState().postState.catId, FFAppConstants.catsOpenForSwap.toList()) == true ? '4' : '5'} of 6',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMediumIsCustom,
-                                              ),
-                                        ),
-                                      ]
-                                          .divide(SizedBox(width: 10.0))
-                                          .addToStart(SizedBox(width: 16.0))
-                                          .addToEnd(SizedBox(width: 16.0)),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 45.0,
-                                    height: 45.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.pushNamed(
-                                            HomePageWidget.routeName);
-                                      },
-                                      child: Icon(
-                                        Icons.close,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        size: 24.0,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 16.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                          width: 40.0,
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            shape: BoxShape.circle,
+                          ),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.safePop();
+                            },
+                            child: Icon(
+                              Icons.arrow_back,
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 20.0,
                             ),
-                          ],
+                          ),
                         ),
-                      ),
+                        Container(
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            borderRadius: BorderRadius.circular(24.0),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Icon(
+                                  Icons.border_color,
+                                  color: FlutterFlowTheme.of(context).greenInit,
+                                  size: 20.0,
+                                ),
+                              ),
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  '53yok1ze' /* Details */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
+                                    ),
+                              ),
+                              RichText(
+                                textScaler: MediaQuery.of(context).textScaler,
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: FFLocalizations.of(context).getText(
+                                        'efbqdxyq' /* 5 */,
+                                      ),
+                                      style: TextStyle(),
+                                    ),
+                                    TextSpan(
+                                      text: FFLocalizations.of(context).getText(
+                                        '4jcajawf' /*  of  */,
+                                      ),
+                                      style: TextStyle(),
+                                    ),
+                                    TextSpan(
+                                      text: FFLocalizations.of(context).getText(
+                                        'oocgfb2z' /* 6 */,
+                                      ),
+                                      style: TextStyle(),
+                                    )
+                                  ],
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .bodyMediumFamily,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        letterSpacing: 0.0,
+                                        useGoogleFonts:
+                                            !FlutterFlowTheme.of(context)
+                                                .bodyMediumIsCustom,
+                                      ),
+                                ),
+                              ),
+                            ]
+                                .divide(SizedBox(width: 16.0))
+                                .addToStart(SizedBox(width: 24.0))
+                                .addToEnd(SizedBox(width: 24.0)),
+                          ),
+                        ),
+                        Container(
+                          width: 40.0,
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            shape: BoxShape.circle,
+                          ),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              if (widget.navRoute == 'PostPreview') {
+                                context.pushNamed(PostPreviewWidget.routeName);
+                              } else {
+                                context.pushNamed(HomePageWidget.routeName);
+                              }
+                            },
+                            child: Icon(
+                              Icons.close,
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 20.0,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Expanded(
@@ -290,7 +287,9 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                 ),
                                           ),
                                           Text(
-                                            'transfer ${functions.toLowerCase(FFAppState().postState.intend)}',
+                                            FFLocalizations.of(context).getText(
+                                              'pjdod6a2' /* parcel transfer */,
+                                            ),
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineLarge
@@ -409,27 +408,29 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                             .getText(
                                                           'ni0h27xl' /* Title */,
                                                         ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .titleMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
                                                                           context)
                                                                       .titleMediumFamily,
-                                                              color: Color(
-                                                                  0xFF0BD9A1),
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
+                                                                  color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .titleMediumIsCustom,
-                                                            ),
+                                                                      .green1,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleMediumIsCustom,
+                                                                ),
                                                       ),
                                                       Stack(
                                                         children: [
@@ -450,8 +451,9 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                                   '')
                                                             Icon(
                                                               Icons.check_sharp,
-                                                              color: Color(
-                                                                  0xFF0BD9A1),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .green1,
                                                               size: 16.0,
                                                             ),
                                                         ],
@@ -578,27 +580,29 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                             .getText(
                                                           '9rn6699b' /* Description */,
                                                         ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .titleMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
                                                                           context)
                                                                       .titleMediumFamily,
-                                                              color: Color(
-                                                                  0xFF0BD9A1),
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
+                                                                  color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .titleMediumIsCustom,
-                                                            ),
+                                                                      .green1,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleMediumIsCustom,
+                                                                ),
                                                       ),
                                                       Stack(
                                                         children: [
@@ -619,8 +623,9 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                                   '')
                                                             Icon(
                                                               Icons.check_sharp,
-                                                              color: Color(
-                                                                  0xFF0BD9A1),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .green1,
                                                               size: 16.0,
                                                             ),
                                                         ],
@@ -706,7 +711,9 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .titleMediumFamily,
-                                                    color: Color(0xFF0BD9A1),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .green1,
                                                     fontSize: 16.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
@@ -720,7 +727,9 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                     '')
                                               Icon(
                                                 Icons.check_sharp,
-                                                color: Color(0xFF0BD9A1),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .green1,
                                                 size: 16.0,
                                               ),
                                           ],
@@ -760,10 +769,14 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .labelMediumFamily,
-                                                      color:
-                                                          FlutterFlowTheme.of(
+                                                      color: FFAppState().postState.city !=
+                                                                  ''
+                                                          ? FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryText,
+                                                              .primaryText
+                                                          : FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
                                                       letterSpacing: 0.0,
                                                       useGoogleFonts:
                                                           !FlutterFlowTheme.of(
@@ -826,9 +839,13 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                       .textgray,
                                               size: 16.0,
                                             ),
-                                            fillColor: Color(0xE4232426),
+                                            fillColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
                                             elevation: 0.0,
-                                            borderColor: Color(0xE4232426),
+                                            borderColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
                                             borderWidth: 0.0,
                                             borderRadius: 4.0,
                                             margin:
@@ -842,11 +859,6 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                         ),
                                       ].divide(SizedBox(height: 6.0)),
                                     ),
-                                  ),
-                                  Divider(
-                                    thickness: 0.3,
-                                    color:
-                                        FlutterFlowTheme.of(context).bordergray,
                                   ),
                                 ],
                               ),
@@ -877,7 +889,9 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .titleMediumFamily,
-                                              color: Color(0xFF0BD9A1),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .green1,
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
@@ -887,11 +901,14 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                             ),
                                       ),
                                     ),
-                                    if (FFAppState().postState.availableFrom !=
-                                        null)
+                                    if (FFAppState()
+                                                .postState
+                                                .destinationCity !=
+                                            '')
                                       Icon(
                                         Icons.check_sharp,
-                                        color: Color(0xFF0BD9A1),
+                                        color:
+                                            FlutterFlowTheme.of(context).green1,
                                         size: 16.0,
                                       ),
                                   ],
@@ -1052,11 +1069,27 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                         ),
                                       ),
                                     ),
-                                    FaIcon(
-                                      FontAwesomeIcons.longArrowAltRight,
-                                      color:
-                                          FlutterFlowTheme.of(context).textgray,
-                                      size: 14.0,
+                                    Stack(
+                                      children: [
+                                        if (FFLocalizations.of(context)
+                                                .languageCode !=
+                                            'fa')
+                                          FaIcon(
+                                            FontAwesomeIcons.longArrowAltRight,
+                                            color: FlutterFlowTheme.of(context)
+                                                .textgray,
+                                            size: 14.0,
+                                          ),
+                                        if (FFLocalizations.of(context)
+                                                .languageCode ==
+                                            'fa')
+                                          FaIcon(
+                                            FontAwesomeIcons.longArrowAltLeft,
+                                            color: FlutterFlowTheme.of(context)
+                                                .textgray,
+                                            size: 14.0,
+                                          ),
+                                      ],
                                     ),
                                     Expanded(
                                       child: Container(
@@ -1363,11 +1396,27 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                         ),
                                       ),
                                     ),
-                                    FaIcon(
-                                      FontAwesomeIcons.longArrowAltRight,
-                                      color:
-                                          FlutterFlowTheme.of(context).textgray,
-                                      size: 14.0,
+                                    Stack(
+                                      children: [
+                                        if (FFLocalizations.of(context)
+                                                .languageCode !=
+                                            'fa')
+                                          FaIcon(
+                                            FontAwesomeIcons.longArrowAltRight,
+                                            color: FlutterFlowTheme.of(context)
+                                                .textgray,
+                                            size: 14.0,
+                                          ),
+                                        if (FFLocalizations.of(context)
+                                                .languageCode ==
+                                            'fa')
+                                          FaIcon(
+                                            FontAwesomeIcons.longArrowAltLeft,
+                                            color: FlutterFlowTheme.of(context)
+                                                .textgray,
+                                            size: 14.0,
+                                          ),
+                                      ],
                                     ),
                                     Expanded(
                                       child: Container(
@@ -1546,7 +1595,9 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .titleMediumFamily,
-                                              color: Color(0xFF0BD9A1),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .green1,
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
@@ -1556,212 +1607,450 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                             ),
                                       ),
                                     ),
-                                    if (FFAppState().postState.availableFrom !=
-                                        null)
+                                    if (dateTimeFormat(
+                                              "yMMMd",
+                                              FFAppState().postState.deadline,
+                                              locale:
+                                                  FFLocalizations.of(context)
+                                                      .languageCode,
+                                            ) !=
+                                            '')
                                       Icon(
                                         Icons.check_sharp,
-                                        color: Color(0xFF0BD9A1),
+                                        color:
+                                            FlutterFlowTheme.of(context).green1,
                                         size: 16.0,
                                       ),
                                   ],
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 2.0, 0.0, 6.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          4.0, 0.0, 0.0, 0.0),
-                                      child: Text(
-                                        FFAppState().postState.intend == 'Offer'
-                                            ? 'Travel Date:'
-                                            : 'Transfer Deadline:',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily,
-                                              color: Color(0xCFD4D4D4),
-                                              letterSpacing: 0.0,
-                                              useGoogleFonts:
-                                                  !FlutterFlowTheme.of(context)
-                                                      .bodyMediumIsCustom,
+                              Stack(
+                                children: [
+                                  if (FFAppState().postState.intend == 'Offer')
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  4.0, 0.0, 0.0, 0.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'k1tfu3tn' /* Travel date */,
                                             ),
-                                      ),
-                                    ),
-                                    Flexible(
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          final _datePickedDate =
-                                              await showDatePicker(
-                                            context: context,
-                                            initialDate: getCurrentTimestamp,
-                                            firstDate: getCurrentTimestamp,
-                                            lastDate: DateTime(2050),
-                                            builder: (context, child) {
-                                              return wrapInMaterialDatePickerTheme(
-                                                context,
-                                                child!,
-                                                headerBackgroundColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBackground,
-                                                headerForegroundColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                                headerTextStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineLarge
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .headlineLargeFamily,
-                                                          fontSize: 32.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                          useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .headlineLargeIsCustom,
-                                                        ),
-                                                pickerBackgroundColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                pickerForegroundColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                selectedDateTimeBackgroundColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .greenInit,
-                                                selectedDateTimeForegroundColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                actionButtonForegroundColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .greenInit,
-                                                iconSize: 20.0,
-                                              );
-                                            },
-                                          );
-
-                                          if (_datePickedDate != null) {
-                                            safeSetState(() {
-                                              _model.datePicked = DateTime(
-                                                _datePickedDate.year,
-                                                _datePickedDate.month,
-                                                _datePickedDate.day,
-                                              );
-                                            });
-                                          } else if (_model.datePicked !=
-                                              null) {
-                                            safeSetState(() {
-                                              _model.datePicked =
-                                                  getCurrentTimestamp;
-                                            });
-                                          }
-                                          FFAppState().updatePostStateStruct(
-                                            (e) =>
-                                                e..deadline = _model.datePicked,
-                                          );
-                                          safeSetState(() {});
-                                        },
-                                        child: Container(
-                                          width: 160.0,
-                                          height: 38.0,
-                                          constraints: BoxConstraints(
-                                            maxWidth: 180.0,
-                                          ),
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            borderRadius:
-                                                BorderRadius.circular(4.0),
-                                          ),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 4.0, 12.0, 4.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.min,
-                                              children: [
-                                                Icon(
-                                                  Icons.calendar_month_sharp,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bordergray,
-                                                  size: 24.0,
-                                                ),
-                                                Text(
-                                                  dateTimeFormat(
-                                                                "yMMMd",
-                                                                FFAppState()
-                                                                    .postState
-                                                                    .deadline,
-                                                                locale: FFLocalizations.of(
-                                                                        context)
-                                                                    .languageCode,
-                                                              ) !=
-                                                              ''
-                                                      ? dateTimeFormat(
-                                                          "yMMMd",
-                                                          FFAppState()
-                                                              .postState
-                                                              .deadline!,
-                                                          locale:
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .languageCode,
-                                                        )
-                                                      : 'Select Date',
-                                                  textAlign: TextAlign.center,
-                                                  style:
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
+                                                          .bodyMediumFamily,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  letterSpacing: 0.0,
+                                                  useGoogleFonts:
+                                                      !FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumIsCustom,
+                                                ),
+                                          ),
+                                        ),
+                                        Flexible(
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              final _datePicked1Date =
+                                                  await showDatePicker(
+                                                context: context,
+                                                initialDate:
+                                                    getCurrentTimestamp,
+                                                firstDate: getCurrentTimestamp,
+                                                lastDate: DateTime(2050),
+                                                builder: (context, child) {
+                                                  return wrapInMaterialDatePickerTheme(
+                                                    context,
+                                                    child!,
+                                                    headerBackgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryBackground,
+                                                    headerForegroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText,
+                                                    headerTextStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .headlineLarge
+                                                            .override(
+                                                              fontFamily:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineLargeFamily,
+                                                              fontSize: 32.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                              useGoogleFonts:
+                                                                  !FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineLargeIsCustom,
+                                                            ),
+                                                    pickerBackgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryBackground,
+                                                    pickerForegroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText,
+                                                    selectedDateTimeBackgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .greenInit,
+                                                    selectedDateTimeForegroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryBackground,
+                                                    actionButtonForegroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .greenInit,
+                                                    iconSize: 20.0,
+                                                  );
+                                                },
+                                              );
+
+                                              if (_datePicked1Date != null) {
+                                                safeSetState(() {
+                                                  _model.datePicked1 = DateTime(
+                                                    _datePicked1Date.year,
+                                                    _datePicked1Date.month,
+                                                    _datePicked1Date.day,
+                                                  );
+                                                });
+                                              } else if (_model.datePicked1 !=
+                                                  null) {
+                                                safeSetState(() {
+                                                  _model.datePicked1 =
+                                                      getCurrentTimestamp;
+                                                });
+                                              }
+                                              FFAppState()
+                                                  .updatePostStateStruct(
+                                                (e) => e
+                                                  ..deadline =
+                                                      _model.datePicked1,
+                                              );
+                                              safeSetState(() {});
+                                            },
+                                            child: Container(
+                                              width: 160.0,
+                                              height: 38.0,
+                                              constraints: BoxConstraints(
+                                                maxWidth: 180.0,
+                                              ),
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                borderRadius:
+                                                    BorderRadius.circular(4.0),
+                                              ),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 4.0, 12.0, 4.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  children: [
+                                                    Icon(
+                                                      Icons
+                                                          .calendar_month_sharp,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bordergray,
+                                                      size: 24.0,
+                                                    ),
+                                                    Text(
+                                                      dateTimeFormat(
+                                                                    "yMMMd",
+                                                                    FFAppState()
+                                                                        .postState
+                                                                        .deadline,
+                                                                    locale: FFLocalizations.of(
+                                                                            context)
+                                                                        .languageCode,
+                                                                  ) !=
+                                                                  ''
+                                                          ? dateTimeFormat(
+                                                              "yMMMd",
+                                                              FFAppState()
+                                                                  .postState
+                                                                  .deadline!,
+                                                              locale: FFLocalizations
+                                                                      .of(context)
+                                                                  .languageCode,
+                                                            )
+                                                          : 'Select Date',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMediumFamily,
-                                                            color:
-                                                                dateTimeFormat(
+                                                                color: dateTimeFormat(
                                                                               "yMMMd",
                                                                               FFAppState().postState.deadline,
                                                                               locale: FFLocalizations.of(context).languageCode,
                                                                             ) !=
                                                                             ''
-                                                                    ? FlutterFlowTheme.of(
+                                                                    ? FlutterFlowTheme.of(context).primaryText
+                                                                    : FlutterFlowTheme.of(context).textgray,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primaryText
-                                                                    : FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .textgray,
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumIsCustom,
-                                                          ),
+                                                                        .bodyMediumIsCustom,
+                                                              ),
+                                                    ),
+                                                  ].divide(
+                                                      SizedBox(width: 6.0)),
                                                 ),
-                                              ].divide(SizedBox(width: 6.0)),
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
+                                      ],
                                     ),
-                                  ],
-                                ),
+                                  if (FFAppState().postState.intend != 'Offer')
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  4.0, 0.0, 0.0, 0.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              '8c7d25g2' /* Transfer deadline */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  letterSpacing: 0.0,
+                                                  useGoogleFonts:
+                                                      !FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumIsCustom,
+                                                ),
+                                          ),
+                                        ),
+                                        Flexible(
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              final _datePicked2Date =
+                                                  await showDatePicker(
+                                                context: context,
+                                                initialDate:
+                                                    getCurrentTimestamp,
+                                                firstDate: getCurrentTimestamp,
+                                                lastDate: DateTime(2050),
+                                                builder: (context, child) {
+                                                  return wrapInMaterialDatePickerTheme(
+                                                    context,
+                                                    child!,
+                                                    headerBackgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryBackground,
+                                                    headerForegroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText,
+                                                    headerTextStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .headlineLarge
+                                                            .override(
+                                                              fontFamily:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineLargeFamily,
+                                                              fontSize: 32.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                              useGoogleFonts:
+                                                                  !FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineLargeIsCustom,
+                                                            ),
+                                                    pickerBackgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryBackground,
+                                                    pickerForegroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText,
+                                                    selectedDateTimeBackgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .greenInit,
+                                                    selectedDateTimeForegroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary,
+                                                    actionButtonForegroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary,
+                                                    iconSize: 20.0,
+                                                  );
+                                                },
+                                              );
+
+                                              if (_datePicked2Date != null) {
+                                                safeSetState(() {
+                                                  _model.datePicked2 = DateTime(
+                                                    _datePicked2Date.year,
+                                                    _datePicked2Date.month,
+                                                    _datePicked2Date.day,
+                                                  );
+                                                });
+                                              } else if (_model.datePicked2 !=
+                                                  null) {
+                                                safeSetState(() {
+                                                  _model.datePicked2 =
+                                                      getCurrentTimestamp;
+                                                });
+                                              }
+                                              FFAppState()
+                                                  .updatePostStateStruct(
+                                                (e) => e
+                                                  ..deadline =
+                                                      _model.datePicked2,
+                                              );
+                                              safeSetState(() {});
+                                            },
+                                            child: Container(
+                                              width: 160.0,
+                                              height: 38.0,
+                                              constraints: BoxConstraints(
+                                                maxWidth: 180.0,
+                                              ),
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                borderRadius:
+                                                    BorderRadius.circular(4.0),
+                                              ),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 4.0, 12.0, 4.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  children: [
+                                                    Icon(
+                                                      Icons
+                                                          .calendar_month_sharp,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bordergray,
+                                                      size: 24.0,
+                                                    ),
+                                                    Text(
+                                                      dateTimeFormat(
+                                                                    "yMMMd",
+                                                                    FFAppState()
+                                                                        .postState
+                                                                        .deadline,
+                                                                    locale: FFLocalizations.of(
+                                                                            context)
+                                                                        .languageCode,
+                                                                  ) !=
+                                                                  ''
+                                                          ? dateTimeFormat(
+                                                              "yMMMd",
+                                                              FFAppState()
+                                                                  .postState
+                                                                  .deadline!,
+                                                              locale: FFLocalizations
+                                                                      .of(context)
+                                                                  .languageCode,
+                                                            )
+                                                          : 'Select Date',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                color: dateTimeFormat(
+                                                                              "yMMMd",
+                                                                              FFAppState().postState.deadline,
+                                                                              locale: FFLocalizations.of(context).languageCode,
+                                                                            ) !=
+                                                                            ''
+                                                                    ? FlutterFlowTheme.of(context).primaryText
+                                                                    : FlutterFlowTheme.of(context).textgray,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
+                                                    ),
+                                                  ].divide(
+                                                      SizedBox(width: 6.0)),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                ],
                               ),
                               Divider(
                                 thickness: 0.3,
@@ -1820,7 +2109,9 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                         0))
                                                   Icon(
                                                     Icons.check_sharp,
-                                                    color: Color(0xFF0BD9A1),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .green1,
                                                     size: 16.0,
                                                   ),
                                               ],
@@ -2195,35 +2486,62 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 2.0),
-                                                child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'q24c609n' /* Compensation */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .titleMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleMediumFamily,
-                                                        color:
-                                                            Color(0xFF0BD9A1),
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        useGoogleFonts:
-                                                            !FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleMediumIsCustom,
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 2.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'q24c609n' /* Compensation */,
                                                       ),
-                                                ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleMediumFamily,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .green1,
+                                                            fontSize: 16.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            useGoogleFonts:
+                                                                !FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleMediumIsCustom,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  if ((FFAppState()
+                                                                  .postState
+                                                                  .priceText !=
+                                                              '') ||
+                                                      (FFAppState()
+                                                              .postState
+                                                              .price >
+                                                          0))
+                                                    Icon(
+                                                      Icons.check_sharp,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .green1,
+                                                      size: 16.0,
+                                                    ),
+                                                ],
                                               ),
                                               SingleChildScrollView(
                                                 scrollDirection:
@@ -2744,7 +3062,9 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .titleMediumFamily,
-                                                color: Color(0xFF0BD9A1),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .green1,
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
@@ -2761,7 +3081,8 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                   ''))
                                         Icon(
                                           Icons.check_sharp,
-                                          color: Color(0xFF0BD9A1),
+                                          color: FlutterFlowTheme.of(context)
+                                              .green1,
                                           size: 16.0,
                                         ),
                                     ],
@@ -2781,7 +3102,9 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMediumFamily,
-                                              color: Color(0xCFD4D4D4),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
                                               letterSpacing: 0.0,
                                               useGoogleFonts:
                                                   !FlutterFlowTheme.of(context)
@@ -2793,17 +3116,17 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                         scaleY: 0.8,
                                         child: Switch.adaptive(
                                           value:
-                                              _model.registrationSwitchValue1!,
+                                              _model.registrationSwitchValue!,
                                           onChanged: (newValue) async {
-                                            safeSetState(() => _model
-                                                    .registrationSwitchValue1 =
-                                                newValue);
+                                            safeSetState(() =>
+                                                _model.registrationSwitchValue =
+                                                    newValue);
                                             if (newValue) {
                                               FFAppState()
                                                   .updatePostStateStruct(
                                                 (e) => e
                                                   ..isDocument = _model
-                                                      .registrationSwitchValue1,
+                                                      .registrationSwitchValue,
                                               );
                                               safeSetState(() {});
                                             } else {
@@ -2811,7 +3134,7 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                   .updatePostStateStruct(
                                                 (e) => e
                                                   ..isDocument = _model
-                                                      .registrationSwitchValue1,
+                                                      .registrationSwitchValue,
                                               );
                                               safeSetState(() {});
                                             }
@@ -2824,7 +3147,7 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                   .greenInit,
                                           inactiveTrackColor:
                                               FlutterFlowTheme.of(context)
-                                                  .bordergray,
+                                                  .secondaryBackground,
                                           inactiveThumbColor:
                                               FlutterFlowTheme.of(context)
                                                   .secondaryText,
@@ -2832,924 +3155,6 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                       ),
                                     ].divide(SizedBox(width: 10.0)),
                                   ),
-                                  if (FFAppState().postState.isDocument ==
-                                      false)
-                                    Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 8.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  '0bzs8ryb' /* Is fragile? */,
-                                                ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumFamily,
-                                                      color: Color(0xCFD4D4D4),
-                                                      letterSpacing: 0.0,
-                                                      useGoogleFonts:
-                                                          !FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumIsCustom,
-                                                    ),
-                                              ),
-                                              Transform.scale(
-                                                scaleX: 0.85,
-                                                scaleY: 0.8,
-                                                child: Switch.adaptive(
-                                                  value: _model
-                                                      .registrationSwitchValue2!,
-                                                  onChanged: (newValue) async {
-                                                    safeSetState(() => _model
-                                                            .registrationSwitchValue2 =
-                                                        newValue);
-                                                    if (newValue) {
-                                                      FFAppState()
-                                                          .updatePostStateStruct(
-                                                        (e) => e
-                                                          ..isFragile = _model
-                                                              .registrationSwitchValue2,
-                                                      );
-                                                      safeSetState(() {});
-                                                    } else {
-                                                      FFAppState()
-                                                          .updatePostStateStruct(
-                                                        (e) => e
-                                                          ..isFragile = _model
-                                                              .registrationSwitchValue2,
-                                                      );
-                                                      safeSetState(() {});
-                                                    }
-                                                  },
-                                                  activeColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .greenInit,
-                                                  activeTrackColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .greenInit,
-                                                  inactiveTrackColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bordergray,
-                                                  inactiveThumbColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryText,
-                                                ),
-                                              ),
-                                            ].divide(SizedBox(width: 10.0)),
-                                          ),
-                                        ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'hvhdtgd2' /* Weight Class (swipe to see mor... */,
-                                              ),
-                                              textAlign: TextAlign.start,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily,
-                                                    color: Color(0xCFD4D4D4),
-                                                    letterSpacing: 0.0,
-                                                    useGoogleFonts:
-                                                        !FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumIsCustom,
-                                                  ),
-                                            ),
-                                          ],
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 6.0, 0.0, 16.0),
-                                          child: SingleChildScrollView(
-                                            scrollDirection: Axis.horizontal,
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    FFAppState()
-                                                        .updatePostStateStruct(
-                                                      (e) => e
-                                                        ..weightKg =
-                                                            'Below 1 kg',
-                                                    );
-                                                    safeSetState(() {});
-                                                  },
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                      color: FFAppState()
-                                                                  .postState
-                                                                  .weightKg ==
-                                                              'Below 1 kg'
-                                                          ? FlutterFlowTheme.of(
-                                                                  context)
-                                                              .greenInit
-                                                          : FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              4.0),
-                                                      border: Border.all(
-                                                        color: FFAppState()
-                                                                    .postState
-                                                                    .weightKg ==
-                                                                'Below 1 kg'
-                                                            ? FlutterFlowTheme
-                                                                    .of(context)
-                                                                .greenInit
-                                                            : FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bordergray,
-                                                        width: 0.3,
-                                                      ),
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  12.0,
-                                                                  6.0,
-                                                                  12.0,
-                                                                  6.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'srlj5v15' /* Below 1 kg */,
-                                                        ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                              color: FFAppState()
-                                                                          .postState
-                                                                          .weightKg ==
-                                                                      'Below 1 kg'
-                                                                  ? FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText
-                                                                  : FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .textgray,
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .normal,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumIsCustom,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    FFAppState()
-                                                        .updatePostStateStruct(
-                                                      (e) => e
-                                                        ..weightKg =
-                                                            '1 to 3 kg',
-                                                    );
-                                                    safeSetState(() {});
-                                                  },
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                      color: FFAppState()
-                                                                  .postState
-                                                                  .weightKg ==
-                                                              '1 to 3 kg'
-                                                          ? FlutterFlowTheme.of(
-                                                                  context)
-                                                              .greenInit
-                                                          : FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              4.0),
-                                                      border: Border.all(
-                                                        color: FFAppState()
-                                                                    .postState
-                                                                    .weightKg ==
-                                                                '1 to 3 kg'
-                                                            ? FlutterFlowTheme
-                                                                    .of(context)
-                                                                .greenInit
-                                                            : FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bordergray,
-                                                        width: 0.3,
-                                                      ),
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  12.0,
-                                                                  6.0,
-                                                                  12.0,
-                                                                  6.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          '323uig3s' /* 1 to 3 kg */,
-                                                        ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                              color: FFAppState()
-                                                                          .postState
-                                                                          .weightKg ==
-                                                                      '1 to 3 kg'
-                                                                  ? FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText
-                                                                  : FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .textgray,
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .normal,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumIsCustom,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    FFAppState()
-                                                        .updatePostStateStruct(
-                                                      (e) => e
-                                                        ..weightKg =
-                                                            '3 to 5 kg',
-                                                    );
-                                                    safeSetState(() {});
-                                                  },
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                      color: FFAppState()
-                                                                  .postState
-                                                                  .weightKg ==
-                                                              '3 to 5 kg'
-                                                          ? FlutterFlowTheme.of(
-                                                                  context)
-                                                              .greenInit
-                                                          : FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              4.0),
-                                                      border: Border.all(
-                                                        color: FFAppState()
-                                                                    .postState
-                                                                    .weightKg ==
-                                                                '3 to 5 kg'
-                                                            ? FlutterFlowTheme
-                                                                    .of(context)
-                                                                .greenInit
-                                                            : FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bordergray,
-                                                        width: 0.3,
-                                                      ),
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  12.0,
-                                                                  6.0,
-                                                                  12.0,
-                                                                  6.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'ndp9g7qy' /* 3 to 5 kg */,
-                                                        ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                              color: FFAppState()
-                                                                          .postState
-                                                                          .weightKg ==
-                                                                      '3 to 5 kg'
-                                                                  ? FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText
-                                                                  : FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .textgray,
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .normal,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumIsCustom,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    FFAppState()
-                                                        .updatePostStateStruct(
-                                                      (e) => e
-                                                        ..weightKg =
-                                                            '5 to 10 kg',
-                                                    );
-                                                    safeSetState(() {});
-                                                  },
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                      color: FFAppState()
-                                                                  .postState
-                                                                  .weightKg ==
-                                                              '5 to 10 kg'
-                                                          ? FlutterFlowTheme.of(
-                                                                  context)
-                                                              .greenInit
-                                                          : FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              4.0),
-                                                      border: Border.all(
-                                                        color: FFAppState()
-                                                                    .postState
-                                                                    .weightKg ==
-                                                                '5 to 10 kg'
-                                                            ? FlutterFlowTheme
-                                                                    .of(context)
-                                                                .greenInit
-                                                            : FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bordergray,
-                                                        width: 0.3,
-                                                      ),
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  12.0,
-                                                                  6.0,
-                                                                  12.0,
-                                                                  6.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'k0nue8qi' /* 5 to 10 kg */,
-                                                        ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                              color: FFAppState()
-                                                                          .postState
-                                                                          .weightKg ==
-                                                                      '5 to 10 kg'
-                                                                  ? FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText
-                                                                  : FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .textgray,
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .normal,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumIsCustom,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    FFAppState()
-                                                        .updatePostStateStruct(
-                                                      (e) => e
-                                                        ..weightKg =
-                                                            'Above 10 kg',
-                                                    );
-                                                    safeSetState(() {});
-                                                  },
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                      color: FFAppState()
-                                                                  .postState
-                                                                  .weightKg ==
-                                                              'Above 10 kg'
-                                                          ? FlutterFlowTheme.of(
-                                                                  context)
-                                                              .greenInit
-                                                          : FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              4.0),
-                                                      border: Border.all(
-                                                        color: FFAppState()
-                                                                    .postState
-                                                                    .weightKg ==
-                                                                'Above 10 kg'
-                                                            ? FlutterFlowTheme
-                                                                    .of(context)
-                                                                .greenInit
-                                                            : FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bordergray,
-                                                        width: 0.3,
-                                                      ),
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  12.0,
-                                                                  6.0,
-                                                                  12.0,
-                                                                  6.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'auf8q7sc' /* Above 10 kg */,
-                                                        ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                              color: FFAppState()
-                                                                          .postState
-                                                                          .weightKg ==
-                                                                      'Above 10 kg'
-                                                                  ? FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText
-                                                                  : FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .textgray,
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .normal,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumIsCustom,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ].divide(SizedBox(width: 10.0)),
-                                            ),
-                                          ),
-                                        ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '5ak8ya57' /* Dimensin Class (swipe to see m... */,
-                                              ),
-                                              textAlign: TextAlign.start,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily,
-                                                    color: Color(0xCFD4D4D4),
-                                                    letterSpacing: 0.0,
-                                                    useGoogleFonts:
-                                                        !FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumIsCustom,
-                                                  ),
-                                            ),
-                                          ],
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 6.0, 0.0, 16.0),
-                                          child: SingleChildScrollView(
-                                            scrollDirection: Axis.horizontal,
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    FFAppState()
-                                                        .updatePostStateStruct(
-                                                      (e) => e
-                                                        ..dimensionsText =
-                                                            'Small (Fits Shoe Box)',
-                                                    );
-                                                    safeSetState(() {});
-                                                  },
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                      color: FFAppState()
-                                                                  .postState
-                                                                  .dimensionsText ==
-                                                              'Small (Fits Shoe Box)'
-                                                          ? FlutterFlowTheme.of(
-                                                                  context)
-                                                              .greenInit
-                                                          : FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              4.0),
-                                                      border: Border.all(
-                                                        color: FFAppState()
-                                                                    .postState
-                                                                    .dimensionsText ==
-                                                                'Small (Fits Shoe Box)'
-                                                            ? FlutterFlowTheme
-                                                                    .of(context)
-                                                                .greenInit
-                                                            : FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bordergray,
-                                                        width: 0.3,
-                                                      ),
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  12.0,
-                                                                  6.0,
-                                                                  12.0,
-                                                                  6.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'cwd7q7ms' /* Small (Fits Shoe Box) */,
-                                                        ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                              color: FFAppState()
-                                                                          .postState
-                                                                          .dimensionsText ==
-                                                                      'Small (Fits Shoe Box)'
-                                                                  ? FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText
-                                                                  : FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .textgray,
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .normal,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumIsCustom,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    FFAppState()
-                                                        .updatePostStateStruct(
-                                                      (e) => e
-                                                        ..dimensionsText =
-                                                            'Medium (Carry-on size)',
-                                                    );
-                                                    safeSetState(() {});
-                                                  },
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                      color: FFAppState()
-                                                                  .postState
-                                                                  .dimensionsText ==
-                                                              'Medium (Carry-on size)'
-                                                          ? FlutterFlowTheme.of(
-                                                                  context)
-                                                              .greenInit
-                                                          : FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              4.0),
-                                                      border: Border.all(
-                                                        color: FFAppState()
-                                                                    .postState
-                                                                    .dimensionsText ==
-                                                                'Medium (Carry-on size)'
-                                                            ? FlutterFlowTheme
-                                                                    .of(context)
-                                                                .greenInit
-                                                            : FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bordergray,
-                                                        width: 0.3,
-                                                      ),
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  12.0,
-                                                                  6.0,
-                                                                  12.0,
-                                                                  6.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'ifxqnf7g' /* Medium (Carry-on size) */,
-                                                        ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                              color: FFAppState()
-                                                                          .postState
-                                                                          .dimensionsText ==
-                                                                      'Medium (Carry-on size)'
-                                                                  ? FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText
-                                                                  : FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .textgray,
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .normal,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumIsCustom,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    FFAppState()
-                                                        .updatePostStateStruct(
-                                                      (e) => e
-                                                        ..dimensionsText =
-                                                            'Large (Check-in Luggage)',
-                                                    );
-                                                    safeSetState(() {});
-                                                  },
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                      color: FFAppState()
-                                                                  .postState
-                                                                  .dimensionsText ==
-                                                              'Large (Check-in Luggage)'
-                                                          ? FlutterFlowTheme.of(
-                                                                  context)
-                                                              .greenInit
-                                                          : FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              4.0),
-                                                      border: Border.all(
-                                                        color: FFAppState()
-                                                                    .postState
-                                                                    .dimensionsText ==
-                                                                'Large (Check-in Luggage)'
-                                                            ? FlutterFlowTheme
-                                                                    .of(context)
-                                                                .greenInit
-                                                            : FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bordergray,
-                                                        width: 0.3,
-                                                      ),
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  12.0,
-                                                                  6.0,
-                                                                  12.0,
-                                                                  6.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'eu95q3wj' /* Large (Check-in Luggage) */,
-                                                        ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                              color: FFAppState()
-                                                                          .postState
-                                                                          .dimensionsText ==
-                                                                      'Large (Check-in Luggage)'
-                                                                  ? FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText
-                                                                  : FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .textgray,
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .normal,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumIsCustom,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ].divide(SizedBox(width: 10.0)),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
                                 ],
                               ),
                             ].addToEnd(SizedBox(height: 120.0)),

@@ -131,6 +131,9 @@ class _ItemCardHorizontal2WidgetState extends State<ItemCardHorizontal2Widget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .bodySmallFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryWhite,
                                               fontSize: 12.0,
                                               letterSpacing: 0.0,
                                               useGoogleFonts:

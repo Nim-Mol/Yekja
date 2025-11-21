@@ -1134,15 +1134,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // PostSubCat
   {
-    'sj1zehgy': {
-      'en': 'Sub Category',
-      'fa': 'زیر دسته',
+    '63avlo5i': {
+      'en': 'Subcategory',
+      'fa': 'زیرشاخه',
       'nl': 'Subcategorie',
     },
-    'lf6kvle5': {
-      'en': '3 of 6',
-      'fa': '۳ از ۶',
-      'nl': '3 van 6',
+    'm0e8ms6f': {
+      'en': '3',
+      'fa': '۳',
+      'nl': '3',
+    },
+    'q5po1f7m': {
+      'en': ' of ',
+      'fa': ' از ',
+      'nl': 'van',
+    },
+    's7quu3gz': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
     },
     'csirahyr': {
       'en': 'Next',
@@ -1300,101 +1310,27 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Thuis',
     },
   },
-  // PostPreview
-  {
-    'f3ldau17': {
-      'en': 'This is a Preview',
-      'fa': 'این یک پیش‌نمایش است',
-      'nl': 'Dit is een voorvertoning',
-    },
-    'pk7ai9ce': {
-      'en': 'Value hint ',
-      'fa': 'اشاره به ارزش',
-      'nl': 'Waarde hint',
-    },
-    'jf6laf3h': {
-      'en': '(check here)',
-      'fa': '(اینجا را بررسی کنید)',
-      'nl': '(controleer hier)',
-    },
-    'qzvhf54q': {
-      'en': 'Value hint',
-      'fa': 'اشاره به ارزش',
-      'nl': 'Waarde hint',
-    },
-    '8m5rehpy': {
-      'en': 'DESCRIPTION',
-      'fa': 'شرح',
-      'nl': 'BESCHRIJVING',
-    },
-    'mst2auf9': {
-      'en': 'your review score',
-      'fa': 'امتیاز بررسی شما',
-      'nl': 'uw beoordelingsscore',
-    },
-    'ceeh9fb2': {
-      'en': 'MY EXCHANGE WISH',
-      'fa': 'آرزوی تبادل من',
-      'nl': 'MIJN RUILVENSWENS',
-    },
-    'iwovhce9': {
-      'en': 'Fresh start',
-      'fa': 'شروع تازه',
-      'nl': 'Nieuwe start',
-    },
-    'cga41mte': {
-      'en': 'Publish',
-      'fa': 'منتشر کردن',
-      'nl': 'Publiceren',
-    },
-    'gcvdwmgg': {
-      'en': 'Ready to Publish Your Post?',
-      'fa': 'آماده انتشار پست خود هستید؟',
-      'nl': 'Klaar om uw bericht te publiceren?',
-    },
-    'pjbqnmp5': {
-      'en':
-          'Note: Yekja never gets involved in your transactions. It is recommended to verify the identity of counterparty through mutual friends, business or student email, mobile phone, or LinkedIn page.',
-      'fa':
-          'توجه: یکجا هرگز در تراکنش‌های شما دخالت نمی‌کند. توصیه می‌شود هویت طرف مقابل را از طریق دوستان مشترک، ایمیل کاری یا دانشجویی، تلفن همراه یا صفحه لینکدین تأیید کنید.',
-      'nl':
-          'Let op: Yekja bemoeit zich nooit met uw transacties. Het is raadzaam de identiteit van de wederpartij te verifiëren via gemeenschappelijke vrienden, het e-mailadres van een bedrijf of student, een mobiel telefoonnummer of een LinkedIn-pagina.',
-    },
-    'f5xxk8md': {
-      'en': 'Cancel',
-      'fa': 'لغو',
-      'nl': 'Annuleren',
-    },
-    'kwf7soy1': {
-      'en':
-          'Post Limit Reached! You currently have 5 active posts. Please **delete an existing post** or **upgrade your subscription** to publish more.',
-      'fa':
-          'محدودیت ارسال پست به پایان رسید! شما در حال حاضر ۵ پست فعال دارید. لطفاً **یک پست موجود را حذف کنید** یا **اشتراک خود را ارتقا دهید** تا پست‌های بیشتری منتشر کنید.',
-      'nl':
-          'Berichtenlimiet bereikt! Je hebt momenteel 5 actieve berichten. **Verwijder een bestaand bericht** of **upgrade je abonnement** om er meer te plaatsen.',
-    },
-    'l2miz1aw': {
-      'en': 'Confirm',
-      'fa': 'تأیید',
-      'nl': 'Bevestigen',
-    },
-    '0tsng2mu': {
-      'en': 'Home',
-      'fa': 'خانه',
-      'nl': 'Thuis',
-    },
-  },
   // PostCat
   {
-    '3kfvdqz3': {
-      'en': 'Listing type',
-      'fa': 'نوع آگهی',
-      'nl': 'Vermeldingstype',
+    'vctzvcga': {
+      'en': 'Category',
+      'fa': 'دسته بندی',
+      'nl': 'Categorie',
     },
-    '44ke00e3': {
-      'en': '2 of 6',
-      'fa': '۲ از ۶',
-      'nl': '2 van 6',
+    'x4v7qe1s': {
+      'en': '2',
+      'fa': '۲',
+      'nl': '2',
+    },
+    'vofew9ox': {
+      'en': ' of ',
+      'fa': ' از ',
+      'nl': 'van',
+    },
+    'pncnlblo': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
     },
     'vewqt7ds': {
       'en': 'Next',
@@ -1409,15 +1345,40 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // PostImage
   {
-    'l4dfx6wn': {
+    'bia6eg30': {
       'en': 'Images',
       'fa': 'تصاویر',
       'nl': 'Afbeeldingen',
     },
-    'ubh8qc5e': {
-      'en': '6 of 6',
-      'fa': '۶ از ۶',
-      'nl': '6 van 6',
+    '8dol1v4o': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
+    },
+    'fkwkxg0k': {
+      'en': ' of ',
+      'fa': 'از ',
+      'nl': 'van',
+    },
+    'u6ho4fgv': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
+    },
+    'uynzsoxg': {
+      'en': '5',
+      'fa': '۵',
+      'nl': '5',
+    },
+    '9ef0l1f0': {
+      'en': ' of ',
+      'fa': 'از',
+      'nl': 'van',
+    },
+    'gn0tmtgz': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
     },
     'nnd68vi1': {
       'en': 'Upload photos',
@@ -1544,7 +1505,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': '',
     },
     'gt5ezvts': {
-      'en': ' 27/12/2023',
+      'en': ' 27/12/2025',
       'fa': '۲۷/۱۲/۲۰۲۳',
       'nl': '',
     },
@@ -1942,15 +1903,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // PostIntend
   {
-    '7mtlj6c6': {
-      'en': 'Action type',
+    '3qldlcbv': {
+      'en': 'Action',
       'fa': 'نوع اقدام',
-      'nl': 'Actietype',
+      'nl': 'Actie',
     },
-    'dpphxml4': {
-      'en': '4 of 6',
-      'fa': '۴ از ۶',
-      'nl': '4 van 6',
+    'nwjujkbj': {
+      'en': '4',
+      'fa': '۴',
+      'nl': '4',
+    },
+    '32apr70p': {
+      'en': ' of ',
+      'fa': ' از ',
+      'nl': 'van',
+    },
+    'nz40p4e7': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
     },
     'fmcypfvm': {
       'en': 'Next',
@@ -2219,10 +2190,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // DetailRentals
   {
-    'pd2h46tz': {
+    'i2k2zt4c': {
       'en': 'Details',
       'fa': 'جزئیات',
       'nl': 'Details',
+    },
+    'kjzhkoro': {
+      'en': '5',
+      'fa': '۵',
+      'nl': '5',
+    },
+    '0t9ks399': {
+      'en': ' of ',
+      'fa': 'از',
+      'nl': 'van',
+    },
+    'xmtjj0up': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
     },
     '29bchon4': {
       'en': 'Details about your ',
@@ -2447,10 +2433,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // DetailSales
   {
-    '3noncf3p': {
+    'umi1tia3': {
       'en': 'Details',
       'fa': 'جزئیات',
       'nl': 'Details',
+    },
+    'gvahl0ml': {
+      'en': '4',
+      'fa': '۴',
+      'nl': '4',
+    },
+    'dlunofp8': {
+      'en': ' of ',
+      'fa': ' از ',
+      'nl': 'van',
+    },
+    'dzeetgze': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
     },
     'k6f3f1iv': {
       'en': 'Details about your ',
@@ -2661,10 +2662,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // DetailGiveAway
   {
-    'w87kzf0j': {
+    '569xs1qk': {
       'en': 'Details',
       'fa': 'جزئیات',
       'nl': 'Details',
+    },
+    'j0vrrbv7': {
+      'en': '4',
+      'fa': '۴',
+      'nl': '4',
+    },
+    'jlkcjv7k': {
+      'en': ' of ',
+      'fa': 'از',
+      'nl': 'van',
+    },
+    'caecumvf': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
     },
     '0bfcni7u': {
       'en': 'Details about your ',
@@ -2855,10 +2871,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // DetailSwapItems
   {
-    'jxface71': {
+    'aozmhw4u': {
       'en': 'Details',
       'fa': 'جزئیات',
       'nl': 'Details',
+    },
+    'rf10fvhl': {
+      'en': '5',
+      'fa': '۵',
+      'nl': '5',
+    },
+    'jpejlo9e': {
+      'en': ' of ',
+      'fa': ' از',
+      'nl': 'van',
+    },
+    'y4sqlq48': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
     },
     'j2mqcfx9': {
       'en': 'Details about your',
@@ -2993,10 +3024,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl':
           'Jij of de andere gebruiker kan een klein bedrag toevoegen om de swap in evenwicht te brengen.',
     },
-    'yidtoj2b': {
+    '5buz8b30': {
       'en': 'Details',
       'fa': 'جزئیات',
       'nl': 'Details',
+    },
+    '5v7za05v': {
+      'en': ' of ',
+      'fa': 'از',
+      'nl': 'van',
+    },
+    'o8ohiub9': {
+      'en': '6',
+      'fa': '',
+      'nl': '',
     },
     'q4yp49b5': {
       'en': 'Details about your',
@@ -3126,10 +3167,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // DetailTicketSwap
   {
-    '5lbnk5nx': {
+    '2q0ispdh': {
       'en': 'Details',
       'fa': 'جزئیات',
       'nl': 'Details',
+    },
+    'p7f0byc7': {
+      'en': '5',
+      'fa': '۵',
+      'nl': '5',
+    },
+    'ibldjymf': {
+      'en': ' of ',
+      'fa': ' از ',
+      'nl': 'van',
+    },
+    'erw75s64': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
     },
     'nhf8w4f8': {
       'en': 'Details about your ',
@@ -3305,19 +3361,34 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // DetailCurrencyExchange
   {
-    'y98hsecc': {
+    '17xrt80e': {
       'en': 'Details',
       'fa': 'جزئیات',
       'nl': 'Details',
     },
+    'cl2ivgrm': {
+      'en': '5',
+      'fa': '۵',
+      'nl': '5',
+    },
+    '5qq3hx35': {
+      'en': ' of ',
+      'fa': 'از',
+      'nl': 'van',
+    },
+    '808pynxb': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
+    },
     'znjxyn0k': {
       'en': 'Details about your',
-      'fa': 'جزئیات مربوط به شما',
+      'fa': 'جزئیات مربوط به ',
       'nl': 'Gegevens over uw',
     },
     'gk8qg01c': {
       'en': 'currency exchange',
-      'fa': 'صرافی',
+      'fa': 'خرید و فروش ارز',
       'nl': 'wisselkantoor',
     },
     'rhxrulgi': {
@@ -3468,10 +3539,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // DetailCareAndAssistance
   {
-    '7jqf9ls4': {
+    'w01m58me': {
       'en': 'Details',
       'fa': 'جزئیات',
       'nl': 'Details',
+    },
+    'mkecadja': {
+      'en': '5',
+      'fa': '۵',
+      'nl': '5',
+    },
+    'zkms5fe1': {
+      'en': ' of ',
+      'fa': 'از',
+      'nl': 'van',
+    },
+    'kpg0fdit': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
     },
     'qjuj07rg': {
       'en': 'Details about your',
@@ -3626,15 +3712,35 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // DetailEvents
   {
-    'u78r8qn8': {
+    'a4rd6rwz': {
       'en': 'Details',
       'fa': 'جزئیات',
       'nl': 'Details',
+    },
+    'cghv1ir6': {
+      'en': '5',
+      'fa': '۵',
+      'nl': '5',
+    },
+    'w551g7e7': {
+      'en': ' of ',
+      'fa': 'از',
+      'nl': 'van',
+    },
+    'jlkoaugv': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
     },
     'hom4dzos': {
       'en': 'Details about ',
       'fa': 'جزئیات مربوط به',
       'nl': 'Details over',
+    },
+    '2hfhu5k5': {
+      'en': 'event post',
+      'fa': 'پست رویداد',
+      'nl': 'evenement bericht',
     },
     '02ax6rz5': {
       'en': 'Helps others understand your post',
@@ -3845,10 +3951,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // DetailSkills
   {
-    'om8508z2': {
+    'pz1jh2j0': {
       'en': 'Details',
       'fa': 'جزئیات',
       'nl': 'Details',
+    },
+    'folxd7bo': {
+      'en': '5',
+      'fa': '۵',
+      'nl': '5',
+    },
+    'lzr91ona': {
+      'en': ' of ',
+      'fa': ' از ',
+      'nl': 'van',
+    },
+    'mxfb6ihq': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
     },
     'eflupep5': {
       'en': 'Details about your',
@@ -4144,15 +4265,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // PostMainCat
   {
-    's59m0mxv': {
+    'gbvj8ngz': {
       'en': 'Main Category',
       'fa': 'دسته اصلی',
       'nl': 'Hoofd categorie',
     },
-    'cisjybuu': {
-      'en': '1 of 6',
-      'fa': '۱ از ۶',
-      'nl': '1 van 6',
+    'i2d479eh': {
+      'en': '1 ',
+      'fa': '۱',
+      'nl': '1',
+    },
+    '30yqurbu': {
+      'en': 'of ',
+      'fa': ' از ',
+      'nl': 'van',
+    },
+    'jbvgtm1l': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
     },
     '5ih7nup2': {
       'en': 'What’s your\nnew post about?',
@@ -4507,20 +4638,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'خانواده‌ی بزرگ ما',
       'nl': '',
     },
-    'wygkig9v': {
-      'en': 'Mood Change',
-      'fa': '',
-      'nl': '',
+    'x61e1a64': {
+      'en': 'Change Mode',
+      'fa': 'تغییر حالت',
+      'nl': 'Wijzig modus',
     },
-    'u8oouucd': {
+    'enkkcdol': {
       'en': 'Check FAQ',
-      'fa': '',
-      'nl': '',
+      'fa': 'سوالات متداول',
+      'nl': 'Bekijk de FAQ',
     },
-    'cqrhygau': {
-      'en': 'Contact US',
-      'fa': '',
-      'nl': '',
+    'gwt0vsq7': {
+      'en': 'Contact Us',
+      'fa': 'تماس با ما',
+      'nl': 'Contact met ons',
+    },
+    'ospzi8mf': {
+      'en': 'Log out',
+      'fa': 'خروج از سیستم',
+      'nl': 'Uitloggen',
     },
     'qv3strvd': {
       'en': '',
@@ -4913,6 +5049,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': '',
       'nl': '',
     },
+    'nbv3szt9': {
+      'en': 'Change password',
+      'fa': 'تغییر رمز عبور',
+      'nl': 'Wachtwoord wijzigen',
+    },
     '2r3qk0eg': {
       'en': 'PhoneNumber',
       'fa': 'شماره تلفن',
@@ -5013,11 +5154,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'ذخیره',
       'nl': 'Redden',
     },
-    'nbv3szt9': {
-      'en': 'Change password',
-      'fa': 'تغییر رمز عبور',
-      'nl': 'Wachtwoord wijzigen',
-    },
     'j2hj0yzw': {
       'en': 'To delete your account, ',
       'fa': 'برای حذف حساب کاربری خود،',
@@ -5052,7 +5188,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Gebruikers toestaan mijn profielfoto te zien.',
     },
     'nnxca66f': {
-      'en': 'Allow  users to see my social media link.',
+      'en': 'Allow users to see my social media link.',
       'fa': 'به کاربران اجازه دهید لینک شبکه‌های اجتماعی من را ببینند.',
       'nl': 'Zorg dat gebruikers mijn link naar sociale media kunnen zien.',
     },
@@ -5062,12 +5198,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Gebruikers mijn favorieten laten zien.',
     },
     'qa16wop5': {
-      'en': 'Allow  users to call me.',
+      'en': 'Allow users to call me.',
       'fa': 'به کاربران اجازه دهید با من تماس بگیرند.',
       'nl': 'Sta gebruikers toe mij te bellen.',
     },
     'i62uuxwh': {
-      'en': 'Allow  users to message me.',
+      'en': 'Allow users to message me.',
+      'fa': 'به کاربران اجازه دهید به من پیام بدهند.',
+      'nl': 'Gebruikers toestaan mij een bericht te sturen.',
+    },
+    '34uhaw3r': {
+      'en': 'Allow users to share my posts.',
       'fa': 'به کاربران اجازه دهید به من پیام بدهند.',
       'nl': 'Gebruikers toestaan mij een bericht te sturen.',
     },
@@ -5169,10 +5310,30 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'جزئیات',
       'nl': 'Details',
     },
+    'efbqdxyq': {
+      'en': '5',
+      'fa': '۵',
+      'nl': '5',
+    },
+    '4jcajawf': {
+      'en': ' of ',
+      'fa': ' از ',
+      'nl': 'van',
+    },
+    'oocgfb2z': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
+    },
     '0kfmmt26': {
       'en': 'Details about your ',
       'fa': 'جزئیات مربوط به شما',
       'nl': 'Gegevens over uw',
+    },
+    'pjdod6a2': {
+      'en': 'parcel transfer',
+      'fa': 'انتقال بسته',
+      'nl': 'pakketoverdracht',
     },
     'c5xl91u5': {
       'en': 'Helps others understand your post',
@@ -5284,6 +5445,16 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'زمان',
       'nl': 'Tijd',
     },
+    'k1tfu3tn': {
+      'en': 'Travel date',
+      'fa': 'تاریخ سفر',
+      'nl': 'Reisdatum',
+    },
+    '8c7d25g2': {
+      'en': 'Transfer deadline',
+      'fa': 'آخرین مهلت ارسال',
+      'nl': 'Overdracht deadline',
+    },
     '5mk22mkm': {
       'en': 'Compensation',
       'fa': 'جبران خسارت',
@@ -5306,7 +5477,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'q24c609n': {
       'en': 'Compensation',
-      'fa': 'جبران خسارت',
+      'fa': 'پاداش',
       'nl': 'Compensatie',
     },
     'ynw1y4y4': {
@@ -5343,61 +5514,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Is document?',
       'fa': 'سند است؟',
       'nl': 'Is het document?',
-    },
-    '0bzs8ryb': {
-      'en': 'Is fragile?',
-      'fa': 'شکننده است؟',
-      'nl': 'Is kwetsbaar?',
-    },
-    'hvhdtgd2': {
-      'en': 'Weight Class (swipe to see more)',
-      'fa': 'رده وزنی (برای دیدن اطلاعات بیشتر، صفحه را بکشید)',
-      'nl': 'Gewichtsklasse (veeg om meer te zien)',
-    },
-    'srlj5v15': {
-      'en': 'Below 1 kg',
-      'fa': 'زیر ۱ کیلو',
-      'nl': 'Onder 1 kg',
-    },
-    '323uig3s': {
-      'en': '1 to 3 kg',
-      'fa': '۱ تا ۳ کیلو',
-      'nl': '1 tot 3 kg',
-    },
-    'ndp9g7qy': {
-      'en': '3 to 5 kg',
-      'fa': '۳ تا ۵ کیلو',
-      'nl': '3 tot 5 kg',
-    },
-    'k0nue8qi': {
-      'en': '5 to 10 kg',
-      'fa': '۵ تا ۱۰ کیلو',
-      'nl': '5 tot 10 kg',
-    },
-    'auf8q7sc': {
-      'en': 'Above 10 kg',
-      'fa': 'بالای ۱۰ کیلو',
-      'nl': 'Boven 10 kg',
-    },
-    '5ak8ya57': {
-      'en': 'Dimensin Class (swipe to see more)',
-      'fa': 'کلاس دیمنسین (برای دیدن اطلاعات بیشتر، صفحه را بکشید)',
-      'nl': 'Dimensin Class (veeg om meer te zien)',
-    },
-    'cwd7q7ms': {
-      'en': 'Small (Fits Shoe Box)',
-      'fa': 'کوچک (اندازه جعبه کفش)',
-      'nl': 'Klein (past in schoenendoos)',
-    },
-    'ifxqnf7g': {
-      'en': 'Medium (Carry-on size)',
-      'fa': 'متوسط ​​(کابین سایز)',
-      'nl': 'Medium (handbagageformaat)',
-    },
-    'eu95q3wj': {
-      'en': 'Large (Check-in Luggage)',
-      'fa': 'بزرگ (چمدان تحویلی)',
-      'nl': 'Grote (incheckbagage)',
     },
     'wquddr4w': {
       'en': 'Next',
@@ -5702,7 +5818,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Thuis',
     },
   },
-  // PostPrev
+  // PostPreview
   {
     'xd1m7vtn': {
       'en': 'PARTICIPANTS',
@@ -6737,11 +6853,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ItemCard_Global
   {
-    'fjd2sxq4': {
-      'en': '4.1/5 (11) ',
-      'fa': '4.1/5 (11)',
-      'nl': '4,1/5 (11)',
-    },
     'vpd49szk': {
       'en': ' experience',
       'fa': ' تجربه',
@@ -7492,24 +7603,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'yrmu7axp': {
       'en': 'Damavand',
-      'fa': '',
-      'nl': '',
-    },
-  },
-  // HomeUserMenu
-  {
-    'l524nlog': {
-      'en': 'Mood Change',
-      'fa': '',
-      'nl': '',
-    },
-    '70k6q36g': {
-      'en': 'Check FAQ',
-      'fa': '',
-      'nl': '',
-    },
-    '1x1sasly': {
-      'en': 'Contact US',
       'fa': '',
       'nl': '',
     },

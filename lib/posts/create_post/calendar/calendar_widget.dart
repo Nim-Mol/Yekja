@@ -93,6 +93,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .titleSmallFamily,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
@@ -132,7 +133,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(
                           12.0, 12.0, 12.0, 12.0),
                       child: FlutterFlowCalendar(
-                        color: FlutterFlowTheme.of(context).greenInit,
+                        color: FlutterFlowTheme.of(context).green1,
                         iconColor: FlutterFlowTheme.of(context).textgray,
                         weekFormat: false,
                         weekStartsMonday: false,

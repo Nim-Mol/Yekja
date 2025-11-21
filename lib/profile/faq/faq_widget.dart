@@ -90,7 +90,7 @@ class _FaqWidgetState extends State<FaqWidget> with TickerProviderStateMixin {
             buttonSize: 50.0,
             icon: Icon(
               Icons.arrow_back_ios_new,
-              color: Colors.white,
+              color: FlutterFlowTheme.of(context).primary,
               size: 20.0,
             ),
             onPressed: () async {
@@ -103,7 +103,7 @@ class _FaqWidgetState extends State<FaqWidget> with TickerProviderStateMixin {
             ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Satoshi',
-                  color: Colors.white,
+                  color: FlutterFlowTheme.of(context).primary,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
                 ),

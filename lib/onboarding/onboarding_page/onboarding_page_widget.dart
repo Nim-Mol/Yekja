@@ -119,6 +119,9 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'FarsiFonts',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryWhite,
                                                             fontSize: 32.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
@@ -150,16 +153,21 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                                         ),
                                                         textAlign:
                                                             TextAlign.center,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'FarsiFonts',
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'FarsiFonts',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryWhite,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                     ),
                                                   ),
@@ -197,7 +205,7 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                           .override(
                                             fontFamily: 'FarsiFonts',
                                             color: FlutterFlowTheme.of(context)
-                                                .primary,
+                                                .primaryWhite,
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
@@ -270,6 +278,9 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'FarsiFonts',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryWhite,
                                                             fontSize: 32.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
@@ -299,16 +310,21 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                                         ),
                                                         textAlign:
                                                             TextAlign.center,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'FarsiFonts',
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'FarsiFonts',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryWhite,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                     ),
                                                   ),
@@ -346,7 +362,7 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                           .override(
                                             fontFamily: 'FarsiFonts',
                                             color: FlutterFlowTheme.of(context)
-                                                .primary,
+                                                .primaryWhite,
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
@@ -419,6 +435,9 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'FarsiFonts',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryWhite,
                                                             fontSize: 32.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
@@ -448,16 +467,21 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                                         ),
                                                         textAlign:
                                                             TextAlign.center,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'FarsiFonts',
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'FarsiFonts',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryWhite,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                     ),
                                                   ),
@@ -495,7 +519,7 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                           .override(
                                             fontFamily: 'FarsiFonts',
                                             color: FlutterFlowTheme.of(context)
-                                                .primary,
+                                                .primaryWhite,
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
@@ -568,6 +592,9 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'FarsiFonts',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryWhite,
                                                             fontSize: 32.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
@@ -597,16 +624,21 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                                         ),
                                                         textAlign:
                                                             TextAlign.center,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'FarsiFonts',
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'FarsiFonts',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryWhite,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                     ),
                                                   ),
@@ -644,7 +676,7 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                           .override(
                                             fontFamily: 'FarsiFonts',
                                             color: FlutterFlowTheme.of(context)
-                                                .primary,
+                                                .primaryWhite,
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
@@ -717,6 +749,9 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'FarsiFonts',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryWhite,
                                                             fontSize: 32.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
@@ -755,7 +790,7 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                                                       'FarsiFonts',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primaryText,
+                                                                      .primaryWhite,
                                                                   fontSize:
                                                                       16.0,
                                                                   letterSpacing:
@@ -798,7 +833,7 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                           .override(
                                             fontFamily: 'FarsiFonts',
                                             color: FlutterFlowTheme.of(context)
-                                                .primary,
+                                                .primaryWhite,
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
@@ -871,6 +906,9 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'FarsiFonts',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryWhite,
                                                             fontSize: 32.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
@@ -900,16 +938,21 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                                         ),
                                                         textAlign:
                                                             TextAlign.center,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'FarsiFonts',
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'FarsiFonts',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryWhite,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                     ),
                                                   ),
@@ -945,7 +988,7 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                           .override(
                                             fontFamily: 'FarsiFonts',
                                             color: FlutterFlowTheme.of(context)
-                                                .primary,
+                                                .primaryWhite,
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,

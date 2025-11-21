@@ -92,6 +92,7 @@ class _DescriptionWidgetState extends State<DescriptionWidget> {
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
                                       .titleSmallFamily,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,

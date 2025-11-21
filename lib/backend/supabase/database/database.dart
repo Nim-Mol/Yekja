@@ -10,7 +10,6 @@ export 'tables/details_ticket_swap.dart';
 export 'tables/details_events.dart';
 export 'tables/user_ext.dart';
 export 'tables/view_subcategories.dart';
-export 'tables/trigger_log.dart';
 export 'tables/v_post_lookup.dart';
 export 'tables/main_categories.dart';
 export 'tables/consents.dart';

@@ -116,7 +116,8 @@ class _FilterCompWidgetState extends State<FilterCompWidget>
                       child: FlutterFlowIconButton(
                         borderRadius: 25.0,
                         buttonSize: 30.0,
-                        fillColor: Color(0xA8696969),
+                        fillColor:
+                            FlutterFlowTheme.of(context).secondaryBackground,
                         icon: Icon(
                           Icons.close,
                           color: FlutterFlowTheme.of(context).primary,
@@ -2016,7 +2017,7 @@ class _FilterCompWidgetState extends State<FilterCompWidget>
                         EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).midgray,
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily:
                               FlutterFlowTheme.of(context).titleSmallFamily,

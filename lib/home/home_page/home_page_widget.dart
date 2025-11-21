@@ -1,12 +1,12 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
-import '/components/news_card_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_language_selector.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/news/news_card/news_card_widget.dart';
 import '/shared_components/main_header/main_header_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
 import '/index.dart';
@@ -42,6 +42,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     _model.searchFieldTextController ??= TextEditingController();
     _model.searchFieldFocusNode ??= FocusNode();
 
+    _model.switchValue = true;
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
@@ -389,7 +390,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   fontFamily: 'FarsiFonts',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .onImageText,
+                                                      .primaryWhite,
                                                   fontSize: 18.0,
                                                   letterSpacing: 0.0,
                                                   shadows: [
@@ -406,7 +407,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .onImageText,
+                                                      .primaryWhite,
                                                 ),
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
@@ -481,7 +482,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   fontFamily: 'FarsiFonts',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .onImageText,
+                                                      .primaryWhite,
                                                   fontSize: 18.0,
                                                   letterSpacing: 0.0,
                                                   shadows: [
@@ -498,7 +499,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .onImageText,
+                                                      .primaryWhite,
                                                 ),
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
@@ -573,7 +574,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   fontFamily: 'FarsiFonts',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .onImageText,
+                                                      .primaryWhite,
                                                   fontSize: 18.0,
                                                   letterSpacing: 0.0,
                                                   shadows: [
@@ -590,7 +591,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .onImageText,
+                                                      .primaryWhite,
                                                 ),
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
@@ -666,7 +667,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   fontFamily: 'FarsiFonts',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .onImageText,
+                                                      .primaryWhite,
                                                   fontSize: 18.0,
                                                   letterSpacing: 0.0,
                                                   shadows: [
@@ -683,7 +684,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .onImageText,
+                                                      .primaryWhite,
                                                 ),
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
@@ -751,7 +752,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   fontFamily: 'FarsiFonts',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .onImageText,
+                                                      .primaryWhite,
                                                   fontSize: 18.0,
                                                   letterSpacing: 0.0,
                                                   shadows: [
@@ -768,7 +769,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .onImageText,
+                                                      .primaryWhite,
                                                 ),
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
@@ -819,7 +820,7 @@ launching soo... */
                                                 fontFamily: 'FarsiFonts',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .onImageText,
+                                                        .primaryWhite,
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
@@ -878,7 +879,7 @@ launching soo... */
                                                   fontFamily: 'FarsiFonts',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .onImageText,
+                                                      .primaryWhite,
                                                   fontSize: 18.0,
                                                   letterSpacing: 0.0,
                                                   shadows: [
@@ -895,7 +896,7 @@ launching soo... */
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .onImageText,
+                                                      .primaryWhite,
                                                 ),
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
@@ -1115,22 +1116,26 @@ Assistance */
                                                         ),
                                                         textAlign:
                                                             TextAlign.center,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .titleSmall
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
                                                                           context)
                                                                       .titleSmallFamily,
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
+                                                                  color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .titleSmallIsCustom,
-                                                            ),
+                                                                      .secondaryText,
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmallIsCustom,
+                                                                ),
                                                       ),
                                                     ),
                                                   ],
@@ -1622,7 +1627,7 @@ Offers */
                                                       height: 50.0,
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0x42F0C206),
+                                                            Color(0xFF343402),
                                                         borderRadius:
                                                             BorderRadius.only(
                                                           bottomLeft:
@@ -2646,7 +2651,7 @@ Offers */
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 1.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: wrapWithModel(
                         model: _model.navBarModel,
                         updateCallback: () => safeSetState(() {}),
@@ -2676,8 +2681,7 @@ Offers */
                                 width: 54.0,
                                 height: 12.0,
                                 decoration: BoxDecoration(
-                                  color:
-                                      FlutterFlowTheme.of(context).successSnack,
+                                  color: FlutterFlowTheme.of(context).greenInit,
                                   borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(8.0),
                                     bottomRight: Radius.circular(8.0),
@@ -2702,48 +2706,75 @@ Offers */
                             AnimatedContainer(
                               duration: Duration(milliseconds: 470),
                               curve: Curves.linear,
-                              width: 200.0,
-                              height: 178.8,
+                              width: 195.0,
+                              height: 242.2,
                               decoration: BoxDecoration(
-                                color: Color(0xFF232426),
-                                borderRadius: BorderRadius.circular(10.0),
+                                color: FlutterFlowTheme.of(context).navBar,
+                                borderRadius: BorderRadius.circular(12.0),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 5.0, 10.0, 5.0),
+                                padding: EdgeInsets.all(12.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    FlutterFlowLanguageSelector(
-                                      width: 178.87,
-                                      height: 32.0,
-                                      borderColor: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                      dropdownIconColor:
-                                          FlutterFlowTheme.of(context)
-                                              .onImageText,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
-                                            color: FlutterFlowTheme.of(context)
-                                                .onImageText,
-                                            letterSpacing: 0.0,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .bodyMediumIsCustom,
-                                          ),
-                                      hideFlags: false,
-                                      flagSize: 24.0,
-                                      flagTextGap: 8.0,
-                                      currentLanguage:
-                                          FFLocalizations.of(context)
-                                              .languageCode,
-                                      languages: FFLocalizations.languages(),
-                                      onChanged: (lang) =>
-                                          setAppLanguage(context, lang),
+                                    Container(
+                                      height: 35.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          width: 0.3,
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 0.0, 0.0),
+                                        child: FlutterFlowLanguageSelector(
+                                          width: 178.9,
+                                          height: 32.0,
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryBackground,
+                                          borderColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryBackground,
+                                          dropdownIconColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                          borderRadius: 8.0,
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    !FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMediumIsCustom,
+                                              ),
+                                          hideFlags: false,
+                                          flagSize: 28.0,
+                                          flagTextGap: 8.0,
+                                          currentLanguage:
+                                              FFLocalizations.of(context)
+                                                  .languageCode,
+                                          languages:
+                                              FFLocalizations.languages(),
+                                          onChanged: (lang) =>
+                                              setAppLanguage(context, lang),
+                                        ),
+                                      ),
                                     ),
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -2752,9 +2783,12 @@ Offers */
                                           alignment:
                                               AlignmentDirectional(1.0, 0.0),
                                           child: Container(
-                                            width: 178.73,
+                                            width: 170.71,
                                             height: 35.0,
                                             decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
                                               borderRadius: BorderRadius.only(
                                                 bottomLeft:
                                                     Radius.circular(8.0),
@@ -2766,13 +2800,14 @@ Offers */
                                               border: Border.all(
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .onImageText,
+                                                        .secondaryText,
+                                                width: 0.3,
                                               ),
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      1.0, 0.0, 10.0, 0.0),
+                                                      1.0, 0.0, 20.0, 0.0),
                                               child: Stack(
                                                 alignment: AlignmentDirectional(
                                                     1.0, 0.0),
@@ -2785,11 +2820,8 @@ Offers */
                                                       scaleX: 0.5,
                                                       scaleY: 0.6,
                                                       child: Switch.adaptive(
-                                                        value: _model
-                                                                .switchValue ??=
-                                                            Theme.of(context)
-                                                                    .brightness ==
-                                                                Brightness.dark,
+                                                        value:
+                                                            _model.switchValue!,
                                                         onChanged:
                                                             (newValue) async {
                                                           safeSetState(() =>
@@ -2809,19 +2841,11 @@ Offers */
                                                         activeColor:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primary,
-                                                        activeTrackColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryBackground,
+                                                                .newsCard,
                                                         inactiveTrackColor:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .alternate,
-                                                        inactiveThumbColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
+                                                                .primaryBackground,
                                                       ),
                                                     ),
                                                   ),
@@ -2833,7 +2857,7 @@ Offers */
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  30.0,
+                                                                  42.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
@@ -2841,7 +2865,7 @@ Offers */
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'wygkig9v' /* Mood Change */,
+                                                          'x61e1a64' /* Change Mode */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -2853,7 +2877,7 @@ Offers */
                                                                       .bodyMediumFamily,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .onImageText,
+                                                                      .primary,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   useGoogleFonts:
@@ -2880,8 +2904,11 @@ Offers */
                                         context.pushNamed(FaqWidget.routeName);
                                       },
                                       child: Container(
+                                        width: 187.0,
                                         height: 35.0,
                                         decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
                                           borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(8.0),
                                             bottomRight: Radius.circular(8.0),
@@ -2890,13 +2917,14 @@ Offers */
                                           ),
                                           border: Border.all(
                                             color: FlutterFlowTheme.of(context)
-                                                .onImageText,
+                                                .secondaryText,
+                                            width: 0.3,
                                           ),
                                         ),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  15.0, 0.0, 0.0, 0.0),
+                                                  16.0, 0.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -2905,14 +2933,14 @@ Offers */
                                                     0.0, 0.0),
                                                 child: FlutterFlowIconButton(
                                                   borderRadius: 8.0,
-                                                  buttonSize: 25.0,
-                                                  fillColor: Color(0x42C850F2),
+                                                  buttonSize: 30.0,
+                                                  fillColor: Color(0xFF7E1AA1),
                                                   icon: Icon(
                                                     Icons.question_mark_sharp,
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .info,
-                                                    size: 10.0,
+                                                    size: 15.0,
                                                   ),
                                                   onPressed: () {
                                                     print(
@@ -2923,7 +2951,7 @@ Offers */
                                               Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  'u8oouucd' /* Check FAQ */,
+                                                  'enkkcdol' /* Check FAQ */,
                                                 ),
                                                 style: FlutterFlowTheme.of(
                                                         context)
@@ -2936,7 +2964,7 @@ Offers */
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .onImageText,
+                                                              .primary,
                                                       letterSpacing: 0.0,
                                                       useGoogleFonts:
                                                           !FlutterFlowTheme.of(
@@ -2959,8 +2987,11 @@ Offers */
                                             ContactYEKJAWidget.routeName);
                                       },
                                       child: Container(
+                                        width: 187.0,
                                         height: 35.0,
                                         decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
                                           borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(8.0),
                                             bottomRight: Radius.circular(8.0),
@@ -2969,13 +3000,14 @@ Offers */
                                           ),
                                           border: Border.all(
                                             color: FlutterFlowTheme.of(context)
-                                                .onImageText,
+                                                .secondaryText,
+                                            width: 0.3,
                                           ),
                                         ),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  15.0, 0.0, 0.0, 0.0),
+                                                  16.0, 0.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -2984,14 +3016,14 @@ Offers */
                                                     0.0, 0.0),
                                                 child: FlutterFlowIconButton(
                                                   borderRadius: 8.0,
-                                                  buttonSize: 25.0,
-                                                  fillColor: Color(0x4240C057),
+                                                  buttonSize: 30.0,
+                                                  fillColor: Color(0xFF195E24),
                                                   icon: FaIcon(
                                                     FontAwesomeIcons.comment,
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .info,
-                                                    size: 10.0,
+                                                    size: 15.0,
                                                   ),
                                                   onPressed: () {
                                                     print(
@@ -3002,7 +3034,7 @@ Offers */
                                               Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  'cqrhygau' /* Contact US */,
+                                                  'gwt0vsq7' /* Contact Us */,
                                                 ),
                                                 style: FlutterFlowTheme.of(
                                                         context)
@@ -3015,7 +3047,7 @@ Offers */
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .onImageText,
+                                                              .primary,
                                                       letterSpacing: 0.0,
                                                       useGoogleFonts:
                                                           !FlutterFlowTheme.of(
@@ -3023,7 +3055,90 @@ Offers */
                                                               .bodyMediumIsCustom,
                                                     ),
                                               ),
-                                            ].divide(SizedBox(width: 8.0)),
+                                            ].divide(SizedBox(width: 10.0)),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.goNamed(
+                                            FinalizedLoginWidget.routeName);
+                                      },
+                                      child: Container(
+                                        width: 187.0,
+                                        height: 35.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(8.0),
+                                            bottomRight: Radius.circular(8.0),
+                                            topLeft: Radius.circular(8.0),
+                                            topRight: Radius.circular(8.0),
+                                          ),
+                                          border: Border.all(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            width: 0.3,
+                                          ),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 0.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: FlutterFlowIconButton(
+                                                  borderRadius: 8.0,
+                                                  buttonSize: 30.0,
+                                                  fillColor: Color(0xE97C0401),
+                                                  icon: Icon(
+                                                    Icons.logout_outlined,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .info,
+                                                    size: 18.0,
+                                                  ),
+                                                  onPressed: () {
+                                                    print(
+                                                        'IconButton pressed ...');
+                                                  },
+                                                ),
+                                              ),
+                                              Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'ospzi8mf' /* Log out */,
+                                                ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      letterSpacing: 0.0,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumIsCustom,
+                                                    ),
+                                              ),
+                                            ].divide(SizedBox(width: 10.0)),
                                           ),
                                         ),
                                       ),

@@ -71,52 +71,79 @@ class _ReportingPopupWidgetState extends State<ReportingPopupWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Flexible(
-                    child: RichText(
-                      textScaler: MediaQuery.of(context).textScaler,
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: FFLocalizations.of(context).getText(
-                              'kg3w5j6w' /* You are about to report  */,
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily,
-                                  fontSize: 16.0,
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .bodyMediumIsCustom,
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        await showDialog(
+                          context: context,
+                          builder: (alertDialogContext) {
+                            return AlertDialog(
+                              title: Text(widget.reportingData!.postId),
+                              content: Text(widget.reportingData!.profileId),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext),
+                                  child: Text('Ok'),
                                 ),
-                          ),
-                          TextSpan(
-                            text: valueOrDefault<String>(
-                              widget.reportingData!.isProfile
-                                  ? widget.reportingData?.profileOwnerName
-                                  : widget.reportingData?.postTitle,
-                              'a user or post',
+                              ],
+                            );
+                          },
+                        );
+                      },
+                      child: RichText(
+                        textScaler: MediaQuery.of(context).textScaler,
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: FFLocalizations.of(context).getText(
+                                'kg3w5j6w' /* You are about to report  */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily,
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    useGoogleFonts:
+                                        !FlutterFlowTheme.of(context)
+                                            .bodyMediumIsCustom,
+                                  ),
                             ),
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 18.0,
+                            TextSpan(
+                              text: valueOrDefault<String>(
+                                widget.reportingData!.isProfile
+                                    ? widget.reportingData?.profileOwnerName
+                                    : widget.reportingData?.postTitle,
+                                'a user or post',
+                              ),
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 18.0,
+                              ),
                             ),
-                          ),
-                          TextSpan(
-                            text: FFLocalizations.of(context).getText(
-                              '2pjit2x3' /* . Please provide your reason b... */,
-                            ),
-                            style: TextStyle(),
-                          )
-                        ],
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyMediumFamily,
-                              fontSize: 16.0,
-                              letterSpacing: 0.0,
-                              useGoogleFonts: !FlutterFlowTheme.of(context)
-                                  .bodyMediumIsCustom,
-                            ),
+                            TextSpan(
+                              text: FFLocalizations.of(context).getText(
+                                '2pjit2x3' /* . Please provide your reason b... */,
+                              ),
+                              style: TextStyle(),
+                            )
+                          ],
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyMediumFamily,
+                                fontSize: 16.0,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: !FlutterFlowTheme.of(context)
+                                    .bodyMediumIsCustom,
+                              ),
+                        ),
                       ),
                     ),
                   ),
@@ -244,40 +271,92 @@ class _ReportingPopupWidgetState extends State<ReportingPopupWidget> {
                     ),
                   ),
                   FFButtonWidget(
-                    onPressed: () async {
-                      if (_model.textController.text != '') {
-                        _model.reported = await ReportedTable().insert({
-                          'reporter': currentUserUid,
-                          'post_id': widget.reportingData?.postId,
-                          'reason': _model.textController.text,
-                          'isprofile': false,
-                        });
-                        FFAppState().updateUserInfoStruct(
-                          (e) => e
-                            ..updateReportedList(
-                              (e) => e.add(widget.reportingData!.postId),
-                            ),
-                        );
-                        _model.updatePage(() {});
-                        Navigator.pop(context);
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                              'Please write a reason.',
-                              style: TextStyle(
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            duration: Duration(milliseconds: 4900),
-                            backgroundColor: Color(0x46DF1410),
-                          ),
-                        );
-                      }
+                    onPressed: (_model.textController.text == '')
+                        ? null
+                        : () async {
+                            if (_model.textController.text != '') {
+                              if (widget.reportingData?.postId != null &&
+                                  widget.reportingData?.postId != '') {
+                                _model.reportedPOst =
+                                    await ReportedTable().insert({
+                                  'reporter': currentUserUid,
+                                  'post_id': widget.reportingData?.postId,
+                                  'reason': _model.textController.text,
+                                  'isprofile': false,
+                                });
+                                FFAppState().updateUserInfoStruct(
+                                  (e) => e
+                                    ..updateReportedList(
+                                      (e) =>
+                                          e.add(widget.reportingData!.postId),
+                                    ),
+                                );
+                                _model.updatePage(() {});
+                                _model.chatForpost = await ChatsTable().insert({
+                                  'sender': FFAppConstants.YekjaAdminID,
+                                  'recipient': widget.reportingData?.profileId,
+                                  'sender_name': 'Yekja',
+                                  'post_id': widget.reportingData?.postId,
+                                });
+                                await MessagesTable().insert({
+                                  'chat_id': _model.chatForpost?.id,
+                                  'message_text':
+                                      'Dear \"${widget.reportingData?.profileOwnerName}\"⚠️Your post \"${widget.reportingData?.postTitle}\" has been reported.The Yekja Compliance Team is reviewing the details now. We will contact you with an update as soon as the investigation is complete.',
+                                  'recipient': widget.reportingData?.profileId,
+                                });
+                              } else {
+                                _model.reportedProfile =
+                                    await ReportedTable().insert({
+                                  'reporter': currentUserUid,
+                                  'userprofile_id':
+                                      widget.reportingData?.profileId,
+                                  'reason': _model.textController.text,
+                                  'isprofile': true,
+                                });
+                                FFAppState().updateUserInfoStruct(
+                                  (e) => e
+                                    ..updateReportedList(
+                                      (e) => e.add(
+                                          widget.reportingData!.profileId),
+                                    ),
+                                );
+                                _model.updatePage(() {});
+                                _model.chatForProfile =
+                                    await ChatsTable().insert({
+                                  'sender': FFAppConstants.YekjaAdminID,
+                                  'recipient': widget.reportingData?.profileId,
+                                  'sender_name': 'Yekja',
+                                  'post_id': widget.reportingData?.profileId,
+                                });
+                                await MessagesTable().insert({
+                                  'chat_id': _model.chatForProfile?.id,
+                                  'message_text':
+                                      'Dear \"${widget.reportingData?.profileOwnerName}\"⚠️Your profile has been reported.The Yekja Compliance Team is reviewing the details now. We will contact you with an update as soon as the investigation is complete.',
+                                  'recipient': widget.reportingData?.profileId,
+                                });
+                              }
 
-                      safeSetState(() {});
-                    },
+                              Navigator.pop(context);
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Please write a reason.',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  duration: Duration(milliseconds: 4900),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).errorSnack,
+                                ),
+                              );
+                            }
+
+                            safeSetState(() {});
+                          },
                     text: FFLocalizations.of(context).getText(
                       '4f0rzqyy' /* Report */,
                     ),
@@ -301,6 +380,10 @@ class _ReportingPopupWidgetState extends State<ReportingPopupWidget> {
                           ),
                       elevation: 0.0,
                       borderRadius: BorderRadius.circular(8.0),
+                      disabledColor:
+                          FlutterFlowTheme.of(context).lighterSecBackground,
+                      disabledTextColor:
+                          FlutterFlowTheme.of(context).bordergray,
                     ),
                   ),
                 ],

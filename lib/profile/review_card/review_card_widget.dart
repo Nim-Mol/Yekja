@@ -126,7 +126,7 @@ class _ReviewCardWidgetState extends State<ReviewCardWidget> {
                                 (widget.reviewData?.userAvatar != null &&
                                             widget.reviewData?.userAvatar !=
                                                 '') &&
-                                        reviewCardConsentsRow!.showProfileImage!
+                                        reviewCardConsentsRow!.showProfileImage
                                     ? widget.reviewData!.userAvatar
                                     : FFAppConstants.DefultProfilePhoto,
                                 fit: BoxFit.cover,
@@ -207,6 +207,8 @@ class _ReviewCardWidgetState extends State<ReviewCardWidget> {
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .bodyMediumFamily,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryWhite,
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
@@ -253,7 +255,7 @@ class _ReviewCardWidgetState extends State<ReviewCardWidget> {
                                                       .bodyMediumFamily,
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryText,
+                                                      .primaryWhite,
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               useGoogleFonts:
@@ -299,7 +301,7 @@ class _ReviewCardWidgetState extends State<ReviewCardWidget> {
                                                         .bodyMediumFamily,
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryText,
+                                                        .primaryWhite,
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts:
@@ -350,7 +352,7 @@ class _ReviewCardWidgetState extends State<ReviewCardWidget> {
                                                       .bodyMediumFamily,
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryText,
+                                                      .primaryWhite,
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               useGoogleFonts:
@@ -393,7 +395,7 @@ class _ReviewCardWidgetState extends State<ReviewCardWidget> {
                                                       .bodyMediumFamily,
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryText,
+                                                      .primaryWhite,
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               useGoogleFonts:
@@ -439,6 +441,7 @@ class _ReviewCardWidgetState extends State<ReviewCardWidget> {
                         style: FlutterFlowTheme.of(context).bodySmall.override(
                               fontFamily:
                                   FlutterFlowTheme.of(context).bodySmallFamily,
+                              color: FlutterFlowTheme.of(context).primaryWhite,
                               fontSize: 14.0,
                               letterSpacing: 0.0,
                               useGoogleFonts: !FlutterFlowTheme.of(context)
@@ -482,6 +485,8 @@ class _ReviewCardWidgetState extends State<ReviewCardWidget> {
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
                                                     .labelSmallFamily,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryWhite,
                                             letterSpacing: 0.0,
                                             useGoogleFonts:
                                                 !FlutterFlowTheme.of(context)
@@ -532,6 +537,8 @@ class _ReviewCardWidgetState extends State<ReviewCardWidget> {
                                           fontFamily:
                                               FlutterFlowTheme.of(context)
                                                   .labelSmallFamily,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryWhite,
                                           letterSpacing: 0.0,
                                           useGoogleFonts:
                                               !FlutterFlowTheme.of(context)

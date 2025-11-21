@@ -17,7 +17,12 @@ import 'detail_give_away_model.dart';
 export 'detail_give_away_model.dart';
 
 class DetailGiveAwayWidget extends StatefulWidget {
-  const DetailGiveAwayWidget({super.key});
+  const DetailGiveAwayWidget({
+    super.key,
+    this.navRoute,
+  });
+
+  final String? navRoute;
 
   static String routeName = 'DetailGiveAway';
   static String routePath = '/detailGiveAway';
@@ -71,148 +76,141 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget> {
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Align(
-                    alignment: AlignmentDirectional(0.0, -1.0),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
-                      child: Container(
-                        constraints: BoxConstraints(
-                          maxWidth: 480.0,
-                        ),
-                        decoration: BoxDecoration(),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Container(
-                                    width: 45.0,
-                                    height: 45.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.safePop();
-                                      },
-                                      child: Icon(
-                                        Icons.arrow_back,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        size: 24.0,
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    height: 45.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      borderRadius: BorderRadius.circular(24.0),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Icon(
-                                              Icons.border_color,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .greenInit,
-                                              size: 24.0,
-                                            ),
-                                            Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'w87kzf0j' /* Details */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMediumFamily,
-                                                        letterSpacing: 0.0,
-                                                        useGoogleFonts:
-                                                            !FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMediumIsCustom,
-                                                      ),
-                                            ),
-                                          ].divide(SizedBox(width: 8.0)),
-                                        ),
-                                        Text(
-                                          '${functions.isInSetInt(FFAppState().postState.catId, FFAppConstants.catsOpenForSwap.toList()) == true ? '4' : '5'} of 6',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMediumIsCustom,
-                                              ),
-                                        ),
-                                      ]
-                                          .divide(SizedBox(width: 10.0))
-                                          .addToStart(SizedBox(width: 16.0))
-                                          .addToEnd(SizedBox(width: 16.0)),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 45.0,
-                                    height: 45.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.pushNamed(
-                                            HomePageWidget.routeName);
-                                      },
-                                      child: Icon(
-                                        Icons.close,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        size: 24.0,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 16.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                          width: 40.0,
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            shape: BoxShape.circle,
+                          ),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.safePop();
+                            },
+                            child: Icon(
+                              Icons.arrow_back,
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 20.0,
                             ),
-                          ],
+                          ),
                         ),
-                      ),
+                        Container(
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            borderRadius: BorderRadius.circular(24.0),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Icon(
+                                  Icons.border_color,
+                                  color: FlutterFlowTheme.of(context).greenInit,
+                                  size: 20.0,
+                                ),
+                              ),
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  '569xs1qk' /* Details */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
+                                    ),
+                              ),
+                              RichText(
+                                textScaler: MediaQuery.of(context).textScaler,
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: FFLocalizations.of(context).getText(
+                                        'j0vrrbv7' /* 4 */,
+                                      ),
+                                      style: TextStyle(),
+                                    ),
+                                    TextSpan(
+                                      text: FFLocalizations.of(context).getText(
+                                        'jlkcjv7k' /*  of  */,
+                                      ),
+                                      style: TextStyle(),
+                                    ),
+                                    TextSpan(
+                                      text: FFLocalizations.of(context).getText(
+                                        'caecumvf' /* 6 */,
+                                      ),
+                                      style: TextStyle(),
+                                    )
+                                  ],
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .bodyMediumFamily,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        letterSpacing: 0.0,
+                                        useGoogleFonts:
+                                            !FlutterFlowTheme.of(context)
+                                                .bodyMediumIsCustom,
+                                      ),
+                                ),
+                              ),
+                            ]
+                                .divide(SizedBox(width: 16.0))
+                                .addToStart(SizedBox(width: 24.0))
+                                .addToEnd(SizedBox(width: 24.0)),
+                          ),
+                        ),
+                        Container(
+                          width: 40.0,
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            shape: BoxShape.circle,
+                          ),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              if (widget.navRoute == 'PostPreview') {
+                                context.pushNamed(PostPreviewWidget.routeName);
+                              } else {
+                                context.pushNamed(HomePageWidget.routeName);
+                              }
+                            },
+                            child: Icon(
+                              Icons.close,
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 20.0,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Expanded(
@@ -392,27 +390,29 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget> {
                                                             .getText(
                                                           '2jnhw97r' /* Title */,
                                                         ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .titleMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
                                                                           context)
                                                                       .titleMediumFamily,
-                                                              color: Color(
-                                                                  0xFF0BD9A1),
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
+                                                                  color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .titleMediumIsCustom,
-                                                            ),
+                                                                      .green1,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleMediumIsCustom,
+                                                                ),
                                                       ),
                                                       Stack(
                                                         children: [
@@ -561,27 +561,29 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget> {
                                                             .getText(
                                                           '1a7e8j3s' /* Description */,
                                                         ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .titleMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
                                                                           context)
                                                                       .titleMediumFamily,
-                                                              color: Color(
-                                                                  0xFF0BD9A1),
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
+                                                                  color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .titleMediumIsCustom,
-                                                            ),
+                                                                      .green1,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleMediumIsCustom,
+                                                                ),
                                                       ),
                                                       Stack(
                                                         children: [
@@ -689,7 +691,9 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget> {
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .titleMediumFamily,
-                                                    color: Color(0xFF0BD9A1),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .green1,
                                                     fontSize: 16.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
@@ -746,7 +750,7 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryText,
+                                                              .primary,
                                                       letterSpacing: 0.0,
                                                       useGoogleFonts:
                                                           !FlutterFlowTheme.of(
@@ -809,9 +813,13 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget> {
                                                       .textgray,
                                               size: 16.0,
                                             ),
-                                            fillColor: Color(0xE4232426),
+                                            fillColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
                                             elevation: 0.0,
-                                            borderColor: Color(0xE4232426),
+                                            borderColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
                                             borderWidth: 0.0,
                                             borderRadius: 4.0,
                                             margin:
@@ -871,8 +879,9 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget> {
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .titleMediumFamily,
-                                                          color:
-                                                              Color(0xFF0BD9A1),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .green1,
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -962,7 +971,7 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget> {
                                                       iconColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryText,
+                                                              .primary,
                                                       iconSize: 16.0,
                                                       labelPadding:
                                                           EdgeInsetsDirectional
@@ -1008,7 +1017,7 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget> {
                                                       iconColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .secondaryText,
+                                                              .primary,
                                                       iconSize: 16.0,
                                                       labelPadding:
                                                           EdgeInsetsDirectional
@@ -1081,7 +1090,8 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget> {
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
                                                     .titleMediumFamily,
-                                            color: Color(0xFF0BD9A1),
+                                            color: FlutterFlowTheme.of(context)
+                                                .green1,
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
@@ -1160,7 +1170,7 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget> {
                                               ),
                                           iconColor:
                                               FlutterFlowTheme.of(context)
-                                                  .primaryText,
+                                                  .primary,
                                           iconSize: 16.0,
                                           labelPadding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1193,7 +1203,7 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget> {
                                               ),
                                           iconColor:
                                               FlutterFlowTheme.of(context)
-                                                  .secondaryText,
+                                                  .primary,
                                           iconSize: 16.0,
                                           labelPadding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1469,7 +1479,9 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget> {
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .titleMediumFamily,
-                                                color: Color(0xFF0BD9A1),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .green1,
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
@@ -1511,7 +1523,9 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget> {
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .bodyMediumFamily,
-                                                  color: Color(0xCFD4D4D4),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
                                                   letterSpacing: 0.0,
                                                   useGoogleFonts:
                                                       !FlutterFlowTheme.of(
@@ -1530,7 +1544,9 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget> {
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .bodyMediumFamily,
-                                                  color: Color(0xCFD4D4D4),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
                                                   letterSpacing: 0.0,
                                                   useGoogleFonts:
                                                       !FlutterFlowTheme.of(
@@ -1574,7 +1590,7 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget> {
                                                   .greenInit,
                                           inactiveTrackColor:
                                               FlutterFlowTheme.of(context)
-                                                  .bordergray,
+                                                  .secondaryBackground,
                                           inactiveThumbColor:
                                               FlutterFlowTheme.of(context)
                                                   .secondaryText,
@@ -1607,7 +1623,7 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget> {
                                                           .bodyMediumFamily,
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .textgray,
+                                                      .primary,
                                                   letterSpacing: 0.0,
                                                   useGoogleFonts:
                                                       !FlutterFlowTheme.of(

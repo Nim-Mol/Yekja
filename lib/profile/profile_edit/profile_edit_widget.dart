@@ -585,7 +585,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                           Icons
                                                                               .chevron_left,
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).info,
+                                                                              FlutterFlowTheme.of(context).primary,
                                                                           size:
                                                                               24.0,
                                                                         ),
@@ -623,7 +623,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                           Icons
                                                                               .edit_square,
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).info,
+                                                                              FlutterFlowTheme.of(context).primary,
                                                                           size:
                                                                               16.0,
                                                                         ),
@@ -1198,7 +1198,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                                   },
                                                                                   child: Icon(
                                                                                     Icons.clear,
-                                                                                    color: FlutterFlowTheme.of(context).alternate,
+                                                                                    color: FlutterFlowTheme.of(context).primary,
                                                                                     size: 10.0,
                                                                                   ),
                                                                                 )
@@ -1352,7 +1352,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                                   },
                                                                                   child: Icon(
                                                                                     Icons.clear,
-                                                                                    color: FlutterFlowTheme.of(context).alternate,
+                                                                                    color: FlutterFlowTheme.of(context).primary,
                                                                                     size: 10.0,
                                                                                   ),
                                                                                 )
@@ -1509,7 +1509,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                                   },
                                                                                   child: Icon(
                                                                                     Icons.clear,
-                                                                                    color: FlutterFlowTheme.of(context).alternate,
+                                                                                    color: FlutterFlowTheme.of(context).primary,
                                                                                     size: 10.0,
                                                                                   ),
                                                                                 )
@@ -1808,13 +1808,44 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                               height: 20.0,
                                                                               padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FlutterFlowTheme.of(context).success,
+                                                                              color: FlutterFlowTheme.of(context).green1,
                                                                               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
-                                                                                    color: Colors.white,
+                                                                                    color: FlutterFlowTheme.of(context).primary,
                                                                                     fontSize: 10.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w100,
+                                                                                    useGoogleFonts: !FlutterFlowTheme.of(context).titleSmallIsCustom,
+                                                                                  ),
+                                                                              elevation: 0.0,
+                                                                              borderRadius: BorderRadius.circular(8.0),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                        Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              -4.07,
+                                                                              1.17),
+                                                                          child:
+                                                                              FFButtonWidget(
+                                                                            onPressed:
+                                                                                () async {
+                                                                              context.goNamed(ResetPasswordPageWidget.routeName);
+                                                                            },
+                                                                            text:
+                                                                                FFLocalizations.of(context).getText(
+                                                                              'nbv3szt9' /* Change password */,
+                                                                            ),
+                                                                            options:
+                                                                                FFButtonOptions(
+                                                                              height: 40.0,
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              color: Color(0x42228BE6),
+                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                    fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
+                                                                                    color: FlutterFlowTheme.of(context).primary,
+                                                                                    letterSpacing: 0.0,
                                                                                     useGoogleFonts: !FlutterFlowTheme.of(context).titleSmallIsCustom,
                                                                                   ),
                                                                               elevation: 0.0,
@@ -2050,7 +2081,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                             ),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                  color: FlutterFlowTheme.of(context).alternate,
+                                                                                  color: FlutterFlowTheme.of(context).primary,
                                                                                   fontSize: 10.0,
                                                                                   letterSpacing: 0.0,
                                                                                   useGoogleFonts: !FlutterFlowTheme.of(context).bodyMediumIsCustom,
@@ -2586,60 +2617,6 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                     8.0),
                                                           ),
                                                         ),
-                                                        child: FFButtonWidget(
-                                                          onPressed: () async {
-                                                            context.goNamed(
-                                                                ResetPasswordPageWidget
-                                                                    .routeName);
-                                                          },
-                                                          text: FFLocalizations
-                                                                  .of(context)
-                                                              .getText(
-                                                            'nbv3szt9' /* Change password */,
-                                                          ),
-                                                          options:
-                                                              FFButtonOptions(
-                                                            height: 40.0,
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        16.0,
-                                                                        0.0,
-                                                                        16.0,
-                                                                        0.0),
-                                                            iconPadding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            color: Color(
-                                                                0x42228BE6),
-                                                            textStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmall
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .titleSmallFamily,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      useGoogleFonts:
-                                                                          !FlutterFlowTheme.of(context)
-                                                                              .titleSmallIsCustom,
-                                                                    ),
-                                                            elevation: 0.0,
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                          ),
-                                                        ),
                                                       ),
                                                     ),
                                                   ],
@@ -2897,6 +2874,9 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                   fontFamily: FlutterFlowTheme.of(
                                                                           context)
                                                                       .titleSmallFamily,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   useGoogleFonts:
@@ -2914,7 +2894,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                       value: _model
                                                               .allowProfilePhotoValue ??=
                                                           columnConsentsRow!
-                                                              .showProfileImage!,
+                                                              .showProfileImage,
                                                       onChanged:
                                                           (newValue) async {
                                                         safeSetState(() => _model
@@ -2939,7 +2919,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                       inactiveTrackColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bordergray,
+                                                              .secondaryBackground,
                                                       inactiveThumbColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -2959,22 +2939,26 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'nnxca66f' /* Allow  users to see my social ... */,
+                                                        'nnxca66f' /* Allow users to see my social m... */,
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .titleSmall
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .titleSmallFamily,
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
+                                                                color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .titleSmallIsCustom,
-                                                          ),
+                                                                    .primary,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmallIsCustom,
+                                                              ),
                                                     ),
                                                   ),
                                                   Transform.scale(
@@ -2984,7 +2968,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                       value: _model
                                                               .allowSocialMediaValue ??=
                                                           columnConsentsRow!
-                                                              .showSocialmedia!,
+                                                              .showSocialmedia,
                                                       onChanged:
                                                           (newValue) async {
                                                         safeSetState(() => _model
@@ -3009,7 +2993,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                       inactiveTrackColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bordergray,
+                                                              .secondaryBackground,
                                                       inactiveThumbColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -3031,20 +3015,24 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                           .getText(
                                                         '1g8re0aj' /* Allow users to see my favorite... */,
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .titleSmall
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .titleSmallFamily,
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
+                                                                color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .titleSmallIsCustom,
-                                                          ),
+                                                                    .primary,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmallIsCustom,
+                                                              ),
                                                     ),
                                                   ),
                                                   Transform.scale(
@@ -3079,7 +3067,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                       inactiveTrackColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bordergray,
+                                                              .secondaryBackground,
                                                       inactiveThumbColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -3099,22 +3087,26 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'qa16wop5' /* Allow  users to call me. */,
+                                                        'qa16wop5' /* Allow users to call me. */,
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .titleSmall
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .titleSmallFamily,
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
+                                                                color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .titleSmallIsCustom,
-                                                          ),
+                                                                    .primary,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmallIsCustom,
+                                                              ),
                                                     ),
                                                   ),
                                                   Transform.scale(
@@ -3124,7 +3116,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                       value: _model
                                                               .allowCallValue ??=
                                                           columnConsentsRow!
-                                                              .allowCall!,
+                                                              .allowCall,
                                                       onChanged:
                                                           (newValue) async {
                                                         safeSetState(() => _model
@@ -3149,7 +3141,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                       inactiveTrackColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bordergray,
+                                                              .secondaryBackground,
                                                       inactiveThumbColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -3169,22 +3161,26 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'i62uuxwh' /* Allow  users to message me. */,
+                                                        'i62uuxwh' /* Allow users to message me. */,
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .titleSmall
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .titleSmallFamily,
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
+                                                                color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .titleSmallIsCustom,
-                                                          ),
+                                                                    .primary,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmallIsCustom,
+                                                              ),
                                                     ),
                                                   ),
                                                   Transform.scale(
@@ -3194,7 +3190,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                       value: _model
                                                               .allowMessageValue1 ??=
                                                           columnConsentsRow!
-                                                              .allowMessage!,
+                                                              .allowMessage,
                                                       onChanged:
                                                           (newValue) async {
                                                         safeSetState(() => _model
@@ -3219,7 +3215,81 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                       inactiveTrackColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bordergray,
+                                                              .secondaryBackground,
+                                                      inactiveThumbColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Flexible(
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '34uhaw3r' /* Allow users to share my posts. */,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmallFamily,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmallIsCustom,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                  Transform.scale(
+                                                    scaleX: 0.8,
+                                                    scaleY: 0.8,
+                                                    child: Switch.adaptive(
+                                                      value: _model
+                                                              .allowMessageValue2 ??=
+                                                          columnConsentsRow!
+                                                              .allowSharePost,
+                                                      onChanged:
+                                                          (newValue) async {
+                                                        safeSetState(() => _model
+                                                                .allowMessageValue2 =
+                                                            newValue);
+                                                        if (newValue) {
+                                                          _model.allowMessage =
+                                                              true;
+                                                        } else {
+                                                          _model.allowMessage =
+                                                              false;
+                                                        }
+                                                      },
+                                                      activeColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .customColor1,
+                                                      activeTrackColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .customColor1,
+                                                      inactiveTrackColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryBackground,
                                                       inactiveThumbColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -3241,20 +3311,24 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                           .getText(
                                                         'yz5gspss' /* Agreed to the terms and privic... */,
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .titleSmall
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .titleSmallFamily,
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
+                                                                color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .titleSmallIsCustom,
-                                                          ),
+                                                                    .primary,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmallIsCustom,
+                                                              ),
                                                     ),
                                                   ),
                                                   Transform.scale(
@@ -3262,7 +3336,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                     scaleY: 0.8,
                                                     child: Switch.adaptive(
                                                       value: _model
-                                                              .allowMessageValue2 ??=
+                                                              .allowMessageValue3 ??=
                                                           columnConsentsRow!
                                                               .termsAndPolicy,
                                                       onChanged: (columnConsentsRow
@@ -3271,7 +3345,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                           ? null
                                                           : (newValue) async {
                                                               safeSetState(() =>
-                                                                  _model.allowMessageValue2 =
+                                                                  _model.allowMessageValue3 =
                                                                       newValue);
                                                               if (newValue) {
                                                                 _model.allowMessage =
@@ -3292,7 +3366,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                       inactiveTrackColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bordergray,
+                                                              .secondaryBackground,
                                                       inactiveThumbColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -3591,7 +3665,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                           child: Divider(
                                             thickness: 2.0,
                                             color: FlutterFlowTheme.of(context)
-                                                .alternate,
+                                                .primary,
                                           ),
                                         ),
                                         Expanded(

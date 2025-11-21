@@ -88,7 +88,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                   .secondaryBackground,
                               icon: Icon(
                                 Icons.chevron_left,
-                                color: FlutterFlowTheme.of(context).info,
+                                color: FlutterFlowTheme.of(context).primary,
                                 size: 24.0,
                               ),
                               onPressed: () async {
@@ -164,7 +164,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                 maxWidth: 500.0,
                               ),
                               decoration: BoxDecoration(
-                                color: Color(0x42C61717),
+                                color: Color(0xFF6F1010),
                                 borderRadius: BorderRadius.circular(12.0),
                                 border: Border.all(
                                   width: 2.0,
@@ -234,7 +234,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                   maxWidth: 500.0,
                                 ),
                                 decoration: BoxDecoration(
-                                  color: Color(0x420593D7),
+                                  color: Color(0xFF074462),
                                   borderRadius: BorderRadius.circular(12.0),
                                   border: Border.all(
                                     width: 2.0,
@@ -322,7 +322,8 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                     FlutterFlowTheme.of(context).secondaryText,
                                 size: 24.0,
                               ),
-                              fillColor: Color(0xFF232426),
+                              fillColor: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
                               elevation: 2.0,
                               borderColor: FlutterFlowTheme.of(context)
                                   .secondaryBackground,

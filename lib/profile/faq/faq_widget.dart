@@ -700,7 +700,7 @@ The Trust S... */
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily:
                               FlutterFlowTheme.of(context).titleSmallFamily,
-                          color: Colors.white,
+                          color: FlutterFlowTheme.of(context).primary,
                           letterSpacing: 0.0,
                           useGoogleFonts:
                               !FlutterFlowTheme.of(context).titleSmallIsCustom,

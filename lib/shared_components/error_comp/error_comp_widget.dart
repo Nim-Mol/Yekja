@@ -52,10 +52,10 @@ class _ErrorCompWidgetState extends State<ErrorCompWidget> {
           maxHeight: 400.0,
         ),
         decoration: BoxDecoration(
-          color: Color(0xFF232426),
+          color: FlutterFlowTheme.of(context).tertiary,
           borderRadius: BorderRadius.circular(24.0),
           border: Border.all(
-            color: FlutterFlowTheme.of(context).secondaryBackground,
+            color: FlutterFlowTheme.of(context).tertiary,
           ),
         ),
         child: Padding(

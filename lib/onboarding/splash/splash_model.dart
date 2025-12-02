@@ -5,6 +5,10 @@ import 'splash_widget.dart' show SplashWidget;
 import 'package:flutter/material.dart';
 
 class SplashModel extends FlutterFlowModel<SplashWidget> {
+  ///  Local state fields for this page.
+
+  bool loading = false;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - Query Rows] action in Splash widget.

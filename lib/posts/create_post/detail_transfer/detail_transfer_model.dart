@@ -36,8 +36,10 @@ class DetailTransferModel extends FlutterFlowModel<DetailTransferWidget> {
   String? Function(BuildContext, String?)? textController5Validator;
   // State field(s) for NegotiableSwitch widget.
   bool? negotiableSwitchValue;
-  // State field(s) for RegistrationSwitch widget.
-  bool? registrationSwitchValue;
+  // State field(s) for Document widget.
+  bool? documentValue;
+  // State field(s) for Fragile widget.
+  bool? fragileValue;
 
   @override
   void initState(BuildContext context) {}

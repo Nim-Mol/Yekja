@@ -52,7 +52,7 @@ class _ChangeEmailPageWidgetState extends State<ChangeEmailPageWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Colors.black,
         body: SafeArea(
           top: true,
           child: Align(
@@ -156,6 +156,9 @@ class _ChangeEmailPageWidgetState extends State<ChangeEmailPageWidget> {
                                               .headlineMedium
                                               .override(
                                                 fontFamily: 'FarsiFonts',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryWhite,
                                                 fontSize: 30.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
@@ -190,7 +193,7 @@ class _ChangeEmailPageWidgetState extends State<ChangeEmailPageWidget> {
                                                   fontFamily: 'FarsiFonts',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .secondaryText,
+                                                      .primaryWhite,
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
@@ -223,6 +226,8 @@ class _ChangeEmailPageWidgetState extends State<ChangeEmailPageWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Satoshi',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryWhite,
                                           fontSize: 13.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -235,7 +240,7 @@ class _ChangeEmailPageWidgetState extends State<ChangeEmailPageWidget> {
                                         .override(
                                           fontFamily: 'FarsiFonts',
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryText,
+                                              .primaryWhite,
                                           fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
@@ -253,7 +258,7 @@ class _ChangeEmailPageWidgetState extends State<ChangeEmailPageWidget> {
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
+                                            .primaryWhite,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
@@ -308,7 +313,7 @@ class _ChangeEmailPageWidgetState extends State<ChangeEmailPageWidget> {
                                       .override(
                                         fontFamily: 'FarsiFonts',
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryText,
+                                            .primaryWhite,
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,

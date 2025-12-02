@@ -1127,38 +1127,46 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                             Align(
                                               alignment: AlignmentDirectional(
                                                   1.0, 1.0),
-                                              child: Container(
-                                                width: 52.0,
-                                                height: 52.0,
-                                                decoration: BoxDecoration(
-                                                  color: Color(0xFF03231C),
-                                                  shape: BoxShape.circle,
-                                                ),
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Visibility(
-                                                  visible: containerUserExtRow
-                                                          ?.isVerified ==
-                                                      true,
-                                                  child: Opacity(
-                                                    opacity: 0.9,
-                                                    child: Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                      child: Container(
-                                                        width: 52.0,
-                                                        height: 52.0,
-                                                        clipBehavior:
-                                                            Clip.antiAlias,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          shape:
-                                                              BoxShape.circle,
-                                                        ),
-                                                        child: Image.network(
-                                                          'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Badges/yekja_certified_3.png',
-                                                          fit: BoxFit.cover,
+                                              child: Material(
+                                                color: Colors.transparent,
+                                                elevation: 5.0,
+                                                shape: const CircleBorder(),
+                                                child: Container(
+                                                  width: 52.0,
+                                                  height: 52.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Visibility(
+                                                    visible: containerUserExtRow
+                                                            ?.isVerified ==
+                                                        true,
+                                                    child: Opacity(
+                                                      opacity: 0.9,
+                                                      child: Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Container(
+                                                          width: 52.0,
+                                                          height: 52.0,
+                                                          clipBehavior:
+                                                              Clip.antiAlias,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            shape:
+                                                                BoxShape.circle,
+                                                          ),
+                                                          child: Image.network(
+                                                            'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Badges/yekja_certified_3.png',
+                                                            fit: BoxFit.cover,
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
@@ -1169,18 +1177,23 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                             Align(
                                               alignment: AlignmentDirectional(
                                                   1.0, 1.0),
-                                              child: Container(
-                                                width: 52.0,
-                                                height: 52.0,
-                                                decoration: BoxDecoration(
-                                                  color: Color(0xFF03231C),
-                                                  shape: BoxShape.circle,
-                                                  border: Border.all(
-                                                    width: 1.0,
+                                              child: Material(
+                                                color: Colors.transparent,
+                                                elevation: 5.0,
+                                                shape: const CircleBorder(),
+                                                child: Container(
+                                                  width: 52.0,
+                                                  height: 52.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    shape: BoxShape.circle,
                                                   ),
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
                                                 ),
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
                                               ),
                                             ),
                                           ].divide(SizedBox(width: 6.0)),
@@ -1197,15 +1210,23 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                             Align(
                                               alignment: AlignmentDirectional(
                                                   1.0, 1.0),
-                                              child: Container(
-                                                width: 52.0,
-                                                height: 52.0,
-                                                decoration: BoxDecoration(
-                                                  color: Color(0xFF03231C),
-                                                  shape: BoxShape.circle,
+                                              child: Material(
+                                                color: Colors.transparent,
+                                                elevation: 5.0,
+                                                shape: const CircleBorder(),
+                                                child: Container(
+                                                  width: 52.0,
+                                                  height: 52.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
                                                 ),
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
                                               ),
                                             ),
                                             Align(
@@ -1219,7 +1240,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                   width: 52.0,
                                                   height: 52.0,
                                                   decoration: BoxDecoration(
-                                                    color: Color(0xFF03231C),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
                                                     shape: BoxShape.circle,
                                                   ),
                                                   alignment:
@@ -1421,34 +1444,75 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                         .transparent,
                                                                 onTap:
                                                                     () async {
-                                                                  context
-                                                                      .pushNamed(
-                                                                    PostWidget
-                                                                        .routeName,
-                                                                    queryParameters:
-                                                                        {
-                                                                      'postID':
-                                                                          serializeParam(
-                                                                        listViewViewPostFilterRow
-                                                                            .postId,
-                                                                        ParamType
-                                                                            .String,
-                                                                      ),
-                                                                      'mainCatID':
-                                                                          serializeParam(
-                                                                        0,
-                                                                        ParamType
-                                                                            .int,
-                                                                      ),
-                                                                      'detailDataName':
-                                                                          serializeParam(
-                                                                        listViewViewPostFilterRow
-                                                                            .detailTable,
-                                                                        ParamType
-                                                                            .String,
-                                                                      ),
-                                                                    }.withoutNulls,
-                                                                  );
+                                                                  if (FFLocalizations.of(
+                                                                              context)
+                                                                          .languageCode ==
+                                                                      'fa') {
+                                                                    context
+                                                                        .pushNamed(
+                                                                      PostFaWidget
+                                                                          .routeName,
+                                                                      queryParameters:
+                                                                          {
+                                                                        'postID':
+                                                                            serializeParam(
+                                                                          listViewViewPostFilterRow
+                                                                              .postId,
+                                                                          ParamType
+                                                                              .String,
+                                                                        ),
+                                                                        'detailDataName':
+                                                                            serializeParam(
+                                                                          listViewViewPostFilterRow
+                                                                              .detailTable,
+                                                                          ParamType
+                                                                              .String,
+                                                                        ),
+                                                                      }.withoutNulls,
+                                                                    );
+                                                                  } else {
+                                                                    if (FFLocalizations.of(context)
+                                                                            .languageCode ==
+                                                                        'nl') {
+                                                                      context
+                                                                          .pushNamed(
+                                                                        PostNLWidget
+                                                                            .routeName,
+                                                                        queryParameters:
+                                                                            {
+                                                                          'postID':
+                                                                              serializeParam(
+                                                                            listViewViewPostFilterRow.postId,
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'detailDataName':
+                                                                              serializeParam(
+                                                                            listViewViewPostFilterRow.detailTable,
+                                                                            ParamType.String,
+                                                                          ),
+                                                                        }.withoutNulls,
+                                                                      );
+                                                                    } else {
+                                                                      context
+                                                                          .pushNamed(
+                                                                        PostEnWidget
+                                                                            .routeName,
+                                                                        queryParameters:
+                                                                            {
+                                                                          'postID':
+                                                                              serializeParam(
+                                                                            listViewViewPostFilterRow.postId,
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'detailDataName':
+                                                                              serializeParam(
+                                                                            listViewViewPostFilterRow.detailTable,
+                                                                            ParamType.String,
+                                                                          ),
+                                                                        }.withoutNulls,
+                                                                      );
+                                                                    }
+                                                                  }
                                                                 },
                                                                 child:
                                                                     wrapWithModel(
@@ -1667,52 +1731,104 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                           .transparent,
                                                                   onTap:
                                                                       () async {
-                                                                    context
-                                                                        .pushNamed(
-                                                                      PostWidget
-                                                                          .routeName,
-                                                                      queryParameters:
-                                                                          {
-                                                                        'postID':
-                                                                            serializeParam(
-                                                                          listViewViewUserFavoritesRow
-                                                                              .postId,
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'detailDataName':
-                                                                            serializeParam(
-                                                                          listViewViewUserFavoritesRow
-                                                                              .detailTable,
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                      }.withoutNulls,
-                                                                    );
+                                                                    if (FFLocalizations.of(context)
+                                                                            .languageCode ==
+                                                                        'fa') {
+                                                                      context
+                                                                          .pushNamed(
+                                                                        PostFaWidget
+                                                                            .routeName,
+                                                                        queryParameters:
+                                                                            {
+                                                                          'postID':
+                                                                              serializeParam(
+                                                                            listViewViewUserFavoritesRow.postId,
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'detailDataName':
+                                                                              serializeParam(
+                                                                            listViewViewUserFavoritesRow.detailTable,
+                                                                            ParamType.String,
+                                                                          ),
+                                                                        }.withoutNulls,
+                                                                      );
+                                                                    } else {
+                                                                      if (FFLocalizations.of(context)
+                                                                              .languageCode ==
+                                                                          'nl') {
+                                                                        context
+                                                                            .pushNamed(
+                                                                          PostNLWidget
+                                                                              .routeName,
+                                                                          queryParameters:
+                                                                              {
+                                                                            'postID':
+                                                                                serializeParam(
+                                                                              listViewViewUserFavoritesRow.postId,
+                                                                              ParamType.String,
+                                                                            ),
+                                                                            'detailDataName':
+                                                                                serializeParam(
+                                                                              listViewViewUserFavoritesRow.detailTable,
+                                                                              ParamType.String,
+                                                                            ),
+                                                                          }.withoutNulls,
+                                                                        );
+                                                                      } else {
+                                                                        context
+                                                                            .pushNamed(
+                                                                          PostEnWidget
+                                                                              .routeName,
+                                                                          queryParameters:
+                                                                              {
+                                                                            'postID':
+                                                                                serializeParam(
+                                                                              listViewViewUserFavoritesRow.postId,
+                                                                              ParamType.String,
+                                                                            ),
+                                                                            'detailDataName':
+                                                                                serializeParam(
+                                                                              listViewViewUserFavoritesRow.detailTable,
+                                                                              ParamType.String,
+                                                                            ),
+                                                                          }.withoutNulls,
+                                                                        );
+                                                                      }
+                                                                    }
                                                                   },
                                                                   child:
-                                                                      ItemCardHorizentalWidget(
-                                                                    key: Key(
-                                                                        'Key682_${listViewIndex}_of_${listViewViewUserFavoritesRowList.length}'),
-                                                                    itemData:
-                                                                        ItemCardHorizentalStruct(
-                                                                      title: listViewViewUserFavoritesRow
-                                                                          .title,
-                                                                      description:
-                                                                          listViewViewUserFavoritesRow
-                                                                              .description,
-                                                                      itemLocation:
-                                                                          listViewViewUserFavoritesRow
-                                                                              .city,
-                                                                      createdAt:
-                                                                          listViewViewUserFavoritesRow
-                                                                              .postCreatedAt,
-                                                                      itemLikes:
-                                                                          listViewViewUserFavoritesRow
-                                                                              .postLikes,
-                                                                      mainImagePath: listViewViewUserFavoritesRow
-                                                                          .images
-                                                                          .firstOrNull,
+                                                                      wrapWithModel(
+                                                                    model: _model
+                                                                        .itemCardHorizentalModels2
+                                                                        .getModel(
+                                                                      listViewViewUserFavoritesRow
+                                                                          .postId!,
+                                                                      listViewIndex,
+                                                                    ),
+                                                                    updateCallback: () =>
+                                                                        safeSetState(
+                                                                            () {}),
+                                                                    child:
+                                                                        ItemCardHorizentalWidget(
+                                                                      key: Key(
+                                                                        'Key682_${listViewViewUserFavoritesRow.postId!}',
+                                                                      ),
+                                                                      itemData:
+                                                                          ItemCardHorizentalStruct(
+                                                                        title: listViewViewUserFavoritesRow
+                                                                            .title,
+                                                                        description:
+                                                                            listViewViewUserFavoritesRow.description,
+                                                                        itemLocation:
+                                                                            listViewViewUserFavoritesRow.city,
+                                                                        createdAt:
+                                                                            listViewViewUserFavoritesRow.postCreatedAt,
+                                                                        itemLikes:
+                                                                            listViewViewUserFavoritesRow.postLikes,
+                                                                        mainImagePath: listViewViewUserFavoritesRow
+                                                                            .images
+                                                                            .firstOrNull,
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 );
@@ -1880,44 +1996,57 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                               final listViewViewUserReviewsRow =
                                                                   listViewViewUserReviewsRowList[
                                                                       listViewIndex];
-                                                              return ReviewCardWidget(
-                                                                key: Key(
-                                                                    'Key4jh_${listViewIndex}_of_${listViewViewUserReviewsRowList.length}'),
-                                                                reviewData:
-                                                                    ReviewCardDataStruct(
-                                                                  userName:
-                                                                      listViewViewUserReviewsRow
-                                                                          .usernameWriter,
-                                                                  userAvatar:
-                                                                      listViewViewUserReviewsRow
-                                                                          .profileAvatarWriter,
-                                                                  comunicationScore:
-                                                                      listViewViewUserReviewsRow
-                                                                          .comunicationScore,
-                                                                  qualitScore:
-                                                                      listViewViewUserReviewsRow
-                                                                          .qualityScsore,
-                                                                  reliabilityScore:
-                                                                      listViewViewUserReviewsRow
-                                                                          .reliabilityScore,
-                                                                  note:
-                                                                      listViewViewUserReviewsRow
-                                                                          .note,
-                                                                  createAt:
-                                                                      listViewViewUserReviewsRow
-                                                                          .createdAt,
-                                                                  avarageScore:
-                                                                      listViewViewUserReviewsRow
-                                                                          .avgReviewScore,
-                                                                  fairnessScore:
-                                                                      listViewViewUserReviewsRow
-                                                                          .fairnessScore,
-                                                                  reviewerId:
-                                                                      listViewViewUserReviewsRow
-                                                                          .writerId,
-                                                                  reviewId:
-                                                                      listViewViewUserReviewsRow
-                                                                          .reviewId,
+                                                              return wrapWithModel(
+                                                                model: _model
+                                                                    .reviewCardModels
+                                                                    .getModel(
+                                                                  listViewViewUserReviewsRow
+                                                                      .reviewId!,
+                                                                  listViewIndex,
+                                                                ),
+                                                                updateCallback: () =>
+                                                                    safeSetState(
+                                                                        () {}),
+                                                                child:
+                                                                    ReviewCardWidget(
+                                                                  key: Key(
+                                                                    'Key4jh_${listViewViewUserReviewsRow.reviewId!}',
+                                                                  ),
+                                                                  reviewData:
+                                                                      ReviewCardDataStruct(
+                                                                    userName:
+                                                                        listViewViewUserReviewsRow
+                                                                            .usernameWriter,
+                                                                    userAvatar:
+                                                                        listViewViewUserReviewsRow
+                                                                            .profileAvatarWriter,
+                                                                    comunicationScore:
+                                                                        listViewViewUserReviewsRow
+                                                                            .comunicationScore,
+                                                                    qualitScore:
+                                                                        listViewViewUserReviewsRow
+                                                                            .qualityScsore,
+                                                                    reliabilityScore:
+                                                                        listViewViewUserReviewsRow
+                                                                            .reliabilityScore,
+                                                                    note: listViewViewUserReviewsRow
+                                                                        .note,
+                                                                    createAt:
+                                                                        listViewViewUserReviewsRow
+                                                                            .createdAt,
+                                                                    avarageScore:
+                                                                        listViewViewUserReviewsRow
+                                                                            .avgReviewScore,
+                                                                    fairnessScore:
+                                                                        listViewViewUserReviewsRow
+                                                                            .fairnessScore,
+                                                                    reviewerId:
+                                                                        listViewViewUserReviewsRow
+                                                                            .writerId,
+                                                                    reviewId:
+                                                                        listViewViewUserReviewsRow
+                                                                            .reviewId,
+                                                                  ),
                                                                 ),
                                                               );
                                                             },

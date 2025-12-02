@@ -4,9 +4,11 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/main_overview_pages/item_card_global/item_card_global_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
+import '/shared_components/shout_out_card/shout_out_card_widget.dart';
 import '/index.dart';
 import 'dart:async';
 import 'main_page_widget.dart' show MainPageWidget;
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
@@ -36,6 +38,12 @@ class MainPageModel extends FlutterFlowModel<MainPageWidget> {
 
   // Models for ItemCard_Global dynamic component.
   late FlutterFlowDynamicModels<ItemCardGlobalModel> itemCardGlobalModels1;
+  // State field(s) for Carousel widget.
+  CarouselSliderController? carouselController;
+  int carouselCurrentIndex = 1;
+
+  // Models for shoutOutCard dynamic component.
+  late FlutterFlowDynamicModels<ShoutOutCardModel> shoutOutCardModels;
   // State field(s) for DropDownSort widget.
   String? dropDownSortValue2;
   FormFieldController<String>? dropDownSortValueController2;
@@ -73,6 +81,7 @@ class MainPageModel extends FlutterFlowModel<MainPageWidget> {
   void initState(BuildContext context) {
     itemCardGlobalModels1 =
         FlutterFlowDynamicModels(() => ItemCardGlobalModel());
+    shoutOutCardModels = FlutterFlowDynamicModels(() => ShoutOutCardModel());
     itemCardGlobalModels2 =
         FlutterFlowDynamicModels(() => ItemCardGlobalModel());
     itemCardGlobalModels3 =
@@ -87,6 +96,7 @@ class MainPageModel extends FlutterFlowModel<MainPageWidget> {
     tabBarController?.dispose();
     listviewMarketPagingController?.dispose();
     itemCardGlobalModels1.dispose();
+    shoutOutCardModels.dispose();
     listviewSupportPagingController?.dispose();
     itemCardGlobalModels2.dispose();
     listviewSkillsPagingController?.dispose();
@@ -107,57 +117,6 @@ class MainPageModel extends FlutterFlowModel<MainPageWidget> {
       final timeElapsed = stopwatch.elapsedMilliseconds;
       final requestComplete =
           (listviewMarketPagingController?.nextPageKey?.nextPageNumber ?? 0) >
-              0;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
-  }
-
-  Future waitForOnePageForListviewSupport({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete =
-          (listviewSupportPagingController?.nextPageKey?.nextPageNumber ?? 0) >
-              0;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
-  }
-
-  Future waitForOnePageForListviewSkills({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete =
-          (listviewSkillsPagingController?.nextPageKey?.nextPageNumber ?? 0) >
-              0;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
-  }
-
-  Future waitForOnePageForListviewEvents({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete =
-          (listviewEventsPagingController?.nextPageKey?.nextPageNumber ?? 0) >
               0;
       if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
         break;
@@ -211,6 +170,23 @@ class MainPageModel extends FlutterFlowModel<MainPageWidget> {
         );
       });
 
+  Future waitForOnePageForListviewSupport({
+    double minWait = 0,
+    double maxWait = double.infinity,
+  }) async {
+    final stopwatch = Stopwatch()..start();
+    while (true) {
+      await Future.delayed(Duration(milliseconds: 50));
+      final timeElapsed = stopwatch.elapsedMilliseconds;
+      final requestComplete =
+          (listviewSupportPagingController?.nextPageKey?.nextPageNumber ?? 0) >
+              0;
+      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
+        break;
+      }
+    }
+  }
+
   PagingController<ApiPagingParams, dynamic> setListviewSupportController(
     Function(ApiPagingParams) apiCall,
   ) {
@@ -257,6 +233,23 @@ class MainPageModel extends FlutterFlowModel<MainPageWidget> {
         );
       });
 
+  Future waitForOnePageForListviewSkills({
+    double minWait = 0,
+    double maxWait = double.infinity,
+  }) async {
+    final stopwatch = Stopwatch()..start();
+    while (true) {
+      await Future.delayed(Duration(milliseconds: 50));
+      final timeElapsed = stopwatch.elapsedMilliseconds;
+      final requestComplete =
+          (listviewSkillsPagingController?.nextPageKey?.nextPageNumber ?? 0) >
+              0;
+      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
+        break;
+      }
+    }
+  }
+
   PagingController<ApiPagingParams, dynamic> setListviewSkillsController(
     Function(ApiPagingParams) apiCall,
   ) {
@@ -302,6 +295,23 @@ class MainPageModel extends FlutterFlowModel<MainPageWidget> {
               : null,
         );
       });
+
+  Future waitForOnePageForListviewEvents({
+    double minWait = 0,
+    double maxWait = double.infinity,
+  }) async {
+    final stopwatch = Stopwatch()..start();
+    while (true) {
+      await Future.delayed(Duration(milliseconds: 50));
+      final timeElapsed = stopwatch.elapsedMilliseconds;
+      final requestComplete =
+          (listviewEventsPagingController?.nextPageKey?.nextPageNumber ?? 0) >
+              0;
+      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
+        break;
+      }
+    }
+  }
 
   PagingController<ApiPagingParams, dynamic> setListviewEventsController(
     Function(ApiPagingParams) apiCall,

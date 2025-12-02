@@ -74,7 +74,7 @@ class _TermsPopupWidgetState extends State<TermsPopupWidget> {
                       fillColor: FlutterFlowTheme.of(context).primaryBackground,
                       icon: Icon(
                         Icons.close_sharp,
-                        color: FlutterFlowTheme.of(context).info,
+                        color: FlutterFlowTheme.of(context).primary,
                         size: 15.0,
                       ),
                       onPressed: () async {
@@ -98,7 +98,7 @@ class _TermsPopupWidgetState extends State<TermsPopupWidget> {
               Divider(
                 height: 16.0,
                 thickness: 2.0,
-                color: FlutterFlowTheme.of(context).primaryBackground,
+                color: FlutterFlowTheme.of(context).primary,
               ),
               Text(
                 FFLocalizations.of(context).getText(

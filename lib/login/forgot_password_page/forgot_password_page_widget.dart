@@ -50,7 +50,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xFF0E0E0E),
         body: SafeArea(
           top: true,
           child: Align(
@@ -130,6 +130,8 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .headlineMediumFamily,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryWhite,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                         useGoogleFonts:
@@ -152,7 +154,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                                     .override(
                                       fontFamily: 'FarsiFonts',
                                       color: FlutterFlowTheme.of(context)
-                                          .primaryText,
+                                          .primaryWhite,
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
@@ -183,7 +185,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                                         .override(
                                           fontFamily: 'Satoshi',
                                           color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
+                                              .primaryWhite,
                                           fontSize: 13.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -195,8 +197,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                                         .labelMedium
                                         .override(
                                           fontFamily: 'Satoshi',
-                                          color: FlutterFlowTheme.of(context)
-                                              .bordergray,
+                                          color: Color(0xFF767575),
                                           fontSize: 17.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -214,7 +215,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
-                                            .textgray,
+                                            .primaryWhite,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -252,7 +253,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                                       .override(
                                         fontFamily: 'FarsiFonts',
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryText,
+                                            .primaryWhite,
                                         fontSize: 17.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,

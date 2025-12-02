@@ -1,4 +1,3 @@
-import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -219,7 +218,7 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget> {
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               if (widget.navRoute == 'PostPreview') {
-                                context.pushNamed(PostPreviewWidget.routeName);
+                                context.goNamed(PostEditWidget.routeName);
                               } else {
                                 context.pushNamed(HomePageWidget.routeName);
                               }
@@ -447,8 +446,9 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget> {
                                                                 '')
                                                           Icon(
                                                             Icons.check_sharp,
-                                                            color: Color(
-                                                                0xFF0BD9A1),
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .green1,
                                                             size: 16.0,
                                                           ),
                                                       ],
@@ -615,8 +615,9 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget> {
                                                                 '')
                                                           Icon(
                                                             Icons.check_sharp,
-                                                            color: Color(
-                                                                0xFF0BD9A1),
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .green1,
                                                             size: 16.0,
                                                           ),
                                                       ],
@@ -714,7 +715,8 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget> {
                                       if (FFAppState().postState.city != '')
                                         Icon(
                                           Icons.check_sharp,
-                                          color: Color(0xFF0BD9A1),
+                                          color: FlutterFlowTheme.of(context)
+                                              .green1,
                                           size: 16.0,
                                         ),
                                     ],
@@ -854,7 +856,7 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget> {
                                                                   0.0,
                                                               fontWeight:
                                                                   FontWeight
-                                                                      .w500,
+                                                                      .normal,
                                                               useGoogleFonts:
                                                                   !FlutterFlowTheme.of(
                                                                           context)
@@ -1320,7 +1322,9 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget> {
                                                     '')
                                               Icon(
                                                 Icons.check_sharp,
-                                                color: Color(0xFF0BD9A1),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .green1,
                                                 size: 16.0,
                                               ),
                                           ],
@@ -2012,157 +2016,393 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget> {
                                             ],
                                           ),
                                         ),
-                                        if (FFAppState().postState.repeats ==
-                                            true)
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 6.0, 0.0, 4.0),
-                                                child: FlutterFlowChoiceChips(
-                                                  options: [
-                                                    ChipData(FFLocalizations.of(
-                                                            context)
-                                                        .getText(
-                                                      '9gny5ukl' /* Daily */,
-                                                    )),
-                                                    ChipData(FFLocalizations.of(
-                                                            context)
-                                                        .getText(
-                                                      'hdg7udgi' /* Weekly */,
-                                                    )),
-                                                    ChipData(FFLocalizations.of(
-                                                            context)
-                                                        .getText(
-                                                      '1eyxkc4l' /* Monthly */,
-                                                    )),
-                                                    ChipData(FFLocalizations.of(
-                                                            context)
-                                                        .getText(
-                                                      '0uvia0la' /* Yearly */,
-                                                    ))
-                                                  ],
-                                                  onChanged: (val) async {
-                                                    safeSetState(() => _model
-                                                            .repeatsChoiceValue =
-                                                        val?.firstOrNull);
-                                                    FFAppState()
-                                                        .updatePostStateStruct(
-                                                      (e) => e
-                                                        ..repeatsText = _model
-                                                            .repeatsChoiceValue,
-                                                    );
-                                                    safeSetState(() {});
-                                                  },
-                                                  selectedChipStyle: ChipStyle(
-                                                    backgroundColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .greenInit,
-                                                    textStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryText,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumIsCustom,
-                                                            ),
-                                                    iconColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primary,
-                                                    iconSize: 16.0,
-                                                    labelPadding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 0.0,
-                                                                8.0, 0.0),
-                                                    elevation: 0.0,
-                                                    borderColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .greenInit,
-                                                    borderWidth: 0.3,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            4.0),
-                                                  ),
-                                                  unselectedChipStyle:
-                                                      ChipStyle(
-                                                    backgroundColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryBackground,
-                                                    textStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          color:
-                                                              Color(0xCFD4D4D4),
-                                                          letterSpacing: 0.0,
-                                                          useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMediumIsCustom,
-                                                        ),
-                                                    iconColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primary,
-                                                    iconSize: 16.0,
-                                                    labelPadding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(12.0, 4.0,
-                                                                12.0, 4.0),
-                                                    elevation: 0.0,
-                                                    borderColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryBackground,
-                                                    borderWidth: 0.2,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            4.0),
-                                                  ),
-                                                  chipSpacing: 10.0,
-                                                  rowSpacing: 8.0,
-                                                  multiselect: false,
-                                                  initialized: _model
-                                                          .repeatsChoiceValue !=
-                                                      null,
-                                                  alignment:
-                                                      WrapAlignment.start,
-                                                  controller: _model
-                                                          .repeatsChoiceValueController ??=
-                                                      FormFieldController<
-                                                          List<String>>(
-                                                    [
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(-1.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 4.0, 0.0, 6.0),
+                                            child: SingleChildScrollView(
+                                              scrollDirection: Axis.horizontal,
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
                                                       FFAppState()
-                                                          .postState
-                                                          .repeatsText
-                                                    ],
+                                                          .updatePostStateStruct(
+                                                        (e) => e
+                                                          ..repeatsText =
+                                                              'Daily',
+                                                      );
+                                                      safeSetState(() {});
+                                                    },
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        color: FFAppState()
+                                                                    .postState
+                                                                    .repeatsText ==
+                                                                'Daily'
+                                                            ? FlutterFlowTheme
+                                                                    .of(context)
+                                                                .greenInit
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(4.0),
+                                                        border: Border.all(
+                                                          color: FFAppState()
+                                                                      .postState
+                                                                      .repeatsText ==
+                                                                  'Daily'
+                                                              ? FlutterFlowTheme
+                                                                      .of(
+                                                                          context)
+                                                                  .greenInit
+                                                              : FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bordergray,
+                                                          width: 0.3,
+                                                        ),
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    6.0,
+                                                                    12.0,
+                                                                    6.0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'v22mcqq9' /* Daily */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                color: FFAppState()
+                                                                            .postState
+                                                                            .repeatsText ==
+                                                                        'Daily'
+                                                                    ? FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText
+                                                                    : FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .textgray,
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
                                                   ),
-                                                  wrapped: true,
-                                                ),
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      FFAppState()
+                                                          .updatePostStateStruct(
+                                                        (e) => e
+                                                          ..repeatsText =
+                                                              'Weekly',
+                                                      );
+                                                      safeSetState(() {});
+                                                    },
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        color: FFAppState()
+                                                                    .postState
+                                                                    .repeatsText ==
+                                                                'Weekly'
+                                                            ? FlutterFlowTheme
+                                                                    .of(context)
+                                                                .greenInit
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(4.0),
+                                                        border: Border.all(
+                                                          color: FFAppState()
+                                                                      .postState
+                                                                      .repeatsText ==
+                                                                  'Weekly'
+                                                              ? FlutterFlowTheme
+                                                                      .of(
+                                                                          context)
+                                                                  .greenInit
+                                                              : FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bordergray,
+                                                          width: 0.3,
+                                                        ),
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    6.0,
+                                                                    12.0,
+                                                                    6.0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'hv4fqm3b' /* Weekly */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                color: FFAppState().postState.repeatsText ==
+                                                                        'Weekly'
+                                                                    ? FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText
+                                                                    : FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .textgray,
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      FFAppState()
+                                                          .updatePostStateStruct(
+                                                        (e) => e
+                                                          ..repeatsText =
+                                                              'Monthly',
+                                                      );
+                                                      safeSetState(() {});
+                                                    },
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        color: FFAppState()
+                                                                    .postState
+                                                                    .repeatsText ==
+                                                                'Monthly'
+                                                            ? FlutterFlowTheme
+                                                                    .of(context)
+                                                                .greenInit
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(4.0),
+                                                        border: Border.all(
+                                                          color: FFAppState()
+                                                                      .postState
+                                                                      .repeatsText ==
+                                                                  'Monthly'
+                                                              ? FlutterFlowTheme
+                                                                      .of(
+                                                                          context)
+                                                                  .greenInit
+                                                              : FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bordergray,
+                                                          width: 0.3,
+                                                        ),
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    6.0,
+                                                                    12.0,
+                                                                    6.0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'kbww3ght' /* Monthly */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                color: FFAppState().postState.repeatsText ==
+                                                                        'Monthly'
+                                                                    ? FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText
+                                                                    : FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .textgray,
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      FFAppState()
+                                                          .updatePostStateStruct(
+                                                        (e) => e
+                                                          ..repeatsText =
+                                                              'Yearly',
+                                                      );
+                                                      safeSetState(() {});
+                                                    },
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        color: FFAppState()
+                                                                    .postState
+                                                                    .repeatsText ==
+                                                                'Yearly'
+                                                            ? FlutterFlowTheme
+                                                                    .of(context)
+                                                                .greenInit
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(4.0),
+                                                        border: Border.all(
+                                                          color: FFAppState()
+                                                                      .postState
+                                                                      .repeatsText ==
+                                                                  'Yearly'
+                                                              ? FlutterFlowTheme
+                                                                      .of(
+                                                                          context)
+                                                                  .greenInit
+                                                              : FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bordergray,
+                                                          width: 0.3,
+                                                        ),
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    6.0,
+                                                                    12.0,
+                                                                    6.0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'h7w2y7vc' /* Yearly */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                color: FFAppState().postState.repeatsText ==
+                                                                        'Yearly'
+                                                                    ? FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText
+                                                                    : FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .textgray,
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ].divide(SizedBox(width: 10.0)),
                                               ),
-                                            ],
+                                            ),
                                           ),
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -2216,7 +2456,8 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget> {
                                           (FFAppState().postState.capacity > 1))
                                         Icon(
                                           Icons.check_sharp,
-                                          color: Color(0xFF0BD9A1),
+                                          color: FlutterFlowTheme.of(context)
+                                              .green1,
                                           size: 16.0,
                                         ),
                                     ],
@@ -2813,7 +3054,8 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget> {
                                     if (FFAppState().postState.onlineUrl != '')
                                       Icon(
                                         Icons.check_sharp,
-                                        color: Color(0xFF0BD9A1),
+                                        color:
+                                            FlutterFlowTheme.of(context).green1,
                                         size: 16.0,
                                       ),
                                   ],

@@ -1,5 +1,3 @@
-import '/backend/schema/enums/enums.dart';
-import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -212,7 +210,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               if (widget.navRoute == 'PostPreview') {
-                                context.pushNamed(PostPreviewWidget.routeName);
+                                context.goNamed(PostEditWidget.routeName);
                               } else {
                                 context.pushNamed(HomePageWidget.routeName);
                               }
@@ -402,27 +400,29 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                             .getText(
                                                           'dgh17pei' /* Title */,
                                                         ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .titleMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
                                                                           context)
                                                                       .titleMediumFamily,
-                                                              color: Color(
-                                                                  0xFF0BD9A1),
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
+                                                                  color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .titleMediumIsCustom,
-                                                            ),
+                                                                      .green1,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleMediumIsCustom,
+                                                                ),
                                                       ),
                                                       Stack(
                                                         children: [
@@ -443,8 +443,9 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                                   '')
                                                             Icon(
                                                               Icons.check_sharp,
-                                                              color: Color(
-                                                                  0xFF0BD9A1),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .green1,
                                                               size: 16.0,
                                                             ),
                                                         ],
@@ -570,27 +571,29 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                             .getText(
                                                           'zlpz83yb' /* Description */,
                                                         ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .titleMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
                                                                           context)
                                                                       .titleMediumFamily,
-                                                              color: Color(
-                                                                  0xFF0BD9A1),
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
+                                                                  color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .titleMediumIsCustom,
-                                                            ),
+                                                                      .green1,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleMediumIsCustom,
+                                                                ),
                                                       ),
                                                       Stack(
                                                         children: [
@@ -611,8 +614,9 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                                   '')
                                                             Icon(
                                                               Icons.check_sharp,
-                                                              color: Color(
-                                                                  0xFF0BD9A1),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .green1,
                                                               size: 16.0,
                                                             ),
                                                         ],
@@ -697,7 +701,9 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .titleMediumFamily,
-                                                    color: Color(0xFF0BD9A1),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .green1,
                                                     fontSize: 16.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
@@ -711,7 +717,9 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                     '')
                                               Icon(
                                                 Icons.check_sharp,
-                                                color: Color(0xFF0BD9A1),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .green1,
                                                 size: 16.0,
                                               ),
                                           ],
@@ -794,7 +802,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
-                                                          FontWeight.w500,
+                                                          FontWeight.normal,
                                                       useGoogleFonts:
                                                           !FlutterFlowTheme.of(
                                                                   context)
@@ -897,160 +905,488 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                     '')
                                               Icon(
                                                 Icons.check_sharp,
-                                                color: Color(0xFF0BD9A1),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .green1,
                                                 size: 16.0,
                                               ),
                                           ],
                                         ),
-                                        SingleChildScrollView(
-                                          scrollDirection: Axis.horizontal,
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              FlutterFlowChoiceChips(
-                                                options: [
-                                                  ChipData(FFLocalizations.of(
-                                                          context)
-                                                      .getText(
-                                                    '8dqrxnpy' /* Long-Term */,
-                                                  )),
-                                                  ChipData(FFLocalizations.of(
-                                                          context)
-                                                      .getText(
-                                                    'txig7pgg' /* Short-Term */,
-                                                  )),
-                                                  ChipData(FFLocalizations.of(
-                                                          context)
-                                                      .getText(
-                                                    '26ehx6af' /* Sublet */,
-                                                  )),
-                                                  ChipData(FFLocalizations.of(
-                                                          context)
-                                                      .getText(
-                                                    'u5x5ti89' /* Co-Living */,
-                                                  )),
-                                                  ChipData(FFLocalizations.of(
-                                                          context)
-                                                      .getText(
-                                                    'xtp55sf4' /* Flexible */,
-                                                  ))
-                                                ],
-                                                onChanged: (val) async {
-                                                  safeSetState(() => _model
-                                                          .rentalTypeChoiceValue =
-                                                      val?.firstOrNull);
-                                                  FFAppState()
-                                                      .updatePostStateStruct(
-                                                    (e) => e
-                                                      ..rentalType = _model
-                                                          .rentalTypeChoiceValue,
-                                                  );
-                                                  safeSetState(() {});
-                                                },
-                                                selectedChipStyle: ChipStyle(
-                                                  backgroundColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .greenInit,
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(-1.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 4.0, 0.0, 6.0),
+                                            child: SingleChildScrollView(
+                                              scrollDirection: Axis.horizontal,
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      FFAppState()
+                                                          .updatePostStateStruct(
+                                                        (e) => e
+                                                          ..rentalType =
+                                                              'Long-Term',
+                                                      );
+                                                      safeSetState(() {});
+                                                    },
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        color: FFAppState()
+                                                                    .postState
+                                                                    .rentalType ==
+                                                                'Long-Term'
+                                                            ? FlutterFlowTheme
+                                                                    .of(context)
+                                                                .greenInit
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(4.0),
+                                                        border: Border.all(
+                                                          color: FFAppState()
+                                                                      .postState
+                                                                      .rentalType ==
+                                                                  'Long-Term'
+                                                              ? FlutterFlowTheme
+                                                                      .of(
+                                                                          context)
+                                                                  .greenInit
+                                                              : FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bordergray,
+                                                          width: 0.3,
+                                                        ),
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    6.0,
+                                                                    12.0,
+                                                                    6.0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'uhl6xl97' /* Long-Term */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMediumFamily,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumIsCustom,
-                                                          ),
-                                                  iconColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary,
-                                                  iconSize: 16.0,
-                                                  labelPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(8.0, 0.0,
-                                                              8.0, 0.0),
-                                                  elevation: 0.0,
-                                                  borderColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .greenInit,
-                                                  borderWidth: 0.3,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          4.0),
-                                                ),
-                                                unselectedChipStyle: ChipStyle(
-                                                  backgroundColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMediumFamily,
-                                                        color:
-                                                            Color(0xCFD4D4D4),
-                                                        letterSpacing: 0.0,
-                                                        useGoogleFonts:
-                                                            !FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMediumIsCustom,
+                                                                color: FFAppState().postState.rentalType ==
+                                                                        'Long-Term'
+                                                                    ? FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText
+                                                                    : FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .textgray,
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
+                                                        ),
                                                       ),
-                                                  iconColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary,
-                                                  iconSize: 16.0,
-                                                  labelPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(12.0, 4.0,
-                                                              12.0, 4.0),
-                                                  elevation: 0.0,
-                                                  borderColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                  borderWidth: 0.2,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          4.0),
-                                                ),
-                                                chipSpacing: 10.0,
-                                                rowSpacing: 8.0,
-                                                multiselect: false,
-                                                initialized: _model
-                                                        .rentalTypeChoiceValue !=
-                                                    null,
-                                                alignment: WrapAlignment.start,
-                                                controller: _model
-                                                        .rentalTypeChoiceValueController ??=
-                                                    FormFieldController<
-                                                        List<String>>(
-                                                  [
-                                                    FFAppState()
-                                                        .postState
-                                                        .rentalType
-                                                  ],
-                                                ),
-                                                wrapped: false,
+                                                    ),
+                                                  ),
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      FFAppState()
+                                                          .updatePostStateStruct(
+                                                        (e) => e
+                                                          ..rentalType =
+                                                              'Short-Term',
+                                                      );
+                                                      safeSetState(() {});
+                                                    },
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        color: FFAppState()
+                                                                    .postState
+                                                                    .rentalType ==
+                                                                'Short-Term'
+                                                            ? FlutterFlowTheme
+                                                                    .of(context)
+                                                                .greenInit
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(4.0),
+                                                        border: Border.all(
+                                                          color: FFAppState()
+                                                                      .postState
+                                                                      .rentalType ==
+                                                                  'Short-Term'
+                                                              ? FlutterFlowTheme
+                                                                      .of(
+                                                                          context)
+                                                                  .greenInit
+                                                              : FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bordergray,
+                                                          width: 0.3,
+                                                        ),
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    6.0,
+                                                                    12.0,
+                                                                    6.0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'dv9t32fm' /* Short-Term */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                color: FFAppState().postState.rentalType ==
+                                                                        'Short-Term'
+                                                                    ? FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText
+                                                                    : FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .textgray,
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      FFAppState()
+                                                          .updatePostStateStruct(
+                                                        (e) => e
+                                                          ..rentalType =
+                                                              'Sublet',
+                                                      );
+                                                      safeSetState(() {});
+                                                    },
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        color: FFAppState()
+                                                                    .postState
+                                                                    .rentalType ==
+                                                                'Sublet'
+                                                            ? FlutterFlowTheme
+                                                                    .of(context)
+                                                                .greenInit
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(4.0),
+                                                        border: Border.all(
+                                                          color: FFAppState()
+                                                                      .postState
+                                                                      .rentalType ==
+                                                                  'Sublet'
+                                                              ? FlutterFlowTheme
+                                                                      .of(
+                                                                          context)
+                                                                  .greenInit
+                                                              : FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bordergray,
+                                                          width: 0.3,
+                                                        ),
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    6.0,
+                                                                    12.0,
+                                                                    6.0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'wnwel91z' /* Sublet */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                color: FFAppState().postState.rentalType ==
+                                                                        'Sublet'
+                                                                    ? FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText
+                                                                    : FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .textgray,
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      FFAppState()
+                                                          .updatePostStateStruct(
+                                                        (e) => e
+                                                          ..rentalType =
+                                                              'Co-Living',
+                                                      );
+                                                      safeSetState(() {});
+                                                    },
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        color: FFAppState()
+                                                                    .postState
+                                                                    .rentalType ==
+                                                                'Co-Living'
+                                                            ? FlutterFlowTheme
+                                                                    .of(context)
+                                                                .greenInit
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(4.0),
+                                                        border: Border.all(
+                                                          color: FFAppState()
+                                                                      .postState
+                                                                      .rentalType ==
+                                                                  'Co-Living'
+                                                              ? FlutterFlowTheme
+                                                                      .of(
+                                                                          context)
+                                                                  .greenInit
+                                                              : FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bordergray,
+                                                          width: 0.3,
+                                                        ),
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    6.0,
+                                                                    12.0,
+                                                                    6.0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'v3s3ysuk' /* Co-Living */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                color: FFAppState().postState.rentalType ==
+                                                                        'Co-Living'
+                                                                    ? FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText
+                                                                    : FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .textgray,
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      FFAppState()
+                                                          .updatePostStateStruct(
+                                                        (e) => e
+                                                          ..rentalType =
+                                                              'Flexible',
+                                                      );
+                                                      safeSetState(() {});
+                                                    },
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        color: FFAppState()
+                                                                    .postState
+                                                                    .rentalType ==
+                                                                'Flexible'
+                                                            ? FlutterFlowTheme
+                                                                    .of(context)
+                                                                .greenInit
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(4.0),
+                                                        border: Border.all(
+                                                          color: FFAppState()
+                                                                      .postState
+                                                                      .rentalType ==
+                                                                  'Flexible'
+                                                              ? FlutterFlowTheme
+                                                                      .of(
+                                                                          context)
+                                                                  .greenInit
+                                                              : FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bordergray,
+                                                          width: 0.3,
+                                                        ),
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    6.0,
+                                                                    12.0,
+                                                                    6.0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'um5oamy8' /* Flexible */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                color: FFAppState().postState.rentalType ==
+                                                                        'Flexible'
+                                                                    ? FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText
+                                                                    : FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .textgray,
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ].divide(SizedBox(width: 10.0)),
                                               ),
-                                            ],
+                                            ),
                                           ),
                                         ),
                                         Padding(
@@ -1293,7 +1629,8 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                       null)
                                     Icon(
                                       Icons.check_sharp,
-                                      color: Color(0xFF0BD9A1),
+                                      color:
+                                          FlutterFlowTheme.of(context).green1,
                                       size: 16.0,
                                     ),
                                 ],
@@ -1425,7 +1762,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                               ) !=
                                                               ''
                                                       ? dateTimeFormat(
-                                                          "MMMEd",
+                                                          "yMMMd",
                                                           FFAppState()
                                                               .postState
                                                               .availableFrom!,
@@ -1643,7 +1980,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                                 ) !=
                                                                 ''
                                                         ? dateTimeFormat(
-                                                            "MMMEd",
+                                                            "yMMMd",
                                                             FFAppState()
                                                                 .postState
                                                                 .availableUntil!,
@@ -1752,7 +2089,9 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                             ''))
                                                   Icon(
                                                     Icons.check_sharp,
-                                                    color: Color(0xFF0BD9A1),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .green1,
                                                     size: 16.0,
                                                   ),
                                               ],
@@ -1948,6 +2287,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                       ),
                                                 ),
                                                 Container(
+                                                  width: 120.0,
                                                   height: 38.0,
                                                   decoration: BoxDecoration(
                                                     borderRadius:
@@ -1968,9 +2308,38 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                               .postState
                                                               .pricePeriod,
                                                     ),
-                                                    options: TimeUnit.values
-                                                        .map((e) => e.name)
-                                                        .toList(),
+                                                    options: [
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'ns6xe18s' /* hour */,
+                                                      ),
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'aspkqw5u' /* day */,
+                                                      ),
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '40j17v6f' /* night */,
+                                                      ),
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'n4x6bc4w' /* week */,
+                                                      ),
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'wdzvygiw' /* month */,
+                                                      ),
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'gbggb7so' /* year */,
+                                                      )
+                                                    ],
                                                     onChanged: (val) async {
                                                       safeSetState(() => _model
                                                               .pricePeriodValue =
@@ -1983,7 +2352,6 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                       );
                                                       safeSetState(() {});
                                                     },
-                                                    width: 130.0,
                                                     height: 38.0,
                                                     textStyle:
                                                         FlutterFlowTheme.of(
@@ -1996,7 +2364,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                                       .bodyMediumFamily,
                                                               color: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .secondaryText,
+                                                                  .primary,
                                                               letterSpacing:
                                                                   0.0,
                                                               useGoogleFonts:
@@ -2008,7 +2376,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                      '27aiy5mh' /* Select.. */,
+                                                      '1r311j54' /* Select.. */,
                                                     ),
                                                     icon: Icon(
                                                       Icons
@@ -2367,7 +2735,9 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                                     context)
                                                                 .titleMediumFamily,
                                                         color:
-                                                            Color(0xFF0BD9A1),
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .green1,
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -2379,167 +2749,384 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                       ),
                                                 ),
                                               ),
-                                              SingleChildScrollView(
-                                                scrollDirection:
-                                                    Axis.horizontal,
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  4.0),
-                                                      child:
-                                                          FlutterFlowChoiceChips(
-                                                        options: [
-                                                          ChipData(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                            'x0hgoo26' /* Under €1,000 */,
-                                                          )),
-                                                          ChipData(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                            '7uogggnt' /* Under €2,000 */,
-                                                          )),
-                                                          ChipData(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                            'r76glzwo' /* Under €3000 */,
-                                                          )),
-                                                          ChipData(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                            'is28yeyx' /* Any Price */,
-                                                          ))
-                                                        ],
-                                                        onChanged: (val) async {
-                                                          safeSetState(() => _model
-                                                                  .priceChoiceValue =
-                                                              val?.firstOrNull);
-                                                          FFAppState()
-                                                              .updatePostStateStruct(
-                                                            (e) => e
-                                                              ..condition = _model
-                                                                  .priceChoiceValue
-                                                              ..priceText = _model
-                                                                  .priceChoiceValue,
-                                                          );
-                                                          safeSetState(() {});
-                                                        },
-                                                        selectedChipStyle:
-                                                            ChipStyle(
-                                                          backgroundColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .greenInit,
-                                                          textStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    useGoogleFonts:
-                                                                        !FlutterFlowTheme.of(context)
-                                                                            .bodyMediumIsCustom,
-                                                                  ),
-                                                          iconColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .primaryText,
-                                                          iconSize: 16.0,
-                                                          elevation: 0.0,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                        ),
-                                                        unselectedChipStyle:
-                                                            ChipStyle(
-                                                          backgroundColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .secondaryBackground,
-                                                          textStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
-                                                                    color: Color(
-                                                                        0xCFD4D4D4),
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    useGoogleFonts:
-                                                                        !FlutterFlowTheme.of(context)
-                                                                            .bodyMediumIsCustom,
-                                                                  ),
-                                                          iconColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .secondaryText,
-                                                          iconSize: 16.0,
-                                                          labelPadding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      4.0,
-                                                                      12.0,
-                                                                      4.0),
-                                                          elevation: 0.0,
-                                                          borderColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bordergray,
-                                                          borderWidth: 0.2,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      4.0),
-                                                        ),
-                                                        chipSpacing: 10.0,
-                                                        rowSpacing: 8.0,
-                                                        multiselect: false,
-                                                        initialized: _model
-                                                                .priceChoiceValue !=
-                                                            null,
-                                                        alignment:
-                                                            WrapAlignment.start,
-                                                        controller: _model
-                                                                .priceChoiceValueController ??=
-                                                            FormFieldController<
-                                                                List<String>>(
-                                                          [
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    -1.0, 0.0),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 4.0, 0.0, 6.0),
+                                                  child: SingleChildScrollView(
+                                                    scrollDirection:
+                                                        Axis.horizontal,
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
                                                             FFAppState()
-                                                                .postState
-                                                                .priceText
-                                                          ],
+                                                                .updatePostStateStruct(
+                                                              (e) => e
+                                                                ..priceText =
+                                                                    'Under €1,000',
+                                                            );
+                                                            safeSetState(() {});
+                                                          },
+                                                          child: Container(
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FFAppState()
+                                                                          .postState
+                                                                          .priceText ==
+                                                                      'Under €1,000'
+                                                                  ? FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .greenInit
+                                                                  : FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          4.0),
+                                                              border:
+                                                                  Border.all(
+                                                                color: FFAppState().postState.priceText ==
+                                                                        'Under €1,000'
+                                                                    ? FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .greenInit
+                                                                    : FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bordergray,
+                                                                width: 0.3,
+                                                              ),
+                                                            ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          12.0,
+                                                                          6.0,
+                                                                          12.0,
+                                                                          6.0),
+                                                              child: Text(
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  '7ls3ku09' /* Under €1,000 */,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily,
+                                                                      color: FFAppState().postState.priceText ==
+                                                                              'Under €1,000'
+                                                                          ? FlutterFlowTheme.of(context)
+                                                                              .primaryText
+                                                                          : FlutterFlowTheme.of(context)
+                                                                              .textgray,
+                                                                      fontSize:
+                                                                          14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                      useGoogleFonts:
+                                                                          !FlutterFlowTheme.of(context)
+                                                                              .bodyMediumIsCustom,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ),
                                                         ),
-                                                        wrapped: false,
-                                                      ),
+                                                        InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            FFAppState()
+                                                                .updatePostStateStruct(
+                                                              (e) => e
+                                                                ..priceText =
+                                                                    'Under €2,000',
+                                                            );
+                                                            safeSetState(() {});
+                                                          },
+                                                          child: Container(
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FFAppState()
+                                                                          .postState
+                                                                          .priceText ==
+                                                                      'Under €2,000'
+                                                                  ? FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .greenInit
+                                                                  : FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          4.0),
+                                                              border:
+                                                                  Border.all(
+                                                                color: FFAppState().postState.priceText ==
+                                                                        'Under €2,000'
+                                                                    ? FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .greenInit
+                                                                    : FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bordergray,
+                                                                width: 0.3,
+                                                              ),
+                                                            ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          12.0,
+                                                                          6.0,
+                                                                          12.0,
+                                                                          6.0),
+                                                              child: Text(
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'f67n8tk2' /* Under €2,000 */,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily,
+                                                                      color: FFAppState().postState.priceText ==
+                                                                              'Under €2,000'
+                                                                          ? FlutterFlowTheme.of(context)
+                                                                              .primaryText
+                                                                          : FlutterFlowTheme.of(context)
+                                                                              .textgray,
+                                                                      fontSize:
+                                                                          14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                      useGoogleFonts:
+                                                                          !FlutterFlowTheme.of(context)
+                                                                              .bodyMediumIsCustom,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            FFAppState()
+                                                                .updatePostStateStruct(
+                                                              (e) => e
+                                                                ..priceText =
+                                                                    'Under €3000',
+                                                            );
+                                                            safeSetState(() {});
+                                                          },
+                                                          child: Container(
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FFAppState()
+                                                                          .postState
+                                                                          .priceText ==
+                                                                      'Under €3000'
+                                                                  ? FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .greenInit
+                                                                  : FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          4.0),
+                                                              border:
+                                                                  Border.all(
+                                                                color: FFAppState().postState.priceText ==
+                                                                        'Under €3000'
+                                                                    ? FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .greenInit
+                                                                    : FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bordergray,
+                                                                width: 0.3,
+                                                              ),
+                                                            ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          12.0,
+                                                                          6.0,
+                                                                          12.0,
+                                                                          6.0),
+                                                              child: Text(
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  '12qd3c92' /* Under €3000 */,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily,
+                                                                      color: FFAppState().postState.priceText ==
+                                                                              'Under €3000'
+                                                                          ? FlutterFlowTheme.of(context)
+                                                                              .primaryText
+                                                                          : FlutterFlowTheme.of(context)
+                                                                              .textgray,
+                                                                      fontSize:
+                                                                          14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                      useGoogleFonts:
+                                                                          !FlutterFlowTheme.of(context)
+                                                                              .bodyMediumIsCustom,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            FFAppState()
+                                                                .updatePostStateStruct(
+                                                              (e) => e
+                                                                ..priceText =
+                                                                    'Any Price',
+                                                            );
+                                                            safeSetState(() {});
+                                                          },
+                                                          child: Container(
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FFAppState()
+                                                                          .postState
+                                                                          .priceText ==
+                                                                      'Any Price'
+                                                                  ? FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .greenInit
+                                                                  : FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          4.0),
+                                                              border:
+                                                                  Border.all(
+                                                                color: FFAppState().postState.priceText ==
+                                                                        'Any Price'
+                                                                    ? FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .greenInit
+                                                                    : FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bordergray,
+                                                                width: 0.3,
+                                                              ),
+                                                            ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          12.0,
+                                                                          6.0,
+                                                                          12.0,
+                                                                          6.0),
+                                                              child: Text(
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'eqb3di1t' /* Any Price */,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily,
+                                                                      color: FFAppState().postState.priceText ==
+                                                                              'Any Price'
+                                                                          ? FlutterFlowTheme.of(context)
+                                                                              .primaryText
+                                                                          : FlutterFlowTheme.of(context)
+                                                                              .textgray,
+                                                                      fontSize:
+                                                                          14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                      useGoogleFonts:
+                                                                          !FlutterFlowTheme.of(context)
+                                                                              .bodyMediumIsCustom,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ].divide(SizedBox(
+                                                          width: 10.0)),
                                                     ),
-                                                  ],
+                                                  ),
                                                 ),
                                               ),
                                             ].divide(SizedBox(height: 6.0)),
@@ -2573,7 +3160,9 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget> {
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .titleMediumFamily,
-                                                color: Color(0xFF0BD9A1),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .green1,
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,

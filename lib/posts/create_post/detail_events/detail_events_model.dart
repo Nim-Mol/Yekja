@@ -22,12 +22,6 @@ class DetailEventsModel extends FlutterFlowModel<DetailEventsWidget> {
   DateTime? datePicked2;
   // State field(s) for RepeatsSwitch widget.
   bool? repeatsSwitchValue;
-  // State field(s) for RepeatsChoice widget.
-  FormFieldController<List<String>>? repeatsChoiceValueController;
-  String? get repeatsChoiceValue =>
-      repeatsChoiceValueController?.value?.firstOrNull;
-  set repeatsChoiceValue(String? val) =>
-      repeatsChoiceValueController?.value = val != null ? [val] : [];
   // State field(s) for PriceBoolSwitch widget.
   bool? priceBoolSwitchValue1;
   // State field(s) for PriceBoolSwitch widget.

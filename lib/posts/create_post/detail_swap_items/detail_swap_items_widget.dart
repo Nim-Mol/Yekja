@@ -1,4 +1,3 @@
-import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -45,7 +44,7 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
         TextEditingController(text: FFAppState().postState.wishlistText);
     _model.textFieldFocusNode1 ??= FocusNode();
 
-    _model.swapSwitchValue = FFAppState().postState.openForSwap;
+    _model.swapSwitchValue = FFAppState().postState.allowCashAdjustment;
     _model.textController2 ??= TextEditingController(
         text: FFAppState().postState.durationMin.toString());
     _model.textFieldFocusNode2 ??= FocusNode();
@@ -215,8 +214,7 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 if (widget.navRoute == 'PostPreview') {
-                                  context
-                                      .pushNamed(PostPreviewWidget.routeName);
+                                  context.goNamed(PostEditWidget.routeName);
                                 } else {
                                   context.pushNamed(HomePageWidget.routeName);
                                 }
@@ -486,7 +484,9 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                         '')
                                                   Icon(
                                                     Icons.check_sharp,
-                                                    color: Color(0xFF0BD9A1),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .green1,
                                                     size: 16.0,
                                                   ),
                                               ],
@@ -647,7 +647,9 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                         '')
                                                   Icon(
                                                     Icons.check_sharp,
-                                                    color: Color(0xFF0BD9A1),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .green1,
                                                     size: 16.0,
                                                   ),
                                               ],
@@ -730,7 +732,7 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primary,
+                                                              .primaryText,
                                                       letterSpacing: 0.0,
                                                       useGoogleFonts:
                                                           !FlutterFlowTheme.of(
@@ -766,7 +768,7 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                               .primaryText
                                                           : FlutterFlowTheme.of(
                                                                   context)
-                                                              .secondaryText,
+                                                              .textgray,
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -833,7 +835,9 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                         '')
                                                   Icon(
                                                     Icons.check_sharp,
-                                                    color: Color(0xFF0BD9A1),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .green1,
                                                     size: 16.0,
                                                   ),
                                               ],
@@ -896,142 +900,340 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                   0.0, 0.0, 12.0, 0.0),
                                           child: Icon(
                                             Icons.check_sharp,
-                                            color: Color(0xFF0BD9A1),
+                                            color: FlutterFlowTheme.of(context)
+                                                .green1,
                                             size: 16.0,
                                           ),
                                         ),
                                     ],
                                   ),
                                 ),
-                                SingleChildScrollView(
-                                  scrollDirection: Axis.horizontal,
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 6.0, 0.0, 4.0),
-                                        child: FlutterFlowChoiceChips(
-                                          options: [
-                                            ChipData(FFLocalizations.of(context)
-                                                .getText(
-                                              'rqv33tr9' /* By Agreement */,
-                                            )),
-                                            ChipData(FFLocalizations.of(context)
-                                                .getText(
-                                              'pibvge46' /* Pick-Up Only */,
-                                            )),
-                                            ChipData(FFLocalizations.of(context)
-                                                .getText(
-                                              '4hnrcynu' /* Sent by Post */,
-                                            )),
-                                            ChipData(FFLocalizations.of(context)
-                                                .getText(
-                                              '0d6zqa1x' /* Free Delivery */,
-                                            ))
-                                          ],
-                                          onChanged: (val) async {
-                                            safeSetState(() =>
-                                                _model.deliveryChoiceValue =
-                                                    val?.firstOrNull);
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 4.0, 0.0, 6.0),
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
                                             FFAppState().updatePostStateStruct(
                                               (e) => e
                                                 ..deliveryMethod =
-                                                    _model.deliveryChoiceValue,
+                                                    'By Agreement',
                                             );
                                             safeSetState(() {});
                                           },
-                                          selectedChipStyle: ChipStyle(
-                                            backgroundColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .greenInit,
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              color: FFAppState()
+                                                          .postState
+                                                          .deliveryMethod ==
+                                                      'By Agreement'
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .greenInit
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(4.0),
+                                              border: Border.all(
+                                                color: FFAppState()
+                                                            .postState
+                                                            .deliveryMethod ==
+                                                        'By Agreement'
+                                                    ? FlutterFlowTheme.of(
+                                                            context)
+                                                        .greenInit
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .bordergray,
+                                                width: 0.3,
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 6.0, 12.0, 6.0),
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'xgagv1mq' /* By Agreement */,
+                                                ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
                                                     .bodyMedium
                                                     .override(
                                                       fontFamily:
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .bodyMediumFamily,
-                                                      color:
-                                                          FlutterFlowTheme.of(
+                                                      color: FFAppState()
+                                                                  .postState
+                                                                  .deliveryMethod ==
+                                                              'By Agreement'
+                                                          ? FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryText,
+                                                              .primaryText
+                                                          : FlutterFlowTheme.of(
+                                                                  context)
+                                                              .textgray,
+                                                      fontSize: 14.0,
                                                       letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
                                                       useGoogleFonts:
                                                           !FlutterFlowTheme.of(
                                                                   context)
                                                               .bodyMediumIsCustom,
                                                     ),
-                                            iconColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primary,
-                                            iconSize: 16.0,
-                                            labelPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 0.0, 8.0, 0.0),
-                                            elevation: 0.0,
-                                            borderColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .greenInit,
-                                            borderWidth: 0.3,
-                                            borderRadius:
-                                                BorderRadius.circular(4.0),
+                                              ),
+                                            ),
                                           ),
-                                          unselectedChipStyle: ChipStyle(
-                                            backgroundColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumFamily,
-                                                      color: Color(0xCFD4D4D4),
-                                                      letterSpacing: 0.0,
-                                                      useGoogleFonts:
-                                                          !FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumIsCustom,
-                                                    ),
-                                            iconColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primary,
-                                            iconSize: 16.0,
-                                            labelPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 4.0, 12.0, 4.0),
-                                            elevation: 0.0,
-                                            borderColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .bordergray,
-                                            borderWidth: 0.2,
-                                            borderRadius:
-                                                BorderRadius.circular(4.0),
-                                          ),
-                                          chipSpacing: 10.0,
-                                          rowSpacing: 8.0,
-                                          multiselect: false,
-                                          initialized:
-                                              _model.deliveryChoiceValue !=
-                                                  null,
-                                          alignment: WrapAlignment.start,
-                                          controller: _model
-                                                  .deliveryChoiceValueController ??=
-                                              FormFieldController<List<String>>(
-                                            [
-                                              FFAppState()
-                                                  .postState
-                                                  .deliveryMethod
-                                            ],
-                                          ),
-                                          wrapped: false,
                                         ),
-                                      ),
-                                    ],
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            FFAppState().updatePostStateStruct(
+                                              (e) => e
+                                                ..deliveryMethod =
+                                                    'Pick-Up Only',
+                                            );
+                                            safeSetState(() {});
+                                          },
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              color: FFAppState()
+                                                          .postState
+                                                          .deliveryMethod ==
+                                                      'Pick-Up Only'
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .greenInit
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(4.0),
+                                              border: Border.all(
+                                                color: FFAppState()
+                                                            .postState
+                                                            .deliveryMethod ==
+                                                        'Pick-Up Only'
+                                                    ? FlutterFlowTheme.of(
+                                                            context)
+                                                        .greenInit
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .bordergray,
+                                                width: 0.3,
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 6.0, 12.0, 6.0),
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'c8qu362r' /* Pick-Up Only */,
+                                                ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumFamily,
+                                                      color: FFAppState()
+                                                                  .postState
+                                                                  .deliveryMethod ==
+                                                              'Pick-Up Only'
+                                                          ? FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText
+                                                          : FlutterFlowTheme.of(
+                                                                  context)
+                                                              .textgray,
+                                                      fontSize: 14.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumIsCustom,
+                                                    ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            FFAppState().updatePostStateStruct(
+                                              (e) => e
+                                                ..deliveryMethod =
+                                                    'Sent by Post',
+                                            );
+                                            safeSetState(() {});
+                                          },
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              color: FFAppState()
+                                                          .postState
+                                                          .deliveryMethod ==
+                                                      'Sent by Post'
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .greenInit
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(4.0),
+                                              border: Border.all(
+                                                color: FFAppState()
+                                                            .postState
+                                                            .deliveryMethod ==
+                                                        'Sent by Post'
+                                                    ? FlutterFlowTheme.of(
+                                                            context)
+                                                        .greenInit
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .bordergray,
+                                                width: 0.3,
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 6.0, 12.0, 6.0),
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'cfz5c46e' /* Sent by Post */,
+                                                ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumFamily,
+                                                      color: FFAppState()
+                                                                  .postState
+                                                                  .deliveryMethod ==
+                                                              'Sent by Post'
+                                                          ? FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText
+                                                          : FlutterFlowTheme.of(
+                                                                  context)
+                                                              .textgray,
+                                                      fontSize: 14.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumIsCustom,
+                                                    ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            FFAppState().updatePostStateStruct(
+                                              (e) => e
+                                                ..deliveryMethod =
+                                                    'Free Delivery',
+                                            );
+                                            safeSetState(() {});
+                                          },
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              color: FFAppState()
+                                                          .postState
+                                                          .deliveryMethod ==
+                                                      'Free Delivery'
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .greenInit
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(4.0),
+                                              border: Border.all(
+                                                color: FFAppState()
+                                                            .postState
+                                                            .deliveryMethod ==
+                                                        'Free Delivery'
+                                                    ? FlutterFlowTheme.of(
+                                                            context)
+                                                        .greenInit
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .bordergray,
+                                                width: 0.3,
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 6.0, 12.0, 6.0),
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '39k5fdm8' /* Free Delivery */,
+                                                ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumFamily,
+                                                      color: FFAppState()
+                                                                  .postState
+                                                                  .deliveryMethod ==
+                                                              'Free Delivery'
+                                                          ? FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText
+                                                          : FlutterFlowTheme.of(
+                                                                  context)
+                                                              .textgray,
+                                                      fontSize: 14.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumIsCustom,
+                                                    ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ].divide(SizedBox(width: 10.0)),
+                                    ),
                                   ),
                                 ),
                                 Column(
@@ -1094,7 +1296,9 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                         0.0, 0.0, 12.0, 0.0),
                                                 child: Icon(
                                                   Icons.check_sharp,
-                                                  color: Color(0xFF0BD9A1),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .green1,
                                                   size: 16.0,
                                                 ),
                                               ),
@@ -1319,22 +1523,24 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                           .getText(
                                                         'd0tqcv4n' /* Allow cash adjustment? */,
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMediumFamily,
-                                                            color: Color(
-                                                                0xCFD4D4D4),
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
+                                                                color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMediumIsCustom,
-                                                          ),
+                                                                    .primaryText,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
                                                     ),
                                                     Text(
                                                       FFLocalizations.of(
@@ -1342,22 +1548,24 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                           .getText(
                                                         'g7l755yk' /* You or the other user can add ... */,
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMediumFamily,
-                                                            color: Color(
-                                                                0xCFD4D4D4),
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
+                                                                color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMediumIsCustom,
-                                                          ),
+                                                                    .primary,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
                                                     ),
                                                   ],
                                                 ),
@@ -1385,7 +1593,9 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                       FFAppState()
                                                           .updatePostStateStruct(
                                                         (e) => e
-                                                          ..openForSwap = null,
+                                                          ..allowCashAdjustment =
+                                                              _model
+                                                                  .swapSwitchValue,
                                                       );
                                                       safeSetState(() {});
                                                     }
@@ -1803,8 +2013,9 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                               Icon(
                                                                 Icons
                                                                     .check_sharp,
-                                                                color: Color(
-                                                                    0xFF0BD9A1),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .green1,
                                                                 size: 16.0,
                                                               ),
                                                           ],
@@ -1819,7 +2030,12 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                           ? FFAppState()
                                                               .postState
                                                               .title
-                                                          : 'Add a title to your post'
+                                                          : (FFLocalizations.of(
+                                                                              context)
+                                                                          .languageCode !=
+                                                                      'fa'
+                                                                  ? 'Add a title to your post'
+                                                                  : 'برای پست‌تان یک عنوان اضافه کنید')
                                                               .maybeHandleOverflow(
                                                               maxChars: 35,
                                                               replacement: '…',
@@ -1976,8 +2192,9 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                               Icon(
                                                                 Icons
                                                                     .check_sharp,
-                                                                color: Color(
-                                                                    0xFF0BD9A1),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .green1,
                                                                 size: 16.0,
                                                               ),
                                                           ],
@@ -1985,7 +2202,7 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                       ],
                                                     ),
                                                     AutoSizeText(
-                                                      '${FFAppState().postState.description != '' ? FFAppState().postState.description : 'Add a description to your post'}'
+                                                      '${FFAppState().postState.description != '' ? FFAppState().postState.description : (FFLocalizations.of(context).languageCode != 'fa' ? 'Add a description to your post' : 'برای پست‌تان یک توضیح اضافه کنید')}'
                                                           .maybeHandleOverflow(
                                                         maxChars: 90,
                                                         replacement: '…',
@@ -2072,7 +2289,9 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                       '')
                                                 Icon(
                                                   Icons.check_sharp,
-                                                  color: Color(0xFF0BD9A1),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .green1,
                                                   size: 16.0,
                                                 ),
                                             ],
@@ -2156,7 +2375,8 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                             .secondaryText,
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w500,
+                                                    fontWeight:
+                                                        FontWeight.normal,
                                                     useGoogleFonts:
                                                         !FlutterFlowTheme.of(
                                                                 context)
@@ -2242,13 +2462,12 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                               ),
                                         ),
                                       ),
-                                      if (FFAppState()
-                                              .postState
-                                              .availableFrom !=
-                                          null)
+                                      if (FFAppState().postState.durationMin !=
+                                          0)
                                         Icon(
                                           Icons.check_sharp,
-                                          color: Color(0xFF0BD9A1),
+                                          color: FlutterFlowTheme.of(context)
+                                              .green1,
                                           size: 16.0,
                                         ),
                                     ],
@@ -2344,11 +2563,11 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                   selectedDateTimeForegroundColor:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .secondaryBackground,
+                                                          .primaryText,
                                                   actionButtonForegroundColor:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .greenInit,
+                                                          .primaryText,
                                                   iconSize: 20.0,
                                                 );
                                               },
@@ -2409,11 +2628,11 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                     selectedDateTimeForegroundColor:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .secondaryBackground,
+                                                            .primaryText,
                                                     actionButtonForegroundColor:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .greenInit,
+                                                            .primaryText,
                                                     iconSize: 20.0,
                                                   );
                                                 },
@@ -2445,7 +2664,7 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                             safeSetState(() {});
                                           },
                                           child: Container(
-                                            width: 140.0,
+                                            width: 160.0,
                                             height: 38.0,
                                             constraints: BoxConstraints(
                                               maxWidth: 180.0,
@@ -2562,124 +2781,138 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                       ),
                                       Flexible(
                                         child: Container(
-                                          width: 140.0,
-                                          child: TextFormField(
-                                            controller: _model.textController2,
-                                            focusNode:
-                                                _model.textFieldFocusNode2,
-                                            onChanged: (_) =>
-                                                EasyDebounce.debounce(
-                                              '_model.textController2',
-                                              Duration(milliseconds: 2000),
-                                              () async {
-                                                FFAppState()
-                                                    .updatePostStateStruct(
-                                                  (e) => e
-                                                    ..durationMin =
-                                                        int.tryParse(_model
-                                                            .textController2
-                                                            .text),
-                                                );
-                                                safeSetState(() {});
-                                              },
-                                            ),
-                                            autofocus: false,
-                                            enabled: true,
-                                            obscureText: false,
-                                            decoration: InputDecoration(
-                                              isDense: true,
-                                              hintStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .labelMedium
-                                                  .override(
-                                                    fontFamily:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelMediumFamily,
+                                          height: 38.0,
+                                          decoration: BoxDecoration(),
+                                          child: Container(
+                                            width: 160.0,
+                                            child: TextFormField(
+                                              controller:
+                                                  _model.textController2,
+                                              focusNode:
+                                                  _model.textFieldFocusNode2,
+                                              onChanged: (_) =>
+                                                  EasyDebounce.debounce(
+                                                '_model.textController2',
+                                                Duration(milliseconds: 2000),
+                                                () async {
+                                                  FFAppState()
+                                                      .updatePostStateStruct(
+                                                    (e) => e
+                                                      ..durationMin =
+                                                          int.tryParse(_model
+                                                              .textController2
+                                                              .text),
+                                                  );
+                                                  safeSetState(() {});
+                                                },
+                                              ),
+                                              autofocus: false,
+                                              enabled: true,
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                isDense: true,
+                                                hintStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMediumFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bordergray,
+                                                      letterSpacing: 0.0,
+                                                      lineHeight: 1.0,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMediumIsCustom,
+                                                    ),
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          4.0),
+                                                ),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          4.0),
+                                                ),
+                                                errorBorder: OutlineInputBorder(
+                                                  borderSide: BorderSide(
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .bordergray,
-                                                    letterSpacing: 0.0,
-                                                    lineHeight: 1.0,
-                                                    useGoogleFonts:
-                                                        !FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelMediumIsCustom,
+                                                        .error,
+                                                    width: 1.0,
                                                   ),
-                                              enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: Color(0x00000000),
-                                                  width: 1.0,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          4.0),
                                                 ),
-                                                borderRadius:
-                                                    BorderRadius.circular(4.0),
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: Color(0x00000000),
-                                                  width: 1.0,
+                                                focusedErrorBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .error,
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          4.0),
                                                 ),
-                                                borderRadius:
-                                                    BorderRadius.circular(4.0),
-                                              ),
-                                              errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .error,
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(4.0),
-                                              ),
-                                              focusedErrorBorder:
-                                                  OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .error,
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(4.0),
-                                              ),
-                                              filled: true,
-                                              fillColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              contentPadding:
-                                                  EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 4.0),
-                                              prefixIcon: Icon(
-                                                Icons.dark_mode,
-                                                color:
+                                                filled: true,
+                                                fillColor:
                                                     FlutterFlowTheme.of(context)
-                                                        .bordergray,
-                                                size: 16.0,
-                                              ),
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
-                                                  letterSpacing: 0.0,
-                                                  useGoogleFonts:
-                                                      !FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumIsCustom,
+                                                        .secondaryBackground,
+                                                contentPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 4.0),
+                                                prefixIcon: Icon(
+                                                  Icons.dark_mode,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bordergray,
+                                                  size: 16.0,
                                                 ),
-                                            keyboardType: TextInputType.number,
-                                            cursorColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryText,
-                                            enableInteractiveSelection: true,
-                                            validator: _model
-                                                .textController2Validator
-                                                .asValidator(context),
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        letterSpacing: 0.0,
+                                                        useGoogleFonts:
+                                                            !FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMediumIsCustom,
+                                                      ),
+                                              keyboardType:
+                                                  TextInputType.number,
+                                              cursorColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              enableInteractiveSelection: true,
+                                              validator: _model
+                                                  .textController2Validator
+                                                  .asValidator(context),
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -2702,7 +2935,7 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                       children: [
                                         Text(
                                           FFLocalizations.of(context).getText(
-                                            '6fm7r7ko' /* Compensation */,
+                                            '6fm7r7ko' /* Compensation (optional) */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .titleMedium
@@ -2712,7 +2945,7 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                         .titleMediumFamily,
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .greenInit,
+                                                        .green1,
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
@@ -2728,7 +2961,8 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                 'By Agreement'))
                                           Icon(
                                             Icons.check_sharp,
-                                            color: Color(0xFF0BD9A1),
+                                            color: FlutterFlowTheme.of(context)
+                                                .green1,
                                             size: 16.0,
                                           ),
                                       ],
@@ -2987,8 +3221,9 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
-                                                          color:
-                                                              Color(0xCFD4D4D4),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts:
                                                               !FlutterFlowTheme
@@ -3090,26 +3325,30 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                   (FFAppState().postState.description !=
                                           '') &&
                                   (FFAppState().postState.city != '') &&
-                                  ((FFAppState().postState.wishlistText !=
+                                  ((FFAppState()
+                                                  .postState
+                                                  .deliveryMethod !=
                                               '') ||
                                       (FFAppState().postState.durationMin !=
-                                          null))) {
+                                          0))) {
                                 FFAppState().postDetailJSON = <String, dynamic>{
-                                  'delivery_method':
-                                      FFAppState().postState.deliveryMethod,
-                                  'wishlist_text':
-                                      FFAppState().postState.wishlistText,
                                   'duration_min':
                                       FFAppState().postState.durationMin,
-                                  'allow_cash_adjustment': FFAppState()
-                                      .postState
-                                      .allowCashAdjustment,
+                                  'deadline': functions.dateTimeToString(
+                                      FFAppState().postState.deadline),
                                   'intend': FFAppState().postState.intend,
+                                  'wishlist_text':
+                                      FFAppState().postState.wishlistText,
                                   'price_text':
                                       FFAppState().postState.priceText,
                                   'price': FFAppState().postState.price,
-                                  'deadline': functions.dateTimeToString(
-                                      FFAppState().postState.deadline),
+                                  'allow_cash_adjustment': FFAppState()
+                                      .postState
+                                      .allowCashAdjustment,
+                                  'delivery_method':
+                                      FFAppState().postState.deliveryMethod,
+                                  'is_negotiable':
+                                      FFAppState().postState.isNegotiable,
                                 };
                                 safeSetState(() {});
 
@@ -3144,7 +3383,7 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                         child: ErrorCompWidget(
                                           errorText: FFLocalizations.of(context)
                                               .getText(
-                                            'q4p7c1wf' /* Some fields are left unfilled.... */,
+                                            'td12p8u4' /* Some fields are left unfilled.... */,
                                           ),
                                         ),
                                       ),
@@ -3167,12 +3406,12 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                 '') &&
                                         ((FFAppState()
                                                         .postState
-                                                        .wishlistText !=
+                                                        .deliveryMethod !=
                                                     '') ||
                                             (FFAppState()
                                                     .postState
-                                                    .durationMin !=
-                                                null))
+                                                    .durationMin >
+                                                0))
                                     ? FlutterFlowTheme.of(context).greenInit
                                     : FlutterFlowTheme.of(context)
                                         .secondaryBackground,
@@ -3188,12 +3427,12 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                   '') &&
                                           ((FFAppState()
                                                           .postState
-                                                          .wishlistText !=
+                                                          .deliveryMethod !=
                                                       '') ||
                                               (FFAppState()
                                                       .postState
-                                                      .durationMin !=
-                                                  null))
+                                                      .durationMin >
+                                                  0))
                                       ? FlutterFlowTheme.of(context).greenInit
                                       : FlutterFlowTheme.of(context)
                                           .secondaryBackground,
@@ -3205,7 +3444,7 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                 children: [
                                   Text(
                                     FFLocalizations.of(context).getText(
-                                      '5uunx2br' /* Next */,
+                                      '7saqyfxb' /* Next */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -3225,12 +3464,12 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget> {
                                                           '') &&
                                                   ((FFAppState()
                                                                   .postState
-                                                                  .wishlistText !=
+                                                                  .deliveryMethod !=
                                                               '') ||
                                                       (FFAppState()
                                                               .postState
-                                                              .durationMin !=
-                                                          null))
+                                                              .durationMin >
+                                                          0))
                                               ? FlutterFlowTheme.of(context)
                                                   .primary
                                               : Color(0xFF6B6969),

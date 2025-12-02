@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import '/index.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'contact_y_e_k_j_a_model.dart';
@@ -138,19 +139,49 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
-                        child: Text(
-                          FFLocalizations.of(context).getText(
-                            'b3om7lkw' /* Make sure you check our FAQ */,
-                          ),
-                          style: FlutterFlowTheme.of(context)
-                              .headlineSmall
-                              .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .headlineSmallFamily,
-                                letterSpacing: 0.0,
-                                useGoogleFonts: !FlutterFlowTheme.of(context)
-                                    .headlineSmallIsCustom,
+                        child: RichText(
+                          textScaler: MediaQuery.of(context).textScaler,
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: FFLocalizations.of(context).getText(
+                                  '18qj4qd2' /* Make sure you check our  */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .headlineSmall
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .headlineSmallFamily,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .headlineSmallIsCustom,
+                                    ),
                               ),
+                              TextSpan(
+                                text: FFLocalizations.of(context).getText(
+                                  'f2k084ch' /* FAQ */,
+                                ),
+                                style: TextStyle(
+                                  color: FlutterFlowTheme.of(context).greenInit,
+                                ),
+                                mouseCursor: SystemMouseCursors.click,
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () async {
+                                    context.pushNamed(FaqWidget.routeName);
+                                  },
+                              )
+                            ],
+                            style: FlutterFlowTheme.of(context)
+                                .headlineSmall
+                                .override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .headlineSmallFamily,
+                                  letterSpacing: 0.0,
+                                  useGoogleFonts: !FlutterFlowTheme.of(context)
+                                      .headlineSmallIsCustom,
+                                ),
+                          ),
                         ),
                       ),
                       Row(
@@ -164,7 +195,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                 maxWidth: 500.0,
                               ),
                               decoration: BoxDecoration(
-                                color: Color(0xFF6F1010),
+                                color: Color(0xFFBC2626),
                                 borderRadius: BorderRadius.circular(12.0),
                                 border: Border.all(
                                   width: 2.0,
@@ -234,7 +265,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                   maxWidth: 500.0,
                                 ),
                                 decoration: BoxDecoration(
-                                  color: Color(0xFF074462),
+                                  color: Color(0xFF046595),
                                   borderRadius: BorderRadius.circular(12.0),
                                   border: Border.all(
                                     width: 2.0,
@@ -455,8 +486,6 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       final selectedMedia = await selectMedia(
-                                        maxWidth: 150.00,
-                                        maxHeight: 150.00,
                                         mediaSource: MediaSource.photoGallery,
                                         multiImage: true,
                                       );

@@ -271,8 +271,7 @@ class _PostImageWidgetState extends State<PostImageWidget> {
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     if (widget.navRoute == 'PostPreview') {
-                                      context.pushNamed(
-                                          PostPreviewWidget.routeName);
+                                      context.goNamed(PostEditWidget.routeName);
                                     } else {
                                       context
                                           .pushNamed(HomePageWidget.routeName);
@@ -805,146 +804,242 @@ class _PostImageWidgetState extends State<PostImageWidget> {
                       ],
                     ),
                   ),
-                  Align(
-                    alignment: AlignmentDirectional(0.0, 1.0),
-                    child: Container(
-                      width: double.infinity,
-                      height: 90.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).primaryBackground,
-                        border: Border.all(
-                          color: FlutterFlowTheme.of(context).primaryBackground,
-                        ),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 16.0, 24.0, 0.0),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                if (_model.localImages.isNotEmpty) {
-                                  for (int loop1Index = 0;
-                                      loop1Index < _model.localImages.length;
-                                      loop1Index++) {
-                                    final currentLoop1Item =
-                                        _model.localImages[loop1Index];
-                                    // upload to Temporarily storage
-                                    {
-                                      safeSetState(() => _model
-                                              .isDataUploading_uploadToStorageURL =
-                                          true);
-                                      var selectedUploadedFiles =
-                                          <FFUploadedFile>[];
-                                      var selectedMedia = <SelectedFile>[];
-                                      var downloadUrls = <String>[];
-                                      try {
-                                        selectedUploadedFiles =
-                                            currentLoop1Item.bytes!.isNotEmpty
-                                                ? [currentLoop1Item]
-                                                : <FFUploadedFile>[];
-                                        selectedMedia =
-                                            selectedFilesFromUploadedFiles(
-                                          selectedUploadedFiles,
-                                          storageFolderPath: currentUserUid,
-                                        );
-                                        downloadUrls =
-                                            await uploadSupabaseStorageFiles(
-                                          bucketName: 'users_media',
-                                          selectedFiles: selectedMedia,
-                                        );
-                                      } finally {
-                                        _model.isDataUploading_uploadToStorageURL =
-                                            false;
-                                      }
-                                      if (selectedUploadedFiles.length ==
-                                              selectedMedia.length &&
-                                          downloadUrls.length ==
-                                              selectedMedia.length) {
-                                        safeSetState(() {
-                                          _model.uploadedLocalFile_uploadToStorageURL =
-                                              selectedUploadedFiles.first;
-                                          _model.uploadedFileUrl_uploadToStorageURL =
-                                              downloadUrls.first;
-                                        });
-                                      } else {
-                                        safeSetState(() {});
-                                        return;
-                                      }
-                                    }
-
-                                    FFAppState().updatePostStateStruct(
-                                      (e) => e
-                                        ..updateImages(
-                                          (e) => e.add(_model
-                                              .uploadedFileUrl_uploadToStorageURL),
-                                        ),
-                                    );
-                                    safeSetState(() {});
-                                  }
-                                  safeSetState(() {
-                                    _model.isDataUploading_uploadimageLocal =
-                                        false;
-                                    _model.uploadedLocalFile_uploadimageLocal =
-                                        FFUploadedFile(
-                                            bytes: Uint8List.fromList([]),
-                                            originalFilename: '');
-                                  });
-
-                                  _model.localImages = [];
-                                  safeSetState(() {});
-                                }
-
-                                context.pushNamed(PostPreviewWidget.routeName);
-                              },
-                              child: Container(
-                                width: double.infinity,
-                                height: 45.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).greenInit,
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  border: Border.all(
-                                    color:
-                                        FlutterFlowTheme.of(context).greenInit,
-                                  ),
-                                ),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        'klkdc69y' /* See Preview */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            fontSize: 16.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w500,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .bodyMediumIsCustom,
-                                          ),
-                                    ),
-                                  ],
-                                ),
+                  Stack(
+                    children: [
+                      if (widget.navRoute != 'PostPreview')
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 1.0),
+                          child: Container(
+                            width: double.infinity,
+                            height: 90.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              border: Border.all(
+                                color: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
                               ),
                             ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 16.0, 24.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      if (_model.localImages.isNotEmpty) {
+                                        for (int loop1Index = 0;
+                                            loop1Index <
+                                                _model.localImages.length;
+                                            loop1Index++) {
+                                          final currentLoop1Item =
+                                              _model.localImages[loop1Index];
+                                          // upload to Temporarily storage
+                                          {
+                                            safeSetState(() => _model
+                                                    .isDataUploading_uploadToStorageURL =
+                                                true);
+                                            var selectedUploadedFiles =
+                                                <FFUploadedFile>[];
+                                            var selectedMedia =
+                                                <SelectedFile>[];
+                                            var downloadUrls = <String>[];
+                                            try {
+                                              selectedUploadedFiles =
+                                                  currentLoop1Item
+                                                          .bytes!.isNotEmpty
+                                                      ? [currentLoop1Item]
+                                                      : <FFUploadedFile>[];
+                                              selectedMedia =
+                                                  selectedFilesFromUploadedFiles(
+                                                selectedUploadedFiles,
+                                                storageFolderPath:
+                                                    currentUserUid,
+                                              );
+                                              downloadUrls =
+                                                  await uploadSupabaseStorageFiles(
+                                                bucketName: 'users_media',
+                                                selectedFiles: selectedMedia,
+                                              );
+                                            } finally {
+                                              _model.isDataUploading_uploadToStorageURL =
+                                                  false;
+                                            }
+                                            if (selectedUploadedFiles.length ==
+                                                    selectedMedia.length &&
+                                                downloadUrls.length ==
+                                                    selectedMedia.length) {
+                                              safeSetState(() {
+                                                _model.uploadedLocalFile_uploadToStorageURL =
+                                                    selectedUploadedFiles.first;
+                                                _model.uploadedFileUrl_uploadToStorageURL =
+                                                    downloadUrls.first;
+                                              });
+                                            } else {
+                                              safeSetState(() {});
+                                              return;
+                                            }
+                                          }
+
+                                          FFAppState().updatePostStateStruct(
+                                            (e) => e
+                                              ..updateImages(
+                                                (e) => e.add(_model
+                                                    .uploadedFileUrl_uploadToStorageURL),
+                                              ),
+                                          );
+                                          safeSetState(() {});
+                                        }
+                                        safeSetState(() {
+                                          _model.isDataUploading_uploadimageLocal =
+                                              false;
+                                          _model.uploadedLocalFile_uploadimageLocal =
+                                              FFUploadedFile(
+                                                  bytes: Uint8List.fromList([]),
+                                                  originalFilename: '');
+                                        });
+
+                                        _model.localImages = [];
+                                        safeSetState(() {});
+                                      }
+
+                                      context.pushNamed(
+                                          PostPreviewWidget.routeName);
+                                    },
+                                    child: Container(
+                                      width: double.infinity,
+                                      height: 45.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .greenInit,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .greenInit,
+                                        ),
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              'klkdc69y' /* See Preview */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  fontSize: 16.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                  useGoogleFonts:
+                                                      !FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumIsCustom,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ],
-                      ),
-                    ),
+                        ),
+                      if (widget.navRoute == 'PostPreview')
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 1.0),
+                          child: Container(
+                            width: double.infinity,
+                            height: 90.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              border: Border.all(
+                                color: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
+                              ),
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 16.0, 24.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.goNamed(PostEditWidget.routeName);
+                                    },
+                                    child: Container(
+                                      width: double.infinity,
+                                      height: 45.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .greenInit,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .greenInit,
+                                        ),
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              'q3yy9x1s' /* Save */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  fontSize: 16.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                  useGoogleFonts:
+                                                      !FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumIsCustom,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                    ],
                   ),
                 ],
               ),

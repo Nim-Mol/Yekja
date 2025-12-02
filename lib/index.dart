@@ -13,8 +13,6 @@ export '/posts/iran_n_l_item_page/iran_n_l_item_page_widget.dart'
     show IranNLItemPageWidget;
 export '/posts/create_post/post_sub_cat/post_sub_cat_widget.dart'
     show PostSubCatWidget;
-export '/posts/create_post/post_wish_list/post_wish_list_widget.dart'
-    show PostWishListWidget;
 export '/login/sign_in_confirm/sign_in_confirm_widget.dart'
     show SignInConfirmWidget;
 export '/posts/create_post/post_cat/post_cat_widget.dart' show PostCatWidget;
@@ -25,8 +23,6 @@ export '/login/change_email_page/change_email_page_widget.dart'
     show ChangeEmailPageWidget;
 export '/profile/terms_conditions_page/terms_conditions_page_widget.dart'
     show TermsConditionsPageWidget;
-export '/posts/create_post/post_general_detail/post_general_detail_widget.dart'
-    show PostGeneralDetailWidget;
 export '/admin/reported_user/reported_user_widget.dart' show ReportedUserWidget;
 export '/home/swipable/swipable_widget.dart' show SwipableWidget;
 export '/login/forgot_password_page/forgot_password_page_widget.dart'
@@ -76,7 +72,6 @@ export '/search_filter/search_page/search_page_widget.dart'
 export '/home/home_page/home_page_widget.dart' show HomePageWidget;
 export '/main_overview_pages/main_page/main_page_widget.dart'
     show MainPageWidget;
-export '/posts/post/post_widget.dart' show PostWidget;
 export '/profile/profile_page/profile_page_widget.dart' show ProfilePageWidget;
 export '/profile/profile_edit/profile_edit_widget.dart' show ProfileEditWidget;
 export '/posts/create_post/detail_transfer/detail_transfer_widget.dart'
@@ -86,3 +81,8 @@ export '/x_x_x_busines/x_x_x_busines_widget.dart' show XXXBusinesWidget;
 export '/news/news/news_widget.dart' show NewsWidget;
 export '/xxx/xxx_widget.dart' show XxxWidget;
 export '/posts/post_preview/post_preview_widget.dart' show PostPreviewWidget;
+export '/posts/post_en/post_en_widget.dart' show PostEnWidget;
+export '/posts/post_fa/post_fa_widget.dart' show PostFaWidget;
+export '/posts/post_n_l/post_n_l_widget.dart' show PostNLWidget;
+export '/posts/post_edit_copy/post_edit_copy_widget.dart'
+    show PostEditCopyWidget;

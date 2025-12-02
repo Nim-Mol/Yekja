@@ -60,7 +60,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xFF070707),
         body: SafeArea(
           top: true,
           child: Align(
@@ -72,7 +72,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                 maxWidth: 480.0,
               ),
               decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).secondaryBackground,
+                color: Color(0xFF060606),
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: Image.network(
@@ -136,6 +136,8 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                       .headlineLarge
                                       .override(
                                         fontFamily: 'FarsiFonts',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryWhite,
                                         fontSize: 30.0,
                                         letterSpacing: 0.0,
                                       ),
@@ -159,9 +161,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMediumFamily,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
+                                                color: Color(0xB0FFFFFF),
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts:
                                                     !FlutterFlowTheme.of(
@@ -182,7 +182,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                                         .labelMediumFamily,
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primary,
+                                                        .primaryWhite,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                                 fontStyle: FontStyle.italic,
@@ -231,8 +231,6 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                           Container(
                                             width: 200.0,
                                             child: TextFormField(
-                                              key:
-                                                  ValueKey('emailAddress_r11m'),
                                               controller: _model
                                                   .emailAddressTextController,
                                               focusNode:
@@ -355,7 +353,6 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                           Container(
                                             width: 200.0,
                                             child: TextFormField(
-                                              key: ValueKey('PassWord_fyan'),
                                               controller:
                                                   _model.passWordTextController,
                                               focusNode:
@@ -638,9 +635,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                                     'nxmvn4ld' /* Forgot password? */,
                                                   ),
                                                   style: TextStyle(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
+                                                    color: Color(0xB0FFFFFF),
                                                   ),
                                                 ),
                                                 TextSpan(
@@ -660,7 +655,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primary,
+                                                                .primaryWhite,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -784,9 +779,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                                 'qqhkk63r' /* No account yet? */,
                                               ),
                                               style: TextStyle(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
+                                                color: Color(0xB0FFFFFF),
                                               ),
                                             ),
                                             TextSpan(
@@ -804,7 +797,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                                             .bodyMediumFamily,
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primary,
+                                                        .primaryWhite,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                     useGoogleFonts:
@@ -921,9 +914,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                                 't4mxpixd' /* Continute as a */,
                                               ),
                                               style: TextStyle(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
+                                                color: Color(0xB0FFFFFF),
                                               ),
                                             ),
                                             TextSpan(
@@ -941,7 +932,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                                             .bodyMediumFamily,
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primary,
+                                                        .primaryWhite,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                     useGoogleFonts:

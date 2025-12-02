@@ -51,7 +51,7 @@ class _ValuePopupWidgetState extends State<ValuePopupWidget> {
         width: 300.0,
         height: 230.0,
         decoration: BoxDecoration(
-          color: Color(0xFF232426),
+          color: FlutterFlowTheme.of(context).secondaryBackground,
           borderRadius: BorderRadius.circular(24.0),
           border: Border.all(
             color: FlutterFlowTheme.of(context).secondaryBackground,

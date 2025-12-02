@@ -28,6 +28,16 @@ enum ContactSubject {
   General,
 }
 
+enum Languages {
+  Farsi,
+  English,
+  Turkish,
+  Arabic,
+  Dutch,
+  Kurdish,
+  Urdu,
+}
+
 extension FFEnumExtensions<T extends Enum> on T {
   String serialize() => name;
 }
@@ -47,6 +57,8 @@ T? deserializeEnum<T>(String? value) {
       return PriceOptions.values.deserialize(value) as T?;
     case (ContactSubject):
       return ContactSubject.values.deserialize(value) as T?;
+    case (Languages):
+      return Languages.values.deserialize(value) as T?;
     default:
       return null;
   }

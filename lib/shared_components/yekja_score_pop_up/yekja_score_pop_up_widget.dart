@@ -91,7 +91,7 @@ class _YekjaScorePopUpWidgetState extends State<YekjaScorePopUpWidget>
                   maxWidth: 480.0,
                 ),
                 decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).primaryBackground,
+                  color: FlutterFlowTheme.of(context).navBar,
                   borderRadius: BorderRadius.circular(24.0),
                   border: Border.all(
                     color: FlutterFlowTheme.of(context).bordergray,
@@ -122,7 +122,7 @@ class _YekjaScorePopUpWidgetState extends State<YekjaScorePopUpWidget>
                             },
                             child: Icon(
                               Icons.close_sharp,
-                              color: FlutterFlowTheme.of(context).bordergray,
+                              color: FlutterFlowTheme.of(context).primaryWhite,
                               size: 18.0,
                             ),
                           ),
@@ -149,7 +149,7 @@ class _YekjaScorePopUpWidgetState extends State<YekjaScorePopUpWidget>
                                       fontFamily: FlutterFlowTheme.of(context)
                                           .labelMediumFamily,
                                       color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
+                                          .primaryWhite,
                                       letterSpacing: 0.0,
                                       useGoogleFonts:
                                           !FlutterFlowTheme.of(context)
@@ -184,7 +184,7 @@ class _YekjaScorePopUpWidgetState extends State<YekjaScorePopUpWidget>
                                       fontFamily: FlutterFlowTheme.of(context)
                                           .labelMediumFamily,
                                       color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
+                                          .primaryWhite,
                                       letterSpacing: 0.0,
                                       useGoogleFonts:
                                           !FlutterFlowTheme.of(context)
@@ -201,7 +201,7 @@ class _YekjaScorePopUpWidgetState extends State<YekjaScorePopUpWidget>
                                       fontFamily: FlutterFlowTheme.of(context)
                                           .titleMediumFamily,
                                       color: FlutterFlowTheme.of(context)
-                                          .primaryText,
+                                          .primaryWhite,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                       useGoogleFonts:
@@ -219,7 +219,7 @@ class _YekjaScorePopUpWidgetState extends State<YekjaScorePopUpWidget>
                                       fontFamily: FlutterFlowTheme.of(context)
                                           .labelMediumFamily,
                                       color: FlutterFlowTheme.of(context)
-                                          .bordergray,
+                                          .primaryWhite,
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
                                       useGoogleFonts:
@@ -397,7 +397,7 @@ class _YekjaScorePopUpWidgetState extends State<YekjaScorePopUpWidget>
                                                       .bodyMediumFamily,
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                                      .primaryWhite,
                                               letterSpacing: 0.0,
                                               useGoogleFonts:
                                                   !FlutterFlowTheme.of(context)

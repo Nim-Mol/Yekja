@@ -332,7 +332,7 @@ class _ChatdetailWithYekjaWidgetState extends State<ChatdetailWithYekjaWidget> {
                                                                         'Satoshi',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primaryText,
+                                                                        .primaryWhite,
                                                                     fontSize:
                                                                         16.0,
                                                                     letterSpacing:

@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/posts/create_post/intend/intend_widget.dart';
-import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -138,7 +137,7 @@ class _PostIntendWidgetState extends State<PostIntendWidget> {
                                         TextSpan(
                                           text: FFLocalizations.of(context)
                                               .getText(
-                                            'nwjujkbj' /* 4 */,
+                                            'nwjujkbj' /* 3 */,
                                           ),
                                           style: TextStyle(),
                                         ),
@@ -193,8 +192,7 @@ class _PostIntendWidgetState extends State<PostIntendWidget> {
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   if (widget.navRoute == 'PostPreview') {
-                                    context
-                                        .pushNamed(PostPreviewWidget.routeName);
+                                    context.goNamed(PostEditWidget.routeName);
                                   } else {
                                     context.pushNamed(HomePageWidget.routeName);
                                   }
@@ -247,10 +245,7 @@ class _PostIntendWidgetState extends State<PostIntendWidget> {
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               if (FFAppState().postState.intend != '') {
-                                await actions.navigateToDetailForm(
-                                  context,
-                                  FFAppState().postDetailTable,
-                                );
+                                context.pushNamed(PostSubCatWidget.routeName);
                               }
                             },
                             child: Container(

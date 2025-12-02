@@ -56,7 +56,7 @@ class _SignInConfirmWidgetState extends State<SignInConfirmWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xFF080808),
         body: SafeArea(
           top: true,
           child: Align(
@@ -68,7 +68,7 @@ class _SignInConfirmWidgetState extends State<SignInConfirmWidget> {
                 maxWidth: 480.0,
               ),
               decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).secondaryBackground,
+                color: Color(0xFF0B0B0B),
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: Image.network(
@@ -129,6 +129,8 @@ class _SignInConfirmWidgetState extends State<SignInConfirmWidget> {
                                       .headlineLarge
                                       .override(
                                         fontFamily: 'FarsiFonts',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryWhite,
                                         fontSize: 30.0,
                                         letterSpacing: 0.0,
                                       ),
@@ -154,7 +156,7 @@ class _SignInConfirmWidgetState extends State<SignInConfirmWidget> {
                                                         .labelMediumFamily,
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryText,
+                                                        .primaryWhite,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts:
                                                     !FlutterFlowTheme.of(

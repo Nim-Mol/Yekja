@@ -151,11 +151,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           ),
         ),
         FFRoute(
-          name: PostWishListWidget.routeName,
-          path: PostWishListWidget.routePath,
-          builder: (context, params) => PostWishListWidget(),
-        ),
-        FFRoute(
           name: SignInConfirmWidget.routeName,
           path: SignInConfirmWidget.routePath,
           builder: (context, params) => SignInConfirmWidget(),
@@ -183,16 +178,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
         FFRoute(
           name: PostEditWidget.routeName,
           path: PostEditWidget.routePath,
-          builder: (context, params) => PostEditWidget(
-            postId: params.getParam(
-              'postId',
-              ParamType.String,
-            ),
-            detailTable: params.getParam(
-              'detailTable',
-              ParamType.String,
-            ),
-          ),
+          builder: (context, params) => PostEditWidget(),
         ),
         FFRoute(
           name: ChangeEmailPageWidget.routeName,
@@ -203,11 +189,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           name: TermsConditionsPageWidget.routeName,
           path: TermsConditionsPageWidget.routePath,
           builder: (context, params) => TermsConditionsPageWidget(),
-        ),
-        FFRoute(
-          name: PostGeneralDetailWidget.routeName,
-          path: PostGeneralDetailWidget.routePath,
-          builder: (context, params) => PostGeneralDetailWidget(),
         ),
         FFRoute(
           name: ReportedUserWidget.routeName,
@@ -486,24 +467,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           ),
         ),
         FFRoute(
-          name: PostWidget.routeName,
-          path: PostWidget.routePath,
-          builder: (context, params) => PostWidget(
-            postID: params.getParam(
-              'postID',
-              ParamType.String,
-            ),
-            mainCatID: params.getParam(
-              'mainCatID',
-              ParamType.int,
-            ),
-            detailDataName: params.getParam(
-              'detailDataName',
-              ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
           name: ProfilePageWidget.routeName,
           path: ProfilePageWidget.routePath,
           requireAuth: true,
@@ -558,6 +521,74 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           name: PostPreviewWidget.routeName,
           path: PostPreviewWidget.routePath,
           builder: (context, params) => PostPreviewWidget(),
+        ),
+        FFRoute(
+          name: PostEnWidget.routeName,
+          path: PostEnWidget.routePath,
+          builder: (context, params) => PostEnWidget(
+            postID: params.getParam(
+              'postID',
+              ParamType.String,
+            ),
+            mainCatID: params.getParam(
+              'mainCatID',
+              ParamType.int,
+            ),
+            detailDataName: params.getParam(
+              'detailDataName',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: PostFaWidget.routeName,
+          path: PostFaWidget.routePath,
+          builder: (context, params) => PostFaWidget(
+            postID: params.getParam(
+              'postID',
+              ParamType.String,
+            ),
+            mainCatID: params.getParam(
+              'mainCatID',
+              ParamType.int,
+            ),
+            detailDataName: params.getParam(
+              'detailDataName',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: PostNLWidget.routeName,
+          path: PostNLWidget.routePath,
+          builder: (context, params) => PostNLWidget(
+            postID: params.getParam(
+              'postID',
+              ParamType.String,
+            ),
+            mainCatID: params.getParam(
+              'mainCatID',
+              ParamType.int,
+            ),
+            detailDataName: params.getParam(
+              'detailDataName',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: PostEditCopyWidget.routeName,
+          path: PostEditCopyWidget.routePath,
+          builder: (context, params) => PostEditCopyWidget(
+            postId: params.getParam(
+              'postId',
+              ParamType.String,
+            ),
+            detailTable: params.getParam(
+              'detailTable',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

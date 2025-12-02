@@ -11,12 +11,6 @@ class DetailCurrencyExchangeModel
   // State field(s) for dropdownCity widget.
   String? dropdownCityValue;
   FormFieldController<String>? dropdownCityValueController;
-  // State field(s) for CurrencyChoice widget.
-  FormFieldController<List<String>>? currencyChoiceValueController;
-  String? get currencyChoiceValue =>
-      currencyChoiceValueController?.value?.firstOrNull;
-  set currencyChoiceValue(String? val) =>
-      currencyChoiceValueController?.value = val != null ? [val] : [];
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
@@ -29,12 +23,6 @@ class DetailCurrencyExchangeModel
   String? Function(BuildContext, String?)? textController2Validator;
   // State field(s) for NegotiableSwitch widget.
   bool? negotiableSwitchValue;
-  // State field(s) for MethodChoice widget.
-  FormFieldController<List<String>>? methodChoiceValueController;
-  String? get methodChoiceValue =>
-      methodChoiceValueController?.value?.firstOrNull;
-  set methodChoiceValue(String? val) =>
-      methodChoiceValueController?.value = val != null ? [val] : [];
   // State field(s) for PriceBoolSwitch widget.
   bool? priceBoolSwitchValue2;
 

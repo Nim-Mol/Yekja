@@ -129,17 +129,23 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                   : null;
 
           return Container(
+            width: 193.5,
+            height: 243.5,
             constraints: BoxConstraints(
               minHeight: 190.0,
               maxWidth: 300.0,
             ),
             decoration: BoxDecoration(
-              color: Color(0x42587858),
+              color: FlutterFlowTheme.of(context).navBar,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(10.0),
                 bottomRight: Radius.circular(10.0),
                 topLeft: Radius.circular(10.0),
                 topRight: Radius.circular(10.0),
+              ),
+              border: Border.all(
+                color: FlutterFlowTheme.of(context).tertiary,
+                width: 0.3,
               ),
             ),
             child: Padding(
@@ -156,8 +162,8 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                       Padding(
                         padding: EdgeInsets.all(1.0),
                         child: Container(
-                          width: 55.0,
-                          height: 55.0,
+                          width: 50.0,
+                          height: 50.0,
                           clipBehavior: Clip.antiAlias,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -189,7 +195,7 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .bodyMediumFamily,
-                                    color: FlutterFlowTheme.of(context).warning,
+                                    color: FlutterFlowTheme.of(context).yellow1,
                                     fontSize: 12.0,
                                     letterSpacing: 0.0,
                                     useGoogleFonts:
@@ -219,6 +225,8 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                                             .bodyMedium
                                             .fontStyle,
                                       ),
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryWhite,
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
@@ -234,8 +242,9 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                           Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Row(
+                              Column(
                                 mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Align(
                                     alignment: AlignmentDirectional(0.0, 1.0),
@@ -248,51 +257,70 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                                           color: Color(0xFFFFA130),
                                         ),
                                         direction: Axis.horizontal,
-                                        rating: containerViewShoutoutRow!
-                                            .reviewScore!,
+                                        rating: valueOrDefault<double>(
+                                          containerViewShoutoutRow?.reviewScore,
+                                          0.0,
+                                        ),
                                         unratedColor: Color(0xFF95A1AC),
                                         itemCount: 5,
                                         itemSize: 10.0,
                                       ),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 2.0, 0.0),
-                                    child: Text(
-                                      valueOrDefault<String>(
-                                        containerViewShoutoutRow.reviewScore
-                                            ?.toString(),
-                                        '1',
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
-                                            fontSize: 10.0,
-                                            letterSpacing: 0.0,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .bodyMediumIsCustom,
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 2.0, 0.0),
+                                        child: Text(
+                                          valueOrDefault<String>(
+                                            containerViewShoutoutRow
+                                                ?.reviewScore
+                                                ?.toString(),
+                                            '0',
                                           ),
-                                    ),
-                                  ),
-                                  Text(
-                                    '(${containerViewShoutoutRow.ratings?.toString()} reviews)',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily,
-                                          fontSize: 10.0,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts:
-                                              !FlutterFlowTheme.of(context)
-                                                  .bodyMediumIsCustom,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryWhite,
+                                                fontSize: 10.0,
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    !FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMediumIsCustom,
+                                              ),
                                         ),
+                                      ),
+                                      Text(
+                                        '(${valueOrDefault<String>(
+                                          containerViewShoutoutRow?.ratings
+                                              ?.toString(),
+                                          '0',
+                                        )} reviews)',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryWhite,
+                                              fontSize: 10.0,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .bodyMediumIsCustom,
+                                            ),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),
@@ -318,7 +346,7 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                                     0.0, 5.0, 2.0, 0.0),
                                 child: Text(
                                   valueOrDefault<String>(
-                                    containerViewShoutoutRow.header,
+                                    containerViewShoutoutRow?.header,
                                     'Thanks!',
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -326,6 +354,8 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .displaySmallFamily,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryWhite,
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
                                         useGoogleFonts:
@@ -350,7 +380,7 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                                 alignment: AlignmentDirectional(-1.0, 0.0),
                                 child: Text(
                                   valueOrDefault<String>(
-                                    containerViewShoutoutRow.description,
+                                    containerViewShoutoutRow?.description,
                                     'description',
                                   ).maybeHandleOverflow(
                                     maxChars: 150,
@@ -362,6 +392,8 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .bodyMediumFamily,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryWhite,
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
                                         useGoogleFonts:
@@ -418,18 +450,18 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                               onIcon: Icon(
                                 Icons.favorite,
                                 color: Color(0xFFBA0A0A),
-                                size: 18.0,
+                                size: 16.0,
                               ),
                               offIcon: Icon(
                                 Icons.favorite_border,
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
-                                size: 18.0,
+                                size: 16.0,
                               ),
                             ),
                             Text(
                               valueOrDefault<String>(
-                                containerViewShoutoutRow.likes.toString(),
+                                containerViewShoutoutRow?.likes.toString(),
                                 '0',
                               ),
                               style: FlutterFlowTheme.of(context)
@@ -437,6 +469,8 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .bodyMediumFamily,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryWhite,
                                     fontSize: 12.0,
                                     letterSpacing: 0.0,
                                     useGoogleFonts:

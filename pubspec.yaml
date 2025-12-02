@@ -194,11 +194,23 @@ flutter:
           weight: 700
     - family: 'FarsiFonts'
       fonts:
-        - asset: assets/fonts/IRANSans_UltraLight.ttf
+        - asset: assets/fonts/IRANSansX-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/IRANSansX-Light.ttf
+          weight: 200
+        - asset: assets/fonts/IRANSansX-UltraLight.ttf
           weight: 300
-        - asset: assets/fonts/IRANSans_Regular.ttf
-        - asset: assets/fonts/IRANSans_Medium.ttf
+        - asset: assets/fonts/IRANSansX-Regular.ttf
+        - asset: assets/fonts/IRANSansX-Medium.ttf
           weight: 500
+        - asset: assets/fonts/IRANSansX-DemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/IRANSansX-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/IRANSansX-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/IRANSansX-Black.ttf
+          weight: 900
     - family: 'IranNastaliq'
       fonts:
         - asset: assets/fonts/IranNastaliq_Regular.ttf

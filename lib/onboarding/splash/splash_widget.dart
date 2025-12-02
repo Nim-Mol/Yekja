@@ -41,9 +41,15 @@ class _SplashWidgetState extends State<SplashWidget>
           milliseconds: 3000,
         ),
       );
+      FFAppState().citiesApp = [];
+      safeSetState(() {});
+      FFAppState().SubcatApp = [];
+      safeSetState(() {});
       _model.citiesOutput = await CitiesTable().queryRows(
         queryFn: (q) => q,
       );
+      _model.loading = true;
+      safeSetState(() {});
       for (int loop1Index = 0;
           loop1Index < _model.citiesOutput!.length;
           loop1Index++) {
@@ -85,6 +91,8 @@ class _SplashWidgetState extends State<SplashWidget>
         ));
         safeSetState(() {});
       }
+      _model.loading = false;
+      safeSetState(() {});
 
       context.goNamed(OnboardingPageWidget.routeName);
     });
@@ -161,16 +169,16 @@ class _SplashWidgetState extends State<SplashWidget>
               Align(
                 alignment: AlignmentDirectional(0.0, 1.0),
                 child: Container(
-                  width: 179.6,
-                  height: 67.51,
+                  width: 311.2,
+                  height: 228.84,
                   decoration: BoxDecoration(),
                   alignment: AlignmentDirectional(0.0, 1.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
-                      'assets/images/000.gif',
-                      width: 111.3,
-                      height: 314.8,
+                      'assets/images/old_man_V5-ezgif.com-gif-maker.gif',
+                      width: 267.26,
+                      height: 285.0,
                       fit: BoxFit.contain,
                       alignment: Alignment(0.0, 1.0),
                     ),

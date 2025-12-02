@@ -213,7 +213,7 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               if (widget.navRoute == 'PostPreview') {
-                                context.pushNamed(PostPreviewWidget.routeName);
+                                context.goNamed(PostEditWidget.routeName);
                               } else {
                                 context.pushNamed(HomePageWidget.routeName);
                               }
@@ -441,8 +441,9 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                                                 '')
                                                           Icon(
                                                             Icons.check_sharp,
-                                                            color: Color(
-                                                                0xFF0BD9A1),
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .green1,
                                                             size: 16.0,
                                                           ),
                                                       ],
@@ -609,8 +610,9 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                                                 '')
                                                           Icon(
                                                             Icons.check_sharp,
-                                                            color: Color(
-                                                                0xFF0BD9A1),
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .green1,
                                                             size: 16.0,
                                                           ),
                                                       ],
@@ -711,7 +713,8 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                               '')
                                         Icon(
                                           Icons.check_sharp,
-                                          color: Color(0xFF0BD9A1),
+                                          color: FlutterFlowTheme.of(context)
+                                              .green1,
                                           size: 16.0,
                                         ),
                                     ],
@@ -851,7 +854,7 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                                                   0.0,
                                                               fontWeight:
                                                                   FontWeight
-                                                                      .w500,
+                                                                      .normal,
                                                               useGoogleFonts:
                                                                   !FlutterFlowTheme.of(
                                                                           context)
@@ -1418,7 +1421,8 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                       ),
                                       Icon(
                                         Icons.check_sharp,
-                                        color: Color(0xFF0BD9A1),
+                                        color: FlutterFlowTheme.of(context)
+                                            .green1,
                                         size: 16.0,
                                       ),
                                     ],
@@ -1630,7 +1634,8 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                               'By Agreement'))
                                         Icon(
                                           Icons.check_sharp,
-                                          color: Color(0xFF0BD9A1),
+                                          color: FlutterFlowTheme.of(context)
+                                              .green1,
                                           size: 16.0,
                                         ),
                                     ],
@@ -1972,7 +1977,8 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                             '')
                                       Icon(
                                         Icons.check_sharp,
-                                        color: Color(0xFF0BD9A1),
+                                        color:
+                                            FlutterFlowTheme.of(context).green1,
                                         size: 16.0,
                                       ),
                                   ],

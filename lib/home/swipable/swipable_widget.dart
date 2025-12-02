@@ -60,7 +60,9 @@ class _SwipableWidgetState extends State<SwipableWidget> {
               constraints: BoxConstraints(
                 maxWidth: 480.0,
               ),
-              decoration: BoxDecoration(),
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).newsCard,
+              ),
               child: Stack(
                 children: [
                   Column(
@@ -319,13 +321,6 @@ Offers & Reque... */
                                                                               color: FlutterFlowTheme.of(context).primaryText,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w500,
-                                                                              shadows: [
-                                                                                Shadow(
-                                                                                  color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                  offset: Offset(2.0, 2.0),
-                                                                                  blurRadius: 2.0,
-                                                                                )
-                                                                              ],
                                                                               useGoogleFonts: !FlutterFlowTheme.of(context).bodyMediumIsCustom,
                                                                             ),
                                                                       ),
@@ -434,13 +429,6 @@ Offers & Reque... */
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.w600,
-                                                                          shadows: [
-                                                                            Shadow(
-                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                              offset: Offset(2.0, 2.0),
-                                                                              blurRadius: 1.0,
-                                                                            )
-                                                                          ],
                                                                           useGoogleFonts:
                                                                               !FlutterFlowTheme.of(context).bodyMediumIsCustom,
                                                                         ),
@@ -678,26 +666,83 @@ Offers & Reque... */
                                                           highlightColor: Colors
                                                               .transparent,
                                                           onTap: () async {
-                                                            context.pushNamed(
-                                                              PostWidget
-                                                                  .routeName,
-                                                              queryParameters: {
-                                                                'postID':
-                                                                    serializeParam(
-                                                                  swipeableStackViewSwipablePostsRow
-                                                                      .sourceId,
-                                                                  ParamType
-                                                                      .String,
-                                                                ),
-                                                                'detailDataName':
-                                                                    serializeParam(
-                                                                  swipeableStackViewSwipablePostsRow
-                                                                      .detailTable,
-                                                                  ParamType
-                                                                      .String,
-                                                                ),
-                                                              }.withoutNulls,
-                                                            );
+                                                            if (FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode ==
+                                                                'fa') {
+                                                              context.pushNamed(
+                                                                PostFaWidget
+                                                                    .routeName,
+                                                                queryParameters:
+                                                                    {
+                                                                  'postID':
+                                                                      serializeParam(
+                                                                    swipeableStackViewSwipablePostsRow
+                                                                        .sourceId,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'detailDataName':
+                                                                      serializeParam(
+                                                                    swipeableStackViewSwipablePostsRow
+                                                                        .detailTable,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                              );
+                                                            } else {
+                                                              if (FFLocalizations.of(
+                                                                          context)
+                                                                      .languageCode ==
+                                                                  'nl') {
+                                                                context
+                                                                    .pushNamed(
+                                                                  PostNLWidget
+                                                                      .routeName,
+                                                                  queryParameters:
+                                                                      {
+                                                                    'postID':
+                                                                        serializeParam(
+                                                                      swipeableStackViewSwipablePostsRow
+                                                                          .sourceId,
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                    'detailDataName':
+                                                                        serializeParam(
+                                                                      swipeableStackViewSwipablePostsRow
+                                                                          .detailTable,
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                  }.withoutNulls,
+                                                                );
+                                                              } else {
+                                                                context
+                                                                    .pushNamed(
+                                                                  PostEnWidget
+                                                                      .routeName,
+                                                                  queryParameters:
+                                                                      {
+                                                                    'postID':
+                                                                        serializeParam(
+                                                                      swipeableStackViewSwipablePostsRow
+                                                                          .sourceId,
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                    'detailDataName':
+                                                                        serializeParam(
+                                                                      swipeableStackViewSwipablePostsRow
+                                                                          .detailTable,
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                  }.withoutNulls,
+                                                                );
+                                                              }
+                                                            }
                                                           },
                                                           child: Row(
                                                             mainAxisSize:

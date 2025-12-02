@@ -427,7 +427,7 @@ class _ComunicationBarWidgetState extends State<ComunicationBarWidget>
                         ),
                         icon: Icon(
                           Icons.share,
-                          size: 20.0,
+                          size: 22.0,
                         ),
                         options: FFButtonOptions(
                           width: 50.0,
@@ -435,7 +435,7 @@ class _ComunicationBarWidgetState extends State<ComunicationBarWidget>
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              4.0, 0.0, 0.0, 1.0),
+                              4.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).greenInit,
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(

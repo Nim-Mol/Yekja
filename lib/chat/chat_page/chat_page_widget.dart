@@ -895,8 +895,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                   0
                                                               ? Color(
                                                                   0xFF17C995)
-                                                              : Color(
-                                                                  0xFFBFBBBB),
+                                                              : FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryWhite,
                                                           fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:

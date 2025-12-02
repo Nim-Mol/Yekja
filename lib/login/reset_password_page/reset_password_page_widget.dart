@@ -55,7 +55,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xFF060606),
         body: SafeArea(
           top: true,
           child: Align(
@@ -155,6 +155,9 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                               .headlineMedium
                                               .override(
                                                 fontFamily: 'FarsiFonts',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryWhite,
                                                 fontSize: 30.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
@@ -189,7 +192,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                                   fontFamily: 'FarsiFonts',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .secondaryText,
+                                                      .primaryWhite,
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
@@ -220,6 +223,8 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Satoshi',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryWhite,
                                             fontSize: 13.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -249,7 +254,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
+                                              .primaryWhite,
                                           width: 1.0,
                                         ),
                                         borderRadius:
@@ -296,8 +301,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                           _model.passwordVisibility
                                               ? Icons.visibility_outlined
                                               : Icons.visibility_off_outlined,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
+                                          color: Color(0xA6FFFFFF),
                                           size: 22,
                                         ),
                                       ),
@@ -337,6 +341,8 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                         .labelMedium
                                         .override(
                                           fontFamily: 'Satoshi',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryWhite,
                                           fontSize: 13.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -366,7 +372,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
+                                            .primaryWhite,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
@@ -408,8 +414,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                         _model.confirmPasswordVisibility
                                             ? Icons.visibility_outlined
                                             : Icons.visibility_off_outlined,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
+                                        color: Color(0x9CFFFFFF),
                                         size: 22,
                                       ),
                                     ),

@@ -2,6 +2,7 @@ import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/posts/create_post/cat/cat_widget.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -194,9 +195,9 @@ class _PostCatWidgetState extends State<PostCatWidget> {
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               if (widget.navRoute == 'PostPreview') {
-                                context.pushNamed(PostPreviewWidget.routeName);
+                                context.goNamed(PostEditWidget.routeName);
                               } else {
-                                context.pushNamed(HomePageWidget.routeName);
+                                context.goNamed(HomePageWidget.routeName);
                               }
                             },
                             child: Icon(
@@ -250,18 +251,26 @@ class _PostCatWidgetState extends State<PostCatWidget> {
                               if (FFAppState().postState.catName != '') {
                                 FFAppState().postDetailJSON = null;
                                 safeSetState(() {});
-
-                                context.pushNamed(
-                                  PostSubCatWidget.routeName,
-                                  extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType:
-                                          PageTransitionType.rightToLeft,
-                                      duration: Duration(milliseconds: 600),
-                                    ),
-                                  },
-                                );
+                                // If post has wishlist (no intend) go to detail page and from there go to wishlist and then images, otherwise go to PostIntend
+                                if (functions.isInSetInt(
+                                        FFAppState().postState.catId,
+                                        FFAppConstants.catsOpenForSwap
+                                            .toList()) ==
+                                    true) {
+                                  context.pushNamed(PostSubCatWidget.routeName);
+                                } else {
+                                  context.pushNamed(
+                                    PostIntendWidget.routeName,
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType:
+                                            PageTransitionType.rightToLeft,
+                                        duration: Duration(milliseconds: 600),
+                                      ),
+                                    },
+                                  );
+                                }
                               }
                             },
                             child: Container(

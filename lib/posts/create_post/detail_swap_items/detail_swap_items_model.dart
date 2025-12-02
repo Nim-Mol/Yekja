@@ -10,12 +10,6 @@ class DetailSwapItemsModel extends FlutterFlowModel<DetailSwapItemsWidget> {
   // State field(s) for dropdownCity widget.
   String? dropdownCityValue1;
   FormFieldController<String>? dropdownCityValueController1;
-  // State field(s) for DeliveryChoice widget.
-  FormFieldController<List<String>>? deliveryChoiceValueController;
-  String? get deliveryChoiceValue =>
-      deliveryChoiceValueController?.value?.firstOrNull;
-  set deliveryChoiceValue(String? val) =>
-      deliveryChoiceValueController?.value = val != null ? [val] : [];
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;

@@ -601,7 +601,7 @@ class PostModelStruct extends BaseStruct {
 
   // "allow_cash_adjustment" field.
   bool? _allowCashAdjustment;
-  bool get allowCashAdjustment => _allowCashAdjustment ?? true;
+  bool get allowCashAdjustment => _allowCashAdjustment ?? false;
   set allowCashAdjustment(bool? val) => _allowCashAdjustment = val;
 
   bool hasAllowCashAdjustment() => _allowCashAdjustment != null;

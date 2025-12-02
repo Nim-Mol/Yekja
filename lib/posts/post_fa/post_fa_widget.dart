@@ -22,11 +22,11 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'post_model.dart';
-export 'post_model.dart';
+import 'post_fa_model.dart';
+export 'post_fa_model.dart';
 
-class PostWidget extends StatefulWidget {
-  const PostWidget({
+class PostFaWidget extends StatefulWidget {
+  const PostFaWidget({
     super.key,
     required this.postID,
     this.mainCatID,
@@ -37,15 +37,16 @@ class PostWidget extends StatefulWidget {
   final int? mainCatID;
   final String? detailDataName;
 
-  static String routeName = 'Post';
-  static String routePath = '/ProductDetail';
+  static String routeName = 'PostFa';
+  static String routePath = '/PostFa';
 
   @override
-  State<PostWidget> createState() => _PostWidgetState();
+  State<PostFaWidget> createState() => _PostFaWidgetState();
 }
 
-class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
-  late PostModel _model;
+class _PostFaWidgetState extends State<PostFaWidget>
+    with TickerProviderStateMixin {
+  late PostFaModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -54,7 +55,7 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => PostModel());
+    _model = createModel(context, () => PostFaModel());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -157,10 +158,10 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return FutureBuilder<List<ViewPostSearchEnRow>>(
+    return FutureBuilder<List<ViewPostSearchFaRow>>(
       future:
-          (_model.requestCompleter2 ??= Completer<List<ViewPostSearchEnRow>>()
-                ..complete(ViewPostSearchEnTable().querySingleRow(
+          (_model.requestCompleter2 ??= Completer<List<ViewPostSearchFaRow>>()
+                ..complete(ViewPostSearchFaTable().querySingleRow(
                   queryFn: (q) => q
                       .eqOrNull(
                         'post_id',
@@ -189,11 +190,13 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
             ),
           );
         }
-        List<ViewPostSearchEnRow> postViewPostSearchEnRowList = snapshot.data!;
+        List<ViewPostSearchFaRow> postFaViewPostSearchFaRowList =
+            snapshot.data!;
 
-        final postViewPostSearchEnRow = postViewPostSearchEnRowList.isNotEmpty
-            ? postViewPostSearchEnRowList.first
-            : null;
+        final postFaViewPostSearchFaRow =
+            postFaViewPostSearchFaRowList.isNotEmpty
+                ? postFaViewPostSearchFaRowList.first
+                : null;
 
         return Scaffold(
           key: scaffoldKey,
@@ -230,14 +233,16 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                         updateCallback: () =>
                                             safeSetState(() {}),
                                         child: PhotoGallaryWidget(
-                                          photoList: !(postViewPostSearchEnRow!
-                                                  .images.isNotEmpty)
-                                              ? [
-                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg'
-                                                ]
-                                              : postViewPostSearchEnRow.images
-                                                  .map((e) => e)
-                                                  .toList(),
+                                          photoList:
+                                              !(postFaViewPostSearchFaRow!
+                                                      .images.isNotEmpty)
+                                                  ? [
+                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg'
+                                                    ]
+                                                  : postFaViewPostSearchFaRow
+                                                      .images
+                                                      .map((e) => e)
+                                                      .toList(),
                                         ),
                                       ),
                                     ),
@@ -282,7 +287,7 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                       mainAxisAlignment:
                                                           MainAxisAlignment.end,
                                                       children: [
-                                                        if ((postViewPostSearchEnRow
+                                                        if ((postFaViewPostSearchFaRow
                                                                     .ownerId !=
                                                                 currentUserUid) &&
                                                             !FFAppState()
@@ -357,7 +362,7 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                             ),
                                                           ),
                                                         if ((currentUserUid !=
-                                                                postViewPostSearchEnRow
+                                                                postFaViewPostSearchFaRow
                                                                     .ownerId) &&
                                                             !FFAppState()
                                                                 .IsGust)
@@ -508,7 +513,7 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                                 MainAxisSize
                                                                     .max,
                                                             children: [
-                                                              if ((postViewPostSearchEnRow
+                                                              if ((postFaViewPostSearchFaRow
                                                                           .ownerId ==
                                                                       currentUserUid) &&
                                                                   !FFAppState()
@@ -556,24 +561,239 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                                         ),
                                                                         onPressed:
                                                                             () async {
+                                                                          await Future
+                                                                              .wait([
+                                                                            Future(() async {
+                                                                              FFAppState().postDetailJSON = functions.decodeDetails(postFaViewPostSearchFaRow.detailsText!);
+                                                                              safeSetState(() {});
+                                                                            }),
+                                                                            Future(() async {
+                                                                              FFAppState().postState = PostModelStruct(
+                                                                                id: postFaViewPostSearchFaRow.postId,
+                                                                                ownerId: postFaViewPostSearchFaRow.ownerId,
+                                                                                title: postFaViewPostSearchFaRow.title,
+                                                                                description: postFaViewPostSearchFaRow.description,
+                                                                                city: postFaViewPostSearchFaRow.city,
+                                                                                subCatId: postFaViewPostSearchFaRow.subCatId,
+                                                                                postLikes: postFaViewPostSearchFaRow.postLikes,
+                                                                                images: postFaViewPostSearchFaRow.images,
+                                                                                catName: postFaViewPostSearchFaRow.catLabel,
+                                                                                subCatName: postFaViewPostSearchFaRow.subCatLabel,
+                                                                                createdAt: postFaViewPostSearchFaRow.createdAt,
+                                                                                review: postFaViewPostSearchFaRow.review,
+                                                                                ratings: postFaViewPostSearchFaRow.ratings,
+                                                                                intend: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.intend''',
+                                                                                ).toString(),
+                                                                                price: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.price''',
+                                                                                ),
+                                                                                isNegotiable: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.is_negotiable''',
+                                                                                ),
+                                                                                condition: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.condition''',
+                                                                                ).toString(),
+                                                                                deliveryMethod: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.delivery_method''',
+                                                                                ).toString(),
+                                                                                openForSwap: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.open_for_swap''',
+                                                                                ),
+                                                                                wishlistText: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.wishlist_text''',
+                                                                                ).toString(),
+                                                                                ticketsQty: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.tickets_qty''',
+                                                                                ),
+                                                                                currency: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.currency''',
+                                                                                ).toString(),
+                                                                                method: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.method''',
+                                                                                ).toString(),
+                                                                                weightKg: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.weight_kg''',
+                                                                                ).toString(),
+                                                                                dimensionsText: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.dimensions_text''',
+                                                                                ).toString(),
+                                                                                rentalType: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.rental_type''',
+                                                                                ).toString(),
+                                                                                priceText: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.price_text''',
+                                                                                ).toString(),
+                                                                                pricePeriod: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.price_period''',
+                                                                                ).toString(),
+                                                                                compensationType: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.compensation_type''',
+                                                                                ).toString(),
+                                                                                serviceMode: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.service_mode''',
+                                                                                ).toString(),
+                                                                                experienceYears: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.experience_years''',
+                                                                                ).toString(),
+                                                                                eventDatetime: functions.jsonToDateTimeUtc(getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details!,
+                                                                                  r'''$.event_datetime''',
+                                                                                )),
+                                                                                travelDate: functions.jsonToDateTimeUtc(getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details!,
+                                                                                  r'''$.travel_date''',
+                                                                                )),
+                                                                                deadline: functions.jsonToDateTimeUtc(getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details!,
+                                                                                  r'''$.deadline''',
+                                                                                )),
+                                                                                availableFrom: functions.jsonToDateTimeUtc(getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details!,
+                                                                                  r'''$.available_from''',
+                                                                                )),
+                                                                                availableUntil: functions.jsonToDateTimeUtc(getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details!,
+                                                                                  r'''$.available_until''',
+                                                                                )),
+                                                                                eventStartsAt: functions.jsonToDateTimeUtc(getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details!,
+                                                                                  r'''$.event_starts_at''',
+                                                                                )),
+                                                                                eventEndsAt: functions.jsonToDateTimeUtc(getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details!,
+                                                                                  r'''$.event_ends_at''',
+                                                                                )),
+                                                                                venueName: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.venue_name''',
+                                                                                ).toString(),
+                                                                                amount: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.amount''',
+                                                                                ),
+                                                                                allowPartial: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.allow_partial''',
+                                                                                ),
+                                                                                originCountry: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.origin_country''',
+                                                                                ).toString(),
+                                                                                originCity: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.origin_city''',
+                                                                                ).toString(),
+                                                                                destinationCountry: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.destination_country''',
+                                                                                ).toString(),
+                                                                                destinationCity: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.destination_city''',
+                                                                                ).toString(),
+                                                                                isDocument: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.is_document''',
+                                                                                ),
+                                                                                isFragile: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.is_fragile''',
+                                                                                ),
+                                                                                deposit: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.deposit''',
+                                                                                ),
+                                                                                furnished: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.furnished''',
+                                                                                ),
+                                                                                utilitiesIncluded: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.utilities_included''',
+                                                                                ),
+                                                                                registrationPossible: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.registration_possible''',
+                                                                                ),
+                                                                                durationMin: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.duration_min''',
+                                                                                ),
+                                                                                venueAddress: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.venue_address''',
+                                                                                ).toString(),
+                                                                                onlineUrl: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.online_url''',
+                                                                                ).toString(),
+                                                                                capacity: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.capacity''',
+                                                                                ),
+                                                                                totalArea: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.total_area''',
+                                                                                ),
+                                                                                repeatsText: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.repeats''',
+                                                                                ).toString(),
+                                                                                allowCashAdjustment: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.allow_cash_adjustment''',
+                                                                                ),
+                                                                                nGoing: getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.n_going''',
+                                                                                ),
+                                                                                languages: (getJsonField(
+                                                                                  postFaViewPostSearchFaRow.details,
+                                                                                  r'''$.languages''',
+                                                                                  true,
+                                                                                ) as List?)
+                                                                                    ?.map<String>((e) => e.toString())
+                                                                                    .toList()
+                                                                                    .cast<String>(),
+                                                                                catId: postFaViewPostSearchFaRow.catId,
+                                                                              );
+                                                                              safeSetState(() {});
+                                                                            }),
+                                                                            Future(() async {
+                                                                              FFAppState().postDetailLabel = functions.decodeDetails(postFaViewPostSearchFaRow.detailsLabelText!);
+                                                                              FFAppState().postDetailTable = postFaViewPostSearchFaRow.detailTable!;
+                                                                              safeSetState(() {});
+                                                                            }),
+                                                                          ]);
+
                                                                           context
-                                                                              .pushNamed(
-                                                                            PostEditWidget.routeName,
-                                                                            queryParameters:
-                                                                                {
-                                                                              'postId': serializeParam(
-                                                                                widget.postID,
-                                                                                ParamType.String,
-                                                                              ),
-                                                                            }.withoutNulls,
-                                                                          );
+                                                                              .pushNamed(PostEditWidget.routeName);
                                                                         },
                                                                       ),
                                                                     ),
                                                                   ),
                                                                 ),
                                                               if ((currentUserUid !=
-                                                                      postViewPostSearchEnRow
+                                                                      postFaViewPostSearchFaRow
                                                                           .ownerId) &&
                                                                   !FFAppState()
                                                                       .IsGust)
@@ -650,10 +870,10 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                                                                   child: ReportingPopupWidget(
                                                                                                     reportingData: ReportingDataStruct(
                                                                                                       postId: widget.postID,
-                                                                                                      postTitle: postViewPostSearchEnRow.title,
+                                                                                                      postTitle: postFaViewPostSearchFaRow.title,
                                                                                                       isProfile: false,
-                                                                                                      profileOwnerName: postViewPostSearchEnRow.userName,
-                                                                                                      profileId: postViewPostSearchEnRow.ownerId,
+                                                                                                      profileOwnerName: postFaViewPostSearchFaRow.userName,
+                                                                                                      profileId: postFaViewPostSearchFaRow.ownerId,
                                                                                                     ),
                                                                                                   ),
                                                                                                 );
@@ -724,65 +944,34 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                 CrossAxisAlignment.end,
                                             children: [
                                               Flexible(
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    await showDialog(
-                                                      context: context,
-                                                      builder:
-                                                          (alertDialogContext) {
-                                                        return AlertDialog(
-                                                          title: Text(
-                                                              FFAppState()
-                                                                  .isGoingEvent
-                                                                  .toString()),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        );
-                                                      },
-                                                    );
-                                                  },
-                                                  child: Text(
-                                                    valueOrDefault<String>(
-                                                      postViewPostSearchEnRow
-                                                          .title,
-                                                      'This is a title which is quite long and all',
-                                                    ),
-                                                    textAlign: TextAlign.start,
-                                                    maxLines: 2,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleLarge
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleLargeFamily,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryWhite,
-                                                          fontSize: 28.0,
-                                                          letterSpacing: 0.0,
-                                                          lineHeight: 1.1,
-                                                          useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .titleLargeIsCustom,
-                                                        ),
+                                                child: Text(
+                                                  valueOrDefault<String>(
+                                                    postFaViewPostSearchFaRow
+                                                        .title,
+                                                    'This is a title which is quite long and all',
                                                   ),
+                                                  textAlign: TextAlign.start,
+                                                  maxLines: 2,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .titleLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleLargeFamily,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryWhite,
+                                                        fontSize: 28.0,
+                                                        letterSpacing: 0.0,
+                                                        lineHeight: 1.1,
+                                                        useGoogleFonts:
+                                                            !FlutterFlowTheme
+                                                                    .of(context)
+                                                                .titleLargeIsCustom,
+                                                      ),
                                                 ),
                                               ),
                                             ],
@@ -809,7 +998,7 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                               ImageGalleryPageWidget.routeName,
                                               queryParameters: {
                                                 'previewImages': serializeParam(
-                                                  postViewPostSearchEnRow
+                                                  postFaViewPostSearchFaRow
                                                       .images
                                                       .map((e) => e)
                                                       .toList(),
@@ -840,36 +1029,37 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                       updateCallback: () => safeSetState(() {}),
                                       child: PostDetailColumnWidget(
                                         profileId:
-                                            postViewPostSearchEnRow.ownerId,
-                                        postId: postViewPostSearchEnRow.postId,
+                                            postFaViewPostSearchFaRow.ownerId,
+                                        postId:
+                                            postFaViewPostSearchFaRow.postId,
                                         detailTable: widget.detailDataName!,
                                         username: '',
                                         itemData: ItemCardGlobalStruct(
-                                          description: postViewPostSearchEnRow
+                                          description: postFaViewPostSearchFaRow
                                               .description,
                                           itemLocation:
-                                              postViewPostSearchEnRow.city,
-                                          createdAt: postViewPostSearchEnRow
+                                              postFaViewPostSearchFaRow.city,
+                                          createdAt: postFaViewPostSearchFaRow
                                               .createdAt,
-                                          catName:
-                                              postViewPostSearchEnRow.catLabel,
-                                          subCatName: postViewPostSearchEnRow
+                                          catName: postFaViewPostSearchFaRow
+                                              .catLabel,
+                                          subCatName: postFaViewPostSearchFaRow
                                               .subCatLabel,
                                           fillColor: functions.hexToColor(
-                                              postViewPostSearchEnRow
+                                              postFaViewPostSearchFaRow
                                                   .effectiveColorHex,
                                               Color(0x00000000)),
                                         ),
                                         details: functions.decodeDetails(
-                                            postViewPostSearchEnRow
+                                            postFaViewPostSearchFaRow
                                                 .detailsText!),
                                         detailLabels: functions.decodeDetails(
-                                            postViewPostSearchEnRow
+                                            postFaViewPostSearchFaRow
                                                 .detailsLabelText!),
                                       ),
                                     ),
                                   ),
-                                  if (postViewPostSearchEnRow.postLikes !=
+                                  if (postFaViewPostSearchFaRow.postLikes !=
                                       null)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -916,7 +1106,8 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                           ),
                                           Text(
                                             valueOrDefault<String>(
-                                              postViewPostSearchEnRow.postLikes
+                                              postFaViewPostSearchFaRow
+                                                  .postLikes
                                                   ?.toString(),
                                               '0',
                                             ),
@@ -955,7 +1146,7 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                       children: [
                                         Text(
                                           FFLocalizations.of(context).getText(
-                                            '2too9sgo' /* PARTICIPANTS */,
+                                            '3soiowwq' /* PARTICIPANTS */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
@@ -986,7 +1177,7 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                       children: [
                                         Text(
                                           FFLocalizations.of(context).getText(
-                                            '8a9n5ce1' /* People who are going to this e... */,
+                                            '5tnx80uw' /* People who are going to this e... */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
@@ -1119,25 +1310,25 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                            'wqz0gbml' /* Participating this event?  */,
+                                                            'xx8qp86l' /* Participating this event?  */,
                                                           ),
                                                           hintText:
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                            '5rh5hzcd' /* Please confirm if you'd like t... */,
+                                                            '4grhweks' /* Please confirm if you'd like t... */,
                                                           ),
                                                           cancelText:
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                            'j7zk9y66' /* Cancel */,
+                                                            '4hnoq098' /* Cancel */,
                                                           ),
                                                           confirmText:
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                            '2xwucqow' /* Confirm */,
+                                                            'k43nhob0' /* Confirm */,
                                                           ),
                                                           onConfirmAction:
                                                               () async {
@@ -1208,7 +1399,7 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              'boz0byfv' /* Join Event */,
+                                                              'owhx5jkc' /* Join Event */,
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
@@ -1277,25 +1468,25 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                'tp3k3r4y' /* Have you changed your mind? */,
+                                                                'rjvk5gez' /* Have you changed your mind? */,
                                                               ),
                                                               hintText:
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                'xpe981q9' /* You are currently a participan... */,
+                                                                'g9aw80nt' /* You are currently a participan... */,
                                                               ),
                                                               cancelText:
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                'c6ztjxng' /* Cencel */,
+                                                                'cxemha4q' /* Cencel */,
                                                               ),
                                                               confirmText:
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                'h7bvgbn3' /* Confirm */,
+                                                                '7fo5fbpg' /* Confirm */,
                                                               ),
                                                               onConfirmAction:
                                                                   () async {
@@ -1374,7 +1565,7 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  'b4p05q5z' /* Leave Event */,
+                                                                  'dpuynhm9' /* Leave Event */,
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -1430,7 +1621,7 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      '7akfjv6a' /* Hide your profile image */,
+                                                      'c79y73jq' /* Hide your profile image */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -1499,7 +1690,7 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                   ProfilePageWidget.routeName,
                                                   queryParameters: {
                                                     'profileId': serializeParam(
-                                                      postViewPostSearchEnRow
+                                                      postFaViewPostSearchFaRow
                                                           .ownerId,
                                                       ParamType.String,
                                                     ),
@@ -1563,15 +1754,15 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                             ),
                                                             child:
                                                                 Image.network(
-                                                              (postViewPostSearchEnRow.profileAvatar !=
+                                                              (postFaViewPostSearchFaRow.profileAvatar !=
                                                                               null &&
-                                                                          postViewPostSearchEnRow.profileAvatar !=
+                                                                          postFaViewPostSearchFaRow.profileAvatar !=
                                                                               '') &&
-                                                                      postViewPostSearchEnRow
+                                                                      postFaViewPostSearchFaRow
                                                                           .showProfileImage!
                                                                   ? valueOrDefault<
                                                                       String>(
-                                                                      postViewPostSearchEnRow
+                                                                      postFaViewPostSearchFaRow
                                                                           .profileAvatar,
                                                                       'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/n2imhdlvogb3/profile_avatar_circular.png',
                                                                     )
@@ -1581,7 +1772,7 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                           ),
                                                         ),
                                                       ),
-                                                      if (postViewPostSearchEnRow
+                                                      if (postFaViewPostSearchFaRow
                                                               .yekjaVerified ??
                                                           true)
                                                         Align(
@@ -1630,7 +1821,7 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                         child: Text(
                                                           valueOrDefault<
                                                               String>(
-                                                            postViewPostSearchEnRow
+                                                            postFaViewPostSearchFaRow
                                                                 .userName,
                                                             ' user name',
                                                           ),
@@ -1688,12 +1879,12 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                           ),
                                                           Text(
                                                             '${valueOrDefault<String>(
-                                                              postViewPostSearchEnRow
+                                                              postFaViewPostSearchFaRow
                                                                   .review
                                                                   ?.toString(),
                                                               '1',
                                                             )} (${valueOrDefault<String>(
-                                                              postViewPostSearchEnRow
+                                                              postFaViewPostSearchFaRow
                                                                   .ratings
                                                                   ?.toString(),
                                                               '1',
@@ -1752,7 +1943,7 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                                       SizedBox(width: 4.0)),
                                             ),
                                           ),
-                                          if (postViewPostSearchEnRow
+                                          if (postFaViewPostSearchFaRow
                                                   .showSocialmedia ??
                                               true)
                                             Row(
@@ -1872,7 +2063,7 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                         0.0, 8.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        '6g2h5fom' /* REVIEWS */,
+                                        '0p7g3nq1' /* REVIEWS */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodySmall
@@ -1901,7 +2092,7 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                   queryFn: (q) => q
                                       .eqOrNull(
                                         'reviewed_user_id',
-                                        postViewPostSearchEnRow.ownerId,
+                                        postFaViewPostSearchFaRow.ownerId,
                                       )
                                       .eqOrNull(
                                         'both_review_submitted',
@@ -1942,33 +2133,47 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                                         return Align(
                                           alignment:
                                               AlignmentDirectional(-1.0, 0.0),
-                                          child: ReviewCardSmallWidget(
-                                            key: Key(
-                                                'Keyepz_${rowIndex}_of_${rowViewUserReviewsRowList.length}'),
-                                            reviewData: ReviewCardDataStruct(
-                                              userName: rowViewUserReviewsRow
-                                                  .usernameWriter,
-                                              comunicationScore:
-                                                  rowViewUserReviewsRow
-                                                      .comunicationScore,
-                                              qualitScore: rowViewUserReviewsRow
-                                                  .qualityScsore,
-                                              reliabilityScore:
-                                                  rowViewUserReviewsRow
-                                                      .reliabilityScore,
-                                              note: rowViewUserReviewsRow.note,
-                                              avarageScore:
-                                                  rowViewUserReviewsRow
-                                                      .avgReviewScore,
-                                              fairnessScore:
-                                                  rowViewUserReviewsRow
-                                                      .fairnessScore,
-                                              createAt: rowViewUserReviewsRow
-                                                  .createdAt,
-                                              reviewerId: rowViewUserReviewsRow
-                                                  .writerId,
-                                              userAvatar: rowViewUserReviewsRow
-                                                  .profileAvatarWriter,
+                                          child: wrapWithModel(
+                                            model: _model.reviewCardSmallModels
+                                                .getModel(
+                                              rowViewUserReviewsRow.reviewId!,
+                                              rowIndex,
+                                            ),
+                                            updateCallback: () =>
+                                                safeSetState(() {}),
+                                            child: ReviewCardSmallWidget(
+                                              key: Key(
+                                                'Keyoyl_${rowViewUserReviewsRow.reviewId!}',
+                                              ),
+                                              reviewData: ReviewCardDataStruct(
+                                                userName: rowViewUserReviewsRow
+                                                    .usernameWriter,
+                                                comunicationScore:
+                                                    rowViewUserReviewsRow
+                                                        .comunicationScore,
+                                                qualitScore:
+                                                    rowViewUserReviewsRow
+                                                        .qualityScsore,
+                                                reliabilityScore:
+                                                    rowViewUserReviewsRow
+                                                        .reliabilityScore,
+                                                note:
+                                                    rowViewUserReviewsRow.note,
+                                                avarageScore:
+                                                    rowViewUserReviewsRow
+                                                        .avgReviewScore,
+                                                fairnessScore:
+                                                    rowViewUserReviewsRow
+                                                        .fairnessScore,
+                                                createAt: rowViewUserReviewsRow
+                                                    .createdAt,
+                                                reviewerId:
+                                                    rowViewUserReviewsRow
+                                                        .writerId,
+                                                userAvatar:
+                                                    rowViewUserReviewsRow
+                                                        .profileAvatarWriter,
+                                              ),
                                             ),
                                           ),
                                         );
@@ -1991,11 +2196,12 @@ class _PostWidgetState extends State<PostWidget> with TickerProviderStateMixin {
                         model: _model.comunicationBarModel,
                         updateCallback: () => safeSetState(() {}),
                         child: ComunicationBarWidget(
-                          recipient: postViewPostSearchEnRow.ownerId!,
-                          postTitle: postViewPostSearchEnRow.title!,
-                          postId: postViewPostSearchEnRow.postId!,
-                          allowMessage: postViewPostSearchEnRow.allowMessage!,
-                          allowCall: postViewPostSearchEnRow.allowCall!,
+                          recipient: postFaViewPostSearchFaRow.ownerId!,
+                          postTitle: postFaViewPostSearchFaRow.title!,
+                          postId: postFaViewPostSearchFaRow.postId!,
+                          allowMessage:
+                              postFaViewPostSearchFaRow.allowMessage!,
+                          allowCall: postFaViewPostSearchFaRow.allowSharePost!,
                           allowShare: false,
                         ),
                       ),

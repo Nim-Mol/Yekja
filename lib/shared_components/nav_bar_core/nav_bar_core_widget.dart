@@ -106,7 +106,7 @@ class _NavBarCoreWidgetState extends State<NavBarCoreWidget> {
                           child: Icon(
                             Icons.home,
                             color: getCurrentRoute(context) == '/homePage'
-                                ? FlutterFlowTheme.of(context).primaryText
+                                ? FlutterFlowTheme.of(context).primaryWhite
                                 : FlutterFlowTheme.of(context).darkgray,
                             size: 28.0,
                           ),
@@ -132,7 +132,7 @@ class _NavBarCoreWidgetState extends State<NavBarCoreWidget> {
                           Icons.search,
                           color: functions.routeStartsWithPrefix(
                                   getCurrentRoute(context), '/searchPage')
-                              ? FlutterFlowTheme.of(context).primary
+                              ? FlutterFlowTheme.of(context).primaryWhite
                               : FlutterFlowTheme.of(context).darkgray,
                           size: 30.0,
                         ),
@@ -266,7 +266,8 @@ class _NavBarCoreWidgetState extends State<NavBarCoreWidget> {
                                   Icons.chat,
                                   color: functions.routeStartsWithPrefix(
                                           getCurrentRoute(context), '/chatPage')
-                                      ? FlutterFlowTheme.of(context).primaryText
+                                      ? FlutterFlowTheme.of(context)
+                                          .primaryWhite
                                       : FlutterFlowTheme.of(context).darkgray,
                                   size: 28.0,
                                 ),
@@ -306,7 +307,7 @@ class _NavBarCoreWidgetState extends State<NavBarCoreWidget> {
                             Icons.view_carousel_outlined,
                             color: functions.routeStartsWithPrefix(
                                     getCurrentRoute(context), '/swipablePage')
-                                ? FlutterFlowTheme.of(context).primaryText
+                                ? FlutterFlowTheme.of(context).primaryWhite
                                 : FlutterFlowTheme.of(context).darkgray,
                             size: 32.0,
                           ),

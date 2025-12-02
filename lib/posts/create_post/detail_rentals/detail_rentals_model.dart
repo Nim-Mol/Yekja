@@ -10,12 +10,6 @@ class DetailRentalsModel extends FlutterFlowModel<DetailRentalsWidget> {
   // State field(s) for dropdownCity widget.
   String? dropdownCityValue;
   FormFieldController<String>? dropdownCityValueController;
-  // State field(s) for RentalTypeChoice widget.
-  FormFieldController<List<String>>? rentalTypeChoiceValueController;
-  String? get rentalTypeChoiceValue =>
-      rentalTypeChoiceValueController?.value?.firstOrNull;
-  set rentalTypeChoiceValue(String? val) =>
-      rentalTypeChoiceValueController?.value = val != null ? [val] : [];
   // State field(s) for TotalArea widget.
   FocusNode? totalAreaFocusNode;
   TextEditingController? totalAreaTextController;
@@ -35,12 +29,6 @@ class DetailRentalsModel extends FlutterFlowModel<DetailRentalsWidget> {
   String? Function(BuildContext, String?)? depositTextControllerValidator;
   // State field(s) for NegotiableSwitch widget.
   bool? negotiableSwitchValue;
-  // State field(s) for PriceChoice widget.
-  FormFieldController<List<String>>? priceChoiceValueController;
-  String? get priceChoiceValue =>
-      priceChoiceValueController?.value?.firstOrNull;
-  set priceChoiceValue(String? val) =>
-      priceChoiceValueController?.value = val != null ? [val] : [];
   // State field(s) for RegistrationSwitch widget.
   bool? registrationSwitchValue1;
   // State field(s) for RegistrationSwitch widget.

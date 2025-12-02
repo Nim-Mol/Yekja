@@ -255,7 +255,7 @@ class _ReportingPopupWidgetState extends State<ReportingPopupWidget> {
                           EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).darkgray,
+                      color: Color(0xFF4D4D4D),
                       textStyle: FlutterFlowTheme.of(context)
                           .titleSmall
                           .override(

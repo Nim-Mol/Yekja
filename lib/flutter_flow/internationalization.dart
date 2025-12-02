@@ -1154,61 +1154,27 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': '۶',
       'nl': '6',
     },
+    'nth5pnlt': {
+      'en': '4',
+      'fa': '۴',
+      'nl': '4',
+    },
+    'pvgrrlua': {
+      'en': ' of ',
+      'fa': ' از ',
+      'nl': 'van',
+    },
+    '5vuuqhdq': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
+    },
     'csirahyr': {
       'en': 'Next',
       'fa': 'بعدی',
       'nl': 'Volgende',
     },
     'jedx2nxp': {
-      'en': 'Post',
-      'fa': 'پست',
-      'nl': 'Na',
-    },
-  },
-  // PostWishList
-  {
-    'rbmqy5fa': {
-      'en': 'Swap wishlist',
-      'fa': 'تعویض لیست علاقه‌مندی‌ها',
-      'nl': 'Ruil verlanglijstje',
-    },
-    'u8pq7w6y': {
-      'en': '5 of 6',
-      'fa': '۵ از ۶',
-      'nl': '5 van 6',
-    },
-    'dm7q0oa6': {
-      'en': 'Swap & Match',
-      'fa': 'تعویض و تطبیق',
-      'nl': 'Ruilen en matchen',
-    },
-    '987ihbyw': {
-      'en':
-          'Want to swap? Use this post type to list what you’re offering and exactly what you want in return—then negotiate the rest.\n\nAdd a swap wishlist so others can quickly find and match with you.',
-      'fa':
-          'می‌خواهید مبادله کنید؟ از این نوع پست برای فهرست کردن آنچه ارائه می‌دهید و دقیقاً آنچه در عوض می‌خواهید استفاده کنید - سپس بقیه را مذاکره کنید.\n\nیک لیست علاقه‌مندی‌های مبادله اضافه کنید تا دیگران بتوانند به سرعت شما را پیدا کرده و با شما مطابقت دهند.',
-      'nl':
-          'Wil je ruilen? Gebruik dit berichttype om te vermelden wat je aanbiedt en wat je er precies voor terug wilt. Onderhandel vervolgens over de rest.\n\nVoeg een ruilverlanglijst toe, zodat anderen je snel kunnen vinden en een match met je kunnen vinden.',
-    },
-    'ljhvx2e6': {
-      'en': 'Your wishlist',
-      'fa': 'لیست علاقه‌مندی‌های شما',
-      'nl': 'Uw verlanglijstje',
-    },
-    '70un5i6a': {
-      'en':
-          'E.g. Happy to trade for music (Setar) tutoring, Farsi books or a coffee maker.',
-      'fa':
-          'مثلاً: حاضرم با تدریس خصوصی موسیقی (سه‌تار)، کتاب فارسی یا قهوه‌ساز معاوضه کنم.',
-      'nl':
-          'Bijv. Graag ruilen voor muziekles (Setar), Farsi-boeken of een koffiezetapparaat.',
-    },
-    'tjzx8b9z': {
-      'en': 'Next',
-      'fa': 'بعدی',
-      'nl': 'Volgende',
-    },
-    'pegwryhf': {
       'en': 'Post',
       'fa': 'پست',
       'nl': 'Na',
@@ -1395,6 +1361,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'پیش‌نمایش را ببینید',
       'nl': 'Bekijk voorbeeld',
     },
+    'q3yy9x1s': {
+      'en': 'Save',
+      'fa': 'ذخیره',
+      'nl': 'Redden',
+    },
     'dd7lcje3': {
       'en': 'Post',
       'fa': 'پست',
@@ -1403,45 +1374,56 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // PostEdit
   {
-    'l0rjslcm': {
-      'en': 'Value hint ',
-      'fa': 'اشاره به ارزش',
-      'nl': 'Waarde hint',
+    's45yad1c': {
+      'en': 'EVENT PARTICIPANTS',
+      'fa': 'شرکت‌کنندگان',
+      'nl': 'DEELNEMERS',
     },
-    '84zk9qfq': {
-      'en': '(check here)',
-      'fa': '(اینجا را بررسی کنید)',
-      'nl': '(controleer hier)',
+    '7jnr42m3': {
+      'en': 'People who are going to this event.',
+      'fa': 'افرادی که قرار است در این مراسم شرکت کنند.',
+      'nl': 'Mensen die naar dit evenement gaan.',
     },
-    'v5u8iq07': {
-      'en': 'Value hint',
-      'fa': 'اشاره به ارزش',
-      'nl': 'Waarde hint',
+    'yr4ahw7e': {
+      'en': 'Join Event',
+      'fa': 'شرکت در رویداد',
+      'nl': 'Deelnemen',
     },
-    'ivb2hdm4': {
-      'en': 'DESCRIPTION',
-      'fa': 'شرح',
-      'nl': 'BESCHRIJVING',
+    'x1ku0nkv': {
+      'en': 'REVIEWS',
+      'fa': 'نقد و بررسی‌ها',
+      'nl': 'RECENSIES',
     },
-    '31zmlj3e': {
-      'en': 'your review score',
-      'fa': 'امتیاز بررسی شما',
-      'nl': 'uw beoordelingsscore',
-    },
-    'ys4fo4tl': {
-      'en': 'MY EXCHANGE WISH',
-      'fa': 'آرزوی تبادل من',
-      'nl': 'MIJN RUILVENSWENS',
-    },
-    'rwziirc6': {
+    'mxg6sthy': {
       'en': 'Delete',
       'fa': 'حذف',
       'nl': 'Verwijderen',
     },
-    '077lbh5r': {
+    '3b0fgnsw': {
       'en': 'Update',
       'fa': 'به‌روزرسانی',
       'nl': 'Update',
+    },
+    'g3y2is5w': {
+      'en': 'Are you sure youwant to update this post?',
+      'fa': 'آیا مطمئن هستید که می‌خواهید این پست را به‌روزرسانی کنید؟',
+      'nl': 'Weet u zeker dat u dit bericht wilt bijwerken?',
+    },
+    'fqxvxcs2': {
+      'en': 'Your post will update instantly after you confirm.',
+      'fa': 'پست شما بلافاصله پس از تایید شما به‌روزرسانی خواهد شد.',
+      'nl':
+          'Nadat u uw bericht heeft bevestigd, wordt het bericht direct bijgewerkt.',
+    },
+    '2k2s462g': {
+      'en': 'Cancel',
+      'fa': 'لغو',
+      'nl': 'Annuleren',
+    },
+    'v1ly20lq': {
+      'en': 'Confirm',
+      'fa': 'تأیید',
+      'nl': 'Bevestigen',
     },
     'ru8iak45': {
       'en': 'Home',
@@ -1531,154 +1513,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '0t1hw5zn': {
       'en': 'Home',
       'fa': 'خانه',
-      'nl': '',
-    },
-  },
-  // PostGeneralDetail
-  {
-    '8kkxo2cm': {
-      'en': 'General',
-      'fa': 'جزئیات',
-      'nl': '',
-    },
-    '6lq8d63n': {
-      'en': 'Add important \ndetails ',
-      'fa': 'جزئیات پست خود را تکمیل کنید',
-      'nl': '',
-    },
-    '6hr0mw6d': {
-      'en': 'Helps others understand your post',
-      'fa': 'به دیگران کمک می‌کند تا پست شما را درک کنند',
-      'nl': '',
-    },
-    'vdy9i4kb': {
-      'en': 'Title',
-      'fa': 'عنوان',
-      'nl': '',
-    },
-    'itbrw7kz': {
-      'en': 'Description',
-      'fa': 'توضیحات',
-      'nl': '',
-    },
-    'wyoz4ss7': {
-      'en': 'Location',
-      'fa': 'انتخاب کنید',
-      'nl': '',
-    },
-    'rdefb0js': {
-      'en': 'Search...',
-      'fa': 'جستجو...',
-      'nl': '',
-    },
-    'wdxajxxi': {
-      'en': 'None',
-      'fa': 'هیچکدام',
-      'nl': '',
-    },
-    '8a1mivba': {
-      'en': 'Per day',
-      'fa': 'در هر روز',
-      'nl': '',
-    },
-    '3agmz1zf': {
-      'en': 'Per night',
-      'fa': 'به ازای هر شب',
-      'nl': '',
-    },
-    'n28nfmm6': {
-      'en': 'Per week',
-      'fa': 'در هر هفته',
-      'nl': '',
-    },
-    '3q41ng5t': {
-      'en': 'Per month',
-      'fa': 'در هر ماه',
-      'nl': '',
-    },
-    '9owkpevc': {
-      'en': 'Per year',
-      'fa': 'در هر سال',
-      'nl': '',
-    },
-    'yoin46s2': {
-      'en': 'Condition',
-      'fa': 'ارزش',
-      'nl': '',
-    },
-    'rhdilj0l': {
-      'en': 'New',
-      'fa': '',
-      'nl': '',
-    },
-    'eo5076m2': {
-      'en': 'Used - Like New',
-      'fa': '',
-      'nl': '',
-    },
-    'pmyrcgo8': {
-      'en': 'Used - Fair',
-      'fa': '',
-      'nl': '',
-    },
-    'tynep7pa': {
-      'en': 'Price',
-      'fa': 'ارزش',
-      'nl': '',
-    },
-    'vtgfxjq4': {
-      'en': '',
-      'fa': '',
-      'nl': '',
-    },
-    'avsrngsm': {
-      'en': 'Negotiable',
-      'fa': '',
-      'nl': '',
-    },
-    'm7scui9l': {
-      'en': 'Delivery',
-      'fa': 'ارزش',
-      'nl': '',
-    },
-    '9cauaku8': {
-      'en': 'Free Delivery',
-      'fa': '',
-      'nl': '',
-    },
-    'b6wjxjby': {
-      'en': 'Pick-up Only',
-      'fa': '',
-      'nl': '',
-    },
-    '7lje7hzm': {
-      'en': 'Agreement',
-      'fa': '',
-      'nl': '',
-    },
-    '996r0pxr': {
-      'en': 'Are you open for swap?',
-      'fa': '',
-      'nl': '',
-    },
-    'mqvkk24n': {
-      'en': '',
-      'fa': '',
-      'nl': '',
-    },
-    '4l0n4fmf': {
-      'en': 'What items are you looking to swap for?',
-      'fa': '',
-      'nl': '',
-    },
-    'hzjb4n58': {
-      'en': 'Next',
-      'fa': 'بعدی',
-      'nl': '',
-    },
-    'k1h2s54o': {
-      'en': 'Post',
-      'fa': 'پست',
       'nl': '',
     },
   },
@@ -1909,9 +1743,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Actie',
     },
     'nwjujkbj': {
-      'en': '4',
-      'fa': '۴',
-      'nl': '4',
+      'en': '3',
+      'fa': '۳',
+      'nl': '3',
     },
     '32apr70p': {
       'en': ' of ',
@@ -2018,6 +1852,16 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Welcome to support ',
       'fa': 'به پشتیبانی خوش آمدید',
       'nl': 'Welkom bij de ondersteuning',
+    },
+    '18qj4qd2': {
+      'en': 'Make sure you check our ',
+      'fa': '',
+      'nl': '',
+    },
+    'f2k084ch': {
+      'en': 'FAQ',
+      'fa': '',
+      'nl': '',
     },
     'b3om7lkw': {
       'en': 'Make sure you check our FAQ',
@@ -2280,30 +2124,30 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'نوع اجاره',
       'nl': 'Huurtype',
     },
-    '8dqrxnpy': {
+    'uhl6xl97': {
       'en': 'Long-Term',
       'fa': 'بلندمدت',
       'nl': 'Lange termijn',
     },
-    'txig7pgg': {
+    'dv9t32fm': {
       'en': 'Short-Term',
       'fa': 'کوتاه مدت',
       'nl': 'Korte termijn',
     },
-    '26ehx6af': {
+    'wnwel91z': {
       'en': 'Sublet',
       'fa': 'اجاره فرعی',
       'nl': 'Onderverhuren',
     },
-    'u5x5ti89': {
+    'v3s3ysuk': {
       'en': 'Co-Living',
-      'fa': 'زندگی مشترک',
+      'fa': 'هم‌خانه‌ای',
       'nl': 'Samenwonen',
     },
-    'xtp55sf4': {
+    'um5oamy8': {
       'en': 'Flexible',
-      'fa': 'برای همه انواع باز است',
-      'nl': 'Open voor alle soorten',
+      'fa': 'منعطف هستم',
+      'nl': 'Flexibele',
     },
     'j10xsxsq': {
       'en': 'Total Area (m2):',
@@ -2317,7 +2161,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'jzba3thw': {
       'en': 'Availability',
-      'fa': 'در دسترس بودن',
+      'fa': 'بازهٔ زمانی اجاره',
       'nl': 'Beschikbaarheid',
     },
     't1ab9yoz': {
@@ -2335,29 +2179,49 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'به ازای هر',
       'nl': 'per',
     },
-    '27aiy5mh': {
+    '1r311j54': {
       'en': 'Select..',
       'fa': 'انتخاب کنید..',
       'nl': 'Selecteer..',
     },
-    '9em12al8': {
+    'yye3471y': {
       'en': 'Search...',
       'fa': 'جستجو...',
       'nl': 'Zoekopdracht...',
     },
-    'z4vz2ete': {
-      'en': 'Option 2',
-      'fa': 'گزینه ۲',
-      'nl': 'Optie 2',
+    'ns6xe18s': {
+      'en': 'hour',
+      'fa': 'ساعت',
+      'nl': 'uur',
     },
-    '4d2tuq7s': {
-      'en': 'Option 3',
-      'fa': 'گزینه ۳',
-      'nl': 'Optie 3',
+    'aspkqw5u': {
+      'en': 'day',
+      'fa': 'روز',
+      'nl': 'dag',
+    },
+    '40j17v6f': {
+      'en': 'night',
+      'fa': 'شب',
+      'nl': 'nacht',
+    },
+    'n4x6bc4w': {
+      'en': 'week',
+      'fa': 'هفته',
+      'nl': 'week',
+    },
+    'wdzvygiw': {
+      'en': 'month',
+      'fa': 'ماه',
+      'nl': 'maand',
+    },
+    'gbggb7so': {
+      'en': 'year',
+      'fa': 'سال',
+      'nl': 'jaar',
     },
     'szljnmug': {
       'en': 'Deposit:',
-      'fa': 'واریز:',
+      'fa': 'پیش پرداخت:',
       'nl': 'Borg:',
     },
     '21etygi0': {
@@ -2372,25 +2236,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'opmbewd0': {
       'en': 'Price Class',
-      'fa': 'کلاس قیمت',
+      'fa': 'حدود قیمت',
       'nl': 'Prijsklasse',
     },
-    'x0hgoo26': {
+    '7ls3ku09': {
       'en': 'Under €1,000',
       'fa': 'زیر ۱۰۰۰ یورو',
       'nl': 'Onder €1.000',
     },
-    '7uogggnt': {
+    'f67n8tk2': {
       'en': 'Under €2,000',
       'fa': 'زیر ۲۰۰۰ یورو',
       'nl': 'Onder € 2.000',
     },
-    'r76glzwo': {
+    '12qd3c92': {
       'en': 'Under €3000',
       'fa': 'زیر ۳۰۰۰ یورو',
       'nl': 'Onder €3000',
     },
-    'is28yeyx': {
+    'eqb3di1t': {
       'en': 'Any Price',
       'fa': 'هر قیمتی',
       'nl': 'Elke prijs',
@@ -2402,7 +2266,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'd572bc3m': {
       'en': 'Registration Needed/Possible?',
-      'fa': 'ثبت نام لازم/ممکن است؟',
+      'fa': 'رجیستر لازم/ممکن است؟',
       'nl': 'Registratie nodig/mogelijk?',
     },
     'k36l0tnz': {
@@ -2412,8 +2276,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '3jlbd3yl': {
       'en': 'Utilities Included?',
-      'fa': 'شامل خدمات رفاهی می‌شود؟',
-      'nl': 'Zijn nutsvoorzieningen inbegrepen?',
+      'fa': 'شامل هزینه‌های قبوض؟',
+      'nl': 'incl. G/W/L',
     },
     'e1emmok0': {
       'en': 'Next',
@@ -2528,19 +2392,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'وضعیت',
       'nl': 'Voorwaarde',
     },
-    'aho4ihqe': {
+    '1a8kyuld': {
       'en': 'New',
       'fa': 'جدید',
       'nl': 'Nieuw',
     },
-    'skje2kmv': {
+    '5tp0a0dn': {
       'en': 'Used - Like New',
       'fa': 'کارکرده - مشابه نو',
       'nl': 'Gebruikt - Als nieuw',
     },
-    'pb0tvsfe': {
+    'l17abn2d': {
       'en': 'Used - Fair',
-      'fa': 'کارکرده - منصفانه',
+      'fa': 'کارکرده',
       'nl': 'Gebruikt - Redelijk',
     },
     'n8939ymc': {
@@ -2548,22 +2412,22 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'تحویل',
       'nl': 'Levering',
     },
-    'ob4y7gwi': {
+    '35v6i4cg': {
       'en': 'By Agreement',
       'fa': 'طبق توافق',
       'nl': 'In overleg',
     },
-    'pjnp2ul8': {
+    'wjspq3vv': {
       'en': 'Pick-Up Only',
-      'fa': 'فقط تحویل حضوری',
+      'fa': ' تحویل حضوری',
       'nl': 'Alleen afhalen',
     },
-    '2qeln0on': {
+    '2zy9jngr': {
       'en': 'Sent by Post',
-      'fa': 'ارسال شده توسط پست',
+      'fa': 'ارسال  با پست',
       'nl': 'Verzonden per post',
     },
-    'nchk47pw': {
+    'n71xiclx': {
       'en': 'Free Delivery',
       'fa': 'تحویل رایگان',
       'nl': 'Gratis bezorging',
@@ -2757,19 +2621,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'وضعیت',
       'nl': 'Voorwaarde',
     },
-    '3w3x8mkr': {
+    'beppbgau': {
       'en': 'New',
       'fa': 'جدید',
       'nl': 'Nieuw',
     },
-    '9oj15ye9': {
+    'rcmxis99': {
       'en': 'Used - Like New',
       'fa': 'کارکرده - مشابه نو',
       'nl': 'Gebruikt - Als nieuw',
     },
-    'z36ujdw4': {
+    'bif5doj2': {
       'en': 'Used - Fair',
-      'fa': 'کارکرده - منصفانه',
+      'fa': 'کارکرده',
       'nl': 'Gebruikt - Redelijk',
     },
     'eru4109y': {
@@ -2777,22 +2641,22 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'تحویل',
       'nl': 'Levering',
     },
-    'qfue4pwt': {
+    'dgyudrcd': {
       'en': 'By Agreement',
       'fa': 'طبق توافق',
       'nl': 'In overleg',
     },
-    'qrmukbp9': {
+    'bk7qkf31': {
       'en': 'Pick-Up Only',
-      'fa': 'فقط تحویل حضوری',
+      'fa': ' تحویل حضوری',
       'nl': 'Alleen afhalen',
     },
-    '1ezxn1am': {
+    '3k180gdk': {
       'en': 'Sent by Post',
-      'fa': 'ارسال شده توسط پست',
+      'fa': 'ارسال  با پست',
       'nl': 'Verzonden per post',
     },
-    'k4ip6rn0': {
+    'oskg8m4r': {
       'en': 'Free Delivery',
       'fa': 'تحویل رایگان',
       'nl': 'Gratis bezorging',
@@ -2966,22 +2830,22 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'تحویل',
       'nl': 'Levering',
     },
-    'rqv33tr9': {
+    'xgagv1mq': {
       'en': 'By Agreement',
-      'fa': 'طبق توافق',
+      'fa': ' توافقی',
       'nl': 'In overleg',
     },
-    'pibvge46': {
+    'c8qu362r': {
       'en': 'Pick-Up Only',
-      'fa': 'فقط تحویل حضوری',
-      'nl': 'Alleen afhalen',
+      'fa': ' تحویل حضوری',
+      'nl': 'Afhalen',
     },
-    '4hnrcynu': {
+    'cfz5c46e': {
       'en': 'Sent by Post',
-      'fa': 'ارسال شده توسط پست',
+      'fa': 'ارسال  با  پست',
       'nl': 'Verzonden per post',
     },
-    '0d6zqa1x': {
+    '39k5fdm8': {
       'en': 'Free Delivery',
       'fa': 'تحویل رایگان',
       'nl': 'Gratis bezorging',
@@ -3014,8 +2878,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'd0tqcv4n': {
       'en': 'Allow cash adjustment?',
-      'fa': 'اجازه تعدیل نقدینگی را بدهید؟',
-      'nl': 'Contante aanpassing toestaan?',
+      'fa': 'اجازهٔ تسویه نقدی؟',
+      'nl': 'Contante bijbetaling?',
     },
     'g7l755yk': {
       'en': 'You or the other user can add a bit of cash to balance the swap.',
@@ -3130,8 +2994,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': '',
     },
     '6fm7r7ko': {
-      'en': 'Compensation',
-      'fa': 'جبران خسارت',
+      'en': 'Compensation (optional)',
+      'fa': 'پاداش (اختیاری)',
       'nl': 'Compensatie',
     },
     'lx9z68l6': {
@@ -3149,12 +3013,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'قابل مذاکره:',
       'nl': 'Bespreekbaar:',
     },
-    '5uunx2br': {
+    '7saqyfxb': {
       'en': 'Next',
       'fa': 'بعدی',
       'nl': 'Volgende',
     },
-    'q4p7c1wf': {
+    'td12p8u4': {
       'en': 'Some fields are left unfilled. Please try again.',
       'fa': 'بعضی از فیلدها پر نشده‌اند. لطفاً دوباره امتحان کنید.',
       'nl': 'Sommige velden zijn niet ingevuld. Probeer het opnieuw.',
@@ -3456,23 +3320,23 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'ارز',
       'nl': 'Munteenheid',
     },
-    '7ijscip6': {
+    'e04ggwe7': {
       'en': 'Euro',
       'fa': 'یورو',
       'nl': 'Euro',
     },
-    'vzy3c200': {
+    'hbbjx0bx': {
       'en': 'USD',
       'fa': 'دلار آمریکا',
       'nl': 'Amerikaanse dollar',
     },
-    's78z9onp': {
-      'en': 'Toman',
-      'fa': 'تومان',
-      'nl': 'Toman',
+    '3nybfk4h': {
+      'en': 'Amount:',
+      'fa': 'تعداد ارز:',
+      'nl': 'Hoeveelheid:',
     },
     'zqql20jx': {
-      'en': 'Amount',
+      'en': '',
       'fa': 'مبلغ',
       'nl': 'Hoeveelheid',
     },
@@ -3501,24 +3365,24 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'ترجیحات',
       'nl': 'Voorkeuren',
     },
-    'wnz52cst': {
+    '2oi8j9j2': {
       'en': 'I\'ll Pay First',
       'fa': 'من اول پرداخت می‌کنم',
       'nl': 'Ik betaal eerst',
     },
-    '2d0jr39k': {
+    'mx6q6t51': {
       'en': 'Pay After',
-      'fa': 'پرداخت پس از',
+      'fa': 'پرداخت پس از تحریل ارز',
       'nl': 'Betaal achteraf',
     },
-    '1ydts45u': {
+    'i28tnnp4': {
       'en': 'Flexible',
-      'fa': 'طبق توافق',
-      'nl': 'In overleg',
+      'fa': ' پرداخت توافقی',
+      'nl': 'Flexibele',
     },
     'rj1h5dym': {
       'en': 'Allow partial trade?',
-      'fa': 'اجازه تجارت جزئی؟',
+      'fa': 'حاضر به مبادله جزئی؟',
       'nl': 'Gedeeltelijke handel toestaan?',
     },
     'igvsuetz': {
@@ -3639,35 +3503,35 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'جبران خسارت',
       'nl': 'Compensatie',
     },
-    'orn5dnqr': {
+    'lvwzfby4': {
       'en': 'Free help appreciated',
       'fa': 'کمک رایگان مورد تقدیر است',
       'nl': 'Gratis hulp wordt gewaardeerd',
     },
-    'inv2v7gr': {
+    '20xkyxrc': {
       'en': 'Can offer something back',
-      'fa': 'می‌تواند چیزی را در عوض ارائه دهد',
+      'fa': 'حاضر به پرداخت در عوض',
       'nl': 'Kan iets terugdoen',
     },
-    '6dbv97f6': {
+    'jy7n8fge': {
       'en': 'Flexible',
-      'fa': 'طبق توافق',
-      'nl': 'In overleg',
+      'fa': 'انعطاف‌پذیر',
+      'nl': 'Flexibele',
     },
-    'ys1f5lx0': {
+    'lwx39hgw': {
       'en': 'Free / Just helping',
-      'fa': 'رایگان / فقط کمک کننده',
+      'fa': 'رایگان صرفآ برای کمک',
       'nl': 'Gratis / Gewoon helpen',
     },
-    'sk1kasqy': {
+    '5gulvjxg': {
       'en': 'Give what you feel',
-      'fa': 'آنچه را که احساس می کنید، ارائه دهید',
+      'fa': 'پاداش می پذیرد',
       'nl': 'Geef wat je voelt',
     },
-    'xyc7dpih': {
-      'en': 'By Agreement',
-      'fa': 'طبق توافق',
-      'nl': 'In overleg',
+    'gwy1uxk4': {
+      'en': 'Flexible',
+      'fa': 'انعطاف‌پذیر',
+      'nl': 'Flexibele',
     },
     '83sc63g8': {
       'en': 'Preferances',
@@ -3847,22 +3711,22 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'تکرار رویداد (اختیاری)؟',
       'nl': 'Gebeurtenisherhalingen (optioneel)?',
     },
-    '9gny5ukl': {
+    'v22mcqq9': {
       'en': 'Daily',
-      'fa': 'روزانه',
+      'fa': 'هر روز یا شب',
       'nl': 'Dagelijks',
     },
-    'hdg7udgi': {
+    'hv4fqm3b': {
       'en': 'Weekly',
       'fa': 'هفتگی',
       'nl': 'Wekelijks',
     },
-    '1eyxkc4l': {
+    'kbww3ght': {
       'en': 'Monthly',
       'fa': 'ماهانه',
       'nl': 'Maandelijks',
     },
-    '0uvia0la': {
+    'h7w2y7vc': {
       'en': 'Yearly',
       'fa': 'سالانه',
       'nl': 'Jaarlijks',
@@ -4046,24 +3910,24 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'حالت سرویس',
       'nl': 'Servicemodus',
     },
-    'havpmo54': {
+    'tlij6f0p': {
       'en': 'Remote',
       'fa': 'از راه دور',
       'nl': 'Op afstand',
     },
-    'kc99dh0r': {
+    '6ep0rgf6': {
       'en': 'In-person',
       'fa': 'حضوری',
       'nl': 'Persoonlijk',
     },
-    'qj6h28nl': {
+    'lr5nihza': {
       'en': 'At my place',
-      'fa': 'در جای من',
-      'nl': 'Bij mij thuis',
+      'fa': 'در محلِ من',
+      'nl': 'Op mijn locatie',
     },
-    'fvkbngse': {
+    'tfpdwo3s': {
       'en': 'Flexible',
-      'fa': 'انعطاف‌پذیر',
+      'fa': 'مکان توافقی',
       'nl': 'Flexibele',
     },
     '77i3cx3i': {
@@ -4096,15 +3960,35 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'جستجو...',
       'nl': 'Zoekopdracht...',
     },
+    'v924dh4a': {
+      'en': 'hour',
+      'fa': 'ساعت',
+      'nl': 'uur',
+    },
     'ozyficmy': {
-      'en': 'Option 2',
-      'fa': 'گزینه ۲',
-      'nl': 'Optie 2',
+      'en': 'day',
+      'fa': 'روز',
+      'nl': 'dag',
     },
     'fdk66m0n': {
-      'en': 'Option 3',
-      'fa': 'گزینه ۳',
-      'nl': 'Optie 3',
+      'en': 'night',
+      'fa': 'شب',
+      'nl': 'nacht',
+    },
+    'p7hnno8o': {
+      'en': 'week',
+      'fa': 'هفته',
+      'nl': 'week',
+    },
+    'boyy3zp5': {
+      'en': 'month',
+      'fa': 'ماه',
+      'nl': 'maand',
+    },
+    '797cksh5': {
+      'en': 'year',
+      'fa': 'سال',
+      'nl': 'jaar',
     },
     'ek499l29': {
       'en': 'Negotiable:',
@@ -4116,28 +4000,28 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'تجربه (اختیاری)',
       'nl': 'Ervaring (optioneel)',
     },
-    'gx5vwqm8': {
-      'en': '<1',
+    '0qu5sgmm': {
+      'en': '<1 year',
       'fa': '<1 سال',
       'nl': '<1 jaar',
     },
-    'k3pllddk': {
-      'en': '1–3',
-      'fa': '۱ تا ۳ سال',
-      'nl': '1–3 jaar',
+    '5jrtocln': {
+      'en': '1-3 years',
+      'fa': '۱-۳ سال',
+      'nl': '1-3 jaar',
     },
-    'fmcwm3a6': {
-      'en': '3–5',
-      'fa': '۳ تا ۵ سال',
-      'nl': '3–5 jaar',
+    'dk59b7ss': {
+      'en': '3-5 years',
+      'fa': '۳-۵ سال',
+      'nl': '3-5 jaar',
     },
-    'rxqi3xls': {
-      'en': '5–10',
-      'fa': '۵ تا ۱۰ سال',
-      'nl': '5–10 jaar',
+    'nv2ixev4': {
+      'en': '5-10 years',
+      'fa': '۵-۱۰ سال',
+      'nl': '5-10 jaar',
     },
-    'i9z7q6wp': {
-      'en': '10+ ',
+    'ss1xe1s4': {
+      'en': '10+ years',
       'fa': '۱۰+ سال',
       'nl': '10+ jaar',
     },
@@ -4146,35 +4030,40 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'زبان‌ها (اختیاری)',
       'nl': 'Talen (optioneel)',
     },
-    '7kejx4tu': {
+    'd5hrgm0v': {
       'en': 'Farsi',
       'fa': 'فارسی',
       'nl': 'Perzisch',
     },
-    'sx46i6rv': {
-      'en': 'English',
-      'fa': 'انگلیسی',
-      'nl': 'Engels',
-    },
-    '9zzxxm44': {
+    'fcujhj2h': {
       'en': 'Dutch',
       'fa': 'هلندی',
       'nl': 'Nederlands',
     },
-    's9vnmhq4': {
+    'd6xli9xh': {
+      'en': 'English',
+      'fa': 'انگلیسی',
+      'nl': 'Engels',
+    },
+    'e00vrlpw': {
       'en': 'Turkish',
       'fa': 'ترکی',
       'nl': 'Turks',
     },
-    'cke1cqns': {
+    '5j3p68kd': {
+      'en': 'Urdu',
+      'fa': 'اردو',
+      'nl': 'Urdu',
+    },
+    'mzea4pzo': {
       'en': 'Arabic',
       'fa': 'عربی',
       'nl': 'Arabisch',
     },
-    'c1f9hym9': {
+    'l8joc4ww': {
       'en': 'Kurdish',
-      'fa': '',
-      'nl': '',
+      'fa': 'کردی',
+      'nl': 'Koerdisch',
     },
     '4f0n49sx': {
       'en': 'Next',
@@ -4512,36 +4401,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'دسته بندی های پرطرفدار',
       'nl': 'Trending Categorieën',
     },
-    'gcaiv1cc': {
-      'en': 'Care &\nAssistance',
-      'fa': 'مراقبت و کمک',
-      'nl': 'Zorg &\nHulp',
-    },
-    '6wfq8m1t': {
-      'en': 'Home &\nRentals',
-      'fa': 'خانه و اجاره',
-      'nl': 'Woningen &\nHuurwoningen',
-    },
-    'd8j2douw': {
-      'en': 'Concerts\n& Shows',
-      'fa': 'کنسرت‌ها و نمایش‌ها',
-      'nl': 'Concerten\n& Shows',
-    },
-    'yhr2oplg': {
-      'en': 'Personal\nServices',
-      'fa': 'خدمات شخصی',
-      'nl': 'Persoonlijke\nDiensten',
-    },
-    'eaca440q': {
-      'en': 'Job\nOffers',
-      'fa': 'پیشنهادهای شغلی',
-      'nl': 'Vacatures\nAanbiedingen',
-    },
-    'qokg5eno': {
-      'en': 'Stores\n& Shops',
-      'fa': 'فروشگاه‌ها و مغازه‌ها',
-      'nl': 'Winkels\n& Winkels',
-    },
     'qd2458pn': {
       'en': 'News',
       'fa': 'اخبار',
@@ -4777,87 +4636,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Populair',
     },
     'acanui6t': {
-      'en': 'Home',
-      'fa': 'خانه',
-      'nl': 'Thuis',
-    },
-  },
-  // Post
-  {
-    '2too9sgo': {
-      'en': 'PARTICIPANTS',
-      'fa': 'شرکت‌کنندگان',
-      'nl': 'DEELNEMERS',
-    },
-    '8a9n5ce1': {
-      'en': 'People who are going to this event.',
-      'fa': 'افرادی که قرار است در این مراسم شرکت کنند.',
-      'nl': 'Mensen die naar dit evenement gaan.',
-    },
-    'boz0byfv': {
-      'en': 'Join Event',
-      'fa': 'شرکت در رویداد',
-      'nl': 'Deelnemen',
-    },
-    'wqz0gbml': {
-      'en': 'Participating this event? ',
-      'fa': 'شرکت در این رویداد؟',
-      'nl': 'Neemt u deel aan dit evenement?',
-    },
-    '5rh5hzcd': {
-      'en': 'Please confirm if you\'d like to join this event!',
-      'fa': 'لطفاً تأیید کنید که آیا مایل به شرکت در این رویداد هستید یا خیر!',
-      'nl': 'Bevestig of je aan dit evenement wilt deelnemen!',
-    },
-    'j7zk9y66': {
-      'en': 'Cancel',
-      'fa': 'لغو',
-      'nl': 'Annuleren',
-    },
-    '2xwucqow': {
-      'en': 'Confirm',
-      'fa': 'تأیید',
-      'nl': 'Bevestigen',
-    },
-    'b4p05q5z': {
-      'en': 'Leave Event',
-      'fa': 'ترک رویداد',
-      'nl': 'Verlaat evenement',
-    },
-    'tp3k3r4y': {
-      'en': 'Have you changed your mind?',
-      'fa': 'نظرت عوض شده؟',
-      'nl': 'Ben je van gedachten veranderd?',
-    },
-    'xpe981q9': {
-      'en':
-          'You are currently a participant in this event. Please confirm if your plans changed. ',
-      'fa':
-          'شما در حال حاضر در این رویداد شرکت می‌کنید. لطفاً در صورت تغییر برنامه‌هایتان، تأیید کنید.',
-      'nl':
-          'U bent momenteel deelnemer aan dit evenement. Controleer of uw plannen zijn gewijzigd.',
-    },
-    'c6ztjxng': {
-      'en': 'Cencel',
-      'fa': 'سنسل',
-      'nl': 'Cencel',
-    },
-    'h7bvgbn3': {
-      'en': 'Confirm',
-      'fa': 'تأیید',
-      'nl': 'Bevestigen',
-    },
-    '7akfjv6a': {
-      'en': 'Hide your profile image',
-      'fa': 'تصویر پروفایل خود را مخفی کنید',
-      'nl': 'Verberg je profielafbeelding',
-    },
-    '6g2h5fom': {
-      'en': 'REVIEWS',
-      'fa': 'نقد و بررسی‌ها',
-      'nl': 'RECENSIES',
-    },
-    'onhh13rd': {
       'en': 'Home',
       'fa': 'خانه',
       'nl': 'Thuis',
@@ -5209,13 +4987,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '34uhaw3r': {
       'en': 'Allow users to share my posts.',
-      'fa': 'به کاربران اجازه دهید به من پیام بدهند.',
-      'nl': 'Gebruikers toestaan mij een bericht te sturen.',
+      'fa': 'به کاربران اجازه دهید پست‌های من را به اشتراک بگذارند.',
+      'nl': 'Gebruikers toestaan mijn berichten te delen.',
     },
     'yz5gspss': {
       'en': 'Agreed to the terms and privicy policy.',
-      'fa': 'به کاربران اجازه دهید به من پیام بدهند.',
-      'nl': 'Gebruikers toestaan mij een bericht te sturen.',
+      'fa': 'با شرایط و سیاست حفظ حریم خصوصی موافقت شد.',
+      'nl': 'Ik ga akkoord met de voorwaarden en het privacybeleid.',
     },
     'niqgbb33': {
       'en': 'Save ',
@@ -5457,7 +5235,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '5mk22mkm': {
       'en': 'Compensation',
-      'fa': 'جبران خسارت',
+      'fa': 'پاداش (اختیاری)',
       'nl': 'Compensatie',
     },
     'x07hv8wo': {
@@ -5477,7 +5255,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'q24c609n': {
       'en': 'Compensation',
-      'fa': 'پاداش',
+      'fa': 'جبران محبت (اختیاری)',
       'nl': 'Compensatie',
     },
     'ynw1y4y4': {
@@ -5514,6 +5292,56 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Is document?',
       'fa': 'سند است؟',
       'nl': 'Is het document?',
+    },
+    'en3o4uoi': {
+      'en': 'Is fragile?',
+      'fa': 'شکستنی است؟',
+      'nl': 'Is kwetsbaar?',
+    },
+    '2awv7gk8': {
+      'en': 'Dimensions:',
+      'fa': 'ابعاد:',
+      'nl': 'Afmetingen:',
+    },
+    'flfcnj2p': {
+      'en': 'Small (Fits Shoe Box)',
+      'fa': 'کوچک (اندازه جعبه کفش)',
+      'nl': 'Klein (past in schoenendoos)',
+    },
+    'wp0atsfe': {
+      'en': 'Medium (Carry-on size)',
+      'fa': 'متوسط (کابین سایز)',
+      'nl': 'Medium (handbagage)',
+    },
+    'coqh7coj': {
+      'en': 'Large (Check-in Luggage)',
+      'fa': 'بزرگ (چمدان تحویلی)',
+      'nl': 'Groot (incheckbagage)',
+    },
+    '3sz5rb3m': {
+      'en': 'Weight:',
+      'fa': 'وزن:',
+      'nl': 'Gewicht:',
+    },
+    '875r75iq': {
+      'en': 'Below 1 kg',
+      'fa': 'زیر ۱ کیلو',
+      'nl': 'Onder 1 kg',
+    },
+    '0ykdye2d': {
+      'en': '1 to 3 kg',
+      'fa': '۱ تا ۳ کیلو',
+      'nl': '1 tot 3 kg',
+    },
+    '7kln8f15': {
+      'en': '3 to 5 kg',
+      'fa': '۳ تا ۵ کیلو',
+      'nl': '3 tot 5 kg',
+    },
+    'f9eknq20': {
+      'en': 'Above 10 kg',
+      'fa': '۵ تا ۱۰ کیلو',
+      'nl': '5 tot 10 kg',
     },
     'wquddr4w': {
       'en': 'Next',
@@ -5792,7 +5620,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': '',
       'nl': '',
     },
-    'o6zckn6f': {
+    'g3n1ma1t': {
       'en': 'Hello World',
       'fa': '',
       'nl': '',
@@ -5882,6 +5710,297 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Bevestigen',
     },
     'g0htcucn': {
+      'en': 'Home',
+      'fa': 'خانه',
+      'nl': 'Thuis',
+    },
+  },
+  // PostEn
+  {
+    'h7kcos98': {
+      'en': 'PARTICIPANTS',
+      'fa': 'شرکت‌کنندگان',
+      'nl': 'DEELNEMERS',
+    },
+    'y2u4u1pq': {
+      'en': 'People who are going to this event.',
+      'fa': 'افرادی که قرار است در این مراسم شرکت کنند.',
+      'nl': 'Mensen die naar dit evenement gaan.',
+    },
+    '7736op9e': {
+      'en': 'Join Event',
+      'fa': 'شرکت در رویداد',
+      'nl': 'Deelnemen',
+    },
+    'svl0vrf6': {
+      'en': 'Participating this event? ',
+      'fa': 'شرکت در این رویداد؟',
+      'nl': 'Neemt u deel aan dit evenement?',
+    },
+    'fhfeek0q': {
+      'en': 'Please confirm if you\'d like to join this event!',
+      'fa': 'لطفاً تأیید کنید که آیا مایل به شرکت در این رویداد هستید یا خیر!',
+      'nl': 'Bevestig of je aan dit evenement wilt deelnemen!',
+    },
+    'mhimjjt0': {
+      'en': 'Cancel',
+      'fa': 'لغو',
+      'nl': 'Annuleren',
+    },
+    'zcd95z5z': {
+      'en': 'Confirm',
+      'fa': 'تأیید',
+      'nl': 'Bevestigen',
+    },
+    '43kvoi9x': {
+      'en': 'Leave Event',
+      'fa': 'ترک رویداد',
+      'nl': 'Verlaat evenement',
+    },
+    'gup7wrvf': {
+      'en': 'Have you changed your mind?',
+      'fa': 'نظرت عوض شده؟',
+      'nl': 'Ben je van gedachten veranderd?',
+    },
+    'ogr98rn3': {
+      'en':
+          'You are currently a participant in this event. Please confirm if your plans changed. ',
+      'fa':
+          'شما در حال حاضر در این رویداد شرکت می‌کنید. لطفاً در صورت تغییر برنامه‌هایتان، تأیید کنید.',
+      'nl':
+          'U bent momenteel deelnemer aan dit evenement. Controleer of uw plannen zijn gewijzigd.',
+    },
+    '2hb08i9g': {
+      'en': 'Cencel',
+      'fa': 'سنسل',
+      'nl': 'Cencel',
+    },
+    'xph0ye1c': {
+      'en': 'Confirm',
+      'fa': 'تأیید',
+      'nl': 'Bevestigen',
+    },
+    '6y032xo5': {
+      'en': 'Hide your profile image',
+      'fa': 'تصویر پروفایل خود را مخفی کنید',
+      'nl': 'Verberg je profielafbeelding',
+    },
+    'al4zq5em': {
+      'en': 'REVIEWS',
+      'fa': 'نقد و بررسی‌ها',
+      'nl': 'RECENSIES',
+    },
+    'k7ur9txh': {
+      'en': 'Home',
+      'fa': 'خانه',
+      'nl': 'Thuis',
+    },
+  },
+  // PostFa
+  {
+    '3soiowwq': {
+      'en': 'PARTICIPANTS',
+      'fa': 'شرکت‌کنندگان',
+      'nl': 'DEELNEMERS',
+    },
+    '5tnx80uw': {
+      'en': 'People who are going to this event.',
+      'fa': 'افرادی که قرار است در این مراسم شرکت کنند.',
+      'nl': 'Mensen die naar dit evenement gaan.',
+    },
+    'owhx5jkc': {
+      'en': 'Join Event',
+      'fa': 'شرکت در رویداد',
+      'nl': 'Deelnemen',
+    },
+    'xx8qp86l': {
+      'en': 'Participating this event? ',
+      'fa': 'شرکت در این رویداد؟',
+      'nl': 'Neemt u deel aan dit evenement?',
+    },
+    '4grhweks': {
+      'en': 'Please confirm if you\'d like to join this event!',
+      'fa': 'لطفاً تأیید کنید که آیا مایل به شرکت در این رویداد هستید یا خیر!',
+      'nl': 'Bevestig of je aan dit evenement wilt deelnemen!',
+    },
+    '4hnoq098': {
+      'en': 'Cancel',
+      'fa': 'لغو',
+      'nl': 'Annuleren',
+    },
+    'k43nhob0': {
+      'en': 'Confirm',
+      'fa': 'تأیید',
+      'nl': 'Bevestigen',
+    },
+    'dpuynhm9': {
+      'en': 'Leave Event',
+      'fa': 'ترک رویداد',
+      'nl': 'Verlaat evenement',
+    },
+    'rjvk5gez': {
+      'en': 'Have you changed your mind?',
+      'fa': 'نظرت عوض شده؟',
+      'nl': 'Ben je van gedachten veranderd?',
+    },
+    'g9aw80nt': {
+      'en':
+          'You are currently a participant in this event. Please confirm if your plans changed. ',
+      'fa':
+          'شما در حال حاضر در این رویداد شرکت می‌کنید. لطفاً در صورت تغییر برنامه‌هایتان، تأیید کنید.',
+      'nl':
+          'U bent momenteel deelnemer aan dit evenement. Controleer of uw plannen zijn gewijzigd.',
+    },
+    'cxemha4q': {
+      'en': 'Cencel',
+      'fa': 'سنسل',
+      'nl': 'Cencel',
+    },
+    '7fo5fbpg': {
+      'en': 'Confirm',
+      'fa': 'تأیید',
+      'nl': 'Bevestigen',
+    },
+    'c79y73jq': {
+      'en': 'Hide your profile image',
+      'fa': 'تصویر پروفایل خود را مخفی کنید',
+      'nl': 'Verberg je profielafbeelding',
+    },
+    '0p7g3nq1': {
+      'en': 'REVIEWS',
+      'fa': 'نقد و بررسی‌ها',
+      'nl': 'RECENSIES',
+    },
+    't0fw7rag': {
+      'en': 'Home',
+      'fa': 'خانه',
+      'nl': 'Thuis',
+    },
+  },
+  // PostNL
+  {
+    'r65katy0': {
+      'en': 'PARTICIPANTS',
+      'fa': 'شرکت‌کنندگان',
+      'nl': 'DEELNEMERS',
+    },
+    'pa21u83g': {
+      'en': 'People who are going to this event.',
+      'fa': 'افرادی که قرار است در این مراسم شرکت کنند.',
+      'nl': 'Mensen die naar dit evenement gaan.',
+    },
+    'zjrf4zde': {
+      'en': 'Join Event',
+      'fa': 'شرکت در رویداد',
+      'nl': 'Deelnemen',
+    },
+    'f9icfbpg': {
+      'en': 'Participating this event? ',
+      'fa': 'شرکت در این رویداد؟',
+      'nl': 'Neemt u deel aan dit evenement?',
+    },
+    '1eox3zaq': {
+      'en': 'Please confirm if you\'d like to join this event!',
+      'fa': 'لطفاً تأیید کنید که آیا مایل به شرکت در این رویداد هستید یا خیر!',
+      'nl': 'Bevestig of je aan dit evenement wilt deelnemen!',
+    },
+    's4l1854j': {
+      'en': 'Cancel',
+      'fa': 'لغو',
+      'nl': 'Annuleren',
+    },
+    'ebwexf78': {
+      'en': 'Confirm',
+      'fa': 'تأیید',
+      'nl': 'Bevestigen',
+    },
+    '633uwuwk': {
+      'en': 'Leave Event',
+      'fa': 'ترک رویداد',
+      'nl': 'Verlaat evenement',
+    },
+    '2xg817w9': {
+      'en': 'Have you changed your mind?',
+      'fa': 'نظرت عوض شده؟',
+      'nl': 'Ben je van gedachten veranderd?',
+    },
+    'ccf05fs5': {
+      'en':
+          'You are currently a participant in this event. Please confirm if your plans changed. ',
+      'fa':
+          'شما در حال حاضر در این رویداد شرکت می‌کنید. لطفاً در صورت تغییر برنامه‌هایتان، تأیید کنید.',
+      'nl':
+          'U bent momenteel deelnemer aan dit evenement. Controleer of uw plannen zijn gewijzigd.',
+    },
+    '87mbi1yj': {
+      'en': 'Cencel',
+      'fa': 'سنسل',
+      'nl': 'Cencel',
+    },
+    'cnfstlwt': {
+      'en': 'Confirm',
+      'fa': 'تأیید',
+      'nl': 'Bevestigen',
+    },
+    '8quh1kln': {
+      'en': 'Hide your profile image',
+      'fa': 'تصویر پروفایل خود را مخفی کنید',
+      'nl': 'Verberg je profielafbeelding',
+    },
+    '2trxbrdv': {
+      'en': 'REVIEWS',
+      'fa': 'نقد و بررسی‌ها',
+      'nl': 'RECENSIES',
+    },
+    '7ksglak5': {
+      'en': 'Home',
+      'fa': 'خانه',
+      'nl': 'Thuis',
+    },
+  },
+  // PostEditCopy
+  {
+    'ovtgnl4q': {
+      'en': 'Value hint ',
+      'fa': 'اشاره به ارزش',
+      'nl': 'Waarde hint',
+    },
+    'llg0qarw': {
+      'en': '(check here)',
+      'fa': '(اینجا را بررسی کنید)',
+      'nl': '(controleer hier)',
+    },
+    'erbd88qf': {
+      'en': 'Value hint',
+      'fa': 'اشاره به ارزش',
+      'nl': 'Waarde hint',
+    },
+    'qskiuc4u': {
+      'en': 'DESCRIPTION',
+      'fa': 'شرح',
+      'nl': 'BESCHRIJVING',
+    },
+    't5fq299l': {
+      'en': 'your review score',
+      'fa': 'امتیاز بررسی شما',
+      'nl': 'uw beoordelingsscore',
+    },
+    'ugwj64qf': {
+      'en': 'MY EXCHANGE WISH',
+      'fa': 'آرزوی تبادل من',
+      'nl': 'MIJN RUILVENSWENS',
+    },
+    'x0fmfdy4': {
+      'en': 'Delete',
+      'fa': 'حذف',
+      'nl': 'Verwijderen',
+    },
+    'gqu2a4do': {
+      'en': 'Update',
+      'fa': 'به‌روزرسانی',
+      'nl': 'Update',
+    },
+    'tze8fje6': {
       'en': 'Home',
       'fa': 'خانه',
       'nl': 'Thuis',
@@ -7047,37 +7166,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl':
           'Als je een evenement aankondigt, deel je alleen informatie over een bestaand evenement.',
     },
-    'v1zbkq39': {
-      'en': 'Swap or borrow?',
-      'fa': 'معاوضه یا قرض؟',
-      'nl': 'Ruilen of lenen?',
-    },
-    'fu0g78xq': {
-      'en':
-          'You’re creating a post where you can either borrow an item or swap yours with others.',
-      'fa':
-          'شما در حال ایجاد پستی هستید که در آن می‌توانید یک کالا را قرض بگیرید یا کالای خود را با کالای دیگران عوض کنید.',
-      'nl':
-          'Je maakt een bericht aan waarbij je een item kunt lenen of ruilen met iemand anders.',
-    },
-    'n02s0m8k': {
-      'en':
-          'Swapping is permanent — both users exchange and keep the items.\nBorrowing is temporary — you return the item after use.',
-      'fa':
-          'مبادله دائمی است - هم کاربران اقلام را مبادله می‌کنند و هم آنها را نگه می‌دارند.\n\nقرض گرفتن موقتی است - شما پس از استفاده، کالا را برمی‌گردانید.\n\nگزینه‌ای را انتخاب کنید که به بهترین وجه با پست شما مطابقت دارد.',
-      'nl':
-          'Ruilen is permanent: beide gebruikers ruilen en houden de items.\nLenen is tijdelijk: je retourneert het item na gebruik.\nKies de optie die het beste bij je bericht past.',
-    },
-    'oghcb65w': {
-      'en': 'Swap',
-      'fa': 'مبادله کالا به کالا',
-      'nl': 'Ruil',
-    },
-    'c0tmqy20': {
-      'en': 'Borrow',
-      'fa': 'درخواست امانت',
-      'nl': 'Lenen',
-    },
     'm7sd9g39': {
       'en': 'Buying or selling?',
       'fa': 'خرید یا فروش؟',
@@ -7110,35 +7198,192 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Verkoopverzoek',
     },
     'aro253vy': {
+      'en': 'Swap or Borrow?',
+      'fa': 'مبادله یا درخواست امانتی؟',
+      'nl': 'Ruilen of lenen?',
+    },
+    'ucg59vkw': {
+      'en': 'Swap items or borrow them. Choose what you need.',
+      'fa':
+          'می‌توانید وسایل را معاوضه کنید یا قرض بگیرید. گزینه مناسب را انتخاب کنید.',
+      'nl': 'Ruil items of leen ze. Kies wat je nodig hebt.',
+    },
+    '9pfxl1r8': {
+      'en': 'Swap Request',
+      'fa': 'درخواست سوآپ',
+      'nl': 'Ruilverzoek',
+    },
+    'h1uwpunn': {
+      'en':
+          'If you have things you don’t use—books, clothes, tools, home items—you can swap them for something you actually need. It’s fun, sustainable, and saves money.',
+      'fa':
+          'اگر وسایلی دارید که دیگر استفاده نمی‌کنید—کتاب، لباس، ابزار، یا وسایل خانه—می‌توانید آن‌ها را با چیزهایی که نیاز دارید معاوضه کنید. هم جذاب است، هم اقتصادی و هم سازگار با محیط‌زیست.',
+      'nl':
+          'Heb je spullen die je niet meer gebruikt—boeken, kleding, gereedschap, of huishoudelijke items? Ruil ze voor iets dat je wél nodig hebt. Leuk, duurzaam en kostenbesparend.',
+    },
+    'vkzuu1uf': {
+      'en': 'Borrow Request',
+      'fa': 'درخواست امانت',
+      'nl': 'Leenaanvraag',
+    },
+    'm6ugg9ka': {
+      'en':
+          'If you only need something temporarily—like a drill, suitcase, heater, or a book—you can request to borrow it instead of buying new. Someone nearby may be happy to share.',
+      'fa':
+          'اگر فقط برای مدت کوتاهی چیزی لازم دارید—مثل دریل، چمدان، بخاری یا یک کتاب—می‌توانید درخواست قرض بگذارید. معمولاً کسی هست که با خوشحالی آن را به اشتراک بگذارد.',
+      'nl':
+          'Heb je iets maar voor even nodig—zoals een boormachine, koffer, kachel of boek? Plaats een leenverzoek. Vaak wil iemand in de buurt het graag delen.',
+    },
+    '8ddqfevw': {
       'en': 'Offer or request?',
       'fa': 'پیشنهاد یا درخواست؟',
       'nl': 'Aanbod of verzoek?',
     },
-    'ucg59vkw': {
+    'm08mwdqw': {
       'en':
-          'You’re creating a post where you can either offer something or request it. Please select what fits your post the best.',
+          'Offer to carry a parcel or request someone to bring yours. Choose what you need.',
       'fa':
-          'شما در حال ایجاد پستی هستید که می‌توانید در آن چیزی را پیشنهاد دهید یا درخواست کنید. لطفاً موردی را انتخاب کنید که به بهترین شکل با پست شما مطابقت دارد.',
+          'یا جا برای حمل بار دارید، یا می‌خواهید کسی بسته‌تان را بیاورد. گزینه مناسب را انتخاب کنید.',
       'nl':
-          'Je maakt een bericht waarin je iets kunt aanbieden of vragen. Selecteer wat het beste bij je bericht past.',
+          'Bied aan om een pakket mee te nemen of vraag iemand jouw pakket te brengen. Kies wat je nodig hebt.',
     },
-    'diav5wh0': {
+    'wm227gps': {
+      'en': 'Offer Transfer',
+      'fa': ' پیشنهاد حمل بار',
+      'nl': 'Aanbod Overdracht',
+    },
+    'iq8b44u5': {
       'en':
-          'For example, you can offer your place for rent or request to rent one.',
+          'If you’re travelling and have extra luggage space, you can offer to carry someone’s parcel (free or paid).',
       'fa':
-          'برای مثال، می‌توانید محل خود را برای اجاره ارائه دهید یا درخواست اجاره آن را بدهید.',
+          'اگر در سفر جا دارید، می‌توانید حمل بسته‌ی دیگران را پیشنهاد دهید (رایگان یا با هزینه).',
       'nl':
-          'Je kunt bijvoorbeeld je woning te huur aanbieden of een verzoek indienen om er een te huren.',
+          'Als je reist en extra ruimte hebt, kun je aanbieden een pakket mee te nemen (gratis of tegen betaling).',
     },
-    't9ijpf65': {
-      'en': 'Offer',
-      'fa': 'پیشنهاد',
-      'nl': 'Aanbod',
+    'tdg171hr': {
+      'en': 'Request Transfer',
+      'fa': 'درخواست  حمل بار',
+      'nl': 'Verzoek om overdracht',
     },
-    '8mi4iw5s': {
-      'en': 'Request',
-      'fa': 'درخواست',
-      'nl': 'Verzoek',
+    'k77wbpot': {
+      'en':
+          'If you need someone to bring your parcel from another city or country, you can request it (they may do it free or for a fee).',
+      'fa':
+          'اگر می‌خواهید کسی بسته‌تان را از شهری یا کشوری دیگر بیاورد، می‌توانید درخواست بگذارید (ممکن است رایگان یا با هزینه باشد).',
+      'nl':
+          'Als je iemand nodig hebt om jouw pakket uit een andere stad of land mee te nemen, kun je een verzoek plaatsen (gratis of tegen vergoeding).',
+    },
+    '1aooss4m': {
+      'en': 'Offer or request?',
+      'fa': 'پیشنهاد یا درخواست؟',
+      'nl': 'Aanbod of verzoek?',
+    },
+    'ndrnheb5': {
+      'en':
+          'Offer help (as volunteer) or request support. Choose what you need.',
+      'fa':
+          'شما می‌توانید داوطلب ارائه کمک شوید یا درخواست کمک کنید. گزینه مناسب را انتخاب کنید.',
+      'nl': 'Bied hulp aan of vraag om ondersteuning. Kies wat je nodig hebt.',
+    },
+    't0dr4r39': {
+      'en': 'Offer Help',
+      'fa': 'پیشنهاد کمک',
+      'nl': 'Hulp aanbieden',
+    },
+    'ufz6eh50': {
+      'en':
+          'If you have time to help—like daily tasks, elderly care, newcomer support, or companionship—you can offer assistance (volunteer).',
+      'fa':
+          'اگر وقت دارید در کارهایی مثل امور روزمره، مراقبت از سالمند، کمک به تازه‌واردها یا همراهی کمک کنید، می‌توانید کمک خود را پیشنهاد دهید (داوطلبانه).',
+      'nl':
+          'Als je tijd hebt om te helpen—zoals dagelijkse taken, ouderenzorg, ondersteuning van nieuwkomers of gezelschap—kun je jouw hulp aanbieden (vrijwillig).',
+    },
+    'muizxt8j': {
+      'en': 'Request Help',
+      'fa': 'درخواست کمک',
+      'nl': 'Hulp aanvragen',
+    },
+    '36ruc8te': {
+      'en':
+          'If you need support with anything, you can request help from community members (free).',
+      'fa':
+          'اگر در هر موردی به پشتیبانی نیاز دارید، می‌توانید از اعضای گروه (رایگان) درخواست کمک کنید.',
+      'nl':
+          'Als u ergens ondersteuning bij nodig hebt, kunt u gratis om hulp vragen bij de communityleden.',
+    },
+    'mnl4jxcy': {
+      'en': 'Offer or request?',
+      'fa': 'پیشنهاد یا درخواست؟',
+      'nl': 'Aanbod of verzoek?',
+    },
+    'rirenr5j': {
+      'en': 'Offer a place for rent or request one. Choose what you need.',
+      'fa':
+          'می‌توانید یک مکان را برای اجاره بگذارید یا درخواست اجاره کنید. گزینه مناسب را انتخاب کنید.',
+      'nl': 'Bied een huurplek aan of vraag er één. Kies wat je nodig hebt.',
+    },
+    'axyp5zr2': {
+      'en': 'Rental Offer',
+      'fa': 'پیشنهاد اجاره',
+      'nl': 'Huuraanbieding',
+    },
+    'ev9qliyl': {
+      'en':
+          'If you have something to rent out—like an apartment, room, studio, parking spot, or storage—you can offer it for short-term, long-term, or sublet.',
+      'fa':
+          'اگر چیزی برای اجاره دارید - مانند آپارتمان، اتاق، استودیو، پارکینگ یا انبار - می‌توانید آن را برای کوتاه‌مدت، بلندمدت یا اجاره فرعی ارائه دهید.',
+      'nl':
+          'Als u iets te verhuren heeft, zoals een appartement, kamer, studio, parkeerplaats of opslagruimte, kunt u dit voor korte of lange termijn aanbieden, of onderverhuren.',
+    },
+    '3opc2xmk': {
+      'en': 'Rental Request',
+      'fa': 'درخواست اجاره',
+      'nl': 'Huuraanvraag',
+    },
+    'd1vm1ovv': {
+      'en':
+          'If you’re looking to rent—whether a room, apartment, vacation stay, or a small storage space—you can request a rental that fits your need.',
+      'fa':
+          'اگر دنبال اجاره هستید—چه اتاق، آپارتمان، اقامت کوتاه‌مدت یا حتی یک فضای کوچک برای انبار—می‌توانید درخواست اجاره بگذارید.',
+      'nl':
+          'Als je iets wilt huren—bijvoorbeeld een kamer, appartement, vakantieverblijf of een kleine opslagruimte—kun je een huurverzoek plaatsen.',
+    },
+    'bs7jlax1': {
+      'en': 'Offer or request?',
+      'fa': 'پیشنهاد یا درخواست؟',
+      'nl': 'Aanbod of verzoek?',
+    },
+    'u2idimt5': {
+      'en': 'Offer your ticket or request one. Choose what you need.',
+      'fa':
+          'می‌توانید بلیت‌تان را برای فروش ارائه دهید یا درخواست بلیت کنید. گزینه مناسب را انتخاب کنید.',
+      'nl': 'Bied je ticket aan of vraag er een aan. Kies wat je nodig hebt.',
+    },
+    '3qefnafa': {
+      'en': 'Offer Ticket',
+      'fa': 'پیشنهاد فروش بلیط ',
+      'nl': 'Aanbiedingsticket',
+    },
+    's1cuk5xl': {
+      'en':
+          'If you can’t attend an event anymore, you can offer your ticket—concerts, workshops, festivals, anything—so someone else can enjoy it.',
+      'fa':
+          'اگر دیگر نمی‌توانید در یک رویداد شرکت کنید، می‌توانید بلیت خود را برای دیگران بگذارید—کنسرت، ورکشاپ، فستیوال یا هر رویداد دیگر—تا شخص دیگری از آن لذت ببرد.',
+      'nl':
+          'Kun je niet meer naar een evenement? Bied je ticket aan—voor concerten, workshops, festivals, noem maar op—en maak iemand anders blij.',
+    },
+    'mfecrevr': {
+      'en': 'Request Ticket',
+      'fa': 'درخواست  خرید یا معاوضه بلیط ',
+      'nl': 'Ticket aanvragen',
+    },
+    'qjiypnee': {
+      'en':
+          'If you’re looking for a ticket to an event you want to join, you can request one—maybe someone has an extra or can’t go and will pass it on.',
+      'fa':
+          'اگر به‌دنبال بلیت رویدادی هستید که دوست دارید شرکت کنید، می‌توانید درخواست بگذارید—شاید کسی بلیت اضافی دارد یا نمی‌تواند برود.',
+      'nl':
+          'Zoek je een ticket voor een evenement waar je graag heen wilt? Plaats een verzoek—misschien heeft iemand een extra ticket of kan die niet meer gaan.',
     },
   },
   // PostDetailColumn
@@ -7165,7 +7410,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '2abmumu6': {
       'en': 'Rates',
-      'fa': 'نرخ‌ها',
+      'fa': 'کارمزد',
       'nl': 'Tarieven',
     },
     'tutw2z0k': {
@@ -7190,7 +7435,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'vs0wrubx': {
       'en': 'Deadline',
-      'fa': 'مهلت',
+      'fa': 'آخرین مهلت',
       'nl': 'Termijn',
     },
     '5pr104m5': {
@@ -7253,11 +7498,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'تاریخ سفر',
       'nl': 'Reisdatum',
     },
-    '8e4hmye0': {
-      'en': 'Parcel type',
-      'fa': 'نوع بسته',
-      'nl': 'Pakkettype',
-    },
     'z9jxcuqb': {
       'en': 'Parcel weight',
       'fa': 'وزن بسته',
@@ -7270,7 +7510,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'y4pdtbn3': {
       'en': 'Compensation method',
-      'fa': 'روش جبران خسارت',
+      'fa': 'روش جبران',
       'nl': 'Compensatiemethode',
     },
     '5cq1nnvu': {
@@ -7410,13 +7650,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'pp5bzjck': {
       'en': 'Event Capacity:',
-      'fa': 'امکان ثبت‌نام',
-      'nl': 'Registratie',
+      'fa': 'ظرفیت رویداد:',
+      'nl': 'Evenementcapaciteit:',
     },
     '64flubdh': {
       'en': 'Poeple Going:',
-      'fa': 'مبله',
-      'nl': 'Gemeubileerd',
+      'fa': ' شرکت کنندگان',
+      'nl': 'Mensen die gaan:',
     },
     'vngxcz6a': {
       'en': 'DESCRIPTION',
@@ -7493,15 +7733,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'روش تحویل',
       'nl': 'Leveringsmethode',
     },
-    'y5gc36xo': {
-      'en': 'Condition',
-      'fa': 'وضعیت کالا',
-      'nl': 'Voorwaarde',
-    },
     'v1s94yxn': {
       'en': 'Compensation',
       'fa': 'نحوه جبران',
       'nl': 'Compensatie',
+    },
+    '9xki1jrr': {
+      'en': 'Allows cash adjustment',
+      'fa': 'امکان تسویه نقدی',
+      'nl': 'Contante bijbetaling?',
     },
     'esf51foj': {
       'en': 'DESCRIPTION',
@@ -7545,13 +7785,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'p77qnt5a': {
       'en': 'Total Area',
-      'fa': 'نوع اجاره',
-      'nl': 'Huurtype',
+      'fa': 'مساحت کل',
+      'nl': 'Totale oppervlakte',
     },
     'kkl3a877': {
       'en': 'Deposit',
-      'fa': 'وضعیت کالا',
-      'nl': 'Voorwaarde',
+      'fa': 'پیش پرداخت',
+      'nl': 'Borg',
     },
     'kjtooik0': {
       'en': 'Asking Price',
@@ -7565,7 +7805,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'w5q2qoh9': {
       'en': 'Registration',
-      'fa': 'امکان ثبت‌نام',
+      'fa': 'امکان رجیستر',
       'nl': 'Registratie',
     },
     'eekiynt0': {
@@ -7575,7 +7815,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'wpdl6xsl': {
       'en': 'Incl. Utilities',
-      'fa': 'شامل هزینه‌ها',
+      'fa': 'شامل هزینه شارژ',
       'nl': 'Inclusief kosten',
     },
     '114p6pc4': {

@@ -1,6 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/shared_components/item_card_horizontal_2/item_card_horizontal2_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
 import '/index.dart';
 import 'dart:async';
@@ -71,6 +72,9 @@ class SearchPageModel extends FlutterFlowModel<SearchPageWidget> {
   PagingController<ApiPagingParams, dynamic>? listViewSearchPagingController;
   Function(ApiPagingParams nextPageMarker)? listViewSearchApiCall;
 
+  // Models for ItemCard_Horizontal_2 dynamic component.
+  late FlutterFlowDynamicModels<ItemCardHorizontal2Model>
+      itemCardHorizontal2Models;
   // Model for NavBar component.
   late NavBarModel navBarModel;
   // State field(s) for searchwidget widget.
@@ -88,12 +92,15 @@ class SearchPageModel extends FlutterFlowModel<SearchPageWidget> {
 
   @override
   void initState(BuildContext context) {
+    itemCardHorizontal2Models =
+        FlutterFlowDynamicModels(() => ItemCardHorizontal2Model());
     navBarModel = createModel(context, () => NavBarModel());
   }
 
   @override
   void dispose() {
     listViewSearchPagingController?.dispose();
+    itemCardHorizontal2Models.dispose();
     navBarModel.dispose();
     searchwidgetFocusNode?.dispose();
 

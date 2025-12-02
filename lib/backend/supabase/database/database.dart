@@ -53,6 +53,7 @@ export 'tables/post_like_relation.dart';
 export 'tables/user_roles.dart';
 export 'tables/view_event_attendees.dart';
 export 'tables/view_user_posts.dart';
+export 'tables/contact_yekja_archive.dart';
 export 'tables/cities.dart';
 export 'tables/view_shoutout.dart';
 export 'tables/messages.dart';

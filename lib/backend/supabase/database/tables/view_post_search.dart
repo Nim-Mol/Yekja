@@ -108,6 +108,9 @@ class ViewPostSearchRow extends SupabaseDataRow {
   bool? get showSocialmedia => getField<bool>('show_socialmedia');
   set showSocialmedia(bool? value) => setField<bool>('show_socialmedia', value);
 
+  bool? get allowSharePost => getField<bool>('allow_share_post');
+  set allowSharePost(bool? value) => setField<bool>('allow_share_post', value);
+
   bool? get allowMessage => getField<bool>('allow_message');
   set allowMessage(bool? value) => setField<bool>('allow_message', value);
 

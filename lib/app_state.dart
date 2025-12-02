@@ -602,6 +602,12 @@ class FFAppState extends ChangeNotifier {
   set isGoingEvent(bool value) {
     _isGoingEvent = value;
   }
+
+  dynamic _postDetailLabel;
+  dynamic get postDetailLabel => _postDetailLabel;
+  set postDetailLabel(dynamic value) {
+    _postDetailLabel = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

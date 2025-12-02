@@ -140,11 +140,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                     alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       decoration: BoxDecoration(
-                                        color: valueOrDefault<Color>(
-                                          widget.itemData?.fillColor,
-                                          FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                        ),
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
                                         borderRadius:
                                             BorderRadius.circular(4.0),
                                       ),
@@ -165,6 +162,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                                         .bodySmallFamily,
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
+                                                fontWeight: FontWeight.normal,
                                                 useGoogleFonts:
                                                     !FlutterFlowTheme.of(
                                                             context)
@@ -379,7 +377,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 ),
                                 Text(
                                   getJsonField(
-                                    widget.details,
+                                    widget.detailLabels,
                                     r'''$.experience_years''',
                                   ).toString(),
                                   style: FlutterFlowTheme.of(context)
@@ -477,7 +475,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                             ),
                           ),
                         if (!functions.isNullSingleString(getJsonField(
-                          widget.detailLabels,
+                          widget.details,
                           r'''$.languages''',
                         ).toString()))
                           Align(
@@ -758,11 +756,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: valueOrDefault<Color>(
-                                      widget.itemData?.fillColor,
-                                      FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
                                     borderRadius: BorderRadius.circular(4.0),
                                   ),
                                   child: Padding(
@@ -1320,11 +1315,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: valueOrDefault<Color>(
-                                      widget.itemData?.fillColor,
-                                      FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
                                     borderRadius: BorderRadius.circular(4.0),
                                   ),
                                   child: Padding(
@@ -1927,82 +1919,6 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 FlutterFlowIconButton(
                                   borderRadius: 8.0,
                                   buttonSize: 30.0,
-                                  fillColor: Color(0xA2C850F2),
-                                  icon: Icon(
-                                    Icons.title_sharp,
-                                    color: FlutterFlowTheme.of(context).info,
-                                    size: 16.0,
-                                  ),
-                                  onPressed: () {
-                                    print('IconButton pressed ...');
-                                  },
-                                ),
-                                Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      '8e4hmye0' /* Parcel type */,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmallFamily,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          fontSize: 14.0,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts:
-                                              !FlutterFlowTheme.of(context)
-                                                  .bodySmallIsCustom,
-                                        ),
-                                  ),
-                                ),
-                              ].divide(SizedBox(width: 8.0)),
-                            ),
-                            Text(
-                              getJsonField(
-                                widget.details,
-                                r'''$.is_document''',
-                              )
-                                  ? 'Parcel'
-                                  : 'Document',
-                              style: FlutterFlowTheme.of(context)
-                                  .labelSmall
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .labelSmallFamily,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    fontSize: 14.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w500,
-                                    useGoogleFonts:
-                                        !FlutterFlowTheme.of(context)
-                                            .labelSmallIsCustom,
-                                  ),
-                            ),
-                          ].divide(SizedBox(width: 8.0)),
-                        ),
-                      ),
-                    if (!functions.isNullSingleString(getJsonField(
-                      widget.detailLabels,
-                      r'''$.weight_kg''',
-                    ).toString()))
-                      Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                FlutterFlowIconButton(
-                                  borderRadius: 8.0,
-                                  buttonSize: 30.0,
                                   fillColor: Color(0x69C850F2),
                                   icon: FaIcon(
                                     FontAwesomeIcons.weight,
@@ -2225,13 +2141,13 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          if (!functions.isNullSingleString(getJsonField(
+                          if (getJsonField(
                             widget.details,
-                            r'''$.weight_kg''',
-                          ).toString()))
+                            r'''$.is_fragile''',
+                          ))
                             Container(
                               decoration: BoxDecoration(
-                                color: Color(0xFF3D3C3C),
+                                color: FlutterFlowTheme.of(context).tertiary,
                                 borderRadius: BorderRadius.circular(4.0),
                                 border: Border.all(
                                   color: FlutterFlowTheme.of(context)
@@ -2283,7 +2199,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                           ))
                             Container(
                               decoration: BoxDecoration(
-                                color: Color(0xFF3D3C3C),
+                                color: FlutterFlowTheme.of(context).tertiary,
                                 borderRadius: BorderRadius.circular(4.0),
                                 border: Border.all(
                                   color: FlutterFlowTheme.of(context)
@@ -2335,7 +2251,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                           ))
                             Container(
                               decoration: BoxDecoration(
-                                color: Color(0xFF3D3C3C),
+                                color: FlutterFlowTheme.of(context).tertiary,
                                 borderRadius: BorderRadius.circular(4.0),
                                 border: Border.all(
                                   color: FlutterFlowTheme.of(context)
@@ -2526,11 +2442,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                     alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       decoration: BoxDecoration(
-                                        color: valueOrDefault<Color>(
-                                          widget.itemData?.fillColor,
-                                          FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                        ),
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
                                         borderRadius:
                                             BorderRadius.circular(4.0),
                                       ),
@@ -3051,7 +2964,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                     0.0, 8.0, 0.0, 0.0),
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: Color(0xFF3D3C3C),
+                                    color:
+                                        FlutterFlowTheme.of(context).tertiary,
                                     borderRadius: BorderRadius.circular(4.0),
                                     border: Border.all(
                                       color: FlutterFlowTheme.of(context)
@@ -3112,7 +3026,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                     0.0, 8.0, 0.0, 0.0),
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: Color(0xFF3D3C3C),
+                                    color:
+                                        FlutterFlowTheme.of(context).tertiary,
                                     borderRadius: BorderRadius.circular(4.0),
                                     border: Border.all(
                                       color: FlutterFlowTheme.of(context)
@@ -3369,11 +3284,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: valueOrDefault<Color>(
-                                      widget.itemData?.fillColor,
-                                      FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
                                     borderRadius: BorderRadius.circular(4.0),
                                   ),
                                   child: Padding(
@@ -4054,11 +3966,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: valueOrDefault<Color>(
-                                      widget.itemData?.fillColor,
-                                      FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
                                     borderRadius: BorderRadius.circular(4.0),
                                   ),
                                   child: Padding(
@@ -4727,7 +4636,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                     0.0, 8.0, 0.0, 0.0),
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: Color(0xFF3D3C3C),
+                                    color:
+                                        FlutterFlowTheme.of(context).tertiary,
                                     borderRadius: BorderRadius.circular(4.0),
                                     border: Border.all(
                                       color: FlutterFlowTheme.of(context)
@@ -4805,7 +4715,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                     0.0, 8.0, 0.0, 0.0),
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: Color(0xFF3D3C3C),
+                                    color:
+                                        FlutterFlowTheme.of(context).tertiary,
                                     borderRadius: BorderRadius.circular(4.0),
                                     border: Border.all(
                                       color: FlutterFlowTheme.of(context)
@@ -4819,7 +4730,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                     children: [
                                       Icon(
                                         Icons.check_circle_outline_sharp,
-                                        color: Color(0xFF0BEE33),
+                                        color:
+                                            FlutterFlowTheme.of(context).green1,
                                         size: 18.0,
                                       ),
                                       Padding(
@@ -5003,11 +4915,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: valueOrDefault<Color>(
-                                      widget.itemData?.fillColor,
-                                      FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
                                     borderRadius: BorderRadius.circular(4.0),
                                   ),
                                   child: Padding(
@@ -5563,11 +5472,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: valueOrDefault<Color>(
-                                      widget.itemData?.fillColor,
-                                      FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
                                     borderRadius: BorderRadius.circular(4.0),
                                   ),
                                   child: Padding(
@@ -6022,11 +5928,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: valueOrDefault<Color>(
-                                      widget.itemData?.fillColor,
-                                      FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
                                     borderRadius: BorderRadius.circular(4.0),
                                   ),
                                   child: Padding(
@@ -6185,7 +6088,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: Text(
                               getJsonField(
-                                widget.details,
+                                widget.detailLabels,
                                 r'''$.intend''',
                               ).toString(),
                               textAlign: TextAlign.center,
@@ -6425,7 +6328,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                               alignment: AlignmentDirectional(0.0, 0.0),
                               child: Text(
                                 getJsonField(
-                                  widget.details,
+                                  widget.detailLabels,
                                   r'''$.delivery_method''',
                                 ).toString(),
                                 textAlign: TextAlign.center,
@@ -6448,156 +6351,152 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                           ].divide(SizedBox(width: 8.0)),
                         ),
                       ),
-                    if (!functions.isNullSingleString(getJsonField(
-                      widget.details,
-                      r'''$.condition''',
-                    ).toString()))
-                      Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                FlutterFlowIconButton(
-                                  borderRadius: 8.0,
-                                  buttonSize: 30.0,
-                                  fillColor: Color(0x997950F2),
-                                  icon: Icon(
-                                    Icons.star,
-                                    color: FlutterFlowTheme.of(context).info,
-                                    size: 15.0,
-                                  ),
-                                  onPressed: () {
-                                    print('IconButton pressed ...');
-                                  },
+                    if (functions.isGTx(
+                            getJsonField(
+                              widget.details,
+                              r'''$.price''',
+                            ).toString(),
+                            0) ||
+                        !functions.isNullSingleString(getJsonField(
+                          widget.details,
+                          r'''$.price_text''',
+                        ).toString()))
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              FlutterFlowIconButton(
+                                borderRadius: 8.0,
+                                buttonSize: 30.0,
+                                fillColor: Color(0x4240C057),
+                                icon: Icon(
+                                  Icons.price_check_rounded,
+                                  color: FlutterFlowTheme.of(context).info,
+                                  size: 18.0,
                                 ),
-                                Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'y5gc36xo' /* Condition */,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmallFamily,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          fontSize: 14.0,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts:
-                                              !FlutterFlowTheme.of(context)
-                                                  .bodySmallIsCustom,
-                                        ),
-                                  ),
+                                onPressed: () {
+                                  print('IconButton pressed ...');
+                                },
+                              ),
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'v1s94yxn' /* Compensation */,
                                 ),
-                              ].divide(SizedBox(width: 8.0)),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              child: Text(
-                                getJsonField(
-                                  widget.details,
-                                  r'''$.condition''',
-                                ).toString(),
-                                textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
-                                    .bodySmall
+                                    .bodyMedium
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
-                                          .bodySmallFamily,
+                                          .bodyMediumFamily,
                                       color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      fontSize: 14.0,
+                                          .secondaryText,
                                       letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w500,
                                       useGoogleFonts:
                                           !FlutterFlowTheme.of(context)
-                                              .bodySmallIsCustom,
+                                              .bodyMediumIsCustom,
                                     ),
                               ),
-                            ),
-                          ].divide(SizedBox(width: 8.0)),
-                        ),
-                      ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            FlutterFlowIconButton(
-                              borderRadius: 8.0,
-                              buttonSize: 30.0,
-                              fillColor: Color(0x4240C057),
-                              icon: Icon(
-                                Icons.price_check_rounded,
-                                color: FlutterFlowTheme.of(context).info,
-                                size: 18.0,
-                              ),
-                              onPressed: () {
-                                print('IconButton pressed ...');
-                              },
-                            ),
-                            Text(
-                              FFLocalizations.of(context).getText(
-                                'v1s94yxn' /* Compensation */,
-                              ),
+                            ].divide(SizedBox(width: 8.0)),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(1.0, -1.0),
+                            child: Text(
+                              functions.isGTx(
+                                      getJsonField(
+                                        widget.details,
+                                        r'''$.price''',
+                                      ).toString(),
+                                      0)
+                                  ? '€${getJsonField(
+                                      widget.details,
+                                      r'''$.price''',
+                                    ).toString()}'
+                                  : getJsonField(
+                                      widget.detailLabels,
+                                      r'''$.price_text''',
+                                    ).toString(),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .bodyMediumFamily,
                                     color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
+                                        .primaryText,
+                                    fontSize: 14.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
                                     useGoogleFonts:
                                         !FlutterFlowTheme.of(context)
                                             .bodyMediumIsCustom,
                                   ),
                             ),
-                          ].divide(SizedBox(width: 8.0)),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(1.0, -1.0),
-                          child: Text(
-                            functions.isNullSingleString(getJsonField(
-                              widget.details,
-                              r'''$.price_text''',
-                            ).toString())
-                                ? '€${getJsonField(
-                                    widget.details,
-                                    r'''$.price''',
-                                  ).toString()}'
-                                : getJsonField(
-                                    widget.detailLabels,
-                                    r'''$.price_text''',
-                                  ).toString(),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  fontSize: 14.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w500,
-                                  useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .bodyMediumIsCustom,
-                                ),
                           ),
+                        ].divide(SizedBox(width: 4.0)),
+                      ),
+                    if (getJsonField(
+                      widget.details,
+                      r'''$.allow_cash_adjustment''',
+                    ))
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context).tertiary,
+                                borderRadius: BorderRadius.circular(4.0),
+                                border: Border.all(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        6.0, 0.0, 0.0, 0.0),
+                                    child: FaIcon(
+                                      FontAwesomeIcons.commentsDollar,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      size: 16.0,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        8.0, 4.0, 8.0, 4.0),
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        '9xki1jrr' /* Allows cash adjustment */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts:
+                                                !FlutterFlowTheme.of(context)
+                                                    .bodyMediumIsCustom,
+                                          ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ].divide(SizedBox(width: 6.0)),
                         ),
-                      ].divide(SizedBox(width: 4.0)),
-                    ),
+                      ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
@@ -6786,11 +6685,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: valueOrDefault<Color>(
-                                      widget.itemData?.fillColor,
-                                      FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
                                     borderRadius: BorderRadius.circular(4.0),
                                   ),
                                   child: Padding(
@@ -7531,7 +7427,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   0.0, 8.0, 0.0, 0.0),
                               child: Container(
                                 decoration: BoxDecoration(
-                                  color: Color(0xFF3D3C3C),
+                                  color: FlutterFlowTheme.of(context).tertiary,
                                   borderRadius: BorderRadius.circular(4.0),
                                   border: Border.all(
                                     color:
@@ -7591,7 +7487,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   0.0, 8.0, 0.0, 0.0),
                               child: Container(
                                 decoration: BoxDecoration(
-                                  color: Color(0xFF3D3C3C),
+                                  color: FlutterFlowTheme.of(context).tertiary,
                                   borderRadius: BorderRadius.circular(4.0),
                                   border: Border.all(
                                     color:
@@ -7651,7 +7547,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   0.0, 8.0, 0.0, 0.0),
                               child: Container(
                                 decoration: BoxDecoration(
-                                  color: Color(0xFF3D3C3C),
+                                  color: FlutterFlowTheme.of(context).tertiary,
                                   borderRadius: BorderRadius.circular(4.0),
                                   border: Border.all(
                                     color:

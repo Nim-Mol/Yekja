@@ -137,7 +137,7 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                     fillColor: FlutterFlowTheme.of(context).secondaryBackground,
                     icon: Icon(
                       Icons.close,
-                      color: FlutterFlowTheme.of(context).info,
+                      color: FlutterFlowTheme.of(context).primary,
                       size: 24.0,
                     ),
                     onPressed: () async {
@@ -166,24 +166,27 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                       children: [
                         Align(
                           alignment: AlignmentDirectional(-1.0, 0.0),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 16.0, 0.0, 0.0),
-                            child: Text(
-                              FFLocalizations.of(context).getText(
-                                'hy8t8fp9' /* A confimation code was sent vi... */,
+                          child: Container(
+                            decoration: BoxDecoration(),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 16.0, 0.0, 0.0),
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  'hy8t8fp9' /* A confimation code was sent vi... */,
+                                ),
+                                textAlign: TextAlign.start,
+                                style: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'FarsiFonts',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontSize: 17.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.normal,
+                                    ),
                               ),
-                              textAlign: TextAlign.start,
-                              style: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'FarsiFonts',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    fontSize: 17.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
                             ),
                           ),
                         ),
@@ -257,7 +260,7 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                           ),
                           shape: PinCodeFieldShape.box,
                           activeColor: FlutterFlowTheme.of(context).primary,
-                          inactiveColor: Color(0xFFDCDCDC),
+                          inactiveColor: FlutterFlowTheme.of(context).primary,
                           selectedColor: FlutterFlowTheme.of(context).primary,
                         ),
                         controller: _model.pinCodeController,
@@ -305,6 +308,8 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
                                           .titleMediumFamily,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                       letterSpacing: 0.0,
                                       useGoogleFonts:
                                           !FlutterFlowTheme.of(context)

@@ -10,18 +10,6 @@ class DetailSalesModel extends FlutterFlowModel<DetailSalesWidget> {
   // State field(s) for dropdownCity widget.
   String? dropdownCityValue;
   FormFieldController<String>? dropdownCityValueController;
-  // State field(s) for ConditionChoice widget.
-  FormFieldController<List<String>>? conditionChoiceValueController;
-  String? get conditionChoiceValue =>
-      conditionChoiceValueController?.value?.firstOrNull;
-  set conditionChoiceValue(String? val) =>
-      conditionChoiceValueController?.value = val != null ? [val] : [];
-  // State field(s) for DeliveryChoice widget.
-  FormFieldController<List<String>>? deliveryChoiceValueController;
-  String? get deliveryChoiceValue =>
-      deliveryChoiceValueController?.value?.firstOrNull;
-  set deliveryChoiceValue(String? val) =>
-      deliveryChoiceValueController?.value = val != null ? [val] : [];
   // State field(s) for PriceBoolSwitch widget.
   bool? priceBoolSwitchValue;
   // State field(s) for TextField widget.

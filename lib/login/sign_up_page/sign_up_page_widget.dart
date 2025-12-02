@@ -62,7 +62,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xFF020202),
         body: SafeArea(
           top: true,
           child: Align(
@@ -71,7 +71,9 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
               constraints: BoxConstraints(
                 maxWidth: 480.0,
               ),
-              decoration: BoxDecoration(),
+              decoration: BoxDecoration(
+                color: Color(0xFF0B0B0B),
+              ),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -82,13 +84,13 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                       width: 100.0,
                       height: double.infinity,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        color: Color(0xFF0F0F0F),
                       ),
                       alignment: AlignmentDirectional(0.0, -1.0),
                       child: Stack(
                         children: [
                           Opacity(
-                            opacity: 0.7,
+                            opacity: 0.4,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8.0),
                               child: Image.network(
@@ -100,6 +102,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                             ),
                           ),
                           SingleChildScrollView(
+                            primary: false,
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -140,6 +143,9 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                               .headlineLarge
                                               .override(
                                                 fontFamily: 'FarsiFonts',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryWhite,
                                                 fontSize: 30.0,
                                                 letterSpacing: 0.0,
                                               ),
@@ -153,17 +159,20 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                               'r6x4yqnw' /* Let's get started by filling o... */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .labelMedium
+                                                .bodyMedium
                                                 .override(
                                                   fontFamily:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .labelMediumFamily,
+                                                          .bodyMediumFamily,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryWhite,
                                                   letterSpacing: 0.0,
                                                   useGoogleFonts:
                                                       !FlutterFlowTheme.of(
                                                               context)
-                                                          .labelMediumIsCustom,
+                                                          .bodyMediumIsCustom,
                                                 ),
                                           ),
                                         ),
@@ -1074,6 +1083,9 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                           style: TextStyle(
                                                             fontWeight:
                                                                 FontWeight.bold,
+                                                            decoration:
+                                                                TextDecoration
+                                                                    .underline,
                                                           ),
                                                           mouseCursor:
                                                               SystemMouseCursors
@@ -1115,20 +1127,24 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                                 },
                                                         )
                                                       ],
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMediumFamily,
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
+                                                                color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMediumIsCustom,
-                                                          ),
+                                                                    .primaryWhite,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
                                                     ),
                                                   ),
                                                 ),
@@ -1274,7 +1290,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primary,
+                                                              .primaryWhite,
                                                       fontSize: 16.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -1391,7 +1407,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .secondaryText,
+                                                                .primaryWhite,
                                                       ),
                                                     ),
                                                     TextSpan(
@@ -1410,10 +1426,13 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                                     .bodyMediumFamily,
                                                             color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .primary,
+                                                                .primaryWhite,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w600,
+                                                            decoration:
+                                                                TextDecoration
+                                                                    .underline,
                                                             useGoogleFonts:
                                                                 !FlutterFlowTheme.of(
                                                                         context)
@@ -1421,21 +1440,24 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                           ),
                                                     )
                                                   ],
-                                                  style:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumIsCustom,
-                                                          ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryWhite,
+                                                        letterSpacing: 0.0,
+                                                        useGoogleFonts:
+                                                            !FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMediumIsCustom,
+                                                      ),
                                                 ),
                                               ),
                                             ),

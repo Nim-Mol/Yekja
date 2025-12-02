@@ -1,14 +1,17 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/main_overview_pages/item_card_global/item_card_global_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
+import '/shared_components/shout_out_card/shout_out_card_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -59,54 +62,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
       vsync: this,
       length: 4,
       initialIndex: 0,
-    )
-      ..addListener(() => safeSetState(() {}))
-      ..addListener(() async {
-        if (_model.tabBarController!.indexIsChanging) {
-          return;
-        }
-
-        if (_model.tabBarCurrentIndex == 0) {
-          FFAppState().filterSmall = FilterSmallModelStruct(
-            mainCatId: 2,
-            catId: 6,
-          );
-          safeSetState(() {});
-          safeSetState(() => _model.listviewMarketPagingController?.refresh());
-          await _model.waitForOnePageForListviewMarket();
-        } else {
-          if (_model.tabBarCurrentIndex == 1) {
-            FFAppState().filterSmall = FilterSmallModelStruct(
-              mainCatId: 1,
-              catId: 9,
-            );
-            safeSetState(() {});
-            safeSetState(
-                () => _model.listviewSupportPagingController?.refresh());
-            await _model.waitForOnePageForListviewSupport();
-          } else {
-            if (_model.tabBarCurrentIndex == 2) {
-              FFAppState().filterSmall = FilterSmallModelStruct(
-                mainCatId: 3,
-                catId: 15,
-              );
-              safeSetState(() {});
-              safeSetState(
-                  () => _model.listviewSkillsPagingController?.refresh());
-              await _model.waitForOnePageForListviewSkills();
-            } else {
-              FFAppState().filterSmall = FilterSmallModelStruct(
-                mainCatId: 4,
-                catId: 16,
-              );
-              safeSetState(() {});
-              safeSetState(
-                  () => _model.listviewEventsPagingController?.refresh());
-              await _model.waitForOnePageForListviewEvents();
-            }
-          }
-        }
-      });
+    )..addListener(() => safeSetState(() {}));
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -189,10 +145,50 @@ class _MainPageWidgetState extends State<MainPageWidget>
                       controller: _model.tabBarController,
                       onTap: (i) async {
                         [
-                          () async {},
-                          () async {},
-                          () async {},
-                          () async {}
+                          () async {
+                            FFAppState().filterSmall = FilterSmallModelStruct(
+                              mainCatId: 2,
+                              catId: 6,
+                            );
+                            safeSetState(() {});
+                            safeSetState(() => _model
+                                .listviewMarketPagingController
+                                ?.refresh());
+                            await _model.waitForOnePageForListviewMarket();
+                          },
+                          () async {
+                            FFAppState().filterSmall = FilterSmallModelStruct(
+                              mainCatId: 1,
+                              catId: 9,
+                            );
+                            safeSetState(() {});
+                            safeSetState(() => _model
+                                .listviewSupportPagingController
+                                ?.refresh());
+                            await _model.waitForOnePageForListviewSupport();
+                          },
+                          () async {
+                            FFAppState().filterSmall = FilterSmallModelStruct(
+                              mainCatId: 3,
+                              catId: 15,
+                            );
+                            safeSetState(() {});
+                            safeSetState(() => _model
+                                .listviewSkillsPagingController
+                                ?.refresh());
+                            await _model.waitForOnePageForListviewSkills();
+                          },
+                          () async {
+                            FFAppState().filterSmall = FilterSmallModelStruct(
+                              mainCatId: 4,
+                              catId: 16,
+                            );
+                            safeSetState(() {});
+                            safeSetState(() => _model
+                                .listviewEventsPagingController
+                                ?.refresh());
+                            await _model.waitForOnePageForListviewEvents();
+                          }
                         ][i]();
                       },
                     ),
@@ -261,13 +257,9 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                             },
                                             child: Container(
                                               decoration: BoxDecoration(
-                                                color: valueOrDefault<Color>(
-                                                  functions.hexToColor(
-                                                      categoriesItem
-                                                          .fillColorHex,
-                                                      Color(0xFF213A21)),
-                                                  Color(0xFF213A21),
-                                                ),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .marketBackground,
                                                 borderRadius:
                                                     BorderRadius.circular(16.0),
                                                 border: Border.all(
@@ -303,12 +295,18 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                         height: 30.0,
                                                         svgCode: categoriesItem
                                                             .effectiveIconImage,
-                                                        iconColor: functions
-                                                            .hexToColor(
+                                                        iconColor: Theme.of(
+                                                                        context)
+                                                                    .brightness ==
+                                                                Brightness.dark
+                                                            ? functions.hexToColor(
                                                                 categoriesItem
                                                                     .effectiveColorHex,
                                                                 Color(
-                                                                    0x00000000)),
+                                                                    0x00000000))
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .business,
                                                       ),
                                                     ),
                                                     Flexible(
@@ -355,10 +353,10 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                                             .catId
                                                                     ? FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primaryWhite
+                                                                        .primary
                                                                     : FlutterFlowTheme.of(
                                                                             context)
-                                                                        .textgray,
+                                                                        .bordergray,
                                                                 fontSize: 13.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -586,21 +584,67 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                context.pushNamed(
-                                                  PostWidget.routeName,
-                                                  queryParameters: {
-                                                    'postID': serializeParam(
-                                                      filterResultsItem.postId,
-                                                      ParamType.String,
-                                                    ),
-                                                    'detailDataName':
-                                                        serializeParam(
-                                                      filterResultsItem
-                                                          .detailTable,
-                                                      ParamType.String,
-                                                    ),
-                                                  }.withoutNulls,
-                                                );
+                                                if (FFLocalizations.of(context)
+                                                        .languageCode ==
+                                                    'fa') {
+                                                  context.pushNamed(
+                                                    PostFaWidget.routeName,
+                                                    queryParameters: {
+                                                      'postID': serializeParam(
+                                                        filterResultsItem
+                                                            .postId,
+                                                        ParamType.String,
+                                                      ),
+                                                      'detailDataName':
+                                                          serializeParam(
+                                                        filterResultsItem
+                                                            .detailTable,
+                                                        ParamType.String,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
+                                                } else {
+                                                  if (FFLocalizations.of(
+                                                              context)
+                                                          .languageCode ==
+                                                      'nl') {
+                                                    context.pushNamed(
+                                                      PostNLWidget.routeName,
+                                                      queryParameters: {
+                                                        'postID':
+                                                            serializeParam(
+                                                          filterResultsItem
+                                                              .postId,
+                                                          ParamType.String,
+                                                        ),
+                                                        'detailDataName':
+                                                            serializeParam(
+                                                          filterResultsItem
+                                                              .detailTable,
+                                                          ParamType.String,
+                                                        ),
+                                                      }.withoutNulls,
+                                                    );
+                                                  } else {
+                                                    context.pushNamed(
+                                                      PostEnWidget.routeName,
+                                                      queryParameters: {
+                                                        'postID':
+                                                            serializeParam(
+                                                          filterResultsItem
+                                                              .postId,
+                                                          ParamType.String,
+                                                        ),
+                                                        'detailDataName':
+                                                            serializeParam(
+                                                          filterResultsItem
+                                                              .detailTable,
+                                                          ParamType.String,
+                                                        ),
+                                                      }.withoutNulls,
+                                                    );
+                                                  }
+                                                }
                                               },
                                               child: wrapWithModel(
                                                 model: _model
@@ -765,14 +809,9 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                 },
                                                 child: Container(
                                                   decoration: BoxDecoration(
-                                                    color:
-                                                        valueOrDefault<Color>(
-                                                      functions.hexToColor(
-                                                          categoriesItem
-                                                              .fillColorHex,
-                                                          Color(0xFF213A21)),
-                                                      Color(0xFF213A21),
-                                                    ),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .careBackground,
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             16.0),
@@ -814,12 +853,19 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                             height: 30.0,
                                                             svgCode: categoriesItem
                                                                 .effectiveIconImage,
-                                                            iconColor: functions
-                                                                .hexToColor(
+                                                            iconColor: Theme.of(
+                                                                            context)
+                                                                        .brightness ==
+                                                                    Brightness
+                                                                        .dark
+                                                                ? functions.hexToColor(
                                                                     categoriesItem
                                                                         .effectiveColorHex,
                                                                     Color(
-                                                                        0x00000000)),
+                                                                        0x00000000))
+                                                                : FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .greenInit,
                                                           ),
                                                         ),
                                                         Flexible(
@@ -864,7 +910,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                                                 .filterSmall
                                                                                 .catId
                                                                         ? FlutterFlowTheme.of(context)
-                                                                            .primaryText
+                                                                            .primary
                                                                         : FlutterFlowTheme.of(context)
                                                                             .textgray,
                                                                     fontSize:
@@ -887,6 +933,90 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                           );
                                         },
                                       ),
+                                    ),
+                                    FutureBuilder<List<CommunityShoutoutRow>>(
+                                      future:
+                                          CommunityShoutoutTable().queryRows(
+                                        queryFn: (q) => q,
+                                        limit: 5,
+                                      ),
+                                      builder: (context, snapshot) {
+                                        // Customize what your widget looks like when it's loading.
+                                        if (!snapshot.hasData) {
+                                          return Center(
+                                            child: SizedBox(
+                                              width: 50.0,
+                                              height: 50.0,
+                                              child: SpinKitChasingDots(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .greenInit,
+                                                size: 50.0,
+                                              ),
+                                            ),
+                                          );
+                                        }
+                                        List<CommunityShoutoutRow>
+                                            carouselCommunityShoutoutRowList =
+                                            snapshot.data!;
+
+                                        return Container(
+                                          width: double.infinity,
+                                          height: 250.0,
+                                          child: CarouselSlider.builder(
+                                            itemCount:
+                                                carouselCommunityShoutoutRowList
+                                                    .length,
+                                            itemBuilder:
+                                                (context, carouselIndex, _) {
+                                              final carouselCommunityShoutoutRow =
+                                                  carouselCommunityShoutoutRowList[
+                                                      carouselIndex];
+                                              return wrapWithModel(
+                                                model: _model.shoutOutCardModels
+                                                    .getModel(
+                                                  carouselCommunityShoutoutRow
+                                                      .id
+                                                      .toString(),
+                                                  carouselIndex,
+                                                ),
+                                                updateCallback: () =>
+                                                    safeSetState(() {}),
+                                                child: ShoutOutCardWidget(
+                                                  key: Key(
+                                                    'Keyjpg_${carouselCommunityShoutoutRow.id.toString()}',
+                                                  ),
+                                                  shoutOutId:
+                                                      carouselCommunityShoutoutRow
+                                                          .id,
+                                                ),
+                                              );
+                                            },
+                                            carouselController:
+                                                _model.carouselController ??=
+                                                    CarouselSliderController(),
+                                            options: CarouselOptions(
+                                              initialPage: max(
+                                                  0,
+                                                  min(
+                                                      1,
+                                                      carouselCommunityShoutoutRowList
+                                                              .length -
+                                                          1)),
+                                              viewportFraction: 0.5,
+                                              disableCenter: true,
+                                              enlargeCenterPage: true,
+                                              enlargeFactor: 0.25,
+                                              enableInfiniteScroll: true,
+                                              scrollDirection: Axis.horizontal,
+                                              autoPlay: false,
+                                              onPageChanged: (index, _) =>
+                                                  _model.carouselCurrentIndex =
+                                                      index,
+                                            ),
+                                          ),
+                                        );
+                                      },
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -1084,23 +1214,71 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
-                                                    context.pushNamed(
-                                                      PostWidget.routeName,
-                                                      queryParameters: {
-                                                        'postID':
-                                                            serializeParam(
-                                                          filterResultsItem
-                                                              .postId,
-                                                          ParamType.String,
-                                                        ),
-                                                        'detailDataName':
-                                                            serializeParam(
-                                                          filterResultsItem
-                                                              .detailTable,
-                                                          ParamType.String,
-                                                        ),
-                                                      }.withoutNulls,
-                                                    );
+                                                    if (FFLocalizations.of(
+                                                                context)
+                                                            .languageCode ==
+                                                        'fa') {
+                                                      context.pushNamed(
+                                                        PostFaWidget.routeName,
+                                                        queryParameters: {
+                                                          'postID':
+                                                              serializeParam(
+                                                            filterResultsItem
+                                                                .postId,
+                                                            ParamType.String,
+                                                          ),
+                                                          'detailDataName':
+                                                              serializeParam(
+                                                            filterResultsItem
+                                                                .detailTable,
+                                                            ParamType.String,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
+                                                    } else {
+                                                      if (FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode ==
+                                                          'nl') {
+                                                        context.pushNamed(
+                                                          PostNLWidget
+                                                              .routeName,
+                                                          queryParameters: {
+                                                            'postID':
+                                                                serializeParam(
+                                                              filterResultsItem
+                                                                  .postId,
+                                                              ParamType.String,
+                                                            ),
+                                                            'detailDataName':
+                                                                serializeParam(
+                                                              filterResultsItem
+                                                                  .detailTable,
+                                                              ParamType.String,
+                                                            ),
+                                                          }.withoutNulls,
+                                                        );
+                                                      } else {
+                                                        context.pushNamed(
+                                                          PostEnWidget
+                                                              .routeName,
+                                                          queryParameters: {
+                                                            'postID':
+                                                                serializeParam(
+                                                              filterResultsItem
+                                                                  .postId,
+                                                              ParamType.String,
+                                                            ),
+                                                            'detailDataName':
+                                                                serializeParam(
+                                                              filterResultsItem
+                                                                  .detailTable,
+                                                              ParamType.String,
+                                                            ),
+                                                          }.withoutNulls,
+                                                        );
+                                                      }
+                                                    }
                                                   },
                                                   child: wrapWithModel(
                                                     model: _model
@@ -1297,14 +1475,9 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                 },
                                                 child: Container(
                                                   decoration: BoxDecoration(
-                                                    color:
-                                                        valueOrDefault<Color>(
-                                                      functions.hexToColor(
-                                                          categoriesItem
-                                                              .fillColorHex,
-                                                          Color(0xFF213A21)),
-                                                      Color(0xFF213A21),
-                                                    ),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .serviceBackground,
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             16.0),
@@ -1346,12 +1519,19 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                             height: 30.0,
                                                             svgCode: categoriesItem
                                                                 .effectiveIconImage,
-                                                            iconColor: functions
-                                                                .hexToColor(
+                                                            iconColor: Theme.of(
+                                                                            context)
+                                                                        .brightness ==
+                                                                    Brightness
+                                                                        .dark
+                                                                ? functions.hexToColor(
                                                                     categoriesItem
                                                                         .effectiveColorHex,
                                                                     Color(
-                                                                        0x00000000)),
+                                                                        0x00000000))
+                                                                : FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .yellow1,
                                                           ),
                                                         ),
                                                         Flexible(
@@ -1396,9 +1576,9 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                                                 .filterSmall
                                                                                 .catId
                                                                         ? FlutterFlowTheme.of(context)
-                                                                            .primaryText
+                                                                            .primary
                                                                         : FlutterFlowTheme.of(context)
-                                                                            .textgray,
+                                                                            .bordergray,
                                                                     fontSize:
                                                                         13.0,
                                                                     letterSpacing:
@@ -1622,23 +1802,71 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
-                                                    context.pushNamed(
-                                                      PostWidget.routeName,
-                                                      queryParameters: {
-                                                        'postID':
-                                                            serializeParam(
-                                                          filterResultsItem
-                                                              .postId,
-                                                          ParamType.String,
-                                                        ),
-                                                        'detailDataName':
-                                                            serializeParam(
-                                                          filterResultsItem
-                                                              .detailTable,
-                                                          ParamType.String,
-                                                        ),
-                                                      }.withoutNulls,
-                                                    );
+                                                    if (FFLocalizations.of(
+                                                                context)
+                                                            .languageCode ==
+                                                        'fa') {
+                                                      context.pushNamed(
+                                                        PostFaWidget.routeName,
+                                                        queryParameters: {
+                                                          'postID':
+                                                              serializeParam(
+                                                            filterResultsItem
+                                                                .postId,
+                                                            ParamType.String,
+                                                          ),
+                                                          'detailDataName':
+                                                              serializeParam(
+                                                            filterResultsItem
+                                                                .detailTable,
+                                                            ParamType.String,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
+                                                    } else {
+                                                      if (FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode ==
+                                                          'nl') {
+                                                        context.pushNamed(
+                                                          PostNLWidget
+                                                              .routeName,
+                                                          queryParameters: {
+                                                            'postID':
+                                                                serializeParam(
+                                                              filterResultsItem
+                                                                  .detailTable,
+                                                              ParamType.String,
+                                                            ),
+                                                            'detailDataName':
+                                                                serializeParam(
+                                                              filterResultsItem
+                                                                  .detailTable,
+                                                              ParamType.String,
+                                                            ),
+                                                          }.withoutNulls,
+                                                        );
+                                                      } else {
+                                                        context.pushNamed(
+                                                          PostEnWidget
+                                                              .routeName,
+                                                          queryParameters: {
+                                                            'postID':
+                                                                serializeParam(
+                                                              filterResultsItem
+                                                                  .postId,
+                                                              ParamType.String,
+                                                            ),
+                                                            'detailDataName':
+                                                                serializeParam(
+                                                              filterResultsItem
+                                                                  .detailTable,
+                                                              ParamType.String,
+                                                            ),
+                                                          }.withoutNulls,
+                                                        );
+                                                      }
+                                                    }
                                                   },
                                                   child: wrapWithModel(
                                                     model: _model
@@ -1840,13 +2068,9 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                             },
                                             child: Container(
                                               decoration: BoxDecoration(
-                                                color: valueOrDefault<Color>(
-                                                  functions.hexToColor(
-                                                      categoriesItem
-                                                          .fillColorHex,
-                                                      Color(0xFF213A21)),
-                                                  Color(0xFF213A21),
-                                                ),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .eventBackground,
                                                 borderRadius:
                                                     BorderRadius.circular(16.0),
                                                 border: Border.all(
@@ -1882,12 +2106,19 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                         height: 30.0,
                                                         svgCode: categoriesItem
                                                             .effectiveIconImage,
-                                                        iconColor: functions
-                                                            .hexToColor(
+                                                        iconColor: Theme.of(
+                                                                        context)
+                                                                    .brightness ==
+                                                                Brightness.dark
+                                                            ? functions.hexToColor(
                                                                 categoriesItem
                                                                     .effectiveColorHex,
-                                                                Color(
-                                                                    0x00000000)),
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .eventTxt)
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
+                                                                .eventTxt,
                                                       ),
                                                     ),
                                                     Flexible(
@@ -1934,10 +2165,10 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                                             .catId
                                                                     ? FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primaryText
+                                                                        .primary
                                                                     : FlutterFlowTheme.of(
                                                                             context)
-                                                                        .textgray,
+                                                                        .bordergray,
                                                                 fontSize: 13.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -2138,21 +2369,67 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                context.pushNamed(
-                                                  PostWidget.routeName,
-                                                  queryParameters: {
-                                                    'postID': serializeParam(
-                                                      filterResultsItem.postId,
-                                                      ParamType.String,
-                                                    ),
-                                                    'detailDataName':
-                                                        serializeParam(
-                                                      filterResultsItem
-                                                          .detailTable,
-                                                      ParamType.String,
-                                                    ),
-                                                  }.withoutNulls,
-                                                );
+                                                if (FFLocalizations.of(context)
+                                                        .languageCode ==
+                                                    'fa') {
+                                                  context.pushNamed(
+                                                    PostFaWidget.routeName,
+                                                    queryParameters: {
+                                                      'postID': serializeParam(
+                                                        filterResultsItem
+                                                            .postId,
+                                                        ParamType.String,
+                                                      ),
+                                                      'detailDataName':
+                                                          serializeParam(
+                                                        filterResultsItem
+                                                            .detailTable,
+                                                        ParamType.String,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
+                                                } else {
+                                                  if (FFLocalizations.of(
+                                                              context)
+                                                          .languageCode ==
+                                                      'nl') {
+                                                    context.pushNamed(
+                                                      PostNLWidget.routeName,
+                                                      queryParameters: {
+                                                        'postID':
+                                                            serializeParam(
+                                                          filterResultsItem
+                                                              .postId,
+                                                          ParamType.String,
+                                                        ),
+                                                        'detailDataName':
+                                                            serializeParam(
+                                                          filterResultsItem
+                                                              .detailTable,
+                                                          ParamType.String,
+                                                        ),
+                                                      }.withoutNulls,
+                                                    );
+                                                  } else {
+                                                    context.pushNamed(
+                                                      PostEnWidget.routeName,
+                                                      queryParameters: {
+                                                        'postID':
+                                                            serializeParam(
+                                                          filterResultsItem
+                                                              .postId,
+                                                          ParamType.String,
+                                                        ),
+                                                        'detailDataName':
+                                                            serializeParam(
+                                                          filterResultsItem
+                                                              .detailTable,
+                                                          ParamType.String,
+                                                        ),
+                                                      }.withoutNulls,
+                                                    );
+                                                  }
+                                                }
                                               },
                                               child: wrapWithModel(
                                                 model: _model

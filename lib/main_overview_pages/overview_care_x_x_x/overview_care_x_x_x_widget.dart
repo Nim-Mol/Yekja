@@ -155,9 +155,7 @@ class _OverviewCareXXXWidgetState extends State<OverviewCareXXXWidget> {
                                           decoration: BoxDecoration(),
                                           child: Container(
                                             decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
+                                              color: Color(0xFFFFD3C7),
                                               borderRadius:
                                                   BorderRadius.circular(10.0),
                                               border: Border.all(
@@ -302,9 +300,7 @@ Requests */
                                           decoration: BoxDecoration(),
                                           child: Container(
                                             decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
+                                              color: Color(0xFFD1FFC7),
                                               borderRadius:
                                                   BorderRadius.circular(10.0),
                                               border: Border.all(
@@ -855,87 +851,56 @@ Offers */
                                                         (popularIndex) {
                                                   final popularItem =
                                                       popular[popularIndex];
-                                                  return InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      context.pushNamed(
-                                                        PostWidget.routeName,
-                                                        queryParameters: {
-                                                          'postID':
-                                                              serializeParam(
-                                                            popularItem
-                                                                .sourceId,
-                                                            ParamType.String,
-                                                          ),
-                                                          'detailDataName':
-                                                              serializeParam(
-                                                            popularItem
-                                                                .detailTable,
-                                                            ParamType.String,
-                                                          ),
-                                                        }.withoutNulls,
-                                                      );
-                                                    },
-                                                    child: wrapWithModel(
-                                                      model: _model
-                                                          .itemCardVerticalModels
-                                                          .getModel(
-                                                        popularItem.sourceId!,
-                                                        popularIndex,
+                                                  return wrapWithModel(
+                                                    model: _model
+                                                        .itemCardVerticalModels
+                                                        .getModel(
+                                                      popularItem.sourceId!,
+                                                      popularIndex,
+                                                    ),
+                                                    updateCallback: () =>
+                                                        safeSetState(() {}),
+                                                    child:
+                                                        ItemCardVerticalWidget(
+                                                      key: Key(
+                                                        'Key59i_${popularItem.sourceId!}',
                                                       ),
-                                                      updateCallback: () =>
-                                                          safeSetState(() {}),
-                                                      child:
-                                                          ItemCardVerticalWidget(
-                                                        key: Key(
-                                                          'Key59i_${popularItem.sourceId!}',
+                                                      itemData:
+                                                          ItemCardVerticalStruct(
+                                                        title: valueOrDefault<
+                                                            String>(
+                                                          popularItem.title,
+                                                          'Title',
                                                         ),
-                                                        itemData:
-                                                            ItemCardVerticalStruct(
-                                                          title: valueOrDefault<
-                                                              String>(
-                                                            popularItem.title,
-                                                            'Title',
-                                                          ),
-                                                          itemLikes:
-                                                              valueOrDefault<
-                                                                  int>(
-                                                            popularItem
-                                                                .postLikes,
-                                                            0,
-                                                          ),
-                                                          category:
-                                                              valueOrDefault<
-                                                                  String>(
-                                                            popularItem.catName,
-                                                            'category',
-                                                          ),
-                                                          subCategory:
-                                                              valueOrDefault<
-                                                                  String>(
-                                                            popularItem
-                                                                .subCatName,
-                                                            'Sub category',
-                                                          ),
-                                                          mainImagePath:
-                                                              valueOrDefault<
-                                                                  String>(
-                                                            popularItem.images
-                                                                .firstOrNull,
-                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg',
-                                                          ),
-                                                          itemLocation:
-                                                              popularItem.city,
-                                                          catID:
-                                                              popularItem.catId,
+                                                        itemLikes:
+                                                            valueOrDefault<int>(
+                                                          popularItem.postLikes,
+                                                          0,
                                                         ),
+                                                        category:
+                                                            valueOrDefault<
+                                                                String>(
+                                                          popularItem.catName,
+                                                          'category',
+                                                        ),
+                                                        subCategory:
+                                                            valueOrDefault<
+                                                                String>(
+                                                          popularItem
+                                                              .subCatName,
+                                                          'Sub category',
+                                                        ),
+                                                        mainImagePath:
+                                                            valueOrDefault<
+                                                                String>(
+                                                          popularItem.images
+                                                              .firstOrNull,
+                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg',
+                                                        ),
+                                                        itemLocation:
+                                                            popularItem.city,
+                                                        catID:
+                                                            popularItem.catId,
                                                       ),
                                                     ),
                                                   );
@@ -1225,75 +1190,46 @@ Offers */
                                                 final exchangeViewPostSearchRow =
                                                     exchangeViewPostSearchRowList[
                                                         exchangeIndex];
-                                                return InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    context.pushNamed(
-                                                      PostWidget.routeName,
-                                                      queryParameters: {
-                                                        'postID':
-                                                            serializeParam(
-                                                          exchangeViewPostSearchRow
-                                                              .postId,
-                                                          ParamType.String,
-                                                        ),
-                                                        'detailDataName':
-                                                            serializeParam(
-                                                          exchangeViewPostSearchRow
-                                                              .detailTable,
-                                                          ParamType.String,
-                                                        ),
-                                                      }.withoutNulls,
-                                                    );
-                                                  },
-                                                  child: wrapWithModel(
-                                                    model: _model
-                                                        .itemCardHorizentalModels1
-                                                        .getModel(
-                                                      exchangeViewPostSearchRow
-                                                          .postId!,
-                                                      exchangeIndex,
+                                                return wrapWithModel(
+                                                  model: _model
+                                                      .itemCardHorizentalModels1
+                                                      .getModel(
+                                                    exchangeViewPostSearchRow
+                                                        .postId!,
+                                                    exchangeIndex,
+                                                  ),
+                                                  updateCallback: () =>
+                                                      safeSetState(() {}),
+                                                  child:
+                                                      ItemCardHorizentalWidget(
+                                                    key: Key(
+                                                      'Keyhnz_${exchangeViewPostSearchRow.postId!}',
                                                     ),
-                                                    updateCallback: () =>
-                                                        safeSetState(() {}),
-                                                    child:
-                                                        ItemCardHorizentalWidget(
-                                                      key: Key(
-                                                        'Keyhnz_${exchangeViewPostSearchRow.postId!}',
-                                                      ),
-                                                      itemData:
-                                                          ItemCardHorizentalStruct(
-                                                        title:
-                                                            exchangeViewPostSearchRow
-                                                                .title,
-                                                        description:
-                                                            exchangeViewPostSearchRow
-                                                                .description,
-                                                        itemLocation:
-                                                            exchangeViewPostSearchRow
-                                                                .city,
-                                                        createdAt:
-                                                            exchangeViewPostSearchRow
-                                                                .createdAt,
-                                                        itemLikes:
-                                                            exchangeViewPostSearchRow
-                                                                .postLikes,
-                                                        mainImagePath:
-                                                            exchangeViewPostSearchRow
-                                                                    .images
-                                                                    .isNotEmpty
-                                                                ? exchangeViewPostSearchRow
-                                                                    .images
-                                                                    .firstOrNull
-                                                                : 'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/EXCHANGE.png',
-                                                      ),
+                                                    itemData:
+                                                        ItemCardHorizentalStruct(
+                                                      title:
+                                                          exchangeViewPostSearchRow
+                                                              .title,
+                                                      description:
+                                                          exchangeViewPostSearchRow
+                                                              .description,
+                                                      itemLocation:
+                                                          exchangeViewPostSearchRow
+                                                              .city,
+                                                      createdAt:
+                                                          exchangeViewPostSearchRow
+                                                              .createdAt,
+                                                      itemLikes:
+                                                          exchangeViewPostSearchRow
+                                                              .postLikes,
+                                                      mainImagePath:
+                                                          exchangeViewPostSearchRow
+                                                                  .images
+                                                                  .isNotEmpty
+                                                              ? exchangeViewPostSearchRow
+                                                                  .images
+                                                                  .firstOrNull
+                                                              : 'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/EXCHANGE.png',
                                                     ),
                                                   ),
                                                 );
@@ -1576,75 +1512,46 @@ Offers */
                                                 final borrowAndLendViewPostSearchRow =
                                                     borrowAndLendViewPostSearchRowList[
                                                         borrowAndLendIndex];
-                                                return InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    context.pushNamed(
-                                                      PostWidget.routeName,
-                                                      queryParameters: {
-                                                        'postID':
-                                                            serializeParam(
-                                                          borrowAndLendViewPostSearchRow
-                                                              .postId,
-                                                          ParamType.String,
-                                                        ),
-                                                        'detailDataName':
-                                                            serializeParam(
-                                                          borrowAndLendViewPostSearchRow
-                                                              .detailTable,
-                                                          ParamType.String,
-                                                        ),
-                                                      }.withoutNulls,
-                                                    );
-                                                  },
-                                                  child: wrapWithModel(
-                                                    model: _model
-                                                        .itemCardHorizentalModels2
-                                                        .getModel(
-                                                      borrowAndLendViewPostSearchRow
-                                                          .postId!,
-                                                      borrowAndLendIndex,
+                                                return wrapWithModel(
+                                                  model: _model
+                                                      .itemCardHorizentalModels2
+                                                      .getModel(
+                                                    borrowAndLendViewPostSearchRow
+                                                        .postId!,
+                                                    borrowAndLendIndex,
+                                                  ),
+                                                  updateCallback: () =>
+                                                      safeSetState(() {}),
+                                                  child:
+                                                      ItemCardHorizentalWidget(
+                                                    key: Key(
+                                                      'Keydj0_${borrowAndLendViewPostSearchRow.postId!}',
                                                     ),
-                                                    updateCallback: () =>
-                                                        safeSetState(() {}),
-                                                    child:
-                                                        ItemCardHorizentalWidget(
-                                                      key: Key(
-                                                        'Keydj0_${borrowAndLendViewPostSearchRow.postId!}',
-                                                      ),
-                                                      itemData:
-                                                          ItemCardHorizentalStruct(
-                                                        title:
-                                                            borrowAndLendViewPostSearchRow
-                                                                .title,
-                                                        description:
-                                                            borrowAndLendViewPostSearchRow
-                                                                .description,
-                                                        itemLocation:
-                                                            borrowAndLendViewPostSearchRow
-                                                                .city,
-                                                        createdAt:
-                                                            borrowAndLendViewPostSearchRow
-                                                                .createdAt,
-                                                        itemLikes:
-                                                            borrowAndLendViewPostSearchRow
-                                                                .postLikes,
-                                                        mainImagePath:
-                                                            borrowAndLendViewPostSearchRow
-                                                                    .images
-                                                                    .isNotEmpty
-                                                                ? borrowAndLendViewPostSearchRow
-                                                                    .images
-                                                                    .firstOrNull
-                                                                : 'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Borrow.png',
-                                                      ),
+                                                    itemData:
+                                                        ItemCardHorizentalStruct(
+                                                      title:
+                                                          borrowAndLendViewPostSearchRow
+                                                              .title,
+                                                      description:
+                                                          borrowAndLendViewPostSearchRow
+                                                              .description,
+                                                      itemLocation:
+                                                          borrowAndLendViewPostSearchRow
+                                                              .city,
+                                                      createdAt:
+                                                          borrowAndLendViewPostSearchRow
+                                                              .createdAt,
+                                                      itemLikes:
+                                                          borrowAndLendViewPostSearchRow
+                                                              .postLikes,
+                                                      mainImagePath:
+                                                          borrowAndLendViewPostSearchRow
+                                                                  .images
+                                                                  .isNotEmpty
+                                                              ? borrowAndLendViewPostSearchRow
+                                                                  .images
+                                                                  .firstOrNull
+                                                              : 'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Borrow.png',
                                                     ),
                                                   ),
                                                 );

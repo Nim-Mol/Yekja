@@ -1522,7 +1522,7 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                 buttonSize: 30.0,
                                                 fillColor:
                                                     FlutterFlowTheme.of(context)
-                                                        .bordergray,
+                                                        .primaryBackground,
                                                 icon: FaIcon(
                                                   FontAwesomeIcons.angleRight,
                                                   color: FlutterFlowTheme.of(

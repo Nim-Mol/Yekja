@@ -1,5 +1,4 @@
 import '/backend/schema/enums/enums.dart';
-import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -200,7 +199,7 @@ class _DetailSkillsWidgetState extends State<DetailSkillsWidget> {
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               if (widget.navRoute == 'PostPreview') {
-                                context.pushNamed(PostPreviewWidget.routeName);
+                                context.goNamed(PostEditWidget.routeName);
                               } else {
                                 context.pushNamed(HomePageWidget.routeName);
                               }
@@ -435,8 +434,9 @@ class _DetailSkillsWidgetState extends State<DetailSkillsWidget> {
                                                                   '')
                                                             Icon(
                                                               Icons.check_sharp,
-                                                              color: Color(
-                                                                  0xFF0BD9A1),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .green1,
                                                               size: 16.0,
                                                             ),
                                                         ],
@@ -606,8 +606,9 @@ class _DetailSkillsWidgetState extends State<DetailSkillsWidget> {
                                                                   '')
                                                             Icon(
                                                               Icons.check_sharp,
-                                                              color: Color(
-                                                                  0xFF0BD9A1),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .green1,
                                                               size: 16.0,
                                                             ),
                                                         ],
@@ -709,7 +710,9 @@ class _DetailSkillsWidgetState extends State<DetailSkillsWidget> {
                                                     '')
                                               Icon(
                                                 Icons.check_sharp,
-                                                color: Color(0xFF0BD9A1),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .green1,
                                                 size: 16.0,
                                               ),
                                           ],
@@ -792,7 +795,7 @@ class _DetailSkillsWidgetState extends State<DetailSkillsWidget> {
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
-                                                          FontWeight.w500,
+                                                          FontWeight.normal,
                                                       useGoogleFonts:
                                                           !FlutterFlowTheme.of(
                                                                   context)
@@ -875,132 +878,346 @@ class _DetailSkillsWidgetState extends State<DetailSkillsWidget> {
                                   if (FFAppState().postState.serviceMode != '')
                                     Icon(
                                       Icons.check_sharp,
-                                      color: Color(0xFF0BD9A1),
+                                      color:
+                                          FlutterFlowTheme.of(context).green1,
                                       size: 16.0,
                                     ),
                                 ],
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 8.0, 0.0, 12.0),
+                                    0.0, 4.0, 0.0, 6.0),
                                 child: SingleChildScrollView(
                                   scrollDirection: Axis.horizontal,
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      FlutterFlowChoiceChips(
-                                        options: [
-                                          ChipData(FFLocalizations.of(context)
-                                              .getText(
-                                            'havpmo54' /* Remote */,
-                                          )),
-                                          ChipData(FFLocalizations.of(context)
-                                              .getText(
-                                            'kc99dh0r' /* In-person */,
-                                          )),
-                                          ChipData(FFLocalizations.of(context)
-                                              .getText(
-                                            'qj6h28nl' /* At my place */,
-                                          )),
-                                          ChipData(FFLocalizations.of(context)
-                                              .getText(
-                                            'fvkbngse' /* Flexible */,
-                                          ))
-                                        ],
-                                        onChanged: (val) async {
-                                          safeSetState(() =>
-                                              _model.serviceChoiceValue =
-                                                  val?.firstOrNull);
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
                                           FFAppState().updatePostStateStruct(
-                                            (e) => e
-                                              ..serviceMode =
-                                                  _model.serviceChoiceValue,
+                                            (e) => e..serviceMode = 'Remote',
                                           );
                                           safeSetState(() {});
                                         },
-                                        selectedChipStyle: ChipStyle(
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .greenInit,
-                                          textStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color:
+                                                FFAppState()
+                                                            .postState
+                                                            .serviceMode ==
+                                                        'Remote'
+                                                    ? FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMediumIsCustom,
-                                              ),
-                                          iconColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primary,
-                                          iconSize: 16.0,
-                                          labelPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 0.0, 8.0, 0.0),
-                                          elevation: 0.0,
-                                          borderColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .greenInit,
-                                          borderWidth: 0.3,
-                                          borderRadius:
-                                              BorderRadius.circular(4.0),
-                                        ),
-                                        unselectedChipStyle: ChipStyle(
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondaryBackground,
-                                          textStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                color: Color(0xCFD4D4D4),
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
+                                                        .greenInit
+                                                    : FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMediumIsCustom,
+                                                        .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                            border: Border.all(
+                                              color:
+                                                  FFAppState()
+                                                              .postState
+                                                              .serviceMode ==
+                                                          'Remote'
+                                                      ? FlutterFlowTheme.of(
+                                                              context)
+                                                          .greenInit
+                                                      : FlutterFlowTheme.of(
+                                                              context)
+                                                          .bordergray,
+                                              width: 0.3,
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 6.0, 12.0, 6.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'tlij6f0p' /* Remote */,
                                               ),
-                                          iconColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primary,
-                                          iconSize: 16.0,
-                                          labelPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 4.0, 12.0, 4.0),
-                                          elevation: 0.0,
-                                          borderColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondaryBackground,
-                                          borderWidth: 0.2,
-                                          borderRadius:
-                                              BorderRadius.circular(4.0),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    color: FFAppState()
+                                                                .postState
+                                                                .serviceMode ==
+                                                            'Remote'
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .textgray,
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
+                                            ),
+                                          ),
                                         ),
-                                        chipSpacing: 10.0,
-                                        rowSpacing: 8.0,
-                                        multiselect: false,
-                                        initialized:
-                                            _model.serviceChoiceValue != null,
-                                        alignment: WrapAlignment.start,
-                                        controller: _model
-                                                .serviceChoiceValueController ??=
-                                            FormFieldController<List<String>>(
-                                          [FFAppState().postState.serviceMode],
-                                        ),
-                                        wrapped: false,
                                       ),
-                                    ],
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          FFAppState().updatePostStateStruct(
+                                            (e) => e..serviceMode = 'In-person',
+                                          );
+                                          safeSetState(() {});
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color:
+                                                FFAppState()
+                                                            .postState
+                                                            .serviceMode ==
+                                                        'In-person'
+                                                    ? FlutterFlowTheme.of(
+                                                            context)
+                                                        .greenInit
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                            border: Border.all(
+                                              color:
+                                                  FFAppState()
+                                                              .postState
+                                                              .serviceMode ==
+                                                          'In-person'
+                                                      ? FlutterFlowTheme.of(
+                                                              context)
+                                                          .greenInit
+                                                      : FlutterFlowTheme.of(
+                                                              context)
+                                                          .bordergray,
+                                              width: 0.3,
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 6.0, 12.0, 6.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '6ep0rgf6' /* In-person */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    color: FFAppState()
+                                                                .postState
+                                                                .serviceMode ==
+                                                            'In-person'
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .textgray,
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          FFAppState().updatePostStateStruct(
+                                            (e) =>
+                                                e..serviceMode = 'At my place',
+                                          );
+                                          safeSetState(() {});
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color:
+                                                FFAppState()
+                                                            .postState
+                                                            .serviceMode ==
+                                                        'At my place'
+                                                    ? FlutterFlowTheme.of(
+                                                            context)
+                                                        .greenInit
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                            border: Border.all(
+                                              color:
+                                                  FFAppState()
+                                                              .postState
+                                                              .serviceMode ==
+                                                          'At my place'
+                                                      ? FlutterFlowTheme.of(
+                                                              context)
+                                                          .greenInit
+                                                      : FlutterFlowTheme.of(
+                                                              context)
+                                                          .bordergray,
+                                              width: 0.3,
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 6.0, 12.0, 6.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'lr5nihza' /* At my place */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    color: FFAppState()
+                                                                .postState
+                                                                .serviceMode ==
+                                                            'In-person'
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .textgray,
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          FFAppState().updatePostStateStruct(
+                                            (e) => e..serviceMode = 'Flexible',
+                                          );
+                                          safeSetState(() {});
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color:
+                                                FFAppState()
+                                                            .postState
+                                                            .serviceMode ==
+                                                        'Flexible'
+                                                    ? FlutterFlowTheme.of(
+                                                            context)
+                                                        .greenInit
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                            border: Border.all(
+                                              color:
+                                                  FFAppState()
+                                                              .postState
+                                                              .serviceMode ==
+                                                          'Flexible'
+                                                      ? FlutterFlowTheme.of(
+                                                              context)
+                                                          .greenInit
+                                                      : FlutterFlowTheme.of(
+                                                              context)
+                                                          .bordergray,
+                                              width: 0.3,
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 6.0, 12.0, 6.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'tfpdwo3s' /* Flexible */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    color: FFAppState()
+                                                                .postState
+                                                                .serviceMode ==
+                                                            'Flexible'
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .textgray,
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ].divide(SizedBox(width: 10.0)),
                                   ),
                                 ),
                               ),
@@ -1043,7 +1260,8 @@ class _DetailSkillsWidgetState extends State<DetailSkillsWidget> {
                                               'By Agreement'))
                                         Icon(
                                           Icons.check_sharp,
-                                          color: Color(0xFF0BD9A1),
+                                          color: FlutterFlowTheme.of(context)
+                                              .green1,
                                           size: 16.0,
                                         ),
                                     ],
@@ -1314,9 +1532,32 @@ class _DetailSkillsWidgetState extends State<DetailSkillsWidget> {
                                                           .postState
                                                           .pricePeriod,
                                                 ),
-                                                options: TimeUnit.values
-                                                    .map((e) => e.name)
-                                                    .toList(),
+                                                options: [
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'v924dh4a' /* hour */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'ozyficmy' /* day */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'fdk66m0n' /* night */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'p7hnno8o' /* week */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'boyy3zp5' /* month */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '797cksh5' /* year */,
+                                                  )
+                                                ],
                                                 onChanged: (val) async {
                                                   safeSetState(() => _model
                                                       .pricePeriodValue = val);
@@ -1513,7 +1754,8 @@ class _DetailSkillsWidgetState extends State<DetailSkillsWidget> {
                                             '')
                                       Icon(
                                         Icons.check_sharp,
-                                        color: Color(0xFF0BD9A1),
+                                        color:
+                                            FlutterFlowTheme.of(context).green1,
                                         size: 16.0,
                                       ),
                                   ],
@@ -1527,128 +1769,387 @@ class _DetailSkillsWidgetState extends State<DetailSkillsWidget> {
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      FlutterFlowChoiceChips(
-                                        options: [
-                                          ChipData(FFLocalizations.of(context)
-                                              .getText(
-                                            'gx5vwqm8' /* <1 */,
-                                          )),
-                                          ChipData(FFLocalizations.of(context)
-                                              .getText(
-                                            'k3pllddk' /* 1–3 */,
-                                          )),
-                                          ChipData(FFLocalizations.of(context)
-                                              .getText(
-                                            'fmcwm3a6' /* 3–5 */,
-                                          )),
-                                          ChipData(FFLocalizations.of(context)
-                                              .getText(
-                                            'rxqi3xls' /* 5–10 */,
-                                          )),
-                                          ChipData(FFLocalizations.of(context)
-                                              .getText(
-                                            'i9z7q6wp' /* 10+  */,
-                                          ))
-                                        ],
-                                        onChanged: (val) async {
-                                          safeSetState(() =>
-                                              _model.experienceChoiceValue =
-                                                  val?.firstOrNull);
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
                                           FFAppState().updatePostStateStruct(
-                                            (e) => e
-                                              ..experienceYears =
-                                                  _model.experienceChoiceValue,
+                                            (e) =>
+                                                e..experienceYears = '<1 year',
                                           );
                                           safeSetState(() {});
                                         },
-                                        selectedChipStyle: ChipStyle(
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .greenInit,
-                                          textStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMediumIsCustom,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: FFAppState()
+                                                        .postState
+                                                        .experienceYears ==
+                                                    '<1 year'
+                                                ? FlutterFlowTheme.of(context)
+                                                    .greenInit
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                            border: Border.all(
+                                              color: FFAppState()
+                                                          .postState
+                                                          .experienceYears ==
+                                                      '<1 year'
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .greenInit
+                                                  : FlutterFlowTheme.of(context)
+                                                      .bordergray,
+                                              width: 0.3,
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 6.0, 12.0, 6.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '0qu5sgmm' /* <1 year */,
                                               ),
-                                          iconColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primary,
-                                          iconSize: 16.0,
-                                          labelPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 0.0, 8.0, 0.0),
-                                          elevation: 0.0,
-                                          borderColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .greenInit,
-                                          borderWidth: 0.3,
-                                          borderRadius:
-                                              BorderRadius.circular(4.0),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    color: FFAppState()
+                                                                .postState
+                                                                .experienceYears ==
+                                                            '<1 year'
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .textgray,
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
+                                            ),
+                                          ),
                                         ),
-                                        unselectedChipStyle: ChipStyle(
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondaryBackground,
-                                          textStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                color: Color(0xCFD4D4D4),
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMediumIsCustom,
-                                              ),
-                                          iconColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primary,
-                                          iconSize: 16.0,
-                                          labelPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 4.0, 12.0, 4.0),
-                                          elevation: 0.0,
-                                          borderColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .bordergray,
-                                          borderWidth: 0.2,
-                                          borderRadius:
-                                              BorderRadius.circular(4.0),
-                                        ),
-                                        chipSpacing: 10.0,
-                                        rowSpacing: 8.0,
-                                        multiselect: false,
-                                        initialized:
-                                            _model.experienceChoiceValue !=
-                                                null,
-                                        alignment: WrapAlignment.start,
-                                        controller: _model
-                                                .experienceChoiceValueController ??=
-                                            FormFieldController<List<String>>(
-                                          [
-                                            FFAppState()
-                                                .postState
-                                                .experienceYears
-                                          ],
-                                        ),
-                                        wrapped: false,
                                       ),
-                                    ],
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          FFAppState().updatePostStateStruct(
+                                            (e) => e
+                                              ..experienceYears = '1-3 years',
+                                          );
+                                          safeSetState(() {});
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: FFAppState()
+                                                        .postState
+                                                        .experienceYears ==
+                                                    '1-3 years'
+                                                ? FlutterFlowTheme.of(context)
+                                                    .greenInit
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                            border: Border.all(
+                                              color: FFAppState()
+                                                          .postState
+                                                          .experienceYears ==
+                                                      '1-3 years'
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .greenInit
+                                                  : FlutterFlowTheme.of(context)
+                                                      .bordergray,
+                                              width: 0.3,
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 6.0, 12.0, 6.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '5jrtocln' /* 1-3 years */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    color: FFAppState()
+                                                                .postState
+                                                                .experienceYears ==
+                                                            '1-3 years'
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .textgray,
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          FFAppState().updatePostStateStruct(
+                                            (e) => e
+                                              ..experienceYears = '3-5 years',
+                                          );
+                                          safeSetState(() {});
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: FFAppState()
+                                                        .postState
+                                                        .experienceYears ==
+                                                    '3-5 years'
+                                                ? FlutterFlowTheme.of(context)
+                                                    .greenInit
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                            border: Border.all(
+                                              color: FFAppState()
+                                                          .postState
+                                                          .experienceYears ==
+                                                      '3-5 years'
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .greenInit
+                                                  : FlutterFlowTheme.of(context)
+                                                      .bordergray,
+                                              width: 0.3,
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 6.0, 12.0, 6.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'dk59b7ss' /* 3-5 years */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    color: FFAppState()
+                                                                .postState
+                                                                .experienceYears ==
+                                                            '3-5 years'
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .textgray,
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          FFAppState().updatePostStateStruct(
+                                            (e) => e
+                                              ..experienceYears = '5-10 years',
+                                          );
+                                          safeSetState(() {});
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: FFAppState()
+                                                        .postState
+                                                        .experienceYears ==
+                                                    '5-10 years'
+                                                ? FlutterFlowTheme.of(context)
+                                                    .greenInit
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                            border: Border.all(
+                                              color: FFAppState()
+                                                          .postState
+                                                          .experienceYears ==
+                                                      '5-10 years'
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .greenInit
+                                                  : FlutterFlowTheme.of(context)
+                                                      .bordergray,
+                                              width: 0.3,
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 6.0, 12.0, 6.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'nv2ixev4' /* 5-10 years */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    color: FFAppState()
+                                                                .postState
+                                                                .experienceYears ==
+                                                            '5-10 years'
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .textgray,
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          FFAppState().updatePostStateStruct(
+                                            (e) => e
+                                              ..experienceYears = '10+ years',
+                                          );
+                                          safeSetState(() {});
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: FFAppState()
+                                                        .postState
+                                                        .experienceYears ==
+                                                    '10+ years'
+                                                ? FlutterFlowTheme.of(context)
+                                                    .greenInit
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                            border: Border.all(
+                                              color: FFAppState()
+                                                          .postState
+                                                          .experienceYears ==
+                                                      '10+ years'
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .greenInit
+                                                  : FlutterFlowTheme.of(context)
+                                                      .bordergray,
+                                              width: 0.3,
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 6.0, 12.0, 6.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'ss1xe1s4' /* 10+ years */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    color: FFAppState()
+                                                                .postState
+                                                                .experienceYears ==
+                                                            '10+ years'
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .textgray,
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ].divide(SizedBox(width: 10.0)),
                                   ),
                                 ),
                               ),
@@ -1697,7 +2198,8 @@ class _DetailSkillsWidgetState extends State<DetailSkillsWidget> {
                                         0)
                                       Icon(
                                         Icons.check_sharp,
-                                        color: Color(0xFF0BD9A1),
+                                        color:
+                                            FlutterFlowTheme.of(context).green1,
                                         size: 16.0,
                                       ),
                                   ],
@@ -1705,133 +2207,675 @@ class _DetailSkillsWidgetState extends State<DetailSkillsWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 4.0, 0.0, 24.0),
+                                    0.0, 4.0, 0.0, 6.0),
                                 child: SingleChildScrollView(
                                   scrollDirection: Axis.horizontal,
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      FlutterFlowChoiceChips(
-                                        options: [
-                                          ChipData(FFLocalizations.of(context)
-                                              .getText(
-                                            '7kejx4tu' /* Farsi */,
-                                          )),
-                                          ChipData(FFLocalizations.of(context)
-                                              .getText(
-                                            'sx46i6rv' /* English */,
-                                          )),
-                                          ChipData(FFLocalizations.of(context)
-                                              .getText(
-                                            '9zzxxm44' /* Dutch */,
-                                          )),
-                                          ChipData(FFLocalizations.of(context)
-                                              .getText(
-                                            's9vnmhq4' /* Turkish */,
-                                          )),
-                                          ChipData(FFLocalizations.of(context)
-                                              .getText(
-                                            'cke1cqns' /* Arabic */,
-                                          )),
-                                          ChipData(FFLocalizations.of(context)
-                                              .getText(
-                                            'c1f9hym9' /* Kurdish */,
-                                          ))
-                                        ],
-                                        onChanged: (val) async {
-                                          safeSetState(() => _model
-                                              .languageChoiceValues = val);
-                                          FFAppState().updatePostStateStruct(
-                                            (e) => e
-                                              ..languages = _model
-                                                  .languageChoiceValues!
-                                                  .toList(),
-                                          );
-                                          safeSetState(() {});
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          if (FFAppState()
+                                              .postState
+                                              .languages
+                                              .contains(Languages.Farsi.name)) {
+                                            FFAppState().updatePostStateStruct(
+                                              (e) => e
+                                                ..updateLanguages(
+                                                  (e) => e.remove('Farsi'),
+                                                ),
+                                            );
+                                            safeSetState(() {});
+                                          } else {
+                                            FFAppState().updatePostStateStruct(
+                                              (e) => e
+                                                ..updateLanguages(
+                                                  (e) => e.add('Farsi'),
+                                                ),
+                                            );
+                                            safeSetState(() {});
+                                          }
                                         },
-                                        selectedChipStyle: ChipStyle(
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .greenInit,
-                                          textStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMediumIsCustom,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: FFAppState()
+                                                    .postState
+                                                    .languages
+                                                    .contains(
+                                                        Languages.Farsi.name)
+                                                ? FlutterFlowTheme.of(context)
+                                                    .greenInit
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                            border: Border.all(
+                                              color: FFAppState()
+                                                      .postState
+                                                      .languages
+                                                      .contains(
+                                                          Languages.Farsi.name)
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .greenInit
+                                                  : FlutterFlowTheme.of(context)
+                                                      .bordergray,
+                                              width: 0.3,
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 6.0, 12.0, 6.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'd5hrgm0v' /* Farsi */,
                                               ),
-                                          iconColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primary,
-                                          iconSize: 16.0,
-                                          labelPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 0.0, 8.0, 0.0),
-                                          elevation: 0.0,
-                                          borderColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .greenInit,
-                                          borderWidth: 0.3,
-                                          borderRadius:
-                                              BorderRadius.circular(4.0),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    color: FFAppState()
+                                                            .postState
+                                                            .languages
+                                                            .contains(Languages
+                                                                .Farsi.name)
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .textgray,
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
+                                            ),
+                                          ),
                                         ),
-                                        unselectedChipStyle: ChipStyle(
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondaryBackground,
-                                          textStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                color: Color(0xCFD4D4D4),
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMediumIsCustom,
-                                              ),
-                                          iconColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primary,
-                                          iconSize: 16.0,
-                                          labelPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 4.0, 12.0, 4.0),
-                                          elevation: 0.0,
-                                          borderColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .bordergray,
-                                          borderWidth: 0.2,
-                                          borderRadius:
-                                              BorderRadius.circular(4.0),
-                                        ),
-                                        chipSpacing: 10.0,
-                                        rowSpacing: 8.0,
-                                        multiselect: true,
-                                        initialized:
-                                            _model.languageChoiceValues != null,
-                                        alignment: WrapAlignment.start,
-                                        controller: _model
-                                                .languageChoiceValueController ??=
-                                            FormFieldController<List<String>>(
-                                          FFAppState().postState.languages,
-                                        ),
-                                        wrapped: false,
                                       ),
-                                    ],
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          if (FFAppState()
+                                              .postState
+                                              .languages
+                                              .contains(Languages.Dutch.name)) {
+                                            FFAppState().updatePostStateStruct(
+                                              (e) => e
+                                                ..updateLanguages(
+                                                  (e) => e.remove('Dutch'),
+                                                ),
+                                            );
+                                            safeSetState(() {});
+                                          } else {
+                                            FFAppState().updatePostStateStruct(
+                                              (e) => e
+                                                ..updateLanguages(
+                                                  (e) => e.add('Dutch'),
+                                                ),
+                                            );
+                                            safeSetState(() {});
+                                          }
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: FFAppState()
+                                                    .postState
+                                                    .languages
+                                                    .contains(
+                                                        Languages.Dutch.name)
+                                                ? FlutterFlowTheme.of(context)
+                                                    .greenInit
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                            border: Border.all(
+                                              color: FFAppState()
+                                                      .postState
+                                                      .languages
+                                                      .contains(
+                                                          Languages.Dutch.name)
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .greenInit
+                                                  : FlutterFlowTheme.of(context)
+                                                      .bordergray,
+                                              width: 0.3,
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 6.0, 12.0, 6.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'fcujhj2h' /* Dutch */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    color: FFAppState()
+                                                            .postState
+                                                            .languages
+                                                            .contains(Languages
+                                                                .Dutch.name)
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .textgray,
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          if (FFAppState()
+                                              .postState
+                                              .languages
+                                              .contains(
+                                                  Languages.English.name)) {
+                                            FFAppState().updatePostStateStruct(
+                                              (e) => e
+                                                ..updateLanguages(
+                                                  (e) => e.remove('English'),
+                                                ),
+                                            );
+                                            safeSetState(() {});
+                                          } else {
+                                            FFAppState().updatePostStateStruct(
+                                              (e) => e
+                                                ..updateLanguages(
+                                                  (e) => e.add('English'),
+                                                ),
+                                            );
+                                            safeSetState(() {});
+                                          }
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: FFAppState()
+                                                    .postState
+                                                    .languages
+                                                    .contains(
+                                                        Languages.English.name)
+                                                ? FlutterFlowTheme.of(context)
+                                                    .greenInit
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                            border: Border.all(
+                                              color: FFAppState()
+                                                      .postState
+                                                      .languages
+                                                      .contains(Languages
+                                                          .English.name)
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .greenInit
+                                                  : FlutterFlowTheme.of(context)
+                                                      .bordergray,
+                                              width: 0.3,
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 6.0, 12.0, 6.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'd6xli9xh' /* English */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    color: FFAppState()
+                                                            .postState
+                                                            .languages
+                                                            .contains(Languages
+                                                                .English.name)
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .textgray,
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          if (FFAppState()
+                                              .postState
+                                              .languages
+                                              .contains(
+                                                  Languages.Turkish.name)) {
+                                            FFAppState().updatePostStateStruct(
+                                              (e) => e
+                                                ..updateLanguages(
+                                                  (e) => e.remove('Turkish'),
+                                                ),
+                                            );
+                                            safeSetState(() {});
+                                          } else {
+                                            FFAppState().updatePostStateStruct(
+                                              (e) => e
+                                                ..updateLanguages(
+                                                  (e) => e.add('Turkish'),
+                                                ),
+                                            );
+                                            safeSetState(() {});
+                                          }
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: FFAppState()
+                                                    .postState
+                                                    .languages
+                                                    .contains(
+                                                        Languages.Turkish.name)
+                                                ? FlutterFlowTheme.of(context)
+                                                    .greenInit
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                            border: Border.all(
+                                              color: FFAppState()
+                                                      .postState
+                                                      .languages
+                                                      .contains(Languages
+                                                          .Turkish.name)
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .greenInit
+                                                  : FlutterFlowTheme.of(context)
+                                                      .bordergray,
+                                              width: 0.3,
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 6.0, 12.0, 6.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'e00vrlpw' /* Turkish */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    color: FFAppState()
+                                                            .postState
+                                                            .languages
+                                                            .contains(Languages
+                                                                .Turkish.name)
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .textgray,
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          if (FFAppState()
+                                              .postState
+                                              .languages
+                                              .contains(Languages.Urdu.name)) {
+                                            FFAppState().updatePostStateStruct(
+                                              (e) => e
+                                                ..updateLanguages(
+                                                  (e) => e.remove('Urdu'),
+                                                ),
+                                            );
+                                            safeSetState(() {});
+                                          } else {
+                                            FFAppState().updatePostStateStruct(
+                                              (e) => e
+                                                ..updateLanguages(
+                                                  (e) => e.add('Urdu'),
+                                                ),
+                                            );
+                                            safeSetState(() {});
+                                          }
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: FFAppState()
+                                                    .postState
+                                                    .languages
+                                                    .contains(
+                                                        Languages.Urdu.name)
+                                                ? FlutterFlowTheme.of(context)
+                                                    .greenInit
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                            border: Border.all(
+                                              color: FFAppState()
+                                                      .postState
+                                                      .languages
+                                                      .contains(
+                                                          Languages.Urdu.name)
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .greenInit
+                                                  : FlutterFlowTheme.of(context)
+                                                      .bordergray,
+                                              width: 0.3,
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 6.0, 12.0, 6.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '5j3p68kd' /* Urdu */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    color: FFAppState()
+                                                            .postState
+                                                            .languages
+                                                            .contains(Languages
+                                                                .Urdu.name)
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .textgray,
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          if (FFAppState()
+                                              .postState
+                                              .languages
+                                              .contains(
+                                                  Languages.Arabic.name)) {
+                                            FFAppState().updatePostStateStruct(
+                                              (e) => e
+                                                ..updateLanguages(
+                                                  (e) => e.remove('Arabic'),
+                                                ),
+                                            );
+                                            safeSetState(() {});
+                                          } else {
+                                            FFAppState().updatePostStateStruct(
+                                              (e) => e
+                                                ..updateLanguages(
+                                                  (e) => e.add('Arabic'),
+                                                ),
+                                            );
+                                            safeSetState(() {});
+                                          }
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: FFAppState()
+                                                    .postState
+                                                    .languages
+                                                    .contains(
+                                                        Languages.Arabic.name)
+                                                ? FlutterFlowTheme.of(context)
+                                                    .greenInit
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                            border: Border.all(
+                                              color: FFAppState()
+                                                      .postState
+                                                      .languages
+                                                      .contains(
+                                                          Languages.Arabic.name)
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .greenInit
+                                                  : FlutterFlowTheme.of(context)
+                                                      .bordergray,
+                                              width: 0.3,
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 6.0, 12.0, 6.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'mzea4pzo' /* Arabic */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    color: FFAppState()
+                                                            .postState
+                                                            .languages
+                                                            .contains(Languages
+                                                                .Arabic.name)
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .textgray,
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          if (FFAppState()
+                                              .postState
+                                              .languages
+                                              .contains(
+                                                  Languages.Kurdish.name)) {
+                                            FFAppState().updatePostStateStruct(
+                                              (e) => e
+                                                ..updateLanguages(
+                                                  (e) => e.remove('Kurdish'),
+                                                ),
+                                            );
+                                            safeSetState(() {});
+                                          } else {
+                                            FFAppState().updatePostStateStruct(
+                                              (e) => e
+                                                ..updateLanguages(
+                                                  (e) => e.add('Kurdish'),
+                                                ),
+                                            );
+                                            safeSetState(() {});
+                                          }
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: FFAppState()
+                                                    .postState
+                                                    .languages
+                                                    .contains(
+                                                        Languages.Kurdish.name)
+                                                ? FlutterFlowTheme.of(context)
+                                                    .greenInit
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                            border: Border.all(
+                                              color: FFAppState()
+                                                      .postState
+                                                      .languages
+                                                      .contains(Languages
+                                                          .Kurdish.name)
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .greenInit
+                                                  : FlutterFlowTheme.of(context)
+                                                      .bordergray,
+                                              width: 0.3,
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 6.0, 12.0, 6.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'l8joc4ww' /* Kurdish */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    color: FFAppState()
+                                                            .postState
+                                                            .languages
+                                                            .contains(Languages
+                                                                .Kurdish.name)
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .textgray,
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ].divide(SizedBox(width: 10.0)),
                                   ),
                                 ),
                               ),

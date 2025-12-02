@@ -1,14 +1,15 @@
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/main_overview_pages/post_detail_column/post_detail_column_widget.dart';
+import '/profile/review_card_small/review_card_small_widget.dart';
 import '/shared_components/comunication_bar/comunication_bar_widget.dart';
 import '/shared_components/photo_gallary/photo_gallary_widget.dart';
 import '/index.dart';
 import 'dart:async';
-import 'post_widget.dart' show PostWidget;
+import 'post_fa_widget.dart' show PostFaWidget;
 import 'package:flutter/material.dart';
 
-class PostModel extends FlutterFlowModel<PostWidget> {
+class PostFaModel extends FlutterFlowModel<PostFaWidget> {
   ///  Local state fields for this page.
 
   int? currentPageIndex = 0;
@@ -31,16 +32,18 @@ class PostModel extends FlutterFlowModel<PostWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  // Stores action output result for [Backend Call - Query Rows] action in Post widget.
+  // Stores action output result for [Backend Call - Query Rows] action in PostFa widget.
   List<PostsLikesRow>? liked;
-  // Stores action output result for [Backend Call - Query Rows] action in Post widget.
+  // Stores action output result for [Backend Call - Query Rows] action in PostFa widget.
   List<EventAttendeesRow>? eventAttendeesOut;
   // Model for Photo_gallary component.
   late PhotoGallaryModel photoGallaryModel;
-  Completer<List<ViewPostSearchEnRow>>? requestCompleter2;
+  Completer<List<ViewPostSearchFaRow>>? requestCompleter2;
   // Model for PostDetailColumn component.
   late PostDetailColumnModel postDetailColumnModel;
   Completer<List<ViewEventAttendeesRow>>? requestCompleter1;
+  // Models for ReviewCard_small dynamic component.
+  late FlutterFlowDynamicModels<ReviewCardSmallModel> reviewCardSmallModels;
   // Model for Comunication_Bar component.
   late ComunicationBarModel comunicationBarModel;
 
@@ -48,6 +51,8 @@ class PostModel extends FlutterFlowModel<PostWidget> {
   void initState(BuildContext context) {
     photoGallaryModel = createModel(context, () => PhotoGallaryModel());
     postDetailColumnModel = createModel(context, () => PostDetailColumnModel());
+    reviewCardSmallModels =
+        FlutterFlowDynamicModels(() => ReviewCardSmallModel());
     comunicationBarModel = createModel(context, () => ComunicationBarModel());
   }
 
@@ -55,6 +60,7 @@ class PostModel extends FlutterFlowModel<PostWidget> {
   void dispose() {
     photoGallaryModel.dispose();
     postDetailColumnModel.dispose();
+    reviewCardSmallModels.dispose();
     comunicationBarModel.dispose();
   }
 

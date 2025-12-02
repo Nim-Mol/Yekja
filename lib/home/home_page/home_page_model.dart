@@ -1,4 +1,5 @@
 import '/flutter_flow/flutter_flow_util.dart';
+import '/news/news_card/news_card_widget.dart';
 import '/shared_components/main_header/main_header_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
 import '/index.dart';
@@ -38,6 +39,8 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   CarouselSliderController? carouselController;
   int carouselCurrentIndex = 1;
 
+  // Models for NewsCard dynamic component.
+  late FlutterFlowDynamicModels<NewsCardModel> newsCardModels;
   // Model for MainHeader component.
   late MainHeaderModel mainHeaderModel;
   // Model for NavBar component.
@@ -48,6 +51,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   @override
   void initState(BuildContext context) {
     searchFieldTextControllerValidator = _searchFieldTextControllerValidator;
+    newsCardModels = FlutterFlowDynamicModels(() => NewsCardModel());
     mainHeaderModel = createModel(context, () => MainHeaderModel());
     navBarModel = createModel(context, () => NavBarModel());
   }
@@ -57,6 +61,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
     searchFieldFocusNode?.dispose();
     searchFieldTextController?.dispose();
 
+    newsCardModels.dispose();
     mainHeaderModel.dispose();
     navBarModel.dispose();
   }

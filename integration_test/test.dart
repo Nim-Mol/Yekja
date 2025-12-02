@@ -41,22 +41,18 @@ void main() async {
   group('Integration test', () {
     testWidgets('login', (WidgetTester tester) async {
       _overrideOnError();
-      await SupaFlow.client.auth.signInWithPassword(
-          email: 'yekja.team@gmail.com', password: 'Nima&Mehran1');
+
       await tester.pumpWidget(ChangeNotifierProvider(
         create: (context) => FFAppState(),
-        child: const MyApp(),
+        child: MyApp(
+          entryPage: HomePageWidget(),
+        ),
       ));
       await GoogleFonts.pendingFonts();
 
-      await tester.pumpAndSettle();
-      await tester.enterText(find.byKey(const ValueKey('emailAddress_r11m')),
-          'yekja.team@gmail.com');
-      await tester.enterText(
-          find.byKey(const ValueKey('PassWord_fyan')), 'Nima&Mehran1');
-      await tester.tap(find.byKey(const ValueKey('UNDEFINED')));
-      await tester.pumpAndSettle();
-      expect(find.text('What are you looking for roday?'), findsOneWidget);
+      await tester.tap(find.byKey(const ValueKey('Container_wgty')));
+      await tester.pumpAndSettle(const Duration(milliseconds: 3000));
+      expect(find.byKey(const ValueKey('Container_r7aq')), findsWidgets);
     });
   });
 }

@@ -316,6 +316,8 @@ dynamic deserializeParam<T>(
             return ViewEventAttendeesRow(data);
           case ViewUserPostsRow:
             return ViewUserPostsRow(data);
+          case ContactYekjaArchiveRow:
+            return ContactYekjaArchiveRow(data);
           case CitiesRow:
             return CitiesRow(data);
           case ViewShoutoutRow:

@@ -262,9 +262,9 @@ String toLowerCase(String? originalText) {
   return originalText.toLowerCase();
 }
 
-String dateTimeToString(DateTime? dateTimeValue) {
+String? dateTimeToString(DateTime? dateTimeValue) {
   if (dateTimeValue == null) {
-    return ''; // Or return null if your database expects null for empty dates
+    return null; // Or return null if your database expects null for empty dates
   }
 
   // Use the built-in Dart method to convert the DateTime object
@@ -399,4 +399,38 @@ bool isGTx(
 
   // 4. Check the condition: is the parsed number strictly greater than 1?
   return value > x;
+}
+
+DateTime? jsonToDateTimeUtc(dynamic v) {
+// name: jsonToDateTimeUtc
+// input: dynamic v
+// output: DateTime?
+
+  if (v == null) return null;
+  try {
+    if (v is int) {
+      // guess ms vs sec by digits
+      final ms = v.toString().length >= 13 ? v : v * 1000;
+      return DateTime.fromMillisecondsSinceEpoch(ms, isUtc: true).toLocal();
+    }
+    if (v is String) {
+      // ISO8601 like "2025-12-01T19:00:00Z" or "+01:00"
+      final parsed = DateTime.parse(v);
+      final utc = parsed.isUtc
+          ? parsed
+          : DateTime.utc(
+              parsed.year,
+              parsed.month,
+              parsed.day,
+              parsed.hour,
+              parsed.minute,
+              parsed.second,
+              parsed.millisecond,
+              parsed.microsecond);
+      return utc.toLocal();
+    }
+  } catch (_) {
+    return null;
+  }
+  return null;
 }

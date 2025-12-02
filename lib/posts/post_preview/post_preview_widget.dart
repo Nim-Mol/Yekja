@@ -166,22 +166,25 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                               FFAppState().postState.title,
                                               textAlign: TextAlign.start,
                                               maxLines: 2,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleLarge
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleLargeFamily,
-                                                        fontSize: 28.0,
-                                                        letterSpacing: 0.0,
-                                                        lineHeight: 1.1,
-                                                        useGoogleFonts:
-                                                            !FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleLargeIsCustom,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleLarge
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleLargeFamily,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryWhite,
+                                                    fontSize: 28.0,
+                                                    letterSpacing: 0.0,
+                                                    lineHeight: 1.1,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleLargeIsCustom,
+                                                  ),
                                             ),
                                           ),
                                         ].divide(SizedBox(width: 8.0)),
@@ -830,31 +833,41 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                     return Align(
                                       alignment:
                                           AlignmentDirectional(-1.0, 0.0),
-                                      child: ReviewCardSmallWidget(
-                                        key: Key(
-                                            'Keymzc_${rowIndex}_of_${rowViewUserReviewsRowList.length}'),
-                                        reviewData: ReviewCardDataStruct(
-                                          userName: rowViewUserReviewsRow
-                                              .usernameWriter,
-                                          comunicationScore:
-                                              rowViewUserReviewsRow
-                                                  .comunicationScore,
-                                          qualitScore: rowViewUserReviewsRow
-                                              .qualityScsore,
-                                          reliabilityScore:
-                                              rowViewUserReviewsRow
-                                                  .reliabilityScore,
-                                          note: rowViewUserReviewsRow.note,
-                                          avarageScore: rowViewUserReviewsRow
-                                              .avgReviewScore,
-                                          fairnessScore: rowViewUserReviewsRow
-                                              .fairnessScore,
-                                          createAt:
-                                              rowViewUserReviewsRow.createdAt,
-                                          reviewerId:
-                                              rowViewUserReviewsRow.writerId,
-                                          userAvatar: rowViewUserReviewsRow
-                                              .profileAvatarWriter,
+                                      child: wrapWithModel(
+                                        model: _model.reviewCardSmallModels
+                                            .getModel(
+                                          rowViewUserReviewsRow.reviewId!,
+                                          rowIndex,
+                                        ),
+                                        updateCallback: () =>
+                                            safeSetState(() {}),
+                                        child: ReviewCardSmallWidget(
+                                          key: Key(
+                                            'Keymzc_${rowViewUserReviewsRow.reviewId!}',
+                                          ),
+                                          reviewData: ReviewCardDataStruct(
+                                            userName: rowViewUserReviewsRow
+                                                .usernameWriter,
+                                            comunicationScore:
+                                                rowViewUserReviewsRow
+                                                    .comunicationScore,
+                                            qualitScore: rowViewUserReviewsRow
+                                                .qualityScsore,
+                                            reliabilityScore:
+                                                rowViewUserReviewsRow
+                                                    .reliabilityScore,
+                                            note: rowViewUserReviewsRow.note,
+                                            avarageScore: rowViewUserReviewsRow
+                                                .avgReviewScore,
+                                            fairnessScore: rowViewUserReviewsRow
+                                                .fairnessScore,
+                                            createAt:
+                                                rowViewUserReviewsRow.createdAt,
+                                            reviewerId:
+                                                rowViewUserReviewsRow.writerId,
+                                            userAvatar: rowViewUserReviewsRow
+                                                .profileAvatarWriter,
+                                          ),
                                         ),
                                       ),
                                     );
@@ -1050,15 +1063,6 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                                   );
                                                   if (_model.newPostOut !=
                                                       null) {
-                                                    FFAppState().postState =
-                                                        PostModelStruct();
-                                                    FFAppState()
-                                                        .postDetailJSON = null;
-                                                    FFAppState()
-                                                        .postDetailTable = '';
-                                                    FFAppState()
-                                                        .postLanguagesState = [];
-                                                    safeSetState(() {});
                                                     ScaffoldMessenger.of(
                                                             context)
                                                         .showSnackBar(
@@ -1093,6 +1097,16 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                                         ),
                                                       }.withoutNulls,
                                                     );
+
+                                                    FFAppState().postState =
+                                                        PostModelStruct();
+                                                    FFAppState()
+                                                        .postDetailJSON = null;
+                                                    FFAppState()
+                                                        .postDetailTable = '';
+                                                    FFAppState()
+                                                        .postLanguagesState = [];
+                                                    safeSetState(() {});
                                                   } else {
                                                     await showDialog(
                                                       context: context,

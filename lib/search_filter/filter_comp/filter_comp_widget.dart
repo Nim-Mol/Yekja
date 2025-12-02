@@ -1894,6 +1894,7 @@ class _FilterCompWidgetState extends State<FilterCompWidget>
                                           safeSetState(() {
                                             _model.locationValueController
                                                 ?.reset();
+                                            _model.locationValue = null;
                                           });
                                           FFAppState()
                                               .updateFilterAppStateStruct(

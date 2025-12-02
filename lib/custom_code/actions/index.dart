@@ -15,3 +15,4 @@ export 'get_jwt.dart' show getJwt;
 export 'navigate_to_detail_form.dart' show navigateToDetailForm;
 export 'reset_app_state_on_logout.dart' show resetAppStateOnLogout;
 export 'generate_u_u_i_d.dart' show generateUUID;
+export 'navigate_to_detail_form1.dart' show navigateToDetailForm1;

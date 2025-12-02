@@ -13,18 +13,6 @@ class DetailCareAndAssistanceModel
   String? dropdownCityValue;
   FormFieldController<String>? dropdownCityValueController;
   DateTime? datePicked;
-  // State field(s) for ComensationRequest widget.
-  FormFieldController<List<String>>? comensationRequestValueController;
-  String? get comensationRequestValue =>
-      comensationRequestValueController?.value?.firstOrNull;
-  set comensationRequestValue(String? val) =>
-      comensationRequestValueController?.value = val != null ? [val] : [];
-  // State field(s) for ComensationOffer widget.
-  FormFieldController<List<String>>? comensationOfferValueController;
-  String? get comensationOfferValue =>
-      comensationOfferValueController?.value?.firstOrNull;
-  set comensationOfferValue(String? val) =>
-      comensationOfferValueController?.value = val != null ? [val] : [];
   // State field(s) for SwapSwitch widget.
   bool? swapSwitchValue;
   // State field(s) for TextField widget.

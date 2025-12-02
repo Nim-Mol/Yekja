@@ -131,47 +131,113 @@ class _PostSubCatWidgetState extends State<PostSubCatWidget> {
                                                   .bodyMediumIsCustom,
                                         ),
                                   ),
-                                  RichText(
-                                    textScaler:
-                                        MediaQuery.of(context).textScaler,
-                                    text: TextSpan(
-                                      children: [
-                                        TextSpan(
-                                          text: FFLocalizations.of(context)
-                                              .getText(
-                                            'm0e8ms6f' /* 3 */,
+                                  Stack(
+                                    children: [
+                                      if (functions.isInSetInt(
+                                          FFAppState().postState.catId,
+                                          FFAppConstants.catsOpenForSwap
+                                              .toList()))
+                                        RichText(
+                                          textScaler:
+                                              MediaQuery.of(context).textScaler,
+                                          text: TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'm0e8ms6f' /* 3 */,
+                                                ),
+                                                style: TextStyle(),
+                                              ),
+                                              TextSpan(
+                                                text:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'q5po1f7m' /*  of  */,
+                                                ),
+                                                style: TextStyle(),
+                                              ),
+                                              TextSpan(
+                                                text:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  's7quu3gz' /* 6 */,
+                                                ),
+                                                style: TextStyle(),
+                                              )
+                                            ],
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  letterSpacing: 0.0,
+                                                  useGoogleFonts:
+                                                      !FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumIsCustom,
+                                                ),
                                           ),
-                                          style: TextStyle(),
                                         ),
-                                        TextSpan(
-                                          text: FFLocalizations.of(context)
-                                              .getText(
-                                            'q5po1f7m' /*  of  */,
+                                      if (!functions.isInSetInt(
+                                          FFAppState().postState.catId,
+                                          FFAppConstants.catsOpenForSwap
+                                              .toList()))
+                                        RichText(
+                                          textScaler:
+                                              MediaQuery.of(context).textScaler,
+                                          text: TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'nth5pnlt' /* 4 */,
+                                                ),
+                                                style: TextStyle(),
+                                              ),
+                                              TextSpan(
+                                                text:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'pvgrrlua' /*  of  */,
+                                                ),
+                                                style: TextStyle(),
+                                              ),
+                                              TextSpan(
+                                                text:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  '5vuuqhdq' /* 6 */,
+                                                ),
+                                                style: TextStyle(),
+                                              )
+                                            ],
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  letterSpacing: 0.0,
+                                                  useGoogleFonts:
+                                                      !FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumIsCustom,
+                                                ),
                                           ),
-                                          style: TextStyle(),
                                         ),
-                                        TextSpan(
-                                          text: FFLocalizations.of(context)
-                                              .getText(
-                                            's7quu3gz' /* 6 */,
-                                          ),
-                                          style: TextStyle(),
-                                        )
-                                      ],
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            letterSpacing: 0.0,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .bodyMediumIsCustom,
-                                          ),
-                                    ),
+                                    ],
                                   ),
                                 ]
                                     .divide(SizedBox(width: 6.0))
@@ -194,10 +260,9 @@ class _PostSubCatWidgetState extends State<PostSubCatWidget> {
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   if (widget.navRoute == 'PostPreview') {
-                                    context
-                                        .pushNamed(PostPreviewWidget.routeName);
+                                    context.goNamed(PostEditWidget.routeName);
                                   } else {
-                                    context.pushNamed(HomePageWidget.routeName);
+                                    context.goNamed(HomePageWidget.routeName);
                                   }
                                 },
                                 child: Icon(
@@ -246,29 +311,10 @@ class _PostSubCatWidgetState extends State<PostSubCatWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              // If post has wishlist (no intend) go to detail page and from there go to wishlist and then images, otherwise go to PostIntend
-                              if (functions.isInSetInt(
-                                      FFAppState().postState.catId,
-                                      FFAppConstants.catsOpenForSwap
-                                          .toList()) ==
-                                  true) {
-                                await actions.navigateToDetailForm(
-                                  context,
-                                  FFAppState().postDetailTable,
-                                );
-                              } else {
-                                context.pushNamed(
-                                  PostIntendWidget.routeName,
-                                  extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType:
-                                          PageTransitionType.rightToLeft,
-                                      duration: Duration(milliseconds: 600),
-                                    ),
-                                  },
-                                );
-                              }
+                              await actions.navigateToDetailForm(
+                                context,
+                                FFAppState().postDetailTable,
+                              );
                                                         },
                             child: Container(
                               width: double.infinity,

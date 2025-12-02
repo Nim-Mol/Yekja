@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'news_card_model.dart';
 export 'news_card_model.dart';
 
@@ -80,152 +81,101 @@ class _NewsCardWidgetState extends State<NewsCardWidget> {
               color: FlutterFlowTheme.of(context).lighterSecBackground,
             ),
           ),
-          child: Stack(
-            children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(8.0, 10.0, 8.0, 12.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      mainAxisSize: MainAxisSize.min,
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 12.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Align(
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 8.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Align(
-                          alignment: AlignmentDirectional(0.0, -1.0),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 8.0, 0.0, 0.0),
-                            child: Text(
-                              valueOrDefault<String>(
-                                widget.headerTxt,
-                                'Our News Here! Our News Here! Our News Here! Our News Here!Our News Here!',
-                              ),
-                              textAlign: TextAlign.center,
-                              maxLines: 2,
-                              style: FlutterFlowTheme.of(context)
-                                  .titleMedium
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .titleMediumFamily,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    fontSize: 13.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                    shadows: [
-                                      Shadow(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                        offset: Offset(2.0, 2.0),
-                                        blurRadius: 2.0,
-                                      )
-                                    ],
-                                    useGoogleFonts:
-                                        !FlutterFlowTheme.of(context)
-                                            .titleMediumIsCustom,
-                                  ),
-                              overflow: TextOverflow.ellipsis,
-                            ),
+                        Text(
+                          dateTimeFormat(
+                            "MMMEd",
+                            widget.date,
+                            locale: FFLocalizations.of(context).languageCode,
                           ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyMediumFamily,
+                                color:
+                                    FlutterFlowTheme.of(context).primaryWhite,
+                                fontSize: 10.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w600,
+                                decoration: TextDecoration.underline,
+                                useGoogleFonts: !FlutterFlowTheme.of(context)
+                                    .bodyMediumIsCustom,
+                              ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.0, -1.0),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 2.0, 8.0, 8.0),
-                            child: Text(
-                              valueOrDefault<String>(
-                                widget.hinttxt,
-                                'Hint front text',
-                              ),
-                              textAlign: TextAlign.center,
-                              maxLines: 4,
-                              style: FlutterFlowTheme.of(context)
-                                  .titleMedium
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .titleMediumFamily,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    fontSize: 10.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w200,
-                                    shadows: [
-                                      Shadow(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                        offset: Offset(2.0, 2.0),
-                                        blurRadius: 2.0,
-                                      )
-                                    ],
-                                    useGoogleFonts:
-                                        !FlutterFlowTheme.of(context)
-                                            .titleMediumIsCustom,
-                                  ),
-                              overflow: TextOverflow.ellipsis,
+                          alignment: AlignmentDirectional(1.0, -1.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Image.asset(
+                              'assets/images/bell.gif',
+                              width: 20.0,
+                              height: 15.0,
+                              fit: BoxFit.cover,
                             ),
                           ),
                         ),
-                      ],
+                      ].divide(SizedBox(width: 5.0)),
                     ),
-                    Flexible(
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12.0),
-                        child: Image.network(
-                          widget.frontImage!,
-                          width: 164.0,
-                          height: 100.0,
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 8.0, 0.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        dateTimeFormat(
-                          "MMMEd",
-                          widget.date,
-                          locale: FFLocalizations.of(context).languageCode,
-                        ),
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyMediumFamily,
-                              color: FlutterFlowTheme.of(context).primaryWhite,
-                              fontSize: 10.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w600,
-                              useGoogleFonts: !FlutterFlowTheme.of(context)
-                                  .bodyMediumIsCustom,
-                            ),
-                      ),
-                      Align(
-                        alignment: AlignmentDirectional(1.0, -1.0),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: Image.asset(
-                            'assets/images/bell.gif',
-                            width: 20.0,
-                            height: 15.0,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ].divide(SizedBox(width: 5.0)),
                   ),
                 ),
-              ),
-            ],
+                Align(
+                  alignment: AlignmentDirectional(0.0, -1.0),
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 0.0, 0.0),
+                    child: Text(
+                      valueOrDefault<String>(
+                        widget.headerTxt,
+                        'Our News Here! Our News Here! Our News Here! Our News Here!Our News Here!',
+                      ),
+                      textAlign: TextAlign.center,
+                      maxLines: 4,
+                      style: FlutterFlowTheme.of(context).titleMedium.override(
+                            font: GoogleFonts.spectralSc(
+                              fontWeight: FontWeight.w600,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .titleMedium
+                                  .fontStyle,
+                            ),
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            fontSize: 15.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w600,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .fontStyle,
+                          ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ),
+                Flexible(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12.0),
+                    child: Image.network(
+                      widget.frontImage!,
+                      width: 164.0,
+                      height: 100.0,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+              ].divide(SizedBox(height: 5.0)),
+            ),
           ),
         ),
       ),

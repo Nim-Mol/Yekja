@@ -379,7 +379,7 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                                                                         'Satoshi',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primaryText,
+                                                                        .primaryWhite,
                                                                     fontSize:
                                                                         16.0,
                                                                     letterSpacing:
@@ -999,7 +999,7 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                                     .primaryBackground,
                                 icon: Icon(
                                   Icons.image_outlined,
-                                  color: FlutterFlowTheme.of(context).textgray,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   size: 28.0,
                                 ),
                                 onPressed: () async {
@@ -1255,7 +1255,7 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                                               Icons.send,
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .info,
+                                                      .primary,
                                               size: 24.0,
                                             ),
                                             onPressed: () async {

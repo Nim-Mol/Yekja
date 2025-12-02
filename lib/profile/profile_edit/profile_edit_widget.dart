@@ -1811,7 +1811,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                               color: FlutterFlowTheme.of(context).green1,
                                                                               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
-                                                                                    color: FlutterFlowTheme.of(context).primary,
+                                                                                    color: FlutterFlowTheme.of(context).primaryWhite,
                                                                                     fontSize: 10.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w100,
@@ -2029,6 +2029,16 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                             },
                                                                             height:
                                                                                 50.0,
+                                                                            searchHintTextStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                  fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
+                                                                                  letterSpacing: 0.0,
+                                                                                  useGoogleFonts: !FlutterFlowTheme.of(context).labelMediumIsCustom,
+                                                                                ),
+                                                                            searchTextStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                  letterSpacing: 0.0,
+                                                                                  useGoogleFonts: !FlutterFlowTheme.of(context).bodyMediumIsCustom,
+                                                                                ),
                                                                             textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                   color: FlutterFlowTheme.of(context).secondaryText,
@@ -2038,6 +2048,10 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                             hintText:
                                                                                 FFLocalizations.of(context).getText(
                                                                               '25ca7h3c' /* Select */,
+                                                                            ),
+                                                                            searchHintText:
+                                                                                FFLocalizations.of(context).getText(
+                                                                              'b4y4scus' /* Search... */,
                                                                             ),
                                                                             icon:
                                                                                 Icon(
@@ -2065,7 +2079,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                             isOverButton:
                                                                                 false,
                                                                             isSearchable:
-                                                                                false,
+                                                                                true,
                                                                             isMultiSelect:
                                                                                 false,
                                                                           ),
@@ -2715,6 +2729,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                             ),
                                                                             onConfirmAction:
                                                                                 () async {
+                                                                              Navigator.pop(context);
                                                                               // CompeleteSoft Delete
                                                                               _model.succes = await actions.userSoftDeleteAsync();
                                                                               if (_model.succes!) {

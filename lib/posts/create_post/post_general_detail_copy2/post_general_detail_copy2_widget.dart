@@ -1273,20 +1273,8 @@ and Descripti... */
                           onTap: () async {
                             if (functions.isInSetInt(
                                     FFAppState().postState.catId,
-                                    FFAppConstants.catsOpenForSwap.toList()) ==
+                                    FFAppConstants.catsOpenForSwap.toList()) !=
                                 true) {
-                              context.pushNamed(
-                                PostWishListWidget.routeName,
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType:
-                                        PageTransitionType.rightToLeft,
-                                    duration: Duration(milliseconds: 600),
-                                  ),
-                                },
-                              );
-                            } else {
                               context.pushNamed(
                                 PostImageWidget.routeName,
                                 extra: <String, dynamic>{

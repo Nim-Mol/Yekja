@@ -146,7 +146,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                       fontFamily: FlutterFlowTheme.of(context)
                                           .bodySmallFamily,
                                       color: Color(0xFF1DD6A1),
-                                      fontSize: 14.0,
+                                      fontSize: 13.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                       useGoogleFonts:
@@ -532,21 +532,20 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                             'user name',
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .titleMedium
+                                              .titleSmall
                                               .override(
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
-                                                        .titleMediumFamily,
+                                                        .titleSmallFamily,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w500,
                                                 useGoogleFonts:
                                                     !FlutterFlowTheme.of(
                                                             context)
-                                                        .titleMediumIsCustom,
+                                                        .titleSmallIsCustom,
                                               ),
                                           overflow: TextOverflow.ellipsis,
                                         ),
@@ -592,7 +591,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .yellow1,
-                                                    fontSize: 14.0,
+                                                    fontSize: 13.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                     useGoogleFonts:
@@ -636,7 +635,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                                                 context)
                                                             .bodySmallFamily,
                                                     color: Color(0xFF1DD6A1),
-                                                    fontSize: 14.0,
+                                                    fontSize: 13.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                     useGoogleFonts:
@@ -1062,7 +1061,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                             border: Border.all(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .market,
+                                                      .marketBackground,
                                             ),
                                           ),
                                           child: Padding(
@@ -1464,7 +1463,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                             border: Border.all(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .market,
+                                                      .marketBackground,
                                             ),
                                           ),
                                           child: Padding(
@@ -2028,7 +2027,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                             border: Border.all(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .market,
+                                                      .marketBackground,
                                             ),
                                           ),
                                           child: Padding(
@@ -3167,7 +3166,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                             border: Border.all(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .market,
+                                                      .marketBackground,
                                             ),
                                           ),
                                           child: Padding(
@@ -3529,7 +3528,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                             border: Border.all(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .market,
+                                                      .marketBackground,
                                             ),
                                           ),
                                           child: Padding(
@@ -3831,6 +3830,9 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .titleSmallFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               useGoogleFonts:
@@ -3905,7 +3907,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                             border: Border.all(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .market,
+                                                      .marketBackground,
                                             ),
                                           ),
                                           child: Padding(
@@ -4206,6 +4208,8 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
                                                     .titleSmallFamily,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
                                             useGoogleFonts:
@@ -4251,7 +4255,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                                     .bodySmallFamily,
                                             color: FlutterFlowTheme.of(context)
                                                 .yellow1,
-                                            fontSize: 14.0,
+                                            fontSize: 13.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                             useGoogleFonts:
@@ -4270,8 +4274,8 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                         .lighterSecBackground,
                                     borderRadius: BorderRadius.circular(6.0),
                                     border: Border.all(
-                                      color:
-                                          FlutterFlowTheme.of(context).market,
+                                      color: FlutterFlowTheme.of(context)
+                                          .marketBackground,
                                     ),
                                   ),
                                   child: Padding(
@@ -4290,7 +4294,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .bodySmallFamily,
                                             color: Color(0xFF22C3E6),
-                                            fontSize: 14.0,
+                                            fontSize: 13.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                             useGoogleFonts:
@@ -4319,17 +4323,6 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                             ),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(0.0),
-                            ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: Image.network(
-                                valueOrDefault<String>(
-                                  widget.itemData?.mainImagePath,
-                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/zCfTnCN4IRBlV0rHAl5X/assets/kbaky2b9bqxx/rental_default.png',
-                                ),
-                                height: 200.0,
-                                fit: BoxFit.cover,
-                              ),
                             ),
                           ),
                         ),

@@ -273,45 +273,91 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed(
-                                      PostWidget.routeName,
-                                      queryParameters: {
-                                        'postID': serializeParam(
-                                          searchResultsItem.postId,
-                                          ParamType.String,
-                                        ),
-                                        'detailDataName': serializeParam(
-                                          searchResultsItem.detailTable,
-                                          ParamType.String,
-                                        ),
-                                      }.withoutNulls,
-                                    );
+                                    if (FFLocalizations.of(context)
+                                            .languageCode ==
+                                        'fa') {
+                                      context.pushNamed(
+                                        PostFaWidget.routeName,
+                                        queryParameters: {
+                                          'postID': serializeParam(
+                                            searchResultsItem.postId,
+                                            ParamType.String,
+                                          ),
+                                          'detailDataName': serializeParam(
+                                            searchResultsItem.detailTable,
+                                            ParamType.String,
+                                          ),
+                                        }.withoutNulls,
+                                      );
+                                    } else {
+                                      if (FFLocalizations.of(context)
+                                              .languageCode ==
+                                          'nl') {
+                                        context.pushNamed(
+                                          PostNLWidget.routeName,
+                                          queryParameters: {
+                                            'postID': serializeParam(
+                                              searchResultsItem.postId,
+                                              ParamType.String,
+                                            ),
+                                            'detailDataName': serializeParam(
+                                              searchResultsItem.detailTable,
+                                              ParamType.String,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      } else {
+                                        context.pushNamed(
+                                          PostEnWidget.routeName,
+                                          queryParameters: {
+                                            'postID': serializeParam(
+                                              searchResultsItem.postId,
+                                              ParamType.String,
+                                            ),
+                                            'detailDataName': serializeParam(
+                                              searchResultsItem.detailTable,
+                                              ParamType.String,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      }
+                                    }
                                   },
-                                  child: ItemCardHorizontal2Widget(
-                                    key: Key(
-                                        'Keyedx_${searchResultsIndex}_of_${_model.listViewSearchPagingController!.itemList!.length}'),
-                                    mainCatID: searchResultsItem.mainCatId,
-                                    image: getJsonField(
+                                  child: wrapWithModel(
+                                    model: _model.itemCardHorizontal2Models
+                                        .getModel(
+                                      searchResultsIndex.toString(),
+                                      searchResultsIndex,
+                                    ),
+                                    updateCallback: () => safeSetState(() {}),
+                                    child: ItemCardHorizontal2Widget(
+                                      key: Key(
+                                        'Keyedx_${searchResultsIndex.toString()}',
+                                      ),
+                                      mainCatID: searchResultsItem.mainCatId,
+                                      image: getJsonField(
+                                                searchResultsItem.toMap(),
+                                                r'''$.images[0]''',
+                                              ) !=
+                                              null
+                                          ? getJsonField(
                                               searchResultsItem.toMap(),
                                               r'''$.images[0]''',
-                                            ) !=
-                                            null
-                                        ? getJsonField(
-                                            searchResultsItem.toMap(),
-                                            r'''$.images[0]''',
-                                          ).toString()
-                                        : FFAppConstants.DefaultPostImage,
-                                    catName: searchResultsItem.catNameLabel,
-                                    subCatName:
-                                        searchResultsItem.subCatNameLabel,
-                                    title: searchResultsItem.title,
-                                    description: searchResultsItem.description,
-                                    city: searchResultsItem.city,
-                                    likes: searchResultsItem.postLikes,
-                                    postID: searchResultsItem.postId,
-                                    catColor: functions.hexToColor(
-                                        searchResultsItem.effectiveColorHex,
-                                        Color(0x00000000)),
+                                            ).toString()
+                                          : FFAppConstants.DefaultPostImage,
+                                      catName: searchResultsItem.catNameLabel,
+                                      subCatName:
+                                          searchResultsItem.subCatNameLabel,
+                                      title: searchResultsItem.title,
+                                      description:
+                                          searchResultsItem.description,
+                                      city: searchResultsItem.city,
+                                      likes: searchResultsItem.postLikes,
+                                      postID: searchResultsItem.postId,
+                                      catColor: functions.hexToColor(
+                                          searchResultsItem.effectiveColorHex,
+                                          Color(0x00000000)),
+                                    ),
                                   ),
                                 );
                               },
@@ -829,7 +875,8 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                           width: 48.0,
                                           height: 48.0,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFF232426),
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
                                             borderRadius: BorderRadius.only(
                                               bottomLeft: Radius.circular(8.0),
                                               bottomRight: Radius.circular(8.0),
@@ -837,7 +884,9 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                               topRight: Radius.circular(8.0),
                                             ),
                                             border: Border.all(
-                                              color: Color(0xFF232426),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
                                             ),
                                           ),
                                           alignment:
@@ -997,8 +1046,9 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                                       enabledBorder:
                                                           OutlineInputBorder(
                                                         borderSide: BorderSide(
-                                                          color:
-                                                              Color(0xFF232426),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
                                                           width: 1.0,
                                                         ),
                                                         borderRadius:
@@ -1089,8 +1139,9 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                                         ),
                                                       ),
                                                       filled: true,
-                                                      fillColor:
-                                                          Color(0xFF232426),
+                                                      fillColor: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -1188,9 +1239,16 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                             width: 48.0,
                                             height: 48.0,
                                             decoration: BoxDecoration(
-                                              color: Color(0xFF232426),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                              ),
                                             ),
                                             alignment:
                                                 AlignmentDirectional(0.0, 0.0),

@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 class DetailEventsModel extends FlutterFlowModel<DetailEventsWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final formKey2 = GlobalKey<FormState>();
+  final formKey1 = GlobalKey<FormState>();
   // State field(s) for dropdownCity widget.
   String? dropdownCityValue;
   FormFieldController<String>? dropdownCityValueController;
@@ -26,21 +28,57 @@ class DetailEventsModel extends FlutterFlowModel<DetailEventsWidget> {
   bool? priceBoolSwitchValue1;
   // State field(s) for PriceBoolSwitch widget.
   bool? priceBoolSwitchValue2;
+  // State field(s) for priceField widget.
+  FocusNode? priceFieldFocusNode;
+  TextEditingController? priceFieldTextController;
+  String? Function(BuildContext, String?)? priceFieldTextControllerValidator;
+  String? _priceFieldTextControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    if (!RegExp('^([0-9\\u06F0-\\u06F9])+\$').hasMatch(val)) {
+      return FFLocalizations.of(context).getText(
+        'snbevskk' /* Numbers only. */,
+      );
+    }
+    return null;
+  }
+
+  // Stores action output result for [Validate Form] action in priceField widget.
+  bool? validationResultPrice;
+  // State field(s) for capacityField widget.
+  FocusNode? capacityFieldFocusNode;
+  TextEditingController? capacityFieldTextController;
+  String? Function(BuildContext, String?)? capacityFieldTextControllerValidator;
+  String? _capacityFieldTextControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    if (!RegExp('^([0-9\\u06F0-\\u06F9])+\$').hasMatch(val)) {
+      return FFLocalizations.of(context).getText(
+        'y0o3czo1' /* Numbers only. */,
+      );
+    }
+    return null;
+  }
+
+  // Stores action output result for [Validate Form] action in capacityField widget.
+  bool? validationResultCapacity;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode3;
-  TextEditingController? textController3;
-  String? Function(BuildContext, String?)? textController3Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode4;
-  TextEditingController? textController4;
-  String? Function(BuildContext, String?)? textController4Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode5;
   TextEditingController? textController5;
   String? Function(BuildContext, String?)? textController5Validator;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    priceFieldTextControllerValidator = _priceFieldTextControllerValidator;
+    capacityFieldTextControllerValidator =
+        _capacityFieldTextControllerValidator;
+  }
 
   @override
   void dispose() {
@@ -50,13 +88,13 @@ class DetailEventsModel extends FlutterFlowModel<DetailEventsWidget> {
     textFieldFocusNode2?.dispose();
     textController2?.dispose();
 
+    priceFieldFocusNode?.dispose();
+    priceFieldTextController?.dispose();
+
+    capacityFieldFocusNode?.dispose();
+    capacityFieldTextController?.dispose();
+
     textFieldFocusNode3?.dispose();
-    textController3?.dispose();
-
-    textFieldFocusNode4?.dispose();
-    textController4?.dispose();
-
-    textFieldFocusNode5?.dispose();
     textController5?.dispose();
   }
 }

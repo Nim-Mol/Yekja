@@ -136,11 +136,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           ),
         ),
         FFRoute(
-          name: IranNLItemPageWidget.routeName,
-          path: IranNLItemPageWidget.routePath,
-          builder: (context, params) => IranNLItemPageWidget(),
-        ),
-        FFRoute(
           name: PostSubCatWidget.routeName,
           path: PostSubCatWidget.routePath,
           builder: (context, params) => PostSubCatWidget(
@@ -306,11 +301,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
               ParamType.String,
             ),
           ),
-        ),
-        FFRoute(
-          name: PostGeneralDetailCopy2Widget.routeName,
-          path: PostGeneralDetailCopy2Widget.routePath,
-          builder: (context, params) => PostGeneralDetailCopy2Widget(),
         ),
         FFRoute(
           name: DetailRentalsWidget.routeName,
@@ -513,11 +503,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => NewsWidget(),
         ),
         FFRoute(
-          name: XxxWidget.routeName,
-          path: XxxWidget.routePath,
-          builder: (context, params) => XxxWidget(),
-        ),
-        FFRoute(
           name: PostPreviewWidget.routeName,
           path: PostPreviewWidget.routePath,
           builder: (context, params) => PostPreviewWidget(),
@@ -572,20 +557,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
             ),
             detailDataName: params.getParam(
               'detailDataName',
-              ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: PostEditCopyWidget.routeName,
-          path: PostEditCopyWidget.routePath,
-          builder: (context, params) => PostEditCopyWidget(
-            postId: params.getParam(
-              'postId',
-              ParamType.String,
-            ),
-            detailTable: params.getParam(
-              'detailTable',
               ParamType.String,
             ),
           ),

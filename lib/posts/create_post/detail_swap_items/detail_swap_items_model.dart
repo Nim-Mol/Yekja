@@ -7,13 +7,31 @@ import 'package:flutter/material.dart';
 class DetailSwapItemsModel extends FlutterFlowModel<DetailSwapItemsWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final formKey = GlobalKey<FormState>();
   // State field(s) for dropdownCity widget.
   String? dropdownCityValue1;
   FormFieldController<String>? dropdownCityValueController1;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
+  // State field(s) for WishlistField widget.
+  FocusNode? wishlistFieldFocusNode;
+  TextEditingController? wishlistFieldTextController;
+  String? Function(BuildContext, String?)? wishlistFieldTextControllerValidator;
+  String? _wishlistFieldTextControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    if (!RegExp('^[\\u0600-\\u06FF\\s_\\u0660-\\u06690-9a-zA-Z\\.]+\$')
+        .hasMatch(val)) {
+      return FFLocalizations.of(context).getText(
+        'wukfcoma' /* Please use only letters, numbe... */,
+      );
+    }
+    return null;
+  }
+
+  // Stores action output result for [Validate Form] action in WishlistField widget.
+  bool? validationResultWhishlist;
   // State field(s) for SwapSwitch widget.
   bool? swapSwitchValue;
   // State field(s) for dropdownCity widget.
@@ -21,30 +39,33 @@ class DetailSwapItemsModel extends FlutterFlowModel<DetailSwapItemsWidget> {
   FormFieldController<String>? dropdownCityValueController2;
   DateTime? datePicked;
   // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
+  FocusNode? textFieldFocusNode1;
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
   // State field(s) for PriceBoolSwitch widget.
   bool? priceBoolSwitchValue;
   // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode3;
+  FocusNode? textFieldFocusNode2;
   TextEditingController? textController3;
   String? Function(BuildContext, String?)? textController3Validator;
   // State field(s) for NegotiableSwitch widget.
   bool? negotiableSwitchValue;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    wishlistFieldTextControllerValidator =
+        _wishlistFieldTextControllerValidator;
+  }
 
   @override
   void dispose() {
-    textFieldFocusNode1?.dispose();
-    textController1?.dispose();
+    wishlistFieldFocusNode?.dispose();
+    wishlistFieldTextController?.dispose();
 
-    textFieldFocusNode2?.dispose();
+    textFieldFocusNode1?.dispose();
     textController2?.dispose();
 
-    textFieldFocusNode3?.dispose();
+    textFieldFocusNode2?.dispose();
     textController3?.dispose();
   }
 }

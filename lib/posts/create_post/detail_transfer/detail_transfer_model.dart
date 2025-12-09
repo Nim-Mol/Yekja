@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 class DetailTransferModel extends FlutterFlowModel<DetailTransferWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final formKey = GlobalKey<FormState>();
   // State field(s) for dropdownCity widget.
   String? dropdownCityValue;
   FormFieldController<String>? dropdownCityValueController;
@@ -30,10 +31,26 @@ class DetailTransferModel extends FlutterFlowModel<DetailTransferWidget> {
   DateTime? datePicked2;
   // State field(s) for PriceBoolSwitch widget.
   bool? priceBoolSwitchValue;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode5;
-  TextEditingController? textController5;
-  String? Function(BuildContext, String?)? textController5Validator;
+  // State field(s) for PriceField widget.
+  FocusNode? priceFieldFocusNode;
+  TextEditingController? priceFieldTextController;
+  String? Function(BuildContext, String?)? priceFieldTextControllerValidator;
+  String? _priceFieldTextControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    if (!RegExp('^([0-9\\u06F0-\\u06F9])+\$').hasMatch(val)) {
+      return FFLocalizations.of(context).getText(
+        'ovlmtq3q' /* Please only use number. */,
+      );
+    }
+    return null;
+  }
+
+  // Stores action output result for [Validate Form] action in PriceField widget.
+  bool? validationResultPrice;
   // State field(s) for NegotiableSwitch widget.
   bool? negotiableSwitchValue;
   // State field(s) for Document widget.
@@ -42,7 +59,9 @@ class DetailTransferModel extends FlutterFlowModel<DetailTransferWidget> {
   bool? fragileValue;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    priceFieldTextControllerValidator = _priceFieldTextControllerValidator;
+  }
 
   @override
   void dispose() {
@@ -58,7 +77,7 @@ class DetailTransferModel extends FlutterFlowModel<DetailTransferWidget> {
     textFieldFocusNode4?.dispose();
     textController4?.dispose();
 
-    textFieldFocusNode5?.dispose();
-    textController5?.dispose();
+    priceFieldFocusNode?.dispose();
+    priceFieldTextController?.dispose();
   }
 }

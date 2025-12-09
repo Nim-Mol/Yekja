@@ -5433,7 +5433,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 child: Container(
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
+                                        .marketBackground,
                                     borderRadius: BorderRadius.circular(4.0),
                                     border: Border.all(
                                       color:

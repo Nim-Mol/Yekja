@@ -231,6 +231,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                           Container(
                                             width: 200.0,
                                             child: TextFormField(
+                                              key: ValueKey('inputEmail'),
                                               controller: _model
                                                   .emailAddressTextController,
                                               focusNode:
@@ -353,6 +354,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                           Container(
                                             width: 200.0,
                                             child: TextFormField(
+                                              key: ValueKey('inputPassword'),
                                               controller:
                                                   _model.passWordTextController,
                                               focusNode:

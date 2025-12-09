@@ -8,33 +8,70 @@ class DetailCurrencyExchangeModel
     extends FlutterFlowModel<DetailCurrencyExchangeWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final formKey1 = GlobalKey<FormState>();
+  final formKey2 = GlobalKey<FormState>();
   // State field(s) for dropdownCity widget.
   String? dropdownCityValue;
   FormFieldController<String>? dropdownCityValueController;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
+  // State field(s) for AmountField widget.
+  FocusNode? amountFieldFocusNode;
+  TextEditingController? amountFieldTextController;
+  String? Function(BuildContext, String?)? amountFieldTextControllerValidator;
+  String? _amountFieldTextControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    if (!RegExp('^([0-9\\u06F0-\\u06F9])+\$').hasMatch(val)) {
+      return FFLocalizations.of(context).getText(
+        'jpjzjfc1' /* Numbers only. */,
+      );
+    }
+    return null;
+  }
+
+  // Stores action output result for [Validate Form] action in AmountField widget.
+  bool? validationResultAmount;
   // State field(s) for PriceBoolSwitch widget.
   bool? priceBoolSwitchValue1;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
+  // State field(s) for PriceField widget.
+  FocusNode? priceFieldFocusNode;
+  TextEditingController? priceFieldTextController;
+  String? Function(BuildContext, String?)? priceFieldTextControllerValidator;
+  String? _priceFieldTextControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    if (!RegExp('^([0-9\\u06F0-\\u06F9])+\$').hasMatch(val)) {
+      return FFLocalizations.of(context).getText(
+        'ssh7o6u6' /* Numbers only. */,
+      );
+    }
+    return null;
+  }
+
+  // Stores action output result for [Validate Form] action in PriceField widget.
+  bool? validationResultPrice;
   // State field(s) for NegotiableSwitch widget.
   bool? negotiableSwitchValue;
   // State field(s) for PriceBoolSwitch widget.
   bool? priceBoolSwitchValue2;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    amountFieldTextControllerValidator = _amountFieldTextControllerValidator;
+    priceFieldTextControllerValidator = _priceFieldTextControllerValidator;
+  }
 
   @override
   void dispose() {
-    textFieldFocusNode1?.dispose();
-    textController1?.dispose();
+    amountFieldFocusNode?.dispose();
+    amountFieldTextController?.dispose();
 
-    textFieldFocusNode2?.dispose();
-    textController2?.dispose();
+    priceFieldFocusNode?.dispose();
+    priceFieldTextController?.dispose();
   }
 }

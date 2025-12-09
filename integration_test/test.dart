@@ -44,15 +44,17 @@ void main() async {
 
       await tester.pumpWidget(ChangeNotifierProvider(
         create: (context) => FFAppState(),
-        child: MyApp(
-          entryPage: HomePageWidget(),
-        ),
+        child: const MyApp(),
       ));
       await GoogleFonts.pendingFonts();
 
-      await tester.tap(find.byKey(const ValueKey('Container_wgty')));
-      await tester.pumpAndSettle(const Duration(milliseconds: 3000));
-      expect(find.byKey(const ValueKey('Container_r7aq')), findsWidgets);
+      await tester.pumpAndSettle();
+      await tester.enterText(
+          find.byKey(const ValueKey('inputEmail')), 'nimam.business@gmail.com');
+      await tester.enterText(
+          find.byKey(const ValueKey('inputPassword')), '@Nim@Mol911');
+      await tester.pumpAndSettle();
+      expect(find.text('What are you looking for today?'), findsWidgets);
     });
   });
 }

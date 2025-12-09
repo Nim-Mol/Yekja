@@ -354,6 +354,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 24.0),
                                             child: FFButtonWidget(
+                                              key: ValueKey(
+                                                  'home_btn_voluntarySupport'),
                                               onPressed: () async {
                                                 FFAppState().filterSmall =
                                                     FilterSmallModelStruct(
@@ -438,6 +440,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 24.0),
                                             child: FFButtonWidget(
+                                              key: ValueKey(
+                                                  'home_btn_communityMarket'),
                                               onPressed: () async {
                                                 FFAppState().filterSmall =
                                                     FilterSmallModelStruct(
@@ -522,6 +526,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     32.0, 0.0, 32.0, 24.0),
                                             child: FFButtonWidget(
+                                              key: ValueKey('home_btn_skills'),
                                               onPressed: () async {
                                                 FFAppState().filterSmall =
                                                     FilterSmallModelStruct(
@@ -608,6 +613,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     38.0, 0.0, 38.0, 24.0),
                                             child: FFButtonWidget(
+                                              key: ValueKey('home_btn_event'),
                                               onPressed: () async {
                                                 context.pushNamed(
                                                   MainPageWidget.routeName,
@@ -691,6 +697,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     32.0, 0.0, 32.0, 24.0),
                                             child: FFButtonWidget(
+                                              key: ValueKey('home_btn_career'),
                                               onPressed: () async {
                                                 context.pushNamed(
                                                   MainPageWidget.routeName,
@@ -810,6 +817,8 @@ launching soo... */
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 24.0),
                                             child: FFButtonWidget(
+                                              key: ValueKey(
+                                                  'home_btn_businesses'),
                                               onPressed: () async {
                                                 context.pushNamed(
                                                   MainPageWidget.routeName,
@@ -970,6 +979,7 @@ launching soo... */
                                                 mainAxisSpacing: 10.0,
                                                 childAspectRatio: 1.0,
                                               ),
+                                              primary: false,
                                               shrinkWrap: true,
                                               scrollDirection: Axis.vertical,
                                               itemCount: tranding.length,
@@ -2137,7 +2147,7 @@ launching soo... */
                                   safeSetState(() {});
                                 },
                                 child: Container(
-                                  key: ValueKey('Container_wgty'),
+                                  key: ValueKey('userMenu'),
                                   width: 54.0,
                                   height: 12.0,
                                   decoration: BoxDecoration(
@@ -2165,7 +2175,6 @@ launching soo... */
                             ),
                             if (_model.showMenu == true)
                               AnimatedContainer(
-                                key: ValueKey('Container_r7aq'),
                                 duration: Duration(milliseconds: 470),
                                 curve: Curves.linear,
                                 width: 195.0,
@@ -2312,6 +2321,8 @@ launching soo... */
                                                         scaleX: 0.5,
                                                         scaleY: 0.6,
                                                         child: Switch.adaptive(
+                                                          key: ValueKey(
+                                                              'home_btn_moodChange'),
                                                           value: _model
                                                                   .switchValue ??=
                                                               Theme.of(context)
@@ -2328,11 +2339,37 @@ launching soo... */
                                                                   context,
                                                                   ThemeMode
                                                                       .dark);
+                                                              FFAppState()
+                                                                      .postState =
+                                                                  PostModelStruct();
+                                                              FFAppState()
+                                                                      .postDetailJSON =
+                                                                  null;
+                                                              FFAppState()
+                                                                  .postDetailTable = '';
+                                                              FFAppState()
+                                                                      .postDetailLabel =
+                                                                  null;
+                                                              safeSetState(
+                                                                  () {});
                                                             } else {
                                                               setDarkModeSetting(
                                                                   context,
                                                                   ThemeMode
                                                                       .light);
+                                                              FFAppState()
+                                                                      .postState =
+                                                                  PostModelStruct();
+                                                              FFAppState()
+                                                                      .postDetailJSON =
+                                                                  null;
+                                                              FFAppState()
+                                                                  .postDetailTable = '';
+                                                              FFAppState()
+                                                                      .postDetailLabel =
+                                                                  null;
+                                                              safeSetState(
+                                                                  () {});
                                                             }
                                                           },
                                                           activeColor:
@@ -2401,6 +2438,7 @@ launching soo... */
                                               .pushNamed(FaqWidget.routeName);
                                         },
                                         child: Container(
+                                          key: ValueKey('home_btn_checkFaq'),
                                           width: 187.0,
                                           height: 35.0,
                                           decoration: BoxDecoration(
@@ -2488,6 +2526,7 @@ launching soo... */
                                               ContactYEKJAWidget.routeName);
                                         },
                                         child: Container(
+                                          key: ValueKey('home_btn_contactUs'),
                                           width: 187.0,
                                           height: 35.0,
                                           decoration: BoxDecoration(
@@ -2575,6 +2614,7 @@ launching soo... */
                                               FinalizedLoginWidget.routeName);
                                         },
                                         child: Container(
+                                          key: ValueKey('home_btn_logOut'),
                                           width: 187.0,
                                           height: 35.0,
                                           decoration: BoxDecoration(

@@ -268,7 +268,7 @@ ongoing ser... */
                                               hintText:
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                'ig7cdm4x' /* Business mode is on its way. G... */,
+                                                'ig7cdm4x' /* Business mode is on its way. T... */,
                                               ),
                                               cancelText:
                                                   FFLocalizations.of(context)
@@ -1137,7 +1137,7 @@ ongoing ser... */
                                                     .primaryText
                                                 : FlutterFlowTheme.of(context)
                                                     .bordergray,
-                                        width: 0.4,
+                                        width: 0.8,
                                       ),
                                     ),
                                     child: Padding(
@@ -1239,7 +1239,7 @@ ongoing ser... */
                                                 .primaryText
                                             : FlutterFlowTheme.of(context)
                                                 .bordergray,
-                                        width: 0.4,
+                                        width: 0.8,
                                       ),
                                     ),
                                     child: Padding(

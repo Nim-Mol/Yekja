@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -28,9 +29,9 @@ class _TitleWidgetState extends State<TitleWidget> {
     super.initState();
     _model = createModel(context, () => TitleModel());
 
-    _model.textController ??=
+    _model.titleTxtTextController ??=
         TextEditingController(text: FFAppState().postState.title);
-    _model.textFieldFocusNode ??= FocusNode();
+    _model.titleTxtFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -86,6 +87,7 @@ class _TitleWidgetState extends State<TitleWidget> {
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
                                       .titleSmallFamily,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
@@ -132,16 +134,23 @@ class _TitleWidgetState extends State<TitleWidget> {
                       child: Container(
                         width: 300.0,
                         child: TextFormField(
-                          controller: _model.textController,
-                          focusNode: _model.textFieldFocusNode,
+                          controller: _model.titleTxtTextController,
+                          focusNode: _model.titleTxtFocusNode,
                           onChanged: (_) => EasyDebounce.debounce(
-                            '_model.textController',
+                            '_model.titleTxtTextController',
                             Duration(milliseconds: 2000),
                             () async {
-                              FFAppState().updatePostStateStruct(
-                                (e) => e..title = _model.textController.text,
-                              );
-                              _model.updatePage(() {});
+                              if (_model.titleTxtTextController.text != '') {
+                                _model.validationResult = true;
+                                if (_model.formKey.currentState == null ||
+                                    !_model.formKey.currentState!.validate()) {
+                                  safeSetState(
+                                      () => _model.validationResult = false);
+                                  return;
+                                }
+                              }
+
+                              safeSetState(() {});
                             },
                           ),
                           autofocus: true,
@@ -190,7 +199,7 @@ class _TitleWidgetState extends State<TitleWidget> {
                           maxLength: 40,
                           maxLengthEnforcement: MaxLengthEnforcement.enforced,
                           cursorColor: FlutterFlowTheme.of(context).primaryText,
-                          validator: _model.textControllerValidator
+                          validator: _model.titleTxtTextControllerValidator
                               .asValidator(context),
                           inputFormatters: [
                             if (!isAndroid && !isiOS)
@@ -229,53 +238,46 @@ class _TitleWidgetState extends State<TitleWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             24.0, 16.0, 24.0, 0.0),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            FFAppState().updatePostStateStruct(
-                              (e) => e..title = _model.textController.text,
-                            );
-                            _model.updatePage(() {});
-                            context.safePop();
-                          },
-                          child: Container(
+                        child: FFButtonWidget(
+                          onPressed: ((_model.validationResult == false) ||
+                                  (_model.titleTxtTextController.text == ''))
+                              ? null
+                              : () async {
+                                  FFAppState().updatePostStateStruct(
+                                    (e) => e
+                                      ..title =
+                                          _model.titleTxtTextController.text,
+                                  );
+                                  _model.updatePage(() {});
+                                  context.safePop();
+                                },
+                          text: FFLocalizations.of(context).getText(
+                            'the65glr' /* Save */,
+                          ),
+                          options: FFButtonOptions(
                             width: double.infinity,
                             height: 45.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).greenInit,
-                              borderRadius: BorderRadius.circular(8.0),
-                              border: Border.all(
-                                color: FlutterFlowTheme.of(context).greenInit,
-                              ),
-                            ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'ol4g5aou' /* Save */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                        useGoogleFonts:
-                                            !FlutterFlowTheme.of(context)
-                                                .bodyMediumIsCustom,
-                                      ),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 16.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).greenInit,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .titleSmallFamily,
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  letterSpacing: 0.0,
+                                  useGoogleFonts: !FlutterFlowTheme.of(context)
+                                      .titleSmallIsCustom,
                                 ),
-                              ],
-                            ),
+                            elevation: 0.0,
+                            borderRadius: BorderRadius.circular(8.0),
+                            disabledColor: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            disabledTextColor:
+                                FlutterFlowTheme.of(context).bordergray,
                           ),
                         ),
                       ),

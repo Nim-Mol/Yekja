@@ -11,6 +11,7 @@ import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.da
 import '/shared_components/error_comp/error_comp_widget.dart';
 import '/shared_components/photo_gallary/photo_gallary_widget.dart';
 import 'dart:async';
+import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -187,6 +188,27 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                                   ),
                                             ),
                                           ),
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await actions
+                                                  .navigateToDetailForm1(
+                                                context,
+                                                FFAppState().postDetailTable,
+                                                'PostPreview',
+                                              );
+                                            },
+                                            child: Icon(
+                                              Icons.edit,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .green1,
+                                              size: 24.0,
+                                            ),
+                                          ),
                                         ].divide(SizedBox(width: 8.0)),
                                       ),
                                     ),
@@ -266,12 +288,30 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    Icon(
-                                      Icons.favorite,
-                                      color: Color(0xFFEC0B0B),
-                                      size: 24.0,
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed(
+                                          PostSubCatWidget.routeName,
+                                          queryParameters: {
+                                            'navRoute': serializeParam(
+                                              'PostPreview',
+                                              ParamType.String,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      },
+                                      child: Icon(
+                                        Icons.edit,
+                                        color:
+                                            FlutterFlowTheme.of(context).green1,
+                                        size: 24.0,
+                                      ),
                                     ),
-                                  ].divide(SizedBox(width: 6.0)),
+                                  ].divide(SizedBox(width: 10.0)),
                                 ),
                               ),
                             ],
@@ -307,7 +347,7 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                                     .bodySmallIsCustom,
                                           ),
                                     ),
-                                  ],
+                                  ].divide(SizedBox(width: 8.0)),
                                 ),
                               ),
                               Padding(

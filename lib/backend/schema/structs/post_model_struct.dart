@@ -76,6 +76,7 @@ class PostModelStruct extends BaseStruct {
     List<String>? languages,
     double? review,
     int? ratings,
+    bool? allowSharePost,
   })  : _id = id,
         _createdAt = createdAt,
         _updatedAt = updatedAt,
@@ -144,7 +145,8 @@ class PostModelStruct extends BaseStruct {
         _experienceYears = experienceYears,
         _languages = languages,
         _review = review,
-        _ratings = ratings;
+        _ratings = ratings,
+        _allowSharePost = allowSharePost;
 
   // "id" field.
   String? _id;
@@ -665,6 +667,13 @@ class PostModelStruct extends BaseStruct {
 
   bool hasRatings() => _ratings != null;
 
+  // "allow_share_post" field.
+  bool? _allowSharePost;
+  bool get allowSharePost => _allowSharePost ?? false;
+  set allowSharePost(bool? val) => _allowSharePost = val;
+
+  bool hasAllowSharePost() => _allowSharePost != null;
+
   static PostModelStruct fromMap(Map<String, dynamic> data) => PostModelStruct(
         id: data['id'] as String?,
         createdAt: data['created_at'] as DateTime?,
@@ -735,6 +744,7 @@ class PostModelStruct extends BaseStruct {
         languages: getDataList(data['languages']),
         review: castToType<double>(data['review']),
         ratings: castToType<int>(data['ratings']),
+        allowSharePost: data['allow_share_post'] as bool?,
       );
 
   static PostModelStruct? maybeFromMap(dynamic data) => data is Map
@@ -811,6 +821,7 @@ class PostModelStruct extends BaseStruct {
         'languages': _languages,
         'review': _review,
         'ratings': _ratings,
+        'allow_share_post': _allowSharePost,
       }.withoutNulls;
 
   @override
@@ -1092,6 +1103,10 @@ class PostModelStruct extends BaseStruct {
         'ratings': serializeParam(
           _ratings,
           ParamType.int,
+        ),
+        'allow_share_post': serializeParam(
+          _allowSharePost,
+          ParamType.bool,
         ),
       }.withoutNulls;
 
@@ -1442,6 +1457,11 @@ class PostModelStruct extends BaseStruct {
           ParamType.int,
           false,
         ),
+        allowSharePost: deserializeParam(
+          data['allow_share_post'],
+          ParamType.bool,
+          false,
+        ),
       );
 
   @override
@@ -1519,7 +1539,8 @@ class PostModelStruct extends BaseStruct {
         experienceYears == other.experienceYears &&
         listEquality.equals(languages, other.languages) &&
         review == other.review &&
-        ratings == other.ratings;
+        ratings == other.ratings &&
+        allowSharePost == other.allowSharePost;
   }
 
   @override
@@ -1592,7 +1613,8 @@ class PostModelStruct extends BaseStruct {
         experienceYears,
         languages,
         review,
-        ratings
+        ratings,
+        allowSharePost
       ]);
 }
 
@@ -1664,6 +1686,7 @@ PostModelStruct createPostModelStruct({
   String? experienceYears,
   double? review,
   int? ratings,
+  bool? allowSharePost,
 }) =>
     PostModelStruct(
       id: id,
@@ -1733,4 +1756,5 @@ PostModelStruct createPostModelStruct({
       experienceYears: experienceYears,
       review: review,
       ratings: ratings,
+      allowSharePost: allowSharePost,
     );

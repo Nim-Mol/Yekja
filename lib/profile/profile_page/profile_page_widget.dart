@@ -84,7 +84,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
 
     _model.tabBarController = TabController(
       vsync: this,
-      length: 4,
+      length: 3,
       initialIndex: 0,
     )..addListener(() => safeSetState(() {}));
 
@@ -1333,18 +1333,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                   'h7butxb7' /* Reviews */,
                                                 ),
                                               ),
-                                              Tab(
-                                                text:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  'c9j6hm84' /* Awards */,
-                                                ),
-                                              ),
                                             ],
                                             controller: _model.tabBarController,
                                             onTap: (i) async {
                                               [
-                                                () async {},
                                                 () async {},
                                                 () async {},
                                                 () async {}
@@ -2131,87 +2123,6 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                     ),
                                                   ],
                                                 ),
-                                              ),
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    25.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: InkWell(
-                                                          splashColor: Colors
-                                                              .transparent,
-                                                          focusColor: Colors
-                                                              .transparent,
-                                                          hoverColor: Colors
-                                                              .transparent,
-                                                          highlightColor: Colors
-                                                              .transparent,
-                                                          onTap: () async {
-                                                            await launchURL(
-                                                                FFAppState()
-                                                                    .userInfo
-                                                                    .instaLink);
-                                                          },
-                                                          child: Icon(
-                                                            Icons.link_outlined,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                            size: 30.0,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 16.0,
-                                                                16.0, 0.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment.end,
-                                                      children: [
-                                                        Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'j6r5bq14' /* See All */,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                useGoogleFonts:
-                                                                    !FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMediumIsCustom,
-                                                              ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ],
                                               ),
                                             ],
                                           ),

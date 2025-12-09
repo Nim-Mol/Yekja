@@ -9,8 +9,6 @@ export '/onboarding/onboarding_page/onboarding_page_widget.dart'
     show OnboardingPageWidget;
 export '/posts/image_gallery_page/image_gallery_page_widget.dart'
     show ImageGalleryPageWidget;
-export '/posts/iran_n_l_item_page/iran_n_l_item_page_widget.dart'
-    show IranNLItemPageWidget;
 export '/posts/create_post/post_sub_cat/post_sub_cat_widget.dart'
     show PostSubCatWidget;
 export '/login/sign_in_confirm/sign_in_confirm_widget.dart'
@@ -39,8 +37,6 @@ export '/main_overview_pages/overview_care_x_x_x/overview_care_x_x_x_widget.dart
 export '/profile/contact_y_e_k_j_a/contact_y_e_k_j_a_widget.dart'
     show ContactYEKJAWidget;
 export '/chat/chatdetail/chatdetail_widget.dart' show ChatdetailWidget;
-export '/posts/create_post/post_general_detail_copy2/post_general_detail_copy2_widget.dart'
-    show PostGeneralDetailCopy2Widget;
 export '/posts/create_post/detail_rentals/detail_rentals_widget.dart'
     show DetailRentalsWidget;
 export '/posts/create_post/detail_sales/detail_sales_widget.dart'
@@ -79,10 +75,7 @@ export '/posts/create_post/detail_transfer/detail_transfer_widget.dart'
 export '/login/sign_up_page/sign_up_page_widget.dart' show SignUpPageWidget;
 export '/x_x_x_busines/x_x_x_busines_widget.dart' show XXXBusinesWidget;
 export '/news/news/news_widget.dart' show NewsWidget;
-export '/xxx/xxx_widget.dart' show XxxWidget;
 export '/posts/post_preview/post_preview_widget.dart' show PostPreviewWidget;
 export '/posts/post_en/post_en_widget.dart' show PostEnWidget;
 export '/posts/post_fa/post_fa_widget.dart' show PostFaWidget;
 export '/posts/post_n_l/post_n_l_widget.dart' show PostNLWidget;
-export '/posts/post_edit_copy/post_edit_copy_widget.dart'
-    show PostEditCopyWidget;

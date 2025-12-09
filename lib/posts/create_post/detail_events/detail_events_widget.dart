@@ -1,3 +1,4 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -11,6 +12,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'detail_events_model.dart';
@@ -31,10 +33,13 @@ class DetailEventsWidget extends StatefulWidget {
   State<DetailEventsWidget> createState() => _DetailEventsWidgetState();
 }
 
-class _DetailEventsWidgetState extends State<DetailEventsWidget> {
+class _DetailEventsWidgetState extends State<DetailEventsWidget>
+    with TickerProviderStateMixin {
   late DetailEventsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -54,17 +59,39 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget> {
         FFAppState().postState.priceText == 'Free for all';
     _model.priceBoolSwitchValue2 =
         FFAppState().postState.priceText == 'Pay what you feel';
-    _model.textController3 ??=
+    _model.priceFieldTextController ??=
         TextEditingController(text: FFAppState().postState.price.toString());
-    _model.textFieldFocusNode3 ??= FocusNode();
+    _model.priceFieldFocusNode ??= FocusNode();
 
-    _model.textController4 ??=
+    _model.capacityFieldTextController ??=
         TextEditingController(text: FFAppState().postState.capacity.toString());
-    _model.textFieldFocusNode4 ??= FocusNode();
+    _model.capacityFieldFocusNode ??= FocusNode();
 
     _model.textController5 ??=
         TextEditingController(text: FFAppState().postState.onlineUrl);
-    _model.textFieldFocusNode5 ??= FocusNode();
+    _model.textFieldFocusNode3 ??= FocusNode();
+
+    animationsMap.addAll({
+      'iconOnActionTriggerAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
+        effectsBuilder: () => [
+          RotateEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -2398,6 +2425,43 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget> {
                                                       ),
                                                     ),
                                                   ),
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      if (animationsMap[
+                                                              'iconOnActionTriggerAnimation'] !=
+                                                          null) {
+                                                        await animationsMap[
+                                                                'iconOnActionTriggerAnimation']!
+                                                            .controller
+                                                            .forward(from: 0.0);
+                                                      }
+                                                      FFAppState()
+                                                          .updatePostStateStruct(
+                                                        (e) => e
+                                                          ..repeatsText = null,
+                                                      );
+                                                      safeSetState(() {});
+                                                    },
+                                                    child: FaIcon(
+                                                      FontAwesomeIcons.redo,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      size: 18.0,
+                                                    ),
+                                                  ).animateOnActionTrigger(
+                                                    animationsMap[
+                                                        'iconOnActionTriggerAnimation']!,
+                                                  ),
                                                 ].divide(SizedBox(width: 10.0)),
                                               ),
                                             ),
@@ -2655,33 +2719,294 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget> {
                                                   ),
                                                 ),
                                                 Container(
-                                                  width: 100.0,
+                                                  width: 120.0,
                                                   decoration: BoxDecoration(
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             4.0),
                                                   ),
+                                                  child: Form(
+                                                    key: _model.formKey2,
+                                                    autovalidateMode:
+                                                        AutovalidateMode
+                                                            .disabled,
+                                                    child: Container(
+                                                      width: 100.0,
+                                                      child: TextFormField(
+                                                        controller: _model
+                                                            .priceFieldTextController,
+                                                        focusNode: _model
+                                                            .priceFieldFocusNode,
+                                                        onChanged: (_) =>
+                                                            EasyDebounce
+                                                                .debounce(
+                                                          '_model.priceFieldTextController',
+                                                          Duration(
+                                                              milliseconds:
+                                                                  2000),
+                                                          () async {
+                                                            if (_model.priceFieldTextController
+                                                                        .text !=
+                                                                    '') {
+                                                              _model.validationResultPrice =
+                                                                  true;
+                                                              if (_model.formKey2
+                                                                          .currentState ==
+                                                                      null ||
+                                                                  !_model
+                                                                      .formKey2
+                                                                      .currentState!
+                                                                      .validate()) {
+                                                                safeSetState(() =>
+                                                                    _model.validationResultPrice =
+                                                                        false);
+                                                                return;
+                                                              }
+                                                              if (_model
+                                                                  .validationResultPrice!) {
+                                                                // updateState
+                                                                FFAppState()
+                                                                    .updatePostStateStruct(
+                                                                  (e) => e
+                                                                    ..price = int
+                                                                        .tryParse(_model
+                                                                            .priceFieldTextController
+                                                                            .text),
+                                                                );
+                                                                safeSetState(
+                                                                    () {});
+                                                              }
+                                                            }
+
+                                                            safeSetState(() {});
+                                                          },
+                                                        ),
+                                                        autofocus: false,
+                                                        enabled: true,
+                                                        obscureText: false,
+                                                        decoration:
+                                                            InputDecoration(
+                                                          isDense: true,
+                                                          hintStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .labelMediumFamily,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bordergray,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    lineHeight:
+                                                                        1.0,
+                                                                    useGoogleFonts:
+                                                                        !FlutterFlowTheme.of(context)
+                                                                            .labelMediumIsCustom,
+                                                                  ),
+                                                          enabledBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: Color(
+                                                                  0x00000000),
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        4.0),
+                                                          ),
+                                                          focusedBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: Color(
+                                                                  0x00000000),
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        4.0),
+                                                          ),
+                                                          errorBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .error,
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        4.0),
+                                                          ),
+                                                          focusedErrorBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .error,
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        4.0),
+                                                          ),
+                                                          filled: true,
+                                                          fillColor: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          contentPadding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      4.0),
+                                                          prefixIcon: Icon(
+                                                            Icons.euro,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bordergray,
+                                                            size: 16.0,
+                                                          ),
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMediumIsCustom,
+                                                                ),
+                                                        keyboardType:
+                                                            TextInputType
+                                                                .number,
+                                                        cursorColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        enableInteractiveSelection:
+                                                            true,
+                                                        validator: _model
+                                                            .priceFieldTextControllerValidator
+                                                            .asValidator(
+                                                                context),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 6.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        4.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '3m59iq7m' /* Capacity: */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        useGoogleFonts:
+                                                            !FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMediumIsCustom,
+                                                      ),
+                                                ),
+                                              ),
+                                              Container(
+                                                width: 120.0,
+                                                decoration: BoxDecoration(),
+                                                child: Form(
+                                                  key: _model.formKey1,
+                                                  autovalidateMode:
+                                                      AutovalidateMode.disabled,
                                                   child: Container(
                                                     width: 100.0,
                                                     child: TextFormField(
                                                       controller: _model
-                                                          .textController3,
+                                                          .capacityFieldTextController,
                                                       focusNode: _model
-                                                          .textFieldFocusNode3,
+                                                          .capacityFieldFocusNode,
                                                       onChanged: (_) =>
                                                           EasyDebounce.debounce(
-                                                        '_model.textController3',
+                                                        '_model.capacityFieldTextController',
                                                         Duration(
                                                             milliseconds: 2000),
                                                         () async {
-                                                          FFAppState()
-                                                              .updatePostStateStruct(
-                                                            (e) => e
-                                                              ..price = int
-                                                                  .tryParse(_model
-                                                                      .textController3
-                                                                      .text),
-                                                          );
+                                                          if (_model.capacityFieldTextController
+                                                                      .text !=
+                                                                  '') {
+                                                            _model.validationResultCapacity =
+                                                                true;
+                                                            if (_model.formKey1
+                                                                        .currentState ==
+                                                                    null ||
+                                                                !_model.formKey1
+                                                                    .currentState!
+                                                                    .validate()) {
+                                                              safeSetState(() =>
+                                                                  _model.validationResultCapacity =
+                                                                      false);
+                                                              return;
+                                                            }
+                                                            if (_model
+                                                                .validationResultCapacity!) {
+                                                              FFAppState()
+                                                                  .updatePostStateStruct(
+                                                                (e) => e
+                                                                  ..capacity = int
+                                                                      .tryParse(_model
+                                                                          .capacityFieldTextController
+                                                                          .text),
+                                                              );
+                                                              safeSetState(
+                                                                  () {});
+                                                            }
+                                                          }
+
                                                           safeSetState(() {});
                                                         },
                                                       ),
@@ -2777,27 +3102,31 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget> {
                                                                     0.0,
                                                                     4.0),
                                                         prefixIcon: Icon(
-                                                          Icons.euro,
+                                                          Icons.numbers_rounded,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .bordergray,
                                                           size: 16.0,
                                                         ),
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMediumFamily,
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
+                                                                color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMediumIsCustom,
-                                                          ),
+                                                                    .primaryText,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
                                                       keyboardType:
                                                           TextInputType.number,
                                                       cursorColor:
@@ -2807,201 +3136,9 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget> {
                                                       enableInteractiveSelection:
                                                           true,
                                                       validator: _model
-                                                          .textController3Validator
+                                                          .capacityFieldTextControllerValidator
                                                           .asValidator(context),
                                                     ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 8.0, 0.0, 6.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        4.0, 0.0, 0.0, 0.0),
-                                                child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    '3m59iq7m' /* Capacity: */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMediumFamily,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        useGoogleFonts:
-                                                            !FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMediumIsCustom,
-                                                      ),
-                                                ),
-                                              ),
-                                              Container(
-                                                width: 100.0,
-                                                height: 38.0,
-                                                decoration: BoxDecoration(),
-                                                child: Container(
-                                                  width: 100.0,
-                                                  child: TextFormField(
-                                                    controller:
-                                                        _model.textController4,
-                                                    focusNode: _model
-                                                        .textFieldFocusNode4,
-                                                    onChanged: (_) =>
-                                                        EasyDebounce.debounce(
-                                                      '_model.textController4',
-                                                      Duration(
-                                                          milliseconds: 2000),
-                                                      () async {
-                                                        FFAppState()
-                                                            .updatePostStateStruct(
-                                                          (e) => e
-                                                            ..capacity = int
-                                                                .tryParse(_model
-                                                                    .textController4
-                                                                    .text),
-                                                        );
-                                                        safeSetState(() {});
-                                                      },
-                                                    ),
-                                                    autofocus: false,
-                                                    enabled: true,
-                                                    obscureText: false,
-                                                    decoration: InputDecoration(
-                                                      isDense: true,
-                                                      hintStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelMediumFamily,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bordergray,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                useGoogleFonts:
-                                                                    !FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelMediumIsCustom,
-                                                              ),
-                                                      enabledBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color:
-                                                              Color(0x00000000),
-                                                          width: 1.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(4.0),
-                                                      ),
-                                                      focusedBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color:
-                                                              Color(0x00000000),
-                                                          width: 1.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(4.0),
-                                                      ),
-                                                      errorBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .error,
-                                                          width: 1.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(4.0),
-                                                      ),
-                                                      focusedErrorBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .error,
-                                                          width: 1.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(4.0),
-                                                      ),
-                                                      filled: true,
-                                                      fillColor: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      contentPadding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  4.0),
-                                                      prefixIcon: Icon(
-                                                        Icons.numbers_rounded,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bordergray,
-                                                        size: 16.0,
-                                                      ),
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          letterSpacing: 0.0,
-                                                          useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMediumIsCustom,
-                                                        ),
-                                                    keyboardType:
-                                                        TextInputType.number,
-                                                    cursorColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryText,
-                                                    enableInteractiveSelection:
-                                                        true,
-                                                    validator: _model
-                                                        .textController4Validator
-                                                        .asValidator(context),
                                                   ),
                                                 ),
                                               ),
@@ -3092,7 +3229,7 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget> {
                                       width: double.infinity,
                                       child: TextFormField(
                                         controller: _model.textController5,
-                                        focusNode: _model.textFieldFocusNode5,
+                                        focusNode: _model.textFieldFocusNode3,
                                         onChanged: (_) => EasyDebounce.debounce(
                                           '_model.textController5',
                                           Duration(milliseconds: 2000),

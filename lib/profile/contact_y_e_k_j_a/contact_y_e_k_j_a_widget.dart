@@ -148,23 +148,32 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                   '18qj4qd2' /* Make sure you check our  */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
-                                    .headlineSmall
+                                    .titleLarge
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
-                                          .headlineSmallFamily,
+                                          .titleLargeFamily,
                                       letterSpacing: 0.0,
                                       useGoogleFonts:
                                           !FlutterFlowTheme.of(context)
-                                              .headlineSmallIsCustom,
+                                              .titleLargeIsCustom,
                                     ),
                               ),
                               TextSpan(
                                 text: FFLocalizations.of(context).getText(
                                   'f2k084ch' /* FAQ */,
                                 ),
-                                style: TextStyle(
-                                  color: FlutterFlowTheme.of(context).greenInit,
-                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .titleLarge
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .titleLargeFamily,
+                                      color:
+                                          FlutterFlowTheme.of(context).green1,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .titleLargeIsCustom,
+                                    ),
                                 mouseCursor: SystemMouseCursors.click,
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () async {

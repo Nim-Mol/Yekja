@@ -160,8 +160,35 @@ best fitti... */
                                       },
                                       child: Container(
                                         decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
+                                          color: () {
+                                            if (categoriesItem.mainCatId == 1) {
+                                              return FlutterFlowTheme.of(
+                                                      context)
+                                                  .careBackground;
+                                            } else if (categoriesItem
+                                                    .mainCatId ==
+                                                2) {
+                                              return FlutterFlowTheme.of(
+                                                      context)
+                                                  .marketBackground;
+                                            } else if (categoriesItem
+                                                    .mainCatId ==
+                                                3) {
+                                              return FlutterFlowTheme.of(
+                                                      context)
+                                                  .serviceBackground;
+                                            } else if (categoriesItem
+                                                    .mainCatId ==
+                                                5) {
+                                              return FlutterFlowTheme.of(
+                                                      context)
+                                                  .careerBackground;
+                                            } else {
+                                              return FlutterFlowTheme.of(
+                                                      context)
+                                                  .eventBackground;
+                                            }
+                                          }(),
                                           borderRadius:
                                               BorderRadius.circular(16.0),
                                           border: Border.all(
@@ -194,14 +221,6 @@ best fitti... */
                                                     width: 40.0,
                                                     height: 40.0,
                                                     decoration: BoxDecoration(
-                                                      color:
-                                                          valueOrDefault<Color>(
-                                                        functions.hexToColor(
-                                                            categoriesItem
-                                                                .fillColorHex,
-                                                            Color(0xFF213A21)),
-                                                        Color(0xFF213A21),
-                                                      ),
                                                       borderRadius:
                                                           BorderRadius.only(
                                                         bottomLeft:
@@ -228,12 +247,45 @@ best fitti... */
                                                         height: 36.0,
                                                         svgCode: categoriesItem
                                                             .effectiveIconImage,
-                                                        iconColor: functions
-                                                            .hexToColor(
+                                                        iconColor: () {
+                                                          if (Theme.of(context)
+                                                                  .brightness ==
+                                                              Brightness.dark) {
+                                                            return functions.hexToColor(
                                                                 categoriesItem
                                                                     .effectiveColorHex,
                                                                 Color(
-                                                                    0x00000000)),
+                                                                    0x00000000));
+                                                          } else if (categoriesItem
+                                                                  .mainCatId ==
+                                                              1) {
+                                                            return FlutterFlowTheme
+                                                                    .of(context)
+                                                                .greenInit;
+                                                          } else if (categoriesItem
+                                                                  .mainCatId ==
+                                                              2) {
+                                                            return FlutterFlowTheme
+                                                                    .of(context)
+                                                                .business;
+                                                          } else if (categoriesItem
+                                                                  .mainCatId ==
+                                                              3) {
+                                                            return FlutterFlowTheme
+                                                                    .of(context)
+                                                                .yellow1;
+                                                          } else if (categoriesItem
+                                                                  .mainCatId ==
+                                                              4) {
+                                                            return FlutterFlowTheme
+                                                                    .of(context)
+                                                                .red1;
+                                                          } else {
+                                                            return FlutterFlowTheme
+                                                                    .of(context)
+                                                                .purple1;
+                                                          }
+                                                        }(),
                                                       ),
                                                     ),
                                                   ),

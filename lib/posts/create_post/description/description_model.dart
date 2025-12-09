@@ -18,11 +18,14 @@ class DescriptionModel extends FlutterFlowModel<DescriptionWidget> {
     if (!RegExp('^[\\u0600-\\u06FF\\s_\\u0660-\\u06690-9a-zA-Z\\.]+\$')
         .hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        '36tl1mm1' /* Please use only letters (Engli... */,
+        '36tl1mm1' /* Please use only letters, numbe... */,
       );
     }
     return null;
   }
+
+  // Stores action output result for [Validate Form] action in TextField widget.
+  bool? validationResult;
 
   @override
   void initState(BuildContext context) {

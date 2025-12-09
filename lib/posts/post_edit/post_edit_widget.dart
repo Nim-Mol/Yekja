@@ -398,7 +398,7 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                   children: [
                                     Text(
                                       FFLocalizations.of(context).getText(
-                                        's45yad1c' /* EVENT PARTICIPANTS */,
+                                        's45yad1c' /* PARTICIPANTS */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodySmall
@@ -415,25 +415,6 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                                 !FlutterFlowTheme.of(context)
                                                     .bodySmallIsCustom,
                                           ),
-                                    ),
-                                    InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        await actions.navigateToDetailForm1(
-                                          context,
-                                          FFAppState().postDetailTable,
-                                          'PostPreview',
-                                        );
-                                      },
-                                      child: Icon(
-                                        Icons.edit,
-                                        color:
-                                            FlutterFlowTheme.of(context).green1,
-                                        size: 24.0,
-                                      ),
                                     ),
                                   ].divide(SizedBox(width: 8.0)),
                                 ),

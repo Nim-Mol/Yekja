@@ -109,7 +109,7 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'fvqou22z' /* IRANIAN CARE NETWORK */,
+                                                        'fvqou22z' /* IRANIAN SUPPORT NETWORK */,
                                                       ),
                                                       textAlign:
                                                           TextAlign.center,

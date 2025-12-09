@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 class DetailGiveAwayModel extends FlutterFlowModel<DetailGiveAwayWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final formKey = GlobalKey<FormState>();
   // State field(s) for dropdownCity widget.
   String? dropdownCityValue;
   FormFieldController<String>? dropdownCityValueController;
@@ -18,17 +19,37 @@ class DetailGiveAwayModel extends FlutterFlowModel<DetailGiveAwayWidget> {
       priceChoiceValueController?.value = val != null ? [val] : [];
   // State field(s) for SwapSwitch widget.
   bool? swapSwitchValue;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode;
-  TextEditingController? textController;
-  String? Function(BuildContext, String?)? textControllerValidator;
+  // State field(s) for WishlistField widget.
+  FocusNode? wishlistFieldFocusNode;
+  TextEditingController? wishlistFieldTextController;
+  String? Function(BuildContext, String?)? wishlistFieldTextControllerValidator;
+  String? _wishlistFieldTextControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    if (!RegExp('^[\\u0600-\\u06FF\\s_\\u0660-\\u06690-9a-zA-Z\\.]+\$')
+        .hasMatch(val)) {
+      return FFLocalizations.of(context).getText(
+        '89gasxy1' /* Please use only letters, numbe... */,
+      );
+    }
+    return null;
+  }
+
+  // Stores action output result for [Validate Form] action in WishlistField widget.
+  bool? validationResultWhishlist;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    wishlistFieldTextControllerValidator =
+        _wishlistFieldTextControllerValidator;
+  }
 
   @override
   void dispose() {
-    textFieldFocusNode?.dispose();
-    textController?.dispose();
+    wishlistFieldFocusNode?.dispose();
+    wishlistFieldTextController?.dispose();
   }
 }

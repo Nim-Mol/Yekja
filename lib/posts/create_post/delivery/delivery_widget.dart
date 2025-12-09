@@ -161,8 +161,8 @@ class _DeliveryWidgetState extends State<DeliveryWidget> {
                               activeTrackColor: Color(0x420F9970),
                               inactiveTrackColor: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              inactiveThumbColor: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
+                              inactiveThumbColor:
+                                  FlutterFlowTheme.of(context).secondaryText,
                             ),
                           ),
                         ],

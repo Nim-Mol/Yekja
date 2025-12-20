@@ -285,8 +285,9 @@ class _ChatdetailWithYekjaWidgetState extends State<ChatdetailWithYekjaWidget> {
                                                           ),
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Color(
-                                                                0xFF232426),
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .only(
@@ -332,7 +333,7 @@ class _ChatdetailWithYekjaWidgetState extends State<ChatdetailWithYekjaWidget> {
                                                                         'Satoshi',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primaryWhite,
+                                                                        .primaryText,
                                                                     fontSize:
                                                                         16.0,
                                                                     letterSpacing:

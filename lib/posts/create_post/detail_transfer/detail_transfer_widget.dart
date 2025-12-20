@@ -4,7 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/posts/create_post/description/description_widget.dart';
 import '/posts/create_post/title/title_widget.dart';
-import '/shared_components/error_comp/error_comp_widget.dart';
+import '/shared_components/error_pop_up/error_pop_up_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -403,76 +403,84 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                         MainAxisAlignment
                                                             .spaceBetween,
                                                     children: [
-                                                      RichText(
-                                                        textScaler:
-                                                            MediaQuery.of(
-                                                                    context)
-                                                                .textScaler,
-                                                        text: TextSpan(
-                                                          children: [
-                                                            TextSpan(
-                                                              text: FFLocalizations
-                                                                      .of(context)
-                                                                  .getText(
-                                                                'i9ek1mtu' /* Title */,
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .titleMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .titleMediumFamily,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .green1,
-                                                                    fontSize:
-                                                                        16.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    useGoogleFonts:
-                                                                        !FlutterFlowTheme.of(context)
-                                                                            .titleMediumIsCustom,
-                                                                  ),
-                                                            ),
-                                                            TextSpan(
-                                                              text: FFLocalizations
-                                                                      .of(context)
-                                                                  .getText(
-                                                                '207su7nz' /*  (Required) */,
-                                                              ),
-                                                              style: TextStyle(
-                                                                color: FlutterFlowTheme.of(
+                                                      Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                -1.0, 1.0),
+                                                        child: RichText(
+                                                          textScaler:
+                                                              MediaQuery.of(
+                                                                      context)
+                                                                  .textScaler,
+                                                          text: TextSpan(
+                                                            children: [
+                                                              TextSpan(
+                                                                text: FFLocalizations.of(
                                                                         context)
-                                                                    .error,
-                                                                fontSize: 10.0,
-                                                              ),
-                                                            )
-                                                          ],
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleMedium
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
+                                                                    .getText(
+                                                                  '2wwrq7h2' /* Title */,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .titleMediumFamily,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .green1,
-                                                                fontSize: 16.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                useGoogleFonts:
-                                                                    !FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleMediumIsCustom,
+                                                                    .titleMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .titleMediumFamily,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .green1,
+                                                                      fontSize:
+                                                                          16.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                      useGoogleFonts:
+                                                                          !FlutterFlowTheme.of(context)
+                                                                              .titleMediumIsCustom,
+                                                                    ),
                                                               ),
+                                                              TextSpan(
+                                                                text: FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  '68mxtk1z' /*  (Required) */,
+                                                                ),
+                                                                style:
+                                                                    TextStyle(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .error,
+                                                                  fontSize:
+                                                                      10.0,
+                                                                ),
+                                                              )
+                                                            ],
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .titleMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMediumFamily,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .green1,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleMediumIsCustom,
+                                                                ),
+                                                          ),
                                                         ),
                                                       ),
                                                       Stack(
@@ -651,19 +659,6 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                                         !FlutterFlowTheme.of(context)
                                                                             .titleMediumIsCustom,
                                                                   ),
-                                                            ),
-                                                            TextSpan(
-                                                              text: FFLocalizations
-                                                                      .of(context)
-                                                                  .getText(
-                                                                'bmqhw33p' /*  (Required) */,
-                                                              ),
-                                                              style: TextStyle(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .error,
-                                                                fontSize: 10.0,
-                                                              ),
                                                             )
                                                           ],
                                                           style: FlutterFlowTheme
@@ -792,7 +787,7 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                     text: FFLocalizations.of(
                                                             context)
                                                         .getText(
-                                                      '2klvlkbj' /* Location */,
+                                                      '6z5zashe' /* Location */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -819,7 +814,7 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                     text: FFLocalizations.of(
                                                             context)
                                                         .getText(
-                                                      'eumdruhu' /*  (Required) */,
+                                                      '6t34epb5' /*  (Required) */,
                                                     ),
                                                     style: TextStyle(
                                                       color:
@@ -971,11 +966,11 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                             ),
                                             fillColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
+                                                    .tertiary,
                                             elevation: 0.0,
                                             borderColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
+                                                    .tertiary,
                                             borderWidth: 0.0,
                                             borderRadius: 4.0,
                                             margin:
@@ -1005,14 +1000,48 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                       MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 2.0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'mx2qcch2' /* Route */,
-                                        ),
-                                        textAlign: TextAlign.start,
+                                    RichText(
+                                      textScaler:
+                                          MediaQuery.of(context).textScaler,
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: FFLocalizations.of(context)
+                                                .getText(
+                                              '6pue8ei8' /* Route */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleMedium
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleMediumFamily,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .green1,
+                                                  fontSize: 16.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                  useGoogleFonts:
+                                                      !FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleMediumIsCustom,
+                                                ),
+                                          ),
+                                          TextSpan(
+                                            text: FFLocalizations.of(context)
+                                                .getText(
+                                              '1v0lb0z9' /*  (Required) */,
+                                            ),
+                                            style: TextStyle(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .error,
+                                              fontSize: 10.0,
+                                            ),
+                                          )
+                                        ],
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .override(
@@ -1188,7 +1217,6 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                             context)
                                                         .bodyMediumIsCustom,
                                               ),
-                                          keyboardType: TextInputType.number,
                                           cursorColor:
                                               FlutterFlowTheme.of(context)
                                                   .primaryText,
@@ -1357,7 +1385,6 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                             context)
                                                         .bodyMediumIsCustom,
                                               ),
-                                          keyboardType: TextInputType.number,
                                           cursorColor:
                                               FlutterFlowTheme.of(context)
                                                   .primaryText,
@@ -1515,7 +1542,6 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                             context)
                                                         .bodyMediumIsCustom,
                                               ),
-                                          keyboardType: TextInputType.number,
                                           cursorColor:
                                               FlutterFlowTheme.of(context)
                                                   .primaryText,
@@ -1684,7 +1710,6 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                             context)
                                                         .bodyMediumIsCustom,
                                               ),
-                                          keyboardType: TextInputType.number,
                                           cursorColor:
                                               FlutterFlowTheme.of(context)
                                                   .primaryText,
@@ -1711,14 +1736,48 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                       MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 2.0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          '4cm20vg2' /* Time */,
-                                        ),
-                                        textAlign: TextAlign.start,
+                                    RichText(
+                                      textScaler:
+                                          MediaQuery.of(context).textScaler,
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: FFLocalizations.of(context)
+                                                .getText(
+                                              '5v3u00bb' /* Time */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleMedium
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleMediumFamily,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .green1,
+                                                  fontSize: 16.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                  useGoogleFonts:
+                                                      !FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleMediumIsCustom,
+                                                ),
+                                          ),
+                                          TextSpan(
+                                            text: FFLocalizations.of(context)
+                                                .getText(
+                                              '1jnz9pn8' /*  (Required) */,
+                                            ),
+                                            style: TextStyle(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .error,
+                                              fontSize: 10.0,
+                                            ),
+                                          )
+                                        ],
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .override(
@@ -2287,7 +2346,8 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                         .updatePostStateStruct(
                                                       (e) => e
                                                         ..priceText =
-                                                            'By Agreement',
+                                                            'By Agreement'
+                                                        ..price = null,
                                                     );
                                                     safeSetState(() {});
                                                   } else {
@@ -4121,15 +4181,31 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               if ((FFAppState().postState.title != '') &&
-                                  (FFAppState().postState.description !=
-                                          '') &&
                                   (FFAppState().postState.city != '') &&
-                                  ((FFAppState().postState.isDocument ==
-                                          true) ||
-                                      (FFAppState()
-                                                  .postState
-                                                  .dimensionsText !=
-                                              ''))) {
+                                  ((dateTimeFormat(
+                                                "yMMMd",
+                                                FFAppState().postState.deadline,
+                                                locale:
+                                                    FFLocalizations.of(context)
+                                                        .languageCode,
+                                              ) !=
+                                              '') ||
+                                      (dateTimeFormat(
+                                                "yMMMd",
+                                                FFAppState()
+                                                    .postState
+                                                    .travelDate,
+                                                locale:
+                                                    FFLocalizations.of(context)
+                                                        .languageCode,
+                                              ) !=
+                                              '')) &&
+                                  (FFAppState().postState.originCountry !=
+                                          '') &&
+                                  (FFAppState()
+                                              .postState
+                                              .destinationCountry !=
+                                          '')) {
                                 FFAppState().postDetailJSON = <String, dynamic>{
                                   'price': FFAppState().postState.price,
                                   'price_text':
@@ -4161,6 +4237,12 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
 
                                 context.pushNamed(
                                   PostImageWidget.routeName,
+                                  queryParameters: {
+                                    'navRoute': serializeParam(
+                                      widget.navRoute,
+                                      ParamType.String,
+                                    ),
+                                  }.withoutNulls,
                                   extra: <String, dynamic>{
                                     kTransitionInfoKey: TransitionInfo(
                                       hasTransition: true,
@@ -4187,7 +4269,7 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                           FocusManager.instance.primaryFocus
                                               ?.unfocus();
                                         },
-                                        child: ErrorCompWidget(
+                                        child: ErrorPopUpWidget(
                                           errorText: FFLocalizations.of(context)
                                               .getText(
                                             '9cw83pge' /* Some fields are left unfilled.... */,
@@ -4205,18 +4287,38 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                               decoration: BoxDecoration(
                                 color: (FFAppState().postState.title !=
                                                 '') &&
-                                        (FFAppState()
-                                                    .postState
-                                                    .description !=
-                                                '') &&
                                         (FFAppState().postState.city !=
                                                 '') &&
-                                        ((FFAppState().postState.isDocument ==
-                                                true) ||
-                                            (FFAppState()
-                                                        .postState
-                                                        .dimensionsText !=
-                                                    ''))
+                                        ((dateTimeFormat(
+                                                      "yMMMd",
+                                                      FFAppState()
+                                                          .postState
+                                                          .deadline,
+                                                      locale:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                    ) !=
+                                                    '') ||
+                                            (dateTimeFormat(
+                                                      "yMMMd",
+                                                      FFAppState()
+                                                          .postState
+                                                          .travelDate,
+                                                      locale:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                    ) !=
+                                                    '')) &&
+                                        (FFAppState()
+                                                    .postState
+                                                    .originCountry !=
+                                                '') &&
+                                        (FFAppState()
+                                                    .postState
+                                                    .destinationCountry !=
+                                                '')
                                     ? FlutterFlowTheme.of(context).greenInit
                                     : FlutterFlowTheme.of(context)
                                         .secondaryBackground,
@@ -4224,18 +4326,38 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                 border: Border.all(
                                   color: (FFAppState().postState.title !=
                                                   '') &&
-                                          (FFAppState()
-                                                      .postState
-                                                      .description !=
-                                                  '') &&
                                           (FFAppState().postState.city !=
                                                   '') &&
-                                          ((FFAppState().postState.isDocument ==
-                                                  true) ||
-                                              (FFAppState()
-                                                          .postState
-                                                          .dimensionsText !=
-                                                      ''))
+                                          ((dateTimeFormat(
+                                                        "yMMMd",
+                                                        FFAppState()
+                                                            .postState
+                                                            .deadline,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      ) !=
+                                                      '') ||
+                                              (dateTimeFormat(
+                                                        "yMMMd",
+                                                        FFAppState()
+                                                            .postState
+                                                            .travelDate,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      ) !=
+                                                      '')) &&
+                                          (FFAppState()
+                                                      .postState
+                                                      .originCountry !=
+                                                  '') &&
+                                          (FFAppState()
+                                                      .postState
+                                                      .destinationCountry !=
+                                                  '')
                                       ? FlutterFlowTheme.of(context).greenInit
                                       : FlutterFlowTheme.of(context)
                                           .secondaryBackground,
@@ -4261,18 +4383,36 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                                           '') &&
                                                   (FFAppState()
                                                               .postState
-                                                              .description !=
+                                                              .city !=
                                                           '') &&
-                                                  (FFAppState().postState.city !=
-                                                          '') &&
-                                                  ((FFAppState()
+                                                  ((dateTimeFormat(
+                                                                "yMMMd",
+                                                                FFAppState()
+                                                                    .postState
+                                                                    .deadline,
+                                                                locale: FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode,
+                                                              ) !=
+                                                              '') ||
+                                                      (dateTimeFormat(
+                                                                "yMMMd",
+                                                                FFAppState()
+                                                                    .postState
+                                                                    .travelDate,
+                                                                locale: FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode,
+                                                              ) !=
+                                                              '')) &&
+                                                  (FFAppState()
                                                               .postState
-                                                              .isDocument ==
-                                                          true) ||
-                                                      (FFAppState()
-                                                                  .postState
-                                                                  .dimensionsText !=
-                                                              ''))
+                                                              .originCountry !=
+                                                          '') &&
+                                                  (FFAppState()
+                                                              .postState
+                                                              .destinationCountry !=
+                                                          '')
                                               ? FlutterFlowTheme.of(context)
                                                   .primary
                                               : Color(0xFF6B6969),

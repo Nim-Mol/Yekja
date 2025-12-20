@@ -4,7 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/posts/create_post/description/description_widget.dart';
 import '/posts/create_post/title/title_widget.dart';
-import '/shared_components/error_comp/error_comp_widget.dart';
+import '/shared_components/error_pop_up/error_pop_up_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -55,7 +55,6 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
         TextEditingController(text: FFAppState().postState.price.toString());
     _model.priceFieldFocusNode ??= FocusNode();
 
-    _model.negotiableSwitchValue = FFAppState().postState.isNegotiable;
     _model.swapSwitchValue = FFAppState().postState.openForSwap;
     _model.wishlistFieldTextController ??=
         TextEditingController(text: FFAppState().postState.wishlistText);
@@ -395,81 +394,81 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                                       MainAxisAlignment
                                                           .spaceBetween,
                                                   children: [
-                                                    RichText(
-                                                      textScaler:
-                                                          MediaQuery.of(context)
-                                                              .textScaler,
-                                                      text: TextSpan(
-                                                        children: [
-                                                          TextSpan(
-                                                            text: FFLocalizations
-                                                                    .of(context)
-                                                                .getText(
-                                                              'lezz4mlq' /* Title */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMediumFamily,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .green1,
-                                                                  fontSize:
-                                                                      16.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .titleMediumIsCustom,
-                                                                ),
-                                                          ),
-                                                          TextSpan(
-                                                            text: FFLocalizations
-                                                                    .of(context)
-                                                                .getText(
-                                                              'wzhz4wlc' /*  (Required) */,
-                                                            ),
-                                                            style: TextStyle(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .error,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w100,
-                                                              fontSize: 10.0,
-                                                            ),
-                                                          )
-                                                        ],
-                                                        style:
-                                                            FlutterFlowTheme.of(
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              -1.0, 1.0),
+                                                      child: RichText(
+                                                        textScaler:
+                                                            MediaQuery.of(
                                                                     context)
-                                                                .titleMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMediumFamily,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .green1,
-                                                                  fontSize:
-                                                                      16.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .titleMediumIsCustom,
-                                                                ),
+                                                                .textScaler,
+                                                        text: TextSpan(
+                                                          children: [
+                                                            TextSpan(
+                                                              text: FFLocalizations
+                                                                      .of(context)
+                                                                  .getText(
+                                                                '7vjj7au0' /* Title  */,
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .titleMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .titleMediumFamily,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .green1,
+                                                                    fontSize:
+                                                                        16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    useGoogleFonts:
+                                                                        !FlutterFlowTheme.of(context)
+                                                                            .titleMediumIsCustom,
+                                                                  ),
+                                                            ),
+                                                            TextSpan(
+                                                              text: FFLocalizations
+                                                                      .of(context)
+                                                                  .getText(
+                                                                '27ffy7ce' /* (Required) */,
+                                                              ),
+                                                              style: TextStyle(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .error,
+                                                                fontSize: 10.0,
+                                                              ),
+                                                            )
+                                                          ],
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .titleMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleMediumFamily,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .green1,
+                                                                fontSize: 16.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleMediumIsCustom,
+                                                              ),
+                                                        ),
                                                       ),
                                                     ),
                                                     Stack(
@@ -648,19 +647,6 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                                                               context)
                                                                           .titleMediumIsCustom,
                                                                 ),
-                                                          ),
-                                                          TextSpan(
-                                                            text: FFLocalizations
-                                                                    .of(context)
-                                                                .getText(
-                                                              '1x0t4843' /*  (Required) */,
-                                                            ),
-                                                            style: TextStyle(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .error,
-                                                              fontSize: 10.0,
-                                                            ),
                                                           )
                                                         ],
                                                         style:
@@ -785,7 +771,7 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                             TextSpan(
                                               text: FFLocalizations.of(context)
                                                   .getText(
-                                                'boiwnof2' /* Location & Time */,
+                                                'boiwnof2' /* Location */,
                                               ),
                                               style: FlutterFlowTheme.of(
                                                       context)
@@ -806,18 +792,6 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                                                 context)
                                                             .titleMediumIsCustom,
                                                   ),
-                                            ),
-                                            TextSpan(
-                                              text: FFLocalizations.of(context)
-                                                  .getText(
-                                                'lfzdhox1' /*  (Required) */,
-                                              ),
-                                              style: TextStyle(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
-                                                fontSize: 10.0,
-                                              ),
                                             )
                                           ],
                                           style: FlutterFlowTheme.of(context)
@@ -1019,14 +993,15 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                                               .bordergray,
                                                       size: 15.0,
                                                     ),
-                                                    fillColor: FlutterFlowTheme
-                                                            .of(context)
-                                                        .secondaryBackground,
+                                                    fillColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .tertiary,
                                                     elevation: 0.0,
                                                     borderColor:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .secondaryBackground,
+                                                            .tertiary,
                                                     borderWidth: 0.0,
                                                     borderRadius: 4.0,
                                                     margin:
@@ -1246,8 +1221,6 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                                                             context)
                                                                         .bodyMediumIsCustom,
                                                               ),
-                                                      keyboardType:
-                                                          TextInputType.number,
                                                       cursorColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1264,29 +1237,75 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                             ),
                                           ].divide(SizedBox(width: 16.0)),
                                         ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  4.0, 6.0, 0.0, 6.0),
-                                          child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              'zjr31iza' /* Event Date: */,
-                                            ),
+                                        Divider(
+                                          thickness: 0.3,
+                                          color: FlutterFlowTheme.of(context)
+                                              .bordergray,
+                                        ),
+                                        RichText(
+                                          textScaler:
+                                              MediaQuery.of(context).textScaler,
+                                          text: TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  '9wn9lduj' /* Event date */,
+                                                ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMediumFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .green1,
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMediumIsCustom,
+                                                    ),
+                                              ),
+                                              TextSpan(
+                                                text:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'uc4eiu1m' /*  (Required) */,
+                                                ),
+                                                style: TextStyle(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  fontSize: 10.0,
+                                                ),
+                                              )
+                                            ],
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
+                                                .titleMedium
                                                 .override(
                                                   fontFamily:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .bodyMediumFamily,
+                                                          .titleMediumFamily,
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .primary,
+                                                      .green1,
+                                                  fontSize: 16.0,
                                                   letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
                                                   useGoogleFonts:
                                                       !FlutterFlowTheme.of(
                                                               context)
-                                                          .bodyMediumIsCustom,
+                                                          .titleMediumIsCustom,
                                                 ),
                                           ),
                                         ),
@@ -1294,89 +1313,31 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Expanded(
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  final _datePickedDate =
-                                                      await showDatePicker(
-                                                    context: context,
-                                                    initialDate:
-                                                        getCurrentTimestamp,
-                                                    firstDate:
-                                                        getCurrentTimestamp,
-                                                    lastDate: DateTime(2050),
-                                                    builder: (context, child) {
-                                                      return wrapInMaterialDatePickerTheme(
-                                                        context,
-                                                        child!,
-                                                        headerBackgroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryBackground,
-                                                        headerForegroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                        headerTextStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .headlineLarge
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .headlineLargeFamily,
-                                                                  fontSize:
-                                                                      32.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .headlineLargeIsCustom,
-                                                                ),
-                                                        pickerBackgroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryBackground,
-                                                        pickerForegroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        selectedDateTimeBackgroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .greenInit,
-                                                        selectedDateTimeForegroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryBackground,
-                                                        actionButtonForegroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .greenInit,
-                                                        iconSize: 20.0,
-                                                      );
-                                                    },
-                                                  );
-
-                                                  TimeOfDay? _datePickedTime;
-                                                  if (_datePickedDate != null) {
-                                                    _datePickedTime =
-                                                        await showTimePicker(
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 6.0, 0.0, 4.0),
+                                                child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    final _datePickedDate =
+                                                        await showDatePicker(
                                                       context: context,
-                                                      initialTime: TimeOfDay
-                                                          .fromDateTime(
-                                                              getCurrentTimestamp),
+                                                      initialDate:
+                                                          getCurrentTimestamp,
+                                                      firstDate:
+                                                          getCurrentTimestamp,
+                                                      lastDate: DateTime(2050),
                                                       builder:
                                                           (context, child) {
-                                                        return wrapInMaterialTimePickerTheme(
+                                                        return wrapInMaterialDatePickerTheme(
                                                           context,
                                                           child!,
                                                           headerBackgroundColor:
@@ -1430,114 +1391,187 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                                         );
                                                       },
                                                     );
-                                                  }
 
-                                                  if (_datePickedDate != null &&
-                                                      _datePickedTime != null) {
-                                                    safeSetState(() {
-                                                      _model.datePicked =
-                                                          DateTime(
-                                                        _datePickedDate.year,
-                                                        _datePickedDate.month,
-                                                        _datePickedDate.day,
-                                                        _datePickedTime!.hour,
-                                                        _datePickedTime.minute,
-                                                      );
-                                                    });
-                                                  } else if (_model
-                                                          .datePicked !=
-                                                      null) {
-                                                    safeSetState(() {
-                                                      _model.datePicked =
-                                                          getCurrentTimestamp;
-                                                    });
-                                                  }
-                                                  FFAppState()
-                                                      .updatePostStateStruct(
-                                                    (e) => e
-                                                      ..eventDatetime =
-                                                          _model.datePicked,
-                                                  );
-                                                  safeSetState(() {});
-                                                },
-                                                child: Container(
-                                                  width: double.infinity,
-                                                  height: 38.0,
-                                                  constraints: BoxConstraints(
-                                                    maxWidth: 180.0,
-                                                  ),
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            4.0),
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(12.0, 4.0,
-                                                                12.0, 4.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.min,
-                                                      children: [
-                                                        Icon(
-                                                          Icons
-                                                              .calendar_month_sharp,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bordergray,
-                                                          size: 24.0,
-                                                        ),
-                                                        Text(
-                                                          dateTimeFormat(
-                                                                        "d/M h:mm a",
-                                                                        FFAppState()
-                                                                            .postState
-                                                                            .eventDatetime,
-                                                                        locale:
-                                                                            FFLocalizations.of(context).languageCode,
-                                                                      ) !=
-                                                                      ''
-                                                              ? dateTimeFormat(
-                                                                  "d/M h:mm a",
-                                                                  FFAppState()
-                                                                      .postState
-                                                                      .eventDatetime!,
-                                                                  locale: FFLocalizations.of(
-                                                                          context)
-                                                                      .languageCode,
-                                                                )
-                                                              : 'Select Date',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
+                                                    TimeOfDay? _datePickedTime;
+                                                    if (_datePickedDate !=
+                                                        null) {
+                                                      _datePickedTime =
+                                                          await showTimePicker(
+                                                        context: context,
+                                                        initialTime: TimeOfDay
+                                                            .fromDateTime(
+                                                                getCurrentTimestamp),
+                                                        builder:
+                                                            (context, child) {
+                                                          return wrapInMaterialTimePickerTheme(
+                                                            context,
+                                                            child!,
+                                                            headerBackgroundColor:
+                                                                FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMediumFamily,
-                                                                color: dateTimeFormat(
-                                                                              "d/M h:mm a",
-                                                                              FFAppState().postState.eventDatetime,
-                                                                              locale: FFLocalizations.of(context).languageCode,
-                                                                            ) !=
-                                                                            ''
-                                                                    ? FlutterFlowTheme.of(context).primaryText
-                                                                    : FlutterFlowTheme.of(context).textgray,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                useGoogleFonts:
-                                                                    !FlutterFlowTheme.of(
+                                                                    .primaryBackground,
+                                                            headerForegroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                            headerTextStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineLarge
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .headlineLargeFamily,
+                                                                      fontSize:
+                                                                          32.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      useGoogleFonts:
+                                                                          !FlutterFlowTheme.of(context)
+                                                                              .headlineLargeIsCustom,
+                                                                    ),
+                                                            pickerBackgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                            pickerForegroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                            selectedDateTimeBackgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .greenInit,
+                                                            selectedDateTimeForegroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                            actionButtonForegroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .greenInit,
+                                                            iconSize: 20.0,
+                                                          );
+                                                        },
+                                                      );
+                                                    }
+
+                                                    if (_datePickedDate !=
+                                                            null &&
+                                                        _datePickedTime !=
+                                                            null) {
+                                                      safeSetState(() {
+                                                        _model.datePicked =
+                                                            DateTime(
+                                                          _datePickedDate.year,
+                                                          _datePickedDate.month,
+                                                          _datePickedDate.day,
+                                                          _datePickedTime!.hour,
+                                                          _datePickedTime
+                                                              .minute,
+                                                        );
+                                                      });
+                                                    } else if (_model
+                                                            .datePicked !=
+                                                        null) {
+                                                      safeSetState(() {
+                                                        _model.datePicked =
+                                                            getCurrentTimestamp;
+                                                      });
+                                                    }
+                                                    FFAppState()
+                                                        .updatePostStateStruct(
+                                                      (e) => e
+                                                        ..eventDatetime =
+                                                            _model.datePicked,
+                                                    );
+                                                    safeSetState(() {});
+                                                  },
+                                                  child: Container(
+                                                    width: double.infinity,
+                                                    height: 38.0,
+                                                    constraints: BoxConstraints(
+                                                      maxWidth: 180.0,
+                                                    ),
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              4.0),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  12.0,
+                                                                  4.0,
+                                                                  12.0,
+                                                                  4.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.min,
+                                                        children: [
+                                                          Icon(
+                                                            Icons
+                                                                .calendar_month_sharp,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bordergray,
+                                                            size: 24.0,
+                                                          ),
+                                                          Text(
+                                                            dateTimeFormat(
+                                                                          "d/M h:mm a",
+                                                                          FFAppState()
+                                                                              .postState
+                                                                              .eventDatetime,
+                                                                          locale:
+                                                                              FFLocalizations.of(context).languageCode,
+                                                                        ) !=
+                                                                        ''
+                                                                ? dateTimeFormat(
+                                                                    "d/M h:mm a",
+                                                                    FFAppState()
+                                                                        .postState
+                                                                        .eventDatetime!,
+                                                                    locale: FFLocalizations.of(
                                                                             context)
-                                                                        .bodyMediumIsCustom,
-                                                              ),
-                                                        ),
-                                                      ].divide(
-                                                          SizedBox(width: 6.0)),
+                                                                        .languageCode,
+                                                                  )
+                                                                : 'Select Date',
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  color: dateTimeFormat(
+                                                                                "d/M h:mm a",
+                                                                                FFAppState().postState.eventDatetime,
+                                                                                locale: FFLocalizations.of(context).languageCode,
+                                                                              ) !=
+                                                                              ''
+                                                                      ? FlutterFlowTheme.of(context).primaryText
+                                                                      : FlutterFlowTheme.of(context).textgray,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMediumIsCustom,
+                                                                ),
+                                                          ),
+                                                        ].divide(SizedBox(
+                                                            width: 6.0)),
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
@@ -1604,19 +1638,6 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                                                   context)
                                                               .titleMediumIsCustom,
                                                     ),
-                                              ),
-                                              TextSpan(
-                                                text:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  'jjn035dr' /*  (Required) */,
-                                                ),
-                                                style: TextStyle(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .error,
-                                                  fontSize: 10.0,
-                                                ),
                                               )
                                             ],
                                             style: FlutterFlowTheme.of(context)
@@ -1982,7 +2003,8 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                               FFAppState()
                                                   .updatePostStateStruct(
                                                 (e) => e
-                                                  ..priceText = 'By Agreement',
+                                                  ..priceText = 'By Agreement'
+                                                  ..price = null,
                                               );
                                               safeSetState(() {});
                                             } else {
@@ -2015,6 +2037,32 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  4.0, 0.0, 0.0, 0.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'v2nqg7nl' /* Asking price: */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  letterSpacing: 0.0,
+                                                  useGoogleFonts:
+                                                      !FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumIsCustom,
+                                                ),
+                                          ),
+                                        ),
                                         Container(
                                           width: 130.0,
                                           decoration: BoxDecoration(
@@ -2184,83 +2232,6 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                               ),
                                             ),
                                           ),
-                                        ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'yq4oenko' /* Negotiable: */,
-                                                ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumFamily,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      letterSpacing: 0.0,
-                                                      useGoogleFonts:
-                                                          !FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumIsCustom,
-                                                    ),
-                                              ),
-                                            ),
-                                            Transform.scale(
-                                              scaleX: 0.85,
-                                              scaleY: 0.8,
-                                              child: Switch.adaptive(
-                                                value: _model
-                                                    .negotiableSwitchValue!,
-                                                onChanged: (newValue) async {
-                                                  safeSetState(() => _model
-                                                          .negotiableSwitchValue =
-                                                      newValue);
-                                                  if (newValue) {
-                                                    FFAppState()
-                                                        .updatePostStateStruct(
-                                                      (e) => e
-                                                        ..isNegotiable = _model
-                                                            .negotiableSwitchValue,
-                                                    );
-                                                    safeSetState(() {});
-                                                  } else {
-                                                    FFAppState()
-                                                        .updatePostStateStruct(
-                                                      (e) => e
-                                                        ..isNegotiable = _model
-                                                            .negotiableSwitchValue,
-                                                    );
-                                                    safeSetState(() {});
-                                                  }
-                                                },
-                                                activeColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .greenInit,
-                                                activeTrackColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .greenInit,
-                                                inactiveTrackColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                inactiveThumbColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                              ),
-                                            ),
-                                          ].divide(SizedBox(width: 10.0)),
                                         ),
                                       ].divide(SizedBox(width: 12.0)),
                                     ),
@@ -2632,8 +2603,6 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               if ((FFAppState().postState.title != '') &&
-                                  (FFAppState().postState.description !=
-                                          '') &&
                                   (FFAppState().postState.city != '') &&
                                   (dateTimeFormat(
                                             "d/M h:mm a",
@@ -2667,6 +2636,12 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
 
                                 context.pushNamed(
                                   PostImageWidget.routeName,
+                                  queryParameters: {
+                                    'navRoute': serializeParam(
+                                      widget.navRoute,
+                                      ParamType.String,
+                                    ),
+                                  }.withoutNulls,
                                   extra: <String, dynamic>{
                                     kTransitionInfoKey: TransitionInfo(
                                       hasTransition: true,
@@ -2693,7 +2668,7 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                           FocusManager.instance.primaryFocus
                                               ?.unfocus();
                                         },
-                                        child: ErrorCompWidget(
+                                        child: ErrorPopUpWidget(
                                           errorText: FFLocalizations.of(context)
                                               .getText(
                                             'er5xc5je' /* Some fields are left unfilled.... */,
@@ -2710,10 +2685,6 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                               height: 45.0,
                               decoration: BoxDecoration(
                                 color: (FFAppState().postState.title !=
-                                                '') &&
-                                        (FFAppState()
-                                                    .postState
-                                                    .description !=
                                                 '') &&
                                         (FFAppState().postState.city !=
                                                 '') &&
@@ -2738,10 +2709,6 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                                 border: Border.all(
                                   color: (FFAppState().postState.title !=
-                                                  '') &&
-                                          (FFAppState()
-                                                      .postState
-                                                      .description !=
                                                   '') &&
                                           (FFAppState().postState.city !=
                                                   '') &&
@@ -2783,10 +2750,6 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                               color: (FFAppState()
                                                                   .postState
                                                                   .title !=
-                                                              '') &&
-                                                      (FFAppState()
-                                                                  .postState
-                                                                  .description !=
                                                               '') &&
                                                       (FFAppState()
                                                                   .postState

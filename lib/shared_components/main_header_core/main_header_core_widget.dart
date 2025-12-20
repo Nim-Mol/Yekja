@@ -162,7 +162,7 @@ class _MainHeaderCoreWidgetState extends State<MainHeaderCoreWidget> {
                                                     fontFamily: 'FarsiFonts',
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primary,
+                                                        .primaryWhite,
                                                     fontSize: 16.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,

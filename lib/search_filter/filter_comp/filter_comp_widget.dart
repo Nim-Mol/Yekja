@@ -97,7 +97,7 @@ class _FilterCompWidgetState extends State<FilterCompWidget>
           maxWidth: 480.0,
         ),
         decoration: BoxDecoration(
-          color: Color(0xB40E0E0E),
+          color: FlutterFlowTheme.of(context).primary,
         ),
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 24.0),
@@ -386,8 +386,7 @@ class _FilterCompWidgetState extends State<FilterCompWidget>
                           EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                       child: Container(
                         decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
+                          color: FlutterFlowTheme.of(context).tertiary,
                           borderRadius: BorderRadius.circular(16.0),
                           border: Border.all(
                             color: FlutterFlowTheme.of(context)
@@ -1135,8 +1134,7 @@ class _FilterCompWidgetState extends State<FilterCompWidget>
                           EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                       child: Container(
                         decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
+                          color: FlutterFlowTheme.of(context).tertiary,
                           borderRadius: BorderRadius.circular(16.0),
                           border: Border.all(
                             color: FlutterFlowTheme.of(context)
@@ -1443,8 +1441,7 @@ class _FilterCompWidgetState extends State<FilterCompWidget>
                           EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                       child: Container(
                         decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
+                          color: FlutterFlowTheme.of(context).tertiary,
                           borderRadius: BorderRadius.circular(16.0),
                           border: Border.all(
                             color: FlutterFlowTheme.of(context)
@@ -1502,7 +1499,7 @@ class _FilterCompWidgetState extends State<FilterCompWidget>
                                                 fontFamily: 'Satoshi',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondary,
+                                                        .primary,
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
@@ -1526,16 +1523,16 @@ class _FilterCompWidgetState extends State<FilterCompWidget>
                                             },
                                             activeColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .primary,
+                                                    .greenInit,
                                             activeTrackColor:
                                                 FlutterFlowTheme.of(context)
                                                     .greenInit,
                                             inactiveTrackColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .lightGray,
+                                                    .secondaryBackground,
                                             inactiveThumbColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
+                                                    .secondaryText,
                                           ),
                                         ),
                                       ],
@@ -1556,7 +1553,7 @@ class _FilterCompWidgetState extends State<FilterCompWidget>
                                                 fontFamily: 'Satoshi',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondary,
+                                                        .primary,
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
@@ -1587,10 +1584,10 @@ class _FilterCompWidgetState extends State<FilterCompWidget>
                                                     .greenInit,
                                             inactiveTrackColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .lightGray,
+                                                    .secondaryBackground,
                                             inactiveThumbColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
+                                                    .secondaryText,
                                           ),
                                         ),
                                       ],
@@ -1642,10 +1639,10 @@ class _FilterCompWidgetState extends State<FilterCompWidget>
                                                     .greenInit,
                                             inactiveTrackColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .lightGray,
+                                                    .secondaryBackground,
                                             inactiveThumbColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
+                                                    .secondaryText,
                                           ),
                                         ),
                                       ],
@@ -1676,8 +1673,7 @@ class _FilterCompWidgetState extends State<FilterCompWidget>
                           EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                       child: Container(
                         decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
+                          color: FlutterFlowTheme.of(context).tertiary,
                           borderRadius: BorderRadius.circular(16.0),
                           border: Border.all(
                             color: FlutterFlowTheme.of(context)
@@ -2022,7 +2018,7 @@ class _FilterCompWidgetState extends State<FilterCompWidget>
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily:
                               FlutterFlowTheme.of(context).titleSmallFamily,
-                          color: Colors.white,
+                          color: FlutterFlowTheme.of(context).primary,
                           letterSpacing: 0.0,
                           useGoogleFonts:
                               !FlutterFlowTheme.of(context).titleSmallIsCustom,

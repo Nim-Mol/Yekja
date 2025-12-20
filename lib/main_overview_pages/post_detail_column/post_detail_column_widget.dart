@@ -4855,9 +4855,6 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
               Container(
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primaryBackground,
-                  border: Border.all(
-                    width: 0.3,
-                  ),
                 ),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -5412,9 +5409,6 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
               Container(
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primaryBackground,
-                  border: Border.all(
-                    width: 0.3,
-                  ),
                 ),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,

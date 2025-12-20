@@ -14,8 +14,8 @@ class ContactYekjaRow extends SupabaseDataRow {
   @override
   SupabaseTable get table => ContactYekjaTable();
 
-  int get id => getField<int>('id')!;
-  set id(int value) => setField<int>('id', value);
+  String get id => getField<String>('id')!;
+  set id(String value) => setField<String>('id', value);
 
   DateTime get createdAt => getField<DateTime>('created_at')!;
   set createdAt(DateTime value) => setField<DateTime>('created_at', value);

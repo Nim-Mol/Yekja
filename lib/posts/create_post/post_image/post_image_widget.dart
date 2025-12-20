@@ -987,6 +987,82 @@ class _PostImageWidgetState extends State<PostImageWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
+                                      if (_model.localImages.isNotEmpty) {
+                                        for (int loop1Index = 0;
+                                            loop1Index <
+                                                _model.localImages.length;
+                                            loop1Index++) {
+                                          final currentLoop1Item =
+                                              _model.localImages[loop1Index];
+                                          // upload to Temporarily storage
+                                          {
+                                            safeSetState(() => _model
+                                                    .isDataUploading_uploadToStorageURLEdit =
+                                                true);
+                                            var selectedUploadedFiles =
+                                                <FFUploadedFile>[];
+                                            var selectedMedia =
+                                                <SelectedFile>[];
+                                            var downloadUrls = <String>[];
+                                            try {
+                                              selectedUploadedFiles =
+                                                  currentLoop1Item
+                                                          .bytes!.isNotEmpty
+                                                      ? [currentLoop1Item]
+                                                      : <FFUploadedFile>[];
+                                              selectedMedia =
+                                                  selectedFilesFromUploadedFiles(
+                                                selectedUploadedFiles,
+                                                storageFolderPath:
+                                                    currentUserUid,
+                                              );
+                                              downloadUrls =
+                                                  await uploadSupabaseStorageFiles(
+                                                bucketName: 'users_media',
+                                                selectedFiles: selectedMedia,
+                                              );
+                                            } finally {
+                                              _model.isDataUploading_uploadToStorageURLEdit =
+                                                  false;
+                                            }
+                                            if (selectedUploadedFiles.length ==
+                                                    selectedMedia.length &&
+                                                downloadUrls.length ==
+                                                    selectedMedia.length) {
+                                              safeSetState(() {
+                                                _model.uploadedLocalFile_uploadToStorageURLEdit =
+                                                    selectedUploadedFiles.first;
+                                                _model.uploadedFileUrl_uploadToStorageURLEdit =
+                                                    downloadUrls.first;
+                                              });
+                                            } else {
+                                              safeSetState(() {});
+                                              return;
+                                            }
+                                          }
+
+                                          FFAppState().updatePostStateStruct(
+                                            (e) => e
+                                              ..updateImages(
+                                                (e) => e.add(_model
+                                                    .uploadedFileUrl_uploadToStorageURLEdit),
+                                              ),
+                                          );
+                                          safeSetState(() {});
+                                        }
+                                        safeSetState(() {
+                                          _model.isDataUploading_uploadimageLocal =
+                                              false;
+                                          _model.uploadedLocalFile_uploadimageLocal =
+                                              FFUploadedFile(
+                                                  bytes: Uint8List.fromList([]),
+                                                  originalFilename: '');
+                                        });
+
+                                        _model.localImages = [];
+                                        safeSetState(() {});
+                                      }
+
                                       context.goNamed(PostEditWidget.routeName);
                                     },
                                     child: Container(

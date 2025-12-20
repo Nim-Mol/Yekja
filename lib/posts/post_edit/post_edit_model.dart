@@ -1,3 +1,4 @@
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/main_overview_pages/post_detail_column/post_detail_column_widget.dart';
 import '/profile/review_card_small/review_card_small_widget.dart';
@@ -19,6 +20,10 @@ class PostEditModel extends FlutterFlowModel<PostEditWidget> {
   late PostDetailColumnModel postDetailColumnModel;
   // Models for ReviewCard_small dynamic component.
   late FlutterFlowDynamicModels<ReviewCardSmallModel> reviewCardSmallModels;
+  // Stores action output result for [Backend Call - Delete Row(s)] action in Button widget.
+  List<PostsRow>? postDeleted;
+  // Stores action output result for [Backend Call - Insert Row] action in Button widget.
+  PostCreateMuxTblRow? rowUpdated;
 
   @override
   void initState(BuildContext context) {

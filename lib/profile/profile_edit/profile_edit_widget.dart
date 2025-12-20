@@ -20,6 +20,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'profile_edit_model.dart';
@@ -1794,62 +1795,24 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                               8.0,
                                                                               0.0),
                                                                           child:
-                                                                              FFButtonWidget(
-                                                                            onPressed:
+                                                                              InkWell(
+                                                                            splashColor:
+                                                                                Colors.transparent,
+                                                                            focusColor:
+                                                                                Colors.transparent,
+                                                                            hoverColor:
+                                                                                Colors.transparent,
+                                                                            highlightColor:
+                                                                                Colors.transparent,
+                                                                            onTap:
                                                                                 () async {
                                                                               context.pushNamed(ChangeEmailPageWidget.routeName);
                                                                             },
-                                                                            text:
-                                                                                FFLocalizations.of(context).getText(
-                                                                              'zzq7g7vx' /* Change Email */,
-                                                                            ),
-                                                                            options:
-                                                                                FFButtonOptions(
-                                                                              height: 20.0,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidEdit,
                                                                               color: FlutterFlowTheme.of(context).greenInit,
-                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                    fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
-                                                                                    color: FlutterFlowTheme.of(context).primary,
-                                                                                    fontSize: 10.0,
-                                                                                    letterSpacing: 0.0,
-                                                                                    fontWeight: FontWeight.w300,
-                                                                                    useGoogleFonts: !FlutterFlowTheme.of(context).titleSmallIsCustom,
-                                                                                  ),
-                                                                              elevation: 0.0,
-                                                                              borderRadius: BorderRadius.circular(8.0),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                        Align(
-                                                                          alignment: AlignmentDirectional(
-                                                                              -4.07,
-                                                                              1.17),
-                                                                          child:
-                                                                              FFButtonWidget(
-                                                                            onPressed:
-                                                                                () async {
-                                                                              context.goNamed(ResetPasswordPageWidget.routeName);
-                                                                            },
-                                                                            text:
-                                                                                FFLocalizations.of(context).getText(
-                                                                              'nbv3szt9' /* Change password */,
-                                                                            ),
-                                                                            options:
-                                                                                FFButtonOptions(
-                                                                              height: 40.0,
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: Color(0x42228BE6),
-                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                    fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
-                                                                                    color: FlutterFlowTheme.of(context).primary,
-                                                                                    letterSpacing: 0.0,
-                                                                                    useGoogleFonts: !FlutterFlowTheme.of(context).titleSmallIsCustom,
-                                                                                  ),
-                                                                              elevation: 0.0,
-                                                                              borderRadius: BorderRadius.circular(8.0),
+                                                                              size: 20.0,
                                                                             ),
                                                                           ),
                                                                         ),
@@ -2514,7 +2477,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                             );
                                                             safeSetState(() {});
 
-                                                            context.pushNamed(
+                                                            context.goNamed(
                                                               ProfilePageWidget
                                                                   .routeName,
                                                               queryParameters: {
@@ -2537,7 +2500,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                       TextStyle(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primary,
+                                                                        .primaryWhite,
                                                                   ),
                                                                 ),
                                                                 duration: Duration(
@@ -2610,9 +2573,13 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                   16.0,
                                                                   0.0,
                                                                   16.0,
-                                                                  0.0),
+                                                                  12.0),
                                                       child: Container(
                                                         width: double.infinity,
+                                                        constraints:
+                                                            BoxConstraints(
+                                                          maxWidth: 480.0,
+                                                        ),
                                                         decoration:
                                                             BoxDecoration(
                                                           borderRadius:
@@ -2629,6 +2596,60 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                             topRight:
                                                                 Radius.circular(
                                                                     8.0),
+                                                          ),
+                                                        ),
+                                                        child: FFButtonWidget(
+                                                          onPressed: () async {
+                                                            context.pushNamed(
+                                                                ResetPasswordPageWidget
+                                                                    .routeName);
+                                                          },
+                                                          text: FFLocalizations
+                                                                  .of(context)
+                                                              .getText(
+                                                            'm2qaa14w' /* Change password */,
+                                                          ),
+                                                          options:
+                                                              FFButtonOptions(
+                                                            height: 40.0,
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        16.0,
+                                                                        0.0,
+                                                                        16.0,
+                                                                        0.0),
+                                                            iconPadding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            color: Color(
+                                                                0xFF2A7BAB),
+                                                            textStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .titleSmallFamily,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      useGoogleFonts:
+                                                                          !FlutterFlowTheme.of(context)
+                                                                              .titleSmallIsCustom,
+                                                                    ),
+                                                            elevation: 0.0,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
                                                           ),
                                                         ),
                                                       ),
@@ -3452,15 +3473,16 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                     TextStyle(
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .customColor1,
+                                                                      .primary,
                                                                 ),
                                                               ),
                                                               duration: Duration(
                                                                   milliseconds:
                                                                       4000),
                                                               backgroundColor:
-                                                                  Color(
-                                                                      0x4240C057),
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .successSnack,
                                                             ),
                                                           );
                                                           await Future.delayed(
@@ -3469,7 +3491,19 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                   2000,
                                                             ),
                                                           );
-                                                          context.safePop();
+
+                                                          context.goNamed(
+                                                            ProfilePageWidget
+                                                                .routeName,
+                                                            queryParameters: {
+                                                              'profileId':
+                                                                  serializeParam(
+                                                                currentUserUid,
+                                                                ParamType
+                                                                    .String,
+                                                              ),
+                                                            }.withoutNulls,
+                                                          );
 
                                                           safeSetState(() {});
                                                         },

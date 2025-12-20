@@ -61,7 +61,7 @@ class _SwipableWidgetState extends State<SwipableWidget> {
                 maxWidth: 480.0,
               ),
               decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).newsCard,
+                color: Colors.black,
               ),
               child: Stack(
                 children: [
@@ -171,6 +171,18 @@ Offers & Reque... */
                                                   width: 320.0,
                                                   height: 320.0,
                                                   decoration: BoxDecoration(
+                                                    gradient: LinearGradient(
+                                                      colors: [
+                                                        Color(0x00050505),
+                                                        Color(0xC9060606)
+                                                      ],
+                                                      stops: [0.0, 1.0],
+                                                      begin:
+                                                          AlignmentDirectional(
+                                                              0.0, -1.0),
+                                                      end: AlignmentDirectional(
+                                                          0, 1.0),
+                                                    ),
                                                     borderRadius:
                                                         BorderRadius.only(
                                                       bottomLeft:
@@ -358,18 +370,11 @@ Offers & Reque... */
                                                                           fontFamily:
                                                                               FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).primaryText,
+                                                                              FlutterFlowTheme.of(context).primaryWhite,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.w600,
-                                                                          shadows: [
-                                                                            Shadow(
-                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                              offset: Offset(2.0, 2.0),
-                                                                              blurRadius: 1.0,
-                                                                            )
-                                                                          ],
                                                                           useGoogleFonts:
                                                                               !FlutterFlowTheme.of(context).bodyMediumIsCustom,
                                                                         ),
@@ -424,7 +429,7 @@ Offers & Reque... */
                                                                           fontFamily:
                                                                               FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).primaryText,
+                                                                              FlutterFlowTheme.of(context).primaryWhite,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:

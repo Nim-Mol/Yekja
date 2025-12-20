@@ -17,13 +17,15 @@ class ChatdetailModel extends FlutterFlowModel<ChatdetailWidget> {
 
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Backend Call - Update Row(s)] action in chatdetail widget.
+  List<MessagesRow>? messagesInChat;
   // Stores action output result for [Backend Call - Query Rows] action in chatdetail widget.
   List<UserExtRow>? recipient;
   // Stores action output result for [Backend Call - Query Rows] action in chatdetail widget.
   List<ViewUserChatsVisibleRow>? viewChatWithOwner;
   // Stores action output result for [Backend Call - Update Row(s)] action in chatdetail widget.
   List<MessagesRow>? userOffline;
-  // State field(s) for Chats-ListView widget.
+  // State field(s) for ChatsListView widget.
   ScrollController? chatsListViewScrollController;
   Stream<List<MessagesRow>>? chatsListViewSupabaseStream;
   // Stores action output result for [Backend Call - Delete Row(s)] action in Row widget.

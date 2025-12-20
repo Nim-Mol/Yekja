@@ -8,10 +8,12 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/main_overview_pages/post_detail_column/post_detail_column_widget.dart';
 import '/profile/review_card_small/review_card_small_widget.dart';
 import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.dart';
+import '/shared_components/custom_snackbar/custom_snackbar_widget.dart';
 import '/shared_components/photo_gallary/photo_gallary_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -37,6 +39,12 @@ class _PostEditWidgetState extends State<PostEditWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PostEditModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().navRoutePost = 'PostPreview';
+      safeSetState(() {});
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -120,7 +128,7 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                               Icons.chevron_left,
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .info,
+                                                      .primary,
                                               size: 24.0,
                                             ),
                                             onPressed: () async {
@@ -183,27 +191,6 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                                                 context)
                                                             .titleLargeIsCustom,
                                                   ),
-                                            ),
-                                          ),
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              await actions
-                                                  .navigateToDetailForm1(
-                                                context,
-                                                FFAppState().postDetailTable,
-                                                'PostPreview',
-                                              );
-                                            },
-                                            child: Icon(
-                                              Icons.edit,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .green1,
-                                              size: 24.0,
                                             ),
                                           ),
                                         ].divide(SizedBox(width: 8.0)),
@@ -310,7 +297,7 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                             PostSubCatWidget.routeName,
                                             queryParameters: {
                                               'navRoute': serializeParam(
-                                                'PostPreview',
+                                                FFAppState().navRoutePost,
                                                 ParamType.String,
                                               ),
                                             }.withoutNulls,
@@ -341,7 +328,7 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                           PostIntendWidget.routeName,
                                           queryParameters: {
                                             'navRoute': serializeParam(
-                                              'PostPreview',
+                                              FFAppState().navRoutePost,
                                               ParamType.String,
                                             ),
                                           }.withoutNulls,
@@ -349,8 +336,8 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                       },
                                       child: Icon(
                                         Icons.edit,
-                                        color:
-                                            FlutterFlowTheme.of(context).green1,
+                                        color: FlutterFlowTheme.of(context)
+                                            .green1,
                                         size: 24.0,
                                       ),
                                     ),
@@ -360,7 +347,7 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                   alignment: AlignmentDirectional(0.0, 1.0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 62.0, 0.0, 0.0),
+                                        0.0, 60.0, 0.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -370,7 +357,7 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                         await actions.navigateToDetailForm1(
                                           context,
                                           FFAppState().postDetailTable,
-                                          'PostPreview',
+                                          FFAppState().navRoutePost,
                                         );
                                       },
                                       child: Icon(
@@ -1038,11 +1025,25 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                                               context)),
                                               child: ConfirmCancelPopUpWidget(
                                                 header:
-                                                    'Are you sure you want to delete this post?',
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  '68prj1qr' /* Are you sure you want to delet... */,
+                                                ),
                                                 hintText:
-                                                    'When you delete a post it will be permenetly removed.',
-                                                cancelText: 'Cancel',
-                                                confirmText: 'Delete',
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'oaqjq4zi' /* When you delete a post it will... */,
+                                                ),
+                                                cancelText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'esrikcwc' /* Cancel */,
+                                                ),
+                                                confirmText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'ye16grq0' /* Delete */,
+                                                ),
                                                 onConfirmAction: () async {
                                                   await PostsTable().delete(
                                                     matchingRows: (rows) =>
@@ -1051,32 +1052,36 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                                       FFAppState().postState.id,
                                                     ),
                                                   );
-                                                  FFAppState().postState =
-                                                      PostModelStruct();
-                                                  FFAppState().postDetailJSON =
-                                                      null;
-                                                  FFAppState().postDetailTable =
-                                                      '';
-                                                  safeSetState(() {});
-                                                  ScaffoldMessenger.of(context)
-                                                      .showSnackBar(
-                                                    SnackBar(
-                                                      content: Text(
-                                                        'Your post is deleted.',
-                                                        style: TextStyle(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder: (dialogContext) {
+                                                      return Dialog(
+                                                        elevation: 0,
+                                                        insetPadding:
+                                                            EdgeInsets.zero,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                    0.0, 0.0)
+                                                                .resolve(
+                                                                    Directionality.of(
+                                                                        context)),
+                                                        child:
+                                                            CustomSnackbarWidget(
+                                                          myText:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                            'uymaetqg' /* Your post is deleted. */,
+                                                          ),
+                                                          waitMS: 3000,
                                                         ),
-                                                      ),
-                                                      duration: Duration(
-                                                          milliseconds: 4000),
-                                                      backgroundColor:
-                                                          Color(0xFF0C523E),
-                                                    ),
+                                                      );
+                                                    },
                                                   );
 
-                                                  context.pushNamed(
+                                                  context.goNamed(
                                                     ProfilePageWidget.routeName,
                                                     queryParameters: {
                                                       'profileId':
@@ -1086,6 +1091,18 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                                       ),
                                                     }.withoutNulls,
                                                   );
+
+                                                  FFAppState().postState =
+                                                      PostModelStruct();
+                                                  FFAppState().postDetailJSON =
+                                                      null;
+                                                  FFAppState().postDetailTable =
+                                                      '';
+                                                  FFAppState().postDetailLabel =
+                                                      null;
+                                                  FFAppState().navRoutePost =
+                                                      '';
+                                                  safeSetState(() {});
                                                 },
                                                 onCancelAction: () async {
                                                   Navigator.pop(context);
@@ -1095,7 +1112,7 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                           },
                                         );
 
-                                        Navigator.pop(context);
+                                        safeSetState(() {});
                                       },
                                       text: FFLocalizations.of(context).getText(
                                         'mxg6sthy' /* Delete */,
@@ -1131,9 +1148,6 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                                       .fontStyle,
                                             ),
                                         elevation: 0.0,
-                                        borderSide: BorderSide(
-                                          width: 1.0,
-                                        ),
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                       ),
@@ -1182,46 +1196,89 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                                   'v1ly20lq' /* Confirm */,
                                                 ),
                                                 onConfirmAction: () async {
-                                                  await PostCreateMuxTblTable()
-                                                      .update(
-                                                    data: {
-                                                      'post_id': FFAppState()
-                                                          .postState
-                                                          .id,
-                                                      'title': FFAppState()
-                                                          .postState
-                                                          .title,
-                                                      'description':
-                                                          FFAppState()
-                                                              .postState
-                                                              .description,
-                                                      'city': FFAppState()
-                                                          .postState
-                                                          .city,
-                                                      'sub_cat_id': FFAppState()
-                                                          .postState
-                                                          .subCatId,
-                                                      'images': FFAppState()
-                                                          .postState
-                                                          .images,
-                                                      'detail_table':
-                                                          FFAppState()
-                                                              .postDetailTable,
-                                                      'details': FFAppState()
-                                                          .postDetailJSON,
-                                                    },
-                                                    matchingRows: (rows) =>
-                                                        rows,
-                                                  );
-                                                  FFAppState().postState =
-                                                      PostModelStruct();
-                                                  FFAppState().postDetailJSON =
-                                                      null;
-                                                  FFAppState().postDetailTable =
-                                                      '';
-                                                  FFAppState().postDetailLabel =
-                                                      null;
-                                                  safeSetState(() {});
+                                                  _model.rowUpdated =
+                                                      await PostCreateMuxTblTable()
+                                                          .insert({
+                                                    'title': FFAppState()
+                                                        .postState
+                                                        .title,
+                                                    'description': FFAppState()
+                                                        .postState
+                                                        .description,
+                                                    'city': FFAppState()
+                                                        .postState
+                                                        .city,
+                                                    'sub_cat_id': FFAppState()
+                                                        .postState
+                                                        .subCatId,
+                                                    'images': FFAppState()
+                                                        .postState
+                                                        .images,
+                                                    'detail_table': FFAppState()
+                                                        .postDetailTable,
+                                                    'details': FFAppState()
+                                                        .postDetailJSON,
+                                                    'post_id': FFAppState()
+                                                        .postState
+                                                        .id,
+                                                  });
+                                                  if (_model.rowUpdated !=
+                                                      null) {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder: (dialogContext) {
+                                                        return Dialog(
+                                                          elevation: 0,
+                                                          insetPadding:
+                                                              EdgeInsets.zero,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          alignment: AlignmentDirectional(
+                                                                  0.0, 0.0)
+                                                              .resolve(
+                                                                  Directionality.of(
+                                                                      context)),
+                                                          child:
+                                                              CustomSnackbarWidget(
+                                                            myText:
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                              'n1juv3ju' /* Your post is updated! */,
+                                                            ),
+                                                            waitMS: 3000,
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+
+                                                    context.goNamed(
+                                                      ProfilePageWidget
+                                                          .routeName,
+                                                      queryParameters: {
+                                                        'profileId':
+                                                            serializeParam(
+                                                          currentUserUid,
+                                                          ParamType.String,
+                                                        ),
+                                                      }.withoutNulls,
+                                                    );
+
+                                                    FFAppState().postState =
+                                                        PostModelStruct();
+                                                    FFAppState()
+                                                        .postDetailJSON = null;
+                                                    FFAppState()
+                                                        .postDetailTable = '';
+                                                    FFAppState()
+                                                        .postDetailLabel = null;
+                                                    FFAppState().navRoutePost =
+                                                        '';
+                                                    safeSetState(() {});
+                                                  } else {
+                                                    Navigator.pop(context);
+                                                  }
                                                 },
                                                 onCancelAction: () async {
                                                   Navigator.pop(context);
@@ -1231,7 +1288,7 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                           },
                                         );
 
-                                        Navigator.pop(context);
+                                        safeSetState(() {});
                                       },
                                       text: FFLocalizations.of(context).getText(
                                         '3b0fgnsw' /* Update */,
@@ -1268,9 +1325,6 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                                       .fontStyle,
                                             ),
                                         elevation: 0.0,
-                                        borderSide: BorderSide(
-                                          width: 1.0,
-                                        ),
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                       ),

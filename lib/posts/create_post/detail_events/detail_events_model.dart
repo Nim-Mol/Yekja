@@ -22,8 +22,6 @@ class DetailEventsModel extends FlutterFlowModel<DetailEventsWidget> {
   String? Function(BuildContext, String?)? textController2Validator;
   DateTime? datePicked1;
   DateTime? datePicked2;
-  // State field(s) for RepeatsSwitch widget.
-  bool? repeatsSwitchValue;
   // State field(s) for PriceBoolSwitch widget.
   bool? priceBoolSwitchValue1;
   // State field(s) for PriceBoolSwitch widget.
@@ -60,7 +58,7 @@ class DetailEventsModel extends FlutterFlowModel<DetailEventsWidget> {
 
     if (!RegExp('^([0-9\\u06F0-\\u06F9])+\$').hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        'y0o3czo1' /* Numbers only. */,
+        'i5y5g8f3' /* Numbers only. */,
       );
     }
     return null;

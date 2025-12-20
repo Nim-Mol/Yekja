@@ -12,6 +12,8 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
 
   bool isClose = true;
 
+  bool loading = false;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - Query Rows] action in ProfilePage widget.

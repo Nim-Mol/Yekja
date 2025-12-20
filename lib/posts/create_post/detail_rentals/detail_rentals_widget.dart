@@ -5,7 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/posts/create_post/description/description_widget.dart';
 import '/posts/create_post/title/title_widget.dart';
-import '/shared_components/error_comp/error_comp_widget.dart';
+import '/shared_components/error_pop_up/error_pop_up_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -434,15 +434,63 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget>
                                                         MainAxisAlignment
                                                             .spaceBetween,
                                                     children: [
-                                                      Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'dgh17pei' /* Title */,
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
+                                                      Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                -1.0, 1.0),
+                                                        child: RichText(
+                                                          textScaler:
+                                                              MediaQuery.of(
+                                                                      context)
+                                                                  .textScaler,
+                                                          text: TextSpan(
+                                                            children: [
+                                                              TextSpan(
+                                                                text: FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'kppmu4l4' /* Title */,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .titleMediumFamily,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .green1,
+                                                                      fontSize:
+                                                                          16.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                      useGoogleFonts:
+                                                                          !FlutterFlowTheme.of(context)
+                                                                              .titleMediumIsCustom,
+                                                                    ),
+                                                              ),
+                                                              TextSpan(
+                                                                text: FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'sa73hg9f' /*  (Required) */,
+                                                                ),
+                                                                style:
+                                                                    TextStyle(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .error,
+                                                                  fontSize:
+                                                                      10.0,
+                                                                ),
+                                                              )
+                                                            ],
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
                                                                 .titleMedium
                                                                 .override(
                                                                   fontFamily: FlutterFlowTheme.of(
@@ -463,6 +511,8 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget>
                                                                               context)
                                                                           .titleMediumIsCustom,
                                                                 ),
+                                                          ),
+                                                        ),
                                                       ),
                                                       Stack(
                                                         children: [
@@ -728,30 +778,75 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget>
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'c0z72le4' /* Location */,
-                                              ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleMedium
-                                                  .override(
-                                                    fontFamily:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleMediumFamily,
-                                                    color: FlutterFlowTheme.of(
+                                            RichText(
+                                              textScaler: MediaQuery.of(context)
+                                                  .textScaler,
+                                              text: TextSpan(
+                                                children: [
+                                                  TextSpan(
+                                                    text: FFLocalizations.of(
                                                             context)
-                                                        .green1,
-                                                    fontSize: 16.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w500,
-                                                    useGoogleFonts:
-                                                        !FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleMediumIsCustom,
+                                                        .getText(
+                                                      'hv1h6cpr' /* Location */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMediumFamily,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .green1,
+                                                          fontSize: 16.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          useGoogleFonts:
+                                                              !FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .titleMediumIsCustom,
+                                                        ),
                                                   ),
+                                                  TextSpan(
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'pq8fwapd' /*  (Required) */,
+                                                    ),
+                                                    style: TextStyle(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .error,
+                                                      fontSize: 10.0,
+                                                    ),
+                                                  )
+                                                ],
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMediumFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .green1,
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMediumIsCustom,
+                                                    ),
+                                              ),
                                             ),
                                             if (FFAppState().postState.city !=
                                                     '')
@@ -867,11 +962,11 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget>
                                             ),
                                             fillColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
+                                                    .tertiary,
                                             elevation: 0.0,
                                             borderColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
+                                                    .tertiary,
                                             borderWidth: 0.0,
                                             borderRadius: 4.0,
                                             margin:
@@ -2005,7 +2100,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget>
                                                             .primaryFocus
                                                             ?.unfocus();
                                                       },
-                                                      child: ErrorCompWidget(
+                                                      child: ErrorPopUpWidget(
                                                         errorText:
                                                             'Error: End date cannot be before the start date',
                                                       ),
@@ -2129,15 +2224,58 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget>
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 4.0, 0.0, 2.0),
-                                                  child: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      't1ab9yoz' /* Price */,
-                                                    ),
+                                                RichText(
+                                                  textScaler:
+                                                      MediaQuery.of(context)
+                                                          .textScaler,
+                                                  text: TextSpan(
+                                                    children: [
+                                                      TextSpan(
+                                                        text:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'wfqzk6xv' /* Price */,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMediumFamily,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .green1,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleMediumIsCustom,
+                                                                ),
+                                                      ),
+                                                      TextSpan(
+                                                        text:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'bwlsis03' /*  (Required) */,
+                                                        ),
+                                                        style: TextStyle(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          fontSize: 10.0,
+                                                        ),
+                                                      )
+                                                    ],
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .titleMedium
@@ -2801,17 +2939,54 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget>
                                               Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                10.0, 2.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'opmbewd0' /* Price Class */,
-                                                      ),
+                                                  RichText(
+                                                    textScaler:
+                                                        MediaQuery.of(context)
+                                                            .textScaler,
+                                                    text: TextSpan(
+                                                      children: [
+                                                        TextSpan(
+                                                          text: FFLocalizations
+                                                                  .of(context)
+                                                              .getText(
+                                                            'aq8lx81d' /* Price */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .titleMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleMediumFamily,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .green1,
+                                                                fontSize: 16.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleMediumIsCustom,
+                                                              ),
+                                                        ),
+                                                        TextSpan(
+                                                          text: FFLocalizations
+                                                                  .of(context)
+                                                              .getText(
+                                                            'f5dxvov0' /*  (Required) */,
+                                                          ),
+                                                          style: TextStyle(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .error,
+                                                            fontSize: 10.0,
+                                                          ),
+                                                        )
+                                                      ],
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .titleMedium
@@ -2871,7 +3046,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget>
                                                     animationsMap[
                                                         'iconOnActionTriggerAnimation2']!,
                                                   ),
-                                                ],
+                                                ].divide(SizedBox(width: 8.0)),
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
@@ -3541,11 +3716,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget>
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               if ((FFAppState().postState.title != '') &&
-                                  (FFAppState().postState.description !=
-                                          '') &&
                                   (FFAppState().postState.city != '') &&
-                                  (FFAppState().postState.rentalType !=
-                                          '') &&
                                   ((FFAppState().postState.price > 0) ||
                                       (FFAppState().postState.priceText !=
                                               ''))) {
@@ -3578,6 +3749,12 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget>
 
                                 context.pushNamed(
                                   PostImageWidget.routeName,
+                                  queryParameters: {
+                                    'navRoute': serializeParam(
+                                      widget.navRoute,
+                                      ParamType.String,
+                                    ),
+                                  }.withoutNulls,
                                   extra: <String, dynamic>{
                                     kTransitionInfoKey: TransitionInfo(
                                       hasTransition: true,
@@ -3604,7 +3781,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget>
                                           FocusManager.instance.primaryFocus
                                               ?.unfocus();
                                         },
-                                        child: ErrorCompWidget(
+                                        child: ErrorPopUpWidget(
                                           errorText: FFLocalizations.of(context)
                                               .getText(
                                             'hfdx27wx' /* Some fields are left unfilled.... */,
@@ -3622,15 +3799,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget>
                               decoration: BoxDecoration(
                                 color: (FFAppState().postState.title !=
                                                 '') &&
-                                        (FFAppState()
-                                                    .postState
-                                                    .description !=
-                                                '') &&
-                                        (FFAppState()
-                                                    .postState
-                                                    .city !=
-                                                '') &&
-                                        (FFAppState().postState.rentalType !=
+                                        (FFAppState().postState.city !=
                                                 '') &&
                                         ((FFAppState().postState.price > 0) ||
                                             (FFAppState()
@@ -3644,15 +3813,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget>
                                 border: Border.all(
                                   color: (FFAppState().postState.title !=
                                                   '') &&
-                                          (FFAppState().postState.description !=
-                                                  '') &&
-                                          (FFAppState()
-                                                      .postState
-                                                      .city !=
-                                                  '') &&
-                                          (FFAppState()
-                                                      .postState
-                                                      .rentalType !=
+                                          (FFAppState().postState.city !=
                                                   '') &&
                                           ((FFAppState().postState.price > 0) ||
                                               (FFAppState()
@@ -3684,15 +3845,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget>
                                                           '') &&
                                                   (FFAppState()
                                                               .postState
-                                                              .description !=
-                                                          '') &&
-                                                  (FFAppState()
-                                                              .postState
                                                               .city !=
-                                                          '') &&
-                                                  (FFAppState()
-                                                              .postState
-                                                              .rentalType !=
                                                           '') &&
                                                   ((FFAppState()
                                                               .postState

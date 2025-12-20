@@ -434,3 +434,14 @@ DateTime? jsonToDateTimeUtc(dynamic v) {
   }
   return null;
 }
+
+bool shouldShowTimestamp(
+  DateTime prevMessage,
+  DateTime currentMessageTime,
+) {
+// Calculate the difference and get the absolute value in minutes
+  final difference = currentMessageTime.difference(prevMessage).inMinutes.abs();
+
+  // If the difference is 1 minute or more, return true (to show the timestamp)
+  return difference >= 1;
+}

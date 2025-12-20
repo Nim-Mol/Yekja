@@ -3,7 +3,10 @@ import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.dart';
+import '/shared_components/custom_snackbar/custom_snackbar_widget.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'intend_model.dart';
 export 'intend_model.dart';
@@ -153,6 +156,9 @@ ongoing ser... */
                                       (e) => e..intend = 'One-time',
                                     );
                                     safeSetState(() {});
+
+                                    context
+                                        .pushNamed(PostSubCatWidget.routeName);
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -263,12 +269,12 @@ ongoing ser... */
                                               header:
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                '0ti2vese' /* Business Accounts Not Yet Avai... */,
+                                                '0ti2vese' /* Business model coming soon! */,
                                               ),
                                               hintText:
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                'ig7cdm4x' /* Business mode is on its way. T... */,
+                                                'ig7cdm4x' /* Join the list to become one of... */,
                                               ),
                                               cancelText:
                                                   FFLocalizations.of(context)
@@ -289,6 +295,39 @@ ongoing ser... */
                                                       'I\'d like to join the wishlist for businesses.',
                                                   'user_id': currentUserUid,
                                                 });
+                                                Navigator.pop(context);
+                                                await showDialog(
+                                                  context: context,
+                                                  builder: (dialogContext) {
+                                                    return Dialog(
+                                                      elevation: 0,
+                                                      insetPadding:
+                                                          EdgeInsets.zero,
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                                  0.0, 0.0)
+                                                              .resolve(
+                                                                  Directionality.of(
+                                                                      context)),
+                                                      child:
+                                                          CustomSnackbarWidget(
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .successSnack,
+                                                        myText:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          '7ti7vgzv' /* Your request has been sent! we... */,
+                                                        ),
+                                                        waitMS: 4000,
+                                                      ),
+                                                    );
+                                                  },
+                                                );
                                               },
                                               onCancelAction: () async {
                                                 Navigator.pop(context);
@@ -556,6 +595,9 @@ ongoing ser... */
                                       (e) => e..intend = 'Hosting',
                                     );
                                     _model.updatePage(() {});
+
+                                    context
+                                        .pushNamed(PostSubCatWidget.routeName);
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -657,6 +699,9 @@ ongoing ser... */
                                       (e) => e..intend = 'Announcing',
                                     );
                                     _model.updatePage(() {});
+
+                                    context
+                                        .pushNamed(PostSubCatWidget.routeName);
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -899,6 +944,9 @@ ongoing ser... */
                                       (e) => e..intend = 'Buy Request',
                                     );
                                     _model.updatePage(() {});
+
+                                    context
+                                        .pushNamed(PostSubCatWidget.routeName);
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -958,6 +1006,9 @@ ongoing ser... */
                                       (e) => e..intend = 'Sell Request',
                                     );
                                     _model.updatePage(() {});
+
+                                    context
+                                        .pushNamed(PostSubCatWidget.routeName);
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -1123,6 +1174,9 @@ ongoing ser... */
                                       (e) => e..intend = 'Swap',
                                     );
                                     _model.updatePage(() {});
+
+                                    context
+                                        .pushNamed(PostSubCatWidget.routeName);
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -1137,7 +1191,7 @@ ongoing ser... */
                                                     .primaryText
                                                 : FlutterFlowTheme.of(context)
                                                     .bordergray,
-                                        width: 0.8,
+                                        width: 2.0,
                                       ),
                                     ),
                                     child: Padding(
@@ -1226,6 +1280,9 @@ ongoing ser... */
                                       (e) => e..intend = 'Borrow',
                                     );
                                     _model.updatePage(() {});
+
+                                    context
+                                        .pushNamed(PostSubCatWidget.routeName);
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -1430,6 +1487,9 @@ ongoing ser... */
                                       (e) => e..intend = 'Offer',
                                     );
                                     _model.updatePage(() {});
+
+                                    context
+                                        .pushNamed(PostSubCatWidget.routeName);
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -1532,6 +1592,9 @@ ongoing ser... */
                                       (e) => e..intend = 'Request',
                                     );
                                     _model.updatePage(() {});
+
+                                    context
+                                        .pushNamed(PostSubCatWidget.routeName);
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -1736,6 +1799,9 @@ ongoing ser... */
                                       (e) => e..intend = 'Offer',
                                     );
                                     _model.updatePage(() {});
+
+                                    context
+                                        .pushNamed(PostSubCatWidget.routeName);
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -1838,6 +1904,9 @@ ongoing ser... */
                                       (e) => e..intend = 'Request',
                                     );
                                     _model.updatePage(() {});
+
+                                    context
+                                        .pushNamed(PostSubCatWidget.routeName);
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -2042,6 +2111,9 @@ ongoing ser... */
                                       (e) => e..intend = 'Offer',
                                     );
                                     _model.updatePage(() {});
+
+                                    context
+                                        .pushNamed(PostSubCatWidget.routeName);
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -2144,6 +2216,9 @@ ongoing ser... */
                                       (e) => e..intend = 'Request',
                                     );
                                     _model.updatePage(() {});
+
+                                    context
+                                        .pushNamed(PostSubCatWidget.routeName);
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -2348,6 +2423,9 @@ ongoing ser... */
                                       (e) => e..intend = 'Offer',
                                     );
                                     _model.updatePage(() {});
+
+                                    context
+                                        .pushNamed(PostSubCatWidget.routeName);
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -2450,6 +2528,9 @@ ongoing ser... */
                                       (e) => e..intend = 'Request',
                                     );
                                     _model.updatePage(() {});
+
+                                    context
+                                        .pushNamed(PostSubCatWidget.routeName);
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -2547,6 +2628,258 @@ ongoing ser... */
                   ]
                       .divide(SizedBox(height: 16.0))
                       .addToStart(SizedBox(height: 24.0)),
+                ),
+              ),
+            ),
+          ),
+        if (FFAppState().postDetailTable == 'shops')
+          Container(
+            constraints: BoxConstraints(
+              minHeight: 700.0,
+              maxWidth: 480.0,
+            ),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color(0x417950F2),
+                  FlutterFlowTheme.of(context).priceTagEventy
+                ],
+                stops: [0.0, 1.0],
+                begin: AlignmentDirectional(0.0, -1.0),
+                end: AlignmentDirectional(0, 1.0),
+              ),
+            ),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          FFLocalizations.of(context).getText(
+                            'qhwc85xr' /* FEATURE COMING SOON! */,
+                          ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                font: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.w600,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                ),
+                                color:
+                                    FlutterFlowTheme.of(context).primaryWhite,
+                                fontSize: 24.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w600,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
+                              ),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).lightGray,
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              20.0, 4.0, 20.0, 4.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'bdx893qc' /* Business Profiles */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.w600,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      color: Color(0xFF484275),
+                                      fontSize: 24.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 36.0, 0.0, 16.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image.network(
+                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/zCfTnCN4IRBlV0rHAl5X/assets/h79kct69pga5/firm_3.png',
+                          width: 110.0,
+                          height: 100.0,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                      child: Text(
+                        FFLocalizations.of(context).getText(
+                          '93r3vh91' /* We're working hard to bring yo... */,
+                        ),
+                        textAlign: TextAlign.center,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodyMediumFamily,
+                              color: FlutterFlowTheme.of(context).primaryWhite,
+                              fontSize: 16.0,
+                              letterSpacing: 0.0,
+                              useGoogleFonts: !FlutterFlowTheme.of(context)
+                                  .bodyMediumIsCustom,
+                            ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                      child: Text(
+                        FFLocalizations.of(context).getText(
+                          'fvc4f7hg' /* WANT TO BE AMONG THE FIRST? */,
+                        ),
+                        textAlign: TextAlign.center,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              font: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w600,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
+                              ),
+                              color: Color(0xFF70D4FF),
+                              fontSize: 16.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.w600,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
+                      ),
+                    ),
+                    Text(
+                      FFLocalizations.of(context).getText(
+                        '8zri6g8h' /* Contact us to set up your prof... */,
+                      ),
+                      textAlign: TextAlign.center,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily:
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
+                            fontSize: 16.0,
+                            letterSpacing: 0.0,
+                            useGoogleFonts: !FlutterFlowTheme.of(context)
+                                .bodyMediumIsCustom,
+                          ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(ContactYEKJAWidget.routeName);
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).greenInit,
+                            borderRadius: BorderRadius.circular(24.0),
+                            border: Border.all(
+                              color: FlutterFlowTheme.of(context).greenInit,
+                              width: 1.0,
+                            ),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                20.0, 4.0, 20.0, 4.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  FFLocalizations.of(context).getText(
+                                    'nn1mf5lz' /* CONTACT SUPPORT */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleLarge
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .titleLargeFamily,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        fontSize: 16.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w500,
+                                        useGoogleFonts:
+                                            !FlutterFlowTheme.of(context)
+                                                .titleLargeIsCustom,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(PostCatWidget.routeName);
+                        },
+                        child: Text(
+                          FFLocalizations.of(context).getText(
+                            'jbmu9rr7' /* Go back */,
+                          ),
+                          textAlign: TextAlign.center,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyMediumFamily,
+                                fontSize: 16.0,
+                                letterSpacing: 0.0,
+                                decoration: TextDecoration.underline,
+                                useGoogleFonts: !FlutterFlowTheme.of(context)
+                                    .bodyMediumIsCustom,
+                              ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),

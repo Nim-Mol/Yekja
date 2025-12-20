@@ -1,8 +1,11 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:stop_watch_timer/stop_watch_timer.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'forgot_password_page_model.dart';
 export 'forgot_password_page_model.dart';
@@ -171,21 +174,28 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                                 child: TextFormField(
                                   controller: _model.emailTextController,
                                   focusNode: _model.emailFocusNode,
+                                  onChanged: (_) => EasyDebounce.debounce(
+                                    '_model.emailTextController',
+                                    Duration(milliseconds: 2000),
+                                    () async {
+                                      if (_model.formKey.currentState == null ||
+                                          !_model.formKey.currentState!
+                                              .validate()) {
+                                        return;
+                                      }
+                                    },
+                                  ),
                                   autofocus: false,
                                   textInputAction: TextInputAction.done,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     isDense: false,
-                                    labelText:
-                                        FFLocalizations.of(context).getText(
-                                      'ukwsa1lg' /* Email address */,
-                                    ),
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
                                           fontFamily: 'Satoshi',
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryWhite,
+                                              .primaryText,
                                           fontSize: 13.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -198,7 +208,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                                         .override(
                                           fontFamily: 'Satoshi',
                                           color: Color(0xFF767575),
-                                          fontSize: 17.0,
+                                          fontSize: 16.0,
                                           letterSpacing: 0.0,
                                         ),
                                     errorStyle: FlutterFlowTheme.of(context)
@@ -215,7 +225,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryWhite,
+                                            .secondaryBackground,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -223,7 +233,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
-                                            .primary,
+                                            .primaryWhite,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -244,6 +254,9 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
                                     ),
+                                    filled: true,
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
                                             16.0, 13.0, 0.0, 13.0),
@@ -253,7 +266,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                                       .override(
                                         fontFamily: 'FarsiFonts',
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryWhite,
+                                            .primaryText,
                                         fontSize: 17.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
@@ -268,54 +281,123 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                             ),
                           ],
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 24.0, 0.0, 24.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              if (_model.emailTextController.text.isEmpty) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      'Email required!',
+                        Stack(
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 24.0, 0.0, 24.0),
+                              child: FFButtonWidget(
+                                onPressed: (_model.timerOn == true)
+                                    ? null
+                                    : () async {
+                                        if (_model
+                                            .emailTextController.text.isEmpty) {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                'Email required!',
+                                              ),
+                                            ),
+                                          );
+                                          return;
+                                        }
+                                        await authManager.resetPassword(
+                                          email:
+                                              _model.emailTextController.text,
+                                          context: context,
+                                          redirectTo:
+                                              "yekja://yekja.nl/resetPasswordPage",
+                                        );
+                                        _model.timerOn = true;
+                                        safeSetState(() {});
+                                        _model.timerController.onStartTimer();
+                                      },
+                                text: FFLocalizations.of(context).getText(
+                                  'pn42p7ja' /* Continue */,
+                                ),
+                                options: FFButtonOptions(
+                                  width: double.infinity,
+                                  height: 48.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FlutterFlowTheme.of(context).greenInit,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .override(
+                                        fontFamily: 'FarsiFonts',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        fontSize: 16.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                  elevation: 0.0,
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  disabledColor:
+                                      FlutterFlowTheme.of(context).textgray,
+                                  disabledTextColor:
+                                      FlutterFlowTheme.of(context).textgray,
+                                ),
+                                showLoadingIndicator: false,
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Container(
+                                decoration: BoxDecoration(),
+                                child: Visibility(
+                                  visible: _model.timerOn,
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 30.0, 0.0, 0.0),
+                                    child: FlutterFlowTimer(
+                                      initialTime: _model.timerInitialTimeMs,
+                                      getDisplayTime: (value) =>
+                                          StopWatchTimer.getDisplayTime(
+                                        value,
+                                        hours: false,
+                                        milliSecond: false,
+                                      ),
+                                      controller: _model.timerController,
+                                      updateStateInterval:
+                                          Duration(milliseconds: 1000),
+                                      onChanged:
+                                          (value, displayTime, shouldUpdate) {
+                                        _model.timerMilliseconds = value;
+                                        _model.timerValue = displayTime;
+                                        if (shouldUpdate) safeSetState(() {});
+                                      },
+                                      onEnded: () async {
+                                        _model.timerOn = false;
+                                        safeSetState(() {});
+                                        _model.timerController.onResetTimer();
+                                      },
+                                      textAlign: TextAlign.start,
+                                      style: FlutterFlowTheme.of(context)
+                                          .headlineSmall
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineSmallFamily,
+                                            color: Color(0xFF050505),
+                                            fontSize: 20.0,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts:
+                                                !FlutterFlowTheme.of(context)
+                                                    .headlineSmallIsCustom,
+                                          ),
                                     ),
                                   ),
-                                );
-                                return;
-                              }
-                              await authManager.resetPassword(
-                                email: _model.emailTextController.text,
-                                context: context,
-                              );
-                            },
-                            text: FFLocalizations.of(context).getText(
-                              'pn42p7ja' /* Continue */,
-                            ),
-                            options: FFButtonOptions(
-                              width: double.infinity,
-                              height: 48.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).greenInit,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleMedium
-                                  .override(
-                                    fontFamily: 'FarsiFonts',
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    fontSize: 16.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                              elevation: 0.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
+                                ),
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
                             ),
-                            showLoadingIndicator: false,
-                          ),
+                          ],
                         ),
                       ],
                     ),

@@ -55,6 +55,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (widget.profileId != null && widget.profileId != '') {
+        _model.loading = true;
+        safeSetState(() {});
         _model.chatView = await ViewUserChatsTable().queryRows(
           queryFn: (q) => q
               .or("chat_sender.eq.${widget.profileId}, chat_recipient.eq.${widget.profileId}")
@@ -66,6 +68,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
             currentUserUid,
           ),
         );
+        _model.loading = false;
+        safeSetState(() {});
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -255,20 +259,20 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
                                               child: Image.network(
-                                                (containerUserExtRow?.profileAvatar ==
-                                                                null ||
+                                                _model.userConsent?.firstOrNull
+                                                            ?.showProfileImage ==
+                                                        true
+                                                    ? (containerUserExtRow
+                                                                    ?.profileAvatar !=
+                                                                null &&
                                                             containerUserExtRow
-                                                                    ?.profileAvatar ==
-                                                                '') ||
-                                                        (_model
-                                                                .userConsent
-                                                                ?.firstOrNull
-                                                                ?.showProfileImage ==
-                                                            false)
-                                                    ? FFAppConstants
-                                                        .DefultProfilePhoto
-                                                    : containerUserExtRow!
-                                                        .profileAvatar!,
+                                                                    ?.profileAvatar !=
+                                                                ''
+                                                        ? containerUserExtRow!
+                                                            .profileAvatar!
+                                                        : 'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Defults/Defult_profile_avatar.png')
+                                                    : FFAppConstants
+                                                        .DefultProfilePhoto,
                                                 width: 99.3,
                                                 height: 200.0,
                                                 fit: BoxFit.cover,
@@ -1118,7 +1122,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 10.0, 0.0, 0.0),
+                                            12.0, 10.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -1201,7 +1205,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 10.0, 20.0, 0.0),
+                                            0.0, 10.0, 12.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -2144,6 +2148,19 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                           child: NavBarWidget(),
                         ),
                       ),
+                      if (_model.loading == true)
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 0.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Image.asset(
+                              'assets/images/Yekja_(1).gif',
+                              width: 200.0,
+                              height: 200.0,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
                     ],
                   ),
                 );

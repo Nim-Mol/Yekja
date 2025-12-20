@@ -73,9 +73,20 @@ class _NewsCardWidgetState extends State<NewsCardWidget> {
             image: DecorationImage(
               fit: BoxFit.cover,
               image: Image.asset(
-                'assets/images/News_background.png',
+                'assets/images/ttt.png',
               ).image,
             ),
+            boxShadow: [
+              BoxShadow(
+                blurRadius: 4.0,
+                color: Color(0x33000000),
+                offset: Offset(
+                  0.0,
+                  2.0,
+                ),
+                spreadRadius: 2.0,
+              )
+            ],
             borderRadius: BorderRadius.circular(12.0),
             border: Border.all(
               color: FlutterFlowTheme.of(context).lighterSecBackground,
@@ -87,91 +98,90 @@ class _NewsCardWidgetState extends State<NewsCardWidget> {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 8.0, 0.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          dateTimeFormat(
-                            "MMMEd",
-                            widget.date,
-                            locale: FFLocalizations.of(context).languageCode,
-                          ),
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyMediumFamily,
-                                color:
-                                    FlutterFlowTheme.of(context).primaryWhite,
-                                fontSize: 10.0,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.w600,
-                                decoration: TextDecoration.underline,
-                                useGoogleFonts: !FlutterFlowTheme.of(context)
-                                    .bodyMediumIsCustom,
-                              ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 8.0, 0.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        dateTimeFormat(
+                          "MMMEd",
+                          widget.date,
+                          locale: FFLocalizations.of(context).languageCode,
                         ),
-                        Align(
-                          alignment: AlignmentDirectional(1.0, -1.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              'assets/images/bell.gif',
-                              width: 20.0,
-                              height: 15.0,
-                              fit: BoxFit.cover,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodyMediumFamily,
+                              color: FlutterFlowTheme.of(context).primaryWhite,
+                              fontSize: 10.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.w600,
+                              decoration: TextDecoration.underline,
+                              useGoogleFonts: !FlutterFlowTheme.of(context)
+                                  .bodyMediumIsCustom,
                             ),
+                      ),
+                      Align(
+                        alignment: AlignmentDirectional(1.0, -1.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset(
+                            'assets/images/bell.gif',
+                            width: 20.0,
+                            height: 15.0,
+                            fit: BoxFit.cover,
                           ),
                         ),
-                      ].divide(SizedBox(width: 5.0)),
-                    ),
+                      ),
+                    ].divide(SizedBox(width: 5.0)),
                   ),
                 ),
-                Align(
-                  alignment: AlignmentDirectional(0.0, -1.0),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 0.0, 0.0),
-                    child: Text(
-                      valueOrDefault<String>(
-                        widget.headerTxt,
-                        'Our News Here! Our News Here! Our News Here! Our News Here!Our News Here!',
-                      ),
-                      textAlign: TextAlign.center,
-                      maxLines: 4,
-                      style: FlutterFlowTheme.of(context).titleMedium.override(
-                            font: GoogleFonts.spectralSc(
-                              fontWeight: FontWeight.w600,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .titleMedium
-                                  .fontStyle,
-                            ),
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            fontSize: 15.0,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.w600,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .titleMedium
-                                .fontStyle,
-                          ),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
+                Divider(
+                  thickness: 1.0,
+                  color: FlutterFlowTheme.of(context).alternate,
                 ),
                 Flexible(
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(12.0),
                     child: Image.network(
                       widget.frontImage!,
-                      width: 164.0,
+                      width: double.infinity,
                       height: 100.0,
                       fit: BoxFit.contain,
                     ),
+                  ),
+                ),
+                Divider(
+                  thickness: 1.0,
+                  color: FlutterFlowTheme.of(context).alternate,
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.0, -1.0),
+                  child: Text(
+                    valueOrDefault<String>(
+                      widget.headerTxt,
+                      'Our News Here! Our News Here! Our News Here! Our News Here!Our News Here!',
+                    ),
+                    textAlign: TextAlign.center,
+                    maxLines: 4,
+                    style: FlutterFlowTheme.of(context).titleMedium.override(
+                          font: GoogleFonts.spectralSc(
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .fontStyle,
+                          ),
+                          color: FlutterFlowTheme.of(context).primaryWhite,
+                          fontSize: 15.0,
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.bold,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .titleMedium
+                              .fontStyle,
+                        ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
               ].divide(SizedBox(height: 5.0)),
@@ -183,12 +193,11 @@ class _NewsCardWidgetState extends State<NewsCardWidget> {
         width: 200.0,
         height: 240.0,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).newsCard,
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: Image.asset(
-              'assets/images/News_background__right.png',
-            ).image,
+          gradient: LinearGradient(
+            colors: [FlutterFlowTheme.of(context).newsCard, Color(0xFF064348)],
+            stops: [0.5, 1.0],
+            begin: AlignmentDirectional(0.0, -1.0),
+            end: AlignmentDirectional(0, 1.0),
           ),
           borderRadius: BorderRadius.circular(12.0),
           border: Border.all(
@@ -202,6 +211,46 @@ class _NewsCardWidgetState extends State<NewsCardWidget> {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 8.0, 0.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      dateTimeFormat(
+                        "MMMEd",
+                        widget.date,
+                        locale: FFLocalizations.of(context).languageCode,
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily:
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
+                            color: FlutterFlowTheme.of(context).primaryWhite,
+                            fontSize: 10.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w600,
+                            decoration: TextDecoration.underline,
+                            useGoogleFonts: !FlutterFlowTheme.of(context)
+                                .bodyMediumIsCustom,
+                          ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(1.0, -1.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image.asset(
+                          'assets/images/bell.gif',
+                          width: 20.0,
+                          height: 15.0,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ].divide(SizedBox(width: 5.0)),
+                ),
+              ),
               Align(
                 alignment: AlignmentDirectional(0.0, -1.0),
                 child: Padding(
@@ -216,7 +265,7 @@ class _NewsCardWidgetState extends State<NewsCardWidget> {
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily:
                               FlutterFlowTheme.of(context).bodyMediumFamily,
-                          color: FlutterFlowTheme.of(context).primary,
+                          color: FlutterFlowTheme.of(context).primaryWhite,
                           letterSpacing: 0.0,
                           useGoogleFonts:
                               !FlutterFlowTheme.of(context).bodyMediumIsCustom,
@@ -230,8 +279,8 @@ class _NewsCardWidgetState extends State<NewsCardWidget> {
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 10.0),
                   child: Icon(
-                    Icons.arrow_forward,
-                    color: FlutterFlowTheme.of(context).primaryText,
+                    Icons.navigate_next_sharp,
+                    color: FlutterFlowTheme.of(context).primaryWhite,
                     size: 20.0,
                   ),
                 ),

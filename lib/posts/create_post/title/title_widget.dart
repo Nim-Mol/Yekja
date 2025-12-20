@@ -160,7 +160,7 @@ class _TitleWidgetState extends State<TitleWidget> {
                           decoration: InputDecoration(
                             isDense: true,
                             hintText: FFLocalizations.of(context).getText(
-                              'y2fp32ac' /* E.g. Second-hand carpet from T... */,
+                              'd5klq8x0' /* Write here... */,
                             ),
                             hintStyle: FlutterFlowTheme.of(context)
                                 .titleMedium

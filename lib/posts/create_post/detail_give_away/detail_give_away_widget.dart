@@ -6,7 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/posts/create_post/description/description_widget.dart';
 import '/posts/create_post/title/title_widget.dart';
-import '/shared_components/error_comp/error_comp_widget.dart';
+import '/shared_components/error_pop_up/error_pop_up_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -425,35 +425,77 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget>
                                                         MainAxisAlignment
                                                             .spaceBetween,
                                                     children: [
-                                                      Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          '2jnhw97r' /* Title */,
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
+                                                      RichText(
+                                                        textScaler:
+                                                            MediaQuery.of(
                                                                     context)
-                                                                .titleMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMediumFamily,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .green1,
-                                                                  fontSize:
-                                                                      16.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .titleMediumIsCustom,
-                                                                ),
+                                                                .textScaler,
+                                                        text: TextSpan(
+                                                          children: [
+                                                            TextSpan(
+                                                              text: FFLocalizations
+                                                                      .of(context)
+                                                                  .getText(
+                                                                's2cpfjwc' /* Title */,
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .titleMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .titleMediumFamily,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .green1,
+                                                                    fontSize:
+                                                                        16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    useGoogleFonts:
+                                                                        !FlutterFlowTheme.of(context)
+                                                                            .titleMediumIsCustom,
+                                                                  ),
+                                                            ),
+                                                            TextSpan(
+                                                              text: FFLocalizations
+                                                                      .of(context)
+                                                                  .getText(
+                                                                'bwww6tm6' /*  (Required) */,
+                                                              ),
+                                                              style: TextStyle(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .error,
+                                                                fontSize: 10.0,
+                                                              ),
+                                                            )
+                                                          ],
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .titleMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleMediumFamily,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .green1,
+                                                                fontSize: 16.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleMediumIsCustom,
+                                                              ),
+                                                        ),
                                                       ),
                                                       Stack(
                                                         children: [
@@ -597,35 +639,64 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget>
                                                         MainAxisAlignment
                                                             .spaceBetween,
                                                     children: [
-                                                      Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          '1a7e8j3s' /* Description */,
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
+                                                      RichText(
+                                                        textScaler:
+                                                            MediaQuery.of(
                                                                     context)
-                                                                .titleMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMediumFamily,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .green1,
-                                                                  fontSize:
-                                                                      16.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .titleMediumIsCustom,
-                                                                ),
+                                                                .textScaler,
+                                                        text: TextSpan(
+                                                          children: [
+                                                            TextSpan(
+                                                              text: FFLocalizations
+                                                                      .of(context)
+                                                                  .getText(
+                                                                'fz9meftb' /* Description */,
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .titleMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .titleMediumFamily,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .green1,
+                                                                    fontSize:
+                                                                        16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    useGoogleFonts:
+                                                                        !FlutterFlowTheme.of(context)
+                                                                            .titleMediumIsCustom,
+                                                                  ),
+                                                            )
+                                                          ],
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .titleMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleMediumFamily,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .green1,
+                                                                fontSize: 16.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleMediumIsCustom,
+                                                              ),
+                                                        ),
                                                       ),
                                                       Stack(
                                                         children: [
@@ -721,30 +792,75 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget>
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'ho1n1j72' /* Location */,
-                                              ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleMedium
-                                                  .override(
-                                                    fontFamily:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleMediumFamily,
-                                                    color: FlutterFlowTheme.of(
+                                            RichText(
+                                              textScaler: MediaQuery.of(context)
+                                                  .textScaler,
+                                              text: TextSpan(
+                                                children: [
+                                                  TextSpan(
+                                                    text: FFLocalizations.of(
                                                             context)
-                                                        .green1,
-                                                    fontSize: 16.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w500,
-                                                    useGoogleFonts:
-                                                        !FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleMediumIsCustom,
+                                                        .getText(
+                                                      'izeefcue' /* Location */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMediumFamily,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .green1,
+                                                          fontSize: 16.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          useGoogleFonts:
+                                                              !FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .titleMediumIsCustom,
+                                                        ),
                                                   ),
+                                                  TextSpan(
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'cuxatci8' /*  (Required) */,
+                                                    ),
+                                                    style: TextStyle(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .error,
+                                                      fontSize: 10.0,
+                                                    ),
+                                                  )
+                                                ],
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMediumFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .green1,
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMediumIsCustom,
+                                                    ),
+                                              ),
                                             ),
                                             if (FFAppState().postState.city !=
                                                     '')
@@ -860,11 +976,11 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget>
                                             ),
                                             fillColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
+                                                    .tertiary,
                                             elevation: 0.0,
                                             borderColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
+                                                    .tertiary,
                                             borderWidth: 0.0,
                                             borderRadius: 4.0,
                                             margin:
@@ -2322,10 +2438,7 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget>
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               if ((FFAppState().postState.title != '') &&
-                                  (FFAppState().postState.description !=
-                                          '') &&
-                                  (FFAppState().postState.city != '') &&
-                                  (FFAppState().postState.condition != '')) {
+                                  (FFAppState().postState.city != '')) {
                                 FFAppState().postDetailJSON = <String, dynamic>{
                                   'condition': FFAppState().postState.condition,
                                   'delivery_method':
@@ -2342,6 +2455,12 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget>
 
                                 context.pushNamed(
                                   PostImageWidget.routeName,
+                                  queryParameters: {
+                                    'navRoute': serializeParam(
+                                      widget.navRoute,
+                                      ParamType.String,
+                                    ),
+                                  }.withoutNulls,
                                   extra: <String, dynamic>{
                                     kTransitionInfoKey: TransitionInfo(
                                       hasTransition: true,
@@ -2368,7 +2487,7 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget>
                                           FocusManager.instance.primaryFocus
                                               ?.unfocus();
                                         },
-                                        child: ErrorCompWidget(
+                                        child: ErrorPopUpWidget(
                                           errorText: FFLocalizations.of(context)
                                               .getText(
                                             'n9gj6enp' /* Some fields are left unfilled.... */,
@@ -2386,14 +2505,7 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget>
                               decoration: BoxDecoration(
                                 color: (FFAppState().postState.title !=
                                                 '') &&
-                                        (FFAppState()
-                                                    .postState
-                                                    .description !=
-                                                '') &&
-                                        (FFAppState().postState.city !=
-                                                '') &&
-                                        (FFAppState().postState.condition !=
-                                                '')
+                                        (FFAppState().postState.city != '')
                                     ? FlutterFlowTheme.of(context).greenInit
                                     : FlutterFlowTheme.of(context)
                                         .secondaryBackground,
@@ -2401,16 +2513,7 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget>
                                 border: Border.all(
                                   color: (FFAppState().postState.title !=
                                                   '') &&
-                                          (FFAppState()
-                                                      .postState
-                                                      .description !=
-                                                  '') &&
-                                          (FFAppState().postState.city !=
-                                                  '') &&
-                                          (FFAppState()
-                                                      .postState
-                                                      .condition !=
-                                                  '')
+                                          (FFAppState().postState.city != '')
                                       ? FlutterFlowTheme.of(context).greenInit
                                       : FlutterFlowTheme.of(context)
                                           .secondaryBackground,
@@ -2430,26 +2533,15 @@ class _DetailGiveAwayWidgetState extends State<DetailGiveAwayWidget>
                                           fontFamily:
                                               FlutterFlowTheme.of(context)
                                                   .bodyMediumFamily,
-                                          color:
-                                              (FFAppState()
-                                                                  .postState
-                                                                  .title !=
-                                                              '') &&
-                                                      (FFAppState()
-                                                                  .postState
-                                                                  .description !=
-                                                              '') &&
-                                                      (FFAppState()
-                                                                  .postState
-                                                                  .city !=
-                                                              '') &&
-                                                      (FFAppState()
-                                                                  .postState
-                                                                  .condition !=
-                                                              '')
-                                                  ? FlutterFlowTheme.of(context)
-                                                      .primary
-                                                  : Color(0xFF6B6969),
+                                          color: (FFAppState()
+                                                              .postState
+                                                              .title !=
+                                                          '') &&
+                                                  (FFAppState().postState.city !=
+                                                          '')
+                                              ? FlutterFlowTheme.of(context)
+                                                  .primary
+                                              : Color(0xFF6B6969),
                                           fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,

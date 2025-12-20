@@ -4,8 +4,8 @@ import '/main_overview_pages/post_detail_column/post_detail_column_widget.dart';
 import '/profile/review_card_small/review_card_small_widget.dart';
 import '/shared_components/comunication_bar/comunication_bar_widget.dart';
 import '/shared_components/photo_gallary/photo_gallary_widget.dart';
-import '/index.dart';
 import 'dart:async';
+import '/index.dart';
 import 'post_fa_widget.dart' show PostFaWidget;
 import 'package:flutter/material.dart';
 
@@ -42,6 +42,8 @@ class PostFaModel extends FlutterFlowModel<PostFaWidget> {
   // Model for PostDetailColumn component.
   late PostDetailColumnModel postDetailColumnModel;
   Completer<List<ViewEventAttendeesRow>>? requestCompleter1;
+  // Stores action output result for [Backend Call - Insert Row] action in join widget.
+  EventAttendeesRow? joinEventFa;
   // Models for ReviewCard_small dynamic component.
   late FlutterFlowDynamicModels<ReviewCardSmallModel> reviewCardSmallModels;
   // Model for Comunication_Bar component.

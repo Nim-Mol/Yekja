@@ -20,6 +20,7 @@ class ItemCardGlobalWidget extends StatefulWidget {
     int? ratings,
     this.review,
     this.detailLabels,
+    required this.showAvatar,
   }) : this.ratings = ratings ?? 0;
 
   final ItemCardGlobalStruct? itemData;
@@ -31,6 +32,7 @@ class ItemCardGlobalWidget extends StatefulWidget {
   final int ratings;
   final double? review;
   final dynamic detailLabels;
+  final bool? showAvatar;
 
   @override
   State<ItemCardGlobalWidget> createState() => _ItemCardGlobalWidgetState();
@@ -177,7 +179,12 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                   shape: BoxShape.circle,
                                 ),
                                 child: Image.network(
-                                  widget.itemData!.avatar,
+                                  widget.showAvatar == true
+                                      ? (widget.itemData?.avatar != null &&
+                                              widget.itemData?.avatar != ''
+                                          ? widget.itemData!.avatar
+                                          : FFAppConstants.DefultProfilePhoto)
+                                      : FFAppConstants.DefultProfilePhoto,
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -520,7 +527,18 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                                 shape: BoxShape.circle,
                                               ),
                                               child: Image.network(
-                                                widget.itemData!.avatar,
+                                                widget.showAvatar == true
+                                                    ? (widget.itemData?.avatar !=
+                                                                null &&
+                                                            widget.itemData
+                                                                    ?.avatar !=
+                                                                ''
+                                                        ? widget
+                                                            .itemData!.avatar
+                                                        : FFAppConstants
+                                                            .DefultProfilePhoto)
+                                                    : FFAppConstants
+                                                        .DefultProfilePhoto,
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -969,7 +987,17 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                             shape: BoxShape.circle,
                                           ),
                                           child: Image.network(
-                                            widget.itemData!.avatar,
+                                            widget.showAvatar == true
+                                                ? (widget.itemData?.avatar !=
+                                                            null &&
+                                                        widget.itemData
+                                                                ?.avatar !=
+                                                            ''
+                                                    ? widget.itemData!.avatar
+                                                    : FFAppConstants
+                                                        .DefultProfilePhoto)
+                                                : FFAppConstants
+                                                    .DefultProfilePhoto,
                                             fit: BoxFit.cover,
                                           ),
                                         ),
@@ -1372,7 +1400,17 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                               shape: BoxShape.circle,
                                             ),
                                             child: Image.network(
-                                              widget.itemData!.avatar,
+                                              widget.showAvatar == true
+                                                  ? (widget.itemData?.avatar !=
+                                                              null &&
+                                                          widget.itemData
+                                                                  ?.avatar !=
+                                                              ''
+                                                      ? widget.itemData!.avatar
+                                                      : FFAppConstants
+                                                          .DefultProfilePhoto)
+                                                  : FFAppConstants
+                                                      .DefultProfilePhoto,
                                               fit: BoxFit.cover,
                                             ),
                                           ),
@@ -1935,7 +1973,18 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                                 shape: BoxShape.circle,
                                               ),
                                               child: Image.network(
-                                                widget.itemData!.avatar,
+                                                widget.showAvatar!
+                                                    ? (widget.itemData?.avatar !=
+                                                                null &&
+                                                            widget.itemData
+                                                                    ?.avatar !=
+                                                                ''
+                                                        ? widget
+                                                            .itemData!.avatar
+                                                        : FFAppConstants
+                                                            .DefultProfilePhoto)
+                                                    : FFAppConstants
+                                                        .DefultProfilePhoto,
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -1952,6 +2001,9 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmallFamily,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts:
@@ -2369,7 +2421,12 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                   shape: BoxShape.circle,
                                 ),
                                 child: Image.network(
-                                  widget.itemData!.avatar,
+                                  widget.showAvatar == true
+                                      ? (widget.itemData?.avatar != null &&
+                                              widget.itemData?.avatar != ''
+                                          ? widget.itemData!.avatar
+                                          : FFAppConstants.DefultProfilePhoto)
+                                      : FFAppConstants.DefultProfilePhoto,
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -2583,41 +2640,48 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(1.0, -1.0),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 0.0, 0.0, 0.0),
-                                          child: Text(
-                                            valueOrDefault<String>(
-                                              getJsonField(
-                                                widget.details,
-                                                r'''$.n_going''',
-                                              )?.toString(),
-                                              '1',
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  useGoogleFonts:
-                                                      !FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumIsCustom,
+                                      Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Align(
+                                            alignment:
+                                                AlignmentDirectional(1.0, -1.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                              child: Text(
+                                                valueOrDefault<String>(
+                                                  getJsonField(
+                                                    widget.details,
+                                                    r'''$.n_going''',
+                                                  )?.toString(),
+                                                  '1',
                                                 ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumIsCustom,
+                                                    ),
+                                              ),
+                                            ),
                                           ),
-                                        ),
+                                        ],
                                       ),
                                       Align(
                                         alignment:
@@ -3125,7 +3189,17 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                             shape: BoxShape.circle,
                                           ),
                                           child: Image.network(
-                                            widget.itemData!.avatar,
+                                            widget.showAvatar == true
+                                                ? (widget.itemData?.avatar !=
+                                                            null &&
+                                                        widget.itemData
+                                                                ?.avatar !=
+                                                            ''
+                                                    ? widget.itemData!.avatar
+                                                    : FFAppConstants
+                                                        .DefultProfilePhoto)
+                                                : FFAppConstants
+                                                    .DefultProfilePhoto,
                                             fit: BoxFit.cover,
                                           ),
                                         ),
@@ -3484,7 +3558,17 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                             shape: BoxShape.circle,
                                           ),
                                           child: Image.network(
-                                            widget.itemData!.avatar,
+                                            widget.showAvatar == true
+                                                ? (widget.itemData?.avatar !=
+                                                            null &&
+                                                        widget.itemData
+                                                                ?.avatar !=
+                                                            ''
+                                                    ? widget.itemData!.avatar
+                                                    : FFAppConstants
+                                                        .DefultProfilePhoto)
+                                                : FFAppConstants
+                                                    .DefultProfilePhoto,
                                             fit: BoxFit.cover,
                                           ),
                                         ),
@@ -3814,7 +3898,17 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                             shape: BoxShape.circle,
                                           ),
                                           child: Image.network(
-                                            widget.itemData!.avatar,
+                                            widget.showAvatar == true
+                                                ? (widget.itemData?.avatar !=
+                                                            null &&
+                                                        widget.itemData
+                                                                ?.avatar !=
+                                                            ''
+                                                    ? widget.itemData!.avatar
+                                                    : FFAppConstants
+                                                        .DefultProfilePhoto)
+                                                : FFAppConstants
+                                                    .DefultProfilePhoto,
                                             fit: BoxFit.cover,
                                           ),
                                         ),
@@ -4192,7 +4286,17 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                           shape: BoxShape.circle,
                                         ),
                                         child: Image.network(
-                                          widget.itemData!.avatar,
+                                          widget.showAvatar == true
+                                              ? (widget.itemData?.avatar !=
+                                                          null &&
+                                                      widget.itemData
+                                                              ?.avatar !=
+                                                          ''
+                                                  ? widget.itemData!.avatar
+                                                  : FFAppConstants
+                                                      .DefultProfilePhoto)
+                                              : FFAppConstants
+                                                  .DefultProfilePhoto,
                                           fit: BoxFit.cover,
                                         ),
                                       ),
@@ -4323,6 +4427,18 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                             ),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(0.0),
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.network(
+                                valueOrDefault<String>(
+                                  widget.itemData?.mainImagePath,
+                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/zCfTnCN4IRBlV0rHAl5X/assets/kbaky2b9bqxx/rental_default.png',
+                                ),
+                                width: 200.0,
+                                height: 200.0,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),

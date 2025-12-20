@@ -139,72 +139,78 @@ class _DescriptionWidgetState extends State<DescriptionWidget> {
                       child: Form(
                         key: _model.formKey,
                         autovalidateMode: AutovalidateMode.disabled,
-                        child: TextFormField(
-                          controller: _model.textController,
-                          focusNode: _model.textFieldFocusNode,
-                          onChanged: (_) => EasyDebounce.debounce(
-                            '_model.textController',
-                            Duration(milliseconds: 2000),
-                            () async {
-                              if (_model.textController.text != '') {
-                                _model.validationResult = true;
-                                if (_model.formKey.currentState == null ||
-                                    !_model.formKey.currentState!.validate()) {
-                                  safeSetState(
-                                      () => _model.validationResult = false);
-                                  return;
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 16.0, 0.0, 0.0),
+                          child: TextFormField(
+                            controller: _model.textController,
+                            focusNode: _model.textFieldFocusNode,
+                            onChanged: (_) => EasyDebounce.debounce(
+                              '_model.textController',
+                              Duration(milliseconds: 2000),
+                              () async {
+                                if (_model.textController.text != '') {
+                                  _model.validationResult = true;
+                                  if (_model.formKey.currentState == null ||
+                                      !_model.formKey.currentState!
+                                          .validate()) {
+                                    safeSetState(
+                                        () => _model.validationResult = false);
+                                    return;
+                                  }
                                 }
-                              }
 
-                              safeSetState(() {});
-                            },
-                          ),
-                          autofocus: true,
-                          textCapitalization: TextCapitalization.sentences,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            isDense: true,
-                            hintText: FFLocalizations.of(context).getText(
-                              '0luhlo2r' /* Write here... */,
+                                safeSetState(() {});
+                              },
                             ),
-                            enabledBorder: InputBorder.none,
-                            focusedBorder: InputBorder.none,
-                            errorBorder: InputBorder.none,
-                            focusedErrorBorder: InputBorder.none,
-                            filled: true,
-                            fillColor:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                          ),
-                          style: FlutterFlowTheme.of(context)
-                              .titleMedium
-                              .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .titleMediumFamily,
-                                color: FlutterFlowTheme.of(context).primary,
-                                fontSize: 16.0,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.w500,
-                                useGoogleFonts: !FlutterFlowTheme.of(context)
-                                    .titleMediumIsCustom,
+                            autofocus: true,
+                            textCapitalization: TextCapitalization.sentences,
+                            obscureText: false,
+                            decoration: InputDecoration(
+                              isDense: true,
+                              hintText: FFLocalizations.of(context).getText(
+                                '0luhlo2r' /* Write here... */,
                               ),
-                          textAlign: TextAlign.center,
-                          maxLines: 13,
-                          maxLength: 600,
-                          maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                          cursorColor: FlutterFlowTheme.of(context).primaryText,
-                          validator: _model.textControllerValidator
-                              .asValidator(context),
-                          inputFormatters: [
-                            if (!isAndroid && !isiOS)
-                              TextInputFormatter.withFunction(
-                                  (oldValue, newValue) {
-                                return TextEditingValue(
-                                  selection: newValue.selection,
-                                  text: newValue.text.toCapitalization(
-                                      TextCapitalization.sentences),
-                                );
-                              }),
-                          ],
+                              enabledBorder: InputBorder.none,
+                              focusedBorder: InputBorder.none,
+                              errorBorder: InputBorder.none,
+                              focusedErrorBorder: InputBorder.none,
+                              filled: true,
+                              fillColor: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .titleMediumFamily,
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                  useGoogleFonts: !FlutterFlowTheme.of(context)
+                                      .titleMediumIsCustom,
+                                ),
+                            textAlign: TextAlign.center,
+                            maxLines: 13,
+                            maxLength: 600,
+                            maxLengthEnforcement: MaxLengthEnforcement.enforced,
+                            cursorColor:
+                                FlutterFlowTheme.of(context).primaryText,
+                            validator: _model.textControllerValidator
+                                .asValidator(context),
+                            inputFormatters: [
+                              if (!isAndroid && !isiOS)
+                                TextInputFormatter.withFunction(
+                                    (oldValue, newValue) {
+                                  return TextEditingValue(
+                                    selection: newValue.selection,
+                                    text: newValue.text.toCapitalization(
+                                        TextCapitalization.sentences),
+                                  );
+                                }),
+                            ],
+                          ),
                         ),
                       ),
                     ),

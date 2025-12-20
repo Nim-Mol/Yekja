@@ -853,111 +853,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': '۶',
       'nl': '6',
     },
-    'csirahyr': {
-      'en': 'Next',
-      'fa': 'بعدی',
-      'nl': 'Volgende',
-    },
     'jedx2nxp': {
       'en': 'Post',
       'fa': 'پست',
       'nl': 'Na',
-    },
-  },
-  // SignInConfirm
-  {
-    'm5qvsqog': {
-      'en': 'Confirm Email',
-      'fa': 'تأیید ایمیل',
-      'nl': 'Bevestig e-mail',
-    },
-    '5rnnni2k': {
-      'en': 'Please enter a username and email to continue',
-      'fa': 'لطفا برای ادامه، نام کاربری و ایمیل خود را وارد کنید',
-      'nl': 'Voer een gebruikersnaam en e-mailadres in om door te gaan',
-    },
-    'h8nwoxdn': {
-      'en': '',
-      'fa': '',
-      'nl': '',
-    },
-    'ep9mmsq3': {
-      'en': 'Username',
-      'fa': 'نام کاربری',
-      'nl': 'Gebruikersnaam',
-    },
-    '0jzr1v97': {
-      'en': 'Email',
-      'fa': 'ایمیل',
-      'nl': 'E-mail',
-    },
-    'f9e65zx9': {
-      'en': 'Password',
-      'fa': 'رمز عبور',
-      'nl': 'Wachtwoord',
-    },
-    'xhzqr4bk': {
-      'en': 'Username is required',
-      'fa': 'نام کاربری الزامی است',
-      'nl': 'Gebruikersnaam is vereist',
-    },
-    'mm8x2xit': {
-      'en': 'At least 4 characters are required',
-      'fa': 'حداقل ۴ کاراکتر مورد نیاز است',
-      'nl': 'Er zijn minimaal 4 tekens vereist',
-    },
-    'c1vrjuyc': {
-      'en': 'Max 12 characters are required',
-      'fa': 'حداکثر ۱۲ کاراکتر مورد نیاز است',
-      'nl': 'Er zijn maximaal 12 tekens vereist',
-    },
-    'xcdq956e': {
-      'en':
-          'Please use only letters (English/Persian), spaces, a dot or underscore.',
-      'fa':
-          'لطفاً فقط از حروف (انگلیسی/فارسی)، فاصله، نقطه یا زیرخط استفاده کنید.',
-      'nl':
-          'Gebruik alleen letters (Engels/Perzisch), spaties, een punt of onderstrepingsteken.',
-    },
-    'fqqtjta3': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-      'nl': 'Kies een optie uit de keuzelijst',
-    },
-    '77e8urzk': {
-      'en': 'Email is required',
-      'fa': 'ایمیل الزامی است',
-      'nl': 'E-mailadres is vereist',
-    },
-    'ed0qiknp': {
-      'en': 'Please enter a valid email address',
-      'fa': 'لطفا یک آدرس ایمیل معتبر وارد کنید',
-      'nl': 'Voer een geldig e-mailadres in',
-    },
-    '2wawja0q': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-      'nl': 'Kies een optie uit de keuzelijst',
-    },
-    'u7jll47q': {
-      'en': 'Password is required',
-      'fa': 'رمز عبور الزامی است',
-      'nl': 'Wachtwoord is vereist',
-    },
-    'qdm7trjn': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-      'nl': 'Kies een optie uit de keuzelijst',
-    },
-    'it3a9439': {
-      'en': 'Confirm',
-      'fa': 'تأیید',
-      'nl': 'Bevestigen',
-    },
-    'c1473phw': {
-      'en': 'Home',
-      'fa': 'خانه',
-      'nl': 'Thuis',
     },
   },
   // PostCat
@@ -982,185 +881,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': '۶',
       'nl': '6',
     },
-    'vewqt7ds': {
-      'en': 'Next',
-      'fa': 'بعدی',
-      'nl': 'Volgende',
-    },
     '01wcpyj1': {
       'en': 'Post',
       'fa': 'پست',
       'nl': 'Na',
-    },
-  },
-  // PostImage
-  {
-    'bia6eg30': {
-      'en': 'Images',
-      'fa': 'تصاویر',
-      'nl': 'Afbeeldingen',
-    },
-    '8dol1v4o': {
-      'en': '6',
-      'fa': '۶',
-      'nl': '6',
-    },
-    'fkwkxg0k': {
-      'en': ' of ',
-      'fa': 'از ',
-      'nl': 'van',
-    },
-    'u6ho4fgv': {
-      'en': '6',
-      'fa': '۶',
-      'nl': '6',
-    },
-    'uynzsoxg': {
-      'en': '5',
-      'fa': '۵',
-      'nl': '5',
-    },
-    '9ef0l1f0': {
-      'en': ' of ',
-      'fa': 'از',
-      'nl': 'van',
-    },
-    'gn0tmtgz': {
-      'en': '6',
-      'fa': '۶',
-      'nl': '6',
-    },
-    'nnd68vi1': {
-      'en': 'Upload photos',
-      'fa': 'آپلود عکس',
-      'nl': 'Foto\'s uploaden',
-    },
-    's1qkdor4': {
-      'en': 'Add up to 4 photos',
-      'fa': 'حداکثر ۴ عکس اضافه کنید',
-      'nl': 'Voeg maximaal 4 foto\'s toe',
-    },
-    'klkdc69y': {
-      'en': 'See Preview',
-      'fa': 'پیش‌نمایش را ببینید',
-      'nl': 'Bekijk voorbeeld',
-    },
-    'q3yy9x1s': {
-      'en': 'Save',
-      'fa': 'ذخیره',
-      'nl': 'Redden',
-    },
-    'dd7lcje3': {
-      'en': 'Post',
-      'fa': 'پست',
-      'nl': 'Na',
-    },
-  },
-  // PostEdit
-  {
-    's45yad1c': {
-      'en': 'PARTICIPANTS',
-      'fa': 'شرکت‌کنندگان',
-      'nl': 'DEELNEMERS',
-    },
-    '7jnr42m3': {
-      'en': 'People who are going to this event.',
-      'fa': 'افرادی که قرار است در این مراسم شرکت کنند.',
-      'nl': 'Mensen die naar dit evenement gaan.',
-    },
-    'yr4ahw7e': {
-      'en': 'Join Event',
-      'fa': 'شرکت در رویداد',
-      'nl': 'Deelnemen',
-    },
-    'x1ku0nkv': {
-      'en': 'REVIEWS',
-      'fa': 'نقد و بررسی‌ها',
-      'nl': 'RECENSIES',
-    },
-    'mxg6sthy': {
-      'en': 'Delete',
-      'fa': 'حذف',
-      'nl': 'Verwijderen',
-    },
-    '3b0fgnsw': {
-      'en': 'Update',
-      'fa': 'به‌روزرسانی',
-      'nl': 'Update',
-    },
-    'g3y2is5w': {
-      'en': 'Are you sure youwant to update this post?',
-      'fa': 'آیا مطمئن هستید که می‌خواهید این پست را به‌روزرسانی کنید؟',
-      'nl': 'Weet u zeker dat u dit bericht wilt bijwerken?',
-    },
-    'fqxvxcs2': {
-      'en': 'Your post will update instantly after you confirm.',
-      'fa': 'پست شما بلافاصله پس از تایید شما به‌روزرسانی خواهد شد.',
-      'nl':
-          'Nadat u uw bericht heeft bevestigd, wordt het bericht direct bijgewerkt.',
-    },
-    '2k2s462g': {
-      'en': 'Cancel',
-      'fa': 'لغو',
-      'nl': 'Annuleren',
-    },
-    'v1ly20lq': {
-      'en': 'Confirm',
-      'fa': 'تأیید',
-      'nl': 'Bevestigen',
-    },
-    'ru8iak45': {
-      'en': 'Home',
-      'fa': 'خانه',
-      'nl': 'Thuis',
-    },
-  },
-  // ChangeEmailPage
-  {
-    'qvyltjge': {
-      'en': 'Change Email',
-      'fa': 'بازنشانی رمز عبور',
-      'nl': 'Wachtwoord opnieuw instellen',
-    },
-    '6baohfcj': {
-      'en': 'Make sure you enter a valid email address and confirm it.',
-      'fa': 'برای ورود به سیستم، رمز عبور جدیدی ایجاد کنید',
-      'nl': 'Maak een nieuw wachtwoord aan om in te loggen',
-    },
-    '7qj4jthi': {
-      'en': 'New Email',
-      'fa': 'رمز عبور جدید',
-      'nl': 'Nieuw wachtwoord',
-    },
-    'hd56x034': {
-      'en': 'New Email',
-      'fa': 'رمز عبور جدید',
-      'nl': 'Nieuw wachtwoord',
-    },
-    'j3fkaqso': {
-      'en': 'Change Email',
-      'fa': 'بازنشانی رمز عبور',
-      'nl': 'Wachtwoord opnieuw instellen',
-    },
-    '7fzxxs8j': {
-      'en': 'Please enter valid new password.',
-      'fa': 'لطفا رمز عبور جدید معتبری وارد کنید.',
-      'nl': 'Voer een nieuw, geldig wachtwoord in.',
-    },
-    's7ssap9i': {
-      'en': 'please use a valid email address.',
-      'fa': '',
-      'nl': '',
-    },
-    'lo4zqx7s': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-      'nl': 'Kies een optie uit de keuzelijst',
-    },
-    'yp5q6x4q': {
-      'en': 'Home',
-      'fa': 'خانه',
-      'nl': 'Thuis',
     },
   },
   // TermsConditionsPage
@@ -1246,55 +970,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Thuis',
     },
   },
-  // ForgotPasswordPage
-  {
-    'akc8n3xv': {
-      'en': 'Forgot Password',
-      'fa': 'رمز عبور را فراموش کرده‌ام',
-      'nl': 'Wachtwoord vergeten',
-    },
-    '7cx2kxrk': {
-      'en': 'Type your email, we will send you verification code via email',
-      'fa':
-          'ایمیل خود را وارد کنید، ما کد تأیید را از طریق ایمیل برای شما ارسال خواهیم کرد',
-      'nl': 'Typ uw e-mailadres, wij sturen u de verificatiecode via e-mail',
-    },
-    'ukwsa1lg': {
-      'en': 'Email address',
-      'fa': 'آدرس ایمیل',
-      'nl': 'E-mailadres',
-    },
-    'b9qhzbmh': {
-      'en': 'Email address',
-      'fa': 'آدرس ایمیل',
-      'nl': 'E-mailadres',
-    },
-    'tx1anksc': {
-      'en': 'please enter valid your email address.',
-      'fa': 'لطفا آدرس ایمیل معتبر خود را وارد کنید.',
-      'nl': 'Voer een geldig e-mailadres in.',
-    },
-    'dxfpl9nd': {
-      'en': 'please enter your email address.',
-      'fa': 'لطفا آدرس ایمیل خود را وارد کنید.',
-      'nl': 'Vul uw e-mailadres in.',
-    },
-    'zwux5wuv': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-      'nl': 'Kies een optie uit de keuzelijst',
-    },
-    'pn42p7ja': {
-      'en': 'Continue',
-      'fa': 'ادامه',
-      'nl': 'Doorgaan',
-    },
-    'ns7bgfpq': {
-      'en': 'Home',
-      'fa': 'خانه',
-      'nl': 'Thuis',
-    },
-  },
   // ProfileExtended
   {
     'fweal07j': {
@@ -1326,84 +1001,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'fa': 'خانه',
       'nl': '',
-    },
-  },
-  // SignInPage
-  {
-    '3yjo0udr': {
-      'en': 'Welcome Back',
-      'fa': 'خوش آمدید',
-      'nl': 'Welkom terug',
-    },
-    '61yuoo32': {
-      'en': 'If your email isn’t verified,',
-      'fa': 'اگر ایمیل شما تأیید نشده است،',
-      'nl': 'Als uw e-mailadres niet is geverifieerd,',
-    },
-    '1pylrdnu': {
-      'en': ' click here. ',
-      'fa': 'اینجا کلیک کنید.',
-      'nl': 'Klik hier.',
-    },
-    '9amiwbff': {
-      'en': '',
-      'fa': '',
-      'nl': '',
-    },
-    'sdree3ti': {
-      'en': 'Email',
-      'fa': 'ایمیل',
-      'nl': 'E-mail',
-    },
-    'xpgw6kd9': {
-      'en': 'Password',
-      'fa': 'رمز عبور',
-      'nl': 'Wachtwoord',
-    },
-    '8879mkr4': {
-      'en': 'Sign in',
-      'fa': 'ورود',
-      'nl': 'Aanmelden',
-    },
-    'nxmvn4ld': {
-      'en': 'Forgot password?',
-      'fa': 'رمز عبور را فراموش کرده‌اید؟',
-      'nl': 'Wachtwoord vergeten?',
-    },
-    'btvjsow4': {
-      'en': ' Click here ',
-      'fa': 'اینجا کلیک کنید',
-      'nl': 'Klik hier',
-    },
-    'c0foq102': {
-      'en': 'OR',
-      'fa': 'یا',
-      'nl': 'OF',
-    },
-    'qqhkk63r': {
-      'en': 'No account yet?',
-      'fa': 'هنوز حساب کاربری ندارید؟',
-      'nl': 'Nog geen account?',
-    },
-    'oc6h6d27': {
-      'en': ' Sign Up ',
-      'fa': 'ثبت نام',
-      'nl': 'Aanmelden',
-    },
-    't4mxpixd': {
-      'en': 'Continute as a',
-      'fa': 'ادامه به عنوان',
-      'nl': 'Ga door als een',
-    },
-    'c1gzecba': {
-      'en': ' Guest user ',
-      'fa': 'کاربر مهمان',
-      'nl': 'Gastgebruiker',
-    },
-    '0rujztpm': {
-      'en': 'Home',
-      'fa': 'خانه',
-      'nl': 'Thuis',
     },
   },
   // chatdetailWithYekja
@@ -1440,11 +1037,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '6',
       'fa': '۶',
       'nl': '6',
-    },
-    'fmcypfvm': {
-      'en': 'Next',
-      'fa': 'بعدی',
-      'nl': 'Volgende',
     },
     'xoqgud4d': {
       'en': 'Post',
@@ -1534,18 +1126,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'uaue3xf2': {
       'en': 'Welcome to support ',
-      'fa': 'به پشتیبانی خوش آمدید',
+      'fa': ' به پشتیبانی خوش آمدید',
       'nl': 'Welkom bij de ondersteuning',
     },
     '18qj4qd2': {
       'en': 'Make sure you check our ',
-      'fa': '',
-      'nl': '',
+      'fa': '  سوالات متداول  را بررسی کنید ',
+      'nl': 'Bekijk zeker onze veelgestelde vragen ',
     },
     'f2k084ch': {
       'en': 'FAQ',
-      'fa': '',
-      'nl': '',
+      'fa': '(FAQ)',
+      'nl': '(FAQ)',
     },
     'b3om7lkw': {
       'en': 'Make sure you check our FAQ',
@@ -1578,19 +1170,44 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Zoekopdracht...',
     },
     'rhw1og4g': {
-      'en': 'Option 1',
-      'fa': 'گزینه ۱',
-      'nl': 'Optie 1',
+      'en': 'Feedback or suggestion',
+      'fa': 'بازخورد یا پیشنهاد',
+      'nl': 'Feedback of suggestie',
     },
     '9ptgnueo': {
-      'en': 'Option 2',
-      'fa': 'گزینه ۲',
-      'nl': 'Optie 2',
+      'en': 'Help using Yekja',
+      'fa': 'راهنمای استفاده از یکجا',
+      'nl': 'Hulp bij het gebruik van Yekja',
     },
     '1jg9wm4c': {
-      'en': 'Option 3',
-      'fa': 'گزینه ۳',
-      'nl': 'Optie 3',
+      'en': 'Technical issue or bug',
+      'fa': 'مشکل فنی یا باگ',
+      'nl': 'Technisch probleem of bug',
+    },
+    'od7rce8o': {
+      'en': 'Account or login issue',
+      'fa': 'مشکل حساب کاربری یا ورود',
+      'nl': 'Probleem met account of inloggen',
+    },
+    'ejl6tvcr': {
+      'en': 'Partnership or collaboration with Yekja',
+      'fa': 'مشارکت یا همکاری با یکجا',
+      'nl': 'Partnerschap of samenwerking met Yekja',
+    },
+    'lqf58oxs': {
+      'en': 'Business account',
+      'fa': 'حساب تجاری',
+      'nl': 'Zakelijk account',
+    },
+    '0mcwgpc2': {
+      'en': 'Advertising',
+      'fa': 'تبلیغات',
+      'nl': 'Reclame',
+    },
+    'rr1n0bua': {
+      'en': 'General Question',
+      'fa': 'سوال عمومی',
+      'nl': 'Algemene vraag',
     },
     '7p9q5poi': {
       'en':
@@ -1641,11 +1258,26 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': ' تمام؟',
       'nl': 'Alles klaar?',
     },
+    'fxqwdtfm': {
+      'en': 'Your post is closed sussuccfully!',
+      'fa': 'پست شما با موفقیت بسته شد!',
+      'nl': 'Je bericht is succesvol gesloten!',
+    },
     '6u0sie6q': {
       'en': 'Ready to close this post and give each other review scores?',
       'fa': 'آماده‌ای این پست را ببندی و به یکدیگر امتیاز بدهید؟',
       'nl':
           'Bent u klaar om dit bericht te sluiten en elkaar beoordelingen te geven?',
+    },
+    'bnps67i9': {
+      'en': 'Cancel',
+      'fa': 'لغو',
+      'nl': 'Annuleren',
+    },
+    'wtoxpfgy': {
+      'en': 'Confirm',
+      'fa': 'تأیید',
+      'nl': 'Bevestigen',
     },
     '8xgki3cf': {
       'en': '',
@@ -1661,523 +1293,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Home',
       'fa': 'خانه',
       'nl': 'Thuis',
-    },
-  },
-  // DetailRentals
-  {
-    'i2k2zt4c': {
-      'en': 'Details',
-      'fa': 'جزئیات',
-      'nl': 'Details',
-    },
-    'kjzhkoro': {
-      'en': '5',
-      'fa': '۵',
-      'nl': '5',
-    },
-    '0t9ks399': {
-      'en': ' of ',
-      'fa': 'از',
-      'nl': 'van',
-    },
-    'xmtjj0up': {
-      'en': '6',
-      'fa': '۶',
-      'nl': '6',
-    },
-    '29bchon4': {
-      'en': 'Details about your ',
-      'fa': 'جزئیات مربوط به شما',
-      'nl': 'Gegevens over uw',
-    },
-    '11ou3mom': {
-      'en': 'Helps others understand your post',
-      'fa': 'به دیگران کمک می‌کند تا پست شما را درک کنند',
-      'nl': 'Helpt anderen uw bericht te begrijpen',
-    },
-    'dgh17pei': {
-      'en': 'Title',
-      'fa': 'عنوان',
-      'nl': 'Titel',
-    },
-    'zlpz83yb': {
-      'en': 'Description',
-      'fa': 'توضیحات',
-      'nl': 'Beschrijving',
-    },
-    'c0z72le4': {
-      'en': 'Location',
-      'fa': 'مکان',
-      'nl': 'Locatie',
-    },
-    'ki5vg6i3': {
-      'en': 'Select',
-      'fa': 'انتخاب کنید',
-      'nl': 'Selecteer',
-    },
-    'cw5hzgjx': {
-      'en': 'Search...',
-      'fa': 'جستجو...',
-      'nl': 'Zoekopdracht...',
-    },
-    'l47jxe8h': {
-      'en': 'None',
-      'fa': 'هیچکدام',
-      'nl': 'Geen',
-    },
-    'eml3sji2': {
-      'en': 'Per day',
-      'fa': 'در هر روز',
-      'nl': 'Per dag',
-    },
-    'oj36fxbg': {
-      'en': 'Per night',
-      'fa': 'به ازای هر شب',
-      'nl': 'Per nacht',
-    },
-    'y82pkapp': {
-      'en': 'Per week',
-      'fa': 'در هر هفته',
-      'nl': 'Per week',
-    },
-    '1dbbegru': {
-      'en': 'Per month',
-      'fa': 'در هر ماه',
-      'nl': 'Per maand',
-    },
-    'i6tytr32': {
-      'en': 'Per year',
-      'fa': 'در هر سال',
-      'nl': 'Per jaar',
-    },
-    'xedjp0yj': {
-      'en': 'Rental Type',
-      'fa': 'نوع اجاره',
-      'nl': 'Huurtype',
-    },
-    'uhl6xl97': {
-      'en': 'Long-Term',
-      'fa': 'بلندمدت',
-      'nl': 'Lange termijn',
-    },
-    'dv9t32fm': {
-      'en': 'Short-Term',
-      'fa': 'کوتاه مدت',
-      'nl': 'Korte termijn',
-    },
-    'wnwel91z': {
-      'en': 'Sublet',
-      'fa': 'اجاره فرعی',
-      'nl': 'Onderverhuren',
-    },
-    'v3s3ysuk': {
-      'en': 'Co-Living',
-      'fa': 'هم‌خانه‌ای',
-      'nl': 'Samenwonen',
-    },
-    'um5oamy8': {
-      'en': 'Flexible',
-      'fa': 'منعطف هستم',
-      'nl': 'Flexibele',
-    },
-    'j10xsxsq': {
-      'en': 'Total Area (m2):',
-      'fa': 'مساحت کل (متر مربع):',
-      'nl': 'Totale oppervlakte (m2):',
-    },
-    'q0a49sup': {
-      'en': '',
-      'fa': '',
-      'nl': '',
-    },
-    'jzba3thw': {
-      'en': 'Availability',
-      'fa': 'بازهٔ زمانی اجاره',
-      'nl': 'Beschikbaarheid',
-    },
-    't1ab9yoz': {
-      'en': 'Price',
-      'fa': 'قیمت',
-      'nl': 'Prijs',
-    },
-    'k2h7igyv': {
-      'en': '',
-      'fa': '',
-      'nl': '',
-    },
-    '9l12r0f8': {
-      'en': 'per',
-      'fa': 'به ازای هر',
-      'nl': 'per',
-    },
-    '1r311j54': {
-      'en': 'Select..',
-      'fa': 'انتخاب کنید..',
-      'nl': 'Selecteer..',
-    },
-    'yye3471y': {
-      'en': 'Search...',
-      'fa': 'جستجو...',
-      'nl': 'Zoekopdracht...',
-    },
-    'ns6xe18s': {
-      'en': 'hour',
-      'fa': 'ساعت',
-      'nl': 'uur',
-    },
-    'aspkqw5u': {
-      'en': 'day',
-      'fa': 'روز',
-      'nl': 'dag',
-    },
-    '40j17v6f': {
-      'en': 'night',
-      'fa': 'شب',
-      'nl': 'nacht',
-    },
-    'n4x6bc4w': {
-      'en': 'week',
-      'fa': 'هفته',
-      'nl': 'week',
-    },
-    'wdzvygiw': {
-      'en': 'month',
-      'fa': 'ماه',
-      'nl': 'maand',
-    },
-    'gbggb7so': {
-      'en': 'year',
-      'fa': 'سال',
-      'nl': 'jaar',
-    },
-    'szljnmug': {
-      'en': 'Deposit:',
-      'fa': 'پیش پرداخت:',
-      'nl': 'Borg:',
-    },
-    '21etygi0': {
-      'en': '',
-      'fa': '',
-      'nl': '',
-    },
-    '9s1vxa8a': {
-      'en': 'Negotiable:',
-      'fa': 'قابل مذاکره:',
-      'nl': 'Bespreekbaar:',
-    },
-    'opmbewd0': {
-      'en': 'Price Class',
-      'fa': 'حدود قیمت',
-      'nl': 'Prijsklasse',
-    },
-    '7ls3ku09': {
-      'en': 'Under €1,000',
-      'fa': 'زیر ۱۰۰۰ یورو',
-      'nl': 'Onder €1.000',
-    },
-    'f67n8tk2': {
-      'en': 'Under €2,000',
-      'fa': 'زیر ۲۰۰۰ یورو',
-      'nl': 'Onder € 2.000',
-    },
-    '12qd3c92': {
-      'en': 'Under €3000',
-      'fa': 'زیر ۳۰۰۰ یورو',
-      'nl': 'Onder €3000',
-    },
-    'eqb3di1t': {
-      'en': 'Any Price',
-      'fa': 'هر قیمتی',
-      'nl': 'Elke prijs',
-    },
-    '9ai0llrw': {
-      'en': 'Preferances',
-      'fa': 'ترجیحات',
-      'nl': 'Voorkeuren',
-    },
-    'd572bc3m': {
-      'en': 'Registration Needed/Possible?',
-      'fa': 'رجیستر لازم/ممکن است؟',
-      'nl': 'Registratie nodig/mogelijk?',
-    },
-    'k36l0tnz': {
-      'en': 'Furnished?',
-      'fa': 'مبله؟',
-      'nl': 'Gemeubileerd?',
-    },
-    '3jlbd3yl': {
-      'en': 'Utilities Included?',
-      'fa': 'شامل هزینه‌های قبوض؟',
-      'nl': 'incl. G/W/L',
-    },
-    'e1emmok0': {
-      'en': 'Next',
-      'fa': 'بعدی',
-      'nl': 'Volgende',
-    },
-    'hfdx27wx': {
-      'en': 'Some fields are left unfilled. Please try again.',
-      'fa': 'بعضی از فیلدها پر نشده‌اند. لطفاً دوباره امتحان کنید.',
-      'nl': 'Sommige velden zijn niet ingevuld. Probeer het opnieuw.',
-    },
-    'dnaxnao0': {
-      'en': 'Post',
-      'fa': 'پست',
-      'nl': 'Na',
-    },
-  },
-  // DetailSales
-  {
-    'umi1tia3': {
-      'en': 'Details',
-      'fa': 'جزئیات',
-      'nl': 'Details',
-    },
-    'gvahl0ml': {
-      'en': '4',
-      'fa': '۴',
-      'nl': '4',
-    },
-    'dlunofp8': {
-      'en': ' of ',
-      'fa': ' از ',
-      'nl': 'van',
-    },
-    'dzeetgze': {
-      'en': '6',
-      'fa': '۶',
-      'nl': '6',
-    },
-    'k6f3f1iv': {
-      'en': 'Details about your ',
-      'fa': 'جزئیات مربوط به شما',
-      'nl': 'Gegevens over uw',
-    },
-    'ktcoqfcb': {
-      'en': 'item to sell',
-      'fa': 'مورد برای فروش',
-      'nl': 'artikel om te verkopen',
-    },
-    'gbnahsqm': {
-      'en': 'Helps others understand your post',
-      'fa': 'به دیگران کمک می‌کند تا پست شما را درک کنند',
-      'nl': 'Helpt anderen uw bericht te begrijpen',
-    },
-    'cezqw3hd': {
-      'en': 'Title',
-      'fa': 'عنوان',
-      'nl': 'Titel',
-    },
-    'jyf96aez': {
-      'en': 'Description',
-      'fa': 'توضیحات',
-      'nl': 'Beschrijving',
-    },
-    'fek8z4ho': {
-      'en': 'Location',
-      'fa': 'مکان',
-      'nl': 'Locatie',
-    },
-    '3zmhx945': {
-      'en': 'Select',
-      'fa': 'انتخاب کنید',
-      'nl': 'Selecteer',
-    },
-    'z5ykdy6b': {
-      'en': 'Search...',
-      'fa': 'جستجو...',
-      'nl': 'Zoekopdracht...',
-    },
-    'lnt7h57h': {
-      'en': 'None',
-      'fa': 'هیچکدام',
-      'nl': 'Geen',
-    },
-    'd15pcah3': {
-      'en': 'Per day',
-      'fa': 'در هر روز',
-      'nl': 'Per dag',
-    },
-    '0bpci57f': {
-      'en': 'Per night',
-      'fa': 'به ازای هر شب',
-      'nl': 'Per nacht',
-    },
-    'mnin06ya': {
-      'en': 'Per week',
-      'fa': 'در هر هفته',
-      'nl': 'Per week',
-    },
-    'iwpp6cwh': {
-      'en': 'Per month',
-      'fa': 'در هر ماه',
-      'nl': 'Per maand',
-    },
-    'rcpmo092': {
-      'en': 'Per year',
-      'fa': 'در هر سال',
-      'nl': 'Per jaar',
-    },
-    'z2lalgrq': {
-      'en': 'Condition',
-      'fa': 'وضعیت',
-      'nl': 'Voorwaarde',
-    },
-    '1a8kyuld': {
-      'en': 'New',
-      'fa': 'جدید',
-      'nl': 'Nieuw',
-    },
-    '5tp0a0dn': {
-      'en': 'Used - Like New',
-      'fa': 'کارکرده - مشابه نو',
-      'nl': 'Gebruikt - Als nieuw',
-    },
-    'l17abn2d': {
-      'en': 'Used - Fair',
-      'fa': 'کارکرده',
-      'nl': 'Gebruikt - Redelijk',
-    },
-    'n8939ymc': {
-      'en': 'Delivery',
-      'fa': 'تحویل',
-      'nl': 'Levering',
-    },
-    '35v6i4cg': {
-      'en': 'By Agreement',
-      'fa': 'طبق توافق',
-      'nl': 'In overleg',
-    },
-    'wjspq3vv': {
-      'en': 'Pick-Up Only',
-      'fa': ' تحویل حضوری',
-      'nl': 'Alleen afhalen',
-    },
-    '2zy9jngr': {
-      'en': 'Sent by Post',
-      'fa': 'ارسال  با پست',
-      'nl': 'Verzonden per post',
-    },
-    'n71xiclx': {
-      'en': 'Free Delivery',
-      'fa': 'تحویل رایگان',
-      'nl': 'Gratis bezorging',
-    },
-    '3oank8zl': {
-      'en': 'Price',
-      'fa': 'قیمت',
-      'nl': 'Prijs',
-    },
-    'g51z4ag3': {
-      'en': 'By Agreement',
-      'fa': 'طبق توافق',
-      'nl': 'In overleg',
-    },
-    '39711slm': {
-      'en': '',
-      'fa': '',
-      'nl': '',
-    },
-    't34cpmie': {
-      'en': 'price is required',
-      'fa': '',
-      'nl': '',
-    },
-    'nzdfm26i': {
-      'en': 'Please only use numbers.',
-      'fa': '',
-      'nl': '',
-    },
-    '0d4agwnm': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-      'nl': 'Kies een optie uit de keuzelijst',
-    },
-    'bdue310f': {
-      'en': 'Negotiable:',
-      'fa': 'قابل مذاکره:',
-      'nl': 'Bespreekbaar:',
-    },
-    'gsufvd5f': {
-      'en': 'Price Class',
-      'fa': 'کلاس قیمت',
-      'nl': 'Prijsklasse',
-    },
-    'lfw1zl4w': {
-      'en': 'Under €1,000',
-      'fa': 'زیر ۱۰۰۰ یورو',
-      'nl': 'Onder €1.000',
-    },
-    'cpveulx3': {
-      'en': 'Under €2,000',
-      'fa': 'زیر ۲۰۰۰ یورو',
-      'nl': 'Onder € 2.000',
-    },
-    'bh69sazu': {
-      'en': 'Under €3000',
-      'fa': 'زیر ۳۰۰۰ یورو',
-      'nl': 'Onder €3000',
-    },
-    't5bbbgfg': {
-      'en': 'Any Price',
-      'fa': 'هر قیمتی',
-      'nl': 'Elke prijs',
-    },
-    'zo4qiwvz': {
-      'en': 'Preferances',
-      'fa': 'ترجیحات',
-      'nl': 'Voorkeuren',
-    },
-    'psy1m1j2': {
-      'en': 'Open for swap?',
-      'fa': 'برای سوآپ باز شده؟',
-      'nl': 'Open voor ruil?',
-    },
-    'p31bqpjt': {
-      'en': 'Try item exchange, not just payment.',
-      'fa': 'مبادله کالا را امتحان کنید، نه فقط پرداخت.',
-      'nl': 'Probeer eens een artikel te ruilen, niet alleen betalen.',
-    },
-    '38e3zjus': {
-      'en': 'Please insert a wishlist for what you want in return.',
-      'fa':
-          'لطفاً یک لیست دلخواه برای آنچه که در ازای آن می‌خواهید، وارد کنید.',
-      'nl': 'Voeg een verlanglijstje toe met wat u in ruil daarvoor wenst.',
-    },
-    'ai0foikt': {
-      'en': '',
-      'fa': '',
-      'nl': '',
-    },
-    '3699a1sd': {
-      'en': 'What items are you looking to swap for?',
-      'fa': 'دنبال چه اقلامی برای تعویض هستید؟',
-      'nl': 'Voor welke artikelen wilt u ruilen?',
-    },
-    'oim5aeia': {
-      'en': 'Please use only letters, numbers, underscore or dot.',
-      'fa': '',
-      'nl': '',
-    },
-    'c4m2zo5w': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-      'nl': 'Kies een optie uit de keuzelijst',
-    },
-    'xxw4ioga': {
-      'en': 'Next',
-      'fa': 'بعدی',
-      'nl': 'Volgende',
-    },
-    'fha4ecx7': {
-      'en': 'Some fields are left unfilled. Please try again.',
-      'fa': 'بعضی از فیلدها پر نشده‌اند. لطفاً دوباره امتحان کنید.',
-      'nl': 'Sommige velden zijn niet ingevuld. Probeer het opnieuw.',
-    },
-    'whxo726d': {
-      'en': 'Post',
-      'fa': 'پست',
-      'nl': 'Na',
     },
   },
   // DetailGiveAway
@@ -2217,20 +1332,45 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'به دیگران کمک می‌کند تا پست شما را درک کنند',
       'nl': 'Helpt anderen uw bericht te begrijpen',
     },
+    's2cpfjwc': {
+      'en': 'Title',
+      'fa': 'عنوان ',
+      'nl': 'Titel',
+    },
+    'bwww6tm6': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
     '2jnhw97r': {
       'en': 'Title',
       'fa': 'عنوان',
       'nl': 'Titel',
+    },
+    'fz9meftb': {
+      'en': 'Description',
+      'fa': 'توضیحات',
+      'nl': 'Beschrijving',
     },
     '1a7e8j3s': {
       'en': 'Description',
       'fa': 'توضیحات',
       'nl': 'Beschrijving',
     },
-    'ho1n1j72': {
+    'izeefcue': {
       'en': 'Location',
-      'fa': 'مکان',
+      'fa': 'مکان ',
       'nl': 'Locatie',
+    },
+    'cuxatci8': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    'ozakgkvs': {
+      'en': 'Title',
+      'fa': 'عنوان',
+      'nl': 'Titel',
     },
     'iw0jeq5e': {
       'en': 'Select',
@@ -2399,6 +1539,1872 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Na',
     },
   },
+  // DetailCareAndAssistance
+  {
+    'w01m58me': {
+      'en': 'Details',
+      'fa': 'جزئیات',
+      'nl': 'Details',
+    },
+    'mkecadja': {
+      'en': '5',
+      'fa': '۵',
+      'nl': '5',
+    },
+    'zkms5fe1': {
+      'en': ' of ',
+      'fa': 'از',
+      'nl': 'van',
+    },
+    'kpg0fdit': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
+    },
+    'qjuj07rg': {
+      'en': 'Details about your',
+      'fa': 'جزئیات مربوط به شما',
+      'nl': 'Gegevens over uw',
+    },
+    'nga3ya0w': {
+      'en': 'support post',
+      'fa': 'پست پشتیبانی',
+      'nl': 'ondersteuningspost',
+    },
+    'i1n166r0': {
+      'en': 'Helps others understand your post',
+      'fa': 'به دیگران کمک می‌کند تا پست شما را درک کنند',
+      'nl': 'Helpt anderen uw bericht te begrijpen',
+    },
+    'jfxwdm5o': {
+      'en': 'Title',
+      'fa': 'عنوان ',
+      'nl': 'Titel',
+    },
+    'e46jftve': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    'uzhr4z1s': {
+      'en': 'Title',
+      'fa': 'عنوان',
+      'nl': 'Titel',
+    },
+    '9hotuvi3': {
+      'en': 'Description',
+      'fa': 'توضیحات',
+      'nl': 'Beschrijving',
+    },
+    '9ph8lxsc': {
+      'en': 'Description',
+      'fa': 'توضیحات',
+      'nl': 'Beschrijving',
+    },
+    '5o2otd8p': {
+      'en': 'Location',
+      'fa': 'مکان ',
+      'nl': 'Locatie',
+    },
+    'nhbvckas': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    'wpdfqsiq': {
+      'en': 'Location',
+      'fa': 'مکان',
+      'nl': 'Locatie',
+    },
+    '2nl17z9d': {
+      'en': 'Select',
+      'fa': 'انتخاب کنید',
+      'nl': 'Selecteer',
+    },
+    'o9wthtmb': {
+      'en': 'Search...',
+      'fa': 'جستجو...',
+      'nl': 'Zoekopdracht...',
+    },
+    '6x3fojhi': {
+      'en': 'None',
+      'fa': 'هیچکدام',
+      'nl': 'Geen',
+    },
+    '8javjnda': {
+      'en': 'Per day',
+      'fa': 'در هر روز',
+      'nl': 'Per dag',
+    },
+    'bbophh0r': {
+      'en': 'Per night',
+      'fa': 'به ازای هر شب',
+      'nl': 'Per nacht',
+    },
+    'j77cpnnt': {
+      'en': 'Per week',
+      'fa': 'در هر هفته',
+      'nl': 'Per week',
+    },
+    'das7goho': {
+      'en': 'Per month',
+      'fa': 'در هر ماه',
+      'nl': 'Per maand',
+    },
+    '48h09fsy': {
+      'en': 'Per year',
+      'fa': 'در هر سال',
+      'nl': 'Per jaar',
+    },
+    'yc6m1j1g': {
+      'en': 'Deadline',
+      'fa': 'مهلت',
+      'nl': 'Termijn',
+    },
+    'zi6grwu2': {
+      'en': 'Compensation',
+      'fa': 'پاداش',
+      'nl': 'Compensatie',
+    },
+    'lvwzfby4': {
+      'en': 'Free help appreciated',
+      'fa': 'کمک رایگان مورد تقدیر است',
+      'nl': 'Gratis hulp wordt gewaardeerd',
+    },
+    '20xkyxrc': {
+      'en': 'Can offer something back',
+      'fa': 'حاضر به پرداخت در عوض',
+      'nl': 'Kan iets terugdoen',
+    },
+    'jy7n8fge': {
+      'en': 'Flexible',
+      'fa': 'انعطاف‌پذیر',
+      'nl': 'Flexibele',
+    },
+    'lwx39hgw': {
+      'en': 'Free / Just helping',
+      'fa': 'رایگان صرفآ برای کمک',
+      'nl': 'Gratis / Gewoon helpen',
+    },
+    '5gulvjxg': {
+      'en': 'Give what you feel',
+      'fa': 'پاداش می پذیرد',
+      'nl': 'Geef wat je voelt',
+    },
+    'gwy1uxk4': {
+      'en': 'Flexible',
+      'fa': 'انعطاف‌پذیر',
+      'nl': 'Flexibele',
+    },
+    '83sc63g8': {
+      'en': 'Preferances',
+      'fa': 'ترجیحات',
+      'nl': 'Voorkeuren',
+    },
+    'g140snbx': {
+      'en': 'Open for swap?',
+      'fa': 'برای سوآپ باز شده؟',
+      'nl': 'Open voor ruil?',
+    },
+    'okfhv1oq': {
+      'en': 'Please insert a wishlist of what you want in return',
+      'fa': 'لطفا لیست آرزوهایی از آنچه در ازای آن می‌خواهید را وارد کنید',
+      'nl': 'Voeg een verlanglijstje toe met wat u in ruil daarvoor wilt',
+    },
+    'qs36tiph': {
+      'en': '',
+      'fa': '',
+      'nl': '',
+    },
+    'jz0m4wkl': {
+      'en': 'What items are you looking to swap for?',
+      'fa': 'دنبال چه اقلامی برای تعویض هستید؟',
+      'nl': 'Welke artikelen wilt u ruilen?',
+    },
+    '8nx9yjx1': {
+      'en': 'Next',
+      'fa': 'بعدی',
+      'nl': 'Volgende',
+    },
+    'v6o4kog0': {
+      'en': 'Some fields are left unfilled. Please try again.',
+      'fa': 'بعضی از فیلدها پر نشده‌اند. لطفاً دوباره امتحان کنید.',
+      'nl': 'Sommige velden zijn niet ingevuld. Probeer het opnieuw.',
+    },
+    'z7r4lvjf': {
+      'en': 'Post',
+      'fa': 'پست',
+      'nl': 'Na',
+    },
+  },
+  // FinalizedLogin
+  {
+    'o0gdhtwy': {
+      'en': 'Home',
+      'fa': 'خانه',
+      'nl': 'Thuis',
+    },
+  },
+  // Splash
+  {
+    'twp4gkdv': {
+      'en': 'Home',
+      'fa': 'خانه',
+      'nl': 'Thuis',
+    },
+  },
+  // ChatPage
+  {
+    'au6wzutq': {
+      'en': 'Chats',
+      'fa': 'چت‌ها',
+      'nl': 'Chatten',
+    },
+    '4nojqmye': {
+      'en': 'All',
+      'fa': 'همه',
+      'nl': 'Alle',
+    },
+    'e248wdxf': {
+      'en': 'My Posts',
+      'fa': 'پست‌های من',
+      'nl': 'Mijn berichten',
+    },
+    'pspduh98': {
+      'en': 'Other\'s Posts',
+      'fa': 'پست‌های دیگران',
+      'nl': 'van anderen',
+    },
+    '9bsrpmk4': {
+      'en': 'Yekja',
+      'fa': 'یکجا',
+      'nl': 'Yekja',
+    },
+    'i9836zr0': {
+      'en': 'Delete chat',
+      'fa': 'حذف چت',
+      'nl': 'Chat verwijderen',
+    },
+    'n958loab': {
+      'en': 'Press confirm if you intend to delete this chat.',
+      'fa': 'اگر قصد حذف این چت را دارید، تأیید را فشار دهید.',
+      'nl': 'Klik op Bevestigen als u deze chat wilt verwijderen.',
+    },
+    '46z72kp3': {
+      'en': 'Cancel',
+      'fa': 'لغو',
+      'nl': 'Annuleren',
+    },
+    'lkl0kp7h': {
+      'en': 'Confirm',
+      'fa': 'تأیید',
+      'nl': 'Bevestigen',
+    },
+    '5g28h2j2': {
+      'en': 'Home',
+      'fa': 'خانه',
+      'nl': 'Thuis',
+    },
+  },
+  // SearchPage
+  {
+    'h96yelv3': {
+      'en': 'Searh Results',
+      'fa': 'نتایج جستجو',
+      'nl': 'Zoekresultaten',
+    },
+    '1je8wpdn': {
+      'en': 'Filter',
+      'fa': 'فیلتر',
+      'nl': 'Filter',
+    },
+    'qrvkaa77': {
+      'en': '',
+      'fa': '',
+      'nl': '',
+    },
+    '7uu9uavl': {
+      'en': 'Search',
+      'fa': 'جستجو',
+      'nl': 'Zoekopdracht',
+    },
+    'q4ar00pn': {
+      'en': 'Option 1',
+      'fa': 'گزینه ۱',
+      'nl': 'Optie 1',
+    },
+    '0dfm2rcn': {
+      'en': '',
+      'fa': '',
+      'nl': '',
+    },
+    'kd5mjjjg': {
+      'en': 'Search',
+      'fa': 'جستجو',
+      'nl': 'Zoekopdracht',
+    },
+    '8b3no9i7': {
+      'en': 'Option 1',
+      'fa': 'گزینه ۱',
+      'nl': 'Optie 1',
+    },
+    'gak00fpr': {
+      'en': 'Home',
+      'fa': 'خانه',
+      'nl': 'Thuis',
+    },
+  },
+  // MainPage
+  {
+    'q6o9bjar': {
+      'en': 'Voluntary Support',
+      'fa': 'پشتیبانی داوطلبانه',
+      'nl': 'Vrijwillige ondersteuning',
+    },
+    '2adjrd3s': {
+      'en': 'Sort by',
+      'fa': 'مرتب سازی',
+      'nl': 'Sorteren op',
+    },
+    'w2q7b9p0': {
+      'en': 'Search...',
+      'fa': 'جستجو...',
+      'nl': 'Zoekopdracht...',
+    },
+    '5agtvh5a': {
+      'en': 'Recent',
+      'fa': 'اخیر',
+      'nl': 'Recent',
+    },
+    'pbeoxh2l': {
+      'en': 'Popular',
+      'fa': 'محبوب',
+      'nl': 'Populair',
+    },
+    'd1u4nbz4': {
+      'en': 'Become a Volunteer',
+      'fa': 'داوطلب شوید',
+      'nl': 'Word vrijwilliger',
+    },
+    '7w4oeybw': {
+      'en': 'Market',
+      'fa': 'بازار',
+      'nl': 'Markt',
+    },
+    'ouq1px8e': {
+      'en': 'Sort by',
+      'fa': 'مرتب سازی',
+      'nl': 'Sorteren op',
+    },
+    'jklccjqm': {
+      'en': 'Search...',
+      'fa': 'جستجو...',
+      'nl': 'Zoekopdracht...',
+    },
+    'dwh7u1yx': {
+      'en': 'Recent',
+      'fa': 'اخیر',
+      'nl': 'Recent',
+    },
+    'cw92edks': {
+      'en': 'Popular',
+      'fa': 'محبوب',
+      'nl': 'Populair',
+    },
+    '1y5mye93': {
+      'en': 'Services & Jobs',
+      'fa': 'خدمات',
+      'nl': 'Diensten',
+    },
+    'hpek7i7b': {
+      'en': 'Sort by',
+      'fa': 'مرتب سازی',
+      'nl': 'Sorteren op',
+    },
+    '1vqz4ewc': {
+      'en': 'Search...',
+      'fa': 'جستجو...',
+      'nl': 'Zoekopdracht...',
+    },
+    'mf3wf9bs': {
+      'en': 'Recent',
+      'fa': 'اخیر',
+      'nl': 'Recent',
+    },
+    '0vfuan47': {
+      'en': 'Popular',
+      'fa': 'محبوب',
+      'nl': 'Populair',
+    },
+    'm0ad92yp': {
+      'en': 'Advertise a Job',
+      'fa': 'آگهی استخدام',
+      'nl': 'Adverteer een vacature',
+    },
+    'ijphs52w': {
+      'en': 'Events & Announcements',
+      'fa': 'رویدادها و اطلاعیه‌ها',
+      'nl': 'Evenementen en aankondigingen',
+    },
+    'borgvgtn': {
+      'en': 'Sort by',
+      'fa': 'مرتب سازی',
+      'nl': 'Sorteren op',
+    },
+    'bfohq53i': {
+      'en': 'Search...',
+      'fa': 'جستجو...',
+      'nl': 'Zoekopdracht...',
+    },
+    'dc06nkgi': {
+      'en': 'Recent',
+      'fa': 'اخیر',
+      'nl': 'Recent',
+    },
+    'i3smswcl': {
+      'en': 'Popular',
+      'fa': 'محبوب',
+      'nl': 'Populair',
+    },
+    'acanui6t': {
+      'en': 'Home',
+      'fa': 'خانه',
+      'nl': 'Thuis',
+    },
+  },
+  // ProfilePage
+  {
+    'wi68hahy': {
+      'en': 'Likes',
+      'fa': 'لایک‌ها',
+      'nl': 'Vind-ik-leuks',
+    },
+    'jzc0o03k': {
+      'en': '3',
+      'fa': '۳',
+      'nl': '3',
+    },
+    'dcb0abt1': {
+      'en': 'Reviews',
+      'fa': 'نقد و بررسی‌ها',
+      'nl': 'Beoordelingen',
+    },
+    '2808vfr9': {
+      'en': 'Posts',
+      'fa': 'پست‌ها',
+      'nl': 'Berichten',
+    },
+    'xt0uhk7r': {
+      'en': 'See All',
+      'fa': 'همه را ببینید',
+      'nl': 'Alles zien',
+    },
+    'oq2hc9vq': {
+      'en': 'Favorites',
+      'fa': 'موارد دلخواه',
+      'nl': 'Favorieten',
+    },
+    'fd2re1c8': {
+      'en': 'See All',
+      'fa': 'همه را ببینید',
+      'nl': 'Alles zien',
+    },
+    'h7butxb7': {
+      'en': 'Reviews',
+      'fa': 'نقد و بررسی‌ها',
+      'nl': 'Beoordelingen',
+    },
+    '9wndti6n': {
+      'en': 'See All',
+      'fa': 'همه را ببینید',
+      'nl': 'Alles zien',
+    },
+    'yq4fqtye': {
+      'en': '',
+      'fa': 'خانه',
+      'nl': '',
+    },
+  },
+  // XXX_Busines
+  {
+    'zajqiw4o': {
+      'en': 'FEATURE COMING SOON!',
+      'fa': 'ویژگی به زودی!',
+      'nl': 'Binnenkort verkrijgbaar!',
+    },
+    'xwctvd4f': {
+      'en': 'Careers Hub',
+      'fa': 'مرکز فرصت‌های شغلی',
+      'nl': 'Carrièrecentrum',
+    },
+    'xhbs5o7r': {
+      'en':
+          'Explore diverse possibilities and connect with professionals and partners',
+      'fa':
+          'امکانات متنوع را بررسی کنید و با متخصصان و شرکا ارتباط برقرار کنید',
+      'nl':
+          'Ontdek diverse mogelijkheden en maak contact met professionals en partners',
+    },
+    'p2hugerr': {
+      'en': 'WANT EARLY ACCESS?',
+      'fa': 'دسترسی زودهنگام می‌خواهید؟',
+      'nl': 'WILT U EERDER TOEGANG?',
+    },
+    'uaoh24at': {
+      'en': 'Contact us to be among the first to explore:',
+      'fa': 'برای اینکه جزو اولین نفرات باشید با ما تماس بگیرید:',
+      'nl': 'Neem contact met ons op en ontdek als eerste het volgende:',
+    },
+    'dtqj9rbn': {
+      'en': 'Advertise a job',
+      'fa': 'آگهی استخدام',
+      'nl': 'Een vacature adverteren',
+    },
+    'jcbv7cty': {
+      'en': 'Request a job',
+      'fa': 'درخواست شغل',
+      'nl': 'Vraag een baan aan',
+    },
+    '1bdxjne1': {
+      'en': 'Join or organize networking events',
+      'fa': 'به رویدادهای شبکه‌سازی بپیوندید یا آنها را سازماندهی کنید',
+      'nl': 'Neem deel aan of organiseer netwerkevenementen',
+    },
+    'a5yn183j': {
+      'en': 'Start-up partnership and investment',
+      'fa': 'مشارکت و سرمایه‌گذاری در استارت‌آپ',
+      'nl': 'Start-up partnerschap en investering',
+    },
+    'np84zavh': {
+      'en': 'Set up recruiters profiles',
+      'fa': 'پروفایل‌های استخدام‌کنندگان را تنظیم کنید',
+      'nl': 'Wervingsprofielen instellen',
+    },
+    'anv7agkz': {
+      'en': 'JOIN THE WAITLLIST',
+      'fa': 'به لیست منتظران بپیوندید',
+      'nl': 'WORD LID VAN DE WACHTLIJST',
+    },
+    'r609wb85': {
+      'en': 'Learn more about this feature',
+      'fa': 'درباره این قابلیت بیشتر بدانید',
+      'nl': 'Meer informatie over deze functie',
+    },
+    '50pq25q4': {
+      'en': 'FEATURE COMING SOON!',
+      'fa': 'ویژگی به زودی!',
+      'nl': 'Binnenkort verkrijgbaar!',
+    },
+    'rtaxwxdf': {
+      'en': 'Business Profiles',
+      'fa': 'پروفایل‌های تجاری',
+      'nl': 'Bedrijfsprofielen',
+    },
+    'hfs4im97': {
+      'en':
+          'We\'re working hard to bring you enhanced business profiles that will elevate your presence to connect with more customers.',
+      'fa':
+          'ما سخت تلاش می‌کنیم تا پروفایل‌های تجاری بهبود یافته‌ای را برای شما ارائه دهیم که حضور شما را برای ارتباط با مشتریان بیشتر ارتقا می‌دهد.',
+      'nl':
+          'We werken er hard aan om u verbeterde bedrijfsprofielen te bieden waarmee u uw aanwezigheid vergroot en meer klanten bereikt.',
+    },
+    'hto4gqs9': {
+      'en': 'WANT TO BE AMONG THE FIRST?',
+      'fa': 'می‌خواهید جزو اولین‌ها باشید؟',
+      'nl': 'WIL JE BIJ DE EERSTE ZIJN?',
+    },
+    'tqoqdx82': {
+      'en': 'Contact us to set up your profile',
+      'fa': 'برای تنظیم پروفایل خود با ما تماس بگیرید',
+      'nl': 'Neem contact met ons op om uw profiel in te stellen',
+    },
+    'vfcsauy8': {
+      'en': 'CONTACT SUPPORT',
+      'fa': 'تماس با پشتیبانی',
+      'nl': 'CONTACT OPNEMEN MET ONDERSTEUNING',
+    },
+    'ufz7fqv9': {
+      'en': 'See an example business profile',
+      'fa': 'یک نمونه پروفایل تجاری را ببینید',
+      'nl': 'Bekijk een voorbeeld van een bedrijfsprofiel',
+    },
+    '688el6va': {
+      'en': 'This feature is \nlaunching soon!',
+      'fa': 'این قابلیت به زودی راه‌اندازی می‌شود!',
+      'nl': 'Deze functie\nwordt binnenkort gelanceerd!',
+    },
+    '4qku9duz': {
+      'en': 'Businesses',
+      'fa': 'کسب و کارها',
+      'nl': 'Bedrijven',
+    },
+    'so9y3otl': {
+      'en': 'Home',
+      'fa': 'خانه',
+      'nl': 'Thuis',
+    },
+  },
+  // PostFa
+  {
+    '3soiowwq': {
+      'en': 'PARTICIPANTS',
+      'fa': 'شرکت‌کنندگان',
+      'nl': 'DEELNEMERS',
+    },
+    '5tnx80uw': {
+      'en': 'People who are going to this event.',
+      'fa': 'افرادی که قرار است در این مراسم شرکت کنند.',
+      'nl': 'Mensen die naar dit evenement gaan.',
+    },
+    'owhx5jkc': {
+      'en': 'Join Event',
+      'fa': 'شرکت در رویداد',
+      'nl': 'Deelnemen',
+    },
+    'xx8qp86l': {
+      'en': 'Participating this event? ',
+      'fa': 'شرکت در این رویداد؟',
+      'nl': 'Neemt u deel aan dit evenement?',
+    },
+    '4grhweks': {
+      'en': 'Please confirm if you\'d like to join this event!',
+      'fa': 'لطفاً تأیید کنید که آیا مایل به شرکت در این رویداد هستید یا خیر!',
+      'nl': 'Bevestig of je aan dit evenement wilt deelnemen!',
+    },
+    '4hnoq098': {
+      'en': 'Cancel',
+      'fa': 'لغو',
+      'nl': 'Annuleren',
+    },
+    'k43nhob0': {
+      'en': 'Confirm',
+      'fa': 'تأیید',
+      'nl': 'Bevestigen',
+    },
+    'nnr4gfvr': {
+      'en':
+          'The event is full. Try contacting the host for  the  next possibilities. ',
+      'fa':
+          'ظرفیت رویداد تکمیل شده است. برای اطلاع از گزینه‌های بعدی با میزبان تماس بگیرید.',
+      'nl':
+          'Het evenement is volgeboekt. Neem contact op met de organisator voor andere mogelijkheden.',
+    },
+    'dpuynhm9': {
+      'en': 'Leave Event',
+      'fa': 'ترک رویداد',
+      'nl': 'Verlaat evenement',
+    },
+    'rjvk5gez': {
+      'en': 'Have you changed your mind?',
+      'fa': 'نظرت عوض شده؟',
+      'nl': 'Ben je van gedachten veranderd?',
+    },
+    'g9aw80nt': {
+      'en':
+          'You are currently a participant in this event. Please confirm if your plans changed. ',
+      'fa':
+          'شما در حال حاضر در این رویداد شرکت می‌کنید. لطفاً در صورت تغییر برنامه‌هایتان، تأیید کنید.',
+      'nl':
+          'U bent momenteel deelnemer aan dit evenement. Controleer of uw plannen zijn gewijzigd.',
+    },
+    'cxemha4q': {
+      'en': 'Cencel',
+      'fa': 'سنسل',
+      'nl': 'Cencel',
+    },
+    '7fo5fbpg': {
+      'en': 'Confirm',
+      'fa': 'تأیید',
+      'nl': 'Bevestigen',
+    },
+    'c79y73jq': {
+      'en': 'Hide your profile image',
+      'fa': 'تصویر پروفایل خود را مخفی کنید',
+      'nl': 'Verberg je profielafbeelding',
+    },
+    'airbot6d': {
+      'en': 'Please login or signup to see user\'s profile.',
+      'fa': 'برای مشاهده پروفایل کاربر، لطفا وارد شوید یا ثبت نام کنید.',
+      'nl':
+          'Log in of registreer u om het profiel van de gebruiker te bekijken.',
+    },
+    '68aq64no': {
+      'en': 'Please login or signup to see user\'s profile.',
+      'fa': 'برای مشاهده پروفایل کاربر، لطفا وارد شوید یا ثبت نام کنید.',
+      'nl':
+          'Log in of registreer u om het profiel van de gebruiker te bekijken.',
+    },
+    'czbdbdsb': {
+      'en': 'Instagram link is not set.',
+      'fa': 'برای مشاهده پروفایل کاربر، لطفا وارد شوید یا ثبت نام کنید.',
+      'nl':
+          'Log in of registreer u om het profiel van de gebruiker te bekijken.',
+    },
+    '0p7g3nq1': {
+      'en': 'REVIEWS',
+      'fa': 'نقد و بررسی‌ها',
+      'nl': 'RECENSIES',
+    },
+    't0fw7rag': {
+      'en': 'Home',
+      'fa': 'خانه',
+      'nl': 'Thuis',
+    },
+  },
+  // PostNL
+  {
+    'r65katy0': {
+      'en': 'PARTICIPANTS',
+      'fa': 'شرکت‌کنندگان',
+      'nl': 'DEELNEMERS',
+    },
+    'pa21u83g': {
+      'en': 'People who are going to this event.',
+      'fa': 'افرادی که قرار است در این مراسم شرکت کنند.',
+      'nl': 'Mensen die naar dit evenement gaan.',
+    },
+    'zjrf4zde': {
+      'en': 'Join Event',
+      'fa': 'شرکت در رویداد',
+      'nl': 'Deelnemen',
+    },
+    'f9icfbpg': {
+      'en': 'Participating this event? ',
+      'fa': 'شرکت در این رویداد؟',
+      'nl': 'Neemt u deel aan dit evenement?',
+    },
+    '1eox3zaq': {
+      'en': 'Please confirm if you\'d like to join this event!',
+      'fa': 'لطفاً تأیید کنید که آیا مایل به شرکت در این رویداد هستید یا خیر!',
+      'nl': 'Bevestig of je aan dit evenement wilt deelnemen!',
+    },
+    's4l1854j': {
+      'en': 'Cancel',
+      'fa': 'لغو',
+      'nl': 'Annuleren',
+    },
+    'ebwexf78': {
+      'en': 'Confirm',
+      'fa': 'تأیید',
+      'nl': 'Bevestigen',
+    },
+    'd6kdgtsa': {
+      'en':
+          'The event is full. Try contacting the host for  the  next possibilities. ',
+      'fa':
+          'ظرفیت رویداد تکمیل شده است. برای اطلاع از گزینه‌های بعدی با میزبان تماس بگیرید.',
+      'nl':
+          'Het evenement is volgeboekt. Neem contact op met de organisator voor andere mogelijkheden.',
+    },
+    '633uwuwk': {
+      'en': 'Leave Event',
+      'fa': 'ترک رویداد',
+      'nl': 'Verlaat evenement',
+    },
+    '2xg817w9': {
+      'en': 'Have you changed your mind?',
+      'fa': 'نظرت عوض شده؟',
+      'nl': 'Ben je van gedachten veranderd?',
+    },
+    'ccf05fs5': {
+      'en':
+          'You are currently a participant in this event. Please confirm if your plans changed. ',
+      'fa':
+          'شما در حال حاضر در این رویداد شرکت می‌کنید. لطفاً در صورت تغییر برنامه‌هایتان، تأیید کنید.',
+      'nl':
+          'U bent momenteel deelnemer aan dit evenement. Controleer of uw plannen zijn gewijzigd.',
+    },
+    '87mbi1yj': {
+      'en': 'Cencel',
+      'fa': 'سنسل',
+      'nl': 'Cencel',
+    },
+    'cnfstlwt': {
+      'en': 'Confirm',
+      'fa': 'تأیید',
+      'nl': 'Bevestigen',
+    },
+    '8quh1kln': {
+      'en': 'Hide your profile image',
+      'fa': 'تصویر پروفایل خود را مخفی کنید',
+      'nl': 'Verberg je profielafbeelding',
+    },
+    'qlt5o80u': {
+      'en': 'Please login or signup to see user\'s profile.',
+      'fa': 'برای مشاهده پروفایل کاربر، لطفا وارد شوید یا ثبت نام کنید.',
+      'nl':
+          'Log in of registreer u om het profiel van de gebruiker te bekijken.',
+    },
+    '4f0yucor': {
+      'en': 'Please login or signup to see user\'s profile.',
+      'fa': 'برای مشاهده پروفایل کاربر، لطفا وارد شوید یا ثبت نام کنید.',
+      'nl':
+          'Log in of registreer u om het profiel van de gebruiker te bekijken.',
+    },
+    'srmvde3i': {
+      'en': 'Instagram link it not set.',
+      'fa': 'برای مشاهده پروفایل کاربر، لطفا وارد شوید یا ثبت نام کنید.',
+      'nl':
+          'Log in of registreer u om het profiel van de gebruiker te bekijken.',
+    },
+    '2trxbrdv': {
+      'en': 'REVIEWS',
+      'fa': 'نقد و بررسی‌ها',
+      'nl': 'RECENSIES',
+    },
+    '7ksglak5': {
+      'en': 'Home',
+      'fa': 'خانه',
+      'nl': 'Thuis',
+    },
+  },
+  // SignInConfirm
+  {
+    'm5qvsqog': {
+      'en': 'Confirm Email',
+      'fa': 'تأیید ایمیل',
+      'nl': 'Bevestig e-mail',
+    },
+    '5rnnni2k': {
+      'en': 'Please enter a username and email to continue',
+      'fa': 'لطفا برای ادامه، نام کاربری و ایمیل خود را وارد کنید',
+      'nl': 'Voer een gebruikersnaam en e-mailadres in om door te gaan',
+    },
+    'h8nwoxdn': {
+      'en': '',
+      'fa': '',
+      'nl': '',
+    },
+    'ep9mmsq3': {
+      'en': '',
+      'fa': 'نام کاربری',
+      'nl': 'Gebruikersnaam',
+    },
+    'ks8k45lm': {
+      'en': 'Username',
+      'fa': '',
+      'nl': '',
+    },
+    '0jzr1v97': {
+      'en': '',
+      'fa': 'ایمیل',
+      'nl': 'E-mail',
+    },
+    '0zs4573p': {
+      'en': 'Email',
+      'fa': '',
+      'nl': '',
+    },
+    'f9e65zx9': {
+      'en': '',
+      'fa': 'رمز عبور',
+      'nl': 'Wachtwoord',
+    },
+    'st10kzhb': {
+      'en': 'Password',
+      'fa': '',
+      'nl': '',
+    },
+    'xhzqr4bk': {
+      'en': 'Username is required',
+      'fa': 'نام کاربری الزامی است',
+      'nl': 'Gebruikersnaam is vereist',
+    },
+    'mm8x2xit': {
+      'en': 'At least 4 characters are required',
+      'fa': 'حداقل ۴ کاراکتر مورد نیاز است',
+      'nl': 'Er zijn minimaal 4 tekens vereist',
+    },
+    'c1vrjuyc': {
+      'en': 'Max 12 characters are required',
+      'fa': 'حداکثر ۱۲ کاراکتر مورد نیاز است',
+      'nl': 'Er zijn maximaal 12 tekens vereist',
+    },
+    'xcdq956e': {
+      'en':
+          'Please use only letters (English/Persian), spaces, a dot or underscore.',
+      'fa':
+          'لطفاً فقط از حروف (انگلیسی/فارسی)، فاصله، نقطه یا زیرخط استفاده کنید.',
+      'nl':
+          'Gebruik alleen letters (Engels/Perzisch), spaties, een punt of onderstrepingsteken.',
+    },
+    'fqqtjta3': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+      'nl': 'Kies een optie uit de keuzelijst',
+    },
+    '77e8urzk': {
+      'en': 'Email is required',
+      'fa': 'ایمیل الزامی است',
+      'nl': 'E-mailadres is vereist',
+    },
+    'ed0qiknp': {
+      'en': 'Please enter a valid email address',
+      'fa': 'لطفا یک آدرس ایمیل معتبر وارد کنید',
+      'nl': 'Voer een geldig e-mailadres in',
+    },
+    '2wawja0q': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+      'nl': 'Kies een optie uit de keuzelijst',
+    },
+    'u7jll47q': {
+      'en': 'Password is required',
+      'fa': 'رمز عبور الزامی است',
+      'nl': 'Wachtwoord is vereist',
+    },
+    'dutfozyh': {
+      'en':
+          '- At least one uppercase letter\n- At least one digit\n- At least 8 characters ',
+      'fa': '',
+      'nl': '',
+    },
+    '5uv7jgtj': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+      'nl': 'Kies een optie uit de keuzelijst',
+    },
+    'it3a9439': {
+      'en': 'Confirm',
+      'fa': 'تأیید',
+      'nl': 'Bevestigen',
+    },
+    'c1473phw': {
+      'en': 'Home',
+      'fa': 'خانه',
+      'nl': 'Thuis',
+    },
+  },
+  // ChangeEmailPage
+  {
+    'qvyltjge': {
+      'en': 'Change Email',
+      'fa': 'بازنشانی رمز عبور',
+      'nl': 'Wachtwoord opnieuw instellen',
+    },
+    '6baohfcj': {
+      'en': 'Make sure you enter a valid email address and confirm it.',
+      'fa': 'برای ورود به سیستم، رمز عبور جدیدی ایجاد کنید',
+      'nl': 'Maak een nieuw wachtwoord aan om in te loggen',
+    },
+    '7qj4jthi': {
+      'en': '',
+      'fa': 'رمز عبور جدید',
+      'nl': 'Nieuw wachtwoord',
+    },
+    'hd56x034': {
+      'en': 'New Email',
+      'fa': 'رمز عبور جدید',
+      'nl': 'Nieuw wachtwoord',
+    },
+    'j3fkaqso': {
+      'en': 'Change Email',
+      'fa': 'بازنشانی رمز عبور',
+      'nl': 'Wachtwoord opnieuw instellen',
+    },
+    '7fzxxs8j': {
+      'en': 'Please enter valid new password.',
+      'fa': 'لطفا رمز عبور جدید معتبری وارد کنید.',
+      'nl': 'Voer een nieuw, geldig wachtwoord in.',
+    },
+    's7ssap9i': {
+      'en': 'please use a valid email address.',
+      'fa': '',
+      'nl': '',
+    },
+    'lo4zqx7s': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+      'nl': 'Kies een optie uit de keuzelijst',
+    },
+    'yp5q6x4q': {
+      'en': 'Home',
+      'fa': 'خانه',
+      'nl': 'Thuis',
+    },
+  },
+  // PostImage
+  {
+    'bia6eg30': {
+      'en': 'Images',
+      'fa': 'تصاویر',
+      'nl': 'Afbeeldingen',
+    },
+    '8dol1v4o': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
+    },
+    'fkwkxg0k': {
+      'en': ' of ',
+      'fa': 'از ',
+      'nl': 'van',
+    },
+    'u6ho4fgv': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
+    },
+    'uynzsoxg': {
+      'en': '5',
+      'fa': '۵',
+      'nl': '5',
+    },
+    '9ef0l1f0': {
+      'en': ' of ',
+      'fa': 'از',
+      'nl': 'van',
+    },
+    'gn0tmtgz': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
+    },
+    'nnd68vi1': {
+      'en': 'Upload photos',
+      'fa': 'آپلود عکس',
+      'nl': 'Foto\'s uploaden',
+    },
+    's1qkdor4': {
+      'en': 'Add up to 4 photos',
+      'fa': 'حداکثر ۴ عکس اضافه کنید',
+      'nl': 'Voeg maximaal 4 foto\'s toe',
+    },
+    'klkdc69y': {
+      'en': 'See Preview',
+      'fa': 'پیش‌نمایش را ببینید',
+      'nl': 'Bekijk voorbeeld',
+    },
+    'q3yy9x1s': {
+      'en': 'Save',
+      'fa': 'ذخیره',
+      'nl': 'Redden',
+    },
+    'dd7lcje3': {
+      'en': 'Post',
+      'fa': 'پست',
+      'nl': 'Na',
+    },
+  },
+  // PostEdit
+  {
+    's45yad1c': {
+      'en': 'PARTICIPANTS',
+      'fa': 'شرکت‌کنندگان',
+      'nl': 'DEELNEMERS',
+    },
+    '7jnr42m3': {
+      'en': 'People who are going to this event.',
+      'fa': 'افرادی که قرار است در این مراسم شرکت کنند.',
+      'nl': 'Mensen die naar dit evenement gaan.',
+    },
+    'yr4ahw7e': {
+      'en': 'Join Event',
+      'fa': 'شرکت در رویداد',
+      'nl': 'Deelnemen',
+    },
+    'x1ku0nkv': {
+      'en': 'REVIEWS',
+      'fa': 'نقد و بررسی‌ها',
+      'nl': 'RECENSIES',
+    },
+    'mxg6sthy': {
+      'en': 'Delete',
+      'fa': 'حذف',
+      'nl': 'Verwijderen',
+    },
+    '68prj1qr': {
+      'en': 'Are you sure you want to delete this post?',
+      'fa': 'آیا از حذف این پست مطمئن هستید؟',
+      'nl': 'Weet je zeker dat je dit bericht wilt verwijderen?',
+    },
+    'oaqjq4zi': {
+      'en': 'When you delete a post it will be permenetly removed.',
+      'fa': 'وقتی پستی را حذف می‌کنید، برای همیشه حذف خواهد شد.',
+      'nl':
+          'Wanneer je een bericht verwijdert, wordt het permanent verwijderd.',
+    },
+    'esrikcwc': {
+      'en': 'Cancel',
+      'fa': 'لغو',
+      'nl': 'Annuleren',
+    },
+    'ye16grq0': {
+      'en': 'Delete',
+      'fa': 'حذف',
+      'nl': 'Verwijderen',
+    },
+    'uymaetqg': {
+      'en': 'Your post is deleted.',
+      'fa': 'پست شما حذف شد.',
+      'nl': 'Je bericht is verwijderd.',
+    },
+    '3b0fgnsw': {
+      'en': 'Update',
+      'fa': 'به‌روزرسانی',
+      'nl': 'Update',
+    },
+    'g3y2is5w': {
+      'en': 'Are you sure youwant to update this post?',
+      'fa': 'آیا مطمئن هستید که می‌خواهید این پست را به‌روزرسانی کنید؟',
+      'nl': 'Weet u zeker dat u dit bericht wilt bijwerken?',
+    },
+    'fqxvxcs2': {
+      'en': 'Your post will update instantly after you confirm.',
+      'fa': 'پست شما بلافاصله پس از تایید شما به‌روزرسانی خواهد شد.',
+      'nl':
+          'Nadat u uw bericht heeft bevestigd, wordt het bericht direct bijgewerkt.',
+    },
+    'n1juv3ju': {
+      'en': 'Your post is updated!',
+      'fa': 'پست شما آپدیت شد!',
+      'nl': 'Je bericht is bijgewerkt!',
+    },
+    '2k2s462g': {
+      'en': 'Cancel',
+      'fa': 'لغو',
+      'nl': 'Annuleren',
+    },
+    'v1ly20lq': {
+      'en': 'Confirm',
+      'fa': 'تأیید',
+      'nl': 'Bevestigen',
+    },
+    'ru8iak45': {
+      'en': 'Home',
+      'fa': 'خانه',
+      'nl': 'Thuis',
+    },
+  },
+  // ForgotPasswordPage
+  {
+    'akc8n3xv': {
+      'en': 'Forgot Password',
+      'fa': 'رمز عبور را فراموش کرده‌ام',
+      'nl': 'Wachtwoord vergeten',
+    },
+    '7cx2kxrk': {
+      'en': 'Type your email, we will send you verification code via email',
+      'fa':
+          'ایمیل خود را وارد کنید، ما کد تأیید را از طریق ایمیل برای شما ارسال خواهیم کرد',
+      'nl': 'Typ uw e-mailadres, wij sturen u de verificatiecode via e-mail',
+    },
+    'ukwsa1lg': {
+      'en': '',
+      'fa': 'آدرس ایمیل',
+      'nl': 'E-mailadres',
+    },
+    'b9qhzbmh': {
+      'en': 'Email address',
+      'fa': 'آدرس ایمیل',
+      'nl': 'E-mailadres',
+    },
+    'tx1anksc': {
+      'en': 'please enter valid your email address.',
+      'fa': 'لطفا آدرس ایمیل معتبر خود را وارد کنید.',
+      'nl': 'Voer een geldig e-mailadres in.',
+    },
+    'dxfpl9nd': {
+      'en': 'please enter valid email address.',
+      'fa': 'لطفا آدرس ایمیل خود را وارد کنید.',
+      'nl': 'Vul uw e-mailadres in.',
+    },
+    'zwux5wuv': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+      'nl': 'Kies een optie uit de keuzelijst',
+    },
+    'pn42p7ja': {
+      'en': 'Continue',
+      'fa': 'ادامه',
+      'nl': 'Doorgaan',
+    },
+    'ns7bgfpq': {
+      'en': 'Home',
+      'fa': 'خانه',
+      'nl': 'Thuis',
+    },
+  },
+  // SignInPage
+  {
+    '3yjo0udr': {
+      'en': 'Welcome Back',
+      'fa': 'خوش آمدید',
+      'nl': 'Welkom terug',
+    },
+    '61yuoo32': {
+      'en': 'If your email isn’t verified,',
+      'fa': 'اگر ایمیل شما تأیید نشده است،',
+      'nl': 'Als uw e-mailadres niet is geverifieerd,',
+    },
+    '1pylrdnu': {
+      'en': ' click here. ',
+      'fa': 'اینجا کلیک کنید.',
+      'nl': 'Klik hier.',
+    },
+    '9amiwbff': {
+      'en': '',
+      'fa': '',
+      'nl': '',
+    },
+    'sdree3ti': {
+      'en': '',
+      'fa': 'ایمیل',
+      'nl': 'E-mail',
+    },
+    'lcqetisu': {
+      'en': 'Email',
+      'fa': '',
+      'nl': '',
+    },
+    'xpgw6kd9': {
+      'en': '',
+      'fa': 'رمز عبور',
+      'nl': 'Wachtwoord',
+    },
+    'pvqr5sid': {
+      'en': 'Password',
+      'fa': '',
+      'nl': '',
+    },
+    '8879mkr4': {
+      'en': 'Sign in',
+      'fa': 'ورود',
+      'nl': 'Aanmelden',
+    },
+    'nxmvn4ld': {
+      'en': 'Forgot password?',
+      'fa': 'رمز عبور را فراموش کرده‌اید؟',
+      'nl': 'Wachtwoord vergeten?',
+    },
+    'btvjsow4': {
+      'en': ' Click here ',
+      'fa': 'اینجا کلیک کنید',
+      'nl': 'Klik hier',
+    },
+    'c0foq102': {
+      'en': 'OR',
+      'fa': 'یا',
+      'nl': 'OF',
+    },
+    'qqhkk63r': {
+      'en': 'No account yet?',
+      'fa': 'هنوز حساب کاربری ندارید؟',
+      'nl': 'Nog geen account?',
+    },
+    'oc6h6d27': {
+      'en': ' Sign Up ',
+      'fa': 'ثبت نام',
+      'nl': 'Aanmelden',
+    },
+    't4mxpixd': {
+      'en': 'Continute as a',
+      'fa': 'ادامه به عنوان',
+      'nl': 'Ga door als een',
+    },
+    'c1gzecba': {
+      'en': ' Guest user ',
+      'fa': 'کاربر مهمان',
+      'nl': 'Gastgebruiker',
+    },
+    '0rujztpm': {
+      'en': 'Home',
+      'fa': 'خانه',
+      'nl': 'Thuis',
+    },
+  },
+  // DetailRentals
+  {
+    'i2k2zt4c': {
+      'en': 'Details',
+      'fa': 'جزئیات',
+      'nl': 'Details',
+    },
+    'kjzhkoro': {
+      'en': '5',
+      'fa': '۵',
+      'nl': '5',
+    },
+    '0t9ks399': {
+      'en': ' of ',
+      'fa': 'از',
+      'nl': 'van',
+    },
+    'xmtjj0up': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
+    },
+    '29bchon4': {
+      'en': 'Details about your ',
+      'fa': 'جزئیات مربوط به شما',
+      'nl': 'Gegevens over uw',
+    },
+    '11ou3mom': {
+      'en': 'Helps others understand your post',
+      'fa': 'به دیگران کمک می‌کند تا پست شما را درک کنند',
+      'nl': 'Helpt anderen uw bericht te begrijpen',
+    },
+    'kppmu4l4': {
+      'en': 'Title',
+      'fa': 'عنوان ',
+      'nl': 'Titel',
+    },
+    'sa73hg9f': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    'ay8axsb5': {
+      'en': 'Title',
+      'fa': 'توضیحات',
+      'nl': 'Beschrijving',
+    },
+    'zlpz83yb': {
+      'en': 'Description',
+      'fa': 'توضیحات',
+      'nl': 'Beschrijving',
+    },
+    'hv1h6cpr': {
+      'en': 'Location',
+      'fa': 'مکان ',
+      'nl': 'Locatie',
+    },
+    'pq8fwapd': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    'ucbi1b8k': {
+      'en': 'Title',
+      'fa': 'عنوان',
+      'nl': 'Titel',
+    },
+    'ki5vg6i3': {
+      'en': 'Select',
+      'fa': 'انتخاب کنید',
+      'nl': 'Selecteer',
+    },
+    'cw5hzgjx': {
+      'en': 'Search...',
+      'fa': 'جستجو...',
+      'nl': 'Zoekopdracht...',
+    },
+    'l47jxe8h': {
+      'en': 'None',
+      'fa': 'هیچکدام',
+      'nl': 'Geen',
+    },
+    'eml3sji2': {
+      'en': 'Per day',
+      'fa': 'در هر روز',
+      'nl': 'Per dag',
+    },
+    'oj36fxbg': {
+      'en': 'Per night',
+      'fa': 'به ازای هر شب',
+      'nl': 'Per nacht',
+    },
+    'y82pkapp': {
+      'en': 'Per week',
+      'fa': 'در هر هفته',
+      'nl': 'Per week',
+    },
+    '1dbbegru': {
+      'en': 'Per month',
+      'fa': 'در هر ماه',
+      'nl': 'Per maand',
+    },
+    'i6tytr32': {
+      'en': 'Per year',
+      'fa': 'در هر سال',
+      'nl': 'Per jaar',
+    },
+    'xedjp0yj': {
+      'en': 'Rental Type',
+      'fa': 'نوع اجاره',
+      'nl': 'Huurtype',
+    },
+    'uhl6xl97': {
+      'en': 'Long-Term',
+      'fa': 'بلندمدت',
+      'nl': 'Lange termijn',
+    },
+    'dv9t32fm': {
+      'en': 'Short-Term',
+      'fa': 'کوتاه مدت',
+      'nl': 'Korte termijn',
+    },
+    'wnwel91z': {
+      'en': 'Sublet',
+      'fa': 'اجاره فرعی',
+      'nl': 'Onderverhuren',
+    },
+    'v3s3ysuk': {
+      'en': 'Co-Living',
+      'fa': 'هم‌خانه‌ای',
+      'nl': 'Samenwonen',
+    },
+    'um5oamy8': {
+      'en': 'Flexible',
+      'fa': 'منعطف هستم',
+      'nl': 'Flexibele',
+    },
+    'j10xsxsq': {
+      'en': 'Total Area (m2):',
+      'fa': 'مساحت کل (متر مربع):',
+      'nl': 'Totale oppervlakte (m2):',
+    },
+    'q0a49sup': {
+      'en': '',
+      'fa': '',
+      'nl': '',
+    },
+    'jzba3thw': {
+      'en': 'Availability',
+      'fa': 'بازهٔ زمانی اجاره',
+      'nl': 'Beschikbaarheid',
+    },
+    'wfqzk6xv': {
+      'en': 'Price',
+      'fa': 'قیمت ',
+      'nl': 'Prijs',
+    },
+    'bwlsis03': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    'askqrnca': {
+      'en': 'Title',
+      'fa': 'عنوان',
+      'nl': 'Titel',
+    },
+    'k2h7igyv': {
+      'en': '',
+      'fa': '',
+      'nl': '',
+    },
+    '9l12r0f8': {
+      'en': 'per',
+      'fa': 'به ازای هر',
+      'nl': 'per',
+    },
+    '1r311j54': {
+      'en': 'Select..',
+      'fa': 'انتخاب کنید..',
+      'nl': 'Selecteer..',
+    },
+    'yye3471y': {
+      'en': 'Search...',
+      'fa': 'جستجو...',
+      'nl': 'Zoekopdracht...',
+    },
+    'ns6xe18s': {
+      'en': 'hour',
+      'fa': 'ساعت',
+      'nl': 'uur',
+    },
+    'aspkqw5u': {
+      'en': 'day',
+      'fa': 'روز',
+      'nl': 'dag',
+    },
+    '40j17v6f': {
+      'en': 'night',
+      'fa': 'شب',
+      'nl': 'nacht',
+    },
+    'n4x6bc4w': {
+      'en': 'week',
+      'fa': 'هفته',
+      'nl': 'week',
+    },
+    'wdzvygiw': {
+      'en': 'month',
+      'fa': 'ماه',
+      'nl': 'maand',
+    },
+    'gbggb7so': {
+      'en': 'year',
+      'fa': 'سال',
+      'nl': 'jaar',
+    },
+    'szljnmug': {
+      'en': 'Deposit:',
+      'fa': 'پیش پرداخت:',
+      'nl': 'Borg:',
+    },
+    '21etygi0': {
+      'en': '',
+      'fa': '',
+      'nl': '',
+    },
+    '9s1vxa8a': {
+      'en': 'Negotiable:',
+      'fa': 'قابل مذاکره:',
+      'nl': 'Bespreekbaar:',
+    },
+    'aq8lx81d': {
+      'en': 'Price',
+      'fa': 'قیمت ',
+      'nl': 'Prijs',
+    },
+    'f5dxvov0': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    'ip2kca01': {
+      'en': 'Title',
+      'fa': 'عنوان',
+      'nl': 'Titel',
+    },
+    '7ls3ku09': {
+      'en': 'Under €1,000',
+      'fa': 'زیر ۱۰۰۰ یورو',
+      'nl': 'Onder €1.000',
+    },
+    'f67n8tk2': {
+      'en': 'Under €2,000',
+      'fa': 'زیر ۲۰۰۰ یورو',
+      'nl': 'Onder € 2.000',
+    },
+    '12qd3c92': {
+      'en': 'Under €3000',
+      'fa': 'زیر ۳۰۰۰ یورو',
+      'nl': 'Onder €3000',
+    },
+    'eqb3di1t': {
+      'en': 'Any Price',
+      'fa': 'هر قیمتی',
+      'nl': 'Elke prijs',
+    },
+    '9ai0llrw': {
+      'en': 'Preferances',
+      'fa': 'ترجیحات',
+      'nl': 'Voorkeuren',
+    },
+    'd572bc3m': {
+      'en': 'Registration Needed/Possible?',
+      'fa': 'رجیستر لازم/ممکن است؟',
+      'nl': 'Registratie nodig/mogelijk?',
+    },
+    'k36l0tnz': {
+      'en': 'Furnished?',
+      'fa': 'مبله؟',
+      'nl': 'Gemeubileerd?',
+    },
+    '3jlbd3yl': {
+      'en': 'Utilities Included?',
+      'fa': 'شامل هزینه‌های قبوض؟',
+      'nl': 'incl. G/W/L',
+    },
+    'e1emmok0': {
+      'en': 'Next',
+      'fa': 'بعدی',
+      'nl': 'Volgende',
+    },
+    'hfdx27wx': {
+      'en': 'Some fields are left unfilled. Please try again.',
+      'fa': 'بعضی از فیلدها پر نشده‌اند. لطفاً دوباره امتحان کنید.',
+      'nl': 'Sommige velden zijn niet ingevuld. Probeer het opnieuw.',
+    },
+    'dnaxnao0': {
+      'en': 'Post',
+      'fa': 'پست',
+      'nl': 'Na',
+    },
+  },
+  // DetailSales
+  {
+    'umi1tia3': {
+      'en': 'Details',
+      'fa': 'جزئیات',
+      'nl': 'Details',
+    },
+    'gvahl0ml': {
+      'en': '4',
+      'fa': '۴',
+      'nl': '4',
+    },
+    'dlunofp8': {
+      'en': ' of ',
+      'fa': ' از ',
+      'nl': 'van',
+    },
+    'dzeetgze': {
+      'en': '6',
+      'fa': '۶',
+      'nl': '6',
+    },
+    'k6f3f1iv': {
+      'en': 'Details about your ',
+      'fa': 'جزئیات مربوط به شما',
+      'nl': 'Gegevens over uw',
+    },
+    'ktcoqfcb': {
+      'en': 'item to sell',
+      'fa': 'مورد برای فروش',
+      'nl': 'artikel om te verkopen',
+    },
+    'gbnahsqm': {
+      'en': 'Helps others understand your post',
+      'fa': 'به دیگران کمک می‌کند تا پست شما را درک کنند',
+      'nl': 'Helpt anderen uw bericht te begrijpen',
+    },
+    'qwkxclg5': {
+      'en': 'Title',
+      'fa': 'عنوان ',
+      'nl': 'Titel',
+    },
+    'uid3o1ba': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    '6p79tama': {
+      'en': 'Title',
+      'fa': 'توضیحات',
+      'nl': 'Beschrijving',
+    },
+    'cezqw3hd': {
+      'en': 'Title',
+      'fa': 'عنوان',
+      'nl': 'Titel',
+    },
+    'jyf96aez': {
+      'en': 'Description',
+      'fa': 'توضیحات',
+      'nl': 'Beschrijving',
+    },
+    '2clmj58s': {
+      'en': 'Location',
+      'fa': 'مکان ',
+      'nl': 'Locatie',
+    },
+    'vhrod4wd': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    'nu49eazr': {
+      'en': 'Title',
+      'fa': 'عنوان',
+      'nl': 'Titel',
+    },
+    '3zmhx945': {
+      'en': 'Select',
+      'fa': 'انتخاب کنید',
+      'nl': 'Selecteer',
+    },
+    'z5ykdy6b': {
+      'en': 'Search...',
+      'fa': 'جستجو...',
+      'nl': 'Zoekopdracht...',
+    },
+    'lnt7h57h': {
+      'en': 'None',
+      'fa': 'هیچکدام',
+      'nl': 'Geen',
+    },
+    'd15pcah3': {
+      'en': 'Per day',
+      'fa': 'در هر روز',
+      'nl': 'Per dag',
+    },
+    '0bpci57f': {
+      'en': 'Per night',
+      'fa': 'به ازای هر شب',
+      'nl': 'Per nacht',
+    },
+    'mnin06ya': {
+      'en': 'Per week',
+      'fa': 'در هر هفته',
+      'nl': 'Per week',
+    },
+    'iwpp6cwh': {
+      'en': 'Per month',
+      'fa': 'در هر ماه',
+      'nl': 'Per maand',
+    },
+    'rcpmo092': {
+      'en': 'Per year',
+      'fa': 'در هر سال',
+      'nl': 'Per jaar',
+    },
+    'z2lalgrq': {
+      'en': 'Condition',
+      'fa': 'وضعیت',
+      'nl': 'Voorwaarde',
+    },
+    '1a8kyuld': {
+      'en': 'New',
+      'fa': 'جدید',
+      'nl': 'Nieuw',
+    },
+    '5tp0a0dn': {
+      'en': 'Used - Like New',
+      'fa': 'کارکرده - مشابه نو',
+      'nl': 'Gebruikt - Als nieuw',
+    },
+    'l17abn2d': {
+      'en': 'Used - Fair',
+      'fa': 'کارکرده',
+      'nl': 'Gebruikt - Redelijk',
+    },
+    'n8939ymc': {
+      'en': 'Delivery',
+      'fa': 'تحویل',
+      'nl': 'Levering',
+    },
+    '35v6i4cg': {
+      'en': 'By Agreement',
+      'fa': 'طبق توافق',
+      'nl': 'In overleg',
+    },
+    'wjspq3vv': {
+      'en': 'Pick-Up Only',
+      'fa': ' تحویل حضوری',
+      'nl': 'Alleen afhalen',
+    },
+    '2zy9jngr': {
+      'en': 'Sent by Post',
+      'fa': 'ارسال  با پست',
+      'nl': 'Verzonden per post',
+    },
+    'n71xiclx': {
+      'en': 'Free Delivery',
+      'fa': 'تحویل رایگان',
+      'nl': 'Gratis bezorging',
+    },
+    'hrs92ace': {
+      'en': 'Price',
+      'fa': 'قیمت ',
+      'nl': 'Prijs',
+    },
+    'jj1dzjpn': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    'btea3nod': {
+      'en': 'Title',
+      'fa': 'عنوان',
+      'nl': 'Titel',
+    },
+    'g51z4ag3': {
+      'en': 'By Agreement',
+      'fa': 'طبق توافق',
+      'nl': 'In overleg',
+    },
+    '39711slm': {
+      'en': '',
+      'fa': '',
+      'nl': '',
+    },
+    't34cpmie': {
+      'en': 'price is required',
+      'fa': '',
+      'nl': '',
+    },
+    'nzdfm26i': {
+      'en': 'Please only use numbers.',
+      'fa': '',
+      'nl': '',
+    },
+    '0d4agwnm': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+      'nl': 'Kies een optie uit de keuzelijst',
+    },
+    'bdue310f': {
+      'en': 'Negotiable:',
+      'fa': 'قابل مذاکره:',
+      'nl': 'Bespreekbaar:',
+    },
+    'gsufvd5f': {
+      'en': 'Price Class',
+      'fa': 'کلاس قیمت',
+      'nl': 'Prijsklasse',
+    },
+    'lfw1zl4w': {
+      'en': 'Under €1,000',
+      'fa': 'زیر ۱۰۰۰ یورو',
+      'nl': 'Onder €1.000',
+    },
+    'cpveulx3': {
+      'en': 'Under €2,000',
+      'fa': 'زیر ۲۰۰۰ یورو',
+      'nl': 'Onder € 2.000',
+    },
+    'bh69sazu': {
+      'en': 'Under €3000',
+      'fa': 'زیر ۳۰۰۰ یورو',
+      'nl': 'Onder €3000',
+    },
+    't5bbbgfg': {
+      'en': 'Any Price',
+      'fa': 'هر قیمتی',
+      'nl': 'Elke prijs',
+    },
+    'zo4qiwvz': {
+      'en': 'Preferances',
+      'fa': 'ترجیحات',
+      'nl': 'Voorkeuren',
+    },
+    'psy1m1j2': {
+      'en': 'Open for swap?',
+      'fa': 'برای سوآپ باز شده؟',
+      'nl': 'Open voor ruil?',
+    },
+    'p31bqpjt': {
+      'en': 'Try item exchange, not just payment.',
+      'fa': 'مبادله کالا را امتحان کنید، نه فقط پرداخت.',
+      'nl': 'Probeer eens een artikel te ruilen, niet alleen betalen.',
+    },
+    '38e3zjus': {
+      'en': 'Please insert a wishlist for what you want in return.',
+      'fa':
+          'لطفاً یک لیست دلخواه برای آنچه که در ازای آن می‌خواهید، وارد کنید.',
+      'nl': 'Voeg een verlanglijstje toe met wat u in ruil daarvoor wenst.',
+    },
+    'ai0foikt': {
+      'en': '',
+      'fa': '',
+      'nl': '',
+    },
+    '3699a1sd': {
+      'en': 'What items are you looking to swap for?',
+      'fa': 'دنبال چه اقلامی برای تعویض هستید؟',
+      'nl': 'Voor welke artikelen wilt u ruilen?',
+    },
+    'oim5aeia': {
+      'en': 'Please use only letters, numbers, underscore or dot.',
+      'fa': '',
+      'nl': '',
+    },
+    'c4m2zo5w': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+      'nl': 'Kies een optie uit de keuzelijst',
+    },
+    'xxw4ioga': {
+      'en': 'Next',
+      'fa': 'بعدی',
+      'nl': 'Volgende',
+    },
+    'fha4ecx7': {
+      'en': 'Some fields are left unfilled. Please try again.',
+      'fa': 'بعضی از فیلدها پر نشده‌اند. لطفاً دوباره امتحان کنید.',
+      'nl': 'Sommige velden zijn niet ingevuld. Probeer het opnieuw.',
+    },
+    'whxo726d': {
+      'en': 'Post',
+      'fa': 'پست',
+      'nl': 'Na',
+    },
+  },
   // DetailSwapItems
   {
     'aozmhw4u': {
@@ -2436,30 +3442,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'به دیگران کمک می‌کند تا پست شما را درک کنند',
       'nl': 'Helpt anderen uw bericht te begrijpen',
     },
-    'yrq89ts4': {
+    'cv90p5dl': {
       'en': 'Title',
-      'fa': '',
-      'nl': '',
-    },
-    '1t2ybuxp': {
-      'en': ' (Required)',
-      'fa': '',
-      'nl': '',
-    },
-    '8qub49xp': {
-      'en': 'Title',
-      'fa': 'عنوان',
+      'fa': 'عنوان ',
       'nl': 'Titel',
+    },
+    'fpy7w5hu': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    '1ut8e6mi': {
+      'en': 'Title',
+      'fa': 'توضیحات',
+      'nl': 'Beschrijving',
     },
     '2u4xggi7': {
       'en': 'Description',
-      'fa': '',
-      'nl': '',
-    },
-    'sjh0ulkv': {
-      'en': ' (Required)',
-      'fa': '',
-      'nl': '',
+      'fa': 'توضیحات',
+      'nl': 'Beschrijving',
     },
     '49m211ow': {
       'en': 'Description',
@@ -2468,13 +3469,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'x24er6a4': {
       'en': 'Location',
-      'fa': '',
-      'nl': '',
+      'fa': 'مکان ',
+      'nl': 'Locatie',
     },
     'b96va8w1': {
       'en': ' (Required)',
-      'fa': '',
-      'nl': '',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
     },
     'zvyse8ai': {
       'en': 'Location',
@@ -2523,13 +3524,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '5hgb5wf6': {
       'en': 'Deliverye',
-      'fa': '',
-      'nl': '',
-    },
-    'hrtd2q5g': {
-      'en': ' (Required)',
-      'fa': '',
-      'nl': '',
+      'fa': 'تحویل',
+      'nl': 'Bezorging',
     },
     'mjs3qjgz': {
       'en': 'Delivery',
@@ -2634,17 +3630,37 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'به دیگران کمک می‌کند تا پست شما را درک کنند',
       'nl': 'Helpt anderen uw bericht te begrijpen',
     },
-    'vq94tkzh': {
+    'bgxda55q': {
       'en': 'Title',
-      'fa': 'عنوان',
+      'fa': 'عنوان ',
       'nl': 'Titel',
+    },
+    'r2u3mqxd': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    '1u9jn7ri': {
+      'en': 'Title',
+      'fa': 'توضیحات',
+      'nl': 'Beschrijving',
     },
     '0g05oij9': {
       'en': 'Description',
       'fa': 'توضیحات',
       'nl': 'Beschrijving',
     },
-    'nxl1a5ul': {
+    '7onzx77b': {
+      'en': 'Location',
+      'fa': 'مکان ',
+      'nl': 'Locatie',
+    },
+    'edszvk49': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    'bpjablf9': {
       'en': 'Location',
       'fa': 'مکان',
       'nl': 'Locatie',
@@ -2710,8 +3726,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': '',
     },
     '6fm7r7ko': {
-      'en': 'Compensation (optional)',
-      'fa': 'پاداش (اختیاری)',
+      'en': 'Compensation ',
+      'fa': 'پاداش',
       'nl': 'Compensatie',
     },
     'lx9z68l6': {
@@ -2782,30 +3798,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'به دیگران کمک می‌کند تا پست شما را درک کنند',
       'nl': 'Helpt anderen uw bericht te begrijpen',
     },
-    'lezz4mlq': {
-      'en': 'Title',
-      'fa': '',
-      'nl': '',
+    '7vjj7au0': {
+      'en': 'Title ',
+      'fa': 'عنوان ',
+      'nl': 'Titel ',
     },
-    'wzhz4wlc': {
-      'en': ' (Required)',
-      'fa': '',
-      'nl': '',
+    '27ffy7ce': {
+      'en': '(Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
     },
-    's8iqcgar': {
+    '87axjl2m': {
       'en': 'Title',
-      'fa': 'عنوان',
-      'nl': 'Titel',
+      'fa': 'توضیحات',
+      'nl': 'Beschrijving',
     },
     'fzkvd1wu': {
       'en': 'Description',
-      'fa': '',
-      'nl': '',
-    },
-    '1x0t4843': {
-      'en': ' (Required)',
-      'fa': '',
-      'nl': '',
+      'fa': 'توضیحات',
+      'nl': 'Beschrijving',
     },
     '7lwejce8': {
       'en': 'Description',
@@ -2813,14 +3824,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Beschrijving',
     },
     'boiwnof2': {
-      'en': 'Location & Time',
-      'fa': '',
-      'nl': '',
-    },
-    'lfzdhox1': {
-      'en': ' (Required)',
-      'fa': '',
-      'nl': '',
+      'en': 'Location',
+      'fa': 'مکان',
+      'nl': 'Locatie',
     },
     '86dxy2w2': {
       'en': 'Location & Time',
@@ -2887,20 +3893,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
       'nl': 'Kies een optie uit de keuzelijst',
     },
-    'zjr31iza': {
-      'en': 'Event Date:',
-      'fa': 'تاریخ رویداد:',
-      'nl': 'Evenementdatum:',
+    '9wn9lduj': {
+      'en': 'Event date',
+      'fa': 'تاریخ رویداد ',
+      'nl': 'Datum van het evenement',
+    },
+    'uc4eiu1m': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    '6kc49nek': {
+      'en': 'Location & Time',
+      'fa': 'مکان و زمان',
+      'nl': 'Locatie en tijd',
     },
     'u1em63oh': {
       'en': 'Quantity',
-      'fa': '',
-      'nl': '',
-    },
-    'jjn035dr': {
-      'en': ' (Required)',
-      'fa': '',
-      'nl': '',
+      'fa': 'تعداد',
+      'nl': 'Hoeveelheid',
     },
     '1hzunx06': {
       'en': 'Quantity',
@@ -2922,20 +3933,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': '',
       'nl': '',
     },
-    'vflwt5pj': {
+    'cy0b9vxh': {
       'en': 'Please choose an option from the dropdown',
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
       'nl': 'Kies een optie uit de keuzelijst',
     },
     'zhxhx7nz': {
       'en': 'Price',
-      'fa': '',
-      'nl': '',
+      'fa': 'قیمت ',
+      'nl': 'Prijs',
     },
     'w82qbv05': {
       'en': ' (Required)',
-      'fa': '',
-      'nl': '',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
     },
     'wg4o51ol': {
       'en': 'Price',
@@ -2947,6 +3958,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'طبق توافق:',
       'nl': 'In overleg:',
     },
+    'v2nqg7nl': {
+      'en': 'Asking price:',
+      'fa': 'قیمت درخواستی:',
+      'nl': 'Vraagprijs:',
+    },
     'o34zrvkm': {
       'en': '',
       'fa': '',
@@ -2957,15 +3973,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': '',
       'nl': '',
     },
-    '4gjdl0io': {
+    'kwfhrqmb': {
       'en': 'Please choose an option from the dropdown',
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
       'nl': 'Kies een optie uit de keuzelijst',
-    },
-    'yq4oenko': {
-      'en': 'Negotiable:',
-      'fa': 'قابل مذاکره:',
-      'nl': 'Bespreekbaar:',
     },
     'ywa3czll': {
       'en': 'Preferances',
@@ -3003,7 +4014,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': '',
       'nl': '',
     },
-    'x9yhqtds': {
+    'hizsz38c': {
       'en': 'Please choose an option from the dropdown',
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
       'nl': 'Kies een optie uit de keuzelijst',
@@ -3061,25 +4072,45 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'به دیگران کمک می‌کند تا پست شما را درک کنند',
       'nl': 'Helpt anderen uw bericht te begrijpen',
     },
+    'up2ta9ww': {
+      'en': 'Title',
+      'fa': 'عنوان ',
+      'nl': 'Titel',
+    },
+    '99v6dg6a': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
     '9v80v1z3': {
       'en': 'Title',
       'fa': 'توضیحات',
       'nl': 'Beschrijving',
     },
-    'fn5dgh3u': {
-      'en': '*',
-      'fa': '',
-      'nl': '',
+    'aejy66te': {
+      'en': 'Description',
+      'fa': 'توضیحات',
+      'nl': 'Beschrijving',
     },
     'i86k6q1i': {
       'en': 'Description',
       'fa': 'توضیحات',
       'nl': 'Beschrijving',
     },
-    'o9653wwb': {
+    'fu13hyq8': {
       'en': 'Location',
-      'fa': 'مکان',
+      'fa': 'مکان ',
       'nl': 'Locatie',
+    },
+    '74budv98': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    'ocs27qib': {
+      'en': 'Title',
+      'fa': 'عنوان',
+      'nl': 'Titel',
     },
     '2ajc4s5u': {
       'en': 'Select',
@@ -3121,10 +4152,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'در هر سال',
       'nl': 'Per jaar',
     },
-    'li7evtos': {
+    '2a1ecntj': {
       'en': 'Currency',
-      'fa': 'ارز',
+      'fa': 'ارز ',
       'nl': 'Munteenheid',
+    },
+    '7pddggty': {
+      'en': ' (Required)',
+      'fa': '',
+      'nl': '',
+    },
+    '04l8zzj9': {
+      'en': 'Title',
+      'fa': 'عنوان',
+      'nl': 'Titel',
     },
     'e04ggwe7': {
       'en': 'Euro',
@@ -3146,20 +4187,30 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'مبلغ',
       'nl': 'Hoeveelheid',
     },
+    'jsgjzpxv': {
+      'en': 'Amount is required.',
+      'fa': '',
+      'nl': '',
+    },
     'jpjzjfc1': {
       'en': 'Numbers only.',
       'fa': '',
       'nl': '',
     },
-    'bqy92p76': {
+    'akjaxpph': {
       'en': 'Please choose an option from the dropdown',
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
       'nl': 'Kies een optie uit de keuzelijst',
     },
-    '1b3l59px': {
-      'en': '*',
-      'fa': '',
-      'nl': '',
+    'ru8gnuid': {
+      'en': 'Price',
+      'fa': 'قیمت ',
+      'nl': 'Prijs',
+    },
+    '8lyrwkv8': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
     },
     'samgtsrz': {
       'en': 'Price',
@@ -3181,7 +4232,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': '',
       'nl': '',
     },
-    'c4sbf9x9': {
+    'ah7br8wz': {
       'en': 'Please choose an option from the dropdown',
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
       'nl': 'Kies een optie uit de keuzelijst',
@@ -3232,179 +4283,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Na',
     },
   },
-  // DetailCareAndAssistance
-  {
-    'w01m58me': {
-      'en': 'Details',
-      'fa': 'جزئیات',
-      'nl': 'Details',
-    },
-    'mkecadja': {
-      'en': '5',
-      'fa': '۵',
-      'nl': '5',
-    },
-    'zkms5fe1': {
-      'en': ' of ',
-      'fa': 'از',
-      'nl': 'van',
-    },
-    'kpg0fdit': {
-      'en': '6',
-      'fa': '۶',
-      'nl': '6',
-    },
-    'qjuj07rg': {
-      'en': 'Details about your',
-      'fa': 'جزئیات مربوط به شما',
-      'nl': 'Gegevens over uw',
-    },
-    'nga3ya0w': {
-      'en': 'support post',
-      'fa': 'پست پشتیبانی',
-      'nl': 'ondersteuningspost',
-    },
-    'i1n166r0': {
-      'en': 'Helps others understand your post',
-      'fa': 'به دیگران کمک می‌کند تا پست شما را درک کنند',
-      'nl': 'Helpt anderen uw bericht te begrijpen',
-    },
-    'uzhr4z1s': {
-      'en': 'Title',
-      'fa': 'عنوان',
-      'nl': 'Titel',
-    },
-    '9ph8lxsc': {
-      'en': 'Description',
-      'fa': 'توضیحات',
-      'nl': 'Beschrijving',
-    },
-    'wpdfqsiq': {
-      'en': 'Location',
-      'fa': 'مکان',
-      'nl': 'Locatie',
-    },
-    '2nl17z9d': {
-      'en': 'Select',
-      'fa': 'انتخاب کنید',
-      'nl': 'Selecteer',
-    },
-    'o9wthtmb': {
-      'en': 'Search...',
-      'fa': 'جستجو...',
-      'nl': 'Zoekopdracht...',
-    },
-    '6x3fojhi': {
-      'en': 'None',
-      'fa': 'هیچکدام',
-      'nl': 'Geen',
-    },
-    '8javjnda': {
-      'en': 'Per day',
-      'fa': 'در هر روز',
-      'nl': 'Per dag',
-    },
-    'bbophh0r': {
-      'en': 'Per night',
-      'fa': 'به ازای هر شب',
-      'nl': 'Per nacht',
-    },
-    'j77cpnnt': {
-      'en': 'Per week',
-      'fa': 'در هر هفته',
-      'nl': 'Per week',
-    },
-    'das7goho': {
-      'en': 'Per month',
-      'fa': 'در هر ماه',
-      'nl': 'Per maand',
-    },
-    '48h09fsy': {
-      'en': 'Per year',
-      'fa': 'در هر سال',
-      'nl': 'Per jaar',
-    },
-    'yc6m1j1g': {
-      'en': 'Deadline',
-      'fa': 'مهلت',
-      'nl': 'Termijn',
-    },
-    'zi6grwu2': {
-      'en': 'Compensation',
-      'fa': 'جبران خسارت',
-      'nl': 'Compensatie',
-    },
-    'lvwzfby4': {
-      'en': 'Free help appreciated',
-      'fa': 'کمک رایگان مورد تقدیر است',
-      'nl': 'Gratis hulp wordt gewaardeerd',
-    },
-    '20xkyxrc': {
-      'en': 'Can offer something back',
-      'fa': 'حاضر به پرداخت در عوض',
-      'nl': 'Kan iets terugdoen',
-    },
-    'jy7n8fge': {
-      'en': 'Flexible',
-      'fa': 'انعطاف‌پذیر',
-      'nl': 'Flexibele',
-    },
-    'lwx39hgw': {
-      'en': 'Free / Just helping',
-      'fa': 'رایگان صرفآ برای کمک',
-      'nl': 'Gratis / Gewoon helpen',
-    },
-    '5gulvjxg': {
-      'en': 'Give what you feel',
-      'fa': 'پاداش می پذیرد',
-      'nl': 'Geef wat je voelt',
-    },
-    'gwy1uxk4': {
-      'en': 'Flexible',
-      'fa': 'انعطاف‌پذیر',
-      'nl': 'Flexibele',
-    },
-    '83sc63g8': {
-      'en': 'Preferances',
-      'fa': 'ترجیحات',
-      'nl': 'Voorkeuren',
-    },
-    'g140snbx': {
-      'en': 'Open for swap?',
-      'fa': 'برای سوآپ باز شده؟',
-      'nl': 'Open voor ruil?',
-    },
-    'okfhv1oq': {
-      'en': 'Please insert a wishlist of what you want in return',
-      'fa': 'لطفا لیست آرزوهایی از آنچه در ازای آن می‌خواهید را وارد کنید',
-      'nl': 'Voeg een verlanglijstje toe met wat u in ruil daarvoor wilt',
-    },
-    'qs36tiph': {
-      'en': '',
-      'fa': '',
-      'nl': '',
-    },
-    'jz0m4wkl': {
-      'en': 'What items are you looking to swap for?',
-      'fa': 'دنبال چه اقلامی برای تعویض هستید؟',
-      'nl': 'Welke artikelen wilt u ruilen?',
-    },
-    '8nx9yjx1': {
-      'en': 'Next',
-      'fa': 'بعدی',
-      'nl': 'Volgende',
-    },
-    'v6o4kog0': {
-      'en': 'Some fields are left unfilled. Please try again.',
-      'fa': 'بعضی از فیلدها پر نشده‌اند. لطفاً دوباره امتحان کنید.',
-      'nl': 'Sommige velden zijn niet ingevuld. Probeer het opnieuw.',
-    },
-    'z7r4lvjf': {
-      'en': 'Post',
-      'fa': 'پست',
-      'nl': 'Na',
-    },
-  },
   // DetailEvents
   {
     'a4rd6rwz': {
@@ -3442,25 +4320,50 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'به دیگران کمک می‌کند تا پست شما را درک کنند',
       'nl': 'Helpt anderen uw bericht te begrijpen',
     },
-    '33qd6vje': {
+    'ppla8xci': {
+      'en': 'Title',
+      'fa': 'عنوان ',
+      'nl': 'Titel',
+    },
+    'strlv9ab': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    '4a9wkkyo': {
       'en': 'Title',
       'fa': 'عنوان',
       'nl': 'Titel',
     },
-    'z4ekb2qy': {
+    'opi2sqt4': {
       'en': 'Description',
-      'fa': 'توضیحات',
+      'fa': 'توضیحات ',
       'nl': 'Beschrijving',
     },
-    'wz0ot8v5': {
-      'en': 'Location',
-      'fa': 'مکان',
-      'nl': 'Locatie',
+    '7y67et3l': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
     },
-    '3k7x9zzh': {
-      'en': 'City:',
-      'fa': 'شهر:',
-      'nl': 'Stad:',
+    'rmybvpvh': {
+      'en': 'Title',
+      'fa': 'عنوان',
+      'nl': 'Titel',
+    },
+    '09amkrw2': {
+      'en': 'City',
+      'fa': 'شهر ',
+      'nl': 'Stad',
+    },
+    'ss5agje3': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    'mc547lfz': {
+      'en': 'Title',
+      'fa': 'عنوان',
+      'nl': 'Titel',
     },
     '4g9jglj2': {
       'en': 'Select',
@@ -3502,9 +4405,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'در هر سال',
       'nl': 'Per jaar',
     },
+    'ifzhja22': {
+      'en': 'Location',
+      'fa': 'مکان',
+      'nl': 'Locatie',
+    },
+    'xtvh4vqr': {
+      'en': 'Title',
+      'fa': 'عنوان',
+      'nl': 'Titel',
+    },
     'eu0y6r9j': {
       'en': 'Venue Name:',
-      'fa': 'نام محل برگزاری:',
+      'fa': ' محل برگزاری:',
       'nl': 'Locatienaam:',
     },
     'fopi64hs': {
@@ -3522,10 +4435,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': '',
       'nl': '',
     },
-    'i1z8dk0h': {
+    'daskf7wj': {
       'en': 'Date & Time',
-      'fa': 'تاریخ و زمان',
+      'fa': 'تاریخ و زمان ',
       'nl': 'Datum en tijd',
+    },
+    'xi7mehit': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    'o49y0q9x': {
+      'en': 'Title',
+      'fa': 'عنوان',
+      'nl': 'Titel',
     },
     'cx5qymde': {
       'en': 'Starts at:',
@@ -3592,27 +4515,27 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': '',
       'nl': '',
     },
-    '5ljejcqn': {
+    '4az19dcp': {
       'en': 'Please choose an option from the dropdown',
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
       'nl': 'Kies een optie uit de keuzelijst',
     },
-    '3m59iq7m': {
+    'egic0chx': {
       'en': 'Capacity:',
       'fa': 'ظرفیت:',
       'nl': 'Capaciteit:',
     },
-    '5ehf3v36': {
+    'w8yj3z4v': {
       'en': '',
       'fa': '',
       'nl': '',
     },
-    'y0o3czo1': {
+    'i5y5g8f3': {
       'en': 'Numbers only.',
       'fa': '',
       'nl': '',
     },
-    '8dddndt3': {
+    'kwovhug0': {
       'en': 'Please choose an option from the dropdown',
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
       'nl': 'Kies een optie uit de keuzelijst',
@@ -3640,12 +4563,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'دنبال چه اقلامی برای تعویض هستید؟',
       'nl': 'Voor welke artikelen wilt u ruilen?',
     },
-    '78ks6xrw': {
+    'm77mofj6': {
       'en': 'Next',
       'fa': 'بعدی',
       'nl': 'Volgende',
     },
-    'x84mpl8h': {
+    '6h8k0agb': {
       'en': 'Some fields are left unfilled. Please try again.',
       'fa': 'بعضی از فیلدها پر نشده‌اند. لطفاً دوباره امتحان کنید.',
       'nl': 'Sommige velden zijn niet ingevuld. Probeer het opnieuw.',
@@ -3654,14 +4577,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Post',
       'fa': 'پست',
       'nl': 'Na',
-    },
-  },
-  // FinalizedLogin
-  {
-    'o0gdhtwy': {
-      'en': 'Home',
-      'fa': 'خانه',
-      'nl': 'Thuis',
     },
   },
   // DetailSkills
@@ -3701,20 +4616,40 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'به دیگران کمک می‌کند تا پست شما را درک کنند',
       'nl': 'Helpt anderen uw bericht te begrijpen',
     },
-    'utuzbcuw': {
+    'lnf30bb3': {
       'en': 'Title',
-      'fa': 'عنوان',
+      'fa': 'عنوان ',
       'nl': 'Titel',
+    },
+    'kq9ifooi': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    '1fnddo0c': {
+      'en': 'Title',
+      'fa': 'توضیحات',
+      'nl': 'Beschrijving',
     },
     '44bmawcn': {
       'en': 'Description',
       'fa': 'توضیحات',
       'nl': 'Beschrijving',
     },
-    '34tuhuw3': {
+    'g1vue3up': {
       'en': 'Location',
-      'fa': 'مکان',
+      'fa': 'مکان ',
       'nl': 'Locatie',
+    },
+    'oe23a2yo': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    'tv86pb8i': {
+      'en': 'Title',
+      'fa': 'عنوان',
+      'nl': 'Titel',
     },
     '7qg0csfd': {
       'en': 'Select',
@@ -3781,10 +4716,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'مکان توافقی',
       'nl': 'Flexibele',
     },
-    '77i3cx3i': {
+    'jfc1fzge': {
       'en': 'Price',
-      'fa': 'قیمت',
+      'fa': 'قیمت ',
       'nl': 'Prijs',
+    },
+    '1i3m93gc': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    '3a30ogsw': {
+      'en': 'Title',
+      'fa': 'عنوان',
+      'nl': 'Titel',
     },
     'ah037la4': {
       'en': 'By Agreement',
@@ -3806,7 +4751,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': '',
       'nl': '',
     },
-    'g0e0moz1': {
+    'e2h9x4bx': {
       'en': 'Please choose an option from the dropdown',
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
       'nl': 'Kies een optie uit de keuzelijst',
@@ -3960,7 +4905,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Maak een nieuw wachtwoord aan om in te loggen',
     },
     '0peyon7h': {
-      'en': 'New password',
+      'en': '',
       'fa': 'رمز عبور جدید',
       'nl': 'Nieuw wachtwoord',
     },
@@ -3969,8 +4914,24 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'رمز عبور جدید',
       'nl': 'Nieuw wachtwoord',
     },
+    'hi90ebrv': {
+      'en': 'New password is required',
+      'fa': '',
+      'nl': '',
+    },
+    'affwd438': {
+      'en':
+          '- At least one uppercase letter\n- At least one digit\n- At least 8 characters ',
+      'fa': '',
+      'nl': '',
+    },
+    'if02ot3s': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+      'nl': 'Kies een optie uit de keuzelijst',
+    },
     'e3y7muka': {
-      'en': 'Confirm password',
+      'en': '',
       'fa': 'تأیید رمز عبور',
       'nl': 'Bevestig wachtwoord',
     },
@@ -3979,40 +4940,28 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'تأیید رمز عبور',
       'nl': 'Bevestig wachtwoord',
     },
+    'yk1e4onw': {
+      'en': 'Confirm password is required',
+      'fa': '',
+      'nl': '',
+    },
+    'hmydixxt': {
+      'en':
+          '- At least one uppercase letter\n- At least one digit\n- At least 8 characters ',
+      'fa': '',
+      'nl': '',
+    },
+    'd0e48qpa': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+      'nl': 'Kies een optie uit de keuzelijst',
+    },
     'tvflwo86': {
       'en': 'Reset password',
       'fa': 'بازنشانی رمز عبور',
       'nl': 'Wachtwoord opnieuw instellen',
     },
-    'rfogeldx': {
-      'en': 'Please enter valid new password.',
-      'fa': 'لطفا رمز عبور جدید معتبری وارد کنید.',
-      'nl': 'Voer een nieuw, geldig wachtwoord in.',
-    },
-    '91ioakpl': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-      'nl': 'Kies een optie uit de keuzelijst',
-    },
-    '22lxza13': {
-      'en': 'please enter valid confirm passsword.',
-      'fa': 'لطفا رمز عبور معتبر وارد کنید.',
-      'nl': 'Voer een geldig bevestigingswachtwoord in.',
-    },
-    'cqusyo0b': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-      'nl': 'Kies een optie uit de keuzelijst',
-    },
     'wnv1c0l4': {
-      'en': 'Home',
-      'fa': 'خانه',
-      'nl': 'Thuis',
-    },
-  },
-  // Splash
-  {
-    'twp4gkdv': {
       'en': 'Home',
       'fa': 'خانه',
       'nl': 'Thuis',
@@ -4073,7 +5022,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'kyzdos39': {
       'en': 'Skilled professionals, helpers, experts',
       'fa': 'متخصصان ماهر، مددکاران، متخصصان',
-      'nl': 'Vakkundige professionals, helpers, experts',
+      'nl': 'Professionals, helpers, experts',
     },
     'riperam9': {
       'en': 'Events & \nAnnouncements',
@@ -4085,116 +5034,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'میزبانی رویدادها  یا اطلاعیه ها',
       'nl': 'Evenementen organiseren of aankondigen',
     },
-    'beewftzt': {
-      'en': 'Next',
-      'fa': 'بعدی',
-      'nl': 'Volgende',
-    },
     'kg4285e0': {
       'en': 'Home',
       'fa': '',
       'nl': '',
-    },
-  },
-  // ChatPage
-  {
-    'au6wzutq': {
-      'en': 'Chats',
-      'fa': 'چت‌ها',
-      'nl': 'Chatten',
-    },
-    '4nojqmye': {
-      'en': 'All',
-      'fa': 'همه',
-      'nl': 'Alle',
-    },
-    'e248wdxf': {
-      'en': 'My Posts',
-      'fa': 'پست‌های من',
-      'nl': 'Mijn berichten',
-    },
-    'pspduh98': {
-      'en': 'Other\'s Posts',
-      'fa': 'پست‌های دیگران',
-      'nl': 'van anderen',
-    },
-    '9bsrpmk4': {
-      'en': 'Yekja',
-      'fa': 'یکجا',
-      'nl': 'Yekja',
-    },
-    'i9836zr0': {
-      'en': 'Delete chat',
-      'fa': 'حذف چت',
-      'nl': 'Chat verwijderen',
-    },
-    'n958loab': {
-      'en': 'Press confirm if you intend to delete this chat.',
-      'fa': 'اگر قصد حذف این چت را دارید، تأیید را فشار دهید.',
-      'nl': 'Klik op Bevestigen als u deze chat wilt verwijderen.',
-    },
-    '46z72kp3': {
-      'en': 'Cancel',
-      'fa': 'لغو',
-      'nl': 'Annuleren',
-    },
-    'lkl0kp7h': {
-      'en': 'Confirm',
-      'fa': 'تأیید',
-      'nl': 'Bevestigen',
-    },
-    '5g28h2j2': {
-      'en': 'Home',
-      'fa': 'خانه',
-      'nl': 'Thuis',
-    },
-  },
-  // SearchPage
-  {
-    'h96yelv3': {
-      'en': 'Searh Results',
-      'fa': 'نتایج جستجو',
-      'nl': 'Zoekresultaten',
-    },
-    '1je8wpdn': {
-      'en': 'Filter',
-      'fa': 'فیلتر',
-      'nl': 'Filter',
-    },
-    'qrvkaa77': {
-      'en': '',
-      'fa': '',
-      'nl': '',
-    },
-    '7uu9uavl': {
-      'en': 'Search',
-      'fa': 'جستجو',
-      'nl': 'Zoekopdracht',
-    },
-    'q4ar00pn': {
-      'en': 'Option 1',
-      'fa': 'گزینه ۱',
-      'nl': 'Optie 1',
-    },
-    '0dfm2rcn': {
-      'en': '',
-      'fa': '',
-      'nl': '',
-    },
-    'kd5mjjjg': {
-      'en': 'Search',
-      'fa': 'جستجو',
-      'nl': 'Zoekopdracht',
-    },
-    '8b3no9i7': {
-      'en': 'Option 1',
-      'fa': 'گزینه ۱',
-      'nl': 'Optie 1',
-    },
-    'gak00fpr': {
-      'en': 'Home',
-      'fa': 'خانه',
-      'nl': 'Thuis',
     },
   },
   // HomePage
@@ -4233,44 +5076,29 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'VRIJWILLIGE STEUN',
     },
     'c8a9ytss': {
-      'en': 'COMMUNITY MARKET',
+      'en': 'MARKET',
       'fa': 'بازار محلی',
       'nl': 'GEMEENSCHAPSMARKT',
     },
     'yvetgowh': {
-      'en': 'SKILLS & EXPERTISE',
-      'fa': 'مهارت‌ها و تخصص‌ها',
-      'nl': 'VAARDIGHEDEN & EXPERTISE',
+      'en': 'SERVICES & JOBS',
+      'fa': 'خدمات و مشاغل',
+      'nl': 'DIENSTEN & BANEN',
     },
     'abmw58ok': {
-      'en': 'EVENTS & ANNOUNCMENTS',
-      'fa': 'رویدادها و اطلاعیه‌ها',
-      'nl': 'EVENEMENTEN & AANKONDIGINGEN',
+      'en': 'EVENTS',
+      'fa': 'رویدادها',
+      'nl': 'EVENEMENTEN ',
     },
-    'pmzri2ub': {
-      'en': 'Careers & Networking',
-      'fa': 'فرصت‌های شغلی و شبکه‌سازی',
-      'nl': 'Carrière & Netwerken',
-    },
-    'j3hbpsji': {
-      'en': 'This feature is \nlaunching soon!',
-      'fa': 'این قابلیت به زودی راه‌اندازی می‌شود!',
-      'nl': 'Deze functie\nwordt binnenkort gelanceerd!',
-    },
-    's2nj1c3x': {
-      'en': 'Businesses',
-      'fa': 'کسب و کارها',
-      'nl': 'Bedrijven',
-    },
-    'usbpkb74': {
+    '8dfujp78': {
       'en': 'Trending Categories',
       'fa': 'دسته بندی های پرطرفدار',
       'nl': 'Trending Categorieën',
     },
     'qd2458pn': {
-      'en': 'News',
-      'fa': 'اخبار',
-      'nl': 'Nieuws',
+      'en': 'Yekja News',
+      'fa': 'اخبار یکجا',
+      'nl': 'Yekja  Nieuws',
     },
     '4827h0f4': {
       'en': 'How It Works?',
@@ -4383,180 +5211,24 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'خروج از سیستم',
       'nl': 'Uitloggen',
     },
+    'tnztnh23': {
+      'en': 'Change Mode',
+      'fa': 'تغییر حالت',
+      'nl': 'Wijzig modus',
+    },
+    'rvlr7itp': {
+      'en': 'Check FAQ',
+      'fa': 'سوالات متداول',
+      'nl': 'Bekijk de FAQ',
+    },
+    'q7f37eyf': {
+      'en': 'Join Yekja',
+      'fa': 'به یکجا بپیوندید',
+      'nl': 'Sluit je aan',
+    },
     'qv3strvd': {
       'en': '',
       'fa': '',
-      'nl': '',
-    },
-  },
-  // MainPage
-  {
-    'q6o9bjar': {
-      'en': 'Market',
-      'fa': 'بازار محلی',
-      'nl': 'Gemeenschapsmarkt',
-    },
-    'z03svtjd': {
-      'en': 'Sort by',
-      'fa': 'مرتب سازی',
-      'nl': 'Sorteren op',
-    },
-    'etjsqje0': {
-      'en': 'Search...',
-      'fa': 'جستجو...',
-      'nl': 'Zoekopdracht...',
-    },
-    'dvxs0iu7': {
-      'en': 'Recent',
-      'fa': 'اخیر',
-      'nl': 'Recent',
-    },
-    'x8u4gjyb': {
-      'en': 'Popular',
-      'fa': 'محبوب',
-      'nl': 'Populair',
-    },
-    '7w4oeybw': {
-      'en': 'Voluntary Support',
-      'fa': 'پشتیبانی داوطلبانه',
-      'nl': 'Vrijwillige ondersteuning',
-    },
-    'czt2og66': {
-      'en': 'Sort by',
-      'fa': 'مرتب سازی',
-      'nl': 'Sorteren op',
-    },
-    '2lmf4r3c': {
-      'en': 'Search...',
-      'fa': 'جستجو...',
-      'nl': 'Zoekopdracht...',
-    },
-    'q09sh78q': {
-      'en': 'Recent',
-      'fa': 'اخیر',
-      'nl': 'Recent',
-    },
-    'c6z26gh2': {
-      'en': 'Popular',
-      'fa': 'محبوب',
-      'nl': 'Populair',
-    },
-    'lfm1ojnf': {
-      'en': 'Become a Volunteer',
-      'fa': 'داوطلب شوید',
-      'nl': 'Word vrijwilliger',
-    },
-    '1y5mye93': {
-      'en': 'Services & Jobs',
-      'fa': 'خدمات',
-      'nl': 'Diensten',
-    },
-    'hpek7i7b': {
-      'en': 'Sort by',
-      'fa': 'مرتب سازی',
-      'nl': 'Sorteren op',
-    },
-    '1vqz4ewc': {
-      'en': 'Search...',
-      'fa': 'جستجو...',
-      'nl': 'Zoekopdracht...',
-    },
-    'mf3wf9bs': {
-      'en': 'Recent',
-      'fa': 'اخیر',
-      'nl': 'Recent',
-    },
-    '0vfuan47': {
-      'en': 'Popular',
-      'fa': 'محبوب',
-      'nl': 'Populair',
-    },
-    'm0ad92yp': {
-      'en': 'Advertise a Job',
-      'fa': 'آگهی استخدام',
-      'nl': 'Adverteer een vacature',
-    },
-    'ijphs52w': {
-      'en': 'Events & Announcements',
-      'fa': 'رویدادها و اطلاعیه‌ها',
-      'nl': 'Evenementen en aankondigingen',
-    },
-    'borgvgtn': {
-      'en': 'Sort by',
-      'fa': 'مرتب سازی',
-      'nl': 'Sorteren op',
-    },
-    'bfohq53i': {
-      'en': 'Search...',
-      'fa': 'جستجو...',
-      'nl': 'Zoekopdracht...',
-    },
-    'dc06nkgi': {
-      'en': 'Recent',
-      'fa': 'اخیر',
-      'nl': 'Recent',
-    },
-    'i3smswcl': {
-      'en': 'Popular',
-      'fa': 'محبوب',
-      'nl': 'Populair',
-    },
-    'acanui6t': {
-      'en': 'Home',
-      'fa': 'خانه',
-      'nl': 'Thuis',
-    },
-  },
-  // ProfilePage
-  {
-    'wi68hahy': {
-      'en': 'Likes',
-      'fa': 'لایک‌ها',
-      'nl': 'Vind-ik-leuks',
-    },
-    'jzc0o03k': {
-      'en': '3',
-      'fa': '۳',
-      'nl': '3',
-    },
-    'dcb0abt1': {
-      'en': 'Reviews',
-      'fa': 'نقد و بررسی‌ها',
-      'nl': 'Beoordelingen',
-    },
-    '2808vfr9': {
-      'en': 'Posts',
-      'fa': 'پست‌ها',
-      'nl': 'Berichten',
-    },
-    'xt0uhk7r': {
-      'en': 'See All',
-      'fa': 'همه را ببینید',
-      'nl': 'Alles zien',
-    },
-    'oq2hc9vq': {
-      'en': 'Favorites',
-      'fa': 'موارد دلخواه',
-      'nl': 'Favorieten',
-    },
-    'fd2re1c8': {
-      'en': 'See All',
-      'fa': 'همه را ببینید',
-      'nl': 'Alles zien',
-    },
-    'h7butxb7': {
-      'en': 'Reviews',
-      'fa': 'نقد و بررسی‌ها',
-      'nl': 'Beoordelingen',
-    },
-    '9wndti6n': {
-      'en': 'See All',
-      'fa': 'همه را ببینید',
-      'nl': 'Alles zien',
-    },
-    'yq4fqtye': {
-      'en': '',
-      'fa': 'خانه',
       'nl': '',
     },
   },
@@ -4597,7 +5269,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': '',
       'nl': '',
     },
-    '5uv7jgtj': {
+    '0btpc5fx': {
       'en': 'Please choose an option from the dropdown',
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
       'nl': 'Kies een optie uit de keuzelijst',
@@ -4617,7 +5289,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': '',
       'nl': '',
     },
-    'cy0b9vxh': {
+    'vflwt5pj': {
       'en': 'Please choose an option from the dropdown',
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
       'nl': 'Kies een optie uit de keuzelijst',
@@ -4637,7 +5309,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'لطفا فقط از حروف (انگلیسی/فارسی) و فاصله استفاده کنید.',
       'nl': 'Gebruik alleen letters (Engels/Perzisch) en spaties.',
     },
-    'kwfhrqmb': {
+    '4gjdl0io': {
       'en': 'Please choose an option from the dropdown',
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
       'nl': 'Kies een optie uit de keuzelijst',
@@ -4658,7 +5330,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': '',
       'nl': '',
     },
-    'hizsz38c': {
+    'x9yhqtds': {
       'en': 'Please choose an option from the dropdown',
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
       'nl': 'Kies een optie uit de keuzelijst',
@@ -4677,16 +5349,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'City',
       'fa': 'شهر',
       'nl': 'Stad',
-    },
-    'zzq7g7vx': {
-      'en': 'Change Email',
-      'fa': '',
-      'nl': '',
-    },
-    'nbv3szt9': {
-      'en': 'Change password',
-      'fa': 'تغییر رمز عبور',
-      'nl': 'Wachtwoord wijzigen',
     },
     '2r3qk0eg': {
       'en': 'PhoneNumber',
@@ -4708,7 +5370,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': '',
       'nl': '',
     },
-    'akjaxpph': {
+    'bqy92p76': {
       'en': 'Please choose an option from the dropdown',
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
       'nl': 'Kies een optie uit de keuzelijst',
@@ -4787,6 +5449,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Save',
       'fa': 'ذخیره',
       'nl': 'Redden',
+    },
+    'm2qaa14w': {
+      'en': 'Change password',
+      'fa': 'تغییر رمز عبور',
+      'nl': 'Wachtwoord wijzigen',
     },
     'j2hj0yzw': {
       'en': 'To delete your account, ',
@@ -4974,47 +5641,42 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'به دیگران کمک می‌کند تا پست شما را درک کنند',
       'nl': 'Helpt anderen uw bericht te begrijpen',
     },
-    'i9ek1mtu': {
+    '2wwrq7h2': {
       'en': 'Title',
-      'fa': '',
-      'nl': '',
-    },
-    '207su7nz': {
-      'en': ' (Required)',
-      'fa': '',
-      'nl': '',
-    },
-    'ni0h27xl': {
-      'en': 'Title',
-      'fa': 'عنوان',
+      'fa': 'عنوان ',
       'nl': 'Titel',
+    },
+    '68mxtk1z': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    'rfgpse1l': {
+      'en': 'Title',
+      'fa': 'توضیحات',
+      'nl': 'Beschrijving',
     },
     'o0yl8qgk': {
       'en': 'Description',
-      'fa': '',
-      'nl': '',
-    },
-    'bmqhw33p': {
-      'en': ' (Required)',
-      'fa': '',
-      'nl': '',
+      'fa': 'توضیحات',
+      'nl': 'Beschrijving',
     },
     '9rn6699b': {
       'en': 'Description',
       'fa': 'توضیحات',
       'nl': 'Beschrijving',
     },
-    '2klvlkbj': {
+    '6z5zashe': {
       'en': 'Location',
-      'fa': '',
-      'nl': '',
+      'fa': 'مکان ',
+      'nl': 'Locatie',
     },
-    'eumdruhu': {
+    '6t34epb5': {
       'en': ' (Required)',
-      'fa': '',
-      'nl': '',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
     },
-    '0j0hu9om': {
+    'jpgslfhf': {
       'en': 'Location',
       'fa': 'مکان',
       'nl': 'Locatie',
@@ -5059,10 +5721,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'در هر سال',
       'nl': 'Per jaar',
     },
-    'mx2qcch2': {
+    '6pue8ei8': {
       'en': 'Route',
-      'fa': 'مسیر',
+      'fa': 'مسیر انتقال ',
       'nl': 'Route',
+    },
+    '1v0lb0z9': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    'qghnjzij': {
+      'en': 'Location',
+      'fa': 'مکان',
+      'nl': 'Locatie',
     },
     '4p3efajh': {
       'en': 'Origin Country',
@@ -5104,10 +5776,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'آمستردام',
       'nl': 'Amsterdam',
     },
-    '4cm20vg2': {
+    '5v3u00bb': {
       'en': 'Time',
-      'fa': 'زمان',
+      'fa': 'زمان ',
       'nl': 'Tijd',
+    },
+    '1jnz9pn8': {
+      'en': ' (Required)',
+      'fa': '(الزامی)',
+      'nl': '(Vereist)',
+    },
+    'iy02xmun': {
+      'en': 'Location',
+      'fa': 'مکان',
+      'nl': 'Locatie',
     },
     'k1tfu3tn': {
       'en': 'Travel date',
@@ -5139,7 +5821,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': '',
       'nl': '',
     },
-    '7kwmj8h3': {
+    'ddb2gt55': {
       'en': 'Please choose an option from the dropdown',
       'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
       'nl': 'Kies een optie uit de keuzelijst',
@@ -5268,9 +5950,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Laten we beginnen door onderstaand formulier in te vullen.',
     },
     'totm38xv': {
-      'en': 'Username',
+      'en': '',
       'fa': 'نام کاربری',
       'nl': 'Gebruikersnaam',
+    },
+    'bhpvqitl': {
+      'en': 'Username',
+      'fa': '',
+      'nl': '',
     },
     'g57bhyec': {
       'en': 'This field is required.',
@@ -5301,9 +5988,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Kies een optie uit de keuzelijst',
     },
     'f1mymf8w': {
-      'en': 'Email',
+      'en': '',
       'fa': 'ایمیل',
       'nl': 'E-mail',
+    },
+    'uorul98o': {
+      'en': 'Email',
+      'fa': '',
+      'nl': '',
     },
     'v31k1qg9': {
       'en': 'This field is required.',
@@ -5321,9 +6013,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Kies een optie uit de keuzelijst',
     },
     'zetaeoul': {
-      'en': 'Password',
+      'en': '',
       'fa': 'رمز عبور',
       'nl': 'Wachtwoord',
+    },
+    'j5xg8kkc': {
+      'en': 'Password',
+      'fa': '',
+      'nl': '',
     },
     '2pobt1h6': {
       'en': 'This field is required.',
@@ -5347,9 +6044,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Kies een optie uit de keuzelijst',
     },
     '53qxhdtu': {
-      'en': 'Confirm Password',
+      'en': '',
       'fa': 'تأیید رمز عبور',
       'nl': 'Bevestig wachtwoord',
+    },
+    '4yej3nq3': {
+      'en': 'Confirm Password',
+      'fa': '',
+      'nl': '',
     },
     'w8drzugt': {
       'en': 'Passwords do not match.',
@@ -5387,123 +6089,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Meld u hier aan',
     },
     '8a810abu': {
-      'en': 'Home',
-      'fa': 'خانه',
-      'nl': 'Thuis',
-    },
-  },
-  // XXX_Busines
-  {
-    'zajqiw4o': {
-      'en': 'FEATURE COMING SOON!',
-      'fa': 'ویژگی به زودی!',
-      'nl': 'Binnenkort verkrijgbaar!',
-    },
-    'xwctvd4f': {
-      'en': 'Careers Hub',
-      'fa': 'مرکز فرصت‌های شغلی',
-      'nl': 'Carrièrecentrum',
-    },
-    'xhbs5o7r': {
-      'en':
-          'Explore diverse possibilities and connect with professionals and partners',
-      'fa':
-          'امکانات متنوع را بررسی کنید و با متخصصان و شرکا ارتباط برقرار کنید',
-      'nl':
-          'Ontdek diverse mogelijkheden en maak contact met professionals en partners',
-    },
-    'p2hugerr': {
-      'en': 'WANT EARLY ACCESS?',
-      'fa': 'دسترسی زودهنگام می‌خواهید؟',
-      'nl': 'WILT U EERDER TOEGANG?',
-    },
-    'uaoh24at': {
-      'en': 'Contact us to be among the first to explore:',
-      'fa': 'برای اینکه جزو اولین نفرات باشید با ما تماس بگیرید:',
-      'nl': 'Neem contact met ons op en ontdek als eerste het volgende:',
-    },
-    'dtqj9rbn': {
-      'en': 'Advertise a job',
-      'fa': 'آگهی استخدام',
-      'nl': 'Een vacature adverteren',
-    },
-    'jcbv7cty': {
-      'en': 'Request a job',
-      'fa': 'درخواست شغل',
-      'nl': 'Vraag een baan aan',
-    },
-    '1bdxjne1': {
-      'en': 'Join or organize networking events',
-      'fa': 'به رویدادهای شبکه‌سازی بپیوندید یا آنها را سازماندهی کنید',
-      'nl': 'Neem deel aan of organiseer netwerkevenementen',
-    },
-    'a5yn183j': {
-      'en': 'Start-up partnership and investment',
-      'fa': 'مشارکت و سرمایه‌گذاری در استارت‌آپ',
-      'nl': 'Start-up partnerschap en investering',
-    },
-    'np84zavh': {
-      'en': 'Set up recruiters profiles',
-      'fa': 'پروفایل‌های استخدام‌کنندگان را تنظیم کنید',
-      'nl': 'Wervingsprofielen instellen',
-    },
-    'anv7agkz': {
-      'en': 'JOIN THE WAITLLIST',
-      'fa': 'به لیست منتظران بپیوندید',
-      'nl': 'WORD LID VAN DE WACHTLIJST',
-    },
-    'r609wb85': {
-      'en': 'Learn more about this feature',
-      'fa': 'درباره این قابلیت بیشتر بدانید',
-      'nl': 'Meer informatie over deze functie',
-    },
-    '50pq25q4': {
-      'en': 'FEATURE COMING SOON!',
-      'fa': 'ویژگی به زودی!',
-      'nl': 'Binnenkort verkrijgbaar!',
-    },
-    'rtaxwxdf': {
-      'en': 'Business Profiles',
-      'fa': 'پروفایل‌های تجاری',
-      'nl': 'Bedrijfsprofielen',
-    },
-    'hfs4im97': {
-      'en':
-          'We\'re working hard to bring you enhanced business profiles that will elevate your presence to connect with more customers.',
-      'fa':
-          'ما سخت تلاش می‌کنیم تا پروفایل‌های تجاری بهبود یافته‌ای را برای شما ارائه دهیم که حضور شما را برای ارتباط با مشتریان بیشتر ارتقا می‌دهد.',
-      'nl':
-          'We werken er hard aan om u verbeterde bedrijfsprofielen te bieden waarmee u uw aanwezigheid vergroot en meer klanten bereikt.',
-    },
-    'hto4gqs9': {
-      'en': 'WANT TO BE AMONG THE FIRST?',
-      'fa': 'می‌خواهید جزو اولین‌ها باشید؟',
-      'nl': 'WIL JE BIJ DE EERSTE ZIJN?',
-    },
-    'tqoqdx82': {
-      'en': 'Contact us to set up your profile',
-      'fa': 'برای تنظیم پروفایل خود با ما تماس بگیرید',
-      'nl': 'Neem contact met ons op om uw profiel in te stellen',
-    },
-    'vfcsauy8': {
-      'en': 'CONTACT SUPPORT',
-      'fa': 'تماس با پشتیبانی',
-      'nl': 'CONTACT OPNEMEN MET ONDERSTEUNING',
-    },
-    'ufz7fqv9': {
-      'en': 'See an example business profile',
-      'fa': 'یک نمونه پروفایل تجاری را ببینید',
-      'nl': 'Bekijk een voorbeeld van een bedrijfsprofiel',
-    },
-    'so9y3otl': {
-      'en': 'Home',
-      'fa': 'خانه',
-      'nl': 'Thuis',
-    },
-  },
-  // News
-  {
-    'w7p064zc': {
       'en': 'Home',
       'fa': 'خانه',
       'nl': 'Thuis',
@@ -5567,6 +6152,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl':
           'Berichtenlimiet bereikt! Je hebt momenteel 5 actieve berichten. **Verwijder een bestaand bericht** of **upgrade je abonnement** om er meer te plaatsen.',
     },
+    'wmth8oau': {
+      'en': 'Well done! Your post is live.',
+      'fa': 'آفرین! پستت منتشر شد.',
+      'nl': 'Goed gedaan! Je post staat online.',
+    },
     'jm9epl0b': {
       'en': 'Confirm',
       'fa': 'تأیید',
@@ -5615,6 +6205,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'تأیید',
       'nl': 'Bevestigen',
     },
+    '0kgkhls0': {
+      'en':
+          'The event is full. Try contacting the host for  the  next possibilities. ',
+      'fa':
+          'ظرفیت رویداد تکمیل شده است. برای اطلاع از گزینه‌های بعدی با میزبان تماس بگیرید.',
+      'nl':
+          'Het evenement is volgeboekt. Neem contact op met de organisator voor andere mogelijkheden.',
+    },
     '43kvoi9x': {
       'en': 'Leave Event',
       'fa': 'ترک رویداد',
@@ -5648,174 +6246,29 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'تصویر پروفایل خود را مخفی کنید',
       'nl': 'Verberg je profielafbeelding',
     },
+    'tn60qwu2': {
+      'en': 'Please login or signup to see user\'s profile.',
+      'fa': 'برای مشاهده پروفایل کاربر، لطفا وارد شوید یا ثبت نام کنید.',
+      'nl':
+          'Log in of registreer u om het profiel van de gebruiker te bekijken.',
+    },
+    'rmxxndqk': {
+      'en': 'Please login or sign-up to see the user\'s profile.',
+      'fa': '',
+      'nl': '',
+    },
+    '0m8489v4': {
+      'en': 'Instagram link it not set.',
+      'fa': 'برای مشاهده پروفایل کاربر، لطفا وارد شوید یا ثبت نام کنید.',
+      'nl':
+          'Log in of registreer u om het profiel van de gebruiker te bekijken.',
+    },
     'al4zq5em': {
       'en': 'REVIEWS',
       'fa': 'نقد و بررسی‌ها',
       'nl': 'RECENSIES',
     },
     'k7ur9txh': {
-      'en': 'Home',
-      'fa': 'خانه',
-      'nl': 'Thuis',
-    },
-  },
-  // PostFa
-  {
-    '3soiowwq': {
-      'en': 'PARTICIPANTS',
-      'fa': 'شرکت‌کنندگان',
-      'nl': 'DEELNEMERS',
-    },
-    '5tnx80uw': {
-      'en': 'People who are going to this event.',
-      'fa': 'افرادی که قرار است در این مراسم شرکت کنند.',
-      'nl': 'Mensen die naar dit evenement gaan.',
-    },
-    'owhx5jkc': {
-      'en': 'Join Event',
-      'fa': 'شرکت در رویداد',
-      'nl': 'Deelnemen',
-    },
-    'xx8qp86l': {
-      'en': 'Participating this event? ',
-      'fa': 'شرکت در این رویداد؟',
-      'nl': 'Neemt u deel aan dit evenement?',
-    },
-    '4grhweks': {
-      'en': 'Please confirm if you\'d like to join this event!',
-      'fa': 'لطفاً تأیید کنید که آیا مایل به شرکت در این رویداد هستید یا خیر!',
-      'nl': 'Bevestig of je aan dit evenement wilt deelnemen!',
-    },
-    '4hnoq098': {
-      'en': 'Cancel',
-      'fa': 'لغو',
-      'nl': 'Annuleren',
-    },
-    'k43nhob0': {
-      'en': 'Confirm',
-      'fa': 'تأیید',
-      'nl': 'Bevestigen',
-    },
-    'dpuynhm9': {
-      'en': 'Leave Event',
-      'fa': 'ترک رویداد',
-      'nl': 'Verlaat evenement',
-    },
-    'rjvk5gez': {
-      'en': 'Have you changed your mind?',
-      'fa': 'نظرت عوض شده؟',
-      'nl': 'Ben je van gedachten veranderd?',
-    },
-    'g9aw80nt': {
-      'en':
-          'You are currently a participant in this event. Please confirm if your plans changed. ',
-      'fa':
-          'شما در حال حاضر در این رویداد شرکت می‌کنید. لطفاً در صورت تغییر برنامه‌هایتان، تأیید کنید.',
-      'nl':
-          'U bent momenteel deelnemer aan dit evenement. Controleer of uw plannen zijn gewijzigd.',
-    },
-    'cxemha4q': {
-      'en': 'Cencel',
-      'fa': 'سنسل',
-      'nl': 'Cencel',
-    },
-    '7fo5fbpg': {
-      'en': 'Confirm',
-      'fa': 'تأیید',
-      'nl': 'Bevestigen',
-    },
-    'c79y73jq': {
-      'en': 'Hide your profile image',
-      'fa': 'تصویر پروفایل خود را مخفی کنید',
-      'nl': 'Verberg je profielafbeelding',
-    },
-    '0p7g3nq1': {
-      'en': 'REVIEWS',
-      'fa': 'نقد و بررسی‌ها',
-      'nl': 'RECENSIES',
-    },
-    't0fw7rag': {
-      'en': 'Home',
-      'fa': 'خانه',
-      'nl': 'Thuis',
-    },
-  },
-  // PostNL
-  {
-    'r65katy0': {
-      'en': 'PARTICIPANTS',
-      'fa': 'شرکت‌کنندگان',
-      'nl': 'DEELNEMERS',
-    },
-    'pa21u83g': {
-      'en': 'People who are going to this event.',
-      'fa': 'افرادی که قرار است در این مراسم شرکت کنند.',
-      'nl': 'Mensen die naar dit evenement gaan.',
-    },
-    'zjrf4zde': {
-      'en': 'Join Event',
-      'fa': 'شرکت در رویداد',
-      'nl': 'Deelnemen',
-    },
-    'f9icfbpg': {
-      'en': 'Participating this event? ',
-      'fa': 'شرکت در این رویداد؟',
-      'nl': 'Neemt u deel aan dit evenement?',
-    },
-    '1eox3zaq': {
-      'en': 'Please confirm if you\'d like to join this event!',
-      'fa': 'لطفاً تأیید کنید که آیا مایل به شرکت در این رویداد هستید یا خیر!',
-      'nl': 'Bevestig of je aan dit evenement wilt deelnemen!',
-    },
-    's4l1854j': {
-      'en': 'Cancel',
-      'fa': 'لغو',
-      'nl': 'Annuleren',
-    },
-    'ebwexf78': {
-      'en': 'Confirm',
-      'fa': 'تأیید',
-      'nl': 'Bevestigen',
-    },
-    '633uwuwk': {
-      'en': 'Leave Event',
-      'fa': 'ترک رویداد',
-      'nl': 'Verlaat evenement',
-    },
-    '2xg817w9': {
-      'en': 'Have you changed your mind?',
-      'fa': 'نظرت عوض شده؟',
-      'nl': 'Ben je van gedachten veranderd?',
-    },
-    'ccf05fs5': {
-      'en':
-          'You are currently a participant in this event. Please confirm if your plans changed. ',
-      'fa':
-          'شما در حال حاضر در این رویداد شرکت می‌کنید. لطفاً در صورت تغییر برنامه‌هایتان، تأیید کنید.',
-      'nl':
-          'U bent momenteel deelnemer aan dit evenement. Controleer of uw plannen zijn gewijzigd.',
-    },
-    '87mbi1yj': {
-      'en': 'Cencel',
-      'fa': 'سنسل',
-      'nl': 'Cencel',
-    },
-    'cnfstlwt': {
-      'en': 'Confirm',
-      'fa': 'تأیید',
-      'nl': 'Bevestigen',
-    },
-    '8quh1kln': {
-      'en': 'Hide your profile image',
-      'fa': 'تصویر پروفایل خود را مخفی کنید',
-      'nl': 'Verberg je profielafbeelding',
-    },
-    '2trxbrdv': {
-      'en': 'REVIEWS',
-      'fa': 'نقد و بررسی‌ها',
-      'nl': 'RECENSIES',
-    },
-    '7ksglak5': {
       'en': 'Home',
       'fa': 'خانه',
       'nl': 'Thuis',
@@ -5871,71 +6324,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Ok',
       'fa': 'باشه',
       'nl': 'OK',
-    },
-  },
-  // Title
-  {
-    '6ic7t8mm': {
-      'en': 'Give your post short a title',
-      'fa': 'برای پست کوتاه خود عنوان انتخاب کنید',
-      'nl': 'Geef je bericht een korte titel',
-    },
-    'y2fp32ac': {
-      'en': 'E.g. Second-hand carpet from Tabriz',
-      'fa': 'مثلاً فرش دست دوم تبریز',
-      'nl': 'Bijvoorbeeld tweedehands tapijt uit Tabriz',
-    },
-    '209gk34d': {
-      'en': 'Title is required',
-      'fa': 'عنوان الزامی است',
-      'nl': 'Titel is vereist',
-    },
-    'vjdguyso': {
-      'en': 'Please use only letters, numbers, underscore or dot.',
-      'fa':
-          'لطفاً فقط از حروف (انگلیسی/فارسی)، فاصله، زیرخط یا نقطه استفاده کنید.',
-      'nl':
-          'Gebruik alleen letters (Engels/Perzisch), spaties, onderstrepingstekens en punten.',
-    },
-    '5el7c4ac': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-      'nl': 'Kies een optie uit de keuzelijst',
-    },
-    'the65glr': {
-      'en': 'Save',
-      'fa': '',
-      'nl': '',
-    },
-  },
-  // Description
-  {
-    'y55bc5uf': {
-      'en': 'Give your post a clear description',
-      'fa': 'برای پست خود توضیح واضحی بنویسید',
-      'nl': 'Geef je bericht een duidelijke beschrijving',
-    },
-    '0luhlo2r': {
-      'en': 'Write here...',
-      'fa': 'اینجا بنویس...',
-      'nl': 'Schrijf hier...',
-    },
-    '36tl1mm1': {
-      'en': 'Please use only letters, numbers, underscore or dot.',
-      'fa':
-          'لطفاً فقط از حروف (انگلیسی/فارسی)، فاصله، زیرخط یا نقطه استفاده کنید.',
-      'nl':
-          'Gebruik alleen letters (Engels/Perzisch), spaties, onderstrepingstekens en punten.',
-    },
-    'pn656ddb': {
-      'en': 'Please choose an option from the dropdown',
-      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
-      'nl': 'Kies een optie uit de keuzelijst',
-    },
-    'zd83miev': {
-      'en': 'Save',
-      'fa': '',
-      'nl': '',
     },
   },
   // Delivery
@@ -6007,6 +6395,22 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'I would like to report this post/profile because..',
       'fa': 'من می‌خواهم این پست/پروفایل را گزارش کنم زیرا..',
       'nl': 'Ik wil dit bericht/profiel rapporteren omdat...',
+    },
+    'xgf5x3co': {
+      'en': 'Reason is required',
+      'fa': '',
+      'nl': '',
+    },
+    '2h1qxq4i': {
+      'en':
+          'Please use only letters (English/Persian), spaces, underscore, exclamation mark, question mark or dot.',
+      'fa': '',
+      'nl': '',
+    },
+    'qdm7trjn': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+      'nl': 'Kies een optie uit de keuzelijst',
     },
     'fq4r8mbk': {
       'en': 'Cancel',
@@ -6283,6 +6687,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'برو',
       'nl': 'Gaan',
     },
+    'g0ptdkxg': {
+      'en': 'Please sign in or sign up to use the chat feature.',
+      'fa':
+          'لطفا برای استفاده از قابلیت چت، وارد حساب کاربری خود شوید یا ثبت‌نام کنید',
+      'nl': 'Log in of maak een account aan om de chatfunctie te gebruiken.',
+    },
   },
   // shoutOutCard
   {
@@ -6364,7 +6774,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'bc2ugybz': {
       'en': 'Communication',
-      'fa': 'ارتباطات',
+      'fa': 'روابط عمومی',
       'nl': 'Mededeling',
     },
     '1wffczog': {
@@ -6382,10 +6792,38 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'انصاف',
       'nl': 'Eerlijkheid',
     },
+    '1budpqz0': {
+      'en': 'Communication',
+      'fa': 'روابط عمومی',
+      'nl': 'Mededeling',
+    },
+    '11dlc7rj': {
+      'en': 'Reliability',
+      'fa': 'قابلیت اطمینان',
+      'nl': 'Betrouwbaarheid',
+    },
+    'qmgajeyp': {
+      'en': 'Quality',
+      'fa': 'کیفیت',
+      'nl': 'Kwaliteit',
+    },
+    'j07hbojz': {
+      'en': 'Fairness',
+      'fa': 'انصاف',
+      'nl': 'Eerlijkheid',
+    },
     'ixl4pva7': {
-      'en': 'Review note',
-      'fa': 'یادداشت بررسی',
-      'nl': 'Beoordelingsnotitie',
+      'en': 'Feedback note',
+      'fa': 'یادداشت بازخورد',
+      'nl': 'Feedbacknota',
+    },
+    'z01totm5': {
+      'en':
+          'Tell  everyone about your experience. For example, start with what went right and what they can improve.',
+      'fa':
+          'تجربه‌ی خود را با دیگران به اشتراک بگذارید. مثلاً می‌توانید با چیزهایی که خوب پیش رفت و مواردی که قابل بهبود هستند شروع کنید.',
+      'nl':
+          'Vertel iedereen over je ervaring. Begin bijvoorbeeld met wat goed ging en wat zij kunnen verbeteren.',
     },
     'sc2b19jg': {
       'en':
@@ -6404,6 +6842,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Submit',
       'fa': 'ارسال',
       'nl': 'Indienen',
+    },
+    'jqulx1nc': {
+      'en': 'You review is successfully submited.',
+      'fa': 'نظر شما با موفقیت ثبت شد.',
+      'nl': 'Je beoordeling is succesvol verzonden.',
     },
   },
   // verifyCode
@@ -6442,19 +6885,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Selecteer de categorie die het beste bij je bericht past',
     },
   },
-  // SubCat
-  {
-    's5qf1eaq': {
-      'en': 'Which category\nfits your post best?',
-      'fa': 'کدام دسته بندی  با\nپست شما مطابقت دارد؟',
-      'nl': 'Welke categorie past het beste bij jouw bericht?',
-    },
-    's3fm07uu': {
-      'en': 'Helps others find your post',
-      'fa': 'به دیگران کمک می‌کند تا پست شما را پیدا کنند',
-      'nl': 'Helpt anderen uw bericht te vinden',
-    },
-  },
   // Calendar
   {
     '4ryihxff': {
@@ -6466,14 +6896,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Save',
       'fa': 'ذخیره',
       'nl': 'Redden',
-    },
-  },
-  // ErrorComp
-  {
-    '9a3o272s': {
-      'en': 'Close',
-      'fa': 'بستن',
-      'nl': 'Dichtbij',
     },
   },
   // ItemCard_JobRequest
@@ -6634,6 +7056,84 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Wis alle filters',
     },
   },
+  // Title
+  {
+    '6ic7t8mm': {
+      'en': 'Give your post short a title',
+      'fa': 'برای پست کوتاه خود عنوان انتخاب کنید',
+      'nl': 'Geef je bericht een korte titel',
+    },
+    'd5klq8x0': {
+      'en': 'Write here...',
+      'fa': 'اینجا بنویس...',
+      'nl': 'Schrijf hier...',
+    },
+    '209gk34d': {
+      'en': 'Title is required',
+      'fa': 'عنوان الزامی است',
+      'nl': 'Titel is vereist',
+    },
+    'vjdguyso': {
+      'en': 'Please use only letters, numbers, underscore or dot.',
+      'fa':
+          'لطفاً فقط از حروف (انگلیسی/فارسی)، فاصله، زیرخط یا نقطه استفاده کنید.',
+      'nl':
+          'Gebruik alleen letters (Engels/Perzisch), spaties, onderstrepingstekens en punten.',
+    },
+    '5el7c4ac': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+      'nl': 'Kies een optie uit de keuzelijst',
+    },
+    'the65glr': {
+      'en': 'Save',
+      'fa': 'ذخیره',
+      'nl': 'Redden',
+    },
+  },
+  // Description
+  {
+    'y55bc5uf': {
+      'en': 'Give your post a clear description',
+      'fa': 'برای پست خود توضیح واضحی بنویسید',
+      'nl': 'Geef je bericht een duidelijke beschrijving',
+    },
+    '0luhlo2r': {
+      'en': 'Write here...',
+      'fa': 'اینجا بنویس...',
+      'nl': 'Schrijf hier...',
+    },
+    '36tl1mm1': {
+      'en': 'Please use only letters, numbers, underscore or dot.',
+      'fa':
+          'لطفاً فقط از حروف (انگلیسی/فارسی)، فاصله، زیرخط یا نقطه استفاده کنید.',
+      'nl':
+          'Gebruik alleen letters (Engels/Perzisch), spaties, onderstrepingstekens en punten.',
+    },
+    'pn656ddb': {
+      'en': 'Please choose an option from the dropdown',
+      'fa': 'لطفا یک گزینه را از منوی کشویی انتخاب کنید',
+      'nl': 'Kies een optie uit de keuzelijst',
+    },
+    'zd83miev': {
+      'en': 'Save',
+      'fa': 'ذخیره',
+      'nl': 'Redden',
+    },
+  },
+  // SubCat
+  {
+    's5qf1eaq': {
+      'en': 'Which category\nfits your post best?',
+      'fa': 'کدام دسته بندی  با\nپست شما مطابقت دارد؟',
+      'nl': 'Welke categorie past het beste bij jouw bericht?',
+    },
+    's3fm07uu': {
+      'en': 'Helps others find your post',
+      'fa': 'به دیگران کمک می‌کند تا پست شما را پیدا کنند',
+      'nl': 'Helpt anderen uw bericht te vinden',
+    },
+  },
   // ItemCard_Global
   {
     'vpd49szk': {
@@ -6693,12 +7193,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'ivh9ys6v': {
       'en': 'Starts',
-      'fa': 'شروع می‌شود',
+      'fa': 'شروع',
       'nl': 'Begint',
     },
     'ynjjmp1u': {
       'en': 'Ends:',
-      'fa': 'پایان‌ها:',
+      'fa': 'پایان‌:',
       'nl': 'Einde:',
     },
     '0qhi38vm': {
@@ -6769,16 +7269,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': ', en uw bericht zal hoger in de zoekresultaten verschijnen.',
     },
     '0ti2vese': {
-      'en': 'Business Accounts Not Yet Available',
-      'fa': 'حساب‌های تجاری هنوز در دسترس نیستند',
-      'nl': 'Zakelijke rekeningen nog niet beschikbaar',
+      'en': 'Business model coming soon!',
+      'fa': 'اکانت تجاری به‌زودی فعال می‌شود!',
+      'nl': 'De zakelijke modus komt eraan!',
     },
     'ig7cdm4x': {
       'en':
-          'Business mode is on its way. Toet early access when it launches — we’ll notify you first.',
-      'fa': 'حساب تجاری در راه است. ',
+          'Join the list to become one of the early adopters and enjoy exclusive privileges.',
+      'fa':
+          'با ثبت‌نام در لیست، جزو کاربران اولیه باشید و از مزایای ویژه بهره‌مند شوید.',
       'nl':
-          'Zakelijke rekeningen komt er binnenkort aan. Wil je vroege toegang? We laten het je als eerste weten zodra het wordt gelanceerd.',
+          'Schrijf je in om een van de eerste gebruikers te worden en te profiteren van exclusieve voordelen.',
     },
     'hyiq7xhv': {
       'en': 'No Thanks',
@@ -6789,6 +7290,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Join',
       'fa': 'عضویت',
       'nl': 'Meedoen',
+    },
+    '7ti7vgzv': {
+      'en':
+          'Your request has been sent! we will be in contact with you shortly.',
+      'fa': 'درخواست شما ارسال شد! به زودی با شما تماس خواهیم گرفت.',
+      'nl':
+          'Je aanvraag is verzonden! We nemen zo snel mogelijk contact met je op.',
     },
     'k51z1wp5': {
       'en': 'Organizing or Announcing?',
@@ -7047,6 +7555,44 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           'اگر به‌دنبال بلیت رویدادی هستید که دوست دارید شرکت کنید، می‌توانید درخواست بگذارید—شاید کسی بلیت اضافی دارد یا نمی‌تواند برود.',
       'nl':
           'Zoek je een ticket voor een evenement waar je graag heen wilt? Plaats een verzoek—misschien heeft iemand een extra ticket of kan die niet meer gaan.',
+    },
+    'qhwc85xr': {
+      'en': 'FEATURE COMING SOON!',
+      'fa': 'ویژگی به زودی!',
+      'nl': 'Binnenkort verkrijgbaar!',
+    },
+    'bdx893qc': {
+      'en': 'Business Profiles',
+      'fa': 'پروفایل‌های تجاری',
+      'nl': 'Bedrijfsprofielen',
+    },
+    '93r3vh91': {
+      'en':
+          'We\'re working hard to bring you enhanced business profiles that will elevate your presence to connect with more customers.',
+      'fa':
+          'ما سخت تلاش می‌کنیم تا پروفایل‌های تجاری بهبود یافته‌ای را برای شما ارائه دهیم که حضور شما را برای ارتباط با مشتریان بیشتر ارتقا می‌دهد.',
+      'nl':
+          'We werken er hard aan om u verbeterde bedrijfsprofielen te bieden waarmee u uw aanwezigheid vergroot en meer klanten bereikt.',
+    },
+    'fvc4f7hg': {
+      'en': 'WANT TO BE AMONG THE FIRST?',
+      'fa': 'می‌خواهید جزو اولین‌ها باشید؟',
+      'nl': 'WIL JE BIJ DE EERSTE ZIJN?',
+    },
+    '8zri6g8h': {
+      'en': 'Contact us to set up your profile',
+      'fa': 'برای تنظیم پروفایل خود با ما تماس بگیرید',
+      'nl': 'Neem contact met ons op om uw profiel in te stellen',
+    },
+    'nn1mf5lz': {
+      'en': 'CONTACT SUPPORT',
+      'fa': 'تماس با پشتیبانی',
+      'nl': 'CONTACT OPNEMEN MET ONDERSTEUNING',
+    },
+    'jbmu9rr7': {
+      'en': 'Go back',
+      'fa': 'برگرد',
+      'nl': 'Ga terug',
     },
   },
   // PostDetailColumn
@@ -7318,7 +7864,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '64flubdh': {
       'en': 'Poeple Going:',
-      'fa': ' شرکت کنندگان',
+      'fa': ' شرکت کنندگان:',
       'nl': 'Mensen die gaan:',
     },
     'vngxcz6a': {

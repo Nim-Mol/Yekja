@@ -10,7 +10,8 @@ class ResetPasswordPageModel extends FlutterFlowModel<ResetPasswordPageWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final formKey = GlobalKey<FormState>();
+  final formKey1 = GlobalKey<FormState>();
+  final formKey2 = GlobalKey<FormState>();
   // State field(s) for Password widget.
   FocusNode? passwordFocusNode;
   TextEditingController? passwordTextController;
@@ -19,10 +20,15 @@ class ResetPasswordPageModel extends FlutterFlowModel<ResetPasswordPageWidget> {
   String? _passwordTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'rfogeldx' /* Please enter valid new passwor... */,
+        'hi90ebrv' /* New password is required */,
       );
     }
 
+    if (!RegExp('^(?=.*[A-Z])(?=.*\\d).{8,}\$').hasMatch(val)) {
+      return FFLocalizations.of(context).getText(
+        'affwd438' /* - At least one uppercase lette... */,
+      );
+    }
     return null;
   }
 
@@ -36,10 +42,15 @@ class ResetPasswordPageModel extends FlutterFlowModel<ResetPasswordPageWidget> {
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        '22lxza13' /* please enter valid confirm pas... */,
+        'yk1e4onw' /* Confirm password is required */,
       );
     }
 
+    if (!RegExp('^(?=.*[A-Z])(?=.*\\d).{8,}\$').hasMatch(val)) {
+      return FFLocalizations.of(context).getText(
+        'hmydixxt' /* - At least one uppercase lette... */,
+      );
+    }
     return null;
   }
 

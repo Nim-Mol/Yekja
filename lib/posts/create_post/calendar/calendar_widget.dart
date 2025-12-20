@@ -1,7 +1,7 @@
 import '/flutter_flow/flutter_flow_calendar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/shared_components/error_comp/error_comp_widget.dart';
+import '/shared_components/error_pop_up/error_pop_up_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'calendar_model.dart';
@@ -269,7 +269,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                                                   0.0, 0.0)
                                               .resolve(
                                                   Directionality.of(context)),
-                                          child: ErrorCompWidget(
+                                          child: ErrorPopUpWidget(
                                             errorText:
                                                 'Error: End date cannot be before the start date',
                                           ),

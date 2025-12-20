@@ -1,6 +1,7 @@
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
@@ -172,6 +173,11 @@ fits your post ... */
                               ..subCatName = wrapSubCategoriesRow.subCatName,
                           );
                           _model.updatePage(() {});
+                          await actions.navigateToDetailForm1(
+                            context,
+                            FFAppState().postDetailTable,
+                            FFAppState().navRoutePost,
+                          );
                         },
                         child: Container(
                           height: 36.0,
@@ -184,7 +190,7 @@ fits your post ... */
                                       wrapSubCategoriesRow.subCatId
                                   ? FlutterFlowTheme.of(context).primary
                                   : FlutterFlowTheme.of(context).bordergray,
-                              width: 0.5,
+                              width: 1.5,
                             ),
                           ),
                           child: Row(

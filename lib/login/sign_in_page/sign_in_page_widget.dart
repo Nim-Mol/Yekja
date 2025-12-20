@@ -240,11 +240,6 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 isDense: true,
-                                                labelText:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  'sdree3ti' /* Email */,
-                                                ),
                                                 labelStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium
@@ -259,20 +254,27 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                                                       .of(context)
                                                                   .labelMediumIsCustom,
                                                         ),
-                                                hintStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMediumFamily,
-                                                          letterSpacing: 0.0,
-                                                          useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .labelMediumIsCustom,
-                                                        ),
+                                                hintText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'lcqetisu' /* Email */,
+                                                ),
+                                                hintStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMediumFamily,
+                                                      color: Color(0xFF767575),
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMediumIsCustom,
+                                                    ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
                                                   borderSide: BorderSide(
@@ -364,11 +366,6 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                                   !_model.passWordVisibility,
                                               decoration: InputDecoration(
                                                 isDense: true,
-                                                labelText:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  'xpgw6kd9' /* Password */,
-                                                ),
                                                 labelStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium
@@ -383,20 +380,27 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                                                       .of(context)
                                                                   .labelMediumIsCustom,
                                                         ),
-                                                hintStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMediumFamily,
-                                                          letterSpacing: 0.0,
-                                                          useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .labelMediumIsCustom,
-                                                        ),
+                                                hintText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'pvqr5sid' /* Password */,
+                                                ),
+                                                hintStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMediumFamily,
+                                                      color: Color(0xFF767575),
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMediumIsCustom,
+                                                    ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
                                                   borderSide: BorderSide(

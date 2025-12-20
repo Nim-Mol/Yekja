@@ -195,11 +195,6 @@ class _SignInConfirmWidgetState extends State<SignInConfirmWidget> {
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             isDense: true,
-                                            labelText:
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                              'ep9mmsq3' /* Username */,
-                                            ),
                                             labelStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
@@ -214,6 +209,11 @@ class _SignInConfirmWidgetState extends State<SignInConfirmWidget> {
                                                                   context)
                                                               .labelMediumIsCustom,
                                                     ),
+                                            hintText:
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                              'ks8k45lm' /* Username */,
+                                            ),
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
@@ -222,6 +222,8 @@ class _SignInConfirmWidgetState extends State<SignInConfirmWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .labelMediumFamily,
+                                                      color: Color(0xFF696969),
+                                                      fontSize: 16.0,
                                                       letterSpacing: 0.0,
                                                       useGoogleFonts:
                                                           !FlutterFlowTheme.of(
@@ -309,11 +311,6 @@ class _SignInConfirmWidgetState extends State<SignInConfirmWidget> {
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             isDense: true,
-                                            labelText:
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                              '0jzr1v97' /* Email */,
-                                            ),
                                             labelStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
@@ -328,6 +325,11 @@ class _SignInConfirmWidgetState extends State<SignInConfirmWidget> {
                                                                   context)
                                                               .labelMediumIsCustom,
                                                     ),
+                                            hintText:
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                              '0zs4573p' /* Email */,
+                                            ),
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
@@ -336,6 +338,8 @@ class _SignInConfirmWidgetState extends State<SignInConfirmWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .labelMediumFamily,
+                                                      color: Color(0xFF696969),
+                                                      fontSize: 16.0,
                                                       letterSpacing: 0.0,
                                                       useGoogleFonts:
                                                           !FlutterFlowTheme.of(
@@ -423,11 +427,6 @@ class _SignInConfirmWidgetState extends State<SignInConfirmWidget> {
                                               !_model.passWordVisibility,
                                           decoration: InputDecoration(
                                             isDense: true,
-                                            labelText:
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                              'f9e65zx9' /* Password */,
-                                            ),
                                             labelStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
@@ -442,6 +441,11 @@ class _SignInConfirmWidgetState extends State<SignInConfirmWidget> {
                                                                   context)
                                                               .labelMediumIsCustom,
                                                     ),
+                                            hintText:
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                              'st10kzhb' /* Password */,
+                                            ),
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
@@ -450,6 +454,8 @@ class _SignInConfirmWidgetState extends State<SignInConfirmWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .labelMediumFamily,
+                                                      color: Color(0xFF696969),
+                                                      fontSize: 16.0,
                                                       letterSpacing: 0.0,
                                                       useGoogleFonts:
                                                           !FlutterFlowTheme.of(

@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/posts/create_post/sub_cat/sub_cat_widget.dart';
-import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:flutter/material.dart';
@@ -283,91 +282,6 @@ class _PostSubCatWidgetState extends State<PostSubCatWidget> {
                         ),
                       ),
                     ],
-                  ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0.0, 1.0),
-                  child: Container(
-                    width: double.infinity,
-                    height: 90.0,
-                    constraints: BoxConstraints(
-                      maxWidth: 480.0,
-                    ),
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).primaryBackground,
-                      border: Border.all(
-                        color: FlutterFlowTheme.of(context).primaryBackground,
-                      ),
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 16.0, 24.0, 0.0),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              await actions.navigateToDetailForm(
-                                context,
-                                FFAppState().postDetailTable,
-                              );
-                                                        },
-                            child: Container(
-                              width: double.infinity,
-                              height: 45.0,
-                              decoration: BoxDecoration(
-                                color: FFAppState().postState.subCatId > 0
-                                    ? FlutterFlowTheme.of(context).greenInit
-                                    : FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8.0),
-                                border: Border.all(
-                                  color: FFAppState().postState.subCatId > 0
-                                      ? FlutterFlowTheme.of(context).greenInit
-                                      : FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                ),
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'csirahyr' /* Next */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily,
-                                          color: FFAppState()
-                                                          .postState
-                                                          .subCatName !=
-                                                      ''
-                                              ? FlutterFlowTheme.of(context)
-                                                  .primary
-                                              : Color(0xFF6B6969),
-                                          fontSize: 16.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                          useGoogleFonts:
-                                              !FlutterFlowTheme.of(context)
-                                                  .bodyMediumIsCustom,
-                                        ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
                   ),
                 ),
               ],

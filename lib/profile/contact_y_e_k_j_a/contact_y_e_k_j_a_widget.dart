@@ -1,5 +1,4 @@
 import '/auth/supabase_auth/auth_util.dart';
-import '/backend/schema/enums/enums.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -8,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
+import 'dart:async';
 import '/index.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -152,6 +152,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
                                           .titleLargeFamily,
+                                      fontSize: 18.0,
                                       letterSpacing: 0.0,
                                       useGoogleFonts:
                                           !FlutterFlowTheme.of(context)
@@ -169,6 +170,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                           .titleLargeFamily,
                                       color:
                                           FlutterFlowTheme.of(context).green1,
+                                      fontSize: 18.0,
                                       letterSpacing: 0.0,
                                       useGoogleFonts:
                                           !FlutterFlowTheme.of(context)
@@ -186,6 +188,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
                                       .headlineSmallFamily,
+                                  fontSize: 20.0,
                                   letterSpacing: 0.0,
                                   useGoogleFonts: !FlutterFlowTheme.of(context)
                                       .headlineSmallIsCustom,
@@ -206,9 +209,6 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                               decoration: BoxDecoration(
                                 color: Color(0xFFBC2626),
                                 borderRadius: BorderRadius.circular(12.0),
-                                border: Border.all(
-                                  width: 2.0,
-                                ),
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -220,8 +220,8 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                   children: [
                                     Icon(
                                       Icons.local_phone,
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryWhite,
                                       size: 36.0,
                                     ),
                                     Padding(
@@ -238,6 +238,9 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMediumFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryWhite,
                                               letterSpacing: 0.0,
                                               useGoogleFonts:
                                                   !FlutterFlowTheme.of(context)
@@ -257,12 +260,16 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                _model.fAQClicked =
-                                    await MonitoringLogsTable().insert({
-                                  'scrren_name': 'Contact',
-                                  'action': 'FAQ',
-                                  'user_id': currentUserUid,
-                                });
+                                unawaited(
+                                  () async {
+                                    _model.fAQClicked =
+                                        await MonitoringLogsTable().insert({
+                                      'scrren_name': 'Contact',
+                                      'action': 'FAQ',
+                                      'user_id': currentUserUid,
+                                    });
+                                  }(),
+                                );
 
                                 context.pushNamed(FaqWidget.routeName);
 
@@ -276,9 +283,6 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                 decoration: BoxDecoration(
                                   color: Color(0xFF046595),
                                   borderRadius: BorderRadius.circular(12.0),
-                                  border: Border.all(
-                                    width: 2.0,
-                                  ),
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
@@ -292,7 +296,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                       Icon(
                                         Icons.search_rounded,
                                         color: FlutterFlowTheme.of(context)
-                                            .primary,
+                                            .primaryWhite,
                                         size: 36.0,
                                       ),
                                       Padding(
@@ -309,6 +313,9 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMediumFamily,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryWhite,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts:
                                                     !FlutterFlowTheme.of(
@@ -334,11 +341,32 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                             FlutterFlowDropDown<String>(
                               controller: _model.dropDownValueController ??=
                                   FormFieldController<String>(null),
-                              options: ContactSubject.values
-                                  .map((e) => e)
-                                  .toList()
-                                  .map((e) => e.name)
-                                  .toList(),
+                              options: [
+                                FFLocalizations.of(context).getText(
+                                  'rhw1og4g' /* Feedback or suggestion */,
+                                ),
+                                FFLocalizations.of(context).getText(
+                                  '9ptgnueo' /* Help using Yekja */,
+                                ),
+                                FFLocalizations.of(context).getText(
+                                  '1jg9wm4c' /* Technical issue or bug */,
+                                ),
+                                FFLocalizations.of(context).getText(
+                                  'od7rce8o' /* Account or login issue */,
+                                ),
+                                FFLocalizations.of(context).getText(
+                                  'ejl6tvcr' /* Partnership or collaboration w... */,
+                                ),
+                                FFLocalizations.of(context).getText(
+                                  'lqf58oxs' /* Business account */,
+                                ),
+                                FFLocalizations.of(context).getText(
+                                  '0mcwgpc2' /* Advertising */,
+                                ),
+                                FFLocalizations.of(context).getText(
+                                  'rr1n0bua' /* General Question */,
+                                )
+                              ],
                               onChanged: (val) => safeSetState(
                                   () => _model.dropDownValue = val),
                               width: double.infinity,
@@ -403,6 +431,8 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .labelMediumFamily,
+                                        color: FlutterFlowTheme.of(context)
+                                            .bordergray,
                                         letterSpacing: 0.0,
                                         useGoogleFonts:
                                             !FlutterFlowTheme.of(context)

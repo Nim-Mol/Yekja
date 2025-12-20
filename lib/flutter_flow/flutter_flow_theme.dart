@@ -212,7 +212,7 @@ class LightModeTheme extends FlutterFlowTheme {
 
   late Color primary = const Color(0xFF050505);
   late Color secondary = const Color(0xFFDEEEEB);
-  late Color tertiary = const Color(0xFFB1C0B1);
+  late Color tertiary = const Color(0xFFC9D7C9);
   late Color alternate = const Color(0xFFE0E3E7);
   late Color primaryText = const Color(0xFF050505);
   late Color secondaryText = const Color(0xFF1A1A1A);
@@ -261,7 +261,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color warningSnack = const Color(0xFFAA8102);
   late Color errorSnack = const Color(0xFF7C0401);
   late Color primaryWhite = const Color(0xFFFFFFFF);
-  late Color newsCard = const Color(0x905F7A5F);
+  late Color newsCard = const Color(0xFF00645D);
   late Color navBar = const Color(0xFF404F42);
   late Color itemBoxExtraInfo = const Color(0xFF38696D);
   late Color carTxt = const Color(0xFF0F9970);
@@ -760,7 +760,7 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color warningSnack = const Color(0xFFAA8102);
   late Color errorSnack = const Color(0xFF7C0401);
   late Color primaryWhite = const Color(0xFFFFFFFF);
-  late Color newsCard = const Color(0xFF030400);
+  late Color newsCard = const Color(0xFF00645D);
   late Color navBar = const Color(0xFF232426);
   late Color itemBoxExtraInfo = const Color(0x420593D7);
   late Color carTxt = const Color(0xFF9C9E42);

@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.dart';
+import '/shared_components/custom_snackbar/custom_snackbar_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:flutter/material.dart';
@@ -226,50 +227,61 @@ class _NavBarCoreWidgetState extends State<NavBarCoreWidget> {
                           children: [
                             Align(
                               alignment: AlignmentDirectional(0.0, 0.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  if (FFAppState().userInfo.role != '') {
-                                    context.pushNamed(
-                                      ChatPageWidget.routeName,
-                                      queryParameters: {
-                                        'profileid': serializeParam(
-                                          currentUserUid,
-                                          ParamType.String,
-                                        ),
-                                      }.withoutNulls,
-                                    );
-                                  } else {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Please sing in or sign up to use this function.',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            fontWeight: FontWeight.w600,
+                              child: Builder(
+                                builder: (context) => InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    if (FFAppState().userInfo.role != '') {
+                                      context.pushNamed(
+                                        ChatPageWidget.routeName,
+                                        queryParameters: {
+                                          'profileid': serializeParam(
+                                            currentUserUid,
+                                            ParamType.String,
                                           ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                        duration: Duration(milliseconds: 5000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .warning,
-                                      ),
-                                    );
-                                  }
-                                },
-                                child: Icon(
-                                  Icons.chat,
-                                  color: functions.routeStartsWithPrefix(
-                                          getCurrentRoute(context), '/chatPage')
-                                      ? FlutterFlowTheme.of(context)
-                                          .primaryWhite
-                                      : FlutterFlowTheme.of(context).darkgray,
-                                  size: 28.0,
+                                        }.withoutNulls,
+                                      );
+                                    } else {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (dialogContext) {
+                                          return Dialog(
+                                            elevation: 0,
+                                            insetPadding: EdgeInsets.zero,
+                                            backgroundColor: Colors.transparent,
+                                            alignment: AlignmentDirectional(
+                                                    0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                            child: CustomSnackbarWidget(
+                                              myText:
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                'g0ptdkxg' /* Please sign in or sign up to u... */,
+                                              ),
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .warning,
+                                              waitMS: 3000,
+                                            ),
+                                          );
+                                        },
+                                      );
+                                    }
+                                  },
+                                  child: Icon(
+                                    Icons.chat,
+                                    color: functions.routeStartsWithPrefix(
+                                            getCurrentRoute(context),
+                                            '/chatPage')
+                                        ? FlutterFlowTheme.of(context)
+                                            .primaryWhite
+                                        : FlutterFlowTheme.of(context).darkgray,
+                                    size: 28.0,
+                                  ),
                                 ),
                               ),
                             ),

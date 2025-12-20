@@ -269,6 +269,19 @@ new post about? */
                                           (e) => e..mainCatId = 1,
                                         );
                                         safeSetState(() {});
+
+                                        context.pushNamed(
+                                          PostCatWidget.routeName,
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType: PageTransitionType
+                                                  .rightToLeft,
+                                              duration:
+                                                  Duration(milliseconds: 600),
+                                            ),
+                                          },
+                                        );
                                       },
                                       child: Container(
                                         decoration: BoxDecoration(
@@ -288,7 +301,12 @@ new post about? */
                                                     : FlutterFlowTheme.of(
                                                             context)
                                                         .bordergray,
-                                            width: 0.5,
+                                            width: FFAppState()
+                                                        .postState
+                                                        .mainCatId ==
+                                                    1
+                                                ? 1.0
+                                                : 0.5,
                                           ),
                                         ),
                                         child: Padding(
@@ -377,6 +395,19 @@ new post about? */
                                           (e) => e..mainCatId = 2,
                                         );
                                         safeSetState(() {});
+
+                                        context.pushNamed(
+                                          PostCatWidget.routeName,
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType: PageTransitionType
+                                                  .rightToLeft,
+                                              duration:
+                                                  Duration(milliseconds: 600),
+                                            ),
+                                          },
+                                        );
                                       },
                                       child: Container(
                                         decoration: BoxDecoration(
@@ -396,7 +427,12 @@ new post about? */
                                                     : FlutterFlowTheme.of(
                                                             context)
                                                         .bordergray,
-                                            width: 0.5,
+                                            width: FFAppState()
+                                                        .postState
+                                                        .mainCatId ==
+                                                    2
+                                                ? 1.0
+                                                : 0.5,
                                           ),
                                         ),
                                         child: Padding(
@@ -451,6 +487,7 @@ new post about? */
                                                           .getText(
                                                         '9exgqc2a' /* Sell, rent, transfer parcels, ... */,
                                                       ),
+                                                      maxLines: 2,
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -492,6 +529,25 @@ new post about? */
                                           (e) => e..mainCatId = 3,
                                         );
                                         safeSetState(() {});
+
+                                        context.pushNamed(
+                                          PostCatWidget.routeName,
+                                          queryParameters: {
+                                            'navRoute': serializeParam(
+                                              '3',
+                                              ParamType.String,
+                                            ),
+                                          }.withoutNulls,
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType: PageTransitionType
+                                                  .rightToLeft,
+                                              duration:
+                                                  Duration(milliseconds: 600),
+                                            ),
+                                          },
+                                        );
                                       },
                                       child: Container(
                                         width: double.infinity,
@@ -512,7 +568,12 @@ new post about? */
                                                     : FlutterFlowTheme.of(
                                                             context)
                                                         .bordergray,
-                                            width: 0.5,
+                                            width: FFAppState()
+                                                        .postState
+                                                        .mainCatId ==
+                                                    3
+                                                ? 1.0
+                                                : 0.5,
                                           ),
                                         ),
                                         child: Padding(
@@ -573,6 +634,7 @@ new post about? */
                                                             .getText(
                                                           'kyzdos39' /* Skilled professionals, helpers... */,
                                                         ),
+                                                        maxLines: 2,
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -594,6 +656,8 @@ new post about? */
                                                                               context)
                                                                           .bodyMediumIsCustom,
                                                                 ),
+                                                        overflow: TextOverflow
+                                                            .ellipsis,
                                                       ),
                                                     ),
                                                   ],
@@ -617,6 +681,25 @@ new post about? */
                                           (e) => e..mainCatId = 4,
                                         );
                                         safeSetState(() {});
+
+                                        context.pushNamed(
+                                          PostCatWidget.routeName,
+                                          queryParameters: {
+                                            'navRoute': serializeParam(
+                                              '4',
+                                              ParamType.String,
+                                            ),
+                                          }.withoutNulls,
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType: PageTransitionType
+                                                  .rightToLeft,
+                                              duration:
+                                                  Duration(milliseconds: 600),
+                                            ),
+                                          },
+                                        );
                                       },
                                       child: Container(
                                         decoration: BoxDecoration(
@@ -636,7 +719,12 @@ new post about? */
                                                     : FlutterFlowTheme.of(
                                                             context)
                                                         .bordergray,
-                                            width: 0.5,
+                                            width: FFAppState()
+                                                        .postState
+                                                        .mainCatId ==
+                                                    4
+                                                ? 1.0
+                                                : 0.5,
                                           ),
                                         ),
                                         child: Padding(
@@ -687,6 +775,7 @@ Announcements */
                                                         .getText(
                                                       'tlce1sd2' /* Host or announce events */,
                                                     ),
+                                                    maxLines: 2,
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -729,102 +818,6 @@ Announcements */
                     ),
                   ),
                 ],
-              ),
-              Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
-                child: Container(
-                  width: double.infinity,
-                  height: 90.0,
-                  constraints: BoxConstraints(
-                    maxWidth: 480.0,
-                  ),
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).primaryBackground,
-                    border: Border.all(
-                      color: FlutterFlowTheme.of(context).primaryBackground,
-                    ),
-                  ),
-                  child: Align(
-                    alignment: AlignmentDirectional(0.0, 1.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 16.0, 24.0, 0.0),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.pushNamed(
-                                PostCatWidget.routeName,
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType:
-                                        PageTransitionType.rightToLeft,
-                                    duration: Duration(milliseconds: 600),
-                                  ),
-                                },
-                              );
-                                                        },
-                            child: Container(
-                              width: double.infinity,
-                              height: 45.0,
-                              decoration: BoxDecoration(
-                                color: FFAppState().postState.mainCatId > 0
-                                    ? FlutterFlowTheme.of(context).greenInit
-                                    : FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8.0),
-                                border: Border.all(
-                                  color: FFAppState().postState.mainCatId > 0
-                                      ? FlutterFlowTheme.of(context).greenInit
-                                      : FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                ),
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'beewftzt' /* Next */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily,
-                                          color:
-                                              FFAppState()
-                                                          .postState
-                                                          .mainCatId !=
-                                                      null
-                                                  ? FlutterFlowTheme.of(context)
-                                                      .primary
-                                                  : Color(0xFF6B6969),
-                                          fontSize: 16.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                          useGoogleFonts:
-                                              !FlutterFlowTheme.of(context)
-                                                  .bodyMediumIsCustom,
-                                        ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
               ),
             ],
           ),

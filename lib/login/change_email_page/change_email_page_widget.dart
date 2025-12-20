@@ -2,9 +2,11 @@ import '/auth/supabase_auth/auth_util.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
+import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'change_email_page_model.dart';
@@ -218,10 +220,6 @@ class _ChangeEmailPageWidgetState extends State<ChangeEmailPageWidget> {
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     isDense: false,
-                                    labelText:
-                                        FFLocalizations.of(context).getText(
-                                      '7qj4jthi' /* New Email */,
-                                    ),
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -240,7 +238,7 @@ class _ChangeEmailPageWidgetState extends State<ChangeEmailPageWidget> {
                                         .override(
                                           fontFamily: 'FarsiFonts',
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryWhite,
+                                              .bordergray,
                                           fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
@@ -258,7 +256,7 @@ class _ChangeEmailPageWidgetState extends State<ChangeEmailPageWidget> {
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryWhite,
+                                            .secondaryBackground,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
@@ -266,7 +264,7 @@ class _ChangeEmailPageWidgetState extends State<ChangeEmailPageWidget> {
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
-                                            .primary,
+                                            .primaryWhite,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
@@ -287,6 +285,9 @@ class _ChangeEmailPageWidgetState extends State<ChangeEmailPageWidget> {
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
+                                    filled: true,
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
                                             16.0, 13.0, 0.0, 13.0),
@@ -324,116 +325,191 @@ class _ChangeEmailPageWidgetState extends State<ChangeEmailPageWidget> {
                                       .newEmialTextControllerValidator
                                       .asValidator(context),
                                 ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 24.0, 0.0, 24.0),
-                                  child: FFButtonWidget(
-                                    onPressed: (_model.loading == true)
-                                        ? null
-                                        : () async {
-                                            if (_model.formKey.currentState ==
-                                                    null ||
-                                                !_model.formKey.currentState!
-                                                    .validate()) {
-                                              return;
-                                            }
-                                            _model.loading = true;
-                                            safeSetState(() {});
-                                            if (_model.newEmialTextController
-                                                    .text !=
-                                                currentUserEmail) {
-                                              if (_model.newEmialTextController
-                                                  .text.isEmpty) {
-                                                ScaffoldMessenger.of(context)
-                                                    .showSnackBar(
-                                                  SnackBar(
-                                                    content: Text(
-                                                      'Email required!',
-                                                    ),
-                                                  ),
-                                                );
-                                                return;
-                                              }
-
-                                              await authManager.updateEmail(
-                                                email: _model
-                                                    .newEmialTextController
-                                                    .text,
-                                                context: context,
-                                              );
-                                              safeSetState(() {});
-
-                                              await UserExtTable().update(
-                                                data: {
-                                                  'email': _model
+                                Stack(
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 24.0, 0.0, 24.0),
+                                      child: FFButtonWidget(
+                                        onPressed: _model.timerOn
+                                            ? null
+                                            : () async {
+                                                if (_model.formKey
+                                                            .currentState ==
+                                                        null ||
+                                                    !_model
+                                                        .formKey.currentState!
+                                                        .validate()) {
+                                                  return;
+                                                }
+                                                if (_model
+                                                        .newEmialTextController
+                                                        .text !=
+                                                    currentUserEmail) {
+                                                  _model.timerController
+                                                      .onStartTimer();
+                                                  _model.timerOn = true;
+                                                  safeSetState(() {});
+                                                  if (_model
                                                       .newEmialTextController
-                                                      .text,
-                                                },
-                                                matchingRows: (rows) =>
-                                                    rows.eqOrNull(
-                                                  'id',
-                                                  currentUserUid,
-                                                ),
-                                              );
-                                              _model.loading = false;
-                                              safeSetState(() {});
-                                              return;
-                                            } else {
-                                              ScaffoldMessenger.of(context)
-                                                  .showSnackBar(
-                                                SnackBar(
-                                                  content: Text(
-                                                    'This is your current email address.',
-                                                    style: TextStyle(
-                                                      color:
+                                                      .text
+                                                      .isEmpty) {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          'Email required!',
+                                                        ),
+                                                      ),
+                                                    );
+                                                    return;
+                                                  }
+
+                                                  await authManager.updateEmail(
+                                                    email: _model
+                                                        .newEmialTextController
+                                                        .text,
+                                                    context: context,
+                                                  );
+                                                  safeSetState(() {});
+
+                                                  await UserExtTable().update(
+                                                    data: {
+                                                      'email': _model
+                                                          .newEmialTextController
+                                                          .text,
+                                                    },
+                                                    matchingRows: (rows) =>
+                                                        rows.eqOrNull(
+                                                      'id',
+                                                      currentUserUid,
+                                                    ),
+                                                  );
+                                                  return;
+                                                } else {
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(
+                                                    SnackBar(
+                                                      content: Text(
+                                                        'This is your current email address.',
+                                                        style: TextStyle(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                      ),
+                                                      duration: Duration(
+                                                          milliseconds: 2000),
+                                                      backgroundColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryText,
-                                                      fontWeight:
-                                                          FontWeight.w500,
+                                                              .warningSnack,
                                                     ),
-                                                  ),
-                                                  duration: Duration(
-                                                      milliseconds: 2000),
-                                                  backgroundColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .warningSnack,
-                                                ),
-                                              );
-                                              return;
-                                            }
-                                          },
-                                    text: FFLocalizations.of(context).getText(
-                                      'j3fkaqso' /* Change Email */,
-                                    ),
-                                    options: FFButtonOptions(
-                                      width: double.infinity,
-                                      height: 48.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 0.0),
-                                      iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color: FlutterFlowTheme.of(context)
-                                          .greenInit,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleMedium
-                                          .override(
-                                            fontFamily: 'FarsiFonts',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            fontSize: 16.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w500,
+                                                  );
+                                                  return;
+                                                }
+                                              },
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          'j3fkaqso' /* Change Email */,
+                                        ),
+                                        options: FFButtonOptions(
+                                          width: double.infinity,
+                                          height: 48.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color: FlutterFlowTheme.of(context)
+                                              .greenInit,
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .titleMedium
+                                              .override(
+                                                fontFamily: 'FarsiFonts',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                fontSize: 16.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                          elevation: 0.0,
+                                          borderSide: BorderSide(
+                                            color: Colors.transparent,
                                           ),
-                                      elevation: 0.0,
-                                      borderSide: BorderSide(
-                                        color: Colors.transparent,
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          disabledColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .textgray,
+                                          disabledTextColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .textgray,
+                                        ),
                                       ),
-                                      borderRadius: BorderRadius.circular(8.0),
                                     ),
-                                  ),
+                                    Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Container(
+                                        decoration: BoxDecoration(),
+                                        child: Visibility(
+                                          visible: _model.timerOn == true,
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 30.0, 0.0, 0.0),
+                                            child: FlutterFlowTimer(
+                                              initialTime:
+                                                  _model.timerInitialTimeMs,
+                                              getDisplayTime: (value) =>
+                                                  StopWatchTimer.getDisplayTime(
+                                                value,
+                                                hours: false,
+                                                milliSecond: false,
+                                              ),
+                                              controller:
+                                                  _model.timerController,
+                                              updateStateInterval:
+                                                  Duration(milliseconds: 1000),
+                                              onChanged: (value, displayTime,
+                                                  shouldUpdate) {
+                                                _model.timerMilliseconds =
+                                                    value;
+                                                _model.timerValue = displayTime;
+                                                if (shouldUpdate)
+                                                  safeSetState(() {});
+                                              },
+                                              onEnded: () async {
+                                                _model.timerOn = false;
+                                                safeSetState(() {});
+                                              },
+                                              textAlign: TextAlign.start,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .headlineSmall
+                                                  .override(
+                                                    fontFamily: FlutterFlowTheme
+                                                            .of(context)
+                                                        .headlineSmallFamily,
+                                                    color: Color(0xFF050505),
+                                                    letterSpacing: 0.0,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .headlineSmallIsCustom,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),

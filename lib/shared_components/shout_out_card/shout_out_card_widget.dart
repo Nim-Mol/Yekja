@@ -2,9 +2,7 @@ import '/auth/supabase_auth/auth_util.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -18,9 +16,11 @@ class ShoutOutCardWidget extends StatefulWidget {
   const ShoutOutCardWidget({
     super.key,
     required this.shoutOutId,
-  });
+    bool? consentShowAvatar,
+  }) : this.consentShowAvatar = consentShowAvatar ?? true;
 
   final int? shoutOutId;
+  final bool consentShowAvatar;
 
   @override
   State<ShoutOutCardWidget> createState() => _ShoutOutCardWidgetState();
@@ -99,14 +99,12 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
     return Align(
       alignment: AlignmentDirectional(-1.0, -1.0),
       child: FutureBuilder<List<ViewShoutoutRow>>(
-        future: (_model.requestCompleter ??= Completer<List<ViewShoutoutRow>>()
-              ..complete(ViewShoutoutTable().querySingleRow(
-                queryFn: (q) => q.eqOrNull(
-                  'id',
-                  widget.shoutOutId,
-                ),
-              )))
-            .future,
+        future: ViewShoutoutTable().querySingleRow(
+          queryFn: (q) => q.eqOrNull(
+            'id',
+            widget.shoutOutId,
+          ),
+        ),
         builder: (context, snapshot) {
           // Customize what your widget looks like when it's loading.
           if (!snapshot.hasData) {
@@ -130,7 +128,7 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
 
           return Container(
             width: 193.5,
-            height: 243.5,
+            height: 140.5,
             constraints: BoxConstraints(
               minHeight: 190.0,
               maxWidth: 300.0,
@@ -149,10 +147,10 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
               ),
             ),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(10.0, 8.0, 10.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Row(
@@ -408,81 +406,7 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                       ),
                     ],
                   ),
-                  if (loggedIn)
-                    Align(
-                      alignment: AlignmentDirectional(1.0, 1.0),
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            ToggleIcon(
-                              onPressed: () async {
-                                safeSetState(
-                                    () => _model.isLiked = !_model.isLiked!);
-                                if (_model.isLiked!) {
-                                  await PostLikeRelationTable().insert({
-                                    'liked_by': currentUserUid,
-                                    'shoutout_id': widget.shoutOutId,
-                                  });
-                                } else {
-                                  await PostLikeRelationTable().delete(
-                                    matchingRows: (rows) => rows
-                                        .eqOrNull(
-                                          'shoutout_id',
-                                          widget.shoutOutId,
-                                        )
-                                        .eqOrNull(
-                                          'liked_by',
-                                          currentUserUid,
-                                        ),
-                                  );
-                                }
-
-                                safeSetState(
-                                    () => _model.requestCompleter = null);
-                                await _model.waitForRequestCompleted();
-                              },
-                              value: _model.isLiked!,
-                              onIcon: Icon(
-                                Icons.favorite,
-                                color: Color(0xFFBA0A0A),
-                                size: 16.0,
-                              ),
-                              offIcon: Icon(
-                                Icons.favorite_border,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 16.0,
-                              ),
-                            ),
-                            Text(
-                              valueOrDefault<String>(
-                                containerViewShoutoutRow?.likes.toString(),
-                                '0',
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryWhite,
-                                    fontSize: 12.0,
-                                    letterSpacing: 0.0,
-                                    useGoogleFonts:
-                                        !FlutterFlowTheme.of(context)
-                                            .bodyMediumIsCustom,
-                                  ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                ],
+                ].divide(SizedBox(height: 5.0)),
               ),
             ),
           );

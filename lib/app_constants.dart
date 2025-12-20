@@ -6,7 +6,7 @@ abstract class FFAppConstants {
   static const String YekjaLogoChat =
       'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Icons/Yekja%20Logos/logo_1.png';
   static const String PostNotAvailableIMG =
-      'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Icons/post_not_available_3.jpg';
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/02ojzpt0bbfy/post_unavailable_1.png';
   static const String PostWithoutImage =
       'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Icons/default_image.jpg';
   static const String DefultProfileWalpaper =
@@ -30,4 +30,5 @@ abstract class FFAppConstants {
       'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Events.png';
   static const String YekjaCertified =
       'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/snefce4g15um/Yekja_badge_small.png';
+  static const String BaseUrl = 'https://yekja-8895c.web.app';
 }

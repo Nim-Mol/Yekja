@@ -91,8 +91,6 @@ class _SplashWidgetState extends State<SplashWidget>
         ));
         safeSetState(() {});
       }
-      _model.loading = false;
-      safeSetState(() {});
 
       context.goNamed(OnboardingPageWidget.routeName);
     });

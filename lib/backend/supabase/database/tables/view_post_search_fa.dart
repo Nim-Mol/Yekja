@@ -36,6 +36,9 @@ class ViewPostSearchFaRow extends SupabaseDataRow {
   int? get ratings => getField<int>('ratings');
   set ratings(int? value) => setField<int>('ratings', value);
 
+  String? get phonenumber => getField<String>('phonenumber');
+  set phonenumber(String? value) => setField<String>('phonenumber', value);
+
   String? get detailTable => getField<String>('detail_table');
   set detailTable(String? value) => setField<String>('detail_table', value);
 

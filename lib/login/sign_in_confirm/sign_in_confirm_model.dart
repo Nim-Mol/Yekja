@@ -52,8 +52,7 @@ class SignInConfirmModel extends FlutterFlowModel<SignInConfirmWidget> {
       );
     }
 
-    if (!RegExp('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}\$')
-        .hasMatch(val)) {
+    if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {
       return FFLocalizations.of(context).getText(
         'ed0qiknp' /* Please enter a valid email add... */,
       );
@@ -66,6 +65,21 @@ class SignInConfirmModel extends FlutterFlowModel<SignInConfirmWidget> {
   TextEditingController? passWordTextController;
   late bool passWordVisibility;
   String? Function(BuildContext, String?)? passWordTextControllerValidator;
+  String? _passWordTextControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return FFLocalizations.of(context).getText(
+        'u7jll47q' /* Password is required */,
+      );
+    }
+
+    if (!RegExp('^(?=.*[A-Z])(?=.*\\d).{8,}\$').hasMatch(val)) {
+      return FFLocalizations.of(context).getText(
+        'dutfozyh' /* - At least one uppercase lette... */,
+      );
+    }
+    return null;
+  }
+
   // Stores action output result for [Custom Action - customSignUpWithEmail] action in Button widget.
   String? authonticationError;
   // Stores action output result for [Backend Call - Insert Row] action in Button widget.
@@ -76,6 +90,7 @@ class SignInConfirmModel extends FlutterFlowModel<SignInConfirmWidget> {
     userNameTextControllerValidator = _userNameTextControllerValidator;
     emailAddressTextControllerValidator = _emailAddressTextControllerValidator;
     passWordVisibility = false;
+    passWordTextControllerValidator = _passWordTextControllerValidator;
   }
 
   @override

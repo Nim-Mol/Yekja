@@ -154,82 +154,88 @@ class _ReportingPopupWidgetState extends State<ReportingPopupWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Expanded(
-                  child: Container(
-                    width: 200.0,
-                    child: TextFormField(
-                      controller: _model.textController,
-                      focusNode: _model.textFieldFocusNode,
-                      autofocus: false,
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        isDense: true,
-                        labelText: FFLocalizations.of(context).getText(
-                          '8r0yy5sr' /* Reason */,
-                        ),
-                        labelStyle:
-                            FlutterFlowTheme.of(context).labelMedium.override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .labelMediumFamily,
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .labelMediumIsCustom,
-                                ),
-                        alignLabelWithHint: true,
-                        hintText: FFLocalizations.of(context).getText(
-                          '2iknl0nt' /* I would like to report this po... */,
-                        ),
-                        hintStyle:
-                            FlutterFlowTheme.of(context).labelMedium.override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .labelMediumFamily,
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .labelMediumIsCustom,
-                                ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00000000),
-                            width: 1.0,
+                  child: Form(
+                    key: _model.formKey,
+                    autovalidateMode: AutovalidateMode.disabled,
+                    child: Container(
+                      width: 200.0,
+                      child: TextFormField(
+                        controller: _model.textController,
+                        focusNode: _model.textFieldFocusNode,
+                        autofocus: false,
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          isDense: true,
+                          labelText: FFLocalizations.of(context).getText(
+                            '8r0yy5sr' /* Reason */,
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).secondary,
-                            width: 1.0,
+                          labelStyle: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .labelMediumFamily,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: !FlutterFlowTheme.of(context)
+                                    .labelMediumIsCustom,
+                              ),
+                          alignLabelWithHint: true,
+                          hintText: FFLocalizations.of(context).getText(
+                            '2iknl0nt' /* I would like to report this po... */,
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        errorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).error,
-                            width: 1.0,
+                          hintStyle: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .labelMediumFamily,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: !FlutterFlowTheme.of(context)
+                                    .labelMediumIsCustom,
+                              ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0x00000000),
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        focusedErrorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).error,
-                            width: 1.0,
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).secondary,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
+                          errorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).error,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).error,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          filled: true,
+                          fillColor:
+                              FlutterFlowTheme.of(context).secondaryBackground,
                         ),
-                        filled: true,
-                        fillColor:
-                            FlutterFlowTheme.of(context).secondaryBackground,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodyMediumFamily,
+                              letterSpacing: 0.0,
+                              useGoogleFonts: !FlutterFlowTheme.of(context)
+                                  .bodyMediumIsCustom,
+                            ),
+                        maxLines: 5,
+                        cursorColor: FlutterFlowTheme.of(context).primaryText,
+                        enableInteractiveSelection: true,
+                        validator:
+                            _model.textControllerValidator.asValidator(context),
                       ),
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).bodyMediumFamily,
-                            letterSpacing: 0.0,
-                            useGoogleFonts: !FlutterFlowTheme.of(context)
-                                .bodyMediumIsCustom,
-                          ),
-                      maxLines: 5,
-                      cursorColor: FlutterFlowTheme.of(context).primaryText,
-                      enableInteractiveSelection: true,
-                      validator:
-                          _model.textControllerValidator.asValidator(context),
                     ),
                   ),
                 ),
@@ -271,92 +277,91 @@ class _ReportingPopupWidgetState extends State<ReportingPopupWidget> {
                     ),
                   ),
                   FFButtonWidget(
-                    onPressed: (_model.textController.text == '')
-                        ? null
-                        : () async {
-                            if (_model.textController.text != '') {
-                              if (widget.reportingData?.postId != null &&
-                                  widget.reportingData?.postId != '') {
-                                _model.reportedPOst =
-                                    await ReportedTable().insert({
-                                  'reporter': currentUserUid,
-                                  'post_id': widget.reportingData?.postId,
-                                  'reason': _model.textController.text,
-                                  'isprofile': false,
-                                });
-                                FFAppState().updateUserInfoStruct(
-                                  (e) => e
-                                    ..updateReportedList(
-                                      (e) =>
-                                          e.add(widget.reportingData!.postId),
-                                    ),
-                                );
-                                _model.updatePage(() {});
-                                _model.chatForpost = await ChatsTable().insert({
-                                  'sender': FFAppConstants.YekjaAdminID,
-                                  'recipient': widget.reportingData?.profileId,
-                                  'sender_name': 'Yekja',
-                                  'post_id': widget.reportingData?.postId,
-                                });
-                                await MessagesTable().insert({
-                                  'chat_id': _model.chatForpost?.id,
-                                  'message_text':
-                                      'Dear \"${widget.reportingData?.profileOwnerName}\"⚠️Your post \"${widget.reportingData?.postTitle}\" has been reported.The Yekja Compliance Team is reviewing the details now. We will contact you with an update as soon as the investigation is complete.',
-                                  'recipient': widget.reportingData?.profileId,
-                                });
-                              } else {
-                                _model.reportedProfile =
-                                    await ReportedTable().insert({
-                                  'reporter': currentUserUid,
-                                  'userprofile_id':
-                                      widget.reportingData?.profileId,
-                                  'reason': _model.textController.text,
-                                  'isprofile': true,
-                                });
-                                FFAppState().updateUserInfoStruct(
-                                  (e) => e
-                                    ..updateReportedList(
-                                      (e) => e.add(
-                                          widget.reportingData!.profileId),
-                                    ),
-                                );
-                                _model.updatePage(() {});
-                                _model.chatForProfile =
-                                    await ChatsTable().insert({
-                                  'sender': FFAppConstants.YekjaAdminID,
-                                  'recipient': widget.reportingData?.profileId,
-                                  'sender_name': 'Yekja',
-                                  'post_id': widget.reportingData?.profileId,
-                                });
-                                await MessagesTable().insert({
-                                  'chat_id': _model.chatForProfile?.id,
-                                  'message_text':
-                                      'Dear \"${widget.reportingData?.profileOwnerName}\"⚠️Your profile has been reported.The Yekja Compliance Team is reviewing the details now. We will contact you with an update as soon as the investigation is complete.',
-                                  'recipient': widget.reportingData?.profileId,
-                                });
-                              }
+                    onPressed: () async {
+                      _model.validationPass = true;
+                      if (_model.formKey.currentState == null ||
+                          !_model.formKey.currentState!.validate()) {
+                        safeSetState(() => _model.validationPass = false);
+                        return;
+                      }
+                      if (_model.validationPass == true) {
+                        if (widget.reportingData?.postId != null &&
+                            widget.reportingData?.postId != '') {
+                          _model.reportedPOst = await ReportedTable().insert({
+                            'reporter': currentUserUid,
+                            'post_id': widget.reportingData?.postId,
+                            'reason': _model.textController.text,
+                            'isprofile': false,
+                            'userprofile_id': widget.reportingData?.profileId,
+                          });
+                          FFAppState().updateUserInfoStruct(
+                            (e) => e
+                              ..updateReportedList(
+                                (e) => e.add(widget.reportingData!.postId),
+                              ),
+                          );
+                          _model.updatePage(() {});
+                          _model.chatForpost = await ChatsTable().insert({
+                            'sender': FFAppConstants.YekjaAdminID,
+                            'recipient': widget.reportingData?.profileId,
+                            'sender_name': 'Yekja',
+                            'post_id': widget.reportingData?.postId,
+                          });
+                          await MessagesTable().insert({
+                            'chat_id': _model.chatForpost?.id,
+                            'message_text':
+                                'Dear  ${widget.reportingData?.profileOwnerName}${"\n"},⚠️Your post \"${widget.reportingData?.postTitle}\" has been reported.${"\n"}The Yekja Compliance Team is reviewing the details now. We will contact you with an update as soon as the investigation is complete.',
+                            'recipient': widget.reportingData?.profileId,
+                          });
+                        } else {
+                          _model.reportedProfile =
+                              await ReportedTable().insert({
+                            'reporter': currentUserUid,
+                            'userprofile_id': widget.reportingData?.profileId,
+                            'reason': _model.textController.text,
+                            'isprofile': true,
+                          });
+                          FFAppState().updateUserInfoStruct(
+                            (e) => e
+                              ..updateReportedList(
+                                (e) => e.add(widget.reportingData!.profileId),
+                              ),
+                          );
+                          _model.updatePage(() {});
+                          _model.chatForProfile = await ChatsTable().insert({
+                            'sender': FFAppConstants.YekjaAdminID,
+                            'recipient': widget.reportingData?.profileId,
+                            'sender_name': 'Yekja',
+                            'post_id': widget.reportingData?.profileId,
+                          });
+                          await MessagesTable().insert({
+                            'chat_id': _model.chatForProfile?.id,
+                            'message_text':
+                                'Dear  ${widget.reportingData?.profileOwnerName},${"\n"}⚠️Your profile has been reported.${"\n"}The Yekja Compliance Team is reviewing the details now. We will contact you with an update as soon as the investigation is complete.',
+                            'recipient': widget.reportingData?.profileId,
+                          });
+                        }
 
-                              Navigator.pop(context);
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    'Please write a reason.',
-                                    style: TextStyle(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  duration: Duration(milliseconds: 4900),
-                                  backgroundColor:
-                                      FlutterFlowTheme.of(context).errorSnack,
-                                ),
-                              );
-                            }
+                        Navigator.pop(context);
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'Please write a reason.',
+                              style: TextStyle(
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            duration: Duration(milliseconds: 4900),
+                            backgroundColor:
+                                FlutterFlowTheme.of(context).errorSnack,
+                          ),
+                        );
+                      }
 
-                            safeSetState(() {});
-                          },
+                      safeSetState(() {});
+                    },
                     text: FFLocalizations.of(context).getText(
                       '4f0rzqyy' /* Report */,
                     ),
@@ -367,7 +372,7 @@ class _ReportingPopupWidgetState extends State<ReportingPopupWidget> {
                           EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: Color(0x42F25A57),
+                      color: Color(0xFF7F2622),
                       textStyle: FlutterFlowTheme.of(context)
                           .titleSmall
                           .override(
@@ -380,10 +385,6 @@ class _ReportingPopupWidgetState extends State<ReportingPopupWidget> {
                           ),
                       elevation: 0.0,
                       borderRadius: BorderRadius.circular(8.0),
-                      disabledColor:
-                          FlutterFlowTheme.of(context).lighterSecBackground,
-                      disabledTextColor:
-                          FlutterFlowTheme.of(context).bordergray,
                     ),
                   ),
                 ],

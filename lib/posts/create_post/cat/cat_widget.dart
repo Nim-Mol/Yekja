@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -157,6 +158,32 @@ best fitti... */
                                         FFAppState().postDetailTable =
                                             categoriesItem.detailTable;
                                         _model.updatePage(() {});
+                                        FFAppState().postDetailJSON = null;
+                                        safeSetState(() {});
+                                        // If post has wishlist (no intend) go to detail page and from there go to wishlist and then images, otherwise go to PostIntend
+                                        if (functions.isInSetInt(
+                                                FFAppState().postState.catId,
+                                                FFAppConstants.catsOpenForSwap
+                                                    .toList()) ==
+                                            true) {
+                                          context.pushNamed(
+                                              PostSubCatWidget.routeName);
+                                        } else {
+                                          context.pushNamed(
+                                            PostIntendWidget.routeName,
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType
+                                                        .rightToLeft,
+                                                duration:
+                                                    Duration(milliseconds: 600),
+                                              ),
+                                            },
+                                          );
+                                        }
                                       },
                                       child: Container(
                                         decoration: BoxDecoration(
@@ -194,19 +221,21 @@ best fitti... */
                                           border: Border.all(
                                             color: categoriesItem.catId ==
                                                     FFAppState().postState.catId
-                                                ? FlutterFlowTheme.of(context)
-                                                    .primary
+                                                ? Color(0x00050505)
                                                 : FlutterFlowTheme.of(context)
                                                     .bordergray,
-                                            width: 0.4,
+                                            width: categoriesItem.catId ==
+                                                    FFAppState().postState.catId
+                                                ? 1.0
+                                                : 0.5,
                                           ),
                                         ),
                                         child: Padding(
-                                          padding: EdgeInsets.all(4.0),
+                                          padding: EdgeInsets.all(3.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
-                                                MainAxisAlignment.start,
+                                                MainAxisAlignment.center,
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.center,
                                             children: [
@@ -216,7 +245,7 @@ best fitti... */
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          0.0, 4.0, 0.0, 6.0),
+                                                          0.0, 3.0, 0.0, 3.0),
                                                   child: Container(
                                                     width: 40.0,
                                                     height: 40.0,
@@ -240,7 +269,7 @@ best fitti... */
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsets.all(4.0),
+                                                          EdgeInsets.all(2.0),
                                                       child: custom_widgets
                                                           .SvgRenderer(
                                                         width: 36.0,

@@ -608,6 +608,12 @@ class FFAppState extends ChangeNotifier {
   set postDetailLabel(dynamic value) {
     _postDetailLabel = value;
   }
+
+  String _navRoutePost = '';
+  String get navRoutePost => _navRoutePost;
+  set navRoutePost(String value) {
+    _navRoutePost = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

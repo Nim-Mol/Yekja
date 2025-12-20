@@ -46,7 +46,9 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   // Model for NavBar component.
   late NavBarModel navBarModel;
   // State field(s) for Switch widget.
-  bool? switchValue;
+  bool? switchValue1;
+  // State field(s) for Switch widget.
+  bool? switchValue2;
 
   @override
   void initState(BuildContext context) {

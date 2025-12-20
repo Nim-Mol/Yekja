@@ -13,10 +13,10 @@ class FilterApiCall {
   static Future<ApiCallResponse> call({
     int? offset,
     int? limit,
-    int? mainCatId = 2,
-    int? catId = 1,
+    int? mainCatId = 4,
+    int? catId = 17,
     String? sortby = 'created_at.desc.nullslast',
-    String? langCode = 'fa',
+    String? langCode = 'en',
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'filterApi',
@@ -37,7 +37,7 @@ class FilterApiCall {
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
-      cache: false,
+      cache: true,
       isStreamingApi: false,
       alwaysAllowBody: false,
     );

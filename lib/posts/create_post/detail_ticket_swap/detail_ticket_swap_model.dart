@@ -75,8 +75,6 @@ class DetailTicketSwapModel extends FlutterFlowModel<DetailTicketSwapWidget> {
 
   // Stores action output result for [Validate Form] action in priceField widget.
   bool? validationResult;
-  // State field(s) for NegotiableSwitch widget.
-  bool? negotiableSwitchValue;
   // State field(s) for SwapSwitch widget.
   bool? swapSwitchValue;
   // State field(s) for WishlistField widget.

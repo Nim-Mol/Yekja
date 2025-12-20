@@ -28,6 +28,11 @@ class PostImageModel extends FlutterFlowModel<PostImageWidget> {
       FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadToStorageURL = '';
 
+  bool isDataUploading_uploadToStorageURLEdit = false;
+  FFUploadedFile uploadedLocalFile_uploadToStorageURLEdit =
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+  String uploadedFileUrl_uploadToStorageURLEdit = '';
+
   @override
   void initState(BuildContext context) {}
 

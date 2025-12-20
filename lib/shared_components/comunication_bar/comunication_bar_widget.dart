@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'comunication_bar_model.dart';
 export 'comunication_bar_model.dart';
 
@@ -20,6 +21,7 @@ class ComunicationBarWidget extends StatefulWidget {
     bool? allowMessage,
     bool? allowCall,
     required this.allowShare,
+    this.phoneNumber,
   })  : this.allowMessage = allowMessage ?? true,
         this.allowCall = allowCall ?? true;
 
@@ -29,6 +31,7 @@ class ComunicationBarWidget extends StatefulWidget {
   final bool allowMessage;
   final bool allowCall;
   final bool? allowShare;
+  final String? phoneNumber;
 
   @override
   State<ComunicationBarWidget> createState() => _ComunicationBarWidgetState();
@@ -362,10 +365,15 @@ class _ComunicationBarWidgetState extends State<ComunicationBarWidget>
                     alignment: AlignmentDirectional(0.0, -1.0),
                     child: FFButtonWidget(
                       onPressed: (!widget.allowCall ||
-                              (currentUserUid == ''))
+                              (currentUserUid == '') ||
+                              (widget.phoneNumber == null ||
+                                  widget.phoneNumber == ''))
                           ? null
-                          : () {
-                              print('Button pressed ...');
+                          : () async {
+                              await launchUrl(Uri(
+                                scheme: 'tel',
+                                path: widget.phoneNumber!,
+                              ));
                             },
                       text: FFLocalizations.of(context).getText(
                         'cehxi79j' /*  */,
@@ -417,7 +425,7 @@ class _ComunicationBarWidgetState extends State<ComunicationBarWidget>
                             ? null
                             : () async {
                                 await Share.share(
-                                  'yekja://yekja.nl${GoRouterState.of(context).uri.toString()}',
+                                  '${FFAppConstants.BaseUrl}${'yekja://yekja.nl${GoRouterState.of(context).uri.toString()}'}',
                                   sharePositionOrigin:
                                       getWidgetBoundingBox(context),
                                 );

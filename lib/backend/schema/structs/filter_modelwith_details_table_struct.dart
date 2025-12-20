@@ -35,6 +35,11 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
     String? catLabel,
     String? subCatLabel,
     String? detailsLabelText,
+    bool? showProfileImage,
+    bool? showSocialmedia,
+    bool? allowSharePost,
+    bool? allowMessage,
+    bool? allowCall,
   })  : _mainCatId = mainCatId,
         _postId = postId,
         _catName = catName,
@@ -62,7 +67,12 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
         _ratings = ratings,
         _catLabel = catLabel,
         _subCatLabel = subCatLabel,
-        _detailsLabelText = detailsLabelText;
+        _detailsLabelText = detailsLabelText,
+        _showProfileImage = showProfileImage,
+        _showSocialmedia = showSocialmedia,
+        _allowSharePost = allowSharePost,
+        _allowMessage = allowMessage,
+        _allowCall = allowCall;
 
   // "main_cat_id" field.
   int? _mainCatId;
@@ -281,6 +291,41 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
 
   bool hasDetailsLabelText() => _detailsLabelText != null;
 
+  // "show_profile_image" field.
+  bool? _showProfileImage;
+  bool get showProfileImage => _showProfileImage ?? false;
+  set showProfileImage(bool? val) => _showProfileImage = val;
+
+  bool hasShowProfileImage() => _showProfileImage != null;
+
+  // "show_socialmedia" field.
+  bool? _showSocialmedia;
+  bool get showSocialmedia => _showSocialmedia ?? false;
+  set showSocialmedia(bool? val) => _showSocialmedia = val;
+
+  bool hasShowSocialmedia() => _showSocialmedia != null;
+
+  // "allow_share_post" field.
+  bool? _allowSharePost;
+  bool get allowSharePost => _allowSharePost ?? false;
+  set allowSharePost(bool? val) => _allowSharePost = val;
+
+  bool hasAllowSharePost() => _allowSharePost != null;
+
+  // "allow_message" field.
+  bool? _allowMessage;
+  bool get allowMessage => _allowMessage ?? false;
+  set allowMessage(bool? val) => _allowMessage = val;
+
+  bool hasAllowMessage() => _allowMessage != null;
+
+  // "allow_call" field.
+  bool? _allowCall;
+  bool get allowCall => _allowCall ?? false;
+  set allowCall(bool? val) => _allowCall = val;
+
+  bool hasAllowCall() => _allowCall != null;
+
   static FilterModelwithDetailsTableStruct fromMap(Map<String, dynamic> data) =>
       FilterModelwithDetailsTableStruct(
         mainCatId: castToType<int>(data['main_cat_id']),
@@ -311,6 +356,11 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
         catLabel: data['cat_label'] as String?,
         subCatLabel: data['sub_cat_label'] as String?,
         detailsLabelText: data['details_label_text'] as String?,
+        showProfileImage: data['show_profile_image'] as bool?,
+        showSocialmedia: data['show_socialmedia'] as bool?,
+        allowSharePost: data['allow_share_post'] as bool?,
+        allowMessage: data['allow_message'] as bool?,
+        allowCall: data['allow_call'] as bool?,
       );
 
   static FilterModelwithDetailsTableStruct? maybeFromMap(dynamic data) => data
@@ -347,6 +397,11 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
         'cat_label': _catLabel,
         'sub_cat_label': _subCatLabel,
         'details_label_text': _detailsLabelText,
+        'show_profile_image': _showProfileImage,
+        'show_socialmedia': _showSocialmedia,
+        'allow_share_post': _allowSharePost,
+        'allow_message': _allowMessage,
+        'allow_call': _allowCall,
       }.withoutNulls;
 
   @override
@@ -463,6 +518,26 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
         'details_label_text': serializeParam(
           _detailsLabelText,
           ParamType.String,
+        ),
+        'show_profile_image': serializeParam(
+          _showProfileImage,
+          ParamType.bool,
+        ),
+        'show_socialmedia': serializeParam(
+          _showSocialmedia,
+          ParamType.bool,
+        ),
+        'allow_share_post': serializeParam(
+          _allowSharePost,
+          ParamType.bool,
+        ),
+        'allow_message': serializeParam(
+          _allowMessage,
+          ParamType.bool,
+        ),
+        'allow_call': serializeParam(
+          _allowCall,
+          ParamType.bool,
         ),
       }.withoutNulls;
 
@@ -609,6 +684,31 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        showProfileImage: deserializeParam(
+          data['show_profile_image'],
+          ParamType.bool,
+          false,
+        ),
+        showSocialmedia: deserializeParam(
+          data['show_socialmedia'],
+          ParamType.bool,
+          false,
+        ),
+        allowSharePost: deserializeParam(
+          data['allow_share_post'],
+          ParamType.bool,
+          false,
+        ),
+        allowMessage: deserializeParam(
+          data['allow_message'],
+          ParamType.bool,
+          false,
+        ),
+        allowCall: deserializeParam(
+          data['allow_call'],
+          ParamType.bool,
+          false,
+        ),
       );
 
   @override
@@ -645,7 +745,12 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
         ratings == other.ratings &&
         catLabel == other.catLabel &&
         subCatLabel == other.subCatLabel &&
-        detailsLabelText == other.detailsLabelText;
+        detailsLabelText == other.detailsLabelText &&
+        showProfileImage == other.showProfileImage &&
+        showSocialmedia == other.showSocialmedia &&
+        allowSharePost == other.allowSharePost &&
+        allowMessage == other.allowMessage &&
+        allowCall == other.allowCall;
   }
 
   @override
@@ -677,7 +782,12 @@ class FilterModelwithDetailsTableStruct extends BaseStruct {
         ratings,
         catLabel,
         subCatLabel,
-        detailsLabelText
+        detailsLabelText,
+        showProfileImage,
+        showSocialmedia,
+        allowSharePost,
+        allowMessage,
+        allowCall
       ]);
 }
 
@@ -709,6 +819,11 @@ FilterModelwithDetailsTableStruct createFilterModelwithDetailsTableStruct({
   String? catLabel,
   String? subCatLabel,
   String? detailsLabelText,
+  bool? showProfileImage,
+  bool? showSocialmedia,
+  bool? allowSharePost,
+  bool? allowMessage,
+  bool? allowCall,
 }) =>
     FilterModelwithDetailsTableStruct(
       mainCatId: mainCatId,
@@ -738,4 +853,9 @@ FilterModelwithDetailsTableStruct createFilterModelwithDetailsTableStruct({
       catLabel: catLabel,
       subCatLabel: subCatLabel,
       detailsLabelText: detailsLabelText,
+      showProfileImage: showProfileImage,
+      showSocialmedia: showSocialmedia,
+      allowSharePost: allowSharePost,
+      allowMessage: allowMessage,
+      allowCall: allowCall,
     );

@@ -57,8 +57,8 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                 ..complete(ViewUserChatsVisibleTable().queryRows(
                   queryFn: (q) => q
                       .or("chat_sender.eq.${currentUserUid}, chat_recipient.eq.${currentUserUid}")
-                      .order('unseen_count')
-                      .order('chat_created_at'),
+                      .order('last_message_at')
+                      .order('unseen_count'),
                 )))
           .future,
       builder: (context, snapshot) {
@@ -701,7 +701,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                               .bodySmallFamily,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primary,
+                                                                          .primaryWhite,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -761,14 +761,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Satoshi',
-                                                                  color: chatviewItem
-                                                                              .unseenCount! >
-                                                                          0
-                                                                      ? FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary
-                                                                      : Color(
-                                                                          0xFFBFBBBB),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
                                                                   fontSize:
                                                                       14.0,
                                                                   letterSpacing:
@@ -812,12 +807,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                   .override(
                                                                     fontFamily:
                                                                         'Satoshi',
-                                                                    color: chatviewItem.unseenCount! >
-                                                                            0
-                                                                        ? FlutterFlowTheme.of(context)
-                                                                            .primary
-                                                                        : Color(
-                                                                            0xFFBFBBBB),
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
                                                                     fontSize:
                                                                         14.0,
                                                                     letterSpacing:
@@ -890,14 +882,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                         .titleSmall
                                                         .override(
                                                           fontFamily: 'Satoshi',
-                                                          color: chatviewItem
-                                                                      .unseenCount! >
-                                                                  0
-                                                              ? Color(
-                                                                  0xFF17C995)
-                                                              : FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryWhite,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .newsCard,
                                                           fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -1150,7 +1137,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                               .bodySmallFamily,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primary,
+                                                                          .primaryWhite,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -1210,14 +1197,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Satoshi',
-                                                                  color: chatviewItem
-                                                                              .unseenCount! >
-                                                                          0
-                                                                      ? FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary
-                                                                      : Color(
-                                                                          0xFFBFBBBB),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
                                                                   fontSize:
                                                                       14.0,
                                                                   letterSpacing:
@@ -1261,12 +1243,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                   .override(
                                                                     fontFamily:
                                                                         'Satoshi',
-                                                                    color: chatviewItem.unseenCount! >
-                                                                            0
-                                                                        ? FlutterFlowTheme.of(context)
-                                                                            .primary
-                                                                        : Color(
-                                                                            0xFFBFBBBB),
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
                                                                     fontSize:
                                                                         14.0,
                                                                     letterSpacing:
@@ -1339,13 +1318,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                         .titleSmall
                                                         .override(
                                                           fontFamily: 'Satoshi',
-                                                          color: chatviewItem
-                                                                      .unseenCount! >
-                                                                  0
-                                                              ? Color(
-                                                                  0xFF17C995)
-                                                              : Color(
-                                                                  0xFFBFBBBB),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .newsCard,
                                                           fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -1602,7 +1577,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                               .bodySmallFamily,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primary,
+                                                                          .primaryWhite,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -1662,14 +1637,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Satoshi',
-                                                                  color: chatviewItem
-                                                                              .unseenCount! >
-                                                                          0
-                                                                      ? FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary
-                                                                      : Color(
-                                                                          0xFFBFBBBB),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
                                                                   fontSize:
                                                                       14.0,
                                                                   letterSpacing:
@@ -1709,12 +1679,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                   .override(
                                                                     fontFamily:
                                                                         'Satoshi',
-                                                                    color: chatviewItem.unseenCount! >
-                                                                            0
-                                                                        ? FlutterFlowTheme.of(context)
-                                                                            .primary
-                                                                        : Color(
-                                                                            0xFFBFBBBB),
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
                                                                     fontSize:
                                                                         14.0,
                                                                     letterSpacing:
@@ -1787,14 +1754,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                         .titleSmall
                                                         .override(
                                                           fontFamily: 'Satoshi',
-                                                          color: chatviewItem
-                                                                      .unseenCount! >
-                                                                  0
-                                                              ? Color(
-                                                                  0xFF17C995)
-                                                              : FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryText,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .newsCard,
                                                           fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -2032,7 +1994,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                               .bodySmallFamily,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primary,
+                                                                          .primaryWhite,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -2092,14 +2054,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Satoshi',
-                                                                  color: chatviewItem
-                                                                              .unseenCount! >
-                                                                          0
-                                                                      ? FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary
-                                                                      : Color(
-                                                                          0xFFBFBBBB),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
                                                                   fontSize:
                                                                       14.0,
                                                                   letterSpacing:
@@ -2133,14 +2090,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Satoshi',
-                                                                  color: chatviewItem
-                                                                              .unseenCount! >
-                                                                          0
-                                                                      ? FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary
-                                                                      : Color(
-                                                                          0xFFBFBBBB),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
                                                                   fontSize:
                                                                       14.0,
                                                                   letterSpacing:
@@ -2214,14 +2166,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                         .titleSmall
                                                         .override(
                                                           fontFamily: 'Satoshi',
-                                                          color: chatviewItem
-                                                                      .unseenCount! >
-                                                                  0
-                                                              ? Color(
-                                                                  0xFF17C995)
-                                                              : FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryText,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .newsCard,
                                                           fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:

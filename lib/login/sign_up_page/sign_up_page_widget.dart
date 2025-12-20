@@ -262,12 +262,6 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                   obscureText: false,
                                                   decoration: InputDecoration(
                                                     isDense: true,
-                                                    labelText:
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                      'totm38xv' /* Username */,
-                                                    ),
                                                     labelStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
@@ -284,22 +278,29 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                                           context)
                                                                       .labelMediumIsCustom,
                                                             ),
-                                                    hintStyle:
-                                                        FlutterFlowTheme.of(
+                                                    hintText:
+                                                        FFLocalizations.of(
                                                                 context)
-                                                            .labelMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMediumFamily,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMediumIsCustom,
-                                                            ),
+                                                            .getText(
+                                                      'bhpvqitl' /* Username */,
+                                                    ),
+                                                    hintStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMediumFamily,
+                                                          color:
+                                                              Color(0xFF767575),
+                                                          fontSize: 16.0,
+                                                          letterSpacing: 0.0,
+                                                          useGoogleFonts:
+                                                              !FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .labelMediumIsCustom,
+                                                        ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
                                                       borderSide: BorderSide(
@@ -443,12 +444,6 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                   obscureText: false,
                                                   decoration: InputDecoration(
                                                     isDense: true,
-                                                    labelText:
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                      'f1mymf8w' /* Email */,
-                                                    ),
                                                     labelStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
@@ -465,22 +460,29 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                                           context)
                                                                       .labelMediumIsCustom,
                                                             ),
-                                                    hintStyle:
-                                                        FlutterFlowTheme.of(
+                                                    hintText:
+                                                        FFLocalizations.of(
                                                                 context)
-                                                            .labelMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMediumFamily,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMediumIsCustom,
-                                                            ),
+                                                            .getText(
+                                                      'uorul98o' /* Email */,
+                                                    ),
+                                                    hintStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMediumFamily,
+                                                          color:
+                                                              Color(0xFF767575),
+                                                          fontSize: 16.0,
+                                                          letterSpacing: 0.0,
+                                                          useGoogleFonts:
+                                                              !FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .labelMediumIsCustom,
+                                                        ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
                                                       borderSide: BorderSide(
@@ -625,12 +627,6 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                       .passWordVisibility,
                                                   decoration: InputDecoration(
                                                     isDense: true,
-                                                    labelText:
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                      'zetaeoul' /* Password */,
-                                                    ),
                                                     labelStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
@@ -647,22 +643,29 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                                           context)
                                                                       .labelMediumIsCustom,
                                                             ),
-                                                    hintStyle:
-                                                        FlutterFlowTheme.of(
+                                                    hintText:
+                                                        FFLocalizations.of(
                                                                 context)
-                                                            .labelMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMediumFamily,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMediumIsCustom,
-                                                            ),
+                                                            .getText(
+                                                      'j5xg8kkc' /* Password */,
+                                                    ),
+                                                    hintStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMediumFamily,
+                                                          color:
+                                                              Color(0xFF767575),
+                                                          fontSize: 16.0,
+                                                          letterSpacing: 0.0,
+                                                          useGoogleFonts:
+                                                              !FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .labelMediumIsCustom,
+                                                        ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
                                                       borderSide: BorderSide(
@@ -785,12 +788,6 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                       decoration:
                                                           InputDecoration(
                                                         isDense: true,
-                                                        labelText:
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                          '53qxhdtu' /* Confirm Password */,
-                                                        ),
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -806,6 +803,12 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                                               context)
                                                                           .labelMediumIsCustom,
                                                                 ),
+                                                        hintText:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          '4yej3nq3' /* Confirm Password */,
+                                                        ),
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -814,6 +817,10 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                                   fontFamily: FlutterFlowTheme.of(
                                                                           context)
                                                                       .labelMediumFamily,
+                                                                  color: Color(
+                                                                      0xFF767575),
+                                                                  fontSize:
+                                                                      16.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   useGoogleFonts:

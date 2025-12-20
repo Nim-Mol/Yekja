@@ -28,16 +28,6 @@ class MainPageModel extends FlutterFlowModel<MainPageWidget> {
   int get tabBarPreviousIndex =>
       tabBarController != null ? tabBarController!.previousIndex : 0;
 
-  // State field(s) for DropDownSort widget.
-  String? dropDownSortValue1;
-  FormFieldController<String>? dropDownSortValueController1;
-  // State field(s) for ListviewMarket widget.
-
-  PagingController<ApiPagingParams, dynamic>? listviewMarketPagingController;
-  Function(ApiPagingParams nextPageMarker)? listviewMarketApiCall;
-
-  // Models for ItemCard_Global dynamic component.
-  late FlutterFlowDynamicModels<ItemCardGlobalModel> itemCardGlobalModels1;
   // State field(s) for Carousel widget.
   CarouselSliderController? carouselController;
   int carouselCurrentIndex = 1;
@@ -45,12 +35,22 @@ class MainPageModel extends FlutterFlowModel<MainPageWidget> {
   // Models for shoutOutCard dynamic component.
   late FlutterFlowDynamicModels<ShoutOutCardModel> shoutOutCardModels;
   // State field(s) for DropDownSort widget.
-  String? dropDownSortValue2;
-  FormFieldController<String>? dropDownSortValueController2;
+  String? dropDownSortValue1;
+  FormFieldController<String>? dropDownSortValueController1;
   // State field(s) for ListviewSupport widget.
 
   PagingController<ApiPagingParams, dynamic>? listviewSupportPagingController;
   Function(ApiPagingParams nextPageMarker)? listviewSupportApiCall;
+
+  // Models for ItemCard_Global dynamic component.
+  late FlutterFlowDynamicModels<ItemCardGlobalModel> itemCardGlobalModels1;
+  // State field(s) for DropDownSort widget.
+  String? dropDownSortValue2;
+  FormFieldController<String>? dropDownSortValueController2;
+  // State field(s) for ListviewMarket widget.
+
+  PagingController<ApiPagingParams, dynamic>? listviewMarketPagingController;
+  Function(ApiPagingParams nextPageMarker)? listviewMarketApiCall;
 
   // Models for ItemCard_Global dynamic component.
   late FlutterFlowDynamicModels<ItemCardGlobalModel> itemCardGlobalModels2;
@@ -79,9 +79,9 @@ class MainPageModel extends FlutterFlowModel<MainPageWidget> {
 
   @override
   void initState(BuildContext context) {
+    shoutOutCardModels = FlutterFlowDynamicModels(() => ShoutOutCardModel());
     itemCardGlobalModels1 =
         FlutterFlowDynamicModels(() => ItemCardGlobalModel());
-    shoutOutCardModels = FlutterFlowDynamicModels(() => ShoutOutCardModel());
     itemCardGlobalModels2 =
         FlutterFlowDynamicModels(() => ItemCardGlobalModel());
     itemCardGlobalModels3 =
@@ -94,10 +94,10 @@ class MainPageModel extends FlutterFlowModel<MainPageWidget> {
   @override
   void dispose() {
     tabBarController?.dispose();
-    listviewMarketPagingController?.dispose();
-    itemCardGlobalModels1.dispose();
     shoutOutCardModels.dispose();
     listviewSupportPagingController?.dispose();
+    itemCardGlobalModels1.dispose();
+    listviewMarketPagingController?.dispose();
     itemCardGlobalModels2.dispose();
     listviewSkillsPagingController?.dispose();
     itemCardGlobalModels3.dispose();
@@ -107,69 +107,6 @@ class MainPageModel extends FlutterFlowModel<MainPageWidget> {
   }
 
   /// Additional helper methods.
-  Future waitForOnePageForListviewMarket({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete =
-          (listviewMarketPagingController?.nextPageKey?.nextPageNumber ?? 0) >
-              0;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
-  }
-
-  PagingController<ApiPagingParams, dynamic> setListviewMarketController(
-    Function(ApiPagingParams) apiCall,
-  ) {
-    listviewMarketApiCall = apiCall;
-    return listviewMarketPagingController ??=
-        _createListviewMarketController(apiCall);
-  }
-
-  PagingController<ApiPagingParams, dynamic> _createListviewMarketController(
-    Function(ApiPagingParams) query,
-  ) {
-    final controller = PagingController<ApiPagingParams, dynamic>(
-      firstPageKey: ApiPagingParams(
-        nextPageNumber: 0,
-        numItems: 0,
-        lastResponse: null,
-      ),
-    );
-    return controller..addPageRequestListener(listviewMarketFilterApiPage);
-  }
-
-  void listviewMarketFilterApiPage(ApiPagingParams nextPageMarker) =>
-      listviewMarketApiCall!(nextPageMarker)
-          .then((listviewMarketFilterApiResponse) {
-        final pageItems = ((listviewMarketFilterApiResponse.jsonBody
-                            .toList()
-                            .map<FilterModelwithDetailsTableStruct?>(
-                                FilterModelwithDetailsTableStruct.maybeFromMap)
-                            .toList()
-                        as Iterable<FilterModelwithDetailsTableStruct?>)
-                    .withoutNulls ??
-                [])
-            .toList() as List;
-        final newNumItems = nextPageMarker.numItems + pageItems.length;
-        listviewMarketPagingController?.appendPage(
-          pageItems,
-          (pageItems.length > 0)
-              ? ApiPagingParams(
-                  nextPageNumber: nextPageMarker.nextPageNumber + 1,
-                  numItems: newNumItems,
-                  lastResponse: listviewMarketFilterApiResponse,
-                )
-              : null,
-        );
-      });
-
   Future waitForOnePageForListviewSupport({
     double minWait = 0,
     double maxWait = double.infinity,
@@ -228,6 +165,69 @@ class MainPageModel extends FlutterFlowModel<MainPageWidget> {
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,
                   lastResponse: listviewSupportFilterApiResponse,
+                )
+              : null,
+        );
+      });
+
+  Future waitForOnePageForListviewMarket({
+    double minWait = 0,
+    double maxWait = double.infinity,
+  }) async {
+    final stopwatch = Stopwatch()..start();
+    while (true) {
+      await Future.delayed(Duration(milliseconds: 50));
+      final timeElapsed = stopwatch.elapsedMilliseconds;
+      final requestComplete =
+          (listviewMarketPagingController?.nextPageKey?.nextPageNumber ?? 0) >
+              0;
+      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
+        break;
+      }
+    }
+  }
+
+  PagingController<ApiPagingParams, dynamic> setListviewMarketController(
+    Function(ApiPagingParams) apiCall,
+  ) {
+    listviewMarketApiCall = apiCall;
+    return listviewMarketPagingController ??=
+        _createListviewMarketController(apiCall);
+  }
+
+  PagingController<ApiPagingParams, dynamic> _createListviewMarketController(
+    Function(ApiPagingParams) query,
+  ) {
+    final controller = PagingController<ApiPagingParams, dynamic>(
+      firstPageKey: ApiPagingParams(
+        nextPageNumber: 0,
+        numItems: 0,
+        lastResponse: null,
+      ),
+    );
+    return controller..addPageRequestListener(listviewMarketFilterApiPage);
+  }
+
+  void listviewMarketFilterApiPage(ApiPagingParams nextPageMarker) =>
+      listviewMarketApiCall!(nextPageMarker)
+          .then((listviewMarketFilterApiResponse) {
+        final pageItems = ((listviewMarketFilterApiResponse.jsonBody
+                            .toList()
+                            .map<FilterModelwithDetailsTableStruct?>(
+                                FilterModelwithDetailsTableStruct.maybeFromMap)
+                            .toList()
+                        as Iterable<FilterModelwithDetailsTableStruct?>)
+                    .withoutNulls ??
+                [])
+            .toList() as List;
+        final newNumItems = nextPageMarker.numItems + pageItems.length;
+        listviewMarketPagingController?.appendPage(
+          pageItems,
+          (pageItems.length > 0)
+              ? ApiPagingParams(
+                  nextPageNumber: nextPageMarker.nextPageNumber + 1,
+                  numItems: newNumItems,
+                  lastResponse: listviewMarketFilterApiResponse,
                 )
               : null,
         );

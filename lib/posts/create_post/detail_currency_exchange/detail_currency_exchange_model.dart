@@ -20,7 +20,9 @@ class DetailCurrencyExchangeModel
   String? _amountFieldTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return FFLocalizations.of(context).getText(
+        'jsgjzpxv' /* Amount is required. */,
+      );
     }
 
     if (!RegExp('^([0-9\\u06F0-\\u06F9])+\$').hasMatch(val)) {

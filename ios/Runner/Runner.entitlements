@@ -5,7 +5,7 @@
     <!-- Start of customDeepLinking -->
     <key>com.apple.developer.associated-domains</key>
     <array>
-      <string>applinks:yekja.nl</string>
+      <string>applinks:yekja-8895c.web.app</string>
     </array>
     <!-- End of customDeepLinking -->
   </dict>

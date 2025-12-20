@@ -8,7 +8,8 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/main_overview_pages/post_detail_column/post_detail_column_widget.dart';
 import '/profile/review_card_small/review_card_small_widget.dart';
 import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.dart';
-import '/shared_components/error_comp/error_comp_widget.dart';
+import '/shared_components/custom_snackbar/custom_snackbar_widget.dart';
+import '/shared_components/error_pop_up/error_pop_up_widget.dart';
 import '/shared_components/photo_gallary/photo_gallary_widget.dart';
 import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
@@ -188,27 +189,6 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                                   ),
                                             ),
                                           ),
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              await actions
-                                                  .navigateToDetailForm1(
-                                                context,
-                                                FFAppState().postDetailTable,
-                                                'PostPreview',
-                                              );
-                                            },
-                                            child: Icon(
-                                              Icons.edit,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .green1,
-                                              size: 24.0,
-                                            ),
-                                          ),
                                         ].divide(SizedBox(width: 8.0)),
                                       ),
                                     ),
@@ -253,30 +233,34 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                           child: Stack(
                             alignment: AlignmentDirectional(1.0, -1.0),
                             children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 8.0, 0.0, 0.0),
-                                child: wrapWithModel(
-                                  model: _model.postDetailColumnModel,
-                                  updateCallback: () => safeSetState(() {}),
-                                  child: PostDetailColumnWidget(
-                                    profileId: currentUserUid,
-                                    postId: '',
-                                    detailTable: FFAppState().postDetailTable,
-                                    username: FFAppState().userInfo.userName,
-                                    itemData: ItemCardGlobalStruct(
-                                      description:
-                                          FFAppState().postState.description,
-                                      itemLocation: FFAppState().postState.city,
-                                      createdAt: getCurrentTimestamp,
-                                      catName: FFAppState().postState.catName,
-                                      subCatName:
-                                          FFAppState().postState.subCatName,
-                                      fillColor:
-                                          FlutterFlowTheme.of(context).accent2,
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 8.0, 0.0, 0.0),
+                                  child: wrapWithModel(
+                                    model: _model.postDetailColumnModel,
+                                    updateCallback: () => safeSetState(() {}),
+                                    child: PostDetailColumnWidget(
+                                      profileId: currentUserUid,
+                                      postId: '',
+                                      detailTable: FFAppState().postDetailTable,
+                                      username: FFAppState().userInfo.userName,
+                                      itemData: ItemCardGlobalStruct(
+                                        description:
+                                            FFAppState().postState.description,
+                                        itemLocation:
+                                            FFAppState().postState.city,
+                                        createdAt: getCurrentTimestamp,
+                                        catName: FFAppState().postState.catName,
+                                        subCatName:
+                                            FFAppState().postState.subCatName,
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .accent2,
+                                      ),
+                                      details: FFAppState().postDetailJSON,
+                                      detailLabels: FFAppState().postDetailJSON,
                                     ),
-                                    details: FFAppState().postDetailJSON,
-                                    detailLabels: FFAppState().postDetailJSON,
                                   ),
                                 ),
                               ),
@@ -295,14 +279,7 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         context.pushNamed(
-                                          PostSubCatWidget.routeName,
-                                          queryParameters: {
-                                            'navRoute': serializeParam(
-                                              'PostPreview',
-                                              ParamType.String,
-                                            ),
-                                          }.withoutNulls,
-                                        );
+                                            PostSubCatWidget.routeName);
                                       },
                                       child: Icon(
                                         Icons.edit,
@@ -312,6 +289,55 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                       ),
                                     ),
                                   ].divide(SizedBox(width: 10.0)),
+                                ),
+                              ),
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 1.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 98.0, 0.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed(
+                                          PostIntendWidget.routeName);
+                                    },
+                                    child: Icon(
+                                      Icons.edit,
+                                      color:
+                                          FlutterFlowTheme.of(context).green1,
+                                      size: 24.0,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 1.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 60.0, 0.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      await actions.navigateToDetailForm1(
+                                        context,
+                                        FFAppState().postDetailTable,
+                                        '',
+                                      );
+                                    },
+                                    child: Icon(
+                                      Icons.edit,
+                                      color:
+                                          FlutterFlowTheme.of(context).green1,
+                                      size: 24.0,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ],
@@ -964,7 +990,7 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                           PostModelStruct();
                                       FFAppState().postDetailTable = '';
                                       FFAppState().postDetailJSON = null;
-                                      FFAppState().postLanguagesState = [];
+                                      FFAppState().postDetailLabel = null;
                                       safeSetState(() {});
 
                                       context.goNamed(
@@ -1098,32 +1124,38 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                                   );
                                                   await Future.delayed(
                                                     Duration(
-                                                      milliseconds: 4000,
+                                                      milliseconds: 3000,
                                                     ),
                                                   );
                                                   if (_model.newPostOut !=
                                                       null) {
-                                                    ScaffoldMessenger.of(
-                                                            context)
-                                                        .showSnackBar(
-                                                      SnackBar(
-                                                        content: Text(
-                                                          'Well done! Your post is live.',
-                                                          style: TextStyle(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primary,
-                                                            fontWeight:
-                                                                FontWeight.w500,
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder: (dialogContext) {
+                                                        return Dialog(
+                                                          elevation: 0,
+                                                          insetPadding:
+                                                              EdgeInsets.zero,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          alignment: AlignmentDirectional(
+                                                                  0.0, 0.0)
+                                                              .resolve(
+                                                                  Directionality.of(
+                                                                      context)),
+                                                          child:
+                                                              CustomSnackbarWidget(
+                                                            myText:
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                              'wmth8oau' /* Well done! Your post is live. */,
+                                                            ),
+                                                            waitMS: 3000,
                                                           ),
-                                                        ),
-                                                        duration: Duration(
-                                                            milliseconds: 4000),
-                                                        backgroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .successSnack,
-                                                      ),
+                                                        );
+                                                      },
                                                     );
 
                                                     context.goNamed(
@@ -1145,7 +1177,7 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                                     FFAppState()
                                                         .postDetailTable = '';
                                                     FFAppState()
-                                                        .postLanguagesState = [];
+                                                        .postDetailLabel = null;
                                                     safeSetState(() {});
                                                   } else {
                                                     await showDialog(
@@ -1164,7 +1196,7 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                                                   Directionality.of(
                                                                       context)),
                                                           child:
-                                                              ErrorCompWidget(
+                                                              ErrorPopUpWidget(
                                                             errorText:
                                                                 FFLocalizations.of(
                                                                         context)

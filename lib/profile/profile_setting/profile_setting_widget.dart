@@ -265,7 +265,7 @@ class _ProfileSettingWidgetState extends State<ProfileSettingWidget>
                                 'scrren_name': 'Profile',
                               });
                               await Share.share(
-                                widget.profileUrl!,
+                                '${FFAppConstants.BaseUrl}${'yekja://yekja.nl${GoRouterState.of(context).uri.toString()}'}',
                                 sharePositionOrigin:
                                     getWidgetBoundingBox(context),
                               );

@@ -10,11 +10,12 @@ import '/main_overview_pages/post_detail_column/post_detail_column_widget.dart';
 import '/profile/review_card_small/review_card_small_widget.dart';
 import '/shared_components/comunication_bar/comunication_bar_widget.dart';
 import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.dart';
+import '/shared_components/custom_snackbar/custom_snackbar_widget.dart';
 import '/shared_components/photo_gallary/photo_gallary_widget.dart';
 import '/shared_components/reporting_popup/reporting_popup_widget.dart';
+import 'dart:async';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -1073,40 +1074,10 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceEvenly,
                                         children: [
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return AlertDialog(
-                                                    title: Text(_model.isFav
-                                                        .toString()),
-                                                    content: Text(FFAppState()
-                                                        .userInfo
-                                                        .userFavs
-                                                        .length
-                                                        .toString()),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-                                            },
-                                            child: Icon(
-                                              Icons.favorite,
-                                              color: Color(0xFFEC0B0B),
-                                              size: 24.0,
-                                            ),
+                                          Icon(
+                                            Icons.favorite,
+                                            color: Color(0xFFEC0B0B),
+                                            size: 24.0,
                                           ),
                                           Text(
                                             valueOrDefault<String>(
@@ -1336,22 +1307,74 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                                           ),
                                                           onConfirmAction:
                                                               () async {
-                                                            await EventAttendeesTable()
-                                                                .insert({
-                                                              'post_id': widget
-                                                                  .postID,
-                                                              'user_id':
-                                                                  currentUserUid,
-                                                            });
-                                                            FFAppState()
-                                                                    .isGoingEvent =
-                                                                true;
-                                                            safeSetState(() {});
-                                                            safeSetState(() =>
-                                                                _model.requestCompleter1 =
-                                                                    null);
-                                                            await _model
-                                                                .waitForRequestCompleted1();
+                                                            unawaited(
+                                                              () async {
+                                                                _model.joinEvent =
+                                                                    await EventAttendeesTable()
+                                                                        .insert({
+                                                                  'post_id':
+                                                                      widget
+                                                                          .postID,
+                                                                  'user_id':
+                                                                      currentUserUid,
+                                                                });
+                                                              }(),
+                                                            );
+                                                            await Future
+                                                                .delayed(
+                                                              Duration(
+                                                                milliseconds:
+                                                                    2000,
+                                                              ),
+                                                            );
+                                                            if (_model
+                                                                    .joinEvent !=
+                                                                null) {
+                                                              FFAppState()
+                                                                      .isGoingEvent =
+                                                                  true;
+                                                              safeSetState(
+                                                                  () {});
+                                                              safeSetState(() =>
+                                                                  _model.requestCompleter1 =
+                                                                      null);
+                                                              await _model
+                                                                  .waitForRequestCompleted1();
+                                                            } else {
+                                                              await showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (dialogContext) {
+                                                                  return Dialog(
+                                                                    elevation:
+                                                                        0,
+                                                                    insetPadding:
+                                                                        EdgeInsets
+                                                                            .zero,
+                                                                    backgroundColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0)
+                                                                        .resolve(
+                                                                            Directionality.of(context)),
+                                                                    child:
+                                                                        CustomSnackbarWidget(
+                                                                      myText: FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        '0kgkhls0' /* The event is full. Try contact... */,
+                                                                      ),
+                                                                      backgroundColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .error,
+                                                                    ),
+                                                                  );
+                                                                },
+                                                              );
+                                                            }
                                                           },
                                                           onCancelAction:
                                                               () async {
@@ -1362,6 +1385,8 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                                       );
                                                     },
                                                   );
+
+                                                  safeSetState(() {});
                                                 },
                                                 child: Container(
                                                   decoration: BoxDecoration(
@@ -1683,158 +1708,185 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              if (currentUserUid != '') {
-                                                context.pushNamed(
-                                                  ProfilePageWidget.routeName,
-                                                  queryParameters: {
-                                                    'profileId': serializeParam(
-                                                      postEnViewPostSearchEnRow
-                                                          .ownerId,
-                                                      ParamType.String,
-                                                    ),
-                                                  }.withoutNulls,
-                                                );
-                                              } else {
-                                                ScaffoldMessenger.of(context)
-                                                    .showSnackBar(
-                                                  SnackBar(
-                                                    content: Text(
-                                                      'Please login or signup if you wat to enable post creation.  ',
-                                                      style: TextStyle(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        fontWeight:
-                                                            FontWeight.w600,
+                                          Builder(
+                                            builder: (context) => InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                if (currentUserUid != '') {
+                                                  context.pushNamed(
+                                                    ProfilePageWidget.routeName,
+                                                    queryParameters: {
+                                                      'profileId':
+                                                          serializeParam(
+                                                        postEnViewPostSearchEnRow
+                                                            .ownerId,
+                                                        ParamType.String,
                                                       ),
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                    ),
-                                                    duration: Duration(
-                                                        milliseconds: 5000),
-                                                    backgroundColor:
-                                                        Color(0xFFBA8D08),
-                                                  ),
-                                                );
-                                              }
-                                            },
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                Container(
-                                                  width: 70.0,
-                                                  height: 70.0,
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                  child: Stack(
-                                                    children: [
-                                                      Align(
+                                                    }.withoutNulls,
+                                                  );
+                                                } else {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder: (dialogContext) {
+                                                      return Dialog(
+                                                        elevation: 0,
+                                                        insetPadding:
+                                                            EdgeInsets.zero,
+                                                        backgroundColor:
+                                                            Colors.transparent,
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsets.all(
-                                                                  1.0),
-                                                          child: Container(
-                                                            width: 60.0,
-                                                            height: 60.0,
-                                                            clipBehavior:
-                                                                Clip.antiAlias,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              shape: BoxShape
-                                                                  .circle,
-                                                            ),
-                                                            child:
-                                                                Image.network(
-                                                              (postEnViewPostSearchEnRow.profileAvatar !=
-                                                                              null &&
-                                                                          postEnViewPostSearchEnRow.profileAvatar !=
-                                                                              '') &&
-                                                                      postEnViewPostSearchEnRow
-                                                                          .showProfileImage!
-                                                                  ? valueOrDefault<
-                                                                      String>(
-                                                                      postEnViewPostSearchEnRow
-                                                                          .profileAvatar,
-                                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/n2imhdlvogb3/profile_avatar_circular.png',
-                                                                    )
-                                                                  : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/n2imhdlvogb3/profile_avatar_circular.png',
-                                                              fit: BoxFit.cover,
-                                                            ),
+                                                                    0.0, 0.0)
+                                                                .resolve(
+                                                                    Directionality.of(
+                                                                        context)),
+                                                        child:
+                                                            CustomSnackbarWidget(
+                                                          myText:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                            'tn60qwu2' /* Please login or signup to see ... */,
                                                           ),
+                                                          waitMS: 3000,
+                                                          backgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .warning,
                                                         ),
-                                                      ),
-                                                      if (postEnViewPostSearchEnRow
-                                                              .yekjaVerified ??
-                                                          true)
+                                                      );
+                                                    },
+                                                  );
+                                                }
+                                              },
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  Container(
+                                                    width: 70.0,
+                                                    height: 70.0,
+                                                    decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    child: Stack(
+                                                      children: [
                                                         Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  1.0, 1.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                            child:
-                                                                Image.network(
-                                                              'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Yekja_badge.png',
-                                                              width: 25.0,
-                                                              height: 25.0,
-                                                              fit: BoxFit.cover,
+                                                                  0.0, 0.0),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsets.all(
+                                                                    1.0),
+                                                            child: Container(
+                                                              width: 60.0,
+                                                              height: 60.0,
+                                                              clipBehavior: Clip
+                                                                  .antiAlias,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                shape: BoxShape
+                                                                    .circle,
+                                                              ),
+                                                              child:
+                                                                  Image.network(
+                                                                postEnViewPostSearchEnRow
+                                                                            .showProfileImage ==
+                                                                        true
+                                                                    ? (postEnViewPostSearchEnRow.profileAvatar !=
+                                                                                null &&
+                                                                            postEnViewPostSearchEnRow.profileAvatar !=
+                                                                                ''
+                                                                        ? postEnViewPostSearchEnRow
+                                                                            .profileAvatar!
+                                                                        : 'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Defults/Defult_profile_avatar.png')
+                                                                    : 'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Defults/Defult_profile_avatar.png',
+                                                                fit: BoxFit
+                                                                    .cover,
+                                                              ),
                                                             ),
                                                           ),
                                                         ),
-                                                    ],
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          12.0, 0.0, 0.0, 0.0),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    8.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          valueOrDefault<
-                                                              String>(
-                                                            postEnViewPostSearchEnRow
-                                                                .userName,
-                                                            ' user name',
+                                                        if (postEnViewPostSearchEnRow
+                                                                .yekjaVerified ??
+                                                            true)
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    1.0, 1.0),
+                                                            child: ClipRRect(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.0),
+                                                              child:
+                                                                  Image.network(
+                                                                'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Yekja_badge.png',
+                                                                width: 25.0,
+                                                                height: 25.0,
+                                                                fit: BoxFit
+                                                                    .cover,
+                                                              ),
+                                                            ),
                                                           ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(12.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      8.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              postEnViewPostSearchEnRow
+                                                                  .userName,
+                                                              ' user name',
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  fontSize:
+                                                                      18.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -1844,107 +1896,100 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                                                       .bodyMedium
                                                                       .fontStyle,
                                                                 ),
-                                                                fontSize: 18.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontWeight,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                              ),
+                                                          ),
                                                         ),
-                                                      ),
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    -1.0, 0.0),
-                                                            child: ClipRRect(
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -1.0,
+                                                                      0.0),
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                                child: Image
+                                                                    .network(
+                                                                  'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Icons/star_animated.gif',
+                                                                  width: 30.0,
+                                                                  height: 30.0,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Text(
+                                                              '${valueOrDefault<String>(
+                                                                postEnViewPostSearchEnRow
+                                                                    .review
+                                                                    ?.toString(),
+                                                                '1',
+                                                              )} (${valueOrDefault<String>(
+                                                                postEnViewPostSearchEnRow
+                                                                    .ratings
+                                                                    ?.toString(),
+                                                                '1',
+                                                              )})',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    useGoogleFonts:
+                                                                        !FlutterFlowTheme.of(context)
+                                                                            .bodyMediumIsCustom,
+                                                                  ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  4.0),
+                                                          child: Container(
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                              boxShadow: [
+                                                                BoxShadow(
+                                                                  blurRadius:
+                                                                      2.0,
+                                                                  color: Color(
+                                                                      0xB039D2C0),
+                                                                  offset:
+                                                                      Offset(
+                                                                    2.0,
+                                                                    0.0,
+                                                                  ),
+                                                                )
+                                                              ],
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
                                                                           8.0),
-                                                              child:
-                                                                  Image.network(
-                                                                'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Icons/star_animated.gif',
-                                                                width: 30.0,
-                                                                height: 30.0,
-                                                                fit: BoxFit
-                                                                    .cover,
-                                                              ),
                                                             ),
                                                           ),
-                                                          Text(
-                                                            '${valueOrDefault<String>(
-                                                              postEnViewPostSearchEnRow
-                                                                  .review
-                                                                  ?.toString(),
-                                                              '1',
-                                                            )} (${valueOrDefault<String>(
-                                                              postEnViewPostSearchEnRow
-                                                                  .ratings
-                                                                  ?.toString(),
-                                                              '1',
-                                                            )})',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMediumIsCustom,
-                                                                ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.all(4.0),
-                                                        child: Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                            boxShadow: [
-                                                              BoxShadow(
-                                                                blurRadius: 2.0,
-                                                                color: Color(
-                                                                    0xB039D2C0),
-                                                                offset: Offset(
-                                                                  2.0,
-                                                                  0.0,
-                                                                ),
-                                                              )
-                                                            ],
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                          ),
                                                         ),
-                                                      ),
-                                                    ].divide(
-                                                        SizedBox(height: 4.0)),
+                                                      ].divide(SizedBox(
+                                                          height: 4.0)),
+                                                    ),
                                                   ),
-                                                ),
-                                              ]
-                                                  .divide(SizedBox(width: 4.0))
-                                                  .addToStart(
-                                                      SizedBox(width: 4.0)),
+                                                ]
+                                                    .divide(
+                                                        SizedBox(width: 4.0))
+                                                    .addToStart(
+                                                        SizedBox(width: 4.0)),
+                                              ),
                                             ),
                                           ),
                                           if (postEnViewPostSearchEnRow
@@ -1957,91 +2002,160 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                                   padding: EdgeInsets.all(16.0),
                                                   child: Container(
                                                     decoration: BoxDecoration(),
-                                                    child: InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        if (currentUserUid !=
-                                                                '') {
-                                                          if (FFAppState()
-                                                                      .userInfo
-                                                                      .instaLink ==
+                                                    child: Builder(
+                                                      builder: (context) =>
+                                                          InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          if (currentUserUid !=
                                                                   '') {
-                                                            await launchURL(
-                                                                FFAppState()
-                                                                    .userInfo
-                                                                    .instaLink);
+                                                            if (FFAppState()
+                                                                        .userInfo
+                                                                        .instaLink ==
+                                                                    '') {
+                                                              await launchURL(
+                                                                  FFAppState()
+                                                                      .userInfo
+                                                                      .instaLink);
+                                                            } else {
+                                                              ScaffoldMessenger
+                                                                      .of(context)
+                                                                  .showSnackBar(
+                                                                SnackBar(
+                                                                  content: Text(
+                                                                    'Instagram link it not set.',
+                                                                    style:
+                                                                        TextStyle(
+                                                                      color: Color(
+                                                                          0xFE050505),
+                                                                    ),
+                                                                  ),
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          4000),
+                                                                  backgroundColor:
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .warningSnack,
+                                                                ),
+                                                              );
+                                                              await showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (dialogContext) {
+                                                                  return Dialog(
+                                                                    elevation:
+                                                                        0,
+                                                                    insetPadding:
+                                                                        EdgeInsets
+                                                                            .zero,
+                                                                    backgroundColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0)
+                                                                        .resolve(
+                                                                            Directionality.of(context)),
+                                                                    child:
+                                                                        CustomSnackbarWidget(
+                                                                      myText: FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        '0m8489v4' /* Instagram link it not set. */,
+                                                                      ),
+                                                                      waitMS:
+                                                                          3000,
+                                                                      backgroundColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .warning,
+                                                                    ),
+                                                                  );
+                                                                },
+                                                              );
+                                                            }
+
+                                                            return;
                                                           } else {
                                                             ScaffoldMessenger
                                                                     .of(context)
                                                                 .showSnackBar(
                                                               SnackBar(
                                                                 content: Text(
-                                                                  'Instagram link it not set.',
+                                                                  'Please login or sign-up to see the user\'s profile.',
                                                                   style:
                                                                       TextStyle(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .warning,
+                                                                    color: Color(
+                                                                        0xFE050505),
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
                                                                   ),
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .center,
                                                                 ),
                                                                 duration: Duration(
                                                                     milliseconds:
-                                                                        4000),
+                                                                        5000),
                                                                 backgroundColor:
-                                                                    Color(
-                                                                        0x42BA8D08),
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .warningSnack,
                                                               ),
                                                             );
-                                                          }
+                                                            await showDialog(
+                                                              context: context,
+                                                              builder:
+                                                                  (dialogContext) {
+                                                                return Dialog(
+                                                                  elevation: 0,
+                                                                  insetPadding:
+                                                                      EdgeInsets
+                                                                          .zero,
+                                                                  backgroundColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  alignment: AlignmentDirectional(
+                                                                          0.0,
+                                                                          0.0)
+                                                                      .resolve(
+                                                                          Directionality.of(
+                                                                              context)),
+                                                                  child:
+                                                                      CustomSnackbarWidget(
+                                                                    myText: FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      'rmxxndqk' /* Please login or sign-up to see... */,
+                                                                    ),
+                                                                  ),
+                                                                );
+                                                              },
+                                                            );
 
-                                                          return;
-                                                        } else {
-                                                          ScaffoldMessenger.of(
-                                                                  context)
-                                                              .showSnackBar(
-                                                            SnackBar(
-                                                              content: Text(
-                                                                'Please login or signup if you wat to enable post creation.  ',
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                ),
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .center,
-                                                              ),
-                                                              duration: Duration(
-                                                                  milliseconds:
-                                                                      5000),
-                                                              backgroundColor:
-                                                                  Color(
-                                                                      0xFFBA8D08),
-                                                            ),
-                                                          );
-                                                          return;
-                                                        }
-                                                      },
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                        child: Image.asset(
-                                                          'assets/images/instagram.png',
-                                                          width: 40.0,
-                                                          height: 40.0,
-                                                          fit: BoxFit.fill,
+                                                            return;
+                                                          }
+                                                        },
+                                                        child: ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                          child: Image.asset(
+                                                            'assets/images/instagram.png',
+                                                            width: 40.0,
+                                                            height: 40.0,
+                                                            fit: BoxFit.fill,
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
@@ -2205,8 +2319,10 @@ class _PostEnWidgetState extends State<PostEnWidget>
                           postId: postEnViewPostSearchEnRow.postId!,
                           allowMessage:
                               postEnViewPostSearchEnRow.allowMessage!,
-                          allowCall: postEnViewPostSearchEnRow.allowSharePost!,
-                          allowShare: false,
+                          allowCall: postEnViewPostSearchEnRow.allowCall!,
+                          allowShare:
+                              postEnViewPostSearchEnRow.allowSharePost!,
+                          phoneNumber: postEnViewPostSearchEnRow.phonenumber,
                         ),
                       ),
                     ),

@@ -160,20 +160,34 @@ class _PostEnWidgetState extends State<PostEnWidget>
     context.watch<FFAppState>();
 
     return FutureBuilder<List<ViewPostSearchEnRow>>(
-      future:
-          (_model.requestCompleter2 ??= Completer<List<ViewPostSearchEnRow>>()
-                ..complete(ViewPostSearchEnTable().querySingleRow(
-                  queryFn: (q) => q
-                      .eqOrNull(
-                        'post_id',
-                        widget.postID,
-                      )
-                      .eqOrNull(
-                        'detail_table',
-                        widget.detailDataName,
-                      ),
-                )))
-              .future,
+      future: _model
+          .postEn(
+        uniqueQueryKey: valueOrDefault<String>(
+          widget.postID,
+          'defult',
+        ),
+        requestFn: () => ViewPostSearchEnTable().querySingleRow(
+          queryFn: (q) => q
+              .eqOrNull(
+                'post_id',
+                widget.postID,
+              )
+              .eqOrNull(
+                'detail_table',
+                widget.detailDataName,
+              ),
+        ),
+      )
+          .then((result) {
+        try {
+          _model.requestCompleted2 = true;
+          _model.requestLastUniqueKey2 = valueOrDefault<String>(
+            widget.postID,
+            'defult',
+          );
+        } finally {}
+        return result;
+      }),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -338,9 +352,14 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                                                   );
                                                                 }
 
-                                                                safeSetState(() =>
-                                                                    _model.requestCompleter2 =
-                                                                        null);
+                                                                safeSetState(
+                                                                    () {
+                                                                  _model.clearPostEnCacheKey(
+                                                                      _model
+                                                                          .requestLastUniqueKey2);
+                                                                  _model.requestCompleted2 =
+                                                                      false;
+                                                                });
                                                                 await _model
                                                                     .waitForRequestCompleted2();
                                                               },
@@ -435,9 +454,14 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                                                     });
                                                                   }
 
-                                                                  safeSetState(() =>
-                                                                      _model.requestCompleter2 =
-                                                                          null);
+                                                                  safeSetState(
+                                                                      () {
+                                                                    _model.clearPostEnCacheKey(
+                                                                        _model
+                                                                            .requestLastUniqueKey2);
+                                                                    _model.requestCompleted2 =
+                                                                        false;
+                                                                  });
                                                                   await _model
                                                                       .waitForRequestCompleted2();
                                                                 },
@@ -780,6 +804,7 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                                                                     .toList()
                                                                                     .cast<String>(),
                                                                                 catId: postEnViewPostSearchEnRow.catId,
+                                                                                mainCatId: postEnViewPostSearchEnRow.mainCatId,
                                                                               );
                                                                               safeSetState(() {});
                                                                             }),
@@ -1175,79 +1200,114 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                       ],
                                     ),
                                   ),
-                                  FutureBuilder<List<ViewEventAttendeesRow>>(
-                                    future:
-                                        (_model.requestCompleter1 ??= Completer<
-                                                List<ViewEventAttendeesRow>>()
-                                              ..complete(
-                                                  ViewEventAttendeesTable()
-                                                      .queryRows(
-                                                queryFn: (q) => q.eqOrNull(
-                                                  'post_id',
-                                                  widget.postID,
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 16.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        FutureBuilder<
+                                            List<ViewEventAttendeesRow>>(
+                                          future: (_model.requestCompleter1 ??=
+                                                  Completer<
+                                                      List<
+                                                          ViewEventAttendeesRow>>()
+                                                    ..complete(
+                                                        ViewEventAttendeesTable()
+                                                            .queryRows(
+                                                      queryFn: (q) => q
+                                                          .eqOrNull(
+                                                            'post_id',
+                                                            widget.postID,
+                                                          )
+                                                          .order('joined_at'),
+                                                      limit: 5,
+                                                    )))
+                                              .future,
+                                          builder: (context, snapshot) {
+                                            // Customize what your widget looks like when it's loading.
+                                            if (!snapshot.hasData) {
+                                              return Center(
+                                                child: SizedBox(
+                                                  width: 50.0,
+                                                  height: 50.0,
+                                                  child: SpinKitChasingDots(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .greenInit,
+                                                    size: 50.0,
+                                                  ),
                                                 ),
-                                              )))
-                                            .future,
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 50.0,
-                                            height: 50.0,
-                                            child: SpinKitChasingDots(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .greenInit,
-                                              size: 50.0,
-                                            ),
-                                          ),
-                                        );
-                                      }
-                                      List<ViewEventAttendeesRow>
-                                          participantsRowViewEventAttendeesRowList =
-                                          snapshot.data!;
+                                              );
+                                            }
+                                            List<ViewEventAttendeesRow>
+                                                participantsRowViewEventAttendeesRowList =
+                                                snapshot.data!;
 
-                                      return SingleChildScrollView(
-                                        scrollDirection: Axis.horizontal,
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: List.generate(
-                                              participantsRowViewEventAttendeesRowList
-                                                  .length,
-                                              (participantsRowIndex) {
-                                            final participantsRowViewEventAttendeesRow =
-                                                participantsRowViewEventAttendeesRowList[
-                                                    participantsRowIndex];
-                                            return Container(
-                                              width: 50.0,
-                                              height: 50.0,
-                                              clipBehavior: Clip.antiAlias,
-                                              decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                              ),
-                                              child: Image.network(
-                                                (participantsRowViewEventAttendeesRow
-                                                                    .profileAvatar !=
-                                                                null &&
-                                                            participantsRowViewEventAttendeesRow
-                                                                    .profileAvatar !=
-                                                                '') &&
-                                                        participantsRowViewEventAttendeesRow
-                                                            .showProfileImage!
-                                                    ? participantsRowViewEventAttendeesRow
-                                                        .profileAvatar!
-                                                    : FFAppConstants
-                                                        .profileAvatarCircular,
-                                                fit: BoxFit.cover,
+                                            return SingleChildScrollView(
+                                              scrollDirection: Axis.horizontal,
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: List.generate(
+                                                    participantsRowViewEventAttendeesRowList
+                                                        .length,
+                                                    (participantsRowIndex) {
+                                                  final participantsRowViewEventAttendeesRow =
+                                                      participantsRowViewEventAttendeesRowList[
+                                                          participantsRowIndex];
+                                                  return Container(
+                                                    width: 50.0,
+                                                    height: 50.0,
+                                                    clipBehavior:
+                                                        Clip.antiAlias,
+                                                    decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    child: Image.network(
+                                                      (participantsRowViewEventAttendeesRow
+                                                                          .profileAvatar !=
+                                                                      null &&
+                                                                  participantsRowViewEventAttendeesRow
+                                                                          .profileAvatar !=
+                                                                      '') &&
+                                                              participantsRowViewEventAttendeesRow
+                                                                  .showProfileImage!
+                                                          ? participantsRowViewEventAttendeesRow
+                                                              .profileAvatar!
+                                                          : FFAppConstants
+                                                              .profileAvatarCircular,
+                                                      fit: BoxFit.cover,
+                                                    ),
+                                                  );
+                                                }).divide(
+                                                    SizedBox(width: 10.0)),
                                               ),
                                             );
-                                          }).divide(SizedBox(width: 10.0)),
+                                          },
                                         ),
-                                      );
-                                    },
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            '0chfn9gh' /* ... */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    !FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMediumIsCustom,
+                                              ),
+                                        ),
+                                      ].divide(SizedBox(width: 16.0)),
+                                    ),
                                   ),
                                   if (currentUserUid != '')
                                     Padding(
@@ -1365,7 +1425,7 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                                                       myText: FFLocalizations.of(
                                                                               context)
                                                                           .getText(
-                                                                        '0kgkhls0' /* The event is full. Try contact... */,
+                                                                        'vj4m3cra' /* The event is full. Try contact... */,
                                                                       ),
                                                                       backgroundColor:
                                                                           FlutterFlowTheme.of(context)
@@ -1750,7 +1810,7 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                            'tn60qwu2' /* Please login or signup to see ... */,
+                                                            'my83ao52' /* Please login or signup to see ... */,
                                                           ),
                                                           waitMS: 3000,
                                                           backgroundColor:
@@ -1914,7 +1974,7 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                                                             8.0),
                                                                 child: Image
                                                                     .network(
-                                                                  'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Icons/star_animated.gif',
+                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/y0l0lllp2v7b/star_animated.gif',
                                                                   width: 30.0,
                                                                   height: 30.0,
                                                                   fit: BoxFit
@@ -2025,27 +2085,6 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                                                       .userInfo
                                                                       .instaLink);
                                                             } else {
-                                                              ScaffoldMessenger
-                                                                      .of(context)
-                                                                  .showSnackBar(
-                                                                SnackBar(
-                                                                  content: Text(
-                                                                    'Instagram link it not set.',
-                                                                    style:
-                                                                        TextStyle(
-                                                                      color: Color(
-                                                                          0xFE050505),
-                                                                    ),
-                                                                  ),
-                                                                  duration: Duration(
-                                                                      milliseconds:
-                                                                          4000),
-                                                                  backgroundColor:
-                                                                      FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .warningSnack,
-                                                                ),
-                                                              );
                                                               await showDialog(
                                                                 context:
                                                                     context,
@@ -2070,7 +2109,7 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                                                       myText: FFLocalizations.of(
                                                                               context)
                                                                           .getText(
-                                                                        '0m8489v4' /* Instagram link it not set. */,
+                                                                        'k9m2tv64' /* Instagram link it not set. */,
                                                                       ),
                                                                       waitMS:
                                                                           3000,
@@ -2085,33 +2124,6 @@ class _PostEnWidgetState extends State<PostEnWidget>
 
                                                             return;
                                                           } else {
-                                                            ScaffoldMessenger
-                                                                    .of(context)
-                                                                .showSnackBar(
-                                                              SnackBar(
-                                                                content: Text(
-                                                                  'Please login or sign-up to see the user\'s profile.',
-                                                                  style:
-                                                                      TextStyle(
-                                                                    color: Color(
-                                                                        0xFE050505),
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                  ),
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .center,
-                                                                ),
-                                                                duration: Duration(
-                                                                    milliseconds:
-                                                                        5000),
-                                                                backgroundColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .warningSnack,
-                                                              ),
-                                                            );
                                                             await showDialog(
                                                               context: context,
                                                               builder:
@@ -2137,6 +2149,9 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                                                         .getText(
                                                                       'rmxxndqk' /* Please login or sign-up to see... */,
                                                                     ),
+                                                                    backgroundColor:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .warningSnack,
                                                                   ),
                                                                 );
                                                               },
@@ -2323,6 +2338,7 @@ class _PostEnWidgetState extends State<PostEnWidget>
                           allowShare:
                               postEnViewPostSearchEnRow.allowSharePost!,
                           phoneNumber: postEnViewPostSearchEnRow.phonenumber,
+                          subCat: postEnViewPostSearchEnRow.subCatName!,
                         ),
                       ),
                     ),

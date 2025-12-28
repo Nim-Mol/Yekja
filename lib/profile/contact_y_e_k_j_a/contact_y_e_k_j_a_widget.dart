@@ -7,7 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
-import 'dart:async';
+import '/shared_components/custom_snackbar/custom_snackbar_widget.dart';
 import '/index.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -105,7 +105,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                           children: [
                             TextSpan(
                               text: FFLocalizations.of(context).getText(
-                                'uaue3xf2' /* Welcome to support  */,
+                                'uaue3xf2' /* Welcome to support! */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .labelLarge
@@ -260,20 +260,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                unawaited(
-                                  () async {
-                                    _model.fAQClicked =
-                                        await MonitoringLogsTable().insert({
-                                      'scrren_name': 'Contact',
-                                      'action': 'FAQ',
-                                      'user_id': currentUserUid,
-                                    });
-                                  }(),
-                                );
-
                                 context.pushNamed(FaqWidget.routeName);
-
-                                safeSetState(() {});
                               },
                               child: Container(
                                 width: 120.0,
@@ -304,7 +291,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                             0.0, 12.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'ofdaiisb' /* Search FAQs */,
+                                            'ofdaiisb' /* Go to FAQs */,
                                           ),
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
@@ -346,7 +333,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                   'rhw1og4g' /* Feedback or suggestion */,
                                 ),
                                 FFLocalizations.of(context).getText(
-                                  '9ptgnueo' /* Help using Yekja */,
+                                  '9ptgnueo' /* Help on using Yekja */,
                                 ),
                                 FFLocalizations.of(context).getText(
                                   '1jg9wm4c' /* Technical issue or bug */,
@@ -364,7 +351,10 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                   '0mcwgpc2' /* Advertising */,
                                 ),
                                 FFLocalizations.of(context).getText(
-                                  'rr1n0bua' /* General Question */,
+                                  'rr1n0bua' /* Report an incident or fraud */,
+                                ),
+                                FFLocalizations.of(context).getText(
+                                  'ekr80jb8' /* General question */,
                                 )
                               ],
                               onChanged: (val) => safeSetState(
@@ -424,7 +414,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                                 .labelMediumIsCustom,
                                       ),
                                   hintText: FFLocalizations.of(context).getText(
-                                    '7p9q5poi' /* Please provide description of ... */,
+                                    '7p9q5poi' /* Please provide your descriptio... */,
                                   ),
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
@@ -671,127 +661,313 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            0.0, 20.0, 0.0, 16.0),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            if (_model
-                                .uploadedLocalFiles_uploadImages.isNotEmpty) {
-                              for (int loop1Index = 0;
-                                  loop1Index <
-                                      _model.uploadedLocalFiles_uploadImages
-                                          .length;
-                                  loop1Index++) {
-                                final currentLoop1Item =
-                                    _model.uploadedLocalFiles_uploadImages[
-                                        loop1Index];
-                                {
-                                  safeSetState(() => _model
-                                      .isDataUploading_uploadedimage = true);
-                                  var selectedUploadedFiles =
-                                      <FFUploadedFile>[];
-                                  var selectedMedia = <SelectedFile>[];
-                                  var downloadUrls = <String>[];
-                                  try {
-                                    selectedUploadedFiles =
-                                        currentLoop1Item.bytes!.isNotEmpty
-                                            ? [currentLoop1Item]
-                                            : <FFUploadedFile>[];
-                                    selectedMedia =
-                                        selectedFilesFromUploadedFiles(
-                                      selectedUploadedFiles,
-                                      storageFolderPath: 'Contact_us',
-                                    );
-                                    downloadUrls =
-                                        await uploadSupabaseStorageFiles(
-                                      bucketName: 'yekja',
-                                      selectedFiles: selectedMedia,
-                                    );
-                                  } finally {
-                                    _model.isDataUploading_uploadedimage =
-                                        false;
+                      Builder(
+                        builder: (context) => Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 20.0, 0.0, 16.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              var _shouldSetState = false;
+                              if (_model
+                                  .uploadedLocalFiles_uploadImages.isNotEmpty) {
+                                for (int loop1Index = 0;
+                                    loop1Index <
+                                        _model.uploadedLocalFiles_uploadImages
+                                            .length;
+                                    loop1Index++) {
+                                  final currentLoop1Item =
+                                      _model.uploadedLocalFiles_uploadImages[
+                                          loop1Index];
+                                  {
+                                    safeSetState(() => _model
+                                        .isDataUploading_uploadedimage = true);
+                                    var selectedUploadedFiles =
+                                        <FFUploadedFile>[];
+                                    var selectedMedia = <SelectedFile>[];
+                                    var downloadUrls = <String>[];
+                                    try {
+                                      selectedUploadedFiles =
+                                          currentLoop1Item.bytes!.isNotEmpty
+                                              ? [currentLoop1Item]
+                                              : <FFUploadedFile>[];
+                                      selectedMedia =
+                                          selectedFilesFromUploadedFiles(
+                                        selectedUploadedFiles,
+                                        storageFolderPath: 'Contact_us',
+                                      );
+                                      downloadUrls =
+                                          await uploadSupabaseStorageFiles(
+                                        bucketName: 'yekja',
+                                        selectedFiles: selectedMedia,
+                                      );
+                                    } finally {
+                                      _model.isDataUploading_uploadedimage =
+                                          false;
+                                    }
+                                    if (selectedUploadedFiles.length ==
+                                            selectedMedia.length &&
+                                        downloadUrls.length ==
+                                            selectedMedia.length) {
+                                      safeSetState(() {
+                                        _model.uploadedLocalFile_uploadedimage =
+                                            selectedUploadedFiles.first;
+                                        _model.uploadedFileUrl_uploadedimage =
+                                            downloadUrls.first;
+                                      });
+                                    } else {
+                                      safeSetState(() {});
+                                      return;
+                                    }
                                   }
-                                  if (selectedUploadedFiles.length ==
-                                          selectedMedia.length &&
-                                      downloadUrls.length ==
-                                          selectedMedia.length) {
-                                    safeSetState(() {
-                                      _model.uploadedLocalFile_uploadedimage =
-                                          selectedUploadedFiles.first;
-                                      _model.uploadedFileUrl_uploadedimage =
-                                          downloadUrls.first;
-                                    });
-                                  } else {
-                                    safeSetState(() {});
+
+                                  _model.addToListOfimages(
+                                      _model.uploadedFileUrl_uploadedimage);
+                                  safeSetState(() {});
+                                  if (!(_model.listOfimages.isNotEmpty)) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (dialogContext) {
+                                        return Dialog(
+                                          elevation: 0,
+                                          insetPadding: EdgeInsets.zero,
+                                          backgroundColor: Colors.transparent,
+                                          alignment: AlignmentDirectional(
+                                                  0.0, 0.0)
+                                              .resolve(
+                                                  Directionality.of(context)),
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              FocusScope.of(dialogContext)
+                                                  .unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
+                                            child: CustomSnackbarWidget(
+                                              myText:
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                'jgmwqnex' /* Something went wrong while upl... */,
+                                              ),
+                                              textColor: Color(0x00000000),
+                                              waitMS: 3000,
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .errorSnack,
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    );
+
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                 }
+                                _model.submitedContactWithImg =
+                                    await ContactYekjaTable().insert({
+                                  'message': _model.messageTextController.text,
+                                  'subject': _model.dropDownValue,
+                                  'user_id': currentUserUid,
+                                  'img': _model.listOfimages,
+                                });
+                                _shouldSetState = true;
+                                if (_model.submitedContactWithImg != null) {
+                                  context.safePop();
+                                  await showDialog(
+                                    context: context,
+                                    builder: (dialogContext) {
+                                      return Dialog(
+                                        elevation: 0,
+                                        insetPadding: EdgeInsets.zero,
+                                        backgroundColor: Colors.transparent,
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            FocusScope.of(dialogContext)
+                                                .unfocus();
+                                            FocusManager.instance.primaryFocus
+                                                ?.unfocus();
+                                          },
+                                          child: CustomSnackbarWidget(
+                                            myText: FFLocalizations.of(context)
+                                                .getText(
+                                              'pp28kkvp' /* Your message was successfully ... */,
+                                            ),
+                                            textColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryWhite,
+                                            waitMS: 3000,
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .successSnack,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  );
 
-                                _model.addToListOfimages(
-                                    _model.uploadedFileUrl_uploadedimage);
-                                safeSetState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
+                                  return;
+                                } else {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (dialogContext) {
+                                      return Dialog(
+                                        elevation: 0,
+                                        insetPadding: EdgeInsets.zero,
+                                        backgroundColor: Colors.transparent,
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            FocusScope.of(dialogContext)
+                                                .unfocus();
+                                            FocusManager.instance.primaryFocus
+                                                ?.unfocus();
+                                          },
+                                          child: CustomSnackbarWidget(
+                                            myText: FFLocalizations.of(context)
+                                                .getText(
+                                              'nxkcssv0' /* Something went wrong , please ... */,
+                                            ),
+                                            textColor: Color(0x00000000),
+                                            waitMS: 3000,
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .errorSnack,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  );
+
+                                  if (_shouldSetState) safeSetState(() {});
+                                  return;
+                                }
+                              } else {
+                                _model.submitedContact =
+                                    await ContactYekjaTable().insert({
+                                  'message': _model.messageTextController.text,
+                                  'subject': _model.dropDownValue,
+                                  'user_id': currentUserUid,
+                                });
+                                _shouldSetState = true;
+                                if (_model.submitedContact != null) {
+                                  context.safePop();
+                                  await showDialog(
+                                    context: context,
+                                    builder: (dialogContext) {
+                                      return Dialog(
+                                        elevation: 0,
+                                        insetPadding: EdgeInsets.zero,
+                                        backgroundColor: Colors.transparent,
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            FocusScope.of(dialogContext)
+                                                .unfocus();
+                                            FocusManager.instance.primaryFocus
+                                                ?.unfocus();
+                                          },
+                                          child: CustomSnackbarWidget(
+                                            myText: FFLocalizations.of(context)
+                                                .getText(
+                                              'z976q2o4' /* Your message was successfully ... */,
+                                            ),
+                                            textColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryWhite,
+                                            waitMS: 3000,
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .successSnack,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  );
+
+                                  if (_shouldSetState) safeSetState(() {});
+                                  return;
+                                } else {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (dialogContext) {
+                                      return Dialog(
+                                        elevation: 0,
+                                        insetPadding: EdgeInsets.zero,
+                                        backgroundColor: Colors.transparent,
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            FocusScope.of(dialogContext)
+                                                .unfocus();
+                                            FocusManager.instance.primaryFocus
+                                                ?.unfocus();
+                                          },
+                                          child: CustomSnackbarWidget(
+                                            myText: FFLocalizations.of(context)
+                                                .getText(
+                                              'seq8xspt' /* Something went wrong , please ... */,
+                                            ),
+                                            textColor: Color(0x00000000),
+                                            waitMS: 3000,
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .errorSnack,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  );
+
+                                  if (_shouldSetState) safeSetState(() {});
+                                  return;
+                                }
                               }
-                              _model.submitedContactWithImg =
-                                  await ContactYekjaTable().insert({
-                                'message': _model.messageTextController.text,
-                                'subject': _model.dropDownValue,
-                                'user_id': currentUserUid,
-                                'img': _model.listOfimages,
-                              });
-                            } else {
-                              _model.submitedContact =
-                                  await ContactYekjaTable().insert({
-                                'message': _model.messageTextController.text,
-                                'subject': _model.dropDownValue,
-                                'user_id': currentUserUid,
-                              });
-                            }
 
-                            context.safePop();
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  'Your message was successfully submitted.',
-                                  style: TextStyle(
-                                    color: FlutterFlowTheme.of(context)
-                                        .lighterGreen,
-                                  ),
-                                ),
-                                duration: Duration(milliseconds: 4000),
-                                backgroundColor: Color(0x426A966A),
-                              ),
-                            );
-
-                            safeSetState(() {});
-                          },
-                          text: FFLocalizations.of(context).getText(
-                            'ziper6ve' /* Submit  */,
-                          ),
-                          options: FFButtonOptions(
-                            width: double.infinity,
-                            height: 48.0,
-                            padding: EdgeInsets.all(0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).greenInit,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .titleSmallFamily,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .titleSmallIsCustom,
-                                ),
-                            elevation: 4.0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
+                              if (_shouldSetState) safeSetState(() {});
+                            },
+                            text: FFLocalizations.of(context).getText(
+                              'ziper6ve' /* Submit  */,
                             ),
-                            borderRadius: BorderRadius.circular(8.0),
+                            options: FFButtonOptions(
+                              width: double.infinity,
+                              height: 48.0,
+                              padding: EdgeInsets.all(0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).greenInit,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .titleSmallFamily,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    letterSpacing: 0.0,
+                                    useGoogleFonts:
+                                        !FlutterFlowTheme.of(context)
+                                            .titleSmallIsCustom,
+                                  ),
+                              elevation: 4.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
                           ),
                         ),
                       ),

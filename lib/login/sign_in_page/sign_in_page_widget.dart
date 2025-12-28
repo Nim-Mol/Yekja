@@ -130,7 +130,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                 ),
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    '3yjo0udr' /* Welcome Back */,
+                                    '3yjo0udr' /* Welcome Back! */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .headlineLarge
@@ -153,7 +153,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                         TextSpan(
                                           text: FFLocalizations.of(context)
                                               .getText(
-                                            '61yuoo32' /* If your email isn’t verified, */,
+                                            '61yuoo32' /* If your email is not verified, */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium

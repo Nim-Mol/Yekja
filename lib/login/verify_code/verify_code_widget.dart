@@ -387,14 +387,16 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).navBar,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleMedium.override(
-                                    fontFamily: 'FarsiFonts',
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    fontSize: 16.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                          textStyle: FlutterFlowTheme.of(context)
+                              .titleMedium
+                              .override(
+                                fontFamily: 'FarsiFonts',
+                                color:
+                                    FlutterFlowTheme.of(context).primaryWhite,
+                                fontSize: 16.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w500,
+                              ),
                           elevation: 0.0,
                           borderSide: BorderSide(
                             color: Colors.transparent,
@@ -456,8 +458,15 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
                                 });
                                 // Send message
                                 await MessagesTable().insert({
-                                  'message_text':
-                                      'Hi Welcome to Yekja! You can reach out to our community members and start trading, requesting or offering support. In case of any issues please make sure to contact us. Wishing you a nice experience!',
+                                  'message_text': FFLocalizations.of(context)
+                                      .getVariableText(
+                                    enText:
+                                        'Hi, welcome to Yekja!Here you can connect with community members to exchange items, ask for help, or offer your support.If you ever run into any issues, we’re just a message away.',
+                                    faText:
+                                        'سلام، به یکجا خوش آمدید 🌱در یکجا می‌توانید با اعضای جامعه ارتباط بگیرید، چیزی را مبادله کنید، درخواست کمک بدهید یا از دیگران حمایت کنید. اگر در هر مرحله سوالی داشتید یا به مشکلی برخوردید، خوشحال می‌شویم با ما در تماس باشید.امیدواریم اینجا حس خوبی داشته باشید و تجربه‌ای دلنشین در یکجا برایتان رقم بخورد.',
+                                    nlText:
+                                        'Hoi, welkom bij Yekja!Hier kun je makkelijk in contact komen met anderen in de community om te ruilen, hulp te vragen of juist hulp aan te bieden. Mocht je ergens tegenaan lopen of vragen hebben, laat het ons gerust weten.We hopen dat je je hier welkom voelt en met plezier gebruikmaakt van Yekja.',
+                                  ),
                                   'recipient': currentUserUid,
                                   'chat_id': _model.yekjaChat2Customer?.id,
                                   'sent_by': FFAppConstants.YekjaAdminID,

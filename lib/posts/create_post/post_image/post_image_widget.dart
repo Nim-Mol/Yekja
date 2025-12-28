@@ -154,7 +154,7 @@ class _PostImageWidgetState extends State<PostImageWidget> {
                                                   text: FFLocalizations.of(
                                                           context)
                                                       .getText(
-                                                    '8dol1v4o' /* 6 */,
+                                                    '8dol1v4o' /* 5 */,
                                                   ),
                                                   style: TextStyle(),
                                                 ),
@@ -170,7 +170,7 @@ class _PostImageWidgetState extends State<PostImageWidget> {
                                                   text: FFLocalizations.of(
                                                           context)
                                                       .getText(
-                                                    'u6ho4fgv' /* 6 */,
+                                                    'u6ho4fgv' /* 5 */,
                                                   ),
                                                   style: TextStyle(),
                                                 )
@@ -208,7 +208,7 @@ class _PostImageWidgetState extends State<PostImageWidget> {
                                                   text: FFLocalizations.of(
                                                           context)
                                                       .getText(
-                                                    'uynzsoxg' /* 5 */,
+                                                    'uynzsoxg' /* 4 */,
                                                   ),
                                                   style: TextStyle(),
                                                 ),
@@ -224,7 +224,7 @@ class _PostImageWidgetState extends State<PostImageWidget> {
                                                   text: FFLocalizations.of(
                                                           context)
                                                       .getText(
-                                                    'gn0tmtgz' /* 6 */,
+                                                    'gn0tmtgz' /* 5 */,
                                                   ),
                                                   style: TextStyle(),
                                                 )

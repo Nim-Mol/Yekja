@@ -167,9 +167,11 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                             shape: BoxShape.circle,
                           ),
                           child: Image.network(
-                            containerViewShoutoutRow?.profileAvatar != null &&
-                                    containerViewShoutoutRow?.profileAvatar !=
-                                        ''
+                            (containerViewShoutoutRow?.profileAvatar != null &&
+                                        containerViewShoutoutRow
+                                                ?.profileAvatar !=
+                                            '') &&
+                                    widget.consentShowAvatar
                                 ? containerViewShoutoutRow!.profileAvatar!
                                 : FFAppConstants.profileAvatarCircular,
                             fit: BoxFit.cover,
@@ -297,11 +299,23 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                                         ),
                                       ),
                                       Text(
-                                        '(${valueOrDefault<String>(
+                                        '${FFLocalizations.of(context).getVariableText(
+                                          enText: '(',
+                                          faText: '(',
+                                          nlText: '(',
+                                        )}${valueOrDefault<String>(
                                           containerViewShoutoutRow?.ratings
                                               ?.toString(),
                                           '0',
-                                        )} reviews)',
+                                        )}${FFLocalizations.of(context).getVariableText(
+                                          enText: 'reviews',
+                                          faText: 'بازخورد',
+                                          nlText: 'Beoordelingen',
+                                        )}${FFLocalizations.of(context).getVariableText(
+                                          enText: ')',
+                                          faText: ')',
+                                          nlText: ')',
+                                        )}',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -343,9 +357,19 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 5.0, 2.0, 0.0),
                                 child: Text(
-                                  valueOrDefault<String>(
-                                    containerViewShoutoutRow?.header,
-                                    'Thanks!',
+                                  FFLocalizations.of(context).getVariableText(
+                                    enText: valueOrDefault<String>(
+                                      containerViewShoutoutRow?.header,
+                                      'Thanks!',
+                                    ),
+                                    faText: valueOrDefault<String>(
+                                      containerViewShoutoutRow?.headerFa,
+                                      'سپاس!',
+                                    ),
+                                    nlText: valueOrDefault<String>(
+                                      containerViewShoutoutRow?.headerNl,
+                                      'Dankje!',
+                                    ),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .displaySmall
@@ -377,13 +401,27 @@ class _ShoutOutCardWidgetState extends State<ShoutOutCardWidget>
                               child: Align(
                                 alignment: AlignmentDirectional(-1.0, 0.0),
                                 child: Text(
-                                  valueOrDefault<String>(
-                                    containerViewShoutoutRow?.description,
-                                    'description',
-                                  ).maybeHandleOverflow(
-                                    maxChars: 150,
-                                    replacement: '…',
-                                  ),
+                                  FFLocalizations.of(context)
+                                      .getVariableText(
+                                        enText: valueOrDefault<String>(
+                                          containerViewShoutoutRow?.description,
+                                          'description',
+                                        ),
+                                        faText: valueOrDefault<String>(
+                                          containerViewShoutoutRow
+                                              ?.descriptionFa,
+                                          'description',
+                                        ),
+                                        nlText: valueOrDefault<String>(
+                                          containerViewShoutoutRow
+                                              ?.descriptionNl,
+                                          'description',
+                                        ),
+                                      )
+                                      .maybeHandleOverflow(
+                                        maxChars: 150,
+                                        replacement: '…',
+                                      ),
                                   maxLines: 3,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium

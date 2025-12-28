@@ -43,4 +43,20 @@ class ViewShoutoutRow extends SupabaseDataRow {
 
   int? get ratings => getField<int>('ratings');
   set ratings(int? value) => setField<int>('ratings', value);
+
+  String? get headerFa => getField<String>('header_fa');
+  set headerFa(String? value) => setField<String>('header_fa', value);
+
+  String? get descriptionFa => getField<String>('description_fa');
+  set descriptionFa(String? value) => setField<String>('description_fa', value);
+
+  String? get headerNl => getField<String>('header_nl');
+  set headerNl(String? value) => setField<String>('header_nl', value);
+
+  String? get descriptionNl => getField<String>('description_nl');
+  set descriptionNl(String? value) => setField<String>('description_nl', value);
+
+  bool? get showProfileImage => getField<bool>('show_profile_image');
+  set showProfileImage(bool? value) =>
+      setField<bool>('show_profile_image', value);
 }

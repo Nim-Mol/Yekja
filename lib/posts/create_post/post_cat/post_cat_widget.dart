@@ -13,9 +13,11 @@ class PostCatWidget extends StatefulWidget {
   const PostCatWidget({
     super.key,
     this.navRoute,
-  });
+    int? mainCat,
+  }) : this.mainCat = mainCat ?? 1;
 
   final String? navRoute;
+  final int mainCat;
 
   static String routeName = 'PostCat';
   static String routePath = '/createItemType';
@@ -69,157 +71,169 @@ class _PostCatWidgetState extends State<PostCatWidget> {
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         body: SafeArea(
           top: true,
-          child: Stack(
-            children: [
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 16.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Container(
-                          width: 40.0,
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            shape: BoxShape.circle,
-                          ),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.safePop();
-                            },
-                            child: Icon(
-                              Icons.arrow_back,
-                              color: FlutterFlowTheme.of(context).primary,
-                              size: 20.0,
+          child: Align(
+            alignment: AlignmentDirectional(0.0, -1.0),
+            child: Stack(
+              alignment: AlignmentDirectional(0.0, -1.0),
+              children: [
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 16.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Container(
+                            width: 40.0,
+                            height: 40.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              shape: BoxShape.circle,
                             ),
-                          ),
-                        ),
-                        Container(
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            borderRadius: BorderRadius.circular(24.0),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.dashboard_customize_rounded,
-                                color: FlutterFlowTheme.of(context).greenInit,
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.safePop();
+                              },
+                              child: Icon(
+                                Icons.arrow_back,
+                                color: FlutterFlowTheme.of(context).primary,
                                 size: 20.0,
                               ),
-                              Text(
-                                FFLocalizations.of(context).getText(
-                                  'vctzvcga' /* Category */,
+                            ),
+                          ),
+                          Container(
+                            height: 40.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              borderRadius: BorderRadius.circular(24.0),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.dashboard_customize_rounded,
+                                  color: FlutterFlowTheme.of(context).greenInit,
+                                  size: 20.0,
                                 ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily,
-                                      letterSpacing: 0.0,
-                                      useGoogleFonts:
-                                          !FlutterFlowTheme.of(context)
-                                              .bodyMediumIsCustom,
-                                    ),
-                              ),
-                              RichText(
-                                textScaler: MediaQuery.of(context).textScaler,
-                                text: TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: FFLocalizations.of(context).getText(
-                                        'x4v7qe1s' /* 2 */,
-                                      ),
-                                      style: TextStyle(),
-                                    ),
-                                    TextSpan(
-                                      text: FFLocalizations.of(context).getText(
-                                        'vofew9ox' /*  of  */,
-                                      ),
-                                      style: TextStyle(),
-                                    ),
-                                    TextSpan(
-                                      text: FFLocalizations.of(context).getText(
-                                        'pncnlblo' /* 6 */,
-                                      ),
-                                      style: TextStyle(),
-                                    )
-                                  ],
+                                Text(
+                                  FFLocalizations.of(context).getText(
+                                    'vctzvcga' /* Category */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .bodyMediumFamily,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
                                         letterSpacing: 0.0,
                                         useGoogleFonts:
                                             !FlutterFlowTheme.of(context)
                                                 .bodyMediumIsCustom,
                                       ),
                                 ),
-                              ),
-                            ]
-                                .divide(SizedBox(width: 16.0))
-                                .addToStart(SizedBox(width: 24.0))
-                                .addToEnd(SizedBox(width: 24.0)),
-                          ),
-                        ),
-                        Container(
-                          width: 40.0,
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            shape: BoxShape.circle,
-                          ),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              if (widget.navRoute == 'PostPreview') {
-                                context.goNamed(PostEditWidget.routeName);
-                              } else {
-                                context.goNamed(HomePageWidget.routeName);
-                              }
-                            },
-                            child: Icon(
-                              Icons.close,
-                              color: FlutterFlowTheme.of(context).primary,
-                              size: 20.0,
+                                RichText(
+                                  textScaler: MediaQuery.of(context).textScaler,
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          'x4v7qe1s' /* 2 */,
+                                        ),
+                                        style: TextStyle(),
+                                      ),
+                                      TextSpan(
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          'vofew9ox' /*  of  */,
+                                        ),
+                                        style: TextStyle(),
+                                      ),
+                                      TextSpan(
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          'pncnlblo' /* 5 */,
+                                        ),
+                                        style: TextStyle(),
+                                      )
+                                    ],
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMediumFamily,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          letterSpacing: 0.0,
+                                          useGoogleFonts:
+                                              !FlutterFlowTheme.of(context)
+                                                  .bodyMediumIsCustom,
+                                        ),
+                                  ),
+                                ),
+                              ]
+                                  .divide(SizedBox(width: 16.0))
+                                  .addToStart(SizedBox(width: 24.0))
+                                  .addToEnd(SizedBox(width: 24.0)),
                             ),
                           ),
+                          Container(
+                            width: 40.0,
+                            height: 40.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              shape: BoxShape.circle,
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                if (widget.navRoute == 'PostPreview') {
+                                  context.goNamed(PostEditWidget.routeName);
+                                } else {
+                                  context.goNamed(HomePageWidget.routeName);
+                                }
+                              },
+                              child: Icon(
+                                Icons.close,
+                                color: FlutterFlowTheme.of(context).primary,
+                                size: 20.0,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Flexible(
+                      child: Align(
+                        alignment: AlignmentDirectional(0.0, -1.0),
+                        child: wrapWithModel(
+                          model: _model.catModel,
+                          updateCallback: () => safeSetState(() {}),
+                          child: CatWidget(
+                            mainCat: widget.mainCat,
+                          ),
                         ),
-                      ],
+                      ),
                     ),
-                  ),
-                  Align(
-                    alignment: AlignmentDirectional(0.0, 1.0),
-                    child: wrapWithModel(
-                      model: _model.catModel,
-                      updateCallback: () => safeSetState(() {}),
-                      child: CatWidget(),
-                    ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

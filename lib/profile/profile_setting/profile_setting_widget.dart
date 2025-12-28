@@ -1,5 +1,3 @@
-import '/auth/supabase_auth/auth_util.dart';
-import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -258,19 +256,11 @@ class _ProfileSettingWidgetState extends State<ProfileSettingWidget>
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              _model.sharedClick =
-                                  await MonitoringLogsTable().insert({
-                                'user_id': currentUserUid,
-                                'action': 'SahreProfile',
-                                'scrren_name': 'Profile',
-                              });
                               await Share.share(
-                                '${FFAppConstants.BaseUrl}${'yekja://yekja.nl${GoRouterState.of(context).uri.toString()}'}',
+                                '${FFAppConstants.BaseUrl}${getCurrentRoute(context)}',
                                 sharePositionOrigin:
                                     getWidgetBoundingBox(context),
                               );
-
-                              safeSetState(() {});
                             },
                             child: Row(
                               mainAxisSize: MainAxisSize.max,

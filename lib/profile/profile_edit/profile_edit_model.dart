@@ -31,9 +31,8 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
 
   final formKey2 = GlobalKey<FormState>();
   final formKey1 = GlobalKey<FormState>();
-  final formKey6 = GlobalKey<FormState>();
-  final formKey3 = GlobalKey<FormState>();
   final formKey5 = GlobalKey<FormState>();
+  final formKey3 = GlobalKey<FormState>();
   final formKey4 = GlobalKey<FormState>();
   // State field(s) for TabBar widget.
   TabController? tabBarController;
@@ -134,7 +133,8 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
       return 'Field is required';
     }
 
-    if (!RegExp('^[\\u0600-\\u06FF\\s_\\u0660-\\u06690-9a-zA-Z\\.\\!\\?]+\$')
+    if (!RegExp(
+            '^[\\u0600-\\u06FF\\s_\\u0660-\\u06690-9a-zA-Z\\.\\!\\?\\\']+\$')
         .hasMatch(val)) {
       return FFLocalizations.of(context).getText(
         'sd7ryerl' /* Please use only letters (Engli... */,
@@ -173,33 +173,8 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
   // State field(s) for dropdownCity widget.
   String? dropdownCityValue;
   FormFieldController<String>? dropdownCityValueController;
-  // State field(s) for Expandable widget.
-  late ExpandableController expandableExpandableController3;
-
-  // State field(s) for InstagramLink widget.
-  FocusNode? instagramLinkFocusNode;
-  TextEditingController? instagramLinkTextController;
-  String? Function(BuildContext, String?)? instagramLinkTextControllerValidator;
-  String? _instagramLinkTextControllerValidator(
-      BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return 'Field is required';
-    }
-
-    if (!RegExp(
-            '^(https?:\\/\\/)?(www\\.)?(instagram\\.com|instagr\\.am)\\/([A-Za-z0-9_\\.]*)\\??.*')
-        .hasMatch(val)) {
-      return FFLocalizations.of(context).getText(
-        'iwnn0krk' /* This is not a valid link. */,
-      );
-    }
-    return null;
-  }
-
   // Stores action output result for [Backend Call - Update Row(s)] action in Save widget.
   List<UserExtRow>? updatedUser;
-  // Stores action output result for [Custom Action - userSoftDeleteAsync] action in RichTextSpan widget.
-  bool? succes;
   // State field(s) for AllowProfilePhoto widget.
   bool? allowProfilePhotoValue;
   // State field(s) for AllowSocialMedia widget.
@@ -224,8 +199,6 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
     lastNameTextControllerValidator = _lastNameTextControllerValidator;
     biographyTextControllerValidator = _biographyTextControllerValidator;
     phoneNumberTextControllerValidator = _phoneNumberTextControllerValidator;
-    instagramLinkTextControllerValidator =
-        _instagramLinkTextControllerValidator;
   }
 
   @override
@@ -250,9 +223,5 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
 
     phoneNumberFocusNode?.dispose();
     phoneNumberTextController?.dispose();
-
-    expandableExpandableController3.dispose();
-    instagramLinkFocusNode?.dispose();
-    instagramLinkTextController?.dispose();
   }
 }

@@ -220,6 +220,10 @@ class _ChangeEmailPageWidgetState extends State<ChangeEmailPageWidget> {
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     isDense: false,
+                                    labelText:
+                                        FFLocalizations.of(context).getText(
+                                      '7qj4jthi' /* New pasword */,
+                                    ),
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(

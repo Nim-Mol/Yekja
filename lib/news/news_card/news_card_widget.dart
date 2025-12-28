@@ -261,7 +261,7 @@ class _NewsCardWidgetState extends State<NewsCardWidget> {
                       widget.backTxt,
                       'txt',
                     ),
-                    maxLines: 10,
+                    maxLines: 8,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily:
                               FlutterFlowTheme.of(context).bodyMediumFamily,
@@ -274,16 +274,24 @@ class _NewsCardWidgetState extends State<NewsCardWidget> {
                   ),
                 ),
               ),
-              Align(
-                alignment: AlignmentDirectional(1.0, 1.0),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 10.0),
-                  child: Icon(
-                    Icons.navigate_next_sharp,
-                    color: FlutterFlowTheme.of(context).primaryWhite,
-                    size: 20.0,
-                  ),
-                ),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  if (widget.action == null)
+                    Align(
+                      alignment: AlignmentDirectional(1.0, 1.0),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 0.0, 10.0, 10.0),
+                        child: Icon(
+                          Icons.navigate_next_sharp,
+                          color: FlutterFlowTheme.of(context).primaryWhite,
+                          size: 20.0,
+                        ),
+                      ),
+                    ),
+                ],
               ),
             ],
           ),

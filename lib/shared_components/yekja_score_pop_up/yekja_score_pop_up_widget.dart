@@ -407,8 +407,8 @@ class _YekjaScorePopUpWidgetState extends State<YekjaScorePopUpWidget>
                                       ClipRRect(
                                         borderRadius:
                                             BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Icons/celebration.gif',
+                                        child: Image.asset(
+                                          'assets/images/celebration.gif',
                                           width: 40.0,
                                           height: 20.0,
                                           fit: BoxFit.cover,

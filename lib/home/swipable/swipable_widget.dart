@@ -74,24 +74,25 @@ class _SwipableWidgetState extends State<SwipableWidget> {
                         children: [
                           AutoSizeText(
                             FFLocalizations.of(context).getText(
-                              'c9tbt5vm' /* Discover Local 
-Offers & Reque... */
-                              ,
+                              'c9tbt5vm' /* Discover Local Offers & Reques... */,
                             ),
                             textAlign: TextAlign.center,
+                            maxLines: 2,
                             style: FlutterFlowTheme.of(context)
                                 .displaySmall
                                 .override(
                                   fontFamily: 'FarsiFonts',
-                                  fontSize: 20.0,
+                                  color: FlutterFlowTheme.of(context).info,
+                                  fontSize: 16.0,
                                   letterSpacing: 0.0,
                                 ),
                           ),
                           Text(
                             FFLocalizations.of(context).getText(
-                              '507gxblh' /* Swipe to explore — tap any to ... */,
+                              '507gxblh' /* Swipe to explore  */,
                             ),
                             textAlign: TextAlign.center,
+                            maxLines: 2,
                             style: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
@@ -99,6 +100,7 @@ Offers & Reque... */
                                       .titleSmallFamily,
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
                                   useGoogleFonts: !FlutterFlowTheme.of(context)
                                       .titleSmallIsCustom,
                                 ),
@@ -145,7 +147,7 @@ Offers & Reque... */
                                     alignment: AlignmentDirectional(0.0, -1.0),
                                     child: Container(
                                       width: 320.0,
-                                      height: 480.0,
+                                      height: 464.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
@@ -320,17 +322,29 @@ Offers & Reque... */
                                                                           4.0),
                                                                       child:
                                                                           AutoSizeText(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          swipeableStackViewSwipablePostsRow
-                                                                              .catName,
-                                                                          'Category',
+                                                                        FFLocalizations.of(context)
+                                                                            .getVariableText(
+                                                                          enText:
+                                                                              valueOrDefault<String>(
+                                                                            swipeableStackViewSwipablePostsRow.catName,
+                                                                            'Category',
+                                                                          ),
+                                                                          faText:
+                                                                              valueOrDefault<String>(
+                                                                            swipeableStackViewSwipablePostsRow.catNameFa,
+                                                                            'Category',
+                                                                          ),
+                                                                          nlText:
+                                                                              valueOrDefault<String>(
+                                                                            swipeableStackViewSwipablePostsRow.catNameNl,
+                                                                            'Category',
+                                                                          ),
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
                                                                               fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                              color: FlutterFlowTheme.of(context).primaryWhite,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w500,
                                                                               useGoogleFonts: !FlutterFlowTheme.of(context).bodyMediumIsCustom,
@@ -497,17 +511,29 @@ Offers & Reque... */
                                                                           4.0),
                                                                       child:
                                                                           AutoSizeText(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          swipeableStackViewSwipablePostsRow
-                                                                              .catName,
-                                                                          'Category',
+                                                                        FFLocalizations.of(context)
+                                                                            .getVariableText(
+                                                                          enText:
+                                                                              valueOrDefault<String>(
+                                                                            swipeableStackViewSwipablePostsRow.catName,
+                                                                            'Category',
+                                                                          ),
+                                                                          faText:
+                                                                              valueOrDefault<String>(
+                                                                            swipeableStackViewSwipablePostsRow.catNameFa,
+                                                                            'Category',
+                                                                          ),
+                                                                          nlText:
+                                                                              valueOrDefault<String>(
+                                                                            swipeableStackViewSwipablePostsRow.catNameNl,
+                                                                            'Category',
+                                                                          ),
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
                                                                               fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                              color: FlutterFlowTheme.of(context).primaryWhite,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w500,
                                                                               useGoogleFonts: !FlutterFlowTheme.of(context).bodyMediumIsCustom,
@@ -836,8 +862,8 @@ Offers & Reque... */
                         ),
                       ),
                     ]
-                        .divide(SizedBox(height: 24.0))
-                        .addToStart(SizedBox(height: 50.0)),
+                        .divide(SizedBox(height: 16.0))
+                        .addToStart(SizedBox(height: 24.0)),
                   ),
                   Align(
                     alignment: AlignmentDirectional(0.0, 1.0),

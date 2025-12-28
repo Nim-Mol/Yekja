@@ -1009,7 +1009,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                     unselectedWidgetColor:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .primary,
+                                                            .primaryWhite,
                                                   ),
                                                   child: Checkbox(
                                                     value:
@@ -1028,22 +1028,21 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                         safeSetState(() {});
                                                       }
                                                     },
-                                                    side:
-                                                        (FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary !=
-                                                                null)
-                                                            ? BorderSide(
-                                                                width: 2,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                              )
-                                                            : null,
+                                                    side: (FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryWhite !=
+                                                            null)
+                                                        ? BorderSide(
+                                                            width: 2,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryWhite,
+                                                          )
+                                                        : null,
                                                     activeColor:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .primary,
+                                                            .primaryWhite,
                                                     checkColor:
                                                         FlutterFlowTheme.of(
                                                                 context)
@@ -1061,7 +1060,7 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                           text: FFLocalizations
                                                                   .of(context)
                                                               .getText(
-                                                            'm1b3xvwl' /* I agree to the  */,
+                                                            'm1b3xvwl' /* I agree with the  */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)

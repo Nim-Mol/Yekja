@@ -124,7 +124,7 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                               Icons.chevron_left,
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .info,
+                                                      .primary,
                                               size: 24.0,
                                             ),
                                             onPressed: () async {
@@ -138,88 +138,79 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                 ),
                                 Align(
                                   alignment: AlignmentDirectional(0.0, 1.0),
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: 100.0,
-                                    decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          Color(0x00232426),
-                                          Color(0xDF0E0E0E)
-                                        ],
-                                        stops: [0.0, 1.0],
-                                        begin: AlignmentDirectional(0.0, -1.0),
-                                        end: AlignmentDirectional(0, 1.0),
-                                      ),
-                                    ),
-                                    alignment: AlignmentDirectional(0.0, 1.0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 20.0, 16.0, 16.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Flexible(
-                                            child: Text(
-                                              FFAppState().postState.title,
-                                              textAlign: TextAlign.start,
-                                              maxLines: 2,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleLarge
-                                                  .override(
-                                                    fontFamily:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleLargeFamily,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryWhite,
-                                                    fontSize: 28.0,
-                                                    letterSpacing: 0.0,
-                                                    lineHeight: 1.1,
-                                                    useGoogleFonts:
-                                                        !FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleLargeIsCustom,
-                                                  ),
-                                            ),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed(
+                                        ImageGalleryPageWidget.routeName,
+                                        queryParameters: {
+                                          'previewImages': serializeParam(
+                                            FFAppState().postState.images,
+                                            ParamType.String,
+                                            isList: true,
                                           ),
-                                        ].divide(SizedBox(width: 8.0)),
+                                        }.withoutNulls,
+                                      );
+                                    },
+                                    child: Container(
+                                      width: double.infinity,
+                                      height: 100.0,
+                                      decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Color(0x00232426),
+                                            Color(0xDF0E0E0E)
+                                          ],
+                                          stops: [0.0, 1.0],
+                                          begin:
+                                              AlignmentDirectional(0.0, -1.0),
+                                          end: AlignmentDirectional(0, 1.0),
+                                        ),
                                       ),
-                                    ),
-                                  ),
-                                ),
-                                Align(
-                                  alignment: AlignmentDirectional(1.0, 1.0),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 6.0, 16.0),
-                                    child: FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30.0,
-                                      buttonSize: 44.0,
-                                      icon: Icon(
-                                        Icons.image_search,
-                                        color: Colors.white,
-                                        size: 24.0,
-                                      ),
-                                      onPressed: () async {
-                                        context.pushNamed(
-                                          ImageGalleryPageWidget.routeName,
-                                          queryParameters: {
-                                            'previewImages': serializeParam(
-                                              FFAppState().postState.images,
-                                              ParamType.String,
-                                              isList: true,
+                                      alignment: AlignmentDirectional(0.0, 1.0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 20.0, 16.0, 16.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Flexible(
+                                              child: Text(
+                                                FFAppState().postState.title,
+                                                textAlign: TextAlign.start,
+                                                maxLines: 2,
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleLarge
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleLargeFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryWhite,
+                                                      fontSize: 28.0,
+                                                      letterSpacing: 0.0,
+                                                      lineHeight: 1.1,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleLargeIsCustom,
+                                                    ),
+                                              ),
                                             ),
-                                          }.withoutNulls,
-                                        );
-                                      },
+                                          ].divide(SizedBox(width: 8.0)),
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -278,8 +269,8 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        context.pushNamed(
-                                            PostSubCatWidget.routeName);
+                                        context
+                                            .pushNamed(PostCatWidget.routeName);
                                       },
                                       child: Icon(
                                         Icons.edit,
@@ -289,29 +280,6 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                       ),
                                     ),
                                   ].divide(SizedBox(width: 10.0)),
-                                ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(0.0, 1.0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 98.0, 0.0, 0.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed(
-                                          PostIntendWidget.routeName);
-                                    },
-                                    child: Icon(
-                                      Icons.edit,
-                                      color:
-                                          FlutterFlowTheme.of(context).green1,
-                                      size: 24.0,
-                                    ),
-                                  ),
                                 ),
                               ),
                               Align(
@@ -680,7 +648,7 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                                                   .circular(
                                                                       8.0),
                                                           child: Image.network(
-                                                            'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Icons/star_animated.gif',
+                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/y0l0lllp2v7b/star_animated.gif',
                                                             width: 30.0,
                                                             height: 30.0,
                                                             fit: BoxFit.cover,
@@ -803,8 +771,8 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                                             8.0),
                                                     child: Image.asset(
                                                       'assets/images/instagram.png',
-                                                      width: 40.0,
-                                                      height: 40.0,
+                                                      width: 50.0,
+                                                      height: 50.0,
                                                       fit: BoxFit.fill,
                                                     ),
                                                   ),
@@ -856,17 +824,20 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                         Align(
                           alignment: AlignmentDirectional(-1.0, 0.0),
                           child: FutureBuilder<List<ViewUserReviewsRow>>(
-                            future: ViewUserReviewsTable().queryRows(
-                              queryFn: (q) => q
-                                  .eqOrNull(
-                                    'reviewed_user_id',
-                                    currentUserUid,
-                                  )
-                                  .eqOrNull(
-                                    'both_review_submitted',
-                                    true,
-                                  )
-                                  .order('created_at'),
+                            future: FFAppState().userReviews(
+                              uniqueQueryKey: currentUserUid,
+                              requestFn: () => ViewUserReviewsTable().queryRows(
+                                queryFn: (q) => q
+                                    .eqOrNull(
+                                      'reviewed_user_id',
+                                      currentUserUid,
+                                    )
+                                    .eqOrNull(
+                                      'both_review_submitted',
+                                      true,
+                                    )
+                                    .order('created_at'),
+                              ),
                             ),
                             builder: (context, snapshot) {
                               // Customize what your widget looks like when it's loading.
@@ -1053,6 +1024,8 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                   child: Builder(
                                     builder: (context) => FFButtonWidget(
                                       onPressed: () async {
+                                        _model.celebrationOn = true;
+                                        safeSetState(() {});
                                         await showDialog(
                                           context: context,
                                           builder: (dialogContext) {
@@ -1075,17 +1048,17 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                                 hintText:
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                  'zou0thk2' /* Note: Yekja never gets involve... */,
+                                                  'zou0thk2' /* ⚠️ Warning: Yekja never gets i... */,
                                                 ),
                                                 cancelText:
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                  'eqlfruyj' /* Cancel */,
+                                                  'eqlfruyj' /* Not now! */,
                                                 ),
                                                 confirmText:
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                  'jm9epl0b' /* Confirm */,
+                                                  'jm9epl0b' /* Yeah! */,
                                                 ),
                                                 onConfirmAction: () async {
                                                   unawaited(
@@ -1284,6 +1257,22 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                     ),
                   ),
                 ),
+                if (_model.celebrationOn == true)
+                  Align(
+                    alignment: AlignmentDirectional(0.0, 0.0),
+                    child: Container(
+                      width: 273.08,
+                      height: 256.9,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: Image.asset(
+                            'assets/images/Celebrations_Begin.gif',
+                          ).image,
+                        ),
+                      ),
+                    ),
+                  ),
               ],
             ),
           ),

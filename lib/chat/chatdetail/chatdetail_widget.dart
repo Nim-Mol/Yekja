@@ -144,7 +144,7 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
             child: Stack(
               children: [
                 Column(
-                  mainAxisSize: MainAxisSize.max,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Padding(
                       padding:
@@ -174,7 +174,7 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                               child: Icon(
                                 Icons.arrow_back_ios_new,
                                 color: FlutterFlowTheme.of(context).primaryText,
-                                size: 24.0,
+                                size: 20.0,
                               ),
                             ),
                           ),
@@ -237,848 +237,887 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                         ].divide(SizedBox(width: 10.0)),
                       ),
                     ),
-                    Expanded(
-                      child: Stack(
-                        children: [
-                          Container(
-                            constraints: BoxConstraints(
-                              maxWidth: 480.0,
-                              maxHeight: 700.0,
+                    Flexible(
+                      child: Container(
+                        constraints: BoxConstraints(
+                          maxWidth: 480.0,
+                          maxHeight: 650.0,
+                        ),
+                        decoration: BoxDecoration(),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          child: StreamBuilder<List<MessagesRow>>(
+                            stream: _model.chat(
+                              requestFn: () =>
+                                  _model.chatsListViewSupabaseStream ??=
+                                      SupaFlow.client
+                                          .from("messages")
+                                          .stream(primaryKey: ['id'])
+                                          .eqOrNull(
+                                            'chat_id',
+                                            widget.chatId,
+                                          )
+                                          .order('created_at', ascending: true)
+                                          .map((list) => list
+                                              .map((item) => MessagesRow(item))
+                                              .toList()),
                             ),
-                            decoration: BoxDecoration(),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
-                              child: StreamBuilder<List<MessagesRow>>(
-                                stream: _model.chatsListViewSupabaseStream ??=
-                                    SupaFlow.client
-                                        .from("messages")
-                                        .stream(primaryKey: ['id'])
-                                        .eqOrNull(
-                                          'chat_id',
-                                          widget.chatId,
-                                        )
-                                        .order('created_at', ascending: true)
-                                        .map((list) => list
-                                            .map((item) => MessagesRow(item))
-                                            .toList()),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 50.0,
-                                        height: 50.0,
-                                        child: SpinKitChasingDots(
-                                          color: FlutterFlowTheme.of(context)
-                                              .greenInit,
-                                          size: 50.0,
-                                        ),
-                                      ),
-                                    );
-                                  }
-                                  List<MessagesRow>
-                                      chatsListViewMessagesRowList =
-                                      snapshot.data!;
-
-                                  return ListView.builder(
-                                    padding: EdgeInsets.fromLTRB(
-                                      0,
-                                      16.0,
-                                      0,
-                                      30.0,
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: SpinKitChasingDots(
+                                      color: FlutterFlowTheme.of(context)
+                                          .greenInit,
+                                      size: 50.0,
                                     ),
-                                    scrollDirection: Axis.vertical,
-                                    itemCount:
-                                        chatsListViewMessagesRowList.length,
-                                    itemBuilder: (context, chatsListViewIndex) {
-                                      final chatsListViewMessagesRow =
-                                          chatsListViewMessagesRowList[
-                                              chatsListViewIndex];
-                                      return Align(
-                                        alignment:
-                                            AlignmentDirectional(1.0, 0.0),
-                                        child: Builder(
-                                          builder: (context) {
-                                            if (chatsListViewMessagesRow
-                                                    .sentBy !=
-                                                currentUserUid) {
-                                              return Stack(
-                                                children: [
-                                                  if (FFLocalizations.of(
-                                                              context)
-                                                          .languageCode !=
-                                                      'fa')
-                                                    Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              -1.0, -1.0),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    2.0,
-                                                                    12.0,
-                                                                    0.0),
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            if ((chatsListViewMessagesRow
-                                                                        .isImg ==
-                                                                    false) &&
-                                                                (chatsListViewMessagesRow
-                                                                        .isReview ==
-                                                                    false))
-                                                              Align(
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        -1.0,
-                                                                        -1.0),
-                                                                child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                  ),
+                                );
+                              }
+                              List<MessagesRow> chatsListViewMessagesRowList =
+                                  snapshot.data!;
+
+                              return ListView.builder(
+                                padding: EdgeInsets.fromLTRB(
+                                  0,
+                                  16.0,
+                                  0,
+                                  124.0,
+                                ),
+                                shrinkWrap: true,
+                                scrollDirection: Axis.vertical,
+                                itemCount: chatsListViewMessagesRowList.length,
+                                itemBuilder: (context, chatsListViewIndex) {
+                                  final chatsListViewMessagesRow =
+                                      chatsListViewMessagesRowList[
+                                          chatsListViewIndex];
+                                  return Align(
+                                    alignment: AlignmentDirectional(1.0, 0.0),
+                                    child: Builder(
+                                      builder: (context) {
+                                        if (chatsListViewMessagesRow.sentBy !=
+                                            currentUserUid) {
+                                          return Stack(
+                                            children: [
+                                              if (FFLocalizations.of(context)
+                                                      .languageCode !=
+                                                  'fa')
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          -1.0, -1.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 2.0,
+                                                                12.0, 0.0),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        if ((chatsListViewMessagesRow
+                                                                    .isImg ==
+                                                                false) &&
+                                                            (chatsListViewMessagesRow
+                                                                    .isReview ==
+                                                                false))
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    -1.0, -1.0),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
                                                                           4.0),
-                                                                  child:
-                                                                      Container(
-                                                                    constraints:
-                                                                        BoxConstraints(
-                                                                      minWidth:
-                                                                          80.0,
-                                                                    ),
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: Color(
-                                                                          0x4125C4A4),
-                                                                      borderRadius:
-                                                                          BorderRadius
-                                                                              .only(
-                                                                        bottomLeft:
-                                                                            Radius.circular(16.0),
-                                                                        bottomRight:
-                                                                            Radius.circular(16.0),
-                                                                        topLeft:
-                                                                            Radius.circular(0.0),
-                                                                        topRight:
-                                                                            Radius.circular(16.0),
-                                                                      ),
-                                                                    ),
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                              child: Container(
+                                                                constraints:
+                                                                    BoxConstraints(
+                                                                  minWidth:
+                                                                      80.0,
+                                                                ),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Color(
+                                                                      0x4125C4A4),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .only(
+                                                                    bottomLeft:
+                                                                        Radius.circular(
+                                                                            16.0),
+                                                                    bottomRight:
+                                                                        Radius.circular(
+                                                                            16.0),
+                                                                    topLeft: Radius
+                                                                        .circular(
+                                                                            0.0),
+                                                                    topRight: Radius
+                                                                        .circular(
+                                                                            16.0),
+                                                                  ),
+                                                                ),
+                                                                child: Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
                                                                           16.0,
                                                                           8.0,
                                                                           12.0,
                                                                           8.0),
-                                                                      child:
-                                                                          AutoSizeText(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          chatsListViewMessagesRow
-                                                                              .messageText,
-                                                                          'Hellooo',
-                                                                        ),
-                                                                        textAlign:
-                                                                            TextAlign.start,
-                                                                        maxLines:
-                                                                            10,
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .titleSmall
-                                                                            .override(
-                                                                              fontFamily: 'Satoshi',
-                                                                              color: FlutterFlowTheme.of(context).primaryText,
-                                                                              fontSize: 16.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.normal,
-                                                                            ),
-                                                                      ),
+                                                                  child:
+                                                                      AutoSizeText(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                      chatsListViewMessagesRow
+                                                                          .messageText,
+                                                                      'Hellooo',
                                                                     ),
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .start,
+                                                                    maxLines:
+                                                                        10,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmall
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Satoshi',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primaryText,
+                                                                          fontSize:
+                                                                              16.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                        ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                            if (chatsListViewMessagesRow
-                                                                .isImg)
-                                                              Align(
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        -1.0,
-                                                                        -1.0),
-                                                                child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                            ),
+                                                          ),
+                                                        if (chatsListViewMessagesRow
+                                                            .isImg)
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    -1.0, -1.0),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
                                                                           4.0),
-                                                                  child:
-                                                                      ClipRRect(
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
                                                                             8.0),
-                                                                    child: Image
-                                                                        .network(
+                                                                child: Image
+                                                                    .network(
+                                                                  chatsListViewMessagesRow
+                                                                      .imgMessage!,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                  cacheWidth:
+                                                                      300,
+                                                                  cacheHeight:
+                                                                      350,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              if (FFLocalizations.of(context)
+                                                      .languageCode ==
+                                                  'fa')
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          -1.0, -1.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(12.0, 2.0,
+                                                                0.0, 0.0),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .end,
+                                                      children: [
+                                                        if ((chatsListViewMessagesRow
+                                                                    .isImg ==
+                                                                false) &&
+                                                            (chatsListViewMessagesRow
+                                                                    .isReview ==
+                                                                false))
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    1.0, -1.0),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          4.0),
+                                                              child: Container(
+                                                                constraints:
+                                                                    BoxConstraints(
+                                                                  minWidth:
+                                                                      80.0,
+                                                                ),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Color(
+                                                                      0x4125C4A4),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .only(
+                                                                    bottomLeft:
+                                                                        Radius.circular(
+                                                                            16.0),
+                                                                    bottomRight:
+                                                                        Radius.circular(
+                                                                            16.0),
+                                                                    topLeft: Radius
+                                                                        .circular(
+                                                                            0.0),
+                                                                    topRight: Radius
+                                                                        .circular(
+                                                                            16.0),
+                                                                  ),
+                                                                ),
+                                                                child: Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          12.0,
+                                                                          8.0,
+                                                                          16.0,
+                                                                          8.0),
+                                                                  child:
+                                                                      AutoSizeText(
+                                                                    valueOrDefault<
+                                                                        String>(
                                                                       chatsListViewMessagesRow
-                                                                          .imgMessage!,
-                                                                      fit: BoxFit
-                                                                          .cover,
-                                                                      cacheWidth:
-                                                                          300,
-                                                                      cacheHeight:
-                                                                          350,
+                                                                          .messageText,
+                                                                      'Hellooo',
                                                                     ),
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .start,
+                                                                    maxLines:
+                                                                        10,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmall
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Satoshi',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primaryText,
+                                                                          fontSize:
+                                                                              16.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                        ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                          ],
-                                                        ),
-                                                      ),
+                                                            ),
+                                                          ),
+                                                        if (chatsListViewMessagesRow
+                                                            .isImg)
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    1.0, -1.0),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          4.0),
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                                child: Image
+                                                                    .network(
+                                                                  chatsListViewMessagesRow
+                                                                      .imgMessage!,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                  cacheWidth:
+                                                                      300,
+                                                                  cacheHeight:
+                                                                      350,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                      ],
                                                     ),
-                                                  if (FFLocalizations.of(
-                                                              context)
-                                                          .languageCode ==
-                                                      'fa')
-                                                    Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              -1.0, -1.0),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    2.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .end,
+                                                  ),
+                                                ),
+                                            ],
+                                          );
+                                        } else {
+                                          return Stack(
+                                            children: [
+                                              if (FFLocalizations.of(context)
+                                                      .languageCode !=
+                                                  'fa')
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          12.0, 2.0, 0.0, 0.0),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      if ((chatsListViewMessagesRow
+                                                                  .isImg ==
+                                                              false) &&
+                                                          (chatsListViewMessagesRow
+                                                                  .isReview ==
+                                                              false))
+                                                        Stack(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  1.0, 1.0),
                                                           children: [
-                                                            if ((chatsListViewMessagesRow
-                                                                        .isImg ==
-                                                                    false) &&
-                                                                (chatsListViewMessagesRow
-                                                                        .isReview ==
-                                                                    false))
+                                                            if (chatsListViewMessagesRow
+                                                                    .isImg ==
+                                                                false)
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
                                                                         1.0,
                                                                         -1.0),
-                                                                child: Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          4.0),
-                                                                  child:
-                                                                      Container(
-                                                                    constraints:
-                                                                        BoxConstraints(
-                                                                      minWidth:
-                                                                          80.0,
-                                                                    ),
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: Color(
-                                                                          0x4125C4A4),
-                                                                      borderRadius:
-                                                                          BorderRadius
-                                                                              .only(
-                                                                        bottomLeft:
-                                                                            Radius.circular(16.0),
-                                                                        bottomRight:
-                                                                            Radius.circular(16.0),
-                                                                        topLeft:
-                                                                            Radius.circular(0.0),
-                                                                        topRight:
-                                                                            Radius.circular(16.0),
-                                                                      ),
-                                                                    ),
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          12.0,
-                                                                          8.0,
-                                                                          16.0,
-                                                                          8.0),
-                                                                      child:
-                                                                          AutoSizeText(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          chatsListViewMessagesRow
-                                                                              .messageText,
-                                                                          'Hellooo',
-                                                                        ),
-                                                                        textAlign:
-                                                                            TextAlign.start,
-                                                                        maxLines:
-                                                                            10,
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .titleSmall
-                                                                            .override(
-                                                                              fontFamily: 'Satoshi',
-                                                                              color: FlutterFlowTheme.of(context).primaryText,
-                                                                              fontSize: 16.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.normal,
-                                                                            ),
-                                                                      ),
-                                                                    ),
+                                                                child:
+                                                                    Container(
+                                                                  constraints:
+                                                                      BoxConstraints(
+                                                                    minWidth:
+                                                                        80.0,
                                                                   ),
-                                                                ),
-                                                              ),
-                                                            if (chatsListViewMessagesRow
-                                                                .isImg)
-                                                              Align(
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        1.0,
-                                                                        -1.0),
-                                                                child: Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          4.0),
-                                                                  child:
-                                                                      ClipRRect(
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: Color(
+                                                                        0x4125C4A4),
                                                                     borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            8.0),
-                                                                    child: Image
-                                                                        .network(
-                                                                      chatsListViewMessagesRow
-                                                                          .imgMessage!,
-                                                                      fit: BoxFit
-                                                                          .cover,
-                                                                      cacheWidth:
-                                                                          300,
-                                                                      cacheHeight:
-                                                                          350,
+                                                                        BorderRadius
+                                                                            .only(
+                                                                      bottomLeft:
+                                                                          Radius.circular(
+                                                                              12.0),
+                                                                      bottomRight:
+                                                                          Radius.circular(
+                                                                              0.0),
+                                                                      topLeft: Radius
+                                                                          .circular(
+                                                                              12.0),
+                                                                      topRight:
+                                                                          Radius.circular(
+                                                                              12.0),
                                                                     ),
                                                                   ),
-                                                                ),
-                                                              ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                ],
-                                              );
-                                            } else {
-                                              return Stack(
-                                                children: [
-                                                  if (FFLocalizations.of(
-                                                              context)
-                                                          .languageCode !=
-                                                      'fa')
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  12.0,
-                                                                  2.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          if ((chatsListViewMessagesRow
-                                                                      .isImg ==
-                                                                  false) &&
-                                                              (chatsListViewMessagesRow
-                                                                      .isReview ==
-                                                                  false))
-                                                            Stack(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      1.0, 1.0),
-                                                              children: [
-                                                                if (chatsListViewMessagesRow
-                                                                        .isImg ==
-                                                                    false)
-                                                                  Align(
-                                                                    alignment:
-                                                                        AlignmentDirectional(
-                                                                            1.0,
-                                                                            -1.0),
-                                                                    child:
-                                                                        Container(
-                                                                      constraints:
-                                                                          BoxConstraints(
-                                                                        minWidth:
-                                                                            80.0,
-                                                                      ),
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: Color(
-                                                                            0x4125C4A4),
-                                                                        borderRadius:
-                                                                            BorderRadius.only(
-                                                                          bottomLeft:
-                                                                              Radius.circular(12.0),
-                                                                          bottomRight:
-                                                                              Radius.circular(0.0),
-                                                                          topLeft:
-                                                                              Radius.circular(12.0),
-                                                                          topRight:
-                                                                              Radius.circular(12.0),
-                                                                        ),
-                                                                      ),
-                                                                      child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                  child:
+                                                                      Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
                                                                             12.0,
                                                                             8.0,
                                                                             30.0,
                                                                             8.0),
-                                                                        child:
-                                                                            AutoSizeText(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            chatsListViewMessagesRow.messageText,
-                                                                            'Hellooo',
-                                                                          ),
-                                                                          textAlign:
-                                                                              TextAlign.start,
-                                                                          maxLines:
-                                                                              10,
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .titleSmall
-                                                                              .override(
-                                                                                fontFamily: 'Satoshi',
-                                                                                color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 16.0,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.normal,
-                                                                              ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          1.0,
-                                                                          1.0),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0,
-                                                                            8.0),
-                                                                    child: Icon(
-                                                                      Icons
-                                                                          .done_all,
-                                                                      color: (chatsListViewMessagesRow.seen ==
-                                                                                  true) ||
-                                                                              (chatsListViewMessagesRow.recipientOnline ==
-                                                                                  true)
-                                                                          ? Color(
-                                                                              0xFF40C057)
-                                                                          : FlutterFlowTheme.of(context)
-                                                                              .secondaryText,
-                                                                      size:
-                                                                          14.0,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          if (chatsListViewMessagesRow
-                                                                  .isImg ==
-                                                              false)
-                                                            Stack(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      1.0, 1.0),
-                                                              children: [
-                                                                Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          1.0,
-                                                                          -1.0),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            4.0),
                                                                     child:
-                                                                        Container(
-                                                                      constraints:
-                                                                          BoxConstraints(
-                                                                        minWidth:
-                                                                            80.0,
-                                                                      ),
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: Color(
-                                                                            0x4125C4A4),
-                                                                        borderRadius:
-                                                                            BorderRadius.only(
-                                                                          bottomLeft:
-                                                                              Radius.circular(12.0),
-                                                                          bottomRight:
-                                                                              Radius.circular(0.0),
-                                                                          topLeft:
-                                                                              Radius.circular(12.0),
-                                                                          topRight:
-                                                                              Radius.circular(12.0),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          if (chatsListViewMessagesRow
-                                                              .isImg)
-                                                            Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      1.0,
-                                                                      -1.0),
-                                                              child: Stack(
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        1.0,
-                                                                        1.0),
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            4.0),
-                                                                    child:
-                                                                        ClipRRect(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8.0),
-                                                                      child: Image
-                                                                          .network(
+                                                                        AutoSizeText(
+                                                                      valueOrDefault<
+                                                                          String>(
                                                                         chatsListViewMessagesRow
-                                                                            .imgMessage!,
-                                                                        fit: BoxFit
-                                                                            .cover,
-                                                                        alignment: Alignment(
-                                                                            1.0,
-                                                                            -1.0),
-                                                                        cacheWidth:
-                                                                            300,
-                                                                        cacheHeight:
-                                                                            350,
+                                                                            .messageText,
+                                                                        'Hellooo',
                                                                       ),
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .start,
+                                                                      maxLines:
+                                                                          10,
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmall
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Satoshi',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            fontSize:
+                                                                                16.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                          ),
                                                                     ),
                                                                   ),
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                ),
+                                                              ),
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      1.0, 1.0),
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             8.0,
                                                                             8.0),
-                                                                    child: Icon(
-                                                                      Icons
-                                                                          .done_all,
-                                                                      color: (chatsListViewMessagesRow.seen ==
-                                                                                  true) ||
-                                                                              (chatsListViewMessagesRow.recipientOnline ==
-                                                                                  true)
-                                                                          ? Color(
-                                                                              0xFF40C057)
-                                                                          : FlutterFlowTheme.of(context)
-                                                                              .secondaryText,
-                                                                      size:
-                                                                          14.0,
-                                                                    ),
-                                                                  ),
-                                                                ],
+                                                                child: Icon(
+                                                                  Icons
+                                                                      .done_all,
+                                                                  color: (chatsListViewMessagesRow.seen ==
+                                                                              true) ||
+                                                                          (chatsListViewMessagesRow.recipientOnline ==
+                                                                              true)
+                                                                      ? Color(
+                                                                          0xFF40C057)
+                                                                      : FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText,
+                                                                  size: 14.0,
+                                                                ),
                                                               ),
                                                             ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  if (FFLocalizations.of(
-                                                              context)
-                                                          .languageCode ==
-                                                      'fa')
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  2.0,
-                                                                  12.0,
-                                                                  0.0),
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          if ((chatsListViewMessagesRow
-                                                                      .isImg ==
-                                                                  false) &&
-                                                              (chatsListViewMessagesRow
-                                                                      .isReview ==
-                                                                  false))
-                                                            Stack(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      1.0, 1.0),
-                                                              children: [
-                                                                if (chatsListViewMessagesRow
-                                                                        .isImg ==
-                                                                    false)
-                                                                  Align(
-                                                                    alignment:
-                                                                        AlignmentDirectional(
-                                                                            -1.0,
-                                                                            -1.0),
-                                                                    child:
-                                                                        Container(
-                                                                      constraints:
-                                                                          BoxConstraints(
-                                                                        minWidth:
-                                                                            80.0,
-                                                                      ),
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: Color(
-                                                                            0x4125C4A4),
-                                                                        borderRadius:
-                                                                            BorderRadius.only(
-                                                                          bottomLeft:
-                                                                              Radius.circular(12.0),
-                                                                          bottomRight:
-                                                                              Radius.circular(0.0),
-                                                                          topLeft:
-                                                                              Radius.circular(12.0),
-                                                                          topRight:
-                                                                              Radius.circular(12.0),
-                                                                        ),
-                                                                      ),
-                                                                      child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            30.0,
-                                                                            8.0,
-                                                                            12.0,
-                                                                            8.0),
-                                                                        child:
-                                                                            AutoSizeText(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            chatsListViewMessagesRow.messageText,
-                                                                            'Hellooo',
-                                                                          ),
-                                                                          textAlign:
-                                                                              TextAlign.start,
-                                                                          maxLines:
-                                                                              10,
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .titleSmall
-                                                                              .override(
-                                                                                fontFamily: 'Satoshi',
-                                                                                color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 16.0,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.normal,
-                                                                              ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          -1.0,
-                                                                          1.0),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            8.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0),
-                                                                    child: Icon(
-                                                                      Icons
-                                                                          .done_all,
-                                                                      color: (chatsListViewMessagesRow.seen ==
-                                                                                  true) ||
-                                                                              (chatsListViewMessagesRow.recipientOnline ==
-                                                                                  true)
-                                                                          ? Color(
-                                                                              0xFF40C057)
-                                                                          : FlutterFlowTheme.of(context)
-                                                                              .secondaryText,
-                                                                      size:
-                                                                          14.0,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          if (chatsListViewMessagesRow
-                                                                  .isImg ==
-                                                              false)
-                                                            Stack(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      1.0, 1.0),
-                                                              children: [
-                                                                Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          -1.0,
-                                                                          -1.0),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            4.0),
-                                                                    child:
-                                                                        Container(
-                                                                      constraints:
-                                                                          BoxConstraints(
-                                                                        minWidth:
-                                                                            80.0,
-                                                                      ),
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: Color(
-                                                                            0x4125C4A4),
-                                                                        borderRadius:
-                                                                            BorderRadius.only(
-                                                                          bottomLeft:
-                                                                              Radius.circular(12.0),
-                                                                          bottomRight:
-                                                                              Radius.circular(0.0),
-                                                                          topLeft:
-                                                                              Radius.circular(12.0),
-                                                                          topRight:
-                                                                              Radius.circular(12.0),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          if (chatsListViewMessagesRow
-                                                              .isImg)
+                                                          ],
+                                                        ),
+                                                      if (chatsListViewMessagesRow
+                                                              .isImg ==
+                                                          false)
+                                                        Stack(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  1.0, 1.0),
+                                                          children: [
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
                                                                       1.0,
                                                                       -1.0),
-                                                              child: Stack(
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            4.0),
+                                                                child:
+                                                                    Container(
+                                                                  constraints:
+                                                                      BoxConstraints(
+                                                                    minWidth:
+                                                                        80.0,
+                                                                  ),
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: Color(
+                                                                        0x4125C4A4),
+                                                                    borderRadius:
+                                                                        BorderRadius
+                                                                            .only(
+                                                                      bottomLeft:
+                                                                          Radius.circular(
+                                                                              12.0),
+                                                                      bottomRight:
+                                                                          Radius.circular(
+                                                                              0.0),
+                                                                      topLeft: Radius
+                                                                          .circular(
+                                                                              12.0),
+                                                                      topRight:
+                                                                          Radius.circular(
+                                                                              12.0),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      if (chatsListViewMessagesRow
+                                                          .isImg)
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  1.0, -1.0),
+                                                          child: Stack(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    1.0, 1.0),
+                                                            children: [
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            4.0),
+                                                                child:
+                                                                    ClipRRect(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              8.0),
+                                                                  child: Image
+                                                                      .network(
+                                                                    chatsListViewMessagesRow
+                                                                        .imgMessage!,
+                                                                    fit: BoxFit
+                                                                        .cover,
+                                                                    alignment:
+                                                                        Alignment(
+                                                                            1.0,
+                                                                            -1.0),
+                                                                    cacheWidth:
+                                                                        300,
+                                                                    cacheHeight:
+                                                                        350,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            8.0,
+                                                                            8.0),
+                                                                child: Icon(
+                                                                  Icons
+                                                                      .done_all,
+                                                                  color: (chatsListViewMessagesRow.seen ==
+                                                                              true) ||
+                                                                          (chatsListViewMessagesRow.recipientOnline ==
+                                                                              true)
+                                                                      ? Color(
+                                                                          0xFF40C057)
+                                                                      : FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText,
+                                                                  size: 14.0,
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              if (FFLocalizations.of(context)
+                                                      .languageCode ==
+                                                  'fa')
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 2.0, 12.0, 0.0),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      if ((chatsListViewMessagesRow
+                                                                  .isImg ==
+                                                              false) &&
+                                                          (chatsListViewMessagesRow
+                                                                  .isReview ==
+                                                              false))
+                                                        Stack(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  1.0, 1.0),
+                                                          children: [
+                                                            if (chatsListViewMessagesRow
+                                                                    .isImg ==
+                                                                false)
+                                                              Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        1.0,
-                                                                        1.0),
-                                                                children: [
-                                                                  Align(
-                                                                    alignment:
-                                                                        AlignmentDirectional(
-                                                                            -1.0,
-                                                                            -1.0),
+                                                                        -1.0,
+                                                                        -1.0),
+                                                                child:
+                                                                    Container(
+                                                                  constraints:
+                                                                      BoxConstraints(
+                                                                    minWidth:
+                                                                        80.0,
+                                                                  ),
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: Color(
+                                                                        0x4125C4A4),
+                                                                    borderRadius:
+                                                                        BorderRadius
+                                                                            .only(
+                                                                      bottomLeft:
+                                                                          Radius.circular(
+                                                                              12.0),
+                                                                      bottomRight:
+                                                                          Radius.circular(
+                                                                              0.0),
+                                                                      topLeft: Radius
+                                                                          .circular(
+                                                                              12.0),
+                                                                      topRight:
+                                                                          Radius.circular(
+                                                                              12.0),
+                                                                    ),
+                                                                  ),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            30.0,
+                                                                            8.0,
+                                                                            12.0,
+                                                                            8.0),
                                                                     child:
-                                                                        Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        AutoSizeText(
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        chatsListViewMessagesRow
+                                                                            .messageText,
+                                                                        'Hellooo',
+                                                                      ),
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .start,
+                                                                      maxLines:
+                                                                          10,
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmall
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Satoshi',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryText,
+                                                                            fontSize:
+                                                                                16.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -1.0,
+                                                                      1.0),
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            8.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            8.0),
+                                                                child: Icon(
+                                                                  Icons
+                                                                      .done_all,
+                                                                  color: (chatsListViewMessagesRow.seen ==
+                                                                              true) ||
+                                                                          (chatsListViewMessagesRow.recipientOnline ==
+                                                                              true)
+                                                                      ? Color(
+                                                                          0xFF40C057)
+                                                                      : FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText,
+                                                                  size: 14.0,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      if (chatsListViewMessagesRow
+                                                              .isImg ==
+                                                          false)
+                                                        Stack(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  1.0, 1.0),
+                                                          children: [
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -1.0,
+                                                                      -1.0),
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            4.0),
+                                                                child:
+                                                                    Container(
+                                                                  constraints:
+                                                                      BoxConstraints(
+                                                                    minWidth:
+                                                                        80.0,
+                                                                  ),
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: Color(
+                                                                        0x4125C4A4),
+                                                                    borderRadius:
+                                                                        BorderRadius
+                                                                            .only(
+                                                                      bottomLeft:
+                                                                          Radius.circular(
+                                                                              12.0),
+                                                                      bottomRight:
+                                                                          Radius.circular(
+                                                                              0.0),
+                                                                      topLeft: Radius
+                                                                          .circular(
+                                                                              12.0),
+                                                                      topRight:
+                                                                          Radius.circular(
+                                                                              12.0),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      if (chatsListViewMessagesRow
+                                                          .isImg)
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  1.0, -1.0),
+                                                          child: Stack(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    1.0, 1.0),
+                                                            children: [
+                                                              Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        -1.0,
+                                                                        -1.0),
+                                                                child: Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
                                                                           4.0),
-                                                                      child:
-                                                                          ClipRRect(
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(8.0),
-                                                                        child: Image
-                                                                            .network(
-                                                                          chatsListViewMessagesRow
-                                                                              .imgMessage!,
-                                                                          fit: BoxFit
-                                                                              .cover,
-                                                                          alignment: Alignment(
+                                                                  child:
+                                                                      ClipRRect(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                    child: Image
+                                                                        .network(
+                                                                      chatsListViewMessagesRow
+                                                                          .imgMessage!,
+                                                                      fit: BoxFit
+                                                                          .cover,
+                                                                      alignment:
+                                                                          Alignment(
                                                                               1.0,
                                                                               -1.0),
-                                                                          cacheWidth:
-                                                                              300,
-                                                                          cacheHeight:
-                                                                              350,
-                                                                        ),
-                                                                      ),
+                                                                      cacheWidth:
+                                                                          300,
+                                                                      cacheHeight:
+                                                                          350,
                                                                     ),
                                                                   ),
-                                                                  Align(
-                                                                    alignment:
-                                                                        AlignmentDirectional(
-                                                                            -1.0,
-                                                                            -1.0),
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                ),
+                                                              ),
+                                                              Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        -1.0,
+                                                                        -1.0),
+                                                                child: Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
                                                                           8.0,
                                                                           0.0,
                                                                           0.0,
                                                                           8.0),
-                                                                      child:
-                                                                          Icon(
-                                                                        Icons
-                                                                            .done_all,
-                                                                        color: (chatsListViewMessagesRow.seen == true) ||
-                                                                                (chatsListViewMessagesRow.recipientOnline == true)
-                                                                            ? Color(0xFF40C057)
-                                                                            : FlutterFlowTheme.of(context).secondaryText,
-                                                                        size:
-                                                                            14.0,
-                                                                      ),
-                                                                    ),
+                                                                  child: Icon(
+                                                                    Icons
+                                                                        .done_all,
+                                                                    color: (chatsListViewMessagesRow.seen ==
+                                                                                true) ||
+                                                                            (chatsListViewMessagesRow.recipientOnline ==
+                                                                                true)
+                                                                        ? Color(
+                                                                            0xFF40C057)
+                                                                        : FlutterFlowTheme.of(context)
+                                                                            .secondaryText,
+                                                                    size: 14.0,
                                                                   ),
-                                                                ],
+                                                                ),
                                                               ),
-                                                            ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                ],
-                                              );
-                                            }
-                                          },
-                                        ),
-                                      );
-                                    },
-                                    controller:
-                                        _model.chatsListViewScrollController,
+                                                            ],
+                                                          ),
+                                                        ),
+                                                    ],
+                                                  ),
+                                                ),
+                                            ],
+                                          );
+                                        }
+                                      },
+                                    ),
                                   );
                                 },
-                              ),
-                            ),
+                                controller:
+                                    _model.chatsListViewScrollController,
+                              );
+                            },
                           ),
-                        ],
+                        ),
                       ),
                     ),
                   ],
@@ -1118,15 +1157,15 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                                         ),
                                         hintText:
                                             FFLocalizations.of(context).getText(
-                                          '6u0sie6q' /* Ready to close this post and g... */,
+                                          '6u0sie6q' /* Want to close this post and le... */,
                                         ),
                                         cancelText:
                                             FFLocalizations.of(context).getText(
-                                          'bnps67i9' /* Cancel */,
+                                          'bnps67i9' /* Not now! */,
                                         ),
                                         confirmText:
                                             FFLocalizations.of(context).getText(
-                                          'wtoxpfgy' /* Confirm */,
+                                          'wtoxpfgy' /* Yes! */,
                                         ),
                                         onConfirmAction: () async {
                                           await Future.wait([
@@ -1299,7 +1338,7 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                                   ),
                                   Text(
                                     FFLocalizations.of(context).getText(
-                                      'wsj9su2t' /* Accept & close post when ready... */,
+                                      'wsj9su2t' /* Accept the offer & close post! */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -1326,7 +1365,7 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                         alignment: AlignmentDirectional(0.0, 1.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 32.0),
+                              16.0, 0.0, 16.0, 12.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -1674,6 +1713,17 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                                                 _shouldSetState = true;
                                                 _model.isImage = false;
                                                 safeSetState(() {});
+                                                await _model
+                                                    .chatsListViewScrollController
+                                                    ?.animateTo(
+                                                  _model
+                                                      .chatsListViewScrollController!
+                                                      .position
+                                                      .maxScrollExtent,
+                                                  duration: Duration(
+                                                      milliseconds: 100),
+                                                  curve: Curves.ease,
+                                                );
                                               } else {
                                                 if (_model.textController
                                                             .text !=
@@ -1702,6 +1752,21 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                                                   });
 
                                                   safeSetState(() {});
+                                                  await _model
+                                                      .chatsListViewScrollController
+                                                      ?.animateTo(
+                                                    _model
+                                                        .chatsListViewScrollController!
+                                                        .position
+                                                        .maxScrollExtent,
+                                                    duration: Duration(
+                                                        milliseconds: 100),
+                                                    curve: Curves.ease,
+                                                  );
+                                                  if (_shouldSetState)
+                                                    safeSetState(() {});
+                                                  return;
+                                                } else {
                                                   if (_shouldSetState)
                                                     safeSetState(() {});
                                                   return;

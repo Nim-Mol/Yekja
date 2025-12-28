@@ -228,8 +228,6 @@ dynamic deserializeParam<T>(
             return DetailsEventsRow(data);
           case UserExtRow:
             return UserExtRow(data);
-          case ViewSubcategoriesRow:
-            return ViewSubcategoriesRow(data);
           case VPostLookupRow:
             return VPostLookupRow(data);
           case MainCategoriesRow:
@@ -288,6 +286,8 @@ dynamic deserializeParam<T>(
             return ContactYekjaRow(data);
           case DeletionQueueRow:
             return DeletionQueueRow(data);
+          case FaqRow:
+            return FaqRow(data);
           case ViewPostFilterFaRow:
             return ViewPostFilterFaRow(data);
           case DetailsCareAndAssistanceRow:
@@ -314,8 +314,6 @@ dynamic deserializeParam<T>(
             return UserRolesRow(data);
           case ViewEventAttendeesRow:
             return ViewEventAttendeesRow(data);
-          case ViewUserPostsRow:
-            return ViewUserPostsRow(data);
           case ContactYekjaArchiveRow:
             return ContactYekjaArchiveRow(data);
           case CitiesRow:

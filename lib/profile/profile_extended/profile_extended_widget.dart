@@ -59,7 +59,7 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
 
     _model.tabBarController = TabController(
       vsync: this,
-      length: 4,
+      length: 3,
       initialIndex: 0,
     )..addListener(() => safeSetState(() {}));
 
@@ -139,20 +139,10 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                                 '3tbjy6b8' /* Reviews */,
                               ),
                             ),
-                            Tab(
-                              text: FFLocalizations.of(context).getText(
-                                '47ohilj6' /* Awards */,
-                              ),
-                            ),
                           ],
                           controller: _model.tabBarController,
                           onTap: (i) async {
-                            [
-                              () async {},
-                              () async {},
-                              () async {},
-                              () async {}
-                            ][i]();
+                            [() async {}, () async {}, () async {}][i]();
                           },
                         ),
                       ),
@@ -169,14 +159,21 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 0.0, 16.0, 0.0),
                                     child:
-                                        FutureBuilder<List<ViewUserPostsRow>>(
-                                      future: ViewUserPostsTable().queryRows(
-                                        queryFn: (q) => q
-                                            .eqOrNull(
-                                              'user_id',
-                                              widget.profileId,
-                                            )
-                                            .order('created_at'),
+                                        FutureBuilder<List<ViewPostFilterRow>>(
+                                      future: FFAppState().userPosts(
+                                        uniqueQueryKey: valueOrDefault<String>(
+                                          widget.profileId,
+                                          'userID',
+                                        ),
+                                        requestFn: () =>
+                                            ViewPostFilterTable().queryRows(
+                                          queryFn: (q) => q
+                                              .eqOrNull(
+                                                'user_id',
+                                                widget.profileId,
+                                              )
+                                              .order('created_at'),
+                                        ),
                                       ),
                                       builder: (context, snapshot) {
                                         // Customize what your widget looks like when it's loading.
@@ -194,27 +191,25 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                                             ),
                                           );
                                         }
-                                        List<ViewUserPostsRow>
-                                            listViewViewUserPostsRowList =
+                                        List<ViewPostFilterRow>
+                                            listViewViewPostFilterRowList =
                                             snapshot.data!;
 
-                                        return ListView.builder(
-                                          padding: EdgeInsets.fromLTRB(
-                                            0,
-                                            8.0,
-                                            0,
-                                            16.0,
-                                          ),
+                                        return ListView.separated(
+                                          padding: EdgeInsets.symmetric(
+                                              vertical: 12.0),
                                           primary: false,
                                           shrinkWrap: true,
                                           scrollDirection: Axis.vertical,
                                           itemCount:
-                                              listViewViewUserPostsRowList
+                                              listViewViewPostFilterRowList
                                                   .length,
+                                          separatorBuilder: (_, __) =>
+                                              SizedBox(height: 12.0),
                                           itemBuilder:
                                               (context, listViewIndex) {
-                                            final listViewViewUserPostsRow =
-                                                listViewViewUserPostsRowList[
+                                            final listViewViewPostFilterRow =
+                                                listViewViewPostFilterRowList[
                                                     listViewIndex];
                                             return InkWell(
                                               splashColor: Colors.transparent,
@@ -230,13 +225,13 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                                                     PostFaWidget.routeName,
                                                     queryParameters: {
                                                       'postID': serializeParam(
-                                                        listViewViewUserPostsRow
-                                                            .sourceId,
+                                                        listViewViewPostFilterRow
+                                                            .postId,
                                                         ParamType.String,
                                                       ),
                                                       'detailDataName':
                                                           serializeParam(
-                                                        listViewViewUserPostsRow
+                                                        listViewViewPostFilterRow
                                                             .detailTable,
                                                         ParamType.String,
                                                       ),
@@ -252,13 +247,13 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                                                       queryParameters: {
                                                         'postID':
                                                             serializeParam(
-                                                          listViewViewUserPostsRow
-                                                              .sourceId,
+                                                          listViewViewPostFilterRow
+                                                              .postId,
                                                           ParamType.String,
                                                         ),
                                                         'detailDataName':
                                                             serializeParam(
-                                                          listViewViewUserPostsRow
+                                                          listViewViewPostFilterRow
                                                               .detailTable,
                                                           ParamType.String,
                                                         ),
@@ -270,13 +265,13 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                                                       queryParameters: {
                                                         'postID':
                                                             serializeParam(
-                                                          listViewViewUserPostsRow
-                                                              .sourceId,
+                                                          listViewViewPostFilterRow
+                                                              .postId,
                                                           ParamType.String,
                                                         ),
                                                         'detailDataName':
                                                             serializeParam(
-                                                          listViewViewUserPostsRow
+                                                          listViewViewPostFilterRow
                                                               .detailTable,
                                                           ParamType.String,
                                                         ),
@@ -289,47 +284,47 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                                                 model: _model
                                                     .itemCardHorizentalModels1
                                                     .getModel(
-                                                  listViewViewUserPostsRow
-                                                      .sourceId!,
+                                                  listViewViewPostFilterRow
+                                                      .postId!,
                                                   listViewIndex,
                                                 ),
                                                 updateCallback: () =>
                                                     safeSetState(() {}),
                                                 child: ItemCardHorizentalWidget(
                                                   key: Key(
-                                                    'Key76t_${listViewViewUserPostsRow.sourceId!}',
+                                                    'Key76t_${listViewViewPostFilterRow.postId!}',
                                                   ),
                                                   profileId: widget.profileId,
                                                   itemData:
                                                       ItemCardHorizentalStruct(
                                                     title:
-                                                        listViewViewUserPostsRow
+                                                        listViewViewPostFilterRow
                                                             .title,
                                                     description:
-                                                        listViewViewUserPostsRow
+                                                        listViewViewPostFilterRow
                                                             .description,
                                                     itemLocation:
-                                                        listViewViewUserPostsRow
+                                                        listViewViewPostFilterRow
                                                             .city,
                                                     createdAt:
-                                                        listViewViewUserPostsRow
+                                                        listViewViewPostFilterRow
                                                             .createdAt,
                                                     catID:
-                                                        listViewViewUserPostsRow
+                                                        listViewViewPostFilterRow
                                                             .catId,
                                                     itemLikes:
-                                                        listViewViewUserPostsRow
+                                                        listViewViewPostFilterRow
                                                             .postLikes,
                                                     mainImagePath:
-                                                        listViewViewUserPostsRow
+                                                        listViewViewPostFilterRow
                                                             .images.firstOrNull,
                                                     postUserId:
-                                                        listViewViewUserPostsRow
+                                                        listViewViewPostFilterRow
                                                             .userId,
                                                   ),
                                                   postId:
-                                                      listViewViewUserPostsRow
-                                                          .sourceId,
+                                                      listViewViewPostFilterRow
+                                                          .postId,
                                                 ),
                                               ),
                                             );
@@ -350,14 +345,20 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
                                     FutureBuilder<List<ViewUserFavoritesRow>>(
-                                      future:
-                                          ViewUserFavoritesTable().queryRows(
-                                        queryFn: (q) => q
-                                            .eqOrNull(
-                                              'user_id',
-                                              widget.profileId,
-                                            )
-                                            .order('post_created_at'),
+                                      future: FFAppState().userFavs(
+                                        uniqueQueryKey: valueOrDefault<String>(
+                                          widget.profileId,
+                                          'userID',
+                                        ),
+                                        requestFn: () =>
+                                            ViewUserFavoritesTable().queryRows(
+                                          queryFn: (q) => q
+                                              .eqOrNull(
+                                                'user_id',
+                                                widget.profileId,
+                                              )
+                                              .order('post_created_at'),
+                                        ),
                                       ),
                                       builder: (context, snapshot) {
                                         // Customize what your widget looks like when it's loading.
@@ -379,19 +380,17 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                                             listViewViewUserFavoritesRowList =
                                             snapshot.data!;
 
-                                        return ListView.builder(
-                                          padding: EdgeInsets.fromLTRB(
-                                            0,
-                                            8.0,
-                                            0,
-                                            0,
-                                          ),
+                                        return ListView.separated(
+                                          padding: EdgeInsets.symmetric(
+                                              vertical: 12.0),
                                           primary: false,
                                           shrinkWrap: true,
                                           scrollDirection: Axis.vertical,
                                           itemCount:
                                               listViewViewUserFavoritesRowList
                                                   .length,
+                                          separatorBuilder: (_, __) =>
+                                              SizedBox(height: 12.0),
                                           itemBuilder:
                                               (context, listViewIndex) {
                                             final listViewViewUserFavoritesRow =
@@ -521,17 +520,24 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
                                     FutureBuilder<List<ViewUserReviewsRow>>(
-                                      future: ViewUserReviewsTable().queryRows(
-                                        queryFn: (q) => q
-                                            .eqOrNull(
-                                              'reviewed_user_id',
-                                              widget.profileId,
-                                            )
-                                            .eqOrNull(
-                                              'both_review_submitted',
-                                              true,
-                                            )
-                                            .order('created_at'),
+                                      future: FFAppState().userReviews(
+                                        uniqueQueryKey: valueOrDefault<String>(
+                                          widget.profileId,
+                                          'userID',
+                                        ),
+                                        requestFn: () =>
+                                            ViewUserReviewsTable().queryRows(
+                                          queryFn: (q) => q
+                                              .eqOrNull(
+                                                'reviewed_user_id',
+                                                widget.profileId,
+                                              )
+                                              .eqOrNull(
+                                                'both_review_submitted',
+                                                true,
+                                              )
+                                              .order('created_at'),
+                                        ),
                                       ),
                                       builder: (context, snapshot) {
                                         // Customize what your widget looks like when it's loading.
@@ -554,12 +560,8 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                                             snapshot.data!;
 
                                         return ListView.separated(
-                                          padding: EdgeInsets.fromLTRB(
-                                            0,
-                                            8.0,
-                                            0,
-                                            0,
-                                          ),
+                                          padding: EdgeInsets.symmetric(
+                                              vertical: 12.0),
                                           primary: false,
                                           shrinkWrap: true,
                                           scrollDirection: Axis.vertical,
@@ -567,7 +569,7 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                                               listViewViewUserReviewsRowList
                                                   .length,
                                           separatorBuilder: (_, __) =>
-                                              SizedBox(height: 6.0),
+                                              SizedBox(height: 12.0),
                                           itemBuilder:
                                               (context, listViewIndex) {
                                             final listViewViewUserReviewsRow =
@@ -627,38 +629,6 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                                           },
                                         );
                                       },
-                                    ),
-                                  ].addToEnd(SizedBox(height: 80.0)),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  1.0, 0.0, 0.0, 0.0),
-                              child: SingleChildScrollView(
-                                primary: false,
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 24.0, 0.0, 0.0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'hgewwtg0' /* Not received an award yet.  */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily,
-                                              letterSpacing: 0.0,
-                                              useGoogleFonts:
-                                                  !FlutterFlowTheme.of(context)
-                                                      .bodyMediumIsCustom,
-                                            ),
-                                      ),
                                     ),
                                   ].addToEnd(SizedBox(height: 80.0)),
                                 ),

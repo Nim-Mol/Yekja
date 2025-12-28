@@ -6,7 +6,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:yekja/flutter_flow/flutter_flow_drop_down.dart';
 import 'package:yekja/flutter_flow/flutter_flow_icon_button.dart';
-import 'package:yekja/flutter_flow/flutter_flow_radio_button.dart';
 import 'package:yekja/flutter_flow/flutter_flow_widgets.dart';
 import 'package:yekja/flutter_flow/flutter_flow_theme.dart';
 import 'package:yekja/index.dart';

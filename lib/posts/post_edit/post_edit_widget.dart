@@ -142,88 +142,79 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                 ),
                                 Align(
                                   alignment: AlignmentDirectional(0.0, 1.0),
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: 100.0,
-                                    decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          Color(0x00232426),
-                                          Color(0xDF0E0E0E)
-                                        ],
-                                        stops: [0.0, 1.0],
-                                        begin: AlignmentDirectional(0.0, -1.0),
-                                        end: AlignmentDirectional(0, 1.0),
-                                      ),
-                                    ),
-                                    alignment: AlignmentDirectional(0.0, 1.0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 20.0, 16.0, 16.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Flexible(
-                                            child: Text(
-                                              FFAppState().postState.title,
-                                              textAlign: TextAlign.start,
-                                              maxLines: 2,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleLarge
-                                                  .override(
-                                                    fontFamily:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleLargeFamily,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryWhite,
-                                                    fontSize: 28.0,
-                                                    letterSpacing: 0.0,
-                                                    lineHeight: 1.1,
-                                                    useGoogleFonts:
-                                                        !FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleLargeIsCustom,
-                                                  ),
-                                            ),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed(
+                                        ImageGalleryPageWidget.routeName,
+                                        queryParameters: {
+                                          'previewImages': serializeParam(
+                                            FFAppState().postState.images,
+                                            ParamType.String,
+                                            isList: true,
                                           ),
-                                        ].divide(SizedBox(width: 8.0)),
+                                        }.withoutNulls,
+                                      );
+                                    },
+                                    child: Container(
+                                      width: double.infinity,
+                                      height: 100.0,
+                                      decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Color(0x00232426),
+                                            Color(0xDF0E0E0E)
+                                          ],
+                                          stops: [0.0, 1.0],
+                                          begin:
+                                              AlignmentDirectional(0.0, -1.0),
+                                          end: AlignmentDirectional(0, 1.0),
+                                        ),
                                       ),
-                                    ),
-                                  ),
-                                ),
-                                Align(
-                                  alignment: AlignmentDirectional(1.0, 1.0),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 6.0, 16.0),
-                                    child: FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30.0,
-                                      buttonSize: 44.0,
-                                      icon: Icon(
-                                        Icons.image_search,
-                                        color: Colors.white,
-                                        size: 24.0,
-                                      ),
-                                      onPressed: () async {
-                                        context.pushNamed(
-                                          ImageGalleryPageWidget.routeName,
-                                          queryParameters: {
-                                            'previewImages': serializeParam(
-                                              FFAppState().postState.images,
-                                              ParamType.String,
-                                              isList: true,
+                                      alignment: AlignmentDirectional(0.0, 1.0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 20.0, 16.0, 16.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Flexible(
+                                              child: Text(
+                                                FFAppState().postState.title,
+                                                textAlign: TextAlign.start,
+                                                maxLines: 2,
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleLarge
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleLargeFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryWhite,
+                                                      fontSize: 28.0,
+                                                      letterSpacing: 0.0,
+                                                      lineHeight: 1.1,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleLargeIsCustom,
+                                                    ),
+                                              ),
                                             ),
-                                          }.withoutNulls,
-                                        );
-                                      },
+                                          ].divide(SizedBox(width: 8.0)),
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -294,7 +285,7 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
                                           context.pushNamed(
-                                            PostSubCatWidget.routeName,
+                                            PostCatWidget.routeName,
                                             queryParameters: {
                                               'navRoute': serializeParam(
                                                 FFAppState().navRoutePost,
@@ -311,36 +302,6 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                         ),
                                       ),
                                     ].divide(SizedBox(width: 6.0)),
-                                  ),
-                                ),
-                                Align(
-                                  alignment: AlignmentDirectional(0.0, 1.0),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 98.0, 0.0, 0.0),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.pushNamed(
-                                          PostIntendWidget.routeName,
-                                          queryParameters: {
-                                            'navRoute': serializeParam(
-                                              FFAppState().navRoutePost,
-                                              ParamType.String,
-                                            ),
-                                          }.withoutNulls,
-                                        );
-                                      },
-                                      child: Icon(
-                                        Icons.edit,
-                                        color: FlutterFlowTheme.of(context)
-                                            .green1,
-                                        size: 24.0,
-                                      ),
-                                    ),
                                   ),
                                 ),
                                 Align(
@@ -566,181 +527,137 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            if (currentUserUid != '') {
-                                              context.pushNamed(
-                                                ProfilePageWidget.routeName,
-                                                queryParameters: {
-                                                  'profileId': serializeParam(
-                                                    currentUserUid,
-                                                    ParamType.String,
-                                                  ),
-                                                }.withoutNulls,
-                                              );
-                                            } else {
-                                              ScaffoldMessenger.of(context)
-                                                  .showSnackBar(
-                                                SnackBar(
-                                                  content: Text(
-                                                    'Please login or signup if you wat to enable post creation.  ',
-                                                    style: TextStyle(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryText,
-                                                      fontWeight:
-                                                          FontWeight.w600,
+                                        Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                              width: 70.0,
+                                              height: 70.0,
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.circle,
+                                              ),
+                                              child: Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Padding(
+                                                  padding: EdgeInsets.all(1.0),
+                                                  child: Container(
+                                                    width: 60.0,
+                                                    height: 60.0,
+                                                    clipBehavior:
+                                                        Clip.antiAlias,
+                                                    decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
                                                     ),
-                                                    textAlign: TextAlign.center,
-                                                  ),
-                                                  duration: Duration(
-                                                      milliseconds: 5000),
-                                                  backgroundColor:
-                                                      Color(0xFFBA8D08),
-                                                ),
-                                              );
-                                            }
-                                          },
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.min,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Container(
-                                                width: 70.0,
-                                                height: 70.0,
-                                                decoration: BoxDecoration(
-                                                  shape: BoxShape.circle,
-                                                ),
-                                                child: Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsets.all(1.0),
-                                                    child: Container(
-                                                      width: 60.0,
-                                                      height: 60.0,
-                                                      clipBehavior:
-                                                          Clip.antiAlias,
-                                                      decoration: BoxDecoration(
-                                                        shape: BoxShape.circle,
-                                                      ),
-                                                      child: Image.network(
-                                                        UserInfoStruct()
-                                                                        .avatar !=
-                                                                    ''
-                                                            ? valueOrDefault<
-                                                                String>(
-                                                                FFAppState()
-                                                                    .userInfo
-                                                                    .avatar,
-                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/n2imhdlvogb3/profile_avatar_circular.png',
-                                                              )
-                                                            : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/n2imhdlvogb3/profile_avatar_circular.png',
-                                                        fit: BoxFit.cover,
-                                                      ),
+                                                    child: Image.network(
+                                                      UserInfoStruct()
+                                                                      .avatar !=
+                                                                  ''
+                                                          ? valueOrDefault<
+                                                              String>(
+                                                              FFAppState()
+                                                                  .userInfo
+                                                                  .avatar,
+                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/n2imhdlvogb3/profile_avatar_circular.png',
+                                                            )
+                                                          : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/n2imhdlvogb3/profile_avatar_circular.png',
+                                                      fit: BoxFit.cover,
                                                     ),
                                                   ),
                                                 ),
                                               ),
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 8.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      FFAppState()
-                                                          .userInfo
-                                                          .userName,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                fontSize: 18.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight: FlutterFlowTheme.of(
+                                            ),
+                                            Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 8.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    FFAppState()
+                                                        .userInfo
+                                                        .userName,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
                                                                     .fontWeight,
-                                                                fontStyle: FlutterFlowTheme.of(
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
                                                                     .fontStyle,
-                                                              ),
-                                                    ),
-                                                  ),
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                -1.0, 0.0),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                          child: Image.network(
-                                                            'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Icons/star_animated.gif',
-                                                            width: 30.0,
-                                                            height: 30.0,
-                                                            fit: BoxFit.cover,
                                                           ),
+                                                          fontSize: 18.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                  ),
+                                                ),
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              -1.0, 0.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        child: Image.network(
+                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/y0l0lllp2v7b/star_animated.gif',
+                                                          width: 30.0,
+                                                          height: 30.0,
+                                                          fit: BoxFit.cover,
                                                         ),
                                                       ),
-                                                      Text(
-                                                        '${FFAppState().postState.review.toString()} (${FFAppState().postState.ratings.toString()})',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMediumIsCustom,
-                                                                ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ].divide(SizedBox(height: 4.0)),
-                                              ),
-                                            ].divide(SizedBox(width: 16.0)),
-                                          ),
+                                                    ),
+                                                    Text(
+                                                      '${FFAppState().postState.review.toString()} (${FFAppState().postState.ratings.toString()})',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                            letterSpacing: 0.0,
+                                                            useGoogleFonts:
+                                                                !FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumIsCustom,
+                                                          ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ].divide(SizedBox(height: 4.0)),
+                                            ),
+                                          ].divide(SizedBox(width: 16.0)),
                                         ),
                                         Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -749,87 +666,15 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                               padding: EdgeInsets.all(16.0),
                                               child: Container(
                                                 decoration: BoxDecoration(),
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    if (currentUserUid != '') {
-                                                      if (FFAppState()
-                                                                  .userInfo
-                                                                  .instaLink ==
-                                                              '') {
-                                                        await launchURL(
-                                                            FFAppState()
-                                                                .userInfo
-                                                                .instaLink);
-                                                      } else {
-                                                        ScaffoldMessenger.of(
-                                                                context)
-                                                            .showSnackBar(
-                                                          SnackBar(
-                                                            content: Text(
-                                                              'Instagram link it not set.',
-                                                              style: TextStyle(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .warning,
-                                                              ),
-                                                            ),
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    4000),
-                                                            backgroundColor:
-                                                                Color(
-                                                                    0x42BA8D08),
-                                                          ),
-                                                        );
-                                                      }
-
-                                                      return;
-                                                    } else {
-                                                      ScaffoldMessenger.of(
-                                                              context)
-                                                          .showSnackBar(
-                                                        SnackBar(
-                                                          content: Text(
-                                                            'Please login or signup if you wat to enable post creation.  ',
-                                                            style: TextStyle(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryText,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                            ),
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                          ),
-                                                          duration: Duration(
-                                                              milliseconds:
-                                                                  5000),
-                                                          backgroundColor:
-                                                              Color(0xFFBA8D08),
-                                                        ),
-                                                      );
-                                                      return;
-                                                    }
-                                                  },
-                                                  child: ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                    child: Image.asset(
-                                                      'assets/images/instagram.png',
-                                                      width: 40.0,
-                                                      height: 40.0,
-                                                      fit: BoxFit.fill,
-                                                    ),
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  child: Image.asset(
+                                                    'assets/images/instagram.png',
+                                                    width: 40.0,
+                                                    height: 40.0,
+                                                    fit: BoxFit.fill,
                                                   ),
                                                 ),
                                               ),
@@ -1027,7 +872,7 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                                 header:
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                  '68prj1qr' /* Are you sure you want to delet... */,
+                                                  '68prj1qr' /* Are you sure? */,
                                                 ),
                                                 hintText:
                                                     FFLocalizations.of(context)
@@ -1037,12 +882,12 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                                 cancelText:
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                  'esrikcwc' /* Cancel */,
+                                                  'esrikcwc' /* No! */,
                                                 ),
                                                 confirmText:
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                  'ye16grq0' /* Delete */,
+                                                  'ye16grq0' /* Yes! */,
                                                 ),
                                                 onConfirmAction: () async {
                                                   await PostsTable().delete(
@@ -1073,7 +918,7 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                            'uymaetqg' /* Your post is deleted. */,
+                                                            'uymaetqg' /* Your post is successfully dele... */,
                                                           ),
                                                           waitMS: 3000,
                                                         ),
@@ -1178,7 +1023,7 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                                 header:
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                  'g3y2is5w' /* Are you sure youwant to update... */,
+                                                  'g3y2is5w' /* Are you sure you want to updat... */,
                                                 ),
                                                 hintText:
                                                     FFLocalizations.of(context)
@@ -1245,7 +1090,7 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                              'n1juv3ju' /* Your post is updated! */,
+                                                              'n1juv3ju' /* Your post is updated successfu... */,
                                                             ),
                                                             waitMS: 3000,
                                                           ),
@@ -1291,7 +1136,7 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                         safeSetState(() {});
                                       },
                                       text: FFLocalizations.of(context).getText(
-                                        '3b0fgnsw' /* Update */,
+                                        '3b0fgnsw' /* Edit pos */,
                                       ),
                                       options: FFButtonOptions(
                                         width: double.infinity,

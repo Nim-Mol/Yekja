@@ -1,5 +1,3 @@
-import '/backend/schema/structs/index.dart';
-import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -7,7 +5,7 @@ import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:provider/provider.dart';
+import 'package:lottie/lottie.dart';
 import 'splash_model.dart';
 export 'splash_model.dart';
 
@@ -41,56 +39,6 @@ class _SplashWidgetState extends State<SplashWidget>
           milliseconds: 3000,
         ),
       );
-      FFAppState().citiesApp = [];
-      safeSetState(() {});
-      FFAppState().SubcatApp = [];
-      safeSetState(() {});
-      _model.citiesOutput = await CitiesTable().queryRows(
-        queryFn: (q) => q,
-      );
-      _model.loading = true;
-      safeSetState(() {});
-      for (int loop1Index = 0;
-          loop1Index < _model.citiesOutput!.length;
-          loop1Index++) {
-        final currentLoop1Item = _model.citiesOutput![loop1Index];
-        FFAppState().addToCitiesApp(CitiesModelStruct(
-          id: currentLoop1Item.id,
-          name: currentLoop1Item.name,
-        ));
-        safeSetState(() {});
-      }
-      _model.topsubcatOutput = await ViewTopSubcategoriesTable().queryRows(
-        queryFn: (q) => q,
-      );
-      for (int loop2Index = 0;
-          loop2Index < _model.topsubcatOutput!.length;
-          loop2Index++) {
-        final currentLoop2Item = _model.topsubcatOutput![loop2Index];
-        FFAppState().addToSubcatApp(SubcatModelStruct(
-          mainCatId: currentLoop2Item.mainCatId,
-          mainCatName: currentLoop2Item.mainCatName,
-          catId: currentLoop2Item.catId,
-          catName: currentLoop2Item.catName,
-          subCatId: currentLoop2Item.subCatId,
-          uniqueSubcatId: currentLoop2Item.uniqueSubcatId,
-          subCatName: currentLoop2Item.subCatName,
-          effectiveColorHex: currentLoop2Item.effectiveColorHex,
-          effectiveIconImage: currentLoop2Item.effectiveIconImage,
-          totalLikes: currentLoop2Item.totalLikes,
-          catPostCount: currentLoop2Item.catPostCount,
-          catPostLikes: currentLoop2Item.catPostLikes,
-          fillColorHex: currentLoop2Item.fillColorHex,
-          detailTable: currentLoop2Item.detailTable,
-          catNameFa: currentLoop2Item.catNameFa,
-          subCatNameFa: currentLoop2Item.subCatNameFa,
-          mainCatNameFa: currentLoop2Item.mainCatNameFa,
-          mainCatNameNl: currentLoop2Item.mainCatNameNl,
-          catNameNl: currentLoop2Item.catNameNl,
-          subCatNameNl: currentLoop2Item.subCatNameNl,
-        ));
-        safeSetState(() {});
-      }
 
       context.goNamed(OnboardingPageWidget.routeName);
     });
@@ -129,8 +77,6 @@ class _SplashWidgetState extends State<SplashWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -153,8 +99,8 @@ class _SplashWidgetState extends State<SplashWidget>
                   scaleY: 1.5,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
-                    child: Image.asset(
-                      'assets/images/yekja_logo_verified_transparent.png',
+                    child: Image.network(
+                      FFAppConstants.YekjaLogo,
                       width: 220.0,
                       height: 128.34,
                       fit: BoxFit.contain,
@@ -171,15 +117,12 @@ class _SplashWidgetState extends State<SplashWidget>
                   height: 228.84,
                   decoration: BoxDecoration(),
                   alignment: AlignmentDirectional(0.0, 1.0),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Image.asset(
-                      'assets/images/old_man_V5-ezgif.com-gif-maker.gif',
-                      width: 267.26,
-                      height: 285.0,
-                      fit: BoxFit.contain,
-                      alignment: Alignment(0.0, 1.0),
-                    ),
+                  child: Lottie.asset(
+                    'assets/jsons/main_gif.json',
+                    width: 200.0,
+                    height: 200.0,
+                    fit: BoxFit.contain,
+                    animate: true,
                   ),
                 ),
               ),

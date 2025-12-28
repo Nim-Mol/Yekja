@@ -1,5 +1,5 @@
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -13,6 +13,7 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'detail_sales_model.dart';
@@ -193,7 +194,7 @@ class _DetailSalesWidgetState extends State<DetailSalesWidget>
                                   children: [
                                     TextSpan(
                                       text: FFLocalizations.of(context).getText(
-                                        'gvahl0ml' /* 4 */,
+                                        'gvahl0ml' /* 3 */,
                                       ),
                                       style: TextStyle(),
                                     ),
@@ -205,7 +206,7 @@ class _DetailSalesWidgetState extends State<DetailSalesWidget>
                                     ),
                                     TextSpan(
                                       text: FFLocalizations.of(context).getText(
-                                        'dzeetgze' /* 6 */,
+                                        'dzeetgze' /* 5 */,
                                       ),
                                       style: TextStyle(),
                                     )
@@ -306,7 +307,7 @@ class _DetailSalesWidgetState extends State<DetailSalesWidget>
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .headlineLargeFamily,
-                                                  fontSize: 20.0,
+                                                  fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                   useGoogleFonts:
@@ -317,7 +318,7 @@ class _DetailSalesWidgetState extends State<DetailSalesWidget>
                                           ),
                                           Text(
                                             FFLocalizations.of(context).getText(
-                                              'ktcoqfcb' /* item to sell */,
+                                              'ktcoqfcb' /* Selling item */,
                                             ),
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
@@ -327,7 +328,7 @@ class _DetailSalesWidgetState extends State<DetailSalesWidget>
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .headlineLargeFamily,
-                                                  fontSize: 20.0,
+                                                  fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                   useGoogleFonts:
@@ -344,25 +345,28 @@ class _DetailSalesWidgetState extends State<DetailSalesWidget>
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        Text(
-                                          FFLocalizations.of(context).getText(
-                                            'gbnahsqm' /* Helps others understand your p... */,
+                                        Flexible(
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'gbnahsqm' /* Details build trust and save b... */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  letterSpacing: 0.0,
+                                                  useGoogleFonts:
+                                                      !FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumIsCustom,
+                                                ),
                                           ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMediumIsCustom,
-                                              ),
                                         ),
                                       ],
                                     ),
@@ -510,36 +514,6 @@ class _DetailSalesWidgetState extends State<DetailSalesWidget>
                                                                 ),
                                                           ),
                                                         ),
-                                                      ),
-                                                      Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'cezqw3hd' /* Title */,
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMediumFamily,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .green1,
-                                                                  fontSize:
-                                                                      16.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .titleMediumIsCustom,
-                                                                ),
                                                       ),
                                                       Stack(
                                                         children: [
@@ -892,63 +866,94 @@ class _DetailSalesWidgetState extends State<DetailSalesWidget>
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 6.0, 0.0, 0.0),
-                                          child: FlutterFlowDropDown<String>(
-                                            controller: _model
-                                                    .dropdownCityValueController ??=
-                                                FormFieldController<String>(
-                                              _model.dropdownCityValue ??=
-                                                  FFAppState().postState.city,
+                                          child: FutureBuilder<List<CitiesRow>>(
+                                            future: FFAppState().cities(
+                                              requestFn: () =>
+                                                  CitiesTable().queryRows(
+                                                queryFn: (q) => q,
+                                              ),
                                             ),
-                                            options: FFAppState()
-                                                .citiesApp
-                                                .map((e) => e.name)
-                                                .toList(),
-                                            onChanged: (val) async {
-                                              safeSetState(() => _model
-                                                  .dropdownCityValue = val);
-                                              FFAppState()
-                                                  .updatePostStateStruct(
-                                                (e) => e
-                                                  ..city =
-                                                      _model.dropdownCityValue,
-                                              );
-                                              safeSetState(() {});
-                                            },
-                                            height: 40.0,
-                                            searchHintTextStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMediumFamily,
+                                            builder: (context, snapshot) {
+                                              // Customize what your widget looks like when it's loading.
+                                              if (!snapshot.hasData) {
+                                                return Center(
+                                                  child: SizedBox(
+                                                    width: 50.0,
+                                                    height: 50.0,
+                                                    child: SpinKitChasingDots(
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
+                                                              .greenInit,
+                                                      size: 50.0,
+                                                    ),
+                                                  ),
+                                                );
+                                              }
+                                              List<CitiesRow>
+                                                  dropdownCityCitiesRowList =
+                                                  snapshot.data!;
+
+                                              return FlutterFlowDropDown<
+                                                  String>(
+                                                controller: _model
+                                                        .dropdownCityValueController ??=
+                                                    FormFieldController<String>(
+                                                  _model.dropdownCityValue ??=
+                                                      FFAppState()
+                                                          .postState
+                                                          .city,
+                                                ),
+                                                options:
+                                                    dropdownCityCitiesRowList
+                                                        .map((e) => e.name)
+                                                        .withoutNulls
+                                                        .toList(),
+                                                onChanged: (val) async {
+                                                  safeSetState(() => _model
+                                                      .dropdownCityValue = val);
+                                                  FFAppState()
+                                                      .updatePostStateStruct(
+                                                    (e) => e
+                                                      ..city = _model
+                                                          .dropdownCityValue,
+                                                  );
+                                                  safeSetState(() {});
+                                                },
+                                                height: 40.0,
+                                                searchHintTextStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMediumFamily,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
                                                               .primary,
-                                                      letterSpacing: 0.0,
-                                                      useGoogleFonts:
-                                                          !FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMediumIsCustom,
-                                                    ),
-                                            searchTextStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumFamily,
-                                                      letterSpacing: 0.0,
-                                                      useGoogleFonts:
-                                                          !FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumIsCustom,
-                                                    ),
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
+                                                          letterSpacing: 0.0,
+                                                          useGoogleFonts:
+                                                              !FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .labelMediumIsCustom,
+                                                        ),
+                                                searchTextStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
+                                                          letterSpacing: 0.0,
+                                                          useGoogleFonts:
+                                                              !FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMediumIsCustom,
+                                                        ),
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
                                                     .bodyMedium
                                                     .override(
                                                       fontFamily:
@@ -972,39 +977,41 @@ class _DetailSalesWidgetState extends State<DetailSalesWidget>
                                                                   context)
                                                               .bodyMediumIsCustom,
                                                     ),
-                                            hintText:
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                              '3zmhx945' /* Select */,
-                                            ),
-                                            searchHintText:
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                              'z5ykdy6b' /* Search... */,
-                                            ),
-                                            icon: Icon(
-                                              Icons.arrow_drop_down_sharp,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
+                                                hintText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  '3zmhx945' /* Select */,
+                                                ),
+                                                searchHintText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'z5ykdy6b' /* Search... */,
+                                                ),
+                                                icon: Icon(
+                                                  Icons.arrow_drop_down_sharp,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
                                                       .textgray,
-                                              size: 16.0,
-                                            ),
-                                            fillColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .tertiary,
-                                            elevation: 0.0,
-                                            borderColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .tertiary,
-                                            borderWidth: 0.0,
-                                            borderRadius: 4.0,
-                                            margin:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            hidesUnderline: true,
-                                            isOverButton: false,
-                                            isSearchable: true,
-                                            isMultiSelect: false,
+                                                  size: 16.0,
+                                                ),
+                                                fillColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiary,
+                                                elevation: 0.0,
+                                                borderColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiary,
+                                                borderWidth: 0.0,
+                                                borderRadius: 4.0,
+                                                margin: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        16.0, 0.0, 16.0, 0.0),
+                                                hidesUnderline: true,
+                                                isOverButton: false,
+                                                isSearchable: true,
+                                                isMultiSelect: false,
+                                              );
+                                            },
                                           ),
                                         ),
                                       ].divide(SizedBox(height: 6.0)),
@@ -1394,7 +1401,7 @@ class _DetailSalesWidgetState extends State<DetailSalesWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                                'l17abn2d' /* Used - Fair */,
+                                                                'l17abn2d' /* Used */,
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -1653,7 +1660,7 @@ class _DetailSalesWidgetState extends State<DetailSalesWidget>
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  'wjspq3vv' /* Pick-Up Only */,
+                                                  'wjspq3vv' /* Pick-up Only */,
                                                 ),
                                                 style: FlutterFlowTheme.of(
                                                         context)
@@ -1732,7 +1739,7 @@ class _DetailSalesWidgetState extends State<DetailSalesWidget>
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  '2zy9jngr' /* Sent by Post */,
+                                                  '2zy9jngr' /* Post */,
                                                 ),
                                                 style: FlutterFlowTheme.of(
                                                         context)
@@ -2365,213 +2372,6 @@ class _DetailSalesWidgetState extends State<DetailSalesWidget>
                                           ],
                                         ),
                                       ),
-                                      if (FFAppState().postState.intend ==
-                                          'Request')
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 4.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 4.0, 0.0, 2.0),
-                                                child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'gsufvd5f' /* Price Class */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .titleMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleMediumFamily,
-                                                        color:
-                                                            Color(0xFF0BD9A1),
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        useGoogleFonts:
-                                                            !FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleMediumIsCustom,
-                                                      ),
-                                                ),
-                                              ),
-                                              SingleChildScrollView(
-                                                scrollDirection:
-                                                    Axis.horizontal,
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  4.0),
-                                                      child:
-                                                          FlutterFlowChoiceChips(
-                                                        options: [
-                                                          ChipData(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                            'lfw1zl4w' /* Under €1,000 */,
-                                                          )),
-                                                          ChipData(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                            'cpveulx3' /* Under €2,000 */,
-                                                          )),
-                                                          ChipData(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                            'bh69sazu' /* Under €3000 */,
-                                                          )),
-                                                          ChipData(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                            't5bbbgfg' /* Any Price */,
-                                                          ))
-                                                        ],
-                                                        onChanged: (val) async {
-                                                          safeSetState(() => _model
-                                                                  .priceChoiceValue =
-                                                              val?.firstOrNull);
-                                                          FFAppState()
-                                                              .updatePostStateStruct(
-                                                            (e) => e
-                                                              ..condition = _model
-                                                                  .priceChoiceValue
-                                                              ..priceText = _model
-                                                                  .priceChoiceValue,
-                                                          );
-                                                          safeSetState(() {});
-                                                        },
-                                                        selectedChipStyle:
-                                                            ChipStyle(
-                                                          backgroundColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .greenInit,
-                                                          textStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    useGoogleFonts:
-                                                                        !FlutterFlowTheme.of(context)
-                                                                            .bodyMediumIsCustom,
-                                                                  ),
-                                                          iconColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .primaryText,
-                                                          iconSize: 16.0,
-                                                          elevation: 0.0,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                        ),
-                                                        unselectedChipStyle:
-                                                            ChipStyle(
-                                                          backgroundColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .secondaryBackground,
-                                                          textStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
-                                                                    color: Color(
-                                                                        0xCFD4D4D4),
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    useGoogleFonts:
-                                                                        !FlutterFlowTheme.of(context)
-                                                                            .bodyMediumIsCustom,
-                                                                  ),
-                                                          iconColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .secondaryText,
-                                                          iconSize: 16.0,
-                                                          labelPadding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      4.0,
-                                                                      12.0,
-                                                                      4.0),
-                                                          elevation: 0.0,
-                                                          borderColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bordergray,
-                                                          borderWidth: 0.2,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      4.0),
-                                                        ),
-                                                        chipSpacing: 10.0,
-                                                        rowSpacing: 8.0,
-                                                        multiselect: false,
-                                                        initialized: _model
-                                                                .priceChoiceValue !=
-                                                            null,
-                                                        alignment:
-                                                            WrapAlignment.start,
-                                                        controller: _model
-                                                                .priceChoiceValueController ??=
-                                                            FormFieldController<
-                                                                List<String>>(
-                                                          [
-                                                            FFAppState()
-                                                                .postState
-                                                                .condition
-                                                          ],
-                                                        ),
-                                                        wrapped: false,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ].divide(SizedBox(height: 6.0)),
-                                          ),
-                                        ),
                                     ],
                                   ),
                                 ],
@@ -2642,7 +2442,7 @@ class _DetailSalesWidgetState extends State<DetailSalesWidget>
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.end,
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -2653,30 +2453,6 @@ class _DetailSalesWidgetState extends State<DetailSalesWidget>
                                                 FFLocalizations.of(context)
                                                     .getText(
                                                   'psy1m1j2' /* Open for swap? */,
-                                                ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumFamily,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      letterSpacing: 0.0,
-                                                      useGoogleFonts:
-                                                          !FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumIsCustom,
-                                                    ),
-                                              ),
-                                              Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'p31bqpjt' /* Try item exchange, not just pa... */,
                                                 ),
                                                 style: FlutterFlowTheme.of(
                                                         context)
@@ -2756,7 +2532,7 @@ class _DetailSalesWidgetState extends State<DetailSalesWidget>
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  '38e3zjus' /* Please insert a wishlist for w... */,
+                                                  '38e3zjus' /* There can always be someone wh... */,
                                                 ),
                                                 maxLines: 2,
                                                 style: FlutterFlowTheme.of(
@@ -2839,7 +2615,7 @@ class _DetailSalesWidgetState extends State<DetailSalesWidget>
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                      '3699a1sd' /* What items are you looking to ... */,
+                                                      '3699a1sd' /* What are you hoping to swap th... */,
                                                     ),
                                                     hintStyle:
                                                         FlutterFlowTheme.of(
@@ -3054,7 +2830,7 @@ class _DetailSalesWidgetState extends State<DetailSalesWidget>
                                         child: ErrorPopUpWidget(
                                           errorText: FFLocalizations.of(context)
                                               .getText(
-                                            'fha4ecx7' /* Some fields are left unfilled.... */,
+                                            'fha4ecx7' /* Some fields are empty. Please ... */,
                                           ),
                                         ),
                                       ),

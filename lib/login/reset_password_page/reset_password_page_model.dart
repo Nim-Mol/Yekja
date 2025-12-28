@@ -48,7 +48,7 @@ class ResetPasswordPageModel extends FlutterFlowModel<ResetPasswordPageWidget> {
 
     if (!RegExp('^(?=.*[A-Z])(?=.*\\d).{8,}\$').hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        'hmydixxt' /* - At least one uppercase lette... */,
+        'ut9wslyt' /* - At least one uppercase lette... */,
       );
     }
     return null;

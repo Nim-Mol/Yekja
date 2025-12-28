@@ -164,7 +164,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 32.0),
-                              child: Row(
+                              child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Align(
@@ -174,10 +174,10 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                           0.0, 12.0, 0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          'jr6jre2f' /* Create a new password to log i... */,
+                                          'uw0ifyq8' /* Please, enter a unique passwor... */,
                                         ),
                                         textAlign: TextAlign.start,
-                                        maxLines: 1,
+                                        maxLines: 2,
                                         style: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
@@ -490,12 +490,19 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                         );
                                         safeSetState(() {});
 
+                                        context.goNamedAuth(
+                                          ProfileEditWidget.routeName,
+                                          context.mounted,
+                                          queryParameters: {
+                                            'selectedTab': serializeParam(
+                                              0,
+                                              ParamType.int,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+
                                         _model.isSubmitting = false;
                                         safeSetState(() {});
-
-                                        context.goNamedAuth(
-                                            HomePageWidget.routeName,
-                                            context.mounted);
                                       },
                                 text: FFLocalizations.of(context).getText(
                                   'tvflwo86' /* Reset password */,

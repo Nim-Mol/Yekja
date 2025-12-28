@@ -97,6 +97,7 @@ class _ItemCardHorizontal2WidgetState extends State<ItemCardHorizontal2Widget> {
                     Align(
                       alignment: AlignmentDirectional(-1.0, -1.0),
                       child: Container(
+                        height: 100.0,
                         decoration: BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -194,36 +195,38 @@ class _ItemCardHorizontal2WidgetState extends State<ItemCardHorizontal2Widget> {
                                   ),
                               overflow: TextOverflow.ellipsis,
                             ),
-                            Flexible(
-                              child: Align(
-                                alignment: AlignmentDirectional(-1.0, -1.0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 2.0, 0.0, 0.0),
-                                  child: Text(
-                                    valueOrDefault<String>(
-                                      widget.description,
-                                      'desc',
+                            if (!functions
+                                .isNullSingleString(widget.description))
+                              Flexible(
+                                child: Align(
+                                  alignment: AlignmentDirectional(-1.0, -1.0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 2.0, 0.0, 0.0),
+                                    child: Text(
+                                      valueOrDefault<String>(
+                                        widget.description,
+                                        'desc',
+                                      ),
+                                      maxLines: 1,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily,
+                                            fontSize: 12.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w300,
+                                            useGoogleFonts:
+                                                !FlutterFlowTheme.of(context)
+                                                    .bodyMediumIsCustom,
+                                          ),
+                                      overflow: TextOverflow.ellipsis,
                                     ),
-                                    maxLines: 1,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily,
-                                          fontSize: 12.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w300,
-                                          useGoogleFonts:
-                                              !FlutterFlowTheme.of(context)
-                                                  .bodyMediumIsCustom,
-                                        ),
-                                    overflow: TextOverflow.ellipsis,
                                   ),
                                 ),
                               ),
-                            ),
                             Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,

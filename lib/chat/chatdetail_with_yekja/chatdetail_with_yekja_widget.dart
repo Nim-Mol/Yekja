@@ -164,7 +164,7 @@ class _ChatdetailWithYekjaWidgetState extends State<ChatdetailWithYekjaWidget> {
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(24.0),
                                 child: Image.network(
-                                  FFAppConstants.YekjaLogoChat,
+                                  FFAppConstants.YekjaLogo,
                                   width: 50.0,
                                   height: 50.0,
                                   fit: BoxFit.cover,
@@ -172,7 +172,7 @@ class _ChatdetailWithYekjaWidgetState extends State<ChatdetailWithYekjaWidget> {
                               ),
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  '8v33985q' /* Yekja team */,
+                                  '8v33985q' /* Yekja Team */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium

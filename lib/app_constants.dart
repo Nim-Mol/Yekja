@@ -1,19 +1,19 @@
 
 abstract class FFAppConstants {
   static const String DefultProfilePhoto =
-      'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Defults/Defult_profile_avatar.png';
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/9zp5habce8h3/profile_avatar_1.png';
   static const String YekjaAdminID = '91ada963-4f51-4b0f-b116-0a5a325dbbcf';
-  static const String YekjaLogoChat =
-      'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Icons/Yekja%20Logos/logo_1.png';
+  static const String YekjaLogo =
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/mrriopc1skcc/yekja_logo_verified_transparent.png';
   static const String PostNotAvailableIMG =
       'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/02ojzpt0bbfy/post_unavailable_1.png';
   static const String PostWithoutImage =
-      'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Icons/default_image.jpg';
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg';
   static const String DefultProfileWalpaper =
-      'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Defults/DefultProfileWallpaper.png';
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/blk5fue25qkx/DefultProfileWallpaper.jpg';
   static const List<int> catsOpenForSwap = [4, 5];
   static const String profileAvatarCircular =
-      'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Defults/Defult_profile_avatar_circular.png';
+      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/n2imhdlvogb3/profile_avatar_circular.png';
   static const String DefaultPostImage =
       'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg';
   static const String RentalDefaultImage =

@@ -38,12 +38,6 @@ class DetailSalesModel extends FlutterFlowModel<DetailSalesWidget> {
   bool? validationResult;
   // State field(s) for NegotiableSwitch widget.
   bool? negotiableSwitchValue;
-  // State field(s) for PriceChoice widget.
-  FormFieldController<List<String>>? priceChoiceValueController;
-  String? get priceChoiceValue =>
-      priceChoiceValueController?.value?.firstOrNull;
-  set priceChoiceValue(String? val) =>
-      priceChoiceValueController?.value = val != null ? [val] : [];
   // State field(s) for SwapSwitch widget.
   bool? swapSwitchValue;
   // State field(s) for WishlistField widget.

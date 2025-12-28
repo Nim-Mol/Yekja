@@ -148,7 +148,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                               alignment: AlignmentDirectional(0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  '7cx2kxrk' /* Type your email, we will send ... */,
+                                  '7cx2kxrk' /* Please type your email, we wil... */,
                                 ),
                                 textAlign: TextAlign.start,
                                 maxLines: 2,

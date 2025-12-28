@@ -114,7 +114,7 @@ class _PostIntendWidgetState extends State<PostIntendWidget> {
                                     ),
                                     Text(
                                       FFLocalizations.of(context).getText(
-                                        '3qldlcbv' /* Action */,
+                                        '3qldlcbv' /* Purpose */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -150,7 +150,7 @@ class _PostIntendWidgetState extends State<PostIntendWidget> {
                                           TextSpan(
                                             text: FFLocalizations.of(context)
                                                 .getText(
-                                              'nz40p4e7' /* 6 */,
+                                              'nz40p4e7' /* 5 */,
                                             ),
                                             style: TextStyle(),
                                           )

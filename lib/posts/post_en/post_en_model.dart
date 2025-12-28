@@ -5,6 +5,8 @@ import '/profile/review_card_small/review_card_small_widget.dart';
 import '/shared_components/comunication_bar/comunication_bar_widget.dart';
 import '/shared_components/photo_gallary/photo_gallary_widget.dart';
 import 'dart:async';
+import '/flutter_flow/request_manager.dart';
+
 import '/index.dart';
 import 'post_en_widget.dart' show PostEnWidget;
 import 'package:flutter/material.dart';
@@ -38,7 +40,8 @@ class PostEnModel extends FlutterFlowModel<PostEnWidget> {
   List<EventAttendeesRow>? eventAttendeesOut;
   // Model for Photo_gallary component.
   late PhotoGallaryModel photoGallaryModel;
-  Completer<List<ViewPostSearchEnRow>>? requestCompleter2;
+  bool requestCompleted2 = false;
+  String? requestLastUniqueKey2;
   // Model for PostDetailColumn component.
   late PostDetailColumnModel postDetailColumnModel;
   Completer<List<ViewEventAttendeesRow>>? requestCompleter1;
@@ -48,6 +51,23 @@ class PostEnModel extends FlutterFlowModel<PostEnWidget> {
   late FlutterFlowDynamicModels<ReviewCardSmallModel> reviewCardSmallModels;
   // Model for Comunication_Bar component.
   late ComunicationBarModel comunicationBarModel;
+
+  /// Query cache managers for this widget.
+
+  final _postEnManager = FutureRequestManager<List<ViewPostSearchEnRow>>();
+  Future<List<ViewPostSearchEnRow>> postEn({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<List<ViewPostSearchEnRow>> Function() requestFn,
+  }) =>
+      _postEnManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearPostEnCache() => _postEnManager.clear();
+  void clearPostEnCacheKey(String? uniqueKey) =>
+      _postEnManager.clearRequest(uniqueKey);
 
   @override
   void initState(BuildContext context) {
@@ -64,6 +84,10 @@ class PostEnModel extends FlutterFlowModel<PostEnWidget> {
     postDetailColumnModel.dispose();
     reviewCardSmallModels.dispose();
     comunicationBarModel.dispose();
+
+    /// Dispose query cache managers for this widget.
+
+    clearPostEnCache();
   }
 
   /// Additional helper methods.
@@ -75,7 +99,7 @@ class PostEnModel extends FlutterFlowModel<PostEnWidget> {
     while (true) {
       await Future.delayed(Duration(milliseconds: 50));
       final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = requestCompleter2?.isCompleted ?? false;
+      final requestComplete = requestCompleted2;
       if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
         break;
       }

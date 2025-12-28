@@ -196,8 +196,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                       fillColor: Color(0x4200A1E7),
                                       icon: Icon(
                                         Icons.location_pin,
-                                        color:
-                                            FlutterFlowTheme.of(context).info,
+                                        color: FlutterFlowTheme.of(context)
+                                            .textgray,
                                         size: 15.0,
                                       ),
                                       onPressed: () {
@@ -271,7 +271,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                     fillColor: Color(0xC240C057),
                                     icon: Icon(
                                       Icons.hail,
-                                      color: FlutterFlowTheme.of(context).info,
+                                      color:
+                                          FlutterFlowTheme.of(context).textgray,
                                       size: 16.0,
                                     ),
                                     onPressed: () {
@@ -341,8 +342,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                       fillColor: Color(0xFFAA8102),
                                       icon: FaIcon(
                                         FontAwesomeIcons.crown,
-                                        color:
-                                            FlutterFlowTheme.of(context).info,
+                                        color: FlutterFlowTheme.of(context)
+                                            .textgray,
                                         size: 14.0,
                                       ),
                                       onPressed: () {
@@ -417,8 +418,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                       fillColor: Color(0x6EF25081),
                                       icon: Icon(
                                         Icons.home_repair_service,
-                                        color:
-                                            FlutterFlowTheme.of(context).info,
+                                        color: FlutterFlowTheme.of(context)
+                                            .textgray,
                                         size: 15.0,
                                       ),
                                       onPressed: () {
@@ -493,8 +494,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                       fillColor: Color(0x46C850F2),
                                       icon: Icon(
                                         Icons.title_sharp,
-                                        color:
-                                            FlutterFlowTheme.of(context).info,
+                                        color: FlutterFlowTheme.of(context)
+                                            .textgray,
                                         size: 16.0,
                                       ),
                                       onPressed: () {
@@ -564,7 +565,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0xB70593D7),
                                   icon: Icon(
                                     Icons.price_check_rounded,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 18.0,
                                   ),
                                   onPressed: () {
@@ -667,26 +669,32 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Flexible(
-                                child: Text(
-                                  valueOrDefault<String>(
-                                    widget.itemData?.description,
-                                    'Descriptions',
+                              if (valueOrDefault<String>(
+                                        widget.itemData?.description,
+                                        'No descriptions',
+                                      ) !=
+                                      '')
+                                Flexible(
+                                  child: Text(
+                                    valueOrDefault<String>(
+                                      widget.itemData?.description,
+                                      'NA',
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMediumFamily,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          letterSpacing: 0.0,
+                                          useGoogleFonts:
+                                              !FlutterFlowTheme.of(context)
+                                                  .bodyMediumIsCustom,
+                                        ),
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        letterSpacing: 0.0,
-                                        useGoogleFonts:
-                                            !FlutterFlowTheme.of(context)
-                                                .bodyMediumIsCustom,
-                                      ),
                                 ),
-                              ),
                             ],
                           ),
                         ),
@@ -809,7 +817,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0x4200A1E7),
                                   icon: Icon(
                                     Icons.location_pin,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -881,7 +890,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 fillColor: Color(0xC240C057),
                                 icon: Icon(
                                   Icons.hail,
-                                  color: FlutterFlowTheme.of(context).info,
+                                  color: FlutterFlowTheme.of(context).textgray,
                                   size: 15.0,
                                 ),
                                 onPressed: () {
@@ -996,7 +1005,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0x71FF0400),
                                   icon: Icon(
                                     Icons.date_range,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -1076,7 +1086,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 fillColor: Color(0x9600A1E7),
                                 icon: Icon(
                                   Icons.price_check_rounded,
-                                  color: FlutterFlowTheme.of(context).info,
+                                  color: FlutterFlowTheme.of(context).textgray,
                                   size: 18.0,
                                 ),
                                 onPressed: () {
@@ -1109,6 +1119,74 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 widget.detailLabels,
                                 r'''$.compensation_type''',
                               ).toString(),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    fontSize: 14.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                    useGoogleFonts:
+                                        !FlutterFlowTheme.of(context)
+                                            .bodyMediumIsCustom,
+                                  ),
+                            ),
+                          ),
+                        ].divide(SizedBox(width: 4.0)),
+                      ),
+                    if (getJsonField(
+                      widget.details,
+                      r'''$.open_for_swap''',
+                    ))
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              FlutterFlowIconButton(
+                                borderRadius: 8.0,
+                                buttonSize: 30.0,
+                                fillColor: FlutterFlowTheme.of(context).green1,
+                                icon: Icon(
+                                  Icons.swap_horiz_sharp,
+                                  color: FlutterFlowTheme.of(context).info,
+                                  size: 15.0,
+                                ),
+                                onPressed: () {
+                                  print('IconButton pressed ...');
+                                },
+                              ),
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'gmmajia2' /* Open for swap? */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
+                                    ),
+                              ),
+                            ].divide(SizedBox(width: 8.0)),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(1.0, -1.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                '3c5xds71' /* Yes */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -1160,26 +1238,31 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Flexible(
-                            child: Text(
-                              valueOrDefault<String>(
-                                widget.itemData?.description,
-                                'Descriptions',
+                          if (valueOrDefault<String>(
+                                    widget.itemData?.description,
+                                    'No descriptions',
+                                  ) !=
+                                  '')
+                            Flexible(
+                              child: Text(
+                                valueOrDefault<String>(
+                                  widget.itemData?.description,
+                                  'NA',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
+                                    ),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    letterSpacing: 0.0,
-                                    useGoogleFonts:
-                                        !FlutterFlowTheme.of(context)
-                                            .bodyMediumIsCustom,
-                                  ),
                             ),
-                          ),
                         ],
                       ),
                     ),
@@ -1368,7 +1451,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0x4200A1E7),
                                   icon: Icon(
                                     Icons.location_pin,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -1440,7 +1524,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 fillColor: Color(0xC240C057),
                                 icon: Icon(
                                   Icons.hail,
-                                  color: FlutterFlowTheme.of(context).info,
+                                  color: FlutterFlowTheme.of(context).textgray,
                                   size: 15.0,
                                 ),
                                 onPressed: () {
@@ -1765,7 +1849,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0xFFAA8102),
                                   icon: Icon(
                                     Icons.date_range,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -1845,7 +1930,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0xFFAA8102),
                                   icon: Icon(
                                     Icons.date_range,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -1922,7 +2008,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0x69C850F2),
                                   icon: FaIcon(
                                     FontAwesomeIcons.weight,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 14.0,
                                   ),
                                   onPressed: () {
@@ -1996,7 +2083,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0x34C850F2),
                                   icon: FaIcon(
                                     FontAwesomeIcons.building,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -2069,7 +2157,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                               fillColor: Color(0xB70593D7),
                               icon: Icon(
                                 Icons.price_check_rounded,
-                                color: FlutterFlowTheme.of(context).info,
+                                color: FlutterFlowTheme.of(context).textgray,
                                 size: 18.0,
                               ),
                               onPressed: () {
@@ -2347,26 +2435,31 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Flexible(
-                            child: Text(
-                              valueOrDefault<String>(
-                                widget.itemData?.description,
-                                'Descriptions',
+                          if (valueOrDefault<String>(
+                                    widget.itemData?.description,
+                                    'No descriptions',
+                                  ) !=
+                                  '')
+                            Flexible(
+                              child: Text(
+                                valueOrDefault<String>(
+                                  widget.itemData?.description,
+                                  'NA',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
+                                    ),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    letterSpacing: 0.0,
-                                    useGoogleFonts:
-                                        !FlutterFlowTheme.of(context)
-                                            .bodyMediumIsCustom,
-                                  ),
                             ),
-                          ),
                         ],
                       ),
                     ),
@@ -2497,8 +2590,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                       fillColor: Color(0x4200A1E7),
                                       icon: Icon(
                                         Icons.location_pin,
-                                        color:
-                                            FlutterFlowTheme.of(context).info,
+                                        color: FlutterFlowTheme.of(context)
+                                            .textgray,
                                         size: 15.0,
                                       ),
                                       onPressed: () {
@@ -2572,7 +2665,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                     fillColor: Color(0xC240C057),
                                     icon: Icon(
                                       Icons.hail,
-                                      color: FlutterFlowTheme.of(context).info,
+                                      color:
+                                          FlutterFlowTheme.of(context).textgray,
                                       size: 15.0,
                                     ),
                                     onPressed: () {
@@ -2646,8 +2740,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                       fillColor: Color(0xFFAA8102),
                                       icon: Icon(
                                         Icons.currency_exchange_sharp,
-                                        color:
-                                            FlutterFlowTheme.of(context).info,
+                                        color: FlutterFlowTheme.of(context)
+                                            .textgray,
                                         size: 15.0,
                                       ),
                                       onPressed: () {
@@ -2729,8 +2823,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                       fillColor: Color(0xA2C850F2),
                                       icon: Icon(
                                         Icons.numbers_outlined,
-                                        color:
-                                            FlutterFlowTheme.of(context).info,
+                                        color: FlutterFlowTheme.of(context)
+                                            .textgray,
                                         size: 16.0,
                                       ),
                                       onPressed: () {
@@ -2805,12 +2899,11 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                     FlutterFlowIconButton(
                                       borderRadius: 8.0,
                                       buttonSize: 30.0,
-                                      fillColor:
-                                          FlutterFlowTheme.of(context).purple1,
-                                      icon: FaIcon(
-                                        FontAwesomeIcons.building,
-                                        color:
-                                            FlutterFlowTheme.of(context).info,
+                                      fillColor: Color(0xBC7950F2),
+                                      icon: Icon(
+                                        Icons.handshake_outlined,
+                                        color: FlutterFlowTheme.of(context)
+                                            .textgray,
                                         size: 15.0,
                                       ),
                                       onPressed: () {
@@ -2885,7 +2978,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0xB70593D7),
                                   icon: Icon(
                                     Icons.price_check_rounded,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 18.0,
                                   ),
                                   onPressed: () {
@@ -3125,99 +3219,32 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Flexible(
-                                child: Text(
-                                  valueOrDefault<String>(
-                                    widget.itemData?.description,
-                                    'Descriptions',
+                              if (functions.isNullSingleString(
+                                  widget.itemData?.description))
+                                Flexible(
+                                  child: Text(
+                                    valueOrDefault<String>(
+                                      widget.itemData?.description,
+                                      'NA',
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMediumFamily,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          letterSpacing: 0.0,
+                                          useGoogleFonts:
+                                              !FlutterFlowTheme.of(context)
+                                                  .bodyMediumIsCustom,
+                                        ),
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        letterSpacing: 0.0,
-                                        useGoogleFonts:
-                                            !FlutterFlowTheme.of(context)
-                                                .bodyMediumIsCustom,
-                                      ),
                                 ),
-                              ),
                             ],
                           ),
                         ),
-                        if (!functions.isNullSingleString(getJsonField(
-                          widget.details,
-                          r'''$.wishlist_text''',
-                        ).toString()))
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 8.0, 0.0, 0.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'ygnibftn' /* MY EXCHANGE WISH */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodySmallFamily,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            fontSize: 14.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.bold,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .bodySmallIsCustom,
-                                          ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 8.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Flexible(
-                                      child: Text(
-                                        getJsonField(
-                                          widget.details,
-                                          r'''$.wishlist_text''',
-                                        ).toString(),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              letterSpacing: 0.0,
-                                              useGoogleFonts:
-                                                  !FlutterFlowTheme.of(context)
-                                                      .bodyMediumIsCustom,
-                                            ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ].divide(SizedBox(height: 8.0)),
-                          ),
                       ].divide(SizedBox(height: 8.0)),
                     ),
                   ],
@@ -3337,7 +3364,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0x4200A1E7),
                                   icon: Icon(
                                     Icons.location_pin,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -3409,7 +3437,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 fillColor: Color(0xC240C057),
                                 icon: Icon(
                                   Icons.hail,
-                                  color: FlutterFlowTheme.of(context).info,
+                                  color: FlutterFlowTheme.of(context).textgray,
                                   size: 15.0,
                                 ),
                                 onPressed: () {
@@ -3481,7 +3509,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0xFFAA8102),
                                   icon: Icon(
                                     Icons.date_range,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -3562,7 +3591,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0xA2C850F2),
                                   icon: Icon(
                                     Icons.numbers_outlined,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 16.0,
                                   ),
                                   onPressed: () {
@@ -3636,11 +3666,11 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 FlutterFlowIconButton(
                                   borderRadius: 8.0,
                                   buttonSize: 30.0,
-                                  fillColor:
-                                      FlutterFlowTheme.of(context).purple1,
+                                  fillColor: Color(0xB57950F2),
                                   icon: FaIcon(
                                     FontAwesomeIcons.building,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -3713,7 +3743,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                               fillColor: Color(0xB70593D7),
                               icon: Icon(
                                 Icons.price_check_rounded,
-                                color: FlutterFlowTheme.of(context).info,
+                                color: FlutterFlowTheme.of(context).textgray,
                                 size: 18.0,
                               ),
                               onPressed: () {
@@ -3778,6 +3808,74 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                         ),
                       ].divide(SizedBox(width: 4.0)),
                     ),
+                    if (getJsonField(
+                      widget.details,
+                      r'''$.open_for_swap''',
+                    ))
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              FlutterFlowIconButton(
+                                borderRadius: 8.0,
+                                buttonSize: 30.0,
+                                fillColor: FlutterFlowTheme.of(context).green1,
+                                icon: Icon(
+                                  Icons.swap_horiz_sharp,
+                                  color: FlutterFlowTheme.of(context).info,
+                                  size: 15.0,
+                                ),
+                                onPressed: () {
+                                  print('IconButton pressed ...');
+                                },
+                              ),
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'apang02r' /* Open for swap? */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
+                                    ),
+                              ),
+                            ].divide(SizedBox(width: 8.0)),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(1.0, -1.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                'iq3j8bxt' /* Yes */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    fontSize: 14.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                    useGoogleFonts:
+                                        !FlutterFlowTheme.of(context)
+                                            .bodyMediumIsCustom,
+                                  ),
+                            ),
+                          ),
+                        ].divide(SizedBox(width: 4.0)),
+                      ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
@@ -3811,26 +3909,31 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Flexible(
-                            child: Text(
-                              valueOrDefault<String>(
-                                widget.itemData?.description,
-                                'Descriptions',
+                          if (valueOrDefault<String>(
+                                    widget.itemData?.description,
+                                    'No descriptions',
+                                  ) !=
+                                  '')
+                            Flexible(
+                              child: Text(
+                                valueOrDefault<String>(
+                                  widget.itemData?.description,
+                                  'No descriptions',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
+                                    ),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    letterSpacing: 0.0,
-                                    useGoogleFonts:
-                                        !FlutterFlowTheme.of(context)
-                                            .bodyMediumIsCustom,
-                                  ),
                             ),
-                          ),
                         ],
                       ),
                     ),
@@ -4019,7 +4122,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0x4200A1E7),
                                   icon: Icon(
                                     Icons.location_pin,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -4091,7 +4195,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 fillColor: Color(0xC240C057),
                                 icon: Icon(
                                   Icons.hail,
-                                  color: FlutterFlowTheme.of(context).info,
+                                  color: FlutterFlowTheme.of(context).textgray,
                                   size: 15.0,
                                 ),
                                 onPressed: () {
@@ -4163,7 +4267,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0xFFAA8102),
                                   icon: Icon(
                                     Icons.date_range,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -4244,7 +4349,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0xA2AA8102),
                                   icon: Icon(
                                     Icons.date_range,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -4322,7 +4428,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0x44FAB005),
                                   icon: Icon(
                                     Icons.replay,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -4397,11 +4504,11 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 FlutterFlowIconButton(
                                   borderRadius: 8.0,
                                   buttonSize: 30.0,
-                                  fillColor:
-                                      FlutterFlowTheme.of(context).purple1,
+                                  fillColor: Color(0xB47950F2),
                                   icon: FaIcon(
                                     FontAwesomeIcons.building,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -4479,7 +4586,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0x6C7950F2),
                                   icon: Icon(
                                     Icons.my_location,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -4552,7 +4660,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                               fillColor: Color(0xB70593D7),
                               icon: Icon(
                                 Icons.price_check_rounded,
-                                color: FlutterFlowTheme.of(context).info,
+                                color: FlutterFlowTheme.of(context).textgray,
                                 size: 18.0,
                               ),
                               onPressed: () {
@@ -4965,7 +5073,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0x4200A1E7),
                                   icon: Icon(
                                     Icons.location_pin,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -5041,7 +5150,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0x42C850F2),
                                   icon: Icon(
                                     Icons.delivery_dining,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -5119,7 +5229,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0x997950F2),
                                   icon: Icon(
                                     Icons.star,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -5192,7 +5303,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                               fillColor: Color(0x4240C057),
                               icon: Icon(
                                 Icons.price_check_rounded,
-                                color: FlutterFlowTheme.of(context).info,
+                                color: FlutterFlowTheme.of(context).textgray,
                                 size: 18.0,
                               ),
                               onPressed: () {
@@ -5278,6 +5389,74 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                         ),
                       ].divide(SizedBox(width: 4.0)),
                     ),
+                    if (getJsonField(
+                      widget.details,
+                      r'''$.open_for_swap''',
+                    ))
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              FlutterFlowIconButton(
+                                borderRadius: 8.0,
+                                buttonSize: 30.0,
+                                fillColor: FlutterFlowTheme.of(context).green1,
+                                icon: Icon(
+                                  Icons.swap_horiz_sharp,
+                                  color: FlutterFlowTheme.of(context).info,
+                                  size: 15.0,
+                                ),
+                                onPressed: () {
+                                  print('IconButton pressed ...');
+                                },
+                              ),
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'ztuydh85' /* Open for swap? */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
+                                    ),
+                              ),
+                            ].divide(SizedBox(width: 8.0)),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(1.0, -1.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                'yv4jt04w' /* Yes */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    fontSize: 14.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                    useGoogleFonts:
+                                        !FlutterFlowTheme.of(context)
+                                            .bodyMediumIsCustom,
+                                  ),
+                            ),
+                          ),
+                        ].divide(SizedBox(width: 4.0)),
+                      ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
@@ -5314,8 +5493,22 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                           Flexible(
                             child: Text(
                               valueOrDefault<String>(
-                                widget.itemData?.description,
-                                'Descriptions',
+                                valueOrDefault<String>(
+                                              widget.itemData?.description,
+                                              'Descriptions',
+                                            ) !=
+                                            ''
+                                    ? widget.itemData?.description
+                                    : FFLocalizations.of(context)
+                                        .getVariableText(
+                                        enText:
+                                            'No descriptions is provided for this post. ',
+                                        faText:
+                                            'برای این پست توضیحی ارائه نشده است.',
+                                        nlText:
+                                            'Er is geen beschrijving voor dit bericht beschikbaar.',
+                                      ),
+                                'NA',
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -5519,7 +5712,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0x4200A1E7),
                                   icon: Icon(
                                     Icons.location_pin,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -5595,7 +5789,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0x42C850F2),
                                   icon: Icon(
                                     Icons.delivery_dining,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -5673,7 +5868,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0x997950F2),
                                   icon: Icon(
                                     Icons.star,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -5732,6 +5928,74 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                           ].divide(SizedBox(width: 8.0)),
                         ),
                       ),
+                    if (getJsonField(
+                      widget.details,
+                      r'''$.open_for_swap''',
+                    ))
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              FlutterFlowIconButton(
+                                borderRadius: 8.0,
+                                buttonSize: 30.0,
+                                fillColor: FlutterFlowTheme.of(context).green1,
+                                icon: Icon(
+                                  Icons.swap_horiz_sharp,
+                                  color: FlutterFlowTheme.of(context).info,
+                                  size: 15.0,
+                                ),
+                                onPressed: () {
+                                  print('IconButton pressed ...');
+                                },
+                              ),
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'chd0url1' /* Open for swap? */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
+                                    ),
+                              ),
+                            ].divide(SizedBox(width: 8.0)),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(1.0, -1.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                '1lahm77g' /* Yes */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    fontSize: 14.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                    useGoogleFonts:
+                                        !FlutterFlowTheme.of(context)
+                                            .bodyMediumIsCustom,
+                                  ),
+                            ),
+                          ),
+                        ].divide(SizedBox(width: 4.0)),
+                      ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
@@ -5765,27 +6029,32 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Flexible(
-                            child: Text(
-                              valueOrDefault<String>(
-                                widget.itemData?.description,
-                                'Descriptions',
+                          if (valueOrDefault<String>(
+                                    widget.itemData?.description,
+                                    'No descriptions',
+                                  ) !=
+                                  '')
+                            Flexible(
+                              child: Text(
+                                valueOrDefault<String>(
+                                  widget.itemData?.description,
+                                  'Descriptions',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.normal,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
+                                    ),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
-                                    useGoogleFonts:
-                                        !FlutterFlowTheme.of(context)
-                                            .bodyMediumIsCustom,
-                                  ),
                             ),
-                          ),
                         ],
                       ),
                     ),
@@ -5975,7 +6244,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0x4200A1E7),
                                   icon: Icon(
                                     Icons.location_pin,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -6047,7 +6317,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 fillColor: Color(0xC240C057),
                                 icon: Icon(
                                   Icons.hail,
-                                  color: FlutterFlowTheme.of(context).info,
+                                  color: FlutterFlowTheme.of(context).textgray,
                                   size: 15.0,
                                 ),
                                 onPressed: () {
@@ -6127,7 +6397,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                       FlutterFlowTheme.of(context).darkgray,
                                   icon: Icon(
                                     Icons.timer_sharp,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -6205,7 +6476,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0x71FF0400),
                                   icon: Icon(
                                     Icons.date_range,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -6286,7 +6558,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0x42C850F2),
                                   icon: Icon(
                                     Icons.delivery_dining,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -6369,7 +6642,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 fillColor: Color(0x4240C057),
                                 icon: Icon(
                                   Icons.price_check_rounded,
-                                  color: FlutterFlowTheme.of(context).info,
+                                  color: FlutterFlowTheme.of(context).textgray,
                                   size: 18.0,
                                 ),
                                 onPressed: () {
@@ -6412,6 +6685,74 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                       widget.detailLabels,
                                       r'''$.price_text''',
                                     ).toString(),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    fontSize: 14.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                    useGoogleFonts:
+                                        !FlutterFlowTheme.of(context)
+                                            .bodyMediumIsCustom,
+                                  ),
+                            ),
+                          ),
+                        ].divide(SizedBox(width: 4.0)),
+                      ),
+                    if (getJsonField(
+                      widget.details,
+                      r'''$.open_for_swap''',
+                    ))
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              FlutterFlowIconButton(
+                                borderRadius: 8.0,
+                                buttonSize: 30.0,
+                                fillColor: FlutterFlowTheme.of(context).green1,
+                                icon: Icon(
+                                  Icons.swap_horiz_sharp,
+                                  color: FlutterFlowTheme.of(context).info,
+                                  size: 15.0,
+                                ),
+                                onPressed: () {
+                                  print('IconButton pressed ...');
+                                },
+                              ),
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'qnk3bfgp' /* Open for swap? */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
+                                    ),
+                              ),
+                            ].divide(SizedBox(width: 8.0)),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(1.0, -1.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                '2m7gilxt' /* Yes */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -6524,26 +6865,31 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Flexible(
-                            child: Text(
-                              valueOrDefault<String>(
-                                widget.itemData?.description,
-                                'Descriptions',
+                          if (valueOrDefault<String>(
+                                    widget.itemData?.description,
+                                    'No descriptions',
+                                  ) !=
+                                  '')
+                            Flexible(
+                              child: Text(
+                                valueOrDefault<String>(
+                                  widget.itemData?.description,
+                                  'Descriptions',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
+                                    ),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    letterSpacing: 0.0,
-                                    useGoogleFonts:
-                                        !FlutterFlowTheme.of(context)
-                                            .bodyMediumIsCustom,
-                                  ),
                             ),
-                          ),
                         ],
                       ),
                     ),
@@ -6732,7 +7078,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0x4200A1E7),
                                   icon: Icon(
                                     Icons.location_pin,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -6804,7 +7151,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 fillColor: Color(0xC240C057),
                                 icon: Icon(
                                   Icons.hail,
-                                  color: FlutterFlowTheme.of(context).info,
+                                  color: FlutterFlowTheme.of(context).textgray,
                                   size: 15.0,
                                 ),
                                 onPressed: () {
@@ -6920,7 +7267,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0xFFAA8102),
                                   icon: Icon(
                                     Icons.date_range,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -7001,7 +7349,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0xA2AA8102),
                                   icon: Icon(
                                     Icons.date_range,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -7082,7 +7431,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0xB5C850F2),
                                   icon: Icon(
                                     Icons.home_outlined,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -7162,7 +7512,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   fillColor: Color(0x57C850F2),
                                   icon: FaIcon(
                                     FontAwesomeIcons.tape,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 12.0,
                                   ),
                                   onPressed: () {
@@ -7243,7 +7594,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                       FlutterFlowTheme.of(context).iconEventy,
                                   icon: Icon(
                                     Icons.money_outlined,
-                                    color: FlutterFlowTheme.of(context).info,
+                                    color:
+                                        FlutterFlowTheme.of(context).textgray,
                                     size: 15.0,
                                   ),
                                   onPressed: () {
@@ -7316,7 +7668,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                               fillColor: Color(0xB70593D7),
                               icon: Icon(
                                 Icons.price_check_rounded,
-                                color: FlutterFlowTheme.of(context).info,
+                                color: FlutterFlowTheme.of(context).textgray,
                                 size: 18.0,
                               ),
                               onPressed: () {
@@ -7628,26 +7980,31 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Flexible(
-                            child: Text(
-                              valueOrDefault<String>(
-                                widget.itemData?.description,
-                                'Descriptions',
+                          if (valueOrDefault<String>(
+                                    widget.itemData?.description,
+                                    'No descriptions',
+                                  ) !=
+                                  '')
+                            Flexible(
+                              child: Text(
+                                valueOrDefault<String>(
+                                  widget.itemData?.description,
+                                  'Descriptions',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
+                                    ),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    letterSpacing: 0.0,
-                                    useGoogleFonts:
-                                        !FlutterFlowTheme.of(context)
-                                            .bodyMediumIsCustom,
-                                  ),
                             ),
-                          ),
                         ],
                       ),
                     ),

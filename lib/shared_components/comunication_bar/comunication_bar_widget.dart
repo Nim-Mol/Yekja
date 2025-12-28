@@ -22,6 +22,7 @@ class ComunicationBarWidget extends StatefulWidget {
     bool? allowCall,
     required this.allowShare,
     this.phoneNumber,
+    required this.subCat,
   })  : this.allowMessage = allowMessage ?? true,
         this.allowCall = allowCall ?? true;
 
@@ -32,6 +33,7 @@ class ComunicationBarWidget extends StatefulWidget {
   final bool allowCall;
   final bool? allowShare;
   final String? phoneNumber;
+  final String? subCat;
 
   @override
   State<ComunicationBarWidget> createState() => _ComunicationBarWidgetState();
@@ -425,7 +427,7 @@ class _ComunicationBarWidgetState extends State<ComunicationBarWidget>
                             ? null
                             : () async {
                                 await Share.share(
-                                  '${FFAppConstants.BaseUrl}${'yekja://yekja.nl${GoRouterState.of(context).uri.toString()}'}',
+                                  '${FFAppConstants.BaseUrl}${getCurrentRoute(context)}',
                                   sharePositionOrigin:
                                       getWidgetBoundingBox(context),
                                 );

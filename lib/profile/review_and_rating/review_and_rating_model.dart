@@ -11,21 +11,13 @@ class ReviewAndRatingModel extends FlutterFlowModel<ReviewAndRatingWidget> {
 
   final formKey = GlobalKey<FormState>();
   // State field(s) for Communication-score widget.
-  double? communicationScoreValue1;
+  double? communicationScoreValue;
   // State field(s) for Reliability-score widget.
-  double? reliabilityScoreValue1;
+  double? reliabilityScoreValue;
   // State field(s) for Quality-score widget.
-  double? qualityScoreValue1;
+  double? qualityScoreValue;
   // State field(s) for Fairness-score widget.
-  double? fairnessScoreValue1;
-  // State field(s) for Communication-score widget.
-  double? communicationScoreValue2;
-  // State field(s) for Reliability-score widget.
-  double? reliabilityScoreValue2;
-  // State field(s) for Quality-score widget.
-  double? qualityScoreValue2;
-  // State field(s) for Fairness-score widget.
-  double? fairnessScoreValue2;
+  double? fairnessScoreValue;
   // State field(s) for note widget.
   FocusNode? noteFocusNode;
   TextEditingController? noteTextController;

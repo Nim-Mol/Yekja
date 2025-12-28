@@ -1,10 +1,13 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/main_overview_pages/item_card_global/item_card_global_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
 import '/shared_components/shout_out_card/shout_out_card_widget.dart';
+import '/flutter_flow/request_manager.dart';
+
 import '/index.dart';
 import 'dart:async';
 import 'main_page_widget.dart' show MainPageWidget;
@@ -18,6 +21,8 @@ class MainPageModel extends FlutterFlowModel<MainPageWidget> {
   String sortBy = 'created_at.desc.nullslast';
 
   int? limit = 5;
+
+  int mainCat = 1;
 
   ///  State fields for stateful widgets in this page.
 
@@ -77,6 +82,23 @@ class MainPageModel extends FlutterFlowModel<MainPageWidget> {
   // Model for NavBar component.
   late NavBarModel navBarModel;
 
+  /// Query cache managers for this widget.
+
+  final _shoutoutManager = FutureRequestManager<List<ViewShoutoutRow>>();
+  Future<List<ViewShoutoutRow>> shoutout({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<List<ViewShoutoutRow>> Function() requestFn,
+  }) =>
+      _shoutoutManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearShoutoutCache() => _shoutoutManager.clear();
+  void clearShoutoutCacheKey(String? uniqueKey) =>
+      _shoutoutManager.clearRequest(uniqueKey);
+
   @override
   void initState(BuildContext context) {
     shoutOutCardModels = FlutterFlowDynamicModels(() => ShoutOutCardModel());
@@ -104,6 +126,10 @@ class MainPageModel extends FlutterFlowModel<MainPageWidget> {
     listviewEventsPagingController?.dispose();
     itemCardGlobalModels4.dispose();
     navBarModel.dispose();
+
+    /// Dispose query cache managers for this widget.
+
+    clearShoutoutCache();
   }
 
   /// Additional helper methods.

@@ -14,6 +14,7 @@ import '/shared_components/nav_bar/nav_bar_widget.dart';
 import '/shared_components/reporting_popup/reporting_popup_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -146,10 +147,16 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
           child: Align(
             alignment: AlignmentDirectional(0.0, -1.0),
             child: FutureBuilder<List<UserExtRow>>(
-              future: UserExtTable().querySingleRow(
-                queryFn: (q) => q.eqOrNull(
-                  'id',
+              future: FFAppState().userExt(
+                uniqueQueryKey: valueOrDefault<String>(
                   widget.profileId,
+                  'userID',
+                ),
+                requestFn: () => UserExtTable().querySingleRow(
+                  queryFn: (q) => q.eqOrNull(
+                    'id',
+                    widget.profileId,
+                  ),
                 ),
               ),
               builder: (context, snapshot) {
@@ -213,11 +220,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                         ''
                                                 ? containerUserExtRow!
                                                     .profileWallpaper!
-                                                : valueOrDefault<String>(
-                                                    FFAppConstants
-                                                        .DefultProfileWalpaper,
-                                                    'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Defults/Defult profile_avatar.png',
-                                                  ),
+                                                : FFAppConstants
+                                                    .DefultProfileWalpaper,
                                             width: double.infinity,
                                             height: double.infinity,
                                             fit: BoxFit.cover,
@@ -1167,8 +1171,18 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                             shape:
                                                                 BoxShape.circle,
                                                           ),
-                                                          child: Image.network(
-                                                            'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Badges/yekja_certified_3.png',
+                                                          child:
+                                                              CachedNetworkImage(
+                                                            fadeInDuration:
+                                                                Duration(
+                                                                    milliseconds:
+                                                                        500),
+                                                            fadeOutDuration:
+                                                                Duration(
+                                                                    milliseconds:
+                                                                        500),
+                                                            imageUrl:
+                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/98pjswv2q4ja/yekja_certified_2_(1).png',
                                                             fit: BoxFit.cover,
                                                           ),
                                                         ),
@@ -1178,25 +1192,27 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                 ),
                                               ),
                                             ),
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  1.0, 1.0),
-                                              child: Material(
-                                                color: Colors.transparent,
-                                                elevation: 5.0,
-                                                shape: const CircleBorder(),
-                                                child: Container(
-                                                  width: 52.0,
-                                                  height: 52.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    shape: BoxShape.circle,
+                                            Material(
+                                              color: Colors.transparent,
+                                              elevation: 5.0,
+                                              shape: const CircleBorder(),
+                                              child: Container(
+                                                width: 52.0,
+                                                height: 52.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          0.0),
+                                                  child: Image.network(
+                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/nw20nrn15rht/early_tester.png',
+                                                    fit: BoxFit.cover,
                                                   ),
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 0.0),
                                                 ),
                                               ),
                                             ),
@@ -1369,18 +1385,27 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                       child: FutureBuilder<
                                                           List<
                                                               ViewPostFilterRow>>(
-                                                        future:
-                                                            ViewPostFilterTable()
-                                                                .queryRows(
-                                                          queryFn: (q) => q
-                                                              .eqOrNull(
-                                                                'user_id',
-                                                                widget
-                                                                    .profileId,
-                                                              )
-                                                              .order(
-                                                                  'created_at'),
-                                                          limit: 5,
+                                                        future: FFAppState()
+                                                            .userPosts(
+                                                          uniqueQueryKey:
+                                                              valueOrDefault<
+                                                                  String>(
+                                                            widget.profileId,
+                                                            'profileID',
+                                                          ),
+                                                          requestFn: () =>
+                                                              ViewPostFilterTable()
+                                                                  .queryRows(
+                                                            queryFn: (q) => q
+                                                                .eqOrNull(
+                                                                  'user_id',
+                                                                  widget
+                                                                      .profileId,
+                                                                )
+                                                                .order(
+                                                                    'created_at'),
+                                                            limit: 5,
+                                                          ),
                                                         ),
                                                         builder: (context,
                                                             snapshot) {
@@ -1655,18 +1680,27 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                         FutureBuilder<
                                                             List<
                                                                 ViewUserFavoritesRow>>(
-                                                          future:
-                                                              ViewUserFavoritesTable()
-                                                                  .queryRows(
-                                                            queryFn: (q) => q
-                                                                .eqOrNull(
-                                                                  'user_id',
-                                                                  widget
-                                                                      .profileId,
-                                                                )
-                                                                .order(
-                                                                    'post_created_at'),
-                                                            limit: 5,
+                                                          future: FFAppState()
+                                                              .userFavs(
+                                                            uniqueQueryKey:
+                                                                valueOrDefault<
+                                                                    String>(
+                                                              widget.profileId,
+                                                              'userID',
+                                                            ),
+                                                            requestFn: () =>
+                                                                ViewUserFavoritesTable()
+                                                                    .queryRows(
+                                                              queryFn: (q) => q
+                                                                  .eqOrNull(
+                                                                    'user_id',
+                                                                    widget
+                                                                        .profileId,
+                                                                  )
+                                                                  .order(
+                                                                      'post_created_at'),
+                                                              limit: 5,
+                                                            ),
                                                           ),
                                                           builder: (context,
                                                               snapshot) {
@@ -1929,22 +1963,31 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                       child: FutureBuilder<
                                                           List<
                                                               ViewUserReviewsRow>>(
-                                                        future:
-                                                            ViewUserReviewsTable()
-                                                                .queryRows(
-                                                          queryFn: (q) => q
-                                                              .eqOrNull(
-                                                                'reviewed_user_id',
-                                                                widget
-                                                                    .profileId,
-                                                              )
-                                                              .eqOrNull(
-                                                                'both_review_submitted',
-                                                                true,
-                                                              )
-                                                              .order(
-                                                                  'created_at'),
-                                                          limit: 2,
+                                                        future: FFAppState()
+                                                            .userReviews(
+                                                          uniqueQueryKey:
+                                                              valueOrDefault<
+                                                                  String>(
+                                                            widget.profileId,
+                                                            'userID',
+                                                          ),
+                                                          requestFn: () =>
+                                                              ViewUserReviewsTable()
+                                                                  .queryRows(
+                                                            queryFn: (q) => q
+                                                                .eqOrNull(
+                                                                  'reviewed_user_id',
+                                                                  widget
+                                                                      .profileId,
+                                                                )
+                                                                .eqOrNull(
+                                                                  'both_review_submitted',
+                                                                  true,
+                                                                )
+                                                                .order(
+                                                                    'created_at'),
+                                                            limit: 2,
+                                                          ),
                                                         ),
                                                         builder: (context,
                                                             snapshot) {

@@ -160,20 +160,34 @@ class _PostNLWidgetState extends State<PostNLWidget>
     context.watch<FFAppState>();
 
     return FutureBuilder<List<ViewPostSearchNlRow>>(
-      future:
-          (_model.requestCompleter2 ??= Completer<List<ViewPostSearchNlRow>>()
-                ..complete(ViewPostSearchNlTable().querySingleRow(
-                  queryFn: (q) => q
-                      .eqOrNull(
-                        'post_id',
-                        widget.postID,
-                      )
-                      .eqOrNull(
-                        'detail_table',
-                        widget.detailDataName,
-                      ),
-                )))
-              .future,
+      future: _model
+          .postNL(
+        uniqueQueryKey: valueOrDefault<String>(
+          widget.postID,
+          'postID',
+        ),
+        requestFn: () => ViewPostSearchNlTable().querySingleRow(
+          queryFn: (q) => q
+              .eqOrNull(
+                'post_id',
+                widget.postID,
+              )
+              .eqOrNull(
+                'detail_table',
+                widget.detailDataName,
+              ),
+        ),
+      )
+          .then((result) {
+        try {
+          _model.requestCompleted2 = true;
+          _model.requestLastUniqueKey2 = valueOrDefault<String>(
+            widget.postID,
+            'postID',
+          );
+        } finally {}
+        return result;
+      }),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -338,9 +352,14 @@ class _PostNLWidgetState extends State<PostNLWidget>
                                                                   );
                                                                 }
 
-                                                                safeSetState(() =>
-                                                                    _model.requestCompleter2 =
-                                                                        null);
+                                                                safeSetState(
+                                                                    () {
+                                                                  _model.clearPostNLCacheKey(
+                                                                      _model
+                                                                          .requestLastUniqueKey2);
+                                                                  _model.requestCompleted2 =
+                                                                      false;
+                                                                });
                                                                 await _model
                                                                     .waitForRequestCompleted2();
                                                               },
@@ -435,9 +454,14 @@ class _PostNLWidgetState extends State<PostNLWidget>
                                                                     });
                                                                   }
 
-                                                                  safeSetState(() =>
-                                                                      _model.requestCompleter2 =
-                                                                          null);
+                                                                  safeSetState(
+                                                                      () {
+                                                                    _model.clearPostNLCacheKey(
+                                                                        _model
+                                                                            .requestLastUniqueKey2);
+                                                                    _model.requestCompleted2 =
+                                                                        false;
+                                                                  });
                                                                   await _model
                                                                       .waitForRequestCompleted2();
                                                                 },
@@ -776,6 +800,7 @@ class _PostNLWidgetState extends State<PostNLWidget>
                                                                                   r'''$.event_ends_at''',
                                                                                 )),
                                                                                 catId: postNLViewPostSearchNlRow.catId,
+                                                                                mainCatId: postNLViewPostSearchNlRow.mainCatId,
                                                                               );
                                                                               safeSetState(() {});
                                                                             }),
@@ -1171,79 +1196,112 @@ class _PostNLWidgetState extends State<PostNLWidget>
                                       ],
                                     ),
                                   ),
-                                  FutureBuilder<List<ViewEventAttendeesRow>>(
-                                    future:
-                                        (_model.requestCompleter1 ??= Completer<
-                                                List<ViewEventAttendeesRow>>()
-                                              ..complete(
-                                                  ViewEventAttendeesTable()
-                                                      .queryRows(
-                                                queryFn: (q) => q.eqOrNull(
-                                                  'post_id',
-                                                  widget.postID,
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 16.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        FutureBuilder<
+                                            List<ViewEventAttendeesRow>>(
+                                          future: (_model.requestCompleter1 ??=
+                                                  Completer<
+                                                      List<
+                                                          ViewEventAttendeesRow>>()
+                                                    ..complete(
+                                                        ViewEventAttendeesTable()
+                                                            .queryRows(
+                                                      queryFn: (q) => q
+                                                          .eqOrNull(
+                                                            'post_id',
+                                                            widget.postID,
+                                                          )
+                                                          .order('joined_at'),
+                                                      limit: 5,
+                                                    )))
+                                              .future,
+                                          builder: (context, snapshot) {
+                                            // Customize what your widget looks like when it's loading.
+                                            if (!snapshot.hasData) {
+                                              return Center(
+                                                child: SizedBox(
+                                                  width: 50.0,
+                                                  height: 50.0,
+                                                  child: SpinKitChasingDots(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .greenInit,
+                                                    size: 50.0,
+                                                  ),
                                                 ),
-                                              )))
-                                            .future,
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 50.0,
-                                            height: 50.0,
-                                            child: SpinKitChasingDots(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .greenInit,
-                                              size: 50.0,
-                                            ),
-                                          ),
-                                        );
-                                      }
-                                      List<ViewEventAttendeesRow>
-                                          participantsRowViewEventAttendeesRowList =
-                                          snapshot.data!;
+                                              );
+                                            }
+                                            List<ViewEventAttendeesRow>
+                                                participantsRowViewEventAttendeesRowList =
+                                                snapshot.data!;
 
-                                      return SingleChildScrollView(
-                                        scrollDirection: Axis.horizontal,
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: List.generate(
-                                              participantsRowViewEventAttendeesRowList
-                                                  .length,
-                                              (participantsRowIndex) {
-                                            final participantsRowViewEventAttendeesRow =
-                                                participantsRowViewEventAttendeesRowList[
-                                                    participantsRowIndex];
-                                            return Container(
-                                              width: 50.0,
-                                              height: 50.0,
-                                              clipBehavior: Clip.antiAlias,
-                                              decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                              ),
-                                              child: Image.network(
-                                                (participantsRowViewEventAttendeesRow
-                                                                    .profileAvatar !=
-                                                                null &&
-                                                            participantsRowViewEventAttendeesRow
-                                                                    .profileAvatar !=
-                                                                '') &&
-                                                        participantsRowViewEventAttendeesRow
-                                                            .showProfileImage!
-                                                    ? participantsRowViewEventAttendeesRow
-                                                        .profileAvatar!
-                                                    : FFAppConstants
-                                                        .profileAvatarCircular,
-                                                fit: BoxFit.cover,
+                                            return SingleChildScrollView(
+                                              scrollDirection: Axis.horizontal,
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: List.generate(
+                                                    participantsRowViewEventAttendeesRowList
+                                                        .length,
+                                                    (participantsRowIndex) {
+                                                  final participantsRowViewEventAttendeesRow =
+                                                      participantsRowViewEventAttendeesRowList[
+                                                          participantsRowIndex];
+                                                  return Container(
+                                                    width: 50.0,
+                                                    height: 50.0,
+                                                    clipBehavior:
+                                                        Clip.antiAlias,
+                                                    decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    child: Image.network(
+                                                      (participantsRowViewEventAttendeesRow
+                                                                          .profileAvatar !=
+                                                                      null &&
+                                                                  participantsRowViewEventAttendeesRow
+                                                                          .profileAvatar !=
+                                                                      '') &&
+                                                              participantsRowViewEventAttendeesRow
+                                                                  .showProfileImage!
+                                                          ? participantsRowViewEventAttendeesRow
+                                                              .profileAvatar!
+                                                          : FFAppConstants
+                                                              .profileAvatarCircular,
+                                                      fit: BoxFit.cover,
+                                                    ),
+                                                  );
+                                                }).divide(
+                                                    SizedBox(width: 10.0)),
                                               ),
                                             );
-                                          }).divide(SizedBox(width: 10.0)),
+                                          },
                                         ),
-                                      );
-                                    },
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'n3u21km2' /* ... */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    !FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMediumIsCustom,
+                                              ),
+                                        ),
+                                      ].divide(SizedBox(width: 16.0)),
+                                    ),
                                   ),
                                   if (currentUserUid != '')
                                     Padding(
@@ -1281,25 +1339,25 @@ class _PostNLWidgetState extends State<PostNLWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                            'f9icfbpg' /* Participating this event?  */,
+                                                            'f9icfbpg' /* Participating in this event?  */,
                                                           ),
                                                           hintText:
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                            '1eox3zaq' /* Please confirm if you'd like t... */,
+                                                            '1eox3zaq' /* ⚠️Please message the organizer... */,
                                                           ),
                                                           cancelText:
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                            's4l1854j' /* Cancel */,
+                                                            's4l1854j' /* No, thanks */,
                                                           ),
                                                           confirmText:
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                            'ebwexf78' /* Confirm */,
+                                                            'ebwexf78' /* Ok, will message */,
                                                           ),
                                                           onConfirmAction:
                                                               () async {
@@ -1361,7 +1419,7 @@ class _PostNLWidgetState extends State<PostNLWidget>
                                                                       myText: FFLocalizations.of(
                                                                               context)
                                                                           .getText(
-                                                                        'd6kdgtsa' /* The event is full. Try contact... */,
+                                                                        'yskxkb1p' /* This event is already full! Fo... */,
                                                                       ),
                                                                       backgroundColor:
                                                                           FlutterFlowTheme.of(context)
@@ -1495,23 +1553,18 @@ class _PostNLWidgetState extends State<PostNLWidget>
                                                                       .getText(
                                                                 '2xg817w9' /* Have you changed your mind? */,
                                                               ),
-                                                              hintText:
-                                                                  FFLocalizations.of(
-                                                                          context)
-                                                                      .getText(
-                                                                'ccf05fs5' /* You are currently a participan... */,
-                                                              ),
+                                                              hintText: '',
                                                               cancelText:
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                '87mbi1yj' /* Cencel */,
+                                                                '87mbi1yj' /* No, stay in */,
                                                               ),
                                                               confirmText:
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                'cnfstlwt' /* Confirm */,
+                                                                'cnfstlwt' /* Yes, leave */,
                                                               ),
                                                               onConfirmAction:
                                                                   () async {
@@ -1646,7 +1699,7 @@ class _PostNLWidgetState extends State<PostNLWidget>
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      '8quh1kln' /* Hide your profile image */,
+                                                      '8quh1kln' /* Hide your profile picture */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -1746,7 +1799,7 @@ class _PostNLWidgetState extends State<PostNLWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                            'qlt5o80u' /* Please login or signup to see ... */,
+                                                            'jvwox44s' /* Please login or signup to see ... */,
                                                           ),
                                                           waitMS: 3000,
                                                           backgroundColor:
@@ -1911,7 +1964,7 @@ class _PostNLWidgetState extends State<PostNLWidget>
                                                                             8.0),
                                                                 child: Image
                                                                     .network(
-                                                                  'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Icons/star_animated.gif',
+                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/y0l0lllp2v7b/star_animated.gif',
                                                                   width: 30.0,
                                                                   height: 30.0,
                                                                   fit: BoxFit
@@ -2046,7 +2099,7 @@ class _PostNLWidgetState extends State<PostNLWidget>
                                                                       myText: FFLocalizations.of(
                                                                               context)
                                                                           .getText(
-                                                                        'srmvde3i' /* Instagram link it not set. */,
+                                                                        'cm3v3x8n' /* Instagram link it not set. */,
                                                                       ),
                                                                       waitMS:
                                                                           3000,
@@ -2084,7 +2137,7 @@ class _PostNLWidgetState extends State<PostNLWidget>
                                                                     myText: FFLocalizations.of(
                                                                             context)
                                                                         .getText(
-                                                                      '4f0yucor' /* Please login or signup to see ... */,
+                                                                      'pq7rqeau' /* Please login or signup to see ... */,
                                                                     ),
                                                                     waitMS:
                                                                         3000,
@@ -2277,6 +2330,7 @@ class _PostNLWidgetState extends State<PostNLWidget>
                           allowShare:
                               postNLViewPostSearchNlRow.allowSharePost!,
                           phoneNumber: postNLViewPostSearchNlRow.phonenumber,
+                          subCat: postNLViewPostSearchNlRow.subCatName!,
                         ),
                       ),
                     ),

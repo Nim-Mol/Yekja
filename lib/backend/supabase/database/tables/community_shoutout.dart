@@ -32,4 +32,16 @@ class CommunityShoutoutRow extends SupabaseDataRow {
 
   String? get header => getField<String>('header');
   set header(String? value) => setField<String>('header', value);
+
+  String? get descriptionFa => getField<String>('description_fa');
+  set descriptionFa(String? value) => setField<String>('description_fa', value);
+
+  String? get descriptionNl => getField<String>('description_nl');
+  set descriptionNl(String? value) => setField<String>('description_nl', value);
+
+  String? get headerFa => getField<String>('header_fa');
+  set headerFa(String? value) => setField<String>('header_fa', value);
+
+  String? get headerNl => getField<String>('header_nl');
+  set headerNl(String? value) => setField<String>('header_nl', value);
 }

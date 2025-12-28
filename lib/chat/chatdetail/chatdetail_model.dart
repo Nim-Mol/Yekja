@@ -1,5 +1,7 @@
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/request_manager.dart';
+
 import '/index.dart';
 import 'chatdetail_widget.dart' show ChatdetailWidget;
 import 'package:flutter/material.dart';
@@ -52,6 +54,23 @@ class ChatdetailModel extends FlutterFlowModel<ChatdetailWidget> {
   // Stores action output result for [Backend Call - Insert Row] action in IconButton widget.
   MessagesRow? messageEn;
 
+  /// Query cache managers for this widget.
+
+  final _chatManager = StreamRequestManager<List<MessagesRow>>();
+  Stream<List<MessagesRow>> chat({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Stream<List<MessagesRow>> Function() requestFn,
+  }) =>
+      _chatManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearChatCache() => _chatManager.clear();
+  void clearChatCacheKey(String? uniqueKey) =>
+      _chatManager.clearRequest(uniqueKey);
+
   @override
   void initState(BuildContext context) {
     chatsListViewScrollController = ScrollController();
@@ -62,5 +81,9 @@ class ChatdetailModel extends FlutterFlowModel<ChatdetailWidget> {
     chatsListViewScrollController?.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
+
+    /// Dispose query cache managers for this widget.
+
+    clearChatCache();
   }
 }

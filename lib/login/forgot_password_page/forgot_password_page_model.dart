@@ -21,7 +21,7 @@ class ForgotPasswordPageModel
   String? _emailTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'tx1anksc' /* please enter valid your email ... */,
+        'tx1anksc' /* please enter your email addres... */,
       );
     }
 

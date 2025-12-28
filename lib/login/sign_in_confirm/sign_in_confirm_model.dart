@@ -29,12 +29,12 @@ class SignInConfirmModel extends FlutterFlowModel<SignInConfirmWidget> {
     }
     if (val.length > 12) {
       return FFLocalizations.of(context).getText(
-        'c1vrjuyc' /* Max 12 characters are required */,
+        'c1vrjuyc' /* Max 12 characters are allowed */,
       );
     }
     if (!RegExp('^[\\u0600-\\u06FF\\s_\\u0660-\\u06690-9]+\$').hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        'xcdq956e' /* Please use only letters (Engli... */,
+        'xcdq956e' /* For security reasons please us... */,
       );
     }
     return null;

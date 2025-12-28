@@ -13,19 +13,10 @@ class DetailCareAndAssistanceModel
   String? dropdownCityValue;
   FormFieldController<String>? dropdownCityValueController;
   DateTime? datePicked;
-  // State field(s) for SwapSwitch widget.
-  bool? swapSwitchValue;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode;
-  TextEditingController? textController;
-  String? Function(BuildContext, String?)? textControllerValidator;
 
   @override
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    textFieldFocusNode?.dispose();
-    textController?.dispose();
-  }
+  void dispose() {}
 }

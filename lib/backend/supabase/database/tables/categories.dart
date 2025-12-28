@@ -26,9 +26,6 @@ class CategoriesRow extends SupabaseDataRow {
   String? get catNameFa => getField<String>('cat_name_fa');
   set catNameFa(String? value) => setField<String>('cat_name_fa', value);
 
-  String? get colorHex => getField<String>('color_hex');
-  set colorHex(String? value) => setField<String>('color_hex', value);
-
   String? get iconImage => getField<String>('icon_image');
   set iconImage(String? value) => setField<String>('icon_image', value);
 
@@ -40,9 +37,6 @@ class CategoriesRow extends SupabaseDataRow {
 
   DateTime get createdAt => getField<DateTime>('created_at')!;
   set createdAt(DateTime value) => setField<DateTime>('created_at', value);
-
-  String? get colorFillHex => getField<String>('color_fill_hex');
-  set colorFillHex(String? value) => setField<String>('color_fill_hex', value);
 
   String? get catNameNl => getField<String>('cat_name_nl');
   set catNameNl(String? value) => setField<String>('cat_name_nl', value);

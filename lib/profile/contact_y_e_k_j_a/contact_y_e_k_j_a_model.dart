@@ -20,8 +20,6 @@ class ContactYEKJAModel extends FlutterFlowModel<ContactYEKJAWidget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
-  // Stores action output result for [Backend Call - Insert Row] action in Container widget.
-  MonitoringLogsRow? fAQClicked;
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'flutter_flow/request_manager.dart';
 import '/backend/schema/structs/index.dart';
+import 'backend/supabase/supabase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
@@ -614,6 +616,112 @@ class FFAppState extends ChangeNotifier {
   set navRoutePost(String value) {
     _navRoutePost = value;
   }
+
+  final _userPostsManager = FutureRequestManager<List<ViewPostFilterRow>>();
+  Future<List<ViewPostFilterRow>> userPosts({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<List<ViewPostFilterRow>> Function() requestFn,
+  }) =>
+      _userPostsManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearUserPostsCache() => _userPostsManager.clear();
+  void clearUserPostsCacheKey(String? uniqueKey) =>
+      _userPostsManager.clearRequest(uniqueKey);
+
+  final _userFavsManager = FutureRequestManager<List<ViewUserFavoritesRow>>();
+  Future<List<ViewUserFavoritesRow>> userFavs({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<List<ViewUserFavoritesRow>> Function() requestFn,
+  }) =>
+      _userFavsManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearUserFavsCache() => _userFavsManager.clear();
+  void clearUserFavsCacheKey(String? uniqueKey) =>
+      _userFavsManager.clearRequest(uniqueKey);
+
+  final _userReviewsManager = FutureRequestManager<List<ViewUserReviewsRow>>();
+  Future<List<ViewUserReviewsRow>> userReviews({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<List<ViewUserReviewsRow>> Function() requestFn,
+  }) =>
+      _userReviewsManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearUserReviewsCache() => _userReviewsManager.clear();
+  void clearUserReviewsCacheKey(String? uniqueKey) =>
+      _userReviewsManager.clearRequest(uniqueKey);
+
+  final _userExtManager = FutureRequestManager<List<UserExtRow>>();
+  Future<List<UserExtRow>> userExt({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<List<UserExtRow>> Function() requestFn,
+  }) =>
+      _userExtManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearUserExtCache() => _userExtManager.clear();
+  void clearUserExtCacheKey(String? uniqueKey) =>
+      _userExtManager.clearRequest(uniqueKey);
+
+  final _citiesManager = FutureRequestManager<List<CitiesRow>>();
+  Future<List<CitiesRow>> cities({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<List<CitiesRow>> Function() requestFn,
+  }) =>
+      _citiesManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearCitiesCache() => _citiesManager.clear();
+  void clearCitiesCacheKey(String? uniqueKey) =>
+      _citiesManager.clearRequest(uniqueKey);
+
+  final _topSubCatManager =
+      FutureRequestManager<List<ViewTopSubcategoriesRow>>();
+  Future<List<ViewTopSubcategoriesRow>> topSubCat({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<List<ViewTopSubcategoriesRow>> Function() requestFn,
+  }) =>
+      _topSubCatManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearTopSubCatCache() => _topSubCatManager.clear();
+  void clearTopSubCatCacheKey(String? uniqueKey) =>
+      _topSubCatManager.clearRequest(uniqueKey);
+
+  final _fAQqueryManager = FutureRequestManager<List<FaqRow>>();
+  Future<List<FaqRow>> fAQquery({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<List<FaqRow>> Function() requestFn,
+  }) =>
+      _fAQqueryManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearFAQqueryCache() => _fAQqueryManager.clear();
+  void clearFAQqueryCacheKey(String? uniqueKey) =>
+      _fAQqueryManager.clearRequest(uniqueKey);
 }
 
 void _safeInit(Function() initializeField) {

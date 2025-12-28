@@ -89,7 +89,7 @@ class _ChatDeleteArchiveWidgetState extends State<ChatDeleteArchiveWidget> {
                 height: 60.0,
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                color: Color(0xFD143E1D),
+                color: FlutterFlowTheme.of(context).greenInit,
                 textStyle: FlutterFlowTheme.of(context).bodyLarge.override(
                       fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
                       letterSpacing: 0.0,
@@ -128,7 +128,7 @@ class _ChatDeleteArchiveWidgetState extends State<ChatDeleteArchiveWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   iconPadding:
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  color: Color(0xFE500403),
+                  color: Color(0xFEA30705),
                   textStyle: FlutterFlowTheme.of(context).bodyLarge.override(
                         fontFamily:
                             FlutterFlowTheme.of(context).bodyLargeFamily,

@@ -349,8 +349,10 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                       subCatName:
                                           searchResultsItem.subCatNameLabel,
                                       title: searchResultsItem.title,
-                                      description:
-                                          searchResultsItem.description,
+                                      description: valueOrDefault<String>(
+                                        searchResultsItem.description,
+                                        'null',
+                                      ),
                                       city: searchResultsItem.city,
                                       likes: searchResultsItem.postLikes,
                                       postID: searchResultsItem.postId,

@@ -1011,16 +1011,14 @@ class _FilterCompWidgetState extends State<FilterCompWidget>
                                                                       .catId)
                                                           ? FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryText
-                                                          : FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryBackground,
+                                                              .primaryWhite
+                                                          : Color(0x00232426),
                                                       width: 0.4,
                                                     ),
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsets.all(4.0),
+                                                        EdgeInsets.all(5.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1082,10 +1080,10 @@ class _FilterCompWidgetState extends State<FilterCompWidget>
                                                                               .catId)
                                                                       ? FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primaryText
+                                                                          .primaryWhite
                                                                       : FlutterFlowTheme.of(
                                                                               context)
-                                                                          .textgray,
+                                                                          .alternate,
                                                                   fontSize:
                                                                       13.0,
                                                                   letterSpacing:
@@ -1728,8 +1726,11 @@ class _FilterCompWidgetState extends State<FilterCompWidget>
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     FutureBuilder<List<CitiesRow>>(
-                                      future: CitiesTable().queryRows(
-                                        queryFn: (q) => q,
+                                      future: FFAppState().cities(
+                                        requestFn: () =>
+                                            CitiesTable().queryRows(
+                                          queryFn: (q) => q,
+                                        ),
                                       ),
                                       builder: (context, snapshot) {
                                         // Customize what your widget looks like when it's loading.

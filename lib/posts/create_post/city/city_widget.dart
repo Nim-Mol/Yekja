@@ -1,8 +1,10 @@
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'city_model.dart';
 export 'city_model.dart';
@@ -189,53 +191,82 @@ class _CityWidgetState extends State<CityWidget> {
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      FlutterFlowDropDown<String>(
-                        controller: _model.dropdownCityValueController ??=
-                            FormFieldController<String>(
-                          _model.dropdownCityValue ??=
-                              FFAppState().postState.city,
+                      FutureBuilder<List<CitiesRow>>(
+                        future: FFAppState().cities(
+                          requestFn: () => CitiesTable().queryRows(
+                            queryFn: (q) => q,
+                          ),
                         ),
-                        options:
-                            FFAppState().citiesApp.map((e) => e.name).toList(),
-                        onChanged: (val) async {
-                          safeSetState(() => _model.dropdownCityValue = val);
-                          FFAppState().updatePostStateStruct(
-                            (e) => e..city = _model.dropdownCityValue,
-                          );
-                          safeSetState(() {});
-                        },
-                        height: 40.0,
-                        textStyle: FlutterFlowTheme.of(context)
-                            .bodyMedium
-                            .override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyMediumFamily,
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                              letterSpacing: 0.0,
-                              useGoogleFonts: !FlutterFlowTheme.of(context)
-                                  .bodyMediumIsCustom,
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: SpinKitChasingDots(
+                                  color: FlutterFlowTheme.of(context).greenInit,
+                                  size: 50.0,
+                                ),
+                              ),
+                            );
+                          }
+                          List<CitiesRow> dropdownCityCitiesRowList =
+                              snapshot.data!;
+
+                          return FlutterFlowDropDown<String>(
+                            controller: _model.dropdownCityValueController ??=
+                                FormFieldController<String>(
+                              _model.dropdownCityValue ??=
+                                  FFAppState().postState.city,
                             ),
-                        hintText: FFLocalizations.of(context).getText(
-                          'eloa7nty' /* Select */,
-                        ),
-                        icon: Icon(
-                          Icons.keyboard_arrow_down_rounded,
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                          size: 24.0,
-                        ),
-                        fillColor:
-                            FlutterFlowTheme.of(context).secondaryBackground,
-                        elevation: 2.0,
-                        borderColor:
-                            FlutterFlowTheme.of(context).secondaryBackground,
-                        borderWidth: 0.0,
-                        borderRadius: 8.0,
-                        margin: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 0.0, 12.0, 0.0),
-                        hidesUnderline: true,
-                        isOverButton: false,
-                        isSearchable: false,
-                        isMultiSelect: false,
+                            options: dropdownCityCitiesRowList
+                                .map((e) => e.name)
+                                .withoutNulls
+                                .toList(),
+                            onChanged: (val) async {
+                              safeSetState(
+                                  () => _model.dropdownCityValue = val);
+                              FFAppState().updatePostStateStruct(
+                                (e) => e..city = _model.dropdownCityValue,
+                              );
+                              safeSetState(() {});
+                            },
+                            height: 40.0,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  letterSpacing: 0.0,
+                                  useGoogleFonts: !FlutterFlowTheme.of(context)
+                                      .bodyMediumIsCustom,
+                                ),
+                            hintText: FFLocalizations.of(context).getText(
+                              'eloa7nty' /* Select */,
+                            ),
+                            icon: Icon(
+                              Icons.keyboard_arrow_down_rounded,
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              size: 24.0,
+                            ),
+                            fillColor: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            elevation: 2.0,
+                            borderColor: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            borderWidth: 0.0,
+                            borderRadius: 8.0,
+                            margin: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 12.0, 0.0),
+                            hidesUnderline: true,
+                            isOverButton: false,
+                            isSearchable: false,
+                            isMultiSelect: false,
+                          );
+                        },
                       ),
                     ],
                   ),

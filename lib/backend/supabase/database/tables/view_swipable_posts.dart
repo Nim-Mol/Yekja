@@ -45,6 +45,12 @@ class ViewSwipablePostsRow extends SupabaseDataRow {
   String? get catName => getField<String>('cat_name');
   set catName(String? value) => setField<String>('cat_name', value);
 
+  String? get catNameFa => getField<String>('cat_name_fa');
+  set catNameFa(String? value) => setField<String>('cat_name_fa', value);
+
+  String? get catNameNl => getField<String>('cat_name_nl');
+  set catNameNl(String? value) => setField<String>('cat_name_nl', value);
+
   String? get detailTable => getField<String>('detail_table');
   set detailTable(String? value) => setField<String>('detail_table', value);
 

@@ -235,8 +235,8 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image: Image.network(
-                                  'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/CommunityMarket.png',
+                                image: Image.asset(
+                                  'assets/images/CommunityMarket.png',
                                 ).image,
                               ),
                             ),

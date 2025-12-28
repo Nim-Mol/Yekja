@@ -552,19 +552,19 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          'n958loab' /* Press confirm if you intend to... */,
+                                                          'n958loab' /* Are you sure? */,
                                                         ),
                                                         cancelText:
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          '46z72kp3' /* Cancel */,
+                                                          '46z72kp3' /* No! */,
                                                         ),
                                                         confirmText:
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          'lkl0kp7h' /* Confirm */,
+                                                          'lkl0kp7h' /* Yes! */,
                                                         ),
                                                         onConfirmAction:
                                                             () async {
@@ -999,9 +999,23 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                           ConfirmCancelPopUpWidget(
                                                         header: 'Delete chat',
                                                         hintText:
-                                                            'Press confirm if you intend to delete this chat.',
-                                                        cancelText: 'Cancel',
-                                                        confirmText: 'Confirm',
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'zr7txmca' /* Are you sure? */,
+                                                        ),
+                                                        cancelText:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'uyq37zum' /* No! */,
+                                                        ),
+                                                        confirmText:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'nsgxgnb8' /* Yes! */,
+                                                        ),
                                                         onConfirmAction:
                                                             () async {
                                                           if (currentUserUid ==
@@ -1439,9 +1453,23 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                           ConfirmCancelPopUpWidget(
                                                         header: 'Delete chat',
                                                         hintText:
-                                                            'Press confirm if you intend to delete this chat.',
-                                                        cancelText: 'Cancel',
-                                                        confirmText: 'Confirm',
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'r28142kn' /* Are you sure? */,
+                                                        ),
+                                                        cancelText:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'wilfy9um' /* No! */,
+                                                        ),
+                                                        confirmText:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          '4c47lq6s' /* Yes! */,
+                                                        ),
                                                         onConfirmAction:
                                                             () async {
                                                           if (currentUserUid ==
@@ -1857,9 +1885,23 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                           ConfirmCancelPopUpWidget(
                                                         header: 'Delete chat',
                                                         hintText:
-                                                            'Press confirm if you intend to delete this chat.',
-                                                        cancelText: 'Cancel',
-                                                        confirmText: 'Confirm',
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'wjqz8gue' /* Are you sure? */,
+                                                        ),
+                                                        cancelText:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'yq7vlbyd' /* No! */,
+                                                        ),
+                                                        confirmText:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          '8zconquf' /* Yes! */,
+                                                        ),
                                                         onConfirmAction:
                                                             () async {
                                                           if (currentUserUid ==
@@ -1959,7 +2001,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                                                                       12.0),
                                                           child: Image.network(
                                                             FFAppConstants
-                                                                .YekjaLogoChat,
+                                                                .YekjaLogo,
                                                             width: 60.0,
                                                             height: 60.0,
                                                             fit: BoxFit.cover,

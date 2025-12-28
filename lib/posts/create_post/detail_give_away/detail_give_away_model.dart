@@ -11,12 +11,6 @@ class DetailGiveAwayModel extends FlutterFlowModel<DetailGiveAwayWidget> {
   // State field(s) for dropdownCity widget.
   String? dropdownCityValue;
   FormFieldController<String>? dropdownCityValueController;
-  // State field(s) for PriceChoice widget.
-  FormFieldController<List<String>>? priceChoiceValueController;
-  String? get priceChoiceValue =>
-      priceChoiceValueController?.value?.firstOrNull;
-  set priceChoiceValue(String? val) =>
-      priceChoiceValueController?.value = val != null ? [val] : [];
   // State field(s) for SwapSwitch widget.
   bool? swapSwitchValue;
   // State field(s) for WishlistField widget.

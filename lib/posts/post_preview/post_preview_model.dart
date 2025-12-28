@@ -28,6 +28,8 @@ class PostPreviewModel extends FlutterFlowModel<PostPreviewWidget> {
 
   bool isClose = true;
 
+  bool celebrationOn = false;
+
   ///  State fields for stateful widgets in this page.
 
   // Model for Photo_gallary component.

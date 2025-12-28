@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.dart';
 import '/shared_components/custom_snackbar/custom_snackbar_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -92,7 +93,7 @@ ongoing ser... */
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .headlineLargeFamily,
-                                    fontSize: 20.0,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                     useGoogleFonts:
@@ -125,7 +126,7 @@ ongoing ser... */
                                             .titleSmallFamily,
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
-                                        fontSize: 16.0,
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                         useGoogleFonts:
@@ -156,9 +157,11 @@ ongoing ser... */
                                       (e) => e..intend = 'One-time',
                                     );
                                     safeSetState(() {});
-
-                                    context
-                                        .pushNamed(PostSubCatWidget.routeName);
+                                    await actions.navigateToDetailForm1(
+                                      context,
+                                      FFAppState().postDetailTable,
+                                      FFAppState().navRoutePost,
+                                    );
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -595,9 +598,11 @@ ongoing ser... */
                                       (e) => e..intend = 'Hosting',
                                     );
                                     _model.updatePage(() {});
-
-                                    context
-                                        .pushNamed(PostSubCatWidget.routeName);
+                                    await actions.navigateToDetailForm1(
+                                      context,
+                                      FFAppState().postDetailTable,
+                                      FFAppState().navRoutePost,
+                                    );
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -699,9 +704,11 @@ ongoing ser... */
                                       (e) => e..intend = 'Announcing',
                                     );
                                     _model.updatePage(() {});
-
-                                    context
-                                        .pushNamed(PostSubCatWidget.routeName);
+                                    await actions.navigateToDetailForm1(
+                                      context,
+                                      FFAppState().postDetailTable,
+                                      FFAppState().navRoutePost,
+                                    );
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -844,7 +851,7 @@ ongoing ser... */
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .headlineLargeFamily,
-                                    fontSize: 20.0,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                     useGoogleFonts:
@@ -877,7 +884,7 @@ ongoing ser... */
                                             .titleSmallFamily,
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
-                                        fontSize: 16.0,
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                         useGoogleFonts:
@@ -944,9 +951,11 @@ ongoing ser... */
                                       (e) => e..intend = 'Buy Request',
                                     );
                                     _model.updatePage(() {});
-
-                                    context
-                                        .pushNamed(PostSubCatWidget.routeName);
+                                    await actions.navigateToDetailForm1(
+                                      context,
+                                      FFAppState().postDetailTable,
+                                      FFAppState().navRoutePost,
+                                    );
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -1006,9 +1015,11 @@ ongoing ser... */
                                       (e) => e..intend = 'Sell Request',
                                     );
                                     _model.updatePage(() {});
-
-                                    context
-                                        .pushNamed(PostSubCatWidget.routeName);
+                                    await actions.navigateToDetailForm1(
+                                      context,
+                                      FFAppState().postDetailTable,
+                                      FFAppState().navRoutePost,
+                                    );
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -1113,7 +1124,7 @@ ongoing ser... */
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .headlineLargeFamily,
-                                    fontSize: 20.0,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                     useGoogleFonts:
@@ -1144,7 +1155,7 @@ ongoing ser... */
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .bodyMediumFamily,
-                                        fontSize: 16.0,
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         useGoogleFonts:
                                             !FlutterFlowTheme.of(context)
@@ -1174,9 +1185,11 @@ ongoing ser... */
                                       (e) => e..intend = 'Swap',
                                     );
                                     _model.updatePage(() {});
-
-                                    context
-                                        .pushNamed(PostSubCatWidget.routeName);
+                                    await actions.navigateToDetailForm1(
+                                      context,
+                                      FFAppState().postDetailTable,
+                                      FFAppState().navRoutePost,
+                                    );
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -1280,9 +1293,11 @@ ongoing ser... */
                                       (e) => e..intend = 'Borrow',
                                     );
                                     _model.updatePage(() {});
-
-                                    context
-                                        .pushNamed(PostSubCatWidget.routeName);
+                                    await actions.navigateToDetailForm1(
+                                      context,
+                                      FFAppState().postDetailTable,
+                                      FFAppState().navRoutePost,
+                                    );
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -1426,7 +1441,7 @@ ongoing ser... */
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .headlineLargeFamily,
-                                    fontSize: 20.0,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                     useGoogleFonts:
@@ -1457,7 +1472,7 @@ ongoing ser... */
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .bodyMediumFamily,
-                                        fontSize: 16.0,
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         useGoogleFonts:
                                             !FlutterFlowTheme.of(context)
@@ -1487,9 +1502,11 @@ ongoing ser... */
                                       (e) => e..intend = 'Offer',
                                     );
                                     _model.updatePage(() {});
-
-                                    context
-                                        .pushNamed(PostSubCatWidget.routeName);
+                                    await actions.navigateToDetailForm1(
+                                      context,
+                                      FFAppState().postDetailTable,
+                                      FFAppState().navRoutePost,
+                                    );
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -1592,9 +1609,11 @@ ongoing ser... */
                                       (e) => e..intend = 'Request',
                                     );
                                     _model.updatePage(() {});
-
-                                    context
-                                        .pushNamed(PostSubCatWidget.routeName);
+                                    await actions.navigateToDetailForm1(
+                                      context,
+                                      FFAppState().postDetailTable,
+                                      FFAppState().navRoutePost,
+                                    );
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -1738,7 +1757,7 @@ ongoing ser... */
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .headlineLargeFamily,
-                                    fontSize: 20.0,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                     useGoogleFonts:
@@ -1769,7 +1788,7 @@ ongoing ser... */
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .bodyMediumFamily,
-                                        fontSize: 16.0,
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         useGoogleFonts:
                                             !FlutterFlowTheme.of(context)
@@ -1799,9 +1818,11 @@ ongoing ser... */
                                       (e) => e..intend = 'Offer',
                                     );
                                     _model.updatePage(() {});
-
-                                    context
-                                        .pushNamed(PostSubCatWidget.routeName);
+                                    await actions.navigateToDetailForm1(
+                                      context,
+                                      FFAppState().postDetailTable,
+                                      FFAppState().navRoutePost,
+                                    );
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -1904,9 +1925,11 @@ ongoing ser... */
                                       (e) => e..intend = 'Request',
                                     );
                                     _model.updatePage(() {});
-
-                                    context
-                                        .pushNamed(PostSubCatWidget.routeName);
+                                    await actions.navigateToDetailForm1(
+                                      context,
+                                      FFAppState().postDetailTable,
+                                      FFAppState().navRoutePost,
+                                    );
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -2050,7 +2073,7 @@ ongoing ser... */
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .headlineLargeFamily,
-                                    fontSize: 20.0,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                     useGoogleFonts:
@@ -2081,7 +2104,7 @@ ongoing ser... */
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .bodyMediumFamily,
-                                        fontSize: 16.0,
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         useGoogleFonts:
                                             !FlutterFlowTheme.of(context)
@@ -2111,9 +2134,11 @@ ongoing ser... */
                                       (e) => e..intend = 'Offer',
                                     );
                                     _model.updatePage(() {});
-
-                                    context
-                                        .pushNamed(PostSubCatWidget.routeName);
+                                    await actions.navigateToDetailForm1(
+                                      context,
+                                      FFAppState().postDetailTable,
+                                      FFAppState().navRoutePost,
+                                    );
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -2216,9 +2241,11 @@ ongoing ser... */
                                       (e) => e..intend = 'Request',
                                     );
                                     _model.updatePage(() {});
-
-                                    context
-                                        .pushNamed(PostSubCatWidget.routeName);
+                                    await actions.navigateToDetailForm1(
+                                      context,
+                                      FFAppState().postDetailTable,
+                                      FFAppState().navRoutePost,
+                                    );
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -2362,7 +2389,7 @@ ongoing ser... */
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .headlineLargeFamily,
-                                    fontSize: 20.0,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                     useGoogleFonts:
@@ -2393,7 +2420,7 @@ ongoing ser... */
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .bodyMediumFamily,
-                                        fontSize: 16.0,
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         useGoogleFonts:
                                             !FlutterFlowTheme.of(context)
@@ -2423,9 +2450,11 @@ ongoing ser... */
                                       (e) => e..intend = 'Offer',
                                     );
                                     _model.updatePage(() {});
-
-                                    context
-                                        .pushNamed(PostSubCatWidget.routeName);
+                                    await actions.navigateToDetailForm1(
+                                      context,
+                                      FFAppState().postDetailTable,
+                                      FFAppState().navRoutePost,
+                                    );
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -2528,9 +2557,11 @@ ongoing ser... */
                                       (e) => e..intend = 'Request',
                                     );
                                     _model.updatePage(() {});
-
-                                    context
-                                        .pushNamed(PostSubCatWidget.routeName);
+                                    await actions.navigateToDetailForm1(
+                                      context,
+                                      FFAppState().postDetailTable,
+                                      FFAppState().navRoutePost,
+                                    );
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(

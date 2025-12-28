@@ -11,9 +11,11 @@ class PostMainCatWidget extends StatefulWidget {
   const PostMainCatWidget({
     super.key,
     this.navRoute,
+    this.mainCat,
   });
 
   final String? navRoute;
+  final int? mainCat;
 
   static String routeName = 'PostMainCat';
   static String routePath = '/postMainCat';
@@ -141,7 +143,7 @@ class _PostMainCatWidgetState extends State<PostMainCatWidget> {
                                     ),
                                     TextSpan(
                                       text: FFLocalizations.of(context).getText(
-                                        'jbvgtm1l' /* 6 */,
+                                        'jbvgtm1l' /* 5 */,
                                       ),
                                       style: TextStyle(),
                                     )
@@ -198,63 +200,67 @@ class _PostMainCatWidgetState extends State<PostMainCatWidget> {
                   ),
                   Align(
                     alignment: AlignmentDirectional(0.0, 1.0),
-                    child: Container(
-                      width: double.infinity,
-                      height: 720.0,
-                      constraints: BoxConstraints(
-                        maxWidth: 480.0,
-                      ),
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).primaryBackground,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(0.0),
-                          bottomRight: Radius.circular(0.0),
-                          topLeft: Radius.circular(24.0),
-                          topRight: Radius.circular(24.0),
+                    child: SafeArea(
+                      child: Container(
+                        width: double.infinity,
+                        constraints: BoxConstraints(
+                          maxWidth: 480.0,
                         ),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
-                        child: SingleChildScrollView(
-                          primary: false,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 16.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        '5ih7nup2' /* What’s your
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(0.0),
+                            bottomRight: Radius.circular(0.0),
+                            topLeft: Radius.circular(24.0),
+                            topRight: Radius.circular(24.0),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          child: SingleChildScrollView(
+                            primary: false,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 16.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 16.0, 0.0, 0.0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            '5ih7nup2' /* What’s your
 new post about? */
-                                        ,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                      style: FlutterFlowTheme.of(context)
-                                          .headlineLarge
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .headlineLargeFamily,
-                                            fontSize: 16.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w600,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .headlineLargeIsCustom,
+                                            ,
                                           ),
-                                    ),
-                                  ],
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .headlineLarge
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineLargeFamily,
+                                                fontSize: 16.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                                useGoogleFonts:
+                                                    !FlutterFlowTheme.of(
+                                                            context)
+                                                        .headlineLargeIsCustom,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              Flexible(
-                                child: ListView(
+                                ListView(
                                   padding: EdgeInsets.zero,
                                   shrinkWrap: true,
                                   scrollDirection: Axis.vertical,
@@ -266,12 +272,24 @@ new post about? */
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         FFAppState().updatePostStateStruct(
-                                          (e) => e..mainCatId = 1,
+                                          (e) => e
+                                            ..mainCatId = 1
+                                            ..catId = null,
                                         );
                                         safeSetState(() {});
 
                                         context.pushNamed(
                                           PostCatWidget.routeName,
+                                          queryParameters: {
+                                            'navRoute': serializeParam(
+                                              '',
+                                              ParamType.String,
+                                            ),
+                                            'mainCat': serializeParam(
+                                              1,
+                                              ParamType.int,
+                                            ),
+                                          }.withoutNulls,
                                           extra: <String, dynamic>{
                                             kTransitionInfoKey: TransitionInfo(
                                               hasTransition: true,
@@ -283,104 +301,118 @@ new post about? */
                                           },
                                         );
                                       },
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          borderRadius:
-                                              BorderRadius.circular(20.0),
-                                          border: Border.all(
-                                            color:
-                                                FFAppState()
-                                                            .postState
-                                                            .mainCatId ==
-                                                        1
-                                                    ? FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary
-                                                    : FlutterFlowTheme.of(
-                                                            context)
-                                                        .bordergray,
-                                            width: FFAppState()
-                                                        .postState
-                                                        .mainCatId ==
-                                                    1
-                                                ? 1.0
-                                                : 0.5,
+                                      child: SafeArea(
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(20.0),
+                                            border: Border.all(
+                                              color:
+                                                  FFAppState()
+                                                              .postState
+                                                              .mainCatId ==
+                                                          1
+                                                      ? FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary
+                                                      : FlutterFlowTheme.of(
+                                                              context)
+                                                          .bordergray,
+                                              width: FFAppState()
+                                                          .postState
+                                                          .mainCatId ==
+                                                      1
+                                                  ? 1.0
+                                                  : 0.5,
+                                            ),
                                           ),
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 10.0, 0.0, 10.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.min,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(12.0),
-                                                child: Image.network(
-                                                  FFAppConstants.SupportImage,
-                                                  width: 70.0,
-                                                  height: 70.0,
-                                                  fit: BoxFit.cover,
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 10.0, 0.0, 10.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                  child: Image.network(
+                                                    FFAppConstants.SupportImage,
+                                                    width: 70.0,
+                                                    height: 70.0,
+                                                    fit: BoxFit.cover,
+                                                  ),
                                                 ),
-                                              ),
-                                              Column(
-                                                mainAxisSize: MainAxisSize.min,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  AutoSizeText(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'k4ql5elb' /* Voluntary Support */,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleLarge
-                                                        .override(
-                                                          fontFamily:
-                                                              'FarsiFonts',
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
+                                                Flexible(
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      AutoSizeText(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'k4ql5elb' /* Community Support  */,
                                                         ),
-                                                  ),
-                                                  AutoSizeText(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'errx5eou' /* Offer or request support */,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w300,
-                                                          useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMediumIsCustom,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .titleLarge
+                                                            .override(
+                                                              fontFamily:
+                                                                  'FarsiFonts',
+                                                              fontSize: 16.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                            ),
+                                                      ),
+                                                      AutoSizeText(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'errx5eou' /* Newcomer support, career suppo... */,
                                                         ),
+                                                        maxLines: 2,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w300,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMediumIsCustom,
+                                                                ),
+                                                      ),
+                                                    ],
                                                   ),
-                                                ],
-                                              ),
-                                            ]
-                                                .divide(SizedBox(width: 16.0))
-                                                .addToStart(
-                                                    SizedBox(width: 16.0)),
+                                                ),
+                                              ]
+                                                  .divide(SizedBox(width: 16.0))
+                                                  .addToStart(
+                                                      SizedBox(width: 16.0)),
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -392,12 +424,20 @@ new post about? */
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         FFAppState().updatePostStateStruct(
-                                          (e) => e..mainCatId = 2,
+                                          (e) => e
+                                            ..mainCatId = 2
+                                            ..catId = null,
                                         );
                                         safeSetState(() {});
 
                                         context.pushNamed(
                                           PostCatWidget.routeName,
+                                          queryParameters: {
+                                            'mainCat': serializeParam(
+                                              2,
+                                              ParamType.int,
+                                            ),
+                                          }.withoutNulls,
                                           extra: <String, dynamic>{
                                             kTransitionInfoKey: TransitionInfo(
                                               hasTransition: true,
@@ -454,34 +494,32 @@ new post about? */
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
-                                              Column(
-                                                mainAxisSize: MainAxisSize.min,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  AutoSizeText(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      '4qyffrty' /* Community Market */,
+                                              Flexible(
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    AutoSizeText(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '4qyffrty' /* Community Market */,
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleLarge
+                                                          .override(
+                                                            fontFamily:
+                                                                'FarsiFonts',
+                                                            fontSize: 16.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleLarge
-                                                        .override(
-                                                          fontFamily:
-                                                              'FarsiFonts',
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                12.0, 0.0),
-                                                    child: AutoSizeText(
+                                                    AutoSizeText(
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
@@ -508,13 +546,13 @@ new post about? */
                                                                     .bodyMediumIsCustom,
                                                           ),
                                                     ),
-                                                  ),
-                                                ],
+                                                  ],
+                                                ),
                                               ),
                                             ]
-                                                .divide(SizedBox(width: 20.0))
+                                                .divide(SizedBox(width: 16.0))
                                                 .addToStart(
-                                                    SizedBox(width: 20.0)),
+                                                    SizedBox(width: 16.0)),
                                           ),
                                         ),
                                       ),
@@ -526,7 +564,9 @@ new post about? */
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         FFAppState().updatePostStateStruct(
-                                          (e) => e..mainCatId = 3,
+                                          (e) => e
+                                            ..mainCatId = 3
+                                            ..catId = null,
                                         );
                                         safeSetState(() {});
 
@@ -536,6 +576,10 @@ new post about? */
                                             'navRoute': serializeParam(
                                               '3',
                                               ParamType.String,
+                                            ),
+                                            'mainCat': serializeParam(
+                                              3,
+                                              ParamType.int,
                                             ),
                                           }.withoutNulls,
                                           extra: <String, dynamic>{
@@ -598,7 +642,7 @@ new post about? */
                                               Flexible(
                                                 child: Column(
                                                   mainAxisSize:
-                                                      MainAxisSize.max,
+                                                      MainAxisSize.min,
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   crossAxisAlignment:
@@ -608,7 +652,7 @@ new post about? */
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'kaywgjyd' /* Premium Services */,
+                                                        'kaywgjyd' /* Services & Jobs */,
                                                       ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
@@ -626,13 +670,13 @@ new post about? */
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
-                                                                  16.0,
+                                                                  12.0,
                                                                   0.0),
                                                       child: AutoSizeText(
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'kyzdos39' /* Skilled professionals, helpers... */,
+                                                          'kyzdos39' /* Technicians, consultants, expe... */,
                                                         ),
                                                         maxLines: 2,
                                                         style:
@@ -678,7 +722,9 @@ new post about? */
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         FFAppState().updatePostStateStruct(
-                                          (e) => e..mainCatId = 4,
+                                          (e) => e
+                                            ..mainCatId = 4
+                                            ..catId = null,
                                         );
                                         safeSetState(() {});
 
@@ -688,6 +734,10 @@ new post about? */
                                             'navRoute': serializeParam(
                                               '4',
                                               ParamType.String,
+                                            ),
+                                            'mainCat': serializeParam(
+                                              4,
+                                              ParamType.int,
                                             ),
                                           }.withoutNulls,
                                           extra: <String, dynamic>{
@@ -746,57 +796,60 @@ new post about? */
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
-                                              Column(
-                                                mainAxisSize: MainAxisSize.min,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  AutoSizeText(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'riperam9' /* Events & 
-Announcements */
-                                                      ,
+                                              Flexible(
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    AutoSizeText(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'riperam9' /* Events  */,
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleLarge
+                                                          .override(
+                                                            fontFamily:
+                                                                'FarsiFonts',
+                                                            fontSize: 16.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleLarge
-                                                        .override(
-                                                          fontFamily:
-                                                              'FarsiFonts',
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                  ),
-                                                  Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'tlce1sd2' /* Host or announce events */,
+                                                    Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'tlce1sd2' /* Cultural, outdoor, sport, musi... */,
+                                                      ),
+                                                      maxLines: 2,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w300,
+                                                            useGoogleFonts:
+                                                                !FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumIsCustom,
+                                                          ),
                                                     ),
-                                                    maxLines: 2,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w300,
-                                                          useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMediumIsCustom,
-                                                        ),
-                                                  ),
-                                                ],
+                                                  ],
+                                                ),
                                               ),
                                             ]
                                                 .divide(SizedBox(width: 16.0))
@@ -808,10 +861,10 @@ Announcements */
                                     ),
                                   ].divide(SizedBox(height: 12.0)),
                                 ),
-                              ),
-                            ]
-                                .divide(SizedBox(height: 50.0))
-                                .addToStart(SizedBox(height: 36.0)),
+                              ]
+                                  .divide(SizedBox(height: 24.0))
+                                  .around(SizedBox(height: 24.0)),
+                            ),
                           ),
                         ),
                       ),

@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -57,6 +58,7 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setAppLanguage(context, 'en');
       _model.timerController.onStartTimer();
     });
 
@@ -105,423 +107,447 @@ class _VerifyCodeWidgetState extends State<VerifyCodeWidget>
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Align(
-      alignment: AlignmentDirectional(0.0, -1.0),
-      child: Container(
-        constraints: BoxConstraints(
-          maxWidth: 480.0,
-          maxHeight: 500.0,
-        ),
-        decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).primaryBackground,
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(8.0),
-            bottomRight: Radius.circular(8.0),
-            topLeft: Radius.circular(8.0),
-            topRight: Radius.circular(8.0),
-          ),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 16.0, 0.0),
-                  child: FlutterFlowIconButton(
-                    borderRadius: 50.0,
-                    buttonSize: 40.0,
-                    fillColor: FlutterFlowTheme.of(context).secondaryBackground,
-                    icon: Icon(
-                      Icons.close,
-                      color: FlutterFlowTheme.of(context).primary,
-                      size: 24.0,
-                    ),
-                    onPressed: () async {
-                      Navigator.pop(context);
-                    },
-                  ),
-                ),
-              ],
+    return Stack(
+      children: [
+        Align(
+          alignment: AlignmentDirectional(0.0, -1.0),
+          child: Container(
+            constraints: BoxConstraints(
+              maxWidth: 480.0,
+              maxHeight: 500.0,
             ),
-            Expanded(
-              child: ListView(
-                padding: EdgeInsets.fromLTRB(
-                  0,
-                  16.0,
-                  0,
-                  24.0,
-                ),
-                scrollDirection: Axis.vertical,
-                children: [
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Align(
-                          alignment: AlignmentDirectional(-1.0, 0.0),
-                          child: Container(
-                            decoration: BoxDecoration(),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 16.0, 0.0, 0.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  'hy8t8fp9' /* A confimation code was sent vi... */,
-                                ),
-                                textAlign: TextAlign.start,
-                                style: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'FarsiFonts',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      fontSize: 17.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                              ),
-                            ),
-                          ),
+            decoration: BoxDecoration(
+              color: FlutterFlowTheme.of(context).primaryBackground,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(8.0),
+                bottomRight: Radius.circular(8.0),
+                topLeft: Radius.circular(8.0),
+                topRight: Radius.circular(8.0),
+              ),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 16.0, 0.0),
+                      child: FlutterFlowIconButton(
+                        borderRadius: 50.0,
+                        buttonSize: 40.0,
+                        fillColor:
+                            FlutterFlowTheme.of(context).secondaryBackground,
+                        icon: Icon(
+                          Icons.close,
+                          color: FlutterFlowTheme.of(context).primary,
+                          size: 24.0,
                         ),
-                        if ((_model.verificationMessage == false) &&
-                            (_model.verificationMessage != null))
-                          Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 16.0, 0.0, 0.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  'unuifogx' /* Wrong or expired code! */,
-                                ),
-                                textAlign: TextAlign.start,
-                                style: FlutterFlowTheme.of(context)
-                                    .labelLarge
-                                    .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .labelLargeFamily,
-                                      color: FlutterFlowTheme.of(context).error,
-                                      letterSpacing: 0.0,
-                                      useGoogleFonts:
-                                          !FlutterFlowTheme.of(context)
-                                              .labelLargeIsCustom,
-                                    ),
-                              ),
-                            ),
-                          ),
-                      ],
-                    ),
-                  ),
-                  Form(
-                    key: _model.formKey,
-                    autovalidateMode: AutovalidateMode.disabled,
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 32.0, 20.0, 32.0),
-                      child: PinCodeTextField(
-                        autoDisposeControllers: false,
-                        appContext: context,
-                        length: 6,
-                        textStyle: FlutterFlowTheme.of(context)
-                            .bodyLarge
-                            .override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyLargeFamily,
-                              letterSpacing: 0.0,
-                              useGoogleFonts: !FlutterFlowTheme.of(context)
-                                  .bodyLargeIsCustom,
-                            ),
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        enableActiveFill: false,
-                        autoFocus: false,
-                        focusNode: _model.pinCodeFocusNode,
-                        enablePinAutofill: false,
-                        errorTextSpace: 16.0,
-                        showCursor: true,
-                        cursorColor: FlutterFlowTheme.of(context).primaryText,
-                        obscureText: false,
-                        keyboardType: TextInputType.number,
-                        pinTheme: PinTheme(
-                          fieldHeight: 51.0,
-                          fieldWidth: 51.0,
-                          borderWidth: 1.0,
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(12.0),
-                            bottomRight: Radius.circular(12.0),
-                            topLeft: Radius.circular(12.0),
-                            topRight: Radius.circular(12.0),
-                          ),
-                          shape: PinCodeFieldShape.box,
-                          activeColor: FlutterFlowTheme.of(context).primary,
-                          inactiveColor: FlutterFlowTheme.of(context).primary,
-                          selectedColor: FlutterFlowTheme.of(context).primary,
-                        ),
-                        controller: _model.pinCodeController,
-                        onChanged: (_) {},
-                        autovalidateMode: AutovalidateMode.disabled,
-                        validator: _model.pinCodeControllerValidator
-                            .asValidator(context),
+                        onPressed: () async {
+                          Navigator.pop(context);
+                        },
                       ),
                     ),
-                  ),
-                  Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
-                      child: Container(
-                        width: 60.0,
-                        child: Stack(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                  ],
+                ),
+                Expanded(
+                  child: ListView(
+                    padding: EdgeInsets.fromLTRB(
+                      0,
+                      16.0,
+                      0,
+                      24.0,
+                    ),
+                    scrollDirection: Axis.vertical,
+                    children: [
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              child: FlutterFlowTimer(
-                                initialTime: _model.timerInitialTimeMs,
-                                getDisplayTime: (value) =>
-                                    StopWatchTimer.getDisplayTime(
-                                  value,
-                                  hours: false,
-                                  milliSecond: false,
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Container(
+                                decoration: BoxDecoration(),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 16.0, 0.0, 0.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'hy8t8fp9' /* A confimation code was sent vi... */,
+                                    ),
+                                    textAlign: TextAlign.start,
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'FarsiFonts',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          fontSize: 17.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                  ),
                                 ),
-                                controller: _model.timerController,
-                                updateStateInterval:
-                                    Duration(milliseconds: 1000),
-                                onChanged: (value, displayTime, shouldUpdate) {
-                                  _model.timerMilliseconds = value;
-                                  _model.timerValue = displayTime;
-                                  if (shouldUpdate) safeSetState(() {});
-                                },
-                                onEnded: () async {
-                                  safeSetState(() {});
-                                },
-                                textAlign: TextAlign.start,
-                                style: FlutterFlowTheme.of(context)
-                                    .titleMedium
-                                    .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .titleMediumFamily,
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      letterSpacing: 0.0,
-                                      useGoogleFonts:
-                                          !FlutterFlowTheme.of(context)
-                                              .titleMediumIsCustom,
-                                    ),
                               ),
                             ),
-                            Opacity(
-                              opacity: 0.5,
-                              child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: Container(
-                                  width: 105.0,
-                                  height: 60.0,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                    border: Border.all(
-                                      color: Color(0x5A12B886),
-                                      width: 5.0,
+                            if ((_model.verificationMessage == false) &&
+                                (_model.verificationMessage != null))
+                              Align(
+                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 16.0, 0.0, 0.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'unuifogx' /* Wrong or expired code! */,
                                     ),
+                                    textAlign: TextAlign.start,
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelLarge
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelLargeFamily,
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          letterSpacing: 0.0,
+                                          useGoogleFonts:
+                                              !FlutterFlowTheme.of(context)
+                                                  .labelLargeIsCustom,
+                                        ),
                                   ),
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                ).animateOnPageLoad(animationsMap[
-                                    'containerOnPageLoadAnimation1']!),
+                                ),
                               ),
-                            ),
-                            Opacity(
-                              opacity: 0.5,
-                              child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: Container(
-                                  width: 105.0,
-                                  height: 60.0,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                    border: Border.all(
-                                      color: Color(0x5A12B886),
-                                      width: 5.0,
-                                    ),
-                                  ),
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                ).animateOnPageLoad(animationsMap[
-                                    'containerOnPageLoadAnimation2']!),
-                              ),
-                            ),
                           ],
                         ),
                       ),
-                    ),
-                  ),
-                  if (_model.timerMilliseconds == 00)
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 20.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          await actions.customSignUpWithEmail(
-                            widget.userEmail!,
-                            widget.password!,
-                            widget.confirmPassword!,
-                          );
-                          _model.timerController.onResetTimer();
-
-                          safeSetState(() {});
-                          _model.timerController.onStartTimer();
-                        },
-                        text: FFLocalizations.of(context).getText(
-                          'vra2s4j2' /* Resend */,
-                        ),
-                        options: FFButtonOptions(
-                          width: double.infinity,
-                          height: 48.0,
+                      Form(
+                        key: _model.formKey,
+                        autovalidateMode: AutovalidateMode.disabled,
+                        child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).navBar,
-                          textStyle: FlutterFlowTheme.of(context)
-                              .titleMedium
-                              .override(
-                                fontFamily: 'FarsiFonts',
-                                color:
-                                    FlutterFlowTheme.of(context).primaryWhite,
-                                fontSize: 16.0,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.w500,
+                              20.0, 32.0, 20.0, 32.0),
+                          child: PinCodeTextField(
+                            autoDisposeControllers: false,
+                            appContext: context,
+                            length: 6,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .bodyLargeFamily,
+                                  letterSpacing: 0.0,
+                                  useGoogleFonts: !FlutterFlowTheme.of(context)
+                                      .bodyLargeIsCustom,
+                                ),
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            enableActiveFill: false,
+                            autoFocus: false,
+                            focusNode: _model.pinCodeFocusNode,
+                            enablePinAutofill: false,
+                            errorTextSpace: 16.0,
+                            showCursor: true,
+                            cursorColor:
+                                FlutterFlowTheme.of(context).primaryText,
+                            obscureText: false,
+                            keyboardType: TextInputType.number,
+                            pinTheme: PinTheme(
+                              fieldHeight: 51.0,
+                              fieldWidth: 51.0,
+                              borderWidth: 1.0,
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(12.0),
+                                bottomRight: Radius.circular(12.0),
+                                topLeft: Radius.circular(12.0),
+                                topRight: Radius.circular(12.0),
                               ),
-                          elevation: 0.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
+                              shape: PinCodeFieldShape.box,
+                              activeColor: FlutterFlowTheme.of(context).primary,
+                              inactiveColor:
+                                  FlutterFlowTheme.of(context).primary,
+                              selectedColor:
+                                  FlutterFlowTheme.of(context).primary,
+                            ),
+                            controller: _model.pinCodeController,
+                            onChanged: (_) {},
+                            autovalidateMode: AutovalidateMode.disabled,
+                            validator: _model.pinCodeControllerValidator
+                                .asValidator(context),
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
                         ),
-                        showLoadingIndicator: false,
                       ),
-                    ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 20.0, 24.0),
-                    child: FFButtonWidget(
-                      onPressed: _model.loading
-                          ? null
-                          : () async {
-                              _model.verificationMessage =
-                                  await actions.verifyEmailWithToken(
-                                widget.userEmail!,
-                                _model.pinCodeController!.text,
-                              );
-                              _model.loading = true;
-                              safeSetState(() {});
-                              if (_model.verificationMessage == true) {
-                                await Future.delayed(
-                                  Duration(
-                                    milliseconds: 3000,
-                                  ),
-                                );
-                                if (FFAppState().GuestInfo.sessionId != '') {
-                                  await MonitoringGuestTable().update(
-                                    data: {
-                                      'signed_up': true,
-                                      'user_id': currentUserUid,
-                                    },
-                                    matchingRows: (rows) => rows.eqOrNull(
-                                      'session_id',
-                                      FFAppState().GuestInfo.sessionId,
+                      Align(
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 16.0),
+                          child: Container(
+                            width: 60.0,
+                            child: Stack(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              children: [
+                                Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: FlutterFlowTimer(
+                                    initialTime: _model.timerInitialTimeMs,
+                                    getDisplayTime: (value) =>
+                                        StopWatchTimer.getDisplayTime(
+                                      value,
+                                      hours: false,
+                                      milliSecond: false,
                                     ),
-                                  );
-                                  FFAppState().GuestInfo = GuestUserStruct();
-                                  safeSetState(() {});
-                                }
-                                _model.userExt = await UserExtTable().insert({
-                                  'id': currentUserUid,
-                                  'email': currentUserEmail,
-                                  'user_name': widget.userName,
-                                });
-                                await ConsentsTable().insert({
-                                  'user_id': currentUserUid,
-                                });
-                                // Creat Chat ROOM
-                                _model.yekjaChat2Customer =
-                                    await ChatsTable().insert({
-                                  'recipient': currentUserUid,
-                                  'sender_name': 'Yekja',
-                                  'sender': FFAppConstants.YekjaAdminID,
-                                  'post_id': FFAppConstants.YekjaAdminID,
-                                });
-                                // Send message
-                                await MessagesTable().insert({
-                                  'message_text': FFLocalizations.of(context)
-                                      .getVariableText(
-                                    enText:
-                                        'Hi, welcome to Yekja!Here you can connect with community members to exchange items, ask for help, or offer your support.If you ever run into any issues, we’re just a message away.',
-                                    faText:
-                                        'سلام، به یکجا خوش آمدید 🌱در یکجا می‌توانید با اعضای جامعه ارتباط بگیرید، چیزی را مبادله کنید، درخواست کمک بدهید یا از دیگران حمایت کنید. اگر در هر مرحله سوالی داشتید یا به مشکلی برخوردید، خوشحال می‌شویم با ما در تماس باشید.امیدواریم اینجا حس خوبی داشته باشید و تجربه‌ای دلنشین در یکجا برایتان رقم بخورد.',
-                                    nlText:
-                                        'Hoi, welkom bij Yekja!Hier kun je makkelijk in contact komen met anderen in de community om te ruilen, hulp te vragen of juist hulp aan te bieden. Mocht je ergens tegenaan lopen of vragen hebben, laat het ons gerust weten.We hopen dat je je hier welkom voelt en met plezier gebruikmaakt van Yekja.',
+                                    controller: _model.timerController,
+                                    updateStateInterval:
+                                        Duration(milliseconds: 1000),
+                                    onChanged:
+                                        (value, displayTime, shouldUpdate) {
+                                      _model.timerMilliseconds = value;
+                                      _model.timerValue = displayTime;
+                                      if (shouldUpdate) safeSetState(() {});
+                                    },
+                                    onEnded: () async {
+                                      safeSetState(() {});
+                                    },
+                                    textAlign: TextAlign.start,
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleMediumFamily,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          letterSpacing: 0.0,
+                                          useGoogleFonts:
+                                              !FlutterFlowTheme.of(context)
+                                                  .titleMediumIsCustom,
+                                        ),
                                   ),
-                                  'recipient': currentUserUid,
-                                  'chat_id': _model.yekjaChat2Customer?.id,
-                                  'sent_by': FFAppConstants.YekjaAdminID,
-                                });
-                                _model.userRole = await actions.decodeJwtRole();
-                                // Update UserInfo global object
-                                FFAppState().userInfo = UserInfoStruct(
-                                  userId: _model.userExt?.id,
-                                  userName: _model.userExt?.userName,
-                                  role: _model.userRole,
-                                );
-                                safeSetState(() {});
-                                _model.loading = false;
-                                safeSetState(() {});
-
-                                context.goNamed(HomePageWidget.routeName);
-                              } else {
-                                safeSetState(() {});
-                              }
+                                ),
+                                Opacity(
+                                  opacity: 0.5,
+                                  child: Align(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Container(
+                                      width: 105.0,
+                                      height: 60.0,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.rectangle,
+                                        border: Border.all(
+                                          color: Color(0x5A12B886),
+                                          width: 5.0,
+                                        ),
+                                      ),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'containerOnPageLoadAnimation1']!),
+                                  ),
+                                ),
+                                Opacity(
+                                  opacity: 0.5,
+                                  child: Align(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Container(
+                                      width: 105.0,
+                                      height: 60.0,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.rectangle,
+                                        border: Border.all(
+                                          color: Color(0x5A12B886),
+                                          width: 5.0,
+                                        ),
+                                      ),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'containerOnPageLoadAnimation2']!),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      if (_model.timerMilliseconds == 00)
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              20.0, 16.0, 20.0, 0.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              await actions.customSignUpWithEmail(
+                                widget.userEmail!,
+                                widget.password!,
+                                widget.confirmPassword!,
+                              );
+                              _model.timerController.onResetTimer();
 
                               safeSetState(() {});
+                              _model.timerController.onStartTimer();
                             },
-                      text: FFLocalizations.of(context).getText(
-                        '62qr2zha' /* Verify Now */,
-                      ),
-                      options: FFButtonOptions(
-                        width: double.infinity,
-                        height: 48.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).greenInit,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleMedium.override(
+                            text: FFLocalizations.of(context).getText(
+                              'vra2s4j2' /* Resend */,
+                            ),
+                            options: FFButtonOptions(
+                              width: double.infinity,
+                              height: 48.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).navBar,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleMedium
+                                  .override(
+                                    fontFamily: 'FarsiFonts',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryWhite,
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                              elevation: 0.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            showLoadingIndicator: false,
+                          ),
+                        ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 16.0, 20.0, 24.0),
+                        child: FFButtonWidget(
+                          onPressed: _model.loading
+                              ? null
+                              : () async {
+                                  _model.verificationMessage =
+                                      await actions.verifyEmailWithToken(
+                                    widget.userEmail!,
+                                    _model.pinCodeController!.text,
+                                  );
+                                  _model.loading = true;
+                                  safeSetState(() {});
+                                  if (_model.verificationMessage == true) {
+                                    await Future.delayed(
+                                      Duration(
+                                        milliseconds: 3000,
+                                      ),
+                                    );
+                                    if (FFAppState().GuestInfo.sessionId !=
+                                            '') {
+                                      await MonitoringGuestTable().update(
+                                        data: {
+                                          'signed_up': true,
+                                          'user_id': currentUserUid,
+                                        },
+                                        matchingRows: (rows) => rows.eqOrNull(
+                                          'session_id',
+                                          FFAppState().GuestInfo.sessionId,
+                                        ),
+                                      );
+                                      FFAppState().GuestInfo =
+                                          GuestUserStruct();
+                                      safeSetState(() {});
+                                    }
+                                    _model.userExt =
+                                        await UserExtTable().insert({
+                                      'id': currentUserUid,
+                                      'email': currentUserEmail,
+                                      'user_name': widget.userName,
+                                    });
+                                    await ConsentsTable().insert({
+                                      'user_id': currentUserUid,
+                                    });
+                                    // Creat Chat ROOM
+                                    _model.yekjaChat2Customer =
+                                        await ChatsTable().insert({
+                                      'recipient': currentUserUid,
+                                      'sender_name': 'Yekja',
+                                      'sender': FFAppConstants.YekjaAdminID,
+                                      'post_id': FFAppConstants.YekjaAdminID,
+                                    });
+                                    // Send message
+                                    await MessagesTable().insert({
+                                      'message_text':
+                                          FFLocalizations.of(context)
+                                              .getVariableText(
+                                        enText:
+                                            'Hi, welcome to Yekja!Here you can connect with community members to exchange items, ask for help, or offer your support.If you ever run into any issues, we’re just a message away.',
+                                        faText:
+                                            'سلام، به یکجا خوش آمدید 🌱در یکجا می‌توانید با اعضای جامعه ارتباط بگیرید، چیزی را مبادله کنید، درخواست کمک بدهید یا از دیگران حمایت کنید. اگر در هر مرحله سوالی داشتید یا به مشکلی برخوردید، خوشحال می‌شویم با ما در تماس باشید.امیدواریم اینجا حس خوبی داشته باشید و تجربه‌ای دلنشین در یکجا برایتان رقم بخورد.',
+                                        nlText:
+                                            'Hoi, welkom bij Yekja!Hier kun je makkelijk in contact komen met anderen in de community om te ruilen, hulp te vragen of juist hulp aan te bieden. Mocht je ergens tegenaan lopen of vragen hebben, laat het ons gerust weten.We hopen dat je je hier welkom voelt en met plezier gebruikmaakt van Yekja.',
+                                      ),
+                                      'recipient': currentUserUid,
+                                      'chat_id': _model.yekjaChat2Customer?.id,
+                                      'sent_by': FFAppConstants.YekjaAdminID,
+                                    });
+                                    _model.userRole =
+                                        await actions.decodeJwtRole();
+                                    // Update UserInfo global object
+                                    FFAppState().userInfo = UserInfoStruct(
+                                      userId: _model.userExt?.id,
+                                      userName: _model.userExt?.userName,
+                                      role: _model.userRole,
+                                    );
+                                    safeSetState(() {});
+                                    _model.loading = false;
+                                    safeSetState(() {});
+
+                                    context.goNamed(HomePageWidget.routeName);
+                                  } else {
+                                    safeSetState(() {});
+                                  }
+
+                                  safeSetState(() {});
+                                },
+                          text: FFLocalizations.of(context).getText(
+                            '62qr2zha' /* Verify Now */,
+                          ),
+                          options: FFButtonOptions(
+                            width: double.infinity,
+                            height: 48.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).greenInit,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .override(
                                   fontFamily: 'FarsiFonts',
                                   color: FlutterFlowTheme.of(context).primary,
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
-                        elevation: 0.0,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
+                            elevation: 0.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
                         ),
-                        borderRadius: BorderRadius.circular(8.0),
                       ),
-                    ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
-      ),
+        wrapWithModel(
+          model: _model.reportBugModel,
+          updateCallback: () => safeSetState(() {}),
+          child: ReportBugWidget(),
+        ),
+      ],
     );
   }
 }

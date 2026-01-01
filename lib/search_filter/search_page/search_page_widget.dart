@@ -1,5 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -8,10 +9,12 @@ import '/search_filter/filter_comp/filter_comp_widget.dart';
 import '/shared_components/item_card_horizontal_2/item_card_horizontal2_widget.dart';
 import '/shared_components/loading_comp/loading_comp_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'search_page_model.dart';
@@ -34,10 +37,13 @@ class SearchPageWidget extends StatefulWidget {
   State<SearchPageWidget> createState() => _SearchPageWidgetState();
 }
 
-class _SearchPageWidgetState extends State<SearchPageWidget> {
+class _SearchPageWidgetState extends State<SearchPageWidget>
+    with TickerProviderStateMixin {
   late SearchPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -61,6 +67,28 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
 
     _model.searchwidget2TextController ??=
         TextEditingController(text: FFAppState().filterAppState.searchTerm);
+
+    animationsMap.addAll({
+      'iconOnActionTriggerAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
+        effectsBuilder: () => [
+          RotateEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -104,6 +132,193 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Flexible(
+                              child: Builder(
+                                builder: (context) {
+                                  final mainCatSelected = FFAppState()
+                                      .filterAppState
+                                      .mainCatId
+                                      .map((e) => e)
+                                      .toList();
+
+                                  return Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children:
+                                        List.generate(mainCatSelected.length,
+                                            (mainCatSelectedIndex) {
+                                      final mainCatSelectedItem =
+                                          mainCatSelected[mainCatSelectedIndex];
+                                      return Text(
+                                        mainCatSelectedItem.toString(),
+                                        maxLines: 4,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .bodyMediumIsCustom,
+                                            ),
+                                      );
+                                    }),
+                                  );
+                                },
+                              ),
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10.0),
+                                  bottomRight: Radius.circular(10.0),
+                                  topLeft: Radius.circular(10.0),
+                                  topRight: Radius.circular(10.0),
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Builder(
+                                    builder: (context) => FFButtonWidget(
+                                      onPressed: () async {
+                                        await showDialog(
+                                          barrierColor: Color(0xAF0E0E0E),
+                                          context: context,
+                                          builder: (dialogContext) {
+                                            return Dialog(
+                                              elevation: 0,
+                                              insetPadding: EdgeInsets.zero,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              alignment:
+                                                  AlignmentDirectional(0.0, 0.0)
+                                                      .resolve(
+                                                          Directionality.of(
+                                                              context)),
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  FocusScope.of(dialogContext)
+                                                      .unfocus();
+                                                  FocusManager
+                                                      .instance.primaryFocus
+                                                      ?.unfocus();
+                                                },
+                                                child: FilterCompWidget(
+                                                  navigateRoute:
+                                                      widget.navigateBackTo!,
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                        );
+                                      },
+                                      text: FFLocalizations.of(context).getText(
+                                        '1je8wpdn' /* Filter */,
+                                      ),
+                                      icon: Icon(
+                                        Icons.filter_list_outlined,
+                                        size: 15.0,
+                                      ),
+                                      options: FFButtonOptions(
+                                        height: 28.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 16.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        iconColor: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmallFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              fontSize: 14.0,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .titleSmallIsCustom,
+                                            ),
+                                        elevation: 0.0,
+                                        borderRadius:
+                                            BorderRadius.circular(24.0),
+                                      ),
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: AlignmentDirectional(1.0, 0.0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 16.0, 0.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          if (animationsMap[
+                                                  'iconOnActionTriggerAnimation'] !=
+                                              null) {
+                                            await animationsMap[
+                                                    'iconOnActionTriggerAnimation']!
+                                                .controller
+                                                .forward(from: 0.0);
+                                          }
+                                          _model.isSearch = false;
+                                          _model.searchText = '';
+                                          safeSetState(() {});
+                                          FFAppState().filterAppState =
+                                              FilterModel2Struct
+                                                  .fromSerializableMap(jsonDecode(
+                                                      '{\"main_cat_id\":\"[]\",\"user_city\":\"[]\",\"cat_id\":\"[]\",\"cat_name\":\"[]\",\"sub_cat_id\":\"[]\",\"sub_cat_name\":\"[]\",\"exchange_wishlist_id\":\"[]\",\"YekjaVerified\":\"[]\",\"city_id\":\"[]\"}'));
+                                          safeSetState(() {});
+                                          safeSetState(() {
+                                            _model.searchwidgetTextController
+                                                    ?.text =
+                                                FFAppState()
+                                                    .filterAppState
+                                                    .searchTerm;
+                                          });
+                                          safeSetState(() => _model
+                                              .listViewSearchPagingController
+                                              ?.refresh());
+                                          await _model
+                                              .waitForOnePageForListViewSearch();
+                                        },
+                                        child: Icon(
+                                          Icons.refresh,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          size: 20.0,
+                                        ),
+                                      ).animateOnActionTrigger(
+                                        animationsMap[
+                                            'iconOnActionTriggerAnimation']!,
+                                      ),
+                                    ),
+                                  ),
+                                ].divide(SizedBox(width: 8.0)),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Flexible(
                               child: Text(
                                 FFLocalizations.of(context).getText(
                                   'h96yelv3' /* Searh Results */,
@@ -120,80 +335,6 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                       fontWeight: FontWeight.w600,
                                     ),
                               ),
-                            ),
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Builder(
-                                  builder: (context) => FFButtonWidget(
-                                    onPressed: () async {
-                                      await showDialog(
-                                        barrierColor: Color(0xAF0E0E0E),
-                                        context: context,
-                                        builder: (dialogContext) {
-                                          return Dialog(
-                                            elevation: 0,
-                                            insetPadding: EdgeInsets.zero,
-                                            backgroundColor: Colors.transparent,
-                                            alignment: AlignmentDirectional(
-                                                    0.0, 0.0)
-                                                .resolve(
-                                                    Directionality.of(context)),
-                                            child: GestureDetector(
-                                              onTap: () {
-                                                FocusScope.of(dialogContext)
-                                                    .unfocus();
-                                                FocusManager
-                                                    .instance.primaryFocus
-                                                    ?.unfocus();
-                                              },
-                                              child: FilterCompWidget(
-                                                navigateRoute:
-                                                    widget.navigateBackTo!,
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                      );
-                                    },
-                                    text: FFLocalizations.of(context).getText(
-                                      '1je8wpdn' /* Filter */,
-                                    ),
-                                    icon: Icon(
-                                      Icons.filter_list_outlined,
-                                      size: 15.0,
-                                    ),
-                                    options: FFButtonOptions(
-                                      height: 28.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 0.0, 16.0, 0.0),
-                                      iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      iconColor: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmallFamily,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            fontSize: 14.0,
-                                            letterSpacing: 0.0,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .titleSmallIsCustom,
-                                          ),
-                                      elevation: 0.0,
-                                      borderRadius: BorderRadius.circular(24.0),
-                                    ),
-                                  ),
-                                ),
-                              ].divide(SizedBox(width: 8.0)),
                             ),
                           ],
                         ),
@@ -368,6 +509,7 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                         ),
                       ),
                     ]
+                        .divide(SizedBox(height: 15.0))
                         .addToStart(SizedBox(height: 50.0))
                         .addToEnd(SizedBox(height: 100.0)),
                   ),
@@ -730,7 +872,7 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      0.0, 10.0, 16.0, 0.0),
+                                                      0.0, 13.0, 16.0, 0.0),
                                               child: InkWell(
                                                 splashColor: Colors.transparent,
                                                 focusColor: Colors.transparent,
@@ -761,7 +903,7 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                                       .waitForOnePageForListViewSearch();
                                                 },
                                                 child: Icon(
-                                                  Icons.refresh,
+                                                  Icons.close_rounded,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primary,
@@ -1274,6 +1416,11 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                       ),
                   ],
                 ),
+              ),
+              wrapWithModel(
+                model: _model.reportBugModel,
+                updateCallback: () => safeSetState(() {}),
+                child: ReportBugWidget(),
               ),
             ],
           ),

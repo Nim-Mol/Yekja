@@ -1,5 +1,6 @@
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import 'sign_in_confirm_widget.dart' show SignInConfirmWidget;
 import 'package:flutter/material.dart';
 
@@ -84,6 +85,8 @@ class SignInConfirmModel extends FlutterFlowModel<SignInConfirmWidget> {
   String? authonticationError;
   // Stores action output result for [Backend Call - Insert Row] action in Button widget.
   MonitoringLogsRow? confirmEmail;
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
 
   @override
   void initState(BuildContext context) {
@@ -91,6 +94,7 @@ class SignInConfirmModel extends FlutterFlowModel<SignInConfirmWidget> {
     emailAddressTextControllerValidator = _emailAddressTextControllerValidator;
     passWordVisibility = false;
     passWordTextControllerValidator = _passWordTextControllerValidator;
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
@@ -103,5 +107,7 @@ class SignInConfirmModel extends FlutterFlowModel<SignInConfirmWidget> {
 
     passWordFocusNode?.dispose();
     passWordTextController?.dispose();
+
+    reportBugModel.dispose();
   }
 }

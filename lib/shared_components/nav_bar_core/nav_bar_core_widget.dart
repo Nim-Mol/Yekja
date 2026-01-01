@@ -43,6 +43,13 @@ class _NavBarCoreWidgetState extends State<NavBarCoreWidget> {
             currentUserUid,
           ),
         );
+        _model.unseenMessages = valueOrDefault<int>(
+          _model.unseen?.firstOrNull?.unseenMessages,
+          0,
+        );
+        safeSetState(() {});
+      } else {
+        return;
       }
     });
 
@@ -196,8 +203,31 @@ class _NavBarCoreWidgetState extends State<NavBarCoreWidget> {
                       ),
                     ),
                   ),
-                  Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      await showDialog(
+                        context: context,
+                        builder: (alertDialogContext) {
+                          return AlertDialog(
+                            title: Text(_model.unseen!.length.toString()),
+                            content: Text(_model
+                                .unseen!.firstOrNull!.unseenMessages!
+                                .toString()),
+                            actions: [
+                              TextButton(
+                                onPressed: () =>
+                                    Navigator.pop(alertDialogContext),
+                                child: Text('Ok'),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    },
                     child: Stack(
                       alignment: AlignmentDirectional(1.0, -1.0),
                       children: [
@@ -258,8 +288,9 @@ class _NavBarCoreWidgetState extends State<NavBarCoreWidget> {
                             ),
                           ),
                         ),
-                        if ((currentUserUid != '') &&
-                            (_model.unseen!.length > 0))
+                        if ((_model.unseen != null &&
+                                (_model.unseen)!.isNotEmpty) &&
+                            (_model.unseenMessages! > 0))
                           Align(
                             alignment: AlignmentDirectional(-1.0, -1.0),
                             child: Padding(

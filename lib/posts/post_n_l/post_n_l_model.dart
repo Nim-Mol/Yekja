@@ -4,6 +4,7 @@ import '/main_overview_pages/post_detail_column/post_detail_column_widget.dart';
 import '/profile/review_card_small/review_card_small_widget.dart';
 import '/shared_components/comunication_bar/comunication_bar_widget.dart';
 import '/shared_components/photo_gallary/photo_gallary_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import 'dart:async';
 import '/flutter_flow/request_manager.dart';
 
@@ -51,6 +52,8 @@ class PostNLModel extends FlutterFlowModel<PostNLWidget> {
   late FlutterFlowDynamicModels<ReviewCardSmallModel> reviewCardSmallModels;
   // Model for Comunication_Bar component.
   late ComunicationBarModel comunicationBarModel;
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
 
   /// Query cache managers for this widget.
 
@@ -76,6 +79,7 @@ class PostNLModel extends FlutterFlowModel<PostNLWidget> {
     reviewCardSmallModels =
         FlutterFlowDynamicModels(() => ReviewCardSmallModel());
     comunicationBarModel = createModel(context, () => ComunicationBarModel());
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
@@ -84,6 +88,7 @@ class PostNLModel extends FlutterFlowModel<PostNLWidget> {
     postDetailColumnModel.dispose();
     reviewCardSmallModels.dispose();
     comunicationBarModel.dispose();
+    reportBugModel.dispose();
 
     /// Dispose query cache managers for this widget.
 

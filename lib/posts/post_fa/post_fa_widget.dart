@@ -1,6 +1,7 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
+import '/components/post_owner_card_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -12,6 +13,7 @@ import '/shared_components/comunication_bar/comunication_bar_widget.dart';
 import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.dart';
 import '/shared_components/custom_snackbar/custom_snackbar_widget.dart';
 import '/shared_components/photo_gallary/photo_gallary_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/shared_components/reporting_popup/reporting_popup_widget.dart';
 import 'dart:async';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -21,7 +23,6 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'post_fa_model.dart';
 export 'post_fa_model.dart';
@@ -1746,436 +1747,25 @@ class _PostFaWidgetState extends State<PostFaWidget>
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Flexible(
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: 85.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        shape: BoxShape.rectangle,
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Builder(
-                                            builder: (context) => InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                if (currentUserUid != '') {
-                                                  context.pushNamed(
-                                                    ProfilePageWidget.routeName,
-                                                    queryParameters: {
-                                                      'profileId':
-                                                          serializeParam(
-                                                        postFaViewPostSearchFaRow
-                                                            .ownerId,
-                                                        ParamType.String,
-                                                      ),
-                                                    }.withoutNulls,
-                                                  );
-                                                } else {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder: (dialogContext) {
-                                                      return Dialog(
-                                                        elevation: 0,
-                                                        insetPadding:
-                                                            EdgeInsets.zero,
-                                                        backgroundColor:
-                                                            Colors.transparent,
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                    0.0, 0.0)
-                                                                .resolve(
-                                                                    Directionality.of(
-                                                                        context)),
-                                                        child:
-                                                            CustomSnackbarWidget(
-                                                          myText:
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                            'airbot6d' /* Please login or signup to see ... */,
-                                                          ),
-                                                          waitMS: 3000,
-                                                          backgroundColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .warning,
-                                                        ),
-                                                      );
-                                                    },
-                                                  );
-                                                }
-                                              },
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Container(
-                                                    width: 70.0,
-                                                    height: 70.0,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Stack(
-                                                      children: [
-                                                        Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsets.all(
-                                                                    1.0),
-                                                            child: Container(
-                                                              width: 60.0,
-                                                              height: 60.0,
-                                                              clipBehavior: Clip
-                                                                  .antiAlias,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                shape: BoxShape
-                                                                    .circle,
-                                                              ),
-                                                              child:
-                                                                  Image.network(
-                                                                postFaViewPostSearchFaRow.showProfileImage ==
-                                                                        true
-                                                                    ? (postFaViewPostSearchFaRow.profileAvatar !=
-                                                                                null &&
-                                                                            postFaViewPostSearchFaRow.profileAvatar !=
-                                                                                ''
-                                                                        ? postFaViewPostSearchFaRow
-                                                                            .profileAvatar!
-                                                                        : FFAppConstants
-                                                                            .DefultProfilePhoto)
-                                                                    : FFAppConstants
-                                                                        .DefultProfilePhoto,
-                                                                fit: BoxFit
-                                                                    .cover,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        if (postFaViewPostSearchFaRow
-                                                                .yekjaVerified ??
-                                                            true)
-                                                          Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    1.0, 1.0),
-                                                            child: ClipRRect(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8.0),
-                                                              child:
-                                                                  Image.network(
-                                                                'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Yekja_badge.png',
-                                                                width: 25.0,
-                                                                height: 25.0,
-                                                                fit: BoxFit
-                                                                    .cover,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(12.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      8.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              postFaViewPostSearchFaRow
-                                                                  .userName,
-                                                              ' user name',
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(
-                                                                    fontWeight: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontWeight,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  fontSize:
-                                                                      18.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      -1.0,
-                                                                      0.0),
-                                                              child: ClipRRect(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8.0),
-                                                                child: Image
-                                                                    .network(
-                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/y0l0lllp2v7b/star_animated.gif',
-                                                                  width: 30.0,
-                                                                  height: 30.0,
-                                                                  fit: BoxFit
-                                                                      .cover,
-                                                                ),
-                                                              ),
-                                                            ),
-                                                            Text(
-                                                              '${valueOrDefault<String>(
-                                                                postFaViewPostSearchFaRow
-                                                                    .review
-                                                                    ?.toString(),
-                                                                '1',
-                                                              )} (${valueOrDefault<String>(
-                                                                postFaViewPostSearchFaRow
-                                                                    .ratings
-                                                                    ?.toString(),
-                                                                '1',
-                                                              )})',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    useGoogleFonts:
-                                                                        !FlutterFlowTheme.of(context)
-                                                                            .bodyMediumIsCustom,
-                                                                  ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsets.all(
-                                                                  4.0),
-                                                          child: Container(
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                              boxShadow: [
-                                                                BoxShadow(
-                                                                  blurRadius:
-                                                                      2.0,
-                                                                  color: Color(
-                                                                      0xB039D2C0),
-                                                                  offset:
-                                                                      Offset(
-                                                                    2.0,
-                                                                    0.0,
-                                                                  ),
-                                                                )
-                                                              ],
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8.0),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ].divide(SizedBox(
-                                                          height: 4.0)),
-                                                    ),
-                                                  ),
-                                                ]
-                                                    .divide(
-                                                        SizedBox(width: 4.0))
-                                                    .addToStart(
-                                                        SizedBox(width: 4.0)),
-                                              ),
-                                            ),
-                                          ),
-                                          if (postFaViewPostSearchFaRow
-                                                  .showSocialmedia ??
-                                              true)
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsets.all(16.0),
-                                                  child: Container(
-                                                    decoration: BoxDecoration(),
-                                                    child: Builder(
-                                                      builder: (context) =>
-                                                          InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          if (currentUserUid !=
-                                                                  '') {
-                                                            if (FFAppState()
-                                                                        .userInfo
-                                                                        .instaLink ==
-                                                                    '') {
-                                                              await launchURL(
-                                                                  FFAppState()
-                                                                      .userInfo
-                                                                      .instaLink);
-                                                            } else {
-                                                              await showDialog(
-                                                                context:
-                                                                    context,
-                                                                builder:
-                                                                    (dialogContext) {
-                                                                  return Dialog(
-                                                                    elevation:
-                                                                        0,
-                                                                    insetPadding:
-                                                                        EdgeInsets
-                                                                            .zero,
-                                                                    backgroundColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    alignment: AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0)
-                                                                        .resolve(
-                                                                            Directionality.of(context)),
-                                                                    child:
-                                                                        CustomSnackbarWidget(
-                                                                      myText: FFLocalizations.of(
-                                                                              context)
-                                                                          .getText(
-                                                                        '637p4xt4' /* Instagram link is not set. */,
-                                                                      ),
-                                                                      waitMS:
-                                                                          3000,
-                                                                      backgroundColor:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .warning,
-                                                                    ),
-                                                                  );
-                                                                },
-                                                              );
-                                                            }
-
-                                                            return;
-                                                          } else {
-                                                            await showDialog(
-                                                              context: context,
-                                                              builder:
-                                                                  (dialogContext) {
-                                                                return Dialog(
-                                                                  elevation: 0,
-                                                                  insetPadding:
-                                                                      EdgeInsets
-                                                                          .zero,
-                                                                  backgroundColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  alignment: AlignmentDirectional(
-                                                                          0.0,
-                                                                          0.0)
-                                                                      .resolve(
-                                                                          Directionality.of(
-                                                                              context)),
-                                                                  child:
-                                                                      CustomSnackbarWidget(
-                                                                    myText: FFLocalizations.of(
-                                                                            context)
-                                                                        .getText(
-                                                                      'jtpnqlrh' /* Please login or signup to see ... */,
-                                                                    ),
-                                                                    waitMS:
-                                                                        3000,
-                                                                    backgroundColor:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .warning,
-                                                                  ),
-                                                                );
-                                                              },
-                                                            );
-
-                                                            return;
-                                                          }
-                                                        },
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                          child: Image.asset(
-                                                            'assets/images/instagram.png',
-                                                            width: 50.0,
-                                                            height: 50.0,
-                                                            fit: BoxFit.fill,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                        ],
+                                  Expanded(
+                                    child: wrapWithModel(
+                                      model: _model.postOwnerCardModel,
+                                      updateCallback: () => safeSetState(() {}),
+                                      child: PostOwnerCardWidget(
+                                        consentShowProfile:
+                                            postFaViewPostSearchFaRow
+                                                .showProfileImage!,
+                                        userAvatar: postFaViewPostSearchFaRow
+                                            .profileAvatar,
+                                        ownerUsername:
+                                            postFaViewPostSearchFaRow
+                                                .userName!,
+                                        avarageReviewScore:
+                                            postFaViewPostSearchFaRow.review,
+                                        totalReviwer:
+                                            postFaViewPostSearchFaRow.ratings,
+                                        profileId:
+                                            postFaViewPostSearchFaRow.ownerId!,
                                       ),
                                     ),
                                   ),
@@ -2338,6 +1928,11 @@ class _PostFaWidgetState extends State<PostFaWidget>
                           subCat: postFaViewPostSearchFaRow.subCatName!,
                         ),
                       ),
+                    ),
+                    wrapWithModel(
+                      model: _model.reportBugModel,
+                      updateCallback: () => safeSetState(() {}),
+                      child: ReportBugWidget(),
                     ),
                   ],
                 ),

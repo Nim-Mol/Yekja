@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/main_overview_pages/item_card_global/item_card_global_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/shared_components/shout_out_card/shout_out_card_widget.dart';
 import '/flutter_flow/request_manager.dart';
 
@@ -81,6 +82,8 @@ class MainPageModel extends FlutterFlowModel<MainPageWidget> {
   late FlutterFlowDynamicModels<ItemCardGlobalModel> itemCardGlobalModels4;
   // Model for NavBar component.
   late NavBarModel navBarModel;
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
 
   /// Query cache managers for this widget.
 
@@ -111,6 +114,7 @@ class MainPageModel extends FlutterFlowModel<MainPageWidget> {
     itemCardGlobalModels4 =
         FlutterFlowDynamicModels(() => ItemCardGlobalModel());
     navBarModel = createModel(context, () => NavBarModel());
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
@@ -126,6 +130,7 @@ class MainPageModel extends FlutterFlowModel<MainPageWidget> {
     listviewEventsPagingController?.dispose();
     itemCardGlobalModels4.dispose();
     navBarModel.dispose();
+    reportBugModel.dispose();
 
     /// Dispose query cache managers for this widget.
 

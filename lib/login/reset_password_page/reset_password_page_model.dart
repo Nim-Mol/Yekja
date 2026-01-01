@@ -1,4 +1,5 @@
 import '/flutter_flow/flutter_flow_util.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'reset_password_page_widget.dart' show ResetPasswordPageWidget;
 import 'package:flutter/material.dart';
@@ -54,6 +55,9 @@ class ResetPasswordPageModel extends FlutterFlowModel<ResetPasswordPageWidget> {
     return null;
   }
 
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
+
   @override
   void initState(BuildContext context) {
     passwordVisibility = false;
@@ -61,6 +65,7 @@ class ResetPasswordPageModel extends FlutterFlowModel<ResetPasswordPageWidget> {
     confirmPasswordVisibility = false;
     confirmPasswordTextControllerValidator =
         _confirmPasswordTextControllerValidator;
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
@@ -70,5 +75,7 @@ class ResetPasswordPageModel extends FlutterFlowModel<ResetPasswordPageWidget> {
 
     confirmPasswordFocusNode?.dispose();
     confirmPasswordTextController?.dispose();
+
+    reportBugModel.dispose();
   }
 }

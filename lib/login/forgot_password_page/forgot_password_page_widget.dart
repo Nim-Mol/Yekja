@@ -4,9 +4,11 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'forgot_password_page_model.dart';
 export 'forgot_password_page_model.dart';
 
@@ -30,6 +32,11 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ForgotPasswordPageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setAppLanguage(context, 'en');
+    });
 
     _model.emailTextController ??= TextEditingController();
     _model.emailFocusNode ??= FocusNode();
@@ -401,6 +408,11 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                         ),
                       ],
                     ),
+                  ),
+                  wrapWithModel(
+                    model: _model.reportBugModel,
+                    updateCallback: () => safeSetState(() {}),
+                    child: ReportBugWidget(),
                   ),
                 ],
               ),

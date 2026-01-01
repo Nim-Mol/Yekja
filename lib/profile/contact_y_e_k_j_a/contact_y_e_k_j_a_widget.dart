@@ -201,13 +201,81 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Expanded(
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                await launchURL('https://wa.me/31617063942');
+                              },
+                              child: Container(
+                                width: 120.0,
+                                constraints: BoxConstraints(
+                                  maxWidth: 500.0,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: Color(0xF8C9D7C9),
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      8.0, 16.0, 8.0, 16.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.asset(
+                                          'assets/images/whatsapp.png',
+                                          width: 40.0,
+                                          height: 40.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 10.0, 0.0, 0.0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'ydnrk5zy' /* App Us */,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    !FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMediumIsCustom,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
                             child: Container(
                               width: 120.0,
                               constraints: BoxConstraints(
                                 maxWidth: 500.0,
                               ),
                               decoration: BoxDecoration(
-                                color: Color(0xFFBC2626),
+                                color: Color(0xFF555454),
                                 borderRadius: BorderRadius.circular(12.0),
                               ),
                               child: Padding(
@@ -220,8 +288,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                   children: [
                                     Icon(
                                       Icons.local_phone,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryWhite,
+                                      color: Color(0xFF9D9A9A),
                                       size: 36.0,
                                     ),
                                     Padding(
@@ -229,7 +296,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                           0.0, 12.0, 0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          'ydnrk5zy' /* Call Us */,
+                                          'u9lm95sn' /* Call Us */,
                                         ),
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
@@ -238,9 +305,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMediumFamily,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryWhite,
+                                              color: Color(0xFF9D9A9A),
                                               letterSpacing: 0.0,
                                               useGoogleFonts:
                                                   !FlutterFlowTheme.of(context)
@@ -268,7 +333,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                   maxWidth: 500.0,
                                 ),
                                 decoration: BoxDecoration(
-                                  color: Color(0xFF046595),
+                                  color: Color(0xFF4F8DAD),
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 child: Padding(
@@ -283,7 +348,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                       Icon(
                                         Icons.search_rounded,
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryWhite,
+                                            .primary,
                                         size: 36.0,
                                       ),
                                       Padding(
@@ -302,7 +367,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                                         .bodyMediumFamily,
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primaryWhite,
+                                                        .primary,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts:
                                                     !FlutterFlowTheme.of(

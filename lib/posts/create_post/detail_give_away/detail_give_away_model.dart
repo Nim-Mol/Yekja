@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'detail_give_away_widget.dart' show DetailGiveAwayWidget;
 import 'package:flutter/material.dart';
@@ -34,16 +35,21 @@ class DetailGiveAwayModel extends FlutterFlowModel<DetailGiveAwayWidget> {
 
   // Stores action output result for [Validate Form] action in WishlistField widget.
   bool? validationResultWhishlist;
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
 
   @override
   void initState(BuildContext context) {
     wishlistFieldTextControllerValidator =
         _wishlistFieldTextControllerValidator;
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
   void dispose() {
     wishlistFieldFocusNode?.dispose();
     wishlistFieldTextController?.dispose();
+
+    reportBugModel.dispose();
   }
 }

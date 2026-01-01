@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'detail_events_widget.dart' show DetailEventsWidget;
 import 'package:flutter/material.dart';
@@ -70,12 +71,15 @@ class DetailEventsModel extends FlutterFlowModel<DetailEventsWidget> {
   FocusNode? textFieldFocusNode3;
   TextEditingController? textController5;
   String? Function(BuildContext, String?)? textController5Validator;
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
 
   @override
   void initState(BuildContext context) {
     priceFieldTextControllerValidator = _priceFieldTextControllerValidator;
     capacityFieldTextControllerValidator =
         _capacityFieldTextControllerValidator;
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
@@ -94,5 +98,7 @@ class DetailEventsModel extends FlutterFlowModel<DetailEventsWidget> {
 
     textFieldFocusNode3?.dispose();
     textController5?.dispose();
+
+    reportBugModel.dispose();
   }
 }

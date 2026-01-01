@@ -43,7 +43,6 @@ dependencies:
   equatable: 2.0.7
   expandable: 5.0.1
   file_picker: 10.1.9
-  fl_chart: 1.0.0
   flip_card: 0.7.0
   flutter_animate: 4.5.0
   flutter_cache_manager: 3.4.1

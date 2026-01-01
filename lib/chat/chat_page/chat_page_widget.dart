@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'dart:async';
@@ -2237,6 +2238,11 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                           updateCallback: () => safeSetState(() {}),
                           child: NavBarWidget(),
                         ),
+                      ),
+                      wrapWithModel(
+                        model: _model.reportBugModel,
+                        updateCallback: () => safeSetState(() {}),
+                        child: ReportBugWidget(),
                       ),
                     ],
                   ),

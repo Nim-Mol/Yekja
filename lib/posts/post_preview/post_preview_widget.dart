@@ -1,6 +1,7 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
+import '/components/post_owner_card_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -11,6 +12,7 @@ import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.da
 import '/shared_components/custom_snackbar/custom_snackbar_widget.dart';
 import '/shared_components/error_pop_up/error_pop_up_widget.dart';
 import '/shared_components/photo_gallary/photo_gallary_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
@@ -487,302 +489,18 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Flexible(
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: 85.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            if (currentUserUid != '') {
-                                              context.pushNamed(
-                                                ProfilePageWidget.routeName,
-                                                queryParameters: {
-                                                  'profileId': serializeParam(
-                                                    currentUserUid,
-                                                    ParamType.String,
-                                                  ),
-                                                }.withoutNulls,
-                                              );
-                                            } else {
-                                              ScaffoldMessenger.of(context)
-                                                  .showSnackBar(
-                                                SnackBar(
-                                                  content: Text(
-                                                    'Please login or signup if you wat to enable post creation.  ',
-                                                    style: TextStyle(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryText,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                    ),
-                                                    textAlign: TextAlign.center,
-                                                  ),
-                                                  duration: Duration(
-                                                      milliseconds: 5000),
-                                                  backgroundColor:
-                                                      Color(0xFFBA8D08),
-                                                ),
-                                              );
-                                            }
-                                          },
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.min,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Container(
-                                                width: 70.0,
-                                                height: 70.0,
-                                                decoration: BoxDecoration(
-                                                  shape: BoxShape.circle,
-                                                ),
-                                                child: Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsets.all(1.0),
-                                                    child: Container(
-                                                      width: 60.0,
-                                                      height: 60.0,
-                                                      clipBehavior:
-                                                          Clip.antiAlias,
-                                                      decoration: BoxDecoration(
-                                                        shape: BoxShape.circle,
-                                                      ),
-                                                      child: Image.network(
-                                                        UserInfoStruct()
-                                                                        .avatar !=
-                                                                    ''
-                                                            ? valueOrDefault<
-                                                                String>(
-                                                                FFAppState()
-                                                                    .userInfo
-                                                                    .avatar,
-                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/n2imhdlvogb3/profile_avatar_circular.png',
-                                                              )
-                                                            : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/n2imhdlvogb3/profile_avatar_circular.png',
-                                                        fit: BoxFit.cover,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 8.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      FFAppState()
-                                                          .userInfo
-                                                          .userName,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .poppins(
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                fontSize: 18.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontWeight,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                    ),
-                                                  ),
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                -1.0, 0.0),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                          child: Image.network(
-                                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/y0l0lllp2v7b/star_animated.gif',
-                                                            width: 30.0,
-                                                            height: 30.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsets.all(4.0),
-                                                    child: Container(
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        boxShadow: [
-                                                          BoxShadow(
-                                                            blurRadius: 2.0,
-                                                            color: Color(
-                                                                0xB039D2C0),
-                                                            offset: Offset(
-                                                              2.0,
-                                                              0.0,
-                                                            ),
-                                                          )
-                                                        ],
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ].divide(SizedBox(height: 4.0)),
-                                              ),
-                                            ].divide(SizedBox(width: 16.0)),
-                                          ),
-                                        ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsets.all(16.0),
-                                              child: Container(
-                                                decoration: BoxDecoration(),
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    if (currentUserUid != '') {
-                                                      if (FFAppState()
-                                                                  .userInfo
-                                                                  .instaLink ==
-                                                              '') {
-                                                        await launchURL(
-                                                            FFAppState()
-                                                                .userInfo
-                                                                .instaLink);
-                                                      } else {
-                                                        ScaffoldMessenger.of(
-                                                                context)
-                                                            .showSnackBar(
-                                                          SnackBar(
-                                                            content: Text(
-                                                              'Instagram link it not set.',
-                                                              style: TextStyle(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .warning,
-                                                              ),
-                                                            ),
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    4000),
-                                                            backgroundColor:
-                                                                Color(
-                                                                    0x42BA8D08),
-                                                          ),
-                                                        );
-                                                      }
-
-                                                      return;
-                                                    } else {
-                                                      ScaffoldMessenger.of(
-                                                              context)
-                                                          .showSnackBar(
-                                                        SnackBar(
-                                                          content: Text(
-                                                            'Please login or signup if you wat to enable post creation.  ',
-                                                            style: TextStyle(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryText,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                            ),
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                          ),
-                                                          duration: Duration(
-                                                              milliseconds:
-                                                                  5000),
-                                                          backgroundColor:
-                                                              Color(0xFFBA8D08),
-                                                        ),
-                                                      );
-                                                      return;
-                                                    }
-                                                  },
-                                                  child: ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                    child: Image.asset(
-                                                      'assets/images/instagram.png',
-                                                      width: 50.0,
-                                                      height: 50.0,
-                                                      fit: BoxFit.fill,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
+                              Expanded(
+                                child: wrapWithModel(
+                                  model: _model.postOwnerCardModel,
+                                  updateCallback: () => safeSetState(() {}),
+                                  child: PostOwnerCardWidget(
+                                    consentShowProfile: true,
+                                    userAvatar: FFAppState().userInfo.avatar,
+                                    ownerUsername:
+                                        FFAppState().userInfo.userName,
+                                    avarageReviewScore: 3.2,
+                                    totalReviwer: 99,
+                                    profileId: currentUserUid,
                                   ),
                                 ),
                               ),
@@ -1026,6 +744,8 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                       onPressed: () async {
                                         _model.celebrationOn = true;
                                         safeSetState(() {});
+                                        FFAppState().clearUserPostsCacheKey(
+                                            currentUserUid);
                                         await showDialog(
                                           context: context,
                                           builder: (dialogContext) {
@@ -1092,6 +812,7 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                                                 .postDetailTable,
                                                         'details': FFAppState()
                                                             .postDetailJSON,
+                                                        'post_id': '',
                                                       });
                                                     }(),
                                                   );
@@ -1273,6 +994,11 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                       ),
                     ),
                   ),
+                wrapWithModel(
+                  model: _model.reportBugModel,
+                  updateCallback: () => safeSetState(() {}),
+                  child: ReportBugWidget(),
+                ),
               ],
             ),
           ),

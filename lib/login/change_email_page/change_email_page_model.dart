@@ -1,5 +1,7 @@
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/instant_timer.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'change_email_page_widget.dart' show ChangeEmailPageWidget;
 import 'package:stop_watch_timer/stop_watch_timer.dart';
@@ -35,6 +37,7 @@ class ChangeEmailPageModel extends FlutterFlowModel<ChangeEmailPageWidget> {
     return null;
   }
 
+  InstantTimer? instantTimer;
   // State field(s) for Timer widget.
   final timerInitialTimeMs = 60000;
   int timerMilliseconds = 60000;
@@ -46,9 +49,13 @@ class ChangeEmailPageModel extends FlutterFlowModel<ChangeEmailPageWidget> {
   FlutterFlowTimerController timerController =
       FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
 
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
+
   @override
   void initState(BuildContext context) {
     newEmialTextControllerValidator = _newEmialTextControllerValidator;
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
@@ -56,6 +63,8 @@ class ChangeEmailPageModel extends FlutterFlowModel<ChangeEmailPageWidget> {
     newEmialFocusNode?.dispose();
     newEmialTextController?.dispose();
 
+    instantTimer?.cancel();
     timerController.dispose();
+    reportBugModel.dispose();
   }
 }

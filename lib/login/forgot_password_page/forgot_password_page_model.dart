@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'forgot_password_page_widget.dart' show ForgotPasswordPageWidget;
 import 'package:stop_watch_timer/stop_watch_timer.dart';
@@ -44,9 +45,13 @@ class ForgotPasswordPageModel
   FlutterFlowTimerController timerController =
       FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
 
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
+
   @override
   void initState(BuildContext context) {
     emailTextControllerValidator = _emailTextControllerValidator;
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
@@ -55,5 +60,6 @@ class ForgotPasswordPageModel
     emailTextController?.dispose();
 
     timerController.dispose();
+    reportBugModel.dispose();
   }
 }

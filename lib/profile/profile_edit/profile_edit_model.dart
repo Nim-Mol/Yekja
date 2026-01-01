@@ -1,6 +1,7 @@
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'profile_edit_widget.dart' show ProfileEditWidget;
 import 'package:expandable/expandable.dart';
@@ -177,8 +178,6 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
   List<UserExtRow>? updatedUser;
   // State field(s) for AllowProfilePhoto widget.
   bool? allowProfilePhotoValue;
-  // State field(s) for AllowSocialMedia widget.
-  bool? allowSocialMediaValue;
   // State field(s) for AllowFavList widget.
   bool? allowFavListValue;
   // State field(s) for AllowCall widget.
@@ -191,6 +190,8 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
   bool? allowMessageValue3;
   // Stores action output result for [Backend Call - Update Row(s)] action in Save widget.
   List<ConsentsRow>? savedInfo;
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
 
   @override
   void initState(BuildContext context) {
@@ -199,6 +200,7 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
     lastNameTextControllerValidator = _lastNameTextControllerValidator;
     biographyTextControllerValidator = _biographyTextControllerValidator;
     phoneNumberTextControllerValidator = _phoneNumberTextControllerValidator;
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
@@ -223,5 +225,7 @@ class ProfileEditModel extends FlutterFlowModel<ProfileEditWidget> {
 
     phoneNumberFocusNode?.dispose();
     phoneNumberTextController?.dispose();
+
+    reportBugModel.dispose();
   }
 }

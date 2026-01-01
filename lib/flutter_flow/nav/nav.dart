@@ -101,19 +101,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => FaqWidget(),
         ),
         FFRoute(
-          name: DashboardWidget.routeName,
-          path: DashboardWidget.routePath,
-          builder: (context, params) => DashboardWidget(),
-        ),
-        FFRoute(
           name: EventsWidget.routeName,
           path: EventsWidget.routePath,
           builder: (context, params) => EventsWidget(),
-        ),
-        FFRoute(
-          name: ReportedPostWidget.routeName,
-          path: ReportedPostWidget.routePath,
-          builder: (context, params) => ReportedPostWidget(),
         ),
         FFRoute(
           name: OnboardingPageWidget.routeName,
@@ -153,11 +143,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           name: TermsConditionsPageWidget.routeName,
           path: TermsConditionsPageWidget.routePath,
           builder: (context, params) => TermsConditionsPageWidget(),
-        ),
-        FFRoute(
-          name: ReportedUserWidget.routeName,
-          path: ReportedUserWidget.routePath,
-          builder: (context, params) => ReportedUserWidget(),
         ),
         FFRoute(
           name: SwipableWidget.routeName,

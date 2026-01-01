@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/profile/review_card/review_card_widget.dart';
 import '/shared_components/item_card_horizental/item_card_horizental_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'profile_extended_widget.dart' show ProfileExtendedWidget;
 import 'package:flutter/material.dart';
@@ -29,6 +30,8 @@ class ProfileExtendedModel extends FlutterFlowModel<ProfileExtendedWidget> {
   late FlutterFlowDynamicModels<ReviewCardModel> reviewCardModels;
   // Model for NavBar component.
   late NavBarModel navBarModel;
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
 
   @override
   void initState(BuildContext context) {
@@ -38,6 +41,7 @@ class ProfileExtendedModel extends FlutterFlowModel<ProfileExtendedWidget> {
         FlutterFlowDynamicModels(() => ItemCardHorizentalModel());
     reviewCardModels = FlutterFlowDynamicModels(() => ReviewCardModel());
     navBarModel = createModel(context, () => NavBarModel());
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
@@ -47,5 +51,6 @@ class ProfileExtendedModel extends FlutterFlowModel<ProfileExtendedWidget> {
     itemCardHorizentalModels2.dispose();
     reviewCardModels.dispose();
     navBarModel.dispose();
+    reportBugModel.dispose();
   }
 }

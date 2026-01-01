@@ -4,13 +4,13 @@ import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/profile/profile_setting/profile_setting_widget.dart';
 import '/profile/review_card/review_card_widget.dart';
 import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.dart';
 import '/shared_components/item_card_horizental/item_card_horizental_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/shared_components/reporting_popup/reporting_popup_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
@@ -94,18 +94,6 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
     )..addListener(() => safeSetState(() {}));
 
     animationsMap.addAll({
-      'rowOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(-41.0, -0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
       'iconOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -286,85 +274,44 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                           ),
                                         ),
                                       ),
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 0.0, 0.0),
-                                            child: FlutterFlowIconButton(
-                                              borderRadius: 50.0,
-                                              buttonSize: 40.0,
-                                              fillColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              icon: Icon(
-                                                Icons.chevron_left,
-                                                color:
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(1.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      16.0, 0.0, 0.0, 0.0),
+                                              child: FlutterFlowIconButton(
+                                                borderRadius: 50.0,
+                                                buttonSize: 40.0,
+                                                fillColor:
                                                     FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                size: 24.0,
+                                                        .primaryBackground,
+                                                icon: Icon(
+                                                  Icons.chevron_left,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  size: 24.0,
+                                                ),
+                                                onPressed: () async {
+                                                  context.safePop();
+                                                },
                                               ),
-                                              onPressed: () async {
-                                                context.safePop();
-                                              },
                                             ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 16.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                if (!FFAppState().IsGust)
-                                                  Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            1.0, 0.0),
-                                                    child: Container(
-                                                      width: 40.0,
-                                                      height: 40.0,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .primaryBackground,
-                                                        shape: BoxShape.circle,
-                                                      ),
-                                                      child: ToggleIcon(
-                                                        onPressed: () async {
-                                                          safeSetState(() =>
-                                                              _model.isClose =
-                                                                  !_model
-                                                                      .isClose);
-                                                        },
-                                                        value: _model.isClose,
-                                                        onIcon: FaIcon(
-                                                          FontAwesomeIcons
-                                                              .ellipsisV,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primary,
-                                                          size: 14.0,
-                                                        ),
-                                                        offIcon: FaIcon(
-                                                          FontAwesomeIcons
-                                                              .angleRight,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          size: 14.0,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                if (!_model.isClose)
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 16.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Stack(
                                                     children: [
                                                       if (widget.profileId ==
                                                           currentUserUid)
@@ -609,14 +556,13 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                             ),
                                                           ),
                                                         ),
-                                                    ].divide(
-                                                        SizedBox(width: 3.0)),
-                                                  ).animateOnPageLoad(animationsMap[
-                                                      'rowOnPageLoadAnimation']!),
-                                              ].divide(SizedBox(width: 5.0)),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -1662,11 +1608,13 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                 ],
                                               ),
                                               Visibility(
-                                                visible: _model
-                                                        .userConsent
-                                                        ?.firstOrNull
-                                                        ?.showFav ==
-                                                    true,
+                                                visible: (widget.profileId ==
+                                                        currentUserUid) ||
+                                                    (_model
+                                                            .userConsent
+                                                            ?.firstOrNull
+                                                            ?.showFav ==
+                                                        true),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -2204,6 +2152,14 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                             ),
                           ),
                         ),
+                      Align(
+                        alignment: AlignmentDirectional(-1.0, 1.0),
+                        child: wrapWithModel(
+                          model: _model.reportBugModel,
+                          updateCallback: () => safeSetState(() {}),
+                          child: ReportBugWidget(),
+                        ),
+                      ),
                     ],
                   ),
                 );

@@ -425,7 +425,7 @@ best fitti... */
                                 Align(
                                   alignment: AlignmentDirectional(-1.0, -1.0),
                                   child: FutureBuilder<List<SubCategoriesRow>>(
-                                    future: _model.subcate(
+                                    future: FFAppState().subCats(
                                       uniqueQueryKey: valueOrDefault<String>(
                                         _model.selectedCat?.toString(),
                                         '0',

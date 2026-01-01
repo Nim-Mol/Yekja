@@ -1,6 +1,7 @@
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'verify_code_widget.dart' show VerifyCodeWidget;
 import 'package:flutter/material.dart';
@@ -48,11 +49,14 @@ class VerifyCodeModel extends FlutterFlowModel<VerifyCodeWidget> {
   ChatsRow? yekjaChat2Customer;
   // Stores action output result for [Custom Action - decodeJwtRole] action in Button widget.
   String? userRole;
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
 
   @override
   void initState(BuildContext context) {
     pinCodeController = TextEditingController();
     pinCodeControllerValidator = _pinCodeControllerValidator;
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
@@ -61,5 +65,6 @@ class VerifyCodeModel extends FlutterFlowModel<VerifyCodeWidget> {
     pinCodeController?.dispose();
 
     timerController.dispose();
+    reportBugModel.dispose();
   }
 }

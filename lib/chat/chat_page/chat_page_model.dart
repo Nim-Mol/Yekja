@@ -1,6 +1,7 @@
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'chat_page_widget.dart' show ChatPageWidget;
 import 'dart:async';
@@ -18,15 +19,19 @@ class ChatPageModel extends FlutterFlowModel<ChatPageWidget> {
   Completer<List<ViewUserChatsVisibleRow>>? requestCompleter;
   // Model for NavBar component.
   late NavBarModel navBarModel;
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
 
   @override
   void initState(BuildContext context) {
     navBarModel = createModel(context, () => NavBarModel());
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
   void dispose() {
     navBarModel.dispose();
+    reportBugModel.dispose();
   }
 
   /// Additional helper methods.

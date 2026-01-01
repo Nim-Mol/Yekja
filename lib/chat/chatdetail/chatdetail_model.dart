@@ -1,5 +1,6 @@
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/flutter_flow/request_manager.dart';
 
 import '/index.dart';
@@ -53,6 +54,8 @@ class ChatdetailModel extends FlutterFlowModel<ChatdetailWidget> {
   MessagesRow? imgMessageEn;
   // Stores action output result for [Backend Call - Insert Row] action in IconButton widget.
   MessagesRow? messageEn;
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
 
   /// Query cache managers for this widget.
 
@@ -74,6 +77,7 @@ class ChatdetailModel extends FlutterFlowModel<ChatdetailWidget> {
   @override
   void initState(BuildContext context) {
     chatsListViewScrollController = ScrollController();
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
@@ -81,6 +85,8 @@ class ChatdetailModel extends FlutterFlowModel<ChatdetailWidget> {
     chatsListViewScrollController?.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
+
+    reportBugModel.dispose();
 
     /// Dispose query cache managers for this widget.
 

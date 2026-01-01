@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'detail_skills_widget.dart' show DetailSkillsWidget;
 import 'package:flutter/material.dart';
@@ -40,15 +41,20 @@ class DetailSkillsModel extends FlutterFlowModel<DetailSkillsWidget> {
   FormFieldController<String>? pricePeriodValueController;
   // State field(s) for NegotiableSwitch widget.
   bool? negotiableSwitchValue;
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
 
   @override
   void initState(BuildContext context) {
     priceFieldTextControllerValidator = _priceFieldTextControllerValidator;
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
   void dispose() {
     priceFieldFocusNode?.dispose();
     priceFieldTextController?.dispose();
+
+    reportBugModel.dispose();
   }
 }

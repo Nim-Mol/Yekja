@@ -9,6 +9,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/main_overview_pages/item_card_global/item_card_global_widget.dart';
 import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/shared_components/shout_out_card/shout_out_card_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -61,7 +62,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
         );
       });
 
-      _model.mainCat = 1;
+      _model.mainCat = widget.mainCat;
       safeSetState(() {});
     });
 
@@ -2874,6 +2875,11 @@ class _MainPageWidgetState extends State<MainPageWidget>
                       updateCallback: () => safeSetState(() {}),
                       child: NavBarWidget(),
                     ),
+                  ),
+                  wrapWithModel(
+                    model: _model.reportBugModel,
+                    updateCallback: () => safeSetState(() {}),
+                    child: ReportBugWidget(),
                   ),
                 ],
               ),

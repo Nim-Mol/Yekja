@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/upload_data.dart';
 import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.dart';
 import '/shared_components/custom_snackbar/custom_snackbar_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -1789,6 +1790,11 @@ class _ChatdetailWidgetState extends State<ChatdetailWidget> {
                       ),
                     ],
                   ),
+                ),
+                wrapWithModel(
+                  model: _model.reportBugModel,
+                  updateCallback: () => safeSetState(() {}),
+                  child: ReportBugWidget(),
                 ),
               ],
             ),

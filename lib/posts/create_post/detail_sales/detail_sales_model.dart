@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'detail_sales_widget.dart' show DetailSalesWidget;
 import 'package:flutter/material.dart';
@@ -61,12 +62,15 @@ class DetailSalesModel extends FlutterFlowModel<DetailSalesWidget> {
 
   // Stores action output result for [Validate Form] action in WishlistField widget.
   bool? validationResultWhishlist;
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
 
   @override
   void initState(BuildContext context) {
     priceFieldTextControllerValidator = _priceFieldTextControllerValidator;
     wishlistFieldTextControllerValidator =
         _wishlistFieldTextControllerValidator;
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
@@ -76,5 +80,7 @@ class DetailSalesModel extends FlutterFlowModel<DetailSalesWidget> {
 
     wishlistFieldFocusNode?.dispose();
     wishlistFieldTextController?.dispose();
+
+    reportBugModel.dispose();
   }
 }

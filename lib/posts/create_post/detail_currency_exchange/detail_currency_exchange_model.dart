@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'detail_currency_exchange_widget.dart' show DetailCurrencyExchangeWidget;
 import 'package:flutter/material.dart';
@@ -61,11 +62,14 @@ class DetailCurrencyExchangeModel
   bool? negotiableSwitchValue;
   // State field(s) for PriceBoolSwitch widget.
   bool? priceBoolSwitchValue2;
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
 
   @override
   void initState(BuildContext context) {
     amountFieldTextControllerValidator = _amountFieldTextControllerValidator;
     priceFieldTextControllerValidator = _priceFieldTextControllerValidator;
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
@@ -75,5 +79,7 @@ class DetailCurrencyExchangeModel
 
     priceFieldFocusNode?.dispose();
     priceFieldTextController?.dispose();
+
+    reportBugModel.dispose();
   }
 }

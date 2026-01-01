@@ -210,145 +210,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Thuis',
     },
   },
-  // Dashboard
-  {
-    'y27rul3e': {
-      'en': 'Dashboard',
-      'fa': 'داشبورد',
-      'nl': 'Dashboard',
-    },
-    '3r5gd90h': {
-      'en': 'Below is a summary of your day.',
-      'fa': 'خلاصه‌ای از روز شما در زیر آمده است.',
-      'nl': 'Hieronder vindt u een samenvatting van uw dag.',
-    },
-    'honzj49s': {
-      'en': 'Reported Users',
-      'fa': 'کاربران گزارش شده',
-      'nl': 'Gerapporteerde gebruikers',
-    },
-    'a8s0jq7n': {
-      'en': 'Reported Posts',
-      'fa': 'پست‌های گزارش‌شده',
-      'nl': 'Gerapporteerde berichten',
-    },
-    'bqpm7nju': {
-      'en': '16',
-      'fa': '۱۶',
-      'nl': '16',
-    },
-    'xe9yy4xg': {
-      'en': 'Completed Tasks',
-      'fa': 'وظایف انجام شده',
-      'nl': 'Voltooide taken',
-    },
-    'trib0otj': {
-      'en': 'User Acrivity',
-      'fa': 'فعالیت کاربر',
-      'nl': 'Gebruikersactiviteit',
-    },
-    '4g3g78nc': {
-      'en': 'An overview of your route.',
-      'fa': 'نمای کلی از مسیر شما.',
-      'nl': 'Een overzicht van uw route.',
-    },
-    '59i64ufn': {
-      'en': 'Route progress',
-      'fa': 'پیشرفت مسیر',
-      'nl': 'Routevoortgang',
-    },
-    'luw7diah': {
-      'en': '12',
-      'fa': '۱۲',
-      'nl': '12',
-    },
-    '2bodtbq0': {
-      'en': 'Tasks to be completed',
-      'fa': 'وظایفی که باید تکمیل شوند',
-      'nl': 'Uit te voeren taken',
-    },
-    'w3s1tswi': {
-      'en': 'Contact Messages',
-      'fa': 'پیام‌های تماس',
-      'nl': 'Contactberichten',
-    },
-    'v3keodxf': {
-      'en': 'Send at:',
-      'fa': 'ارسال به:',
-      'nl': 'Verzenden naar:',
-    },
-    'zt64g53o': {
-      'en': 'Task Type',
-      'fa': 'نوع وظیفه',
-      'nl': 'Taaktype',
-    },
-    'wwwqvc73': {
-      'en': 'Task description here.',
-      'fa': 'شرح وظایف اینجا.',
-      'nl': 'Taakbeschrijving hier.',
-    },
-    '5babgypu': {
-      'en': 'Due:',
-      'fa': 'موعد:',
-      'nl': 'Vanwege:',
-    },
-    'se5sinyl': {
-      'en': 'Today, 6:20pm',
-      'fa': 'امروز، ساعت ۱۸:۲۰',
-      'nl': 'Vandaag, 18:20 uur',
-    },
-    'xqf0f5nk': {
-      'en': 'Update',
-      'fa': 'به‌روزرسانی',
-      'nl': 'Update',
-    },
-    'kcmsvvgv': {
-      'en': '1',
-      'fa': '۱',
-      'nl': '1',
-    },
-    'l5ch9txr': {
-      'en': 'Recent Activity',
-      'fa': 'فعالیت اخیر',
-      'nl': 'Recente activiteit',
-    },
-    'zh98zvo3': {
-      'en': 'Below is an overview of tasks & activity completed.',
-      'fa': 'در زیر خلاصه‌ای از وظایف و فعالیت‌های انجام شده آمده است.',
-      'nl':
-          'Hieronder vindt u een overzicht van de voltooide taken en activiteiten.',
-    },
-    'vhkxh9nm': {
-      'en': 'Tasks',
-      'fa': 'وظایف',
-      'nl': 'Taken',
-    },
-    'htjdxa0n': {
-      'en': 'Completed',
-      'fa': 'تکمیل شده',
-      'nl': 'Voltooid',
-    },
-    'vh94losf': {
-      'en': 'Launches',
-      'fa': 'پرتاب‌ها',
-      'nl': 'Lanceringen',
-    },
-    '5rr1rii1': {
-      'en': 'Last 30 Days',
-      'fa': '۳۰ روز گذشته',
-      'nl': 'Laatste 30 dagen',
-    },
-    'd6pa0tus': {
-      'en': 'Avg. Grade',
-      'fa': 'میانگین درجه',
-      'nl': 'Gemiddeld cijfer',
-    },
-    'ittjsdyx': {
-      'en': 'Home',
-      'fa': 'خانه',
-      'nl': 'Thuis',
-    },
-  },
   // Events
   {
     'i7ajooi4': {
@@ -577,30 +438,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Thuis',
     },
   },
-  // ReportedPost
-  {
-    'fn7rbuop': {
-      'en': 'Reported Posts',
-      'fa': 'پست‌های گزارش‌شده',
-      'nl': 'Gerapporteerde berichten',
-    },
-    'v4bgkf53': {
-      'en': 'Make sure the users don\'t stay in reported state too long',
-      'fa': 'مطمئن شوید که کاربران مدت زیادی در حالت گزارش‌شده نمی‌مانند.',
-      'nl':
-          'Zorg ervoor dat de gebruikers niet te lang in de gerapporteerde status blijven',
-    },
-    'yhwpofu5': {
-      'en': 'Unblock',
-      'fa': 'رفع انسداد',
-      'nl': 'Deblokkeren',
-    },
-    'djmc2ax5': {
-      'en': 'Home',
-      'fa': 'خانه',
-      'nl': 'Thuis',
-    },
-  },
   // OnboardingPage
   {
     'fvqou22z': {
@@ -785,29 +622,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': '',
     },
     '0t1hw5zn': {
-      'en': 'Home',
-      'fa': 'خانه',
-      'nl': '',
-    },
-  },
-  // ReportedUser
-  {
-    '3z4oqpvn': {
-      'en': 'Reported Users',
-      'fa': 'کاربران گزارش شده',
-      'nl': '',
-    },
-    'z0xpmlax': {
-      'en': 'Make sure the users don\'t stay in reported state too long',
-      'fa': 'مطمئن شوید که کاربران مدت زیادی در حالت گزارش‌شده نمی‌مانند.',
-      'nl': '',
-    },
-    '5dcfcmeh': {
-      'en': 'Unblock',
-      'fa': 'برداشتن محدودیت',
-      'nl': '',
-    },
-    '48c96pal': {
       'en': 'Home',
       'fa': 'خانه',
       'nl': '',
@@ -1065,15 +879,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // SearchPage
   {
-    'h96yelv3': {
-      'en': 'Searh Results',
-      'fa': 'نتایج جستجو',
-      'nl': 'Zoekresultaten',
-    },
     '1je8wpdn': {
       'en': 'Filter',
       'fa': 'فیلتر',
       'nl': 'Filter',
+    },
+    'h96yelv3': {
+      'en': 'Searh Results',
+      'fa': 'نتایج جستجو',
+      'nl': 'Zoekresultaten',
     },
     'qrvkaa77': {
       'en': '',
@@ -1414,7 +1228,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Maak een nieuw wachtwoord aan om in te loggen',
     },
     '7qj4jthi': {
-      'en': 'New pasword',
+      'en': '',
       'fa': 'رمز عبور جدید',
       'nl': 'Nieuw wachtwoord',
     },
@@ -1427,6 +1241,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Change Email',
       'fa': 'تغییر ایمیل',
       'nl': 'Wachtwoord opnieuw instellen',
+    },
+    'twxvxxu7': {
+      'en': 'please use a new email address.',
+      'fa': '',
+      'nl': '',
     },
     '7fzxxs8j': {
       'en': 'Please enter valid new password.',
@@ -2070,6 +1889,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Zorg ervoor dat u onze FAQ bekijkt',
     },
     'ydnrk5zy': {
+      'en': 'App Us',
+      'fa': 'با ما تماس بگیرید',
+      'nl': 'Bel ons',
+    },
+    'u9lm95sn': {
       'en': 'Call Us',
       'fa': 'با ما تماس بگیرید',
       'nl': 'Bel ons',
@@ -2802,26 +2626,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Hide your profile picture',
       'fa': 'تصویر پروفایل خود را مخفی کنید',
       'nl': 'Verberg je profielafbeelding',
-    },
-    'airbot6d': {
-      'en': 'Please login or signup to see user\'s profile.',
-      'fa':
-          'برای مشاهده پروفایل کاربر، لطفا واردحساب کاربری شوید یا ثبت نام کنید.',
-      'nl':
-          'Log in of registreer u om het profiel van de gebruiker te bekijken.',
-    },
-    'jtpnqlrh': {
-      'en': 'Please login or signup to see user\'s profile.',
-      'fa':
-          'برای مشاهده پروفایل کاربر، لطفا واردحساب کاربری شوید یا ثبت نام کنید.',
-      'nl':
-          'Log in of registreer u om het profiel van de gebruiker te bekijken.',
-    },
-    '637p4xt4': {
-      'en': 'Instagram link is not set.',
-      'fa': 'پیوند به صفحه اینستاگرام ایجاد نشده.',
-      'nl':
-          'Log in of registreer u om het profiel van de gebruiker te bekijken.',
     },
     '0p7g3nq1': {
       'en': 'REVIEWS',
@@ -5430,11 +5234,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fa': 'به کاربران اجازه دهید عکس پروفایل من را ببینند.',
       'nl': 'Gebruikers toestaan mijn profielfoto te zien.',
     },
-    'nnxca66f': {
-      'en': 'Allow users to see my social media link.',
-      'fa': 'به کاربران اجازه دهید لینک شبکه‌های اجتماعی من را ببینند.',
-      'nl': 'Zorg dat gebruikers mijn link naar sociale media kunnen zien.',
-    },
     '1g8re0aj': {
       'en': 'Allow users to see my favorites.',
       'fa': 'به کاربران اجازه دهید پست های دلخواه من را ببینند.',
@@ -5961,24 +5760,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Hide your profile image',
       'fa': 'تصویر پروفایل خود را مخفی کنید',
       'nl': 'Verberg je profielafbeelding',
-    },
-    'my83ao52': {
-      'en': 'Please login or signup to see user\'s profile.',
-      'fa': 'برای مشاهده پروفایل کاربر، لطفا وارد شوید یا ثبت نام کنید.',
-      'nl':
-          'Log in of registreer u om het profiel van de gebruiker te bekijken.',
-    },
-    'rmxxndqk': {
-      'en': 'Please login or sign-up to see the user\'s profile.',
-      'fa': 'برای مشاهده پروفایل کاربر، لطفا وارد شوید یا ثبت نام کنید.',
-      'nl':
-          'Log in of registreer u om het profiel van de gebruiker te bekijken.',
-    },
-    'k9m2tv64': {
-      'en': 'Instagram link it not set.',
-      'fa': 'برای مشاهده پروفایل کاربر، لطفا وارد شوید یا ثبت نام کنید.',
-      'nl':
-          'Log in of registreer u om het profiel van de gebruiker te bekijken.',
     },
     'al4zq5em': {
       'en': 'REVIEWS',
@@ -7189,7 +6970,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nl': 'Evenementen',
     },
     'vomy1zvs': {
-      'en': 'Category',
+      'en': 'Sub Category',
       'fa': 'دسته بندی',
       'nl': 'Categorie',
     },
@@ -7725,6 +7506,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'DESCRIPTION',
       'fa': 'توضیحات',
       'nl': 'BESCHRIJVING',
+    },
+  },
+  // postOwnerCard
+  {
+    'kvm2h93a': {
+      'en': 'Please login or signup to see user\'s profile.',
+      'fa': '',
+      'nl': '',
     },
   },
   // Miscellaneous

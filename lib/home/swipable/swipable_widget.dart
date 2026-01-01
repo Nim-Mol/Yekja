@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_swipeable_stack.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -872,6 +873,11 @@ class _SwipableWidgetState extends State<SwipableWidget> {
                       updateCallback: () => safeSetState(() {}),
                       child: NavBarWidget(),
                     ),
+                  ),
+                  wrapWithModel(
+                    model: _model.reportBugModel,
+                    updateCallback: () => safeSetState(() {}),
+                    child: ReportBugWidget(),
                   ),
                 ],
               ),

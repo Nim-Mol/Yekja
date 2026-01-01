@@ -1,4 +1,5 @@
 import '/flutter_flow/flutter_flow_util.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import 'review_and_rating_widget.dart' show ReviewAndRatingWidget;
 import 'package:flutter/material.dart';
 
@@ -36,14 +37,20 @@ class ReviewAndRatingModel extends FlutterFlowModel<ReviewAndRatingWidget> {
     return null;
   }
 
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
+
   @override
   void initState(BuildContext context) {
     noteTextControllerValidator = _noteTextControllerValidator;
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
   void dispose() {
     noteFocusNode?.dispose();
     noteTextController?.dispose();
+
+    reportBugModel.dispose();
   }
 }

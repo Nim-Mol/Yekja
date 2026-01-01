@@ -3,8 +3,10 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/login/verify_code/verify_code_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'sign_in_confirm_model.dart';
 export 'sign_in_confirm_model.dart';
 
@@ -27,6 +29,11 @@ class _SignInConfirmWidgetState extends State<SignInConfirmWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SignInConfirmModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setAppLanguage(context, 'en');
+    });
 
     _model.userNameTextController ??= TextEditingController();
     _model.userNameFocusNode ??= FocusNode();
@@ -664,6 +671,11 @@ class _SignInConfirmWidgetState extends State<SignInConfirmWidget> {
                         ),
                       ],
                     ),
+                  ),
+                  wrapWithModel(
+                    model: _model.reportBugModel,
+                    updateCallback: () => safeSetState(() {}),
+                    child: ReportBugWidget(),
                   ),
                 ],
               ),

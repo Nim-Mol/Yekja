@@ -1,6 +1,7 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
+import '/components/post_owner_card_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -12,6 +13,7 @@ import '/shared_components/comunication_bar/comunication_bar_widget.dart';
 import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.dart';
 import '/shared_components/custom_snackbar/custom_snackbar_widget.dart';
 import '/shared_components/photo_gallary/photo_gallary_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/shared_components/reporting_popup/reporting_popup_widget.dart';
 import 'dart:async';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -21,7 +23,6 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'post_en_model.dart';
 export 'post_en_model.dart';
@@ -131,14 +132,14 @@ class _PostEnWidgetState extends State<PostEnWidget>
     });
 
     animationsMap.addAll({
-      'rowOnPageLoadAnimation': AnimationInfo(
+      'columnOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
-            curve: Curves.easeInOut,
+            curve: Curves.easeIn,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(-41.0, -0.0),
+            begin: Offset(0.0, -44.99999999999999),
             end: Offset(0.0, 0.0),
           ),
         ],
@@ -233,164 +234,104 @@ class _PostEnWidgetState extends State<PostEnWidget>
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Container(
-                              width: double.infinity,
-                              height: 400.0,
-                              decoration: BoxDecoration(),
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onDoubleTap: () async {
+                                context.pushNamed(
+                                  ImageGalleryPageWidget.routeName,
+                                  queryParameters: {
+                                    'previewImages': serializeParam(
+                                      postEnViewPostSearchEnRow.images
+                                          .map((e) => e)
+                                          .toList(),
+                                      ParamType.String,
+                                      isList: true,
+                                    ),
+                                  }.withoutNulls,
+                                );
+                              },
                               child: Container(
+                                width: double.infinity,
                                 height: 400.0,
-                                child: Stack(
-                                  children: [
-                                    Align(
-                                      alignment: AlignmentDirectional(0.0, 1.0),
-                                      child: wrapWithModel(
-                                        model: _model.photoGallaryModel,
-                                        updateCallback: () =>
-                                            safeSetState(() {}),
-                                        child: PhotoGallaryWidget(
-                                          photoList:
-                                              !(postEnViewPostSearchEnRow!
-                                                      .images.isNotEmpty)
-                                                  ? [
-                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg'
-                                                    ]
-                                                  : postEnViewPostSearchEnRow
-                                                      .images
-                                                      .map((e) => e)
-                                                      .toList(),
+                                decoration: BoxDecoration(),
+                                child: Container(
+                                  height: 400.0,
+                                  child: Stack(
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 1.0),
+                                        child: wrapWithModel(
+                                          model: _model.photoGallaryModel,
+                                          updateCallback: () =>
+                                              safeSetState(() {}),
+                                          child: PhotoGallaryWidget(
+                                            photoList:
+                                                !(postEnViewPostSearchEnRow!
+                                                        .images.isNotEmpty)
+                                                    ? [
+                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg'
+                                                      ]
+                                                    : postEnViewPostSearchEnRow
+                                                        .images
+                                                        .map((e) => e)
+                                                        .toList(),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 24.0, 16.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
+                                      Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Stack(
                                             children: [
-                                              FlutterFlowIconButton(
-                                                borderRadius: 50.0,
-                                                buttonSize: 40.0,
-                                                fillColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                icon: Icon(
-                                                  Icons.chevron_left,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  size: 24.0,
-                                                ),
-                                                onPressed: () async {
-                                                  context.safePop();
-                                                },
-                                              ),
-                                              if (currentUserUid != '')
-                                                Flexible(
-                                                  child: Container(
-                                                    decoration: BoxDecoration(),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment.end,
-                                                      children: [
-                                                        if ((postEnViewPostSearchEnRow
-                                                                    .ownerId !=
-                                                                currentUserUid) &&
-                                                            !FFAppState()
-                                                                .IsGust)
-                                                          Container(
-                                                            width: 40.0,
-                                                            height: 40.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                              shape: BoxShape
-                                                                  .circle,
-                                                            ),
-                                                            child: ToggleIcon(
-                                                              onPressed:
-                                                                  () async {
-                                                                safeSetState(() =>
-                                                                    _model.isLiked =
-                                                                        !_model
-                                                                            .isLiked);
-                                                                if (_model
-                                                                        .isLiked ==
-                                                                    true) {
-                                                                  await PostsLikesTable()
-                                                                      .insert({
-                                                                    'user_id':
-                                                                        currentUserUid,
-                                                                    'post_id':
-                                                                        widget
-                                                                            .postID,
-                                                                  });
-                                                                } else {
-                                                                  await PostsLikesTable()
-                                                                      .delete(
-                                                                    matchingRows:
-                                                                        (rows) => rows
-                                                                            .eqOrNull(
-                                                                              'post_id',
-                                                                              widget.postID,
-                                                                            )
-                                                                            .eqOrNull(
-                                                                              'user_id',
-                                                                              currentUserUid,
-                                                                            ),
-                                                                  );
-                                                                }
-
-                                                                safeSetState(
-                                                                    () {
-                                                                  _model.clearPostEnCacheKey(
-                                                                      _model
-                                                                          .requestLastUniqueKey2);
-                                                                  _model.requestCompleted2 =
-                                                                      false;
-                                                                });
-                                                                await _model
-                                                                    .waitForRequestCompleted2();
-                                                              },
-                                                              value: _model
-                                                                  .isLiked,
-                                                              onIcon: Icon(
-                                                                Icons.favorite,
-                                                                color: Color(
-                                                                    0xFFF10707),
-                                                                size: 22.0,
-                                                              ),
-                                                              offIcon: Icon(
-                                                                Icons
-                                                                    .favorite_border,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                                size: 20.0,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        if ((currentUserUid !=
-                                                                postEnViewPostSearchEnRow
-                                                                    .ownerId) &&
-                                                            !FFAppState()
-                                                                .IsGust)
-                                                          Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    1.0, 0.0),
-                                                            child: Container(
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        16.0, 24.0, 16.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    FlutterFlowIconButton(
+                                                      borderRadius: 50.0,
+                                                      buttonSize: 40.0,
+                                                      fillColor: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      icon: Icon(
+                                                        Icons.chevron_left,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        size: 24.0,
+                                                      ),
+                                                      onPressed: () async {
+                                                        context.safePop();
+                                                      },
+                                                    ),
+                                                    if (currentUserUid != '')
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .end,
+                                                        children: [
+                                                          if ((postEnViewPostSearchEnRow
+                                                                      .ownerId !=
+                                                                  currentUserUid) &&
+                                                              !FFAppState()
+                                                                  .IsGust)
+                                                            Container(
                                                               width: 40.0,
                                                               height: 40.0,
                                                               decoration:
@@ -405,46 +346,13 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                                                 onPressed:
                                                                     () async {
                                                                   safeSetState(() =>
-                                                                      _model.isFav =
+                                                                      _model.isLiked =
                                                                           !_model
-                                                                              .isFav);
-                                                                  if (functions.listContainsString(
-                                                                      FFAppState()
-                                                                          .userInfo
-                                                                          .userFavs
-                                                                          .toList(),
-                                                                      widget
-                                                                          .postID!)) {
-                                                                    FFAppState()
-                                                                        .updateUserInfoStruct(
-                                                                      (e) => e
-                                                                        ..updateUserFavs(
-                                                                          (e) =>
-                                                                              e.remove(widget.postID),
-                                                                        ),
-                                                                    );
-                                                                    await UserFavoritesTable()
-                                                                        .delete(
-                                                                      matchingRows: (rows) => rows
-                                                                          .eqOrNull(
-                                                                            'user_id',
-                                                                            currentUserUid,
-                                                                          )
-                                                                          .eqOrNull(
-                                                                            'post_id',
-                                                                            widget.postID,
-                                                                          ),
-                                                                    );
-                                                                  } else {
-                                                                    FFAppState()
-                                                                        .updateUserInfoStruct(
-                                                                      (e) => e
-                                                                        ..updateUserFavs(
-                                                                          (e) =>
-                                                                              e.add(widget.postID!),
-                                                                        ),
-                                                                    );
-                                                                    await UserFavoritesTable()
+                                                                              .isLiked);
+                                                                  if (_model
+                                                                          .isLiked ==
+                                                                      true) {
+                                                                    await PostsLikesTable()
                                                                         .insert({
                                                                       'user_id':
                                                                           currentUserUid,
@@ -452,6 +360,19 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                                                           widget
                                                                               .postID,
                                                                     });
+                                                                  } else {
+                                                                    await PostsLikesTable()
+                                                                        .delete(
+                                                                      matchingRows: (rows) => rows
+                                                                          .eqOrNull(
+                                                                            'post_id',
+                                                                            widget.postID,
+                                                                          )
+                                                                          .eqOrNull(
+                                                                            'user_id',
+                                                                            currentUserUid,
+                                                                          ),
+                                                                    );
                                                                   }
 
                                                                   safeSetState(
@@ -466,18 +387,17 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                                                       .waitForRequestCompleted2();
                                                                 },
                                                                 value: _model
-                                                                    .isFav,
+                                                                    .isLiked,
                                                                 onIcon: Icon(
                                                                   Icons
-                                                                      .bookmark_added,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .greenInit,
-                                                                  size: 20.0,
+                                                                      .favorite,
+                                                                  color: Color(
+                                                                      0xFFF10707),
+                                                                  size: 22.0,
                                                                 ),
                                                                 offIcon: Icon(
                                                                   Icons
-                                                                      .bookmark_border,
+                                                                      .favorite_border,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
@@ -485,69 +405,520 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                                                 ),
                                                               ),
                                                             ),
-                                                          ),
-                                                        if (!FFAppState()
-                                                            .IsGust)
-                                                          Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.0, 0.0),
-                                                            child: Container(
-                                                              width: 40.0,
-                                                              height: 40.0,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                                shape: BoxShape
-                                                                    .circle,
-                                                              ),
-                                                              child: ToggleIcon(
-                                                                onPressed:
-                                                                    () async {
-                                                                  safeSetState(() =>
-                                                                      _model.isClose =
-                                                                          !_model
-                                                                              .isClose);
-                                                                },
-                                                                value: _model
-                                                                    .isClose,
-                                                                onIcon: FaIcon(
-                                                                  FontAwesomeIcons
-                                                                      .ellipsisV,
+                                                          if ((currentUserUid !=
+                                                                  postEnViewPostSearchEnRow
+                                                                      .ownerId) &&
+                                                              !FFAppState()
+                                                                  .IsGust)
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      1.0, 0.0),
+                                                              child: Container(
+                                                                width: 40.0,
+                                                                height: 40.0,
+                                                                decoration:
+                                                                    BoxDecoration(
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primary,
-                                                                  size: 14.0,
+                                                                      .secondaryBackground,
+                                                                  shape: BoxShape
+                                                                      .circle,
                                                                 ),
-                                                                offIcon: FaIcon(
-                                                                  FontAwesomeIcons
-                                                                      .angleRight,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  size: 14.0,
+                                                                child:
+                                                                    ToggleIcon(
+                                                                  onPressed:
+                                                                      () async {
+                                                                    safeSetState(() => _model
+                                                                            .isFav =
+                                                                        !_model
+                                                                            .isFav);
+                                                                    if (functions.listContainsString(
+                                                                        FFAppState()
+                                                                            .userInfo
+                                                                            .userFavs
+                                                                            .toList(),
+                                                                        widget
+                                                                            .postID!)) {
+                                                                      FFAppState()
+                                                                          .updateUserInfoStruct(
+                                                                        (e) => e
+                                                                          ..updateUserFavs(
+                                                                            (e) =>
+                                                                                e.remove(widget.postID),
+                                                                          ),
+                                                                      );
+                                                                      await UserFavoritesTable()
+                                                                          .delete(
+                                                                        matchingRows: (rows) => rows
+                                                                            .eqOrNull(
+                                                                              'user_id',
+                                                                              currentUserUid,
+                                                                            )
+                                                                            .eqOrNull(
+                                                                              'post_id',
+                                                                              widget.postID,
+                                                                            ),
+                                                                      );
+                                                                    } else {
+                                                                      FFAppState()
+                                                                          .updateUserInfoStruct(
+                                                                        (e) => e
+                                                                          ..updateUserFavs(
+                                                                            (e) =>
+                                                                                e.add(widget.postID!),
+                                                                          ),
+                                                                      );
+                                                                      await UserFavoritesTable()
+                                                                          .insert({
+                                                                        'user_id':
+                                                                            currentUserUid,
+                                                                        'post_id':
+                                                                            widget.postID,
+                                                                      });
+                                                                    }
+
+                                                                    safeSetState(
+                                                                        () {
+                                                                      _model.clearPostEnCacheKey(
+                                                                          _model
+                                                                              .requestLastUniqueKey2);
+                                                                      _model.requestCompleted2 =
+                                                                          false;
+                                                                    });
+                                                                    await _model
+                                                                        .waitForRequestCompleted2();
+                                                                    FFAppState()
+                                                                        .clearUserFavsCacheKey(
+                                                                            currentUserUid);
+                                                                  },
+                                                                  value: _model
+                                                                      .isFav,
+                                                                  onIcon: Icon(
+                                                                    Icons
+                                                                        .bookmark_added,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .greenInit,
+                                                                    size: 20.0,
+                                                                  ),
+                                                                  offIcon: Icon(
+                                                                    Icons
+                                                                        .bookmark_border,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    size: 20.0,
+                                                                  ),
                                                                 ),
                                                               ),
                                                             ),
-                                                          ),
-                                                        if (!_model.isClose)
-                                                          Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              if ((postEnViewPostSearchEnRow
-                                                                          .ownerId ==
-                                                                      currentUserUid) &&
-                                                                  !FFAppState()
-                                                                      .IsGust)
-                                                                Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          1.0,
-                                                                          0.0),
+                                                          if (!FFAppState()
+                                                              .IsGust)
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      0.0, 0.0),
+                                                              child: Container(
+                                                                width: 40.0,
+                                                                height: 40.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                                  shape: BoxShape
+                                                                      .circle,
+                                                                ),
+                                                                child:
+                                                                    ToggleIcon(
+                                                                  onPressed:
+                                                                      () async {
+                                                                    safeSetState(() => _model
+                                                                            .isClose =
+                                                                        !_model
+                                                                            .isClose);
+                                                                  },
+                                                                  value: _model
+                                                                      .isClose,
+                                                                  onIcon:
+                                                                      FaIcon(
+                                                                    FontAwesomeIcons
+                                                                        .ellipsisV,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    size: 14.0,
+                                                                  ),
+                                                                  offIcon: Icon(
+                                                                    Icons
+                                                                        .keyboard_arrow_up_outlined,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText,
+                                                                    size: 20.0,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                        ].divide(SizedBox(
+                                                            width: 10.0)),
+                                                      ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    1.0, 1.0),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 70.0, 16.0, 0.0),
+                                                  child: Container(
+                                                    width: 43.4,
+                                                    height: 138.38,
+                                                    decoration: BoxDecoration(),
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            1.0, 1.0),
+                                                    child: Visibility(
+                                                      visible: !_model.isClose,
+                                                      child: Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 1.0),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            if ((postEnViewPostSearchEnRow
+                                                                        .ownerId ==
+                                                                    currentUserUid) &&
+                                                                !FFAppState()
+                                                                    .IsGust)
+                                                              Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        1.0,
+                                                                        0.0),
+                                                                child: InkWell(
+                                                                  splashColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  focusColor: Colors
+                                                                      .transparent,
+                                                                  hoverColor: Colors
+                                                                      .transparent,
+                                                                  highlightColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  onTap:
+                                                                      () async {
+                                                                    await Future
+                                                                        .wait([
+                                                                      Future(
+                                                                          () async {
+                                                                        FFAppState().postDetailJSON =
+                                                                            functions.decodeDetails(postEnViewPostSearchEnRow.detailsText!);
+                                                                        safeSetState(
+                                                                            () {});
+                                                                      }),
+                                                                      Future(
+                                                                          () async {
+                                                                        FFAppState().postState =
+                                                                            PostModelStruct(
+                                                                          id: postEnViewPostSearchEnRow
+                                                                              .postId,
+                                                                          ownerId:
+                                                                              postEnViewPostSearchEnRow.ownerId,
+                                                                          title:
+                                                                              postEnViewPostSearchEnRow.title,
+                                                                          description:
+                                                                              postEnViewPostSearchEnRow.description,
+                                                                          city:
+                                                                              postEnViewPostSearchEnRow.city,
+                                                                          subCatId:
+                                                                              postEnViewPostSearchEnRow.subCatId,
+                                                                          postLikes:
+                                                                              postEnViewPostSearchEnRow.postLikes,
+                                                                          images:
+                                                                              postEnViewPostSearchEnRow.images,
+                                                                          catName:
+                                                                              postEnViewPostSearchEnRow.catLabel,
+                                                                          subCatName:
+                                                                              postEnViewPostSearchEnRow.subCatLabel,
+                                                                          createdAt:
+                                                                              postEnViewPostSearchEnRow.createdAt,
+                                                                          review:
+                                                                              postEnViewPostSearchEnRow.review,
+                                                                          ratings:
+                                                                              postEnViewPostSearchEnRow.ratings,
+                                                                          rentalType:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.detailsLabels,
+                                                                            r'''$.rental_type''',
+                                                                          ).toString(),
+                                                                          intend:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.detailsLabels,
+                                                                            r'''$.intend''',
+                                                                          ).toString(),
+                                                                          price:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.price''',
+                                                                          ),
+                                                                          isNegotiable:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.is_negotiable''',
+                                                                          ),
+                                                                          condition:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.detailsLabels,
+                                                                            r'''$.condition''',
+                                                                          ).toString(),
+                                                                          deliveryMethod:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.detailsLabels,
+                                                                            r'''$.delivery_method''',
+                                                                          ).toString(),
+                                                                          openForSwap:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.open_for_swap''',
+                                                                          ),
+                                                                          wishlistText:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.wishlist_text''',
+                                                                          ).toString(),
+                                                                          ticketsQty:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.tickets_qty''',
+                                                                          ),
+                                                                          eventDatetime:
+                                                                              functions.jsonToDateTimeUtc(getJsonField(
+                                                                            postEnViewPostSearchEnRow.details!,
+                                                                            r'''$.event_datetime''',
+                                                                          )),
+                                                                          venueName:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.venue_name''',
+                                                                          ).toString(),
+                                                                          currency:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.detailsLabels,
+                                                                            r'''$.venue_name''',
+                                                                          ).toString(),
+                                                                          amount:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.amount''',
+                                                                          ),
+                                                                          allowPartial:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.allow_partial''',
+                                                                          ),
+                                                                          method:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.detailsLabels,
+                                                                            r'''$.method''',
+                                                                          ).toString(),
+                                                                          originCountry:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.origin_country''',
+                                                                          ).toString(),
+                                                                          originCity:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.origin_city''',
+                                                                          ).toString(),
+                                                                          destinationCountry:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.destination_country''',
+                                                                          ).toString(),
+                                                                          destinationCity:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.destination_city''',
+                                                                          ).toString(),
+                                                                          isDocument:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.is_document''',
+                                                                          ),
+                                                                          weightKg:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.detailsLabels,
+                                                                            r'''$.weight_kg''',
+                                                                          ).toString(),
+                                                                          dimensionsText:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.detailsLabels,
+                                                                            r'''$.dimensions_text''',
+                                                                          ).toString(),
+                                                                          isFragile:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.is_fragile''',
+                                                                          ),
+                                                                          travelDate:
+                                                                              functions.jsonToDateTimeUtc(getJsonField(
+                                                                            postEnViewPostSearchEnRow.details!,
+                                                                            r'''$.travel_date''',
+                                                                          )),
+                                                                          deadline:
+                                                                              functions.jsonToDateTimeUtc(getJsonField(
+                                                                            postEnViewPostSearchEnRow.details!,
+                                                                            r'''$.deadline''',
+                                                                          )),
+                                                                          priceText:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.detailsLabels,
+                                                                            r'''$.price_text''',
+                                                                          ).toString(),
+                                                                          pricePeriod:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.detailsLabels,
+                                                                            r'''$.price_period''',
+                                                                          ).toString(),
+                                                                          deposit:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.deposit''',
+                                                                          ),
+                                                                          availableFrom:
+                                                                              functions.jsonToDateTimeUtc(getJsonField(
+                                                                            postEnViewPostSearchEnRow.details!,
+                                                                            r'''$.available_from''',
+                                                                          )),
+                                                                          availableUntil:
+                                                                              functions.jsonToDateTimeUtc(getJsonField(
+                                                                            postEnViewPostSearchEnRow.details!,
+                                                                            r'''$.available_until''',
+                                                                          )),
+                                                                          furnished:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.furnished''',
+                                                                          ),
+                                                                          utilitiesIncluded:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.utilities_included''',
+                                                                          ),
+                                                                          registrationPossible:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.registration_possible''',
+                                                                          ),
+                                                                          compensationType:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.detailsLabels,
+                                                                            r'''$.compensation_type''',
+                                                                          ).toString(),
+                                                                          durationMin:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.duration_min''',
+                                                                          ),
+                                                                          eventStartsAt:
+                                                                              functions.jsonToDateTimeUtc(getJsonField(
+                                                                            postEnViewPostSearchEnRow.details!,
+                                                                            r'''$.event_starts_at''',
+                                                                          )),
+                                                                          eventEndsAt:
+                                                                              functions.jsonToDateTimeUtc(getJsonField(
+                                                                            postEnViewPostSearchEnRow.details!,
+                                                                            r'''$.event_ends_at''',
+                                                                          )),
+                                                                          repeats:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.detailsLabels,
+                                                                            r'''$.repeats''',
+                                                                          ),
+                                                                          venueAddress:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.venue_address''',
+                                                                          ).toString(),
+                                                                          onlineUrl:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.online_url''',
+                                                                          ).toString(),
+                                                                          capacity:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.capacity''',
+                                                                          ),
+                                                                          totalArea:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.total_area''',
+                                                                          ),
+                                                                          allowCashAdjustment:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.allow_cash_adjustment''',
+                                                                          ),
+                                                                          repeatsText:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.detailsLabels,
+                                                                            r'''$.repeats''',
+                                                                          ).toString(),
+                                                                          nGoing:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.n_going''',
+                                                                          ),
+                                                                          serviceMode:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.detailsLabels,
+                                                                            r'''$.service_mode''',
+                                                                          ).toString(),
+                                                                          experienceYears:
+                                                                              getJsonField(
+                                                                            postEnViewPostSearchEnRow.detailsLabels,
+                                                                            r'''$.experience_years''',
+                                                                          ).toString(),
+                                                                          languages: (getJsonField(
+                                                                            postEnViewPostSearchEnRow.details,
+                                                                            r'''$.languages''',
+                                                                            true,
+                                                                          ) as List?)
+                                                                              ?.map<String>((e) => e.toString())
+                                                                              .toList()
+                                                                              .cast<String>(),
+                                                                          catId:
+                                                                              postEnViewPostSearchEnRow.catId,
+                                                                          mainCatId:
+                                                                              postEnViewPostSearchEnRow.mainCatId,
+                                                                        );
+                                                                        safeSetState(
+                                                                            () {});
+                                                                      }),
+                                                                      Future(
+                                                                          () async {
+                                                                        FFAppState().postDetailLabel =
+                                                                            functions.decodeDetails(postEnViewPostSearchEnRow.detailsLabelText!);
+                                                                        FFAppState().postDetailTable =
+                                                                            postEnViewPostSearchEnRow.detailTable!;
+                                                                        safeSetState(
+                                                                            () {});
+                                                                      }),
+                                                                    ]);
+
+                                                                    context.pushNamed(
+                                                                        PostEditWidget
+                                                                            .routeName);
+                                                                  },
                                                                   child:
                                                                       Container(
                                                                     width: 40.0,
@@ -822,226 +1193,207 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              if ((currentUserUid !=
-                                                                      postEnViewPostSearchEnRow
-                                                                          .ownerId) &&
-                                                                  !FFAppState()
-                                                                      .IsGust)
-                                                                Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          1.0,
-                                                                          0.0),
-                                                                  child:
-                                                                      Container(
-                                                                    width: 40.0,
-                                                                    height:
-                                                                        40.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondaryBackground,
-                                                                      shape: BoxShape
-                                                                          .circle,
-                                                                    ),
-                                                                    child:
-                                                                        Stack(
-                                                                      children: [
-                                                                        if (functions.listContainsString(
-                                                                            FFAppState().userInfo.reportedList.toList(),
-                                                                            widget.postID!))
-                                                                          Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.0, 0.0),
-                                                                            child:
-                                                                                FaIcon(
-                                                                              FontAwesomeIcons.solidFlag,
-                                                                              color: Color(0xFFDC0D08),
-                                                                              size: 16.0,
-                                                                            ),
+                                                              ),
+                                                            if ((currentUserUid !=
+                                                                    postEnViewPostSearchEnRow
+                                                                        .ownerId) &&
+                                                                !FFAppState()
+                                                                    .IsGust)
+                                                              Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        1.0,
+                                                                        0.0),
+                                                                child:
+                                                                    Container(
+                                                                  width: 40.0,
+                                                                  height: 40.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                    shape: BoxShape
+                                                                        .circle,
+                                                                  ),
+                                                                  child: Stack(
+                                                                    children: [
+                                                                      if (functions.listContainsString(
+                                                                          FFAppState()
+                                                                              .userInfo
+                                                                              .reportedList
+                                                                              .toList(),
+                                                                          widget
+                                                                              .postID!))
+                                                                        Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidFlag,
+                                                                            color:
+                                                                                Color(0xFFDC0D08),
+                                                                            size:
+                                                                                16.0,
                                                                           ),
-                                                                        if (!functions.listContainsString(
-                                                                            FFAppState().userInfo.reportedList.toList(),
-                                                                            widget.postID!))
-                                                                          Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.0, 0.0),
-                                                                            child:
-                                                                                Builder(
-                                                                              builder: (context) => InkWell(
-                                                                                splashColor: Colors.transparent,
-                                                                                focusColor: Colors.transparent,
-                                                                                hoverColor: Colors.transparent,
-                                                                                highlightColor: Colors.transparent,
-                                                                                onTap: () async {
-                                                                                  await showDialog(
-                                                                                    context: context,
-                                                                                    builder: (dialogContext) {
-                                                                                      return Dialog(
-                                                                                        elevation: 0,
-                                                                                        insetPadding: EdgeInsets.zero,
-                                                                                        backgroundColor: Colors.transparent,
-                                                                                        alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                                        child: ConfirmCancelPopUpWidget(
-                                                                                          header: 'Reporting ',
-                                                                                          hintText: 'Are you sure you want to report this post?',
-                                                                                          cancelText: 'Cancel',
-                                                                                          confirmText: 'Report',
-                                                                                          onConfirmAction: () async {
-                                                                                            await showDialog(
-                                                                                              context: context,
-                                                                                              builder: (dialogContext) {
-                                                                                                return Dialog(
-                                                                                                  elevation: 0,
-                                                                                                  insetPadding: EdgeInsets.zero,
-                                                                                                  backgroundColor: Colors.transparent,
-                                                                                                  alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                                                  child: ReportingPopupWidget(
-                                                                                                    reportingData: ReportingDataStruct(
-                                                                                                      postId: widget.postID,
-                                                                                                      postTitle: postEnViewPostSearchEnRow.title,
-                                                                                                      isProfile: false,
-                                                                                                      profileOwnerName: postEnViewPostSearchEnRow.userName,
-                                                                                                      profileId: postEnViewPostSearchEnRow.ownerId,
-                                                                                                    ),
+                                                                        ),
+                                                                      if (!functions.listContainsString(
+                                                                          FFAppState()
+                                                                              .userInfo
+                                                                              .reportedList
+                                                                              .toList(),
+                                                                          widget
+                                                                              .postID!))
+                                                                        Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Builder(
+                                                                            builder: (context) =>
+                                                                                InkWell(
+                                                                              splashColor: Colors.transparent,
+                                                                              focusColor: Colors.transparent,
+                                                                              hoverColor: Colors.transparent,
+                                                                              highlightColor: Colors.transparent,
+                                                                              onTap: () async {
+                                                                                await showDialog(
+                                                                                  context: context,
+                                                                                  builder: (dialogContext) {
+                                                                                    return Dialog(
+                                                                                      elevation: 0,
+                                                                                      insetPadding: EdgeInsets.zero,
+                                                                                      backgroundColor: Colors.transparent,
+                                                                                      alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                      child: ConfirmCancelPopUpWidget(
+                                                                                        header: 'Reporting ',
+                                                                                        hintText: 'Are you sure you want to report this post?',
+                                                                                        cancelText: 'Cancel',
+                                                                                        confirmText: 'Report',
+                                                                                        onConfirmAction: () async {
+                                                                                          await showDialog(
+                                                                                            context: context,
+                                                                                            builder: (dialogContext) {
+                                                                                              return Dialog(
+                                                                                                elevation: 0,
+                                                                                                insetPadding: EdgeInsets.zero,
+                                                                                                backgroundColor: Colors.transparent,
+                                                                                                alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                                child: ReportingPopupWidget(
+                                                                                                  reportingData: ReportingDataStruct(
+                                                                                                    postId: widget.postID,
+                                                                                                    postTitle: postEnViewPostSearchEnRow.title,
+                                                                                                    isProfile: false,
+                                                                                                    profileOwnerName: postEnViewPostSearchEnRow.userName,
+                                                                                                    profileId: postEnViewPostSearchEnRow.ownerId,
                                                                                                   ),
-                                                                                                );
-                                                                                              },
-                                                                                            );
-                                                                                          },
-                                                                                          onCancelAction: () async {},
-                                                                                        ),
-                                                                                      );
-                                                                                    },
-                                                                                  );
-                                                                                },
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.flag,
-                                                                                  color: FlutterFlowTheme.of(context).primaryText,
-                                                                                  size: 16.0,
-                                                                                ),
+                                                                                                ),
+                                                                                              );
+                                                                                            },
+                                                                                          );
+                                                                                        },
+                                                                                        onCancelAction: () async {},
+                                                                                      ),
+                                                                                    );
+                                                                                  },
+                                                                                );
+                                                                              },
+                                                                              child: FaIcon(
+                                                                                FontAwesomeIcons.flag,
+                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                size: 16.0,
                                                                               ),
                                                                             ),
                                                                           ),
-                                                                      ],
-                                                                    ),
+                                                                        ),
+                                                                    ],
                                                                   ),
                                                                 ),
-                                                            ].divide(SizedBox(
-                                                                width: 3.0)),
-                                                          ).animateOnPageLoad(
-                                                              animationsMap[
-                                                                  'rowOnPageLoadAnimation']!),
-                                                      ].divide(SizedBox(
-                                                          width: 10.0)),
+                                                              ),
+                                                          ].divide(SizedBox(
+                                                              height: 5.0)),
+                                                        ).animateOnPageLoad(
+                                                            animationsMap[
+                                                                'columnOnPageLoadAnimation']!),
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Align(
-                                      alignment: AlignmentDirectional(0.0, 1.0),
-                                      child: Container(
-                                        width: double.infinity,
-                                        height: 100.0,
-                                        decoration: BoxDecoration(
-                                          gradient: LinearGradient(
-                                            colors: [
-                                              Color(0x00232426),
-                                              Color(0xDF0E0E0E)
-                                            ],
-                                            stops: [0.0, 1.0],
-                                            begin:
-                                                AlignmentDirectional(0.0, -1.0),
-                                            end: AlignmentDirectional(0, 1.0),
-                                          ),
-                                        ),
-                                        alignment:
-                                            AlignmentDirectional(0.0, 1.0),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 20.0, 16.0, 16.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.min,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              Flexible(
-                                                child: Text(
-                                                  valueOrDefault<String>(
-                                                    postEnViewPostSearchEnRow
-                                                        .title,
-                                                    'This is a title which is quite long and all',
-                                                  ),
-                                                  textAlign: TextAlign.start,
-                                                  maxLines: 2,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .titleLarge
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleLargeFamily,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryWhite,
-                                                        fontSize: 28.0,
-                                                        letterSpacing: 0.0,
-                                                        lineHeight: 1.1,
-                                                        useGoogleFonts:
-                                                            !FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleLargeIsCustom,
-                                                      ),
                                                 ),
                                               ),
                                             ],
                                           ),
-                                        ),
+                                        ],
                                       ),
-                                    ),
-                                    Align(
-                                      alignment: AlignmentDirectional(1.0, 1.0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 6.0, 16.0),
-                                        child: FlutterFlowIconButton(
-                                          borderColor: Colors.transparent,
-                                          borderRadius: 30.0,
-                                          buttonSize: 44.0,
-                                          icon: Icon(
-                                            Icons.image_search,
-                                            color: Colors.white,
-                                            size: 24.0,
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 1.0),
+                                        child: Container(
+                                          width: double.infinity,
+                                          height: 100.0,
+                                          decoration: BoxDecoration(
+                                            gradient: LinearGradient(
+                                              colors: [
+                                                Color(0x00232426),
+                                                Color(0xDF0E0E0E)
+                                              ],
+                                              stops: [0.0, 1.0],
+                                              begin: AlignmentDirectional(
+                                                  0.0, -1.0),
+                                              end: AlignmentDirectional(0, 1.0),
+                                            ),
                                           ),
-                                          onPressed: () async {
-                                            context.pushNamed(
-                                              ImageGalleryPageWidget.routeName,
-                                              queryParameters: {
-                                                'previewImages': serializeParam(
-                                                  postEnViewPostSearchEnRow
-                                                      .images
-                                                      .map((e) => e)
-                                                      .toList(),
-                                                  ParamType.String,
-                                                  isList: true,
+                                          alignment:
+                                              AlignmentDirectional(0.0, 1.0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 20.0, 16.0, 16.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: [
+                                                Flexible(
+                                                  child: Text(
+                                                    valueOrDefault<String>(
+                                                      postEnViewPostSearchEnRow
+                                                          .title,
+                                                      'This is a title which is quite long and all',
+                                                    ),
+                                                    textAlign: TextAlign.start,
+                                                    maxLines: 2,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleLarge
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleLargeFamily,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryWhite,
+                                                          fontSize: 28.0,
+                                                          letterSpacing: 0.0,
+                                                          lineHeight: 1.1,
+                                                          useGoogleFonts:
+                                                              !FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .titleLargeIsCustom,
+                                                        ),
+                                                  ),
                                                 ),
-                                              }.withoutNulls,
-                                            );
-                                          },
+                                              ],
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -1753,432 +2105,30 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Flexible(
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: 85.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        shape: BoxShape.rectangle,
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Builder(
-                                            builder: (context) => InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                if (currentUserUid != '') {
-                                                  context.pushNamed(
-                                                    ProfilePageWidget.routeName,
-                                                    queryParameters: {
-                                                      'profileId':
-                                                          serializeParam(
-                                                        postEnViewPostSearchEnRow
-                                                            .ownerId,
-                                                        ParamType.String,
-                                                      ),
-                                                    }.withoutNulls,
-                                                  );
-                                                } else {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder: (dialogContext) {
-                                                      return Dialog(
-                                                        elevation: 0,
-                                                        insetPadding:
-                                                            EdgeInsets.zero,
-                                                        backgroundColor:
-                                                            Colors.transparent,
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                    0.0, 0.0)
-                                                                .resolve(
-                                                                    Directionality.of(
-                                                                        context)),
-                                                        child:
-                                                            CustomSnackbarWidget(
-                                                          myText:
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                            'my83ao52' /* Please login or signup to see ... */,
-                                                          ),
-                                                          waitMS: 3000,
-                                                          backgroundColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .warning,
-                                                        ),
-                                                      );
-                                                    },
-                                                  );
-                                                }
-                                              },
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Container(
-                                                    width: 70.0,
-                                                    height: 70.0,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Stack(
-                                                      children: [
-                                                        Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsets.all(
-                                                                    1.0),
-                                                            child: Container(
-                                                              width: 60.0,
-                                                              height: 60.0,
-                                                              clipBehavior: Clip
-                                                                  .antiAlias,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                shape: BoxShape
-                                                                    .circle,
-                                                              ),
-                                                              child:
-                                                                  Image.network(
-                                                                postEnViewPostSearchEnRow
-                                                                            .showProfileImage ==
-                                                                        true
-                                                                    ? (postEnViewPostSearchEnRow.profileAvatar !=
-                                                                                null &&
-                                                                            postEnViewPostSearchEnRow.profileAvatar !=
-                                                                                ''
-                                                                        ? postEnViewPostSearchEnRow
-                                                                            .profileAvatar!
-                                                                        : 'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Defults/Defult_profile_avatar.png')
-                                                                    : 'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Defults/Defult_profile_avatar.png',
-                                                                fit: BoxFit
-                                                                    .cover,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        if (postEnViewPostSearchEnRow
-                                                                .yekjaVerified ??
-                                                            true)
-                                                          Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    1.0, 1.0),
-                                                            child: ClipRRect(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8.0),
-                                                              child:
-                                                                  Image.network(
-                                                                'https://bkygphvuuqmpmcfrncpm.supabase.co/storage/v1/object/public/yekja/Assets/Yekja_badge.png',
-                                                                width: 25.0,
-                                                                height: 25.0,
-                                                                fit: BoxFit
-                                                                    .cover,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(12.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      8.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              postEnViewPostSearchEnRow
-                                                                  .userName,
-                                                              ' user name',
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(
-                                                                    fontWeight: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontWeight,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  fontSize:
-                                                                      18.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      -1.0,
-                                                                      0.0),
-                                                              child: ClipRRect(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8.0),
-                                                                child: Image
-                                                                    .network(
-                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/y0l0lllp2v7b/star_animated.gif',
-                                                                  width: 30.0,
-                                                                  height: 30.0,
-                                                                  fit: BoxFit
-                                                                      .cover,
-                                                                ),
-                                                              ),
-                                                            ),
-                                                            Text(
-                                                              '${valueOrDefault<String>(
-                                                                postEnViewPostSearchEnRow
-                                                                    .review
-                                                                    ?.toString(),
-                                                                '1',
-                                                              )} (${valueOrDefault<String>(
-                                                                postEnViewPostSearchEnRow
-                                                                    .ratings
-                                                                    ?.toString(),
-                                                                '1',
-                                                              )})',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    useGoogleFonts:
-                                                                        !FlutterFlowTheme.of(context)
-                                                                            .bodyMediumIsCustom,
-                                                                  ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsets.all(
-                                                                  4.0),
-                                                          child: Container(
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                              boxShadow: [
-                                                                BoxShadow(
-                                                                  blurRadius:
-                                                                      2.0,
-                                                                  color: Color(
-                                                                      0xB039D2C0),
-                                                                  offset:
-                                                                      Offset(
-                                                                    2.0,
-                                                                    0.0,
-                                                                  ),
-                                                                )
-                                                              ],
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8.0),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ].divide(SizedBox(
-                                                          height: 4.0)),
-                                                    ),
-                                                  ),
-                                                ]
-                                                    .divide(
-                                                        SizedBox(width: 4.0))
-                                                    .addToStart(
-                                                        SizedBox(width: 4.0)),
-                                              ),
-                                            ),
-                                          ),
-                                          if (postEnViewPostSearchEnRow
-                                                  .showSocialmedia ??
-                                              true)
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsets.all(16.0),
-                                                  child: Container(
-                                                    decoration: BoxDecoration(),
-                                                    child: Builder(
-                                                      builder: (context) =>
-                                                          InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          if (currentUserUid !=
-                                                                  '') {
-                                                            if (FFAppState()
-                                                                        .userInfo
-                                                                        .instaLink ==
-                                                                    '') {
-                                                              await launchURL(
-                                                                  FFAppState()
-                                                                      .userInfo
-                                                                      .instaLink);
-                                                            } else {
-                                                              await showDialog(
-                                                                context:
-                                                                    context,
-                                                                builder:
-                                                                    (dialogContext) {
-                                                                  return Dialog(
-                                                                    elevation:
-                                                                        0,
-                                                                    insetPadding:
-                                                                        EdgeInsets
-                                                                            .zero,
-                                                                    backgroundColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    alignment: AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0)
-                                                                        .resolve(
-                                                                            Directionality.of(context)),
-                                                                    child:
-                                                                        CustomSnackbarWidget(
-                                                                      myText: FFLocalizations.of(
-                                                                              context)
-                                                                          .getText(
-                                                                        'k9m2tv64' /* Instagram link it not set. */,
-                                                                      ),
-                                                                      waitMS:
-                                                                          3000,
-                                                                      backgroundColor:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .warning,
-                                                                    ),
-                                                                  );
-                                                                },
-                                                              );
-                                                            }
-
-                                                            return;
-                                                          } else {
-                                                            await showDialog(
-                                                              context: context,
-                                                              builder:
-                                                                  (dialogContext) {
-                                                                return Dialog(
-                                                                  elevation: 0,
-                                                                  insetPadding:
-                                                                      EdgeInsets
-                                                                          .zero,
-                                                                  backgroundColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  alignment: AlignmentDirectional(
-                                                                          0.0,
-                                                                          0.0)
-                                                                      .resolve(
-                                                                          Directionality.of(
-                                                                              context)),
-                                                                  child:
-                                                                      CustomSnackbarWidget(
-                                                                    myText: FFLocalizations.of(
-                                                                            context)
-                                                                        .getText(
-                                                                      'rmxxndqk' /* Please login or sign-up to see... */,
-                                                                    ),
-                                                                    backgroundColor:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .warningSnack,
-                                                                  ),
-                                                                );
-                                                              },
-                                                            );
-
-                                                            return;
-                                                          }
-                                                        },
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                          child: Image.asset(
-                                                            'assets/images/instagram.png',
-                                                            width: 40.0,
-                                                            height: 40.0,
-                                                            fit: BoxFit.fill,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                        ],
+                                    child: wrapWithModel(
+                                      model: _model.postOwnerCardModel,
+                                      updateCallback: () => safeSetState(() {}),
+                                      child: PostOwnerCardWidget(
+                                        consentShowProfile:
+                                            postEnViewPostSearchEnRow
+                                                .showProfileImage!,
+                                        userAvatar: postEnViewPostSearchEnRow
+                                            .profileAvatar,
+                                        ownerUsername: valueOrDefault<String>(
+                                          postEnViewPostSearchEnRow.userName,
+                                          ' user name',
+                                        ),
+                                        avarageReviewScore:
+                                            valueOrDefault<double>(
+                                          postEnViewPostSearchEnRow.review,
+                                          1.0,
+                                        ),
+                                        totalReviwer: valueOrDefault<int>(
+                                          postEnViewPostSearchEnRow.ratings,
+                                          1,
+                                        ),
+                                        profileId:
+                                            postEnViewPostSearchEnRow.ownerId!,
                                       ),
                                     ),
                                   ),
@@ -2341,6 +2291,11 @@ class _PostEnWidgetState extends State<PostEnWidget>
                           subCat: postEnViewPostSearchEnRow.subCatName!,
                         ),
                       ),
+                    ),
+                    wrapWithModel(
+                      model: _model.reportBugModel,
+                      updateCallback: () => safeSetState(() {}),
+                      child: ReportBugWidget(),
                     ),
                   ],
                 ),

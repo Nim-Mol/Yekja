@@ -3,6 +3,7 @@ import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/shared_components/item_card_horizontal_2/item_card_horizontal2_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'dart:async';
 import 'search_page_widget.dart' show SearchPageWidget;
@@ -89,12 +90,15 @@ class SearchPageModel extends FlutterFlowModel<SearchPageWidget> {
   TextEditingController? searchwidget2TextController;
   String? searchwidget2SelectedOption;
   String? Function(BuildContext, String?)? searchwidget2TextControllerValidator;
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
 
   @override
   void initState(BuildContext context) {
     itemCardHorizontal2Models =
         FlutterFlowDynamicModels(() => ItemCardHorizontal2Model());
     navBarModel = createModel(context, () => NavBarModel());
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
@@ -105,6 +109,8 @@ class SearchPageModel extends FlutterFlowModel<SearchPageWidget> {
     searchwidgetFocusNode?.dispose();
 
     searchwidget2FocusNode?.dispose();
+
+    reportBugModel.dispose();
   }
 
   /// Additional helper methods.

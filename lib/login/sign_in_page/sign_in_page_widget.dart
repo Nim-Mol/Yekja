@@ -4,10 +4,12 @@ import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 import 'sign_in_page_model.dart';
 export 'sign_in_page_model.dart';
@@ -26,12 +28,16 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
   late SignInPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => SignInPageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setAppLanguage(context, 'en');
+    });
 
     _model.emailAddressTextController ??= TextEditingController();
     _model.emailAddressFocusNode ??= FocusNode();
@@ -841,10 +847,6 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        currentUserLocationValue =
-                                            await getCurrentUserLocation(
-                                                defaultLocation:
-                                                    LatLng(0.0, 0.0));
                                         var _shouldSetState = false;
                                         if (FFAppState().GuestInfo.sessionId !=
                                                 '') {
@@ -857,6 +859,9 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                         } else {
                                           _model.sessionId =
                                               await actions.generateUUID();
+                                          _shouldSetState = true;
+                                          _model.userIP =
+                                              await actions.getUserIPAddress();
                                           _shouldSetState = true;
                                           FFAppState().GuestInfo =
                                               GuestUserStruct(
@@ -871,7 +876,6 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                               }
                                             }(),
                                             deviceTime: getCurrentTimestamp,
-                                            deviceLoc: currentUserLocationValue,
                                           );
                                           safeSetState(() {});
                                           await MonitoringGuestTable().insert({
@@ -893,13 +897,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                                 return 'Web';
                                               }
                                             }(),
-                                            'device_time':
-                                                supaSerialize<DateTime>(
-                                                    FFAppState()
-                                                        .GuestInfo
-                                                        .deviceTime),
-                                            'page': 'signin',
-                                            'action': 'guest sign in',
+                                            'user_IP': _model.userIP,
                                           });
 
                                           context.pushNamed(
@@ -971,6 +969,11 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                         ),
                       ],
                     ),
+                  ),
+                  wrapWithModel(
+                    model: _model.reportBugModel,
+                    updateCallback: () => safeSetState(() {}),
+                    child: ReportBugWidget(),
                   ),
                 ],
               ),

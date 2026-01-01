@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/news/news_card/news_card_widget.dart';
 import '/shared_components/main_header/main_header_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/flutter_flow/request_manager.dart';
 
 import '/index.dart';
@@ -50,6 +51,8 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   late NavBarModel navBarModel;
   // State field(s) for Switch widget.
   bool? switchValue;
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
 
   /// Query cache managers for this widget.
 
@@ -74,6 +77,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
     newsCardModels = FlutterFlowDynamicModels(() => NewsCardModel());
     mainHeaderModel = createModel(context, () => MainHeaderModel());
     navBarModel = createModel(context, () => NavBarModel());
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
@@ -84,6 +88,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
     newsCardModels.dispose();
     mainHeaderModel.dispose();
     navBarModel.dispose();
+    reportBugModel.dispose();
 
     /// Dispose query cache managers for this widget.
 

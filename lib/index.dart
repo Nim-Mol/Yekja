@@ -2,9 +2,7 @@
 export '/profile/privacy_policy_page/privacy_policy_page_widget.dart'
     show PrivacyPolicyPageWidget;
 export '/profile/faq/faq_widget.dart' show FaqWidget;
-export '/dashboard/dashboard_widget.dart' show DashboardWidget;
 export '/events/events_widget.dart' show EventsWidget;
-export '/reported_post/reported_post_widget.dart' show ReportedPostWidget;
 export '/onboarding/onboarding_page/onboarding_page_widget.dart'
     show OnboardingPageWidget;
 export '/posts/image_gallery_page/image_gallery_page_widget.dart'
@@ -12,7 +10,6 @@ export '/posts/image_gallery_page/image_gallery_page_widget.dart'
 export '/posts/create_post/post_cat/post_cat_widget.dart' show PostCatWidget;
 export '/profile/terms_conditions_page/terms_conditions_page_widget.dart'
     show TermsConditionsPageWidget;
-export '/reported_user/reported_user_widget.dart' show ReportedUserWidget;
 export '/home/swipable/swipable_widget.dart' show SwipableWidget;
 export '/profile/profile_extended/profile_extended_widget.dart'
     show ProfileExtendedWidget;

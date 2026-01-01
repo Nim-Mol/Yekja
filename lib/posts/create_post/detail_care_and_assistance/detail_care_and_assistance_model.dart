@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'detail_care_and_assistance_widget.dart'
     show DetailCareAndAssistanceWidget;
@@ -13,10 +14,16 @@ class DetailCareAndAssistanceModel
   String? dropdownCityValue;
   FormFieldController<String>? dropdownCityValueController;
   DateTime? datePicked;
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    reportBugModel = createModel(context, () => ReportBugModel());
+  }
 
   @override
-  void dispose() {}
+  void dispose() {
+    reportBugModel.dispose();
+  }
 }

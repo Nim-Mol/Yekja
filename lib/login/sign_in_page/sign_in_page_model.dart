@@ -1,5 +1,6 @@
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'sign_in_page_widget.dart' show SignInPageWidget;
 import 'package:flutter/material.dart';
@@ -29,10 +30,15 @@ class SignInPageModel extends FlutterFlowModel<SignInPageWidget> {
   String? userRole;
   // Stores action output result for [Custom Action - generateUUID] action in RichText widget.
   String? sessionId;
+  // Stores action output result for [Custom Action - getUserIPAddress] action in RichText widget.
+  String? userIP;
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
 
   @override
   void initState(BuildContext context) {
     passWordVisibility = false;
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
@@ -42,5 +48,7 @@ class SignInPageModel extends FlutterFlowModel<SignInPageWidget> {
 
     passWordFocusNode?.dispose();
     passWordTextController?.dispose();
+
+    reportBugModel.dispose();
   }
 }

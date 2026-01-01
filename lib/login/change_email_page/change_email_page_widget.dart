@@ -1,14 +1,17 @@
 import '/auth/supabase_auth/auth_util.dart';
-import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/instant_timer.dart';
+import '/shared_components/custom_snackbar/custom_snackbar_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'change_email_page_model.dart';
 export 'change_email_page_model.dart';
 
@@ -31,6 +34,11 @@ class _ChangeEmailPageWidgetState extends State<ChangeEmailPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ChangeEmailPageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setAppLanguage(context, 'en');
+    });
 
     _model.newEmialTextController ??= TextEditingController();
     _model.newEmialFocusNode ??= FocusNode();
@@ -220,10 +228,6 @@ class _ChangeEmailPageWidgetState extends State<ChangeEmailPageWidget> {
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     isDense: false,
-                                    labelText:
-                                        FFLocalizations.of(context).getText(
-                                      '7qj4jthi' /* New pasword */,
-                                    ),
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -318,7 +322,7 @@ class _ChangeEmailPageWidgetState extends State<ChangeEmailPageWidget> {
                                       .override(
                                         fontFamily: 'FarsiFonts',
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryWhite,
+                                            .primary,
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
@@ -331,130 +335,157 @@ class _ChangeEmailPageWidgetState extends State<ChangeEmailPageWidget> {
                                 ),
                                 Stack(
                                   children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 24.0, 0.0, 24.0),
-                                      child: FFButtonWidget(
-                                        onPressed: _model.timerOn
-                                            ? null
-                                            : () async {
-                                                if (_model.formKey
-                                                            .currentState ==
-                                                        null ||
-                                                    !_model
-                                                        .formKey.currentState!
-                                                        .validate()) {
-                                                  return;
-                                                }
-                                                if (_model
-                                                        .newEmialTextController
-                                                        .text !=
-                                                    currentUserEmail) {
-                                                  _model.timerController
-                                                      .onStartTimer();
-                                                  _model.timerOn = true;
-                                                  safeSetState(() {});
-                                                  if (_model
-                                                      .newEmialTextController
-                                                      .text
-                                                      .isEmpty) {
-                                                    ScaffoldMessenger.of(
-                                                            context)
-                                                        .showSnackBar(
-                                                      SnackBar(
-                                                        content: Text(
-                                                          'Email required!',
-                                                        ),
-                                                      ),
-                                                    );
+                                    Builder(
+                                      builder: (context) => Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 24.0, 0.0, 24.0),
+                                        child: FFButtonWidget(
+                                          onPressed: _model.timerOn
+                                              ? null
+                                              : () async {
+                                                  if (_model.formKey
+                                                              .currentState ==
+                                                          null ||
+                                                      !_model
+                                                          .formKey.currentState!
+                                                          .validate()) {
                                                     return;
                                                   }
-
-                                                  await authManager.updateEmail(
-                                                    email: _model
-                                                        .newEmialTextController
-                                                        .text,
-                                                    context: context,
-                                                  );
-                                                  safeSetState(() {});
-
-                                                  await UserExtTable().update(
-                                                    data: {
-                                                      'email': _model
+                                                  if (_model
                                                           .newEmialTextController
-                                                          .text,
-                                                    },
-                                                    matchingRows: (rows) =>
-                                                        rows.eqOrNull(
-                                                      'id',
-                                                      currentUserUid,
-                                                    ),
-                                                  );
-                                                  return;
-                                                } else {
-                                                  ScaffoldMessenger.of(context)
-                                                      .showSnackBar(
-                                                    SnackBar(
-                                                      content: Text(
-                                                        'This is your current email address.',
-                                                        style: TextStyle(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                                      ),
+                                                          .text !=
+                                                      currentUserEmail) {
+                                                    _model.timerOn = true;
+                                                    safeSetState(() {});
+                                                    _model.instantTimer =
+                                                        InstantTimer.periodic(
                                                       duration: Duration(
-                                                          milliseconds: 2000),
-                                                      backgroundColor:
-                                                          FlutterFlowTheme.of(
+                                                          milliseconds: 59000),
+                                                      callback: (timer) async {
+                                                        if (_model
+                                                            .newEmialTextController
+                                                            .text
+                                                            .isEmpty) {
+                                                          ScaffoldMessenger.of(
                                                                   context)
-                                                              .warningSnack,
-                                                    ),
-                                                  );
-                                                  return;
-                                                }
-                                              },
-                                        text:
-                                            FFLocalizations.of(context).getText(
-                                          'j3fkaqso' /* Change Email */,
-                                        ),
-                                        options: FFButtonOptions(
-                                          width: double.infinity,
-                                          height: 48.0,
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          color: FlutterFlowTheme.of(context)
-                                              .greenInit,
-                                          textStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .titleMedium
-                                              .override(
-                                                fontFamily: 'FarsiFonts',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                          elevation: 0.0,
-                                          borderSide: BorderSide(
-                                            color: Colors.transparent,
+                                                              .showSnackBar(
+                                                            SnackBar(
+                                                              content: Text(
+                                                                'Email required!',
+                                                              ),
+                                                            ),
+                                                          );
+                                                          return;
+                                                        }
+
+                                                        await authManager
+                                                            .updateEmail(
+                                                          email: _model
+                                                              .newEmialTextController
+                                                              .text,
+                                                          context: context,
+                                                        );
+                                                        safeSetState(() {});
+
+                                                        FFAppState()
+                                                            .clearUserExtCacheKey(
+                                                                currentUserUid);
+                                                        return;
+                                                      },
+                                                      startImmediately: true,
+                                                    );
+                                                  } else {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder: (dialogContext) {
+                                                        return Dialog(
+                                                          elevation: 0,
+                                                          insetPadding:
+                                                              EdgeInsets.zero,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          alignment: AlignmentDirectional(
+                                                                  0.0, 0.0)
+                                                              .resolve(
+                                                                  Directionality.of(
+                                                                      context)),
+                                                          child:
+                                                              GestureDetector(
+                                                            onTap: () {
+                                                              FocusScope.of(
+                                                                      dialogContext)
+                                                                  .unfocus();
+                                                              FocusManager
+                                                                  .instance
+                                                                  .primaryFocus
+                                                                  ?.unfocus();
+                                                            },
+                                                            child:
+                                                                CustomSnackbarWidget(
+                                                              myText:
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                'twxvxxu7' /* please use a new email address... */,
+                                                              ),
+                                                              textColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                              waitMS: 3000,
+                                                              backgroundColor:
+                                                                  Color(
+                                                                      0xFF840401),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+
+                                                    return;
+                                                  }
+                                                },
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            'j3fkaqso' /* Change Email */,
                                           ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          disabledColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .textgray,
-                                          disabledTextColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .textgray,
+                                          options: FFButtonOptions(
+                                            width: double.infinity,
+                                            height: 48.0,
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            iconPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            color: FlutterFlowTheme.of(context)
+                                                .greenInit,
+                                            textStyle: FlutterFlowTheme.of(
+                                                    context)
+                                                .titleMedium
+                                                .override(
+                                                  fontFamily: 'FarsiFonts',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  fontSize: 16.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                            elevation: 0.0,
+                                            borderSide: BorderSide(
+                                              color: Colors.transparent,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            disabledColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .textgray,
+                                            disabledTextColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .textgray,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -492,6 +523,8 @@ class _ChangeEmailPageWidgetState extends State<ChangeEmailPageWidget> {
                                               onEnded: () async {
                                                 _model.timerOn = false;
                                                 safeSetState(() {});
+                                                _model.timerController
+                                                    .onResetTimer();
                                               },
                                               textAlign: TextAlign.start,
                                               style: FlutterFlowTheme.of(
@@ -521,6 +554,11 @@ class _ChangeEmailPageWidgetState extends State<ChangeEmailPageWidget> {
                         ),
                       ),
                     ].divide(SizedBox(height: 16.0)),
+                  ),
+                  wrapWithModel(
+                    model: _model.reportBugModel,
+                    updateCallback: () => safeSetState(() {}),
+                    child: ReportBugWidget(),
                   ),
                 ],
               ),

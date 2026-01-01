@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'detail_rentals_widget.dart' show DetailRentalsWidget;
 import 'package:flutter/material.dart';
@@ -35,9 +36,13 @@ class DetailRentalsModel extends FlutterFlowModel<DetailRentalsWidget> {
   bool? registrationSwitchValue2;
   // State field(s) for RegistrationSwitch widget.
   bool? registrationSwitchValue3;
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    reportBugModel = createModel(context, () => ReportBugModel());
+  }
 
   @override
   void dispose() {
@@ -49,5 +54,7 @@ class DetailRentalsModel extends FlutterFlowModel<DetailRentalsWidget> {
 
     depositFocusNode?.dispose();
     depositTextController?.dispose();
+
+    reportBugModel.dispose();
   }
 }

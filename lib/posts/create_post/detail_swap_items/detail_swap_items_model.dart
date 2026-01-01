@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'detail_swap_items_widget.dart' show DetailSwapItemsWidget;
 import 'package:flutter/material.dart';
@@ -50,11 +51,14 @@ class DetailSwapItemsModel extends FlutterFlowModel<DetailSwapItemsWidget> {
   String? Function(BuildContext, String?)? textController3Validator;
   // State field(s) for NegotiableSwitch widget.
   bool? negotiableSwitchValue;
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
 
   @override
   void initState(BuildContext context) {
     wishlistFieldTextControllerValidator =
         _wishlistFieldTextControllerValidator;
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
@@ -67,5 +71,7 @@ class DetailSwapItemsModel extends FlutterFlowModel<DetailSwapItemsWidget> {
 
     textFieldFocusNode2?.dispose();
     textController3?.dispose();
+
+    reportBugModel.dispose();
   }
 }

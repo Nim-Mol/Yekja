@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/main_overview_pages/post_detail_column/post_detail_column_widget.dart';
 import '/profile/review_card_small/review_card_small_widget.dart';
 import '/shared_components/photo_gallary/photo_gallary_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'post_edit_widget.dart' show PostEditWidget;
 import 'package:flutter/material.dart';
@@ -24,6 +25,8 @@ class PostEditModel extends FlutterFlowModel<PostEditWidget> {
   List<PostsRow>? postDeleted;
   // Stores action output result for [Backend Call - Insert Row] action in Button widget.
   PostCreateMuxTblRow? rowUpdated;
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
 
   @override
   void initState(BuildContext context) {
@@ -31,6 +34,7 @@ class PostEditModel extends FlutterFlowModel<PostEditWidget> {
     postDetailColumnModel = createModel(context, () => PostDetailColumnModel());
     reviewCardSmallModels =
         FlutterFlowDynamicModels(() => ReviewCardSmallModel());
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
@@ -38,5 +42,6 @@ class PostEditModel extends FlutterFlowModel<PostEditWidget> {
     photoGallaryModel.dispose();
     postDetailColumnModel.dispose();
     reviewCardSmallModels.dispose();
+    reportBugModel.dispose();
   }
 }

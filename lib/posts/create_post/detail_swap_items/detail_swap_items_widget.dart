@@ -7,6 +7,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/posts/create_post/description/description_widget.dart';
 import '/posts/create_post/title/title_widget.dart';
 import '/shared_components/error_pop_up/error_pop_up_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -2695,121 +2696,164 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget>
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 6.0, 0.0, 0.0),
-                                            child: FlutterFlowDropDown<String>(
-                                              controller: _model
-                                                      .dropdownCityValueController2 ??=
-                                                  FormFieldController<String>(
-                                                _model.dropdownCityValue2 ??=
-                                                    FFAppState().postState.city,
+                                            child:
+                                                FutureBuilder<List<CitiesRow>>(
+                                              future: FFAppState().cities(
+                                                requestFn: () =>
+                                                    CitiesTable().queryRows(
+                                                  queryFn: (q) => q,
+                                                ),
                                               ),
-                                              options: FFAppState()
-                                                  .citiesApp
-                                                  .map((e) => e.name)
-                                                  .toList(),
-                                              onChanged: (val) async {
-                                                safeSetState(() => _model
-                                                    .dropdownCityValue2 = val);
-                                                FFAppState()
-                                                    .updatePostStateStruct(
-                                                  (e) => e
-                                                    ..city = _model
-                                                        .dropdownCityValue2,
-                                                );
-                                                safeSetState(() {});
-                                              },
-                                              height: 40.0,
-                                              searchHintTextStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMediumFamily,
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      child: SpinKitChasingDots(
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primary,
-                                                        letterSpacing: 0.0,
-                                                        useGoogleFonts:
-                                                            !FlutterFlowTheme
-                                                                    .of(context)
-                                                                .labelMediumIsCustom,
+                                                                .greenInit,
+                                                        size: 50.0,
                                                       ),
-                                              searchTextStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMediumFamily,
-                                                        letterSpacing: 0.0,
-                                                        useGoogleFonts:
-                                                            !FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMediumIsCustom,
-                                                      ),
-                                              textStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily,
-                                                    color: FFAppState()
-                                                                    .postState
-                                                                    .city !=
-                                                                ''
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryText
-                                                        : FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryText,
-                                                    fontSize: 14.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                    useGoogleFonts:
-                                                        !FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumIsCustom,
+                                                    ),
+                                                  );
+                                                }
+                                                List<CitiesRow>
+                                                    dropdownCityCitiesRowList =
+                                                    snapshot.data!;
+
+                                                return FlutterFlowDropDown<
+                                                    String>(
+                                                  controller: _model
+                                                          .dropdownCityValueController2 ??=
+                                                      FormFieldController<
+                                                          String>(
+                                                    _model.dropdownCityValue2 ??=
+                                                        FFAppState()
+                                                            .postState
+                                                            .city,
                                                   ),
-                                              hintText:
-                                                  FFLocalizations.of(context)
+                                                  options:
+                                                      dropdownCityCitiesRowList
+                                                          .map((e) => e.name)
+                                                          .withoutNulls
+                                                          .toList(),
+                                                  onChanged: (val) async {
+                                                    safeSetState(() => _model
+                                                            .dropdownCityValue2 =
+                                                        val);
+                                                    FFAppState()
+                                                        .updatePostStateStruct(
+                                                      (e) => e
+                                                        ..city = _model
+                                                            .dropdownCityValue2,
+                                                    );
+                                                    safeSetState(() {});
+                                                  },
+                                                  height: 40.0,
+                                                  searchHintTextStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMediumFamily,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary,
+                                                            letterSpacing: 0.0,
+                                                            useGoogleFonts:
+                                                                !FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMediumIsCustom,
+                                                          ),
+                                                  searchTextStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                            letterSpacing: 0.0,
+                                                            useGoogleFonts:
+                                                                !FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumIsCustom,
+                                                          ),
+                                                  textStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                            color: FFAppState()
+                                                                            .postState
+                                                                            .city !=
+                                                                        ''
+                                                                ? FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText
+                                                                : FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                            useGoogleFonts:
+                                                                !FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumIsCustom,
+                                                          ),
+                                                  hintText: FFLocalizations.of(
+                                                          context)
                                                       .getText(
-                                                'yo39xlof' /* Select */,
-                                              ),
-                                              searchHintText:
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                'n2zdt87s' /* Search... */,
-                                              ),
-                                              icon: Icon(
-                                                Icons.arrow_drop_down_sharp,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
+                                                    'yo39xlof' /* Select */,
+                                                  ),
+                                                  searchHintText:
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                    'n2zdt87s' /* Search... */,
+                                                  ),
+                                                  icon: Icon(
+                                                    Icons.arrow_drop_down_sharp,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
                                                         .textgray,
-                                                size: 16.0,
-                                              ),
-                                              fillColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              elevation: 0.0,
-                                              borderColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              borderWidth: 0.0,
-                                              borderRadius: 4.0,
-                                              margin: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      16.0, 0.0, 16.0, 0.0),
-                                              hidesUnderline: true,
-                                              isOverButton: false,
-                                              isSearchable: true,
-                                              isMultiSelect: false,
+                                                    size: 16.0,
+                                                  ),
+                                                  fillColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground,
+                                                  elevation: 0.0,
+                                                  borderColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground,
+                                                  borderWidth: 0.0,
+                                                  borderRadius: 4.0,
+                                                  margin: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          16.0, 0.0, 16.0, 0.0),
+                                                  hidesUnderline: true,
+                                                  isOverButton: false,
+                                                  isSearchable: true,
+                                                  isMultiSelect: false,
+                                                );
+                                              },
                                             ),
                                           ),
                                         ].divide(SizedBox(height: 6.0)),
@@ -3845,6 +3889,11 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget>
                     ],
                   ),
                 ),
+              ),
+              wrapWithModel(
+                model: _model.reportBugModel,
+                updateCallback: () => safeSetState(() {}),
+                child: ReportBugWidget(),
               ),
             ],
           ),

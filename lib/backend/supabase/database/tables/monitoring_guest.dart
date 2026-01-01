@@ -27,18 +27,6 @@ class MonitoringGuestRow extends SupabaseDataRow {
   String? get device => getField<String>('device');
   set device(String? value) => setField<String>('device', value);
 
-  double? get deviceLat => getField<double>('device_lat');
-  set deviceLat(double? value) => setField<double>('device_lat', value);
-
-  DateTime? get deviceTime => getField<DateTime>('device_time');
-  set deviceTime(DateTime? value) => setField<DateTime>('device_time', value);
-
-  String? get action => getField<String>('action');
-  set action(String? value) => setField<String>('action', value);
-
-  String? get page => getField<String>('page');
-  set page(String? value) => setField<String>('page', value);
-
   double? get deviceLog => getField<double>('device_log');
   set deviceLog(double? value) => setField<double>('device_log', value);
 
@@ -47,4 +35,7 @@ class MonitoringGuestRow extends SupabaseDataRow {
 
   String? get userId => getField<String>('user_id');
   set userId(String? value) => setField<String>('user_id', value);
+
+  String? get userIP => getField<String>('user_IP');
+  set userIP(String? value) => setField<String>('user_IP', value);
 }

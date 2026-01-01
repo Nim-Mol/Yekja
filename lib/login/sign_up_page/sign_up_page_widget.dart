@@ -3,11 +3,13 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/login/terms_popup/terms_popup_widget.dart';
 import '/login/verify_code/verify_code_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'sign_up_page_model.dart';
 export 'sign_up_page_model.dart';
 
@@ -30,6 +32,11 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SignUpPageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setAppLanguage(context, 'en');
+    });
 
     _model.userNameTextController ??= TextEditingController();
     _model.userNameFocusNode ??= FocusNode();
@@ -1475,6 +1482,11 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                 ),
                               ],
                             ),
+                          ),
+                          wrapWithModel(
+                            model: _model.reportBugModel,
+                            updateCallback: () => safeSetState(() {}),
+                            child: ReportBugWidget(),
                           ),
                         ],
                       ),

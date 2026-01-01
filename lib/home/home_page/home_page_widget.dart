@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/news/news_card/news_card_widget.dart';
 import '/shared_components/main_header/main_header_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
@@ -427,6 +428,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                               0,
                                                               ParamType.int,
                                                             ),
+                                                            'mainCat':
+                                                                serializeParam(
+                                                              1,
+                                                              ParamType.int,
+                                                            ),
                                                           }.withoutNulls,
                                                         );
                                                       },
@@ -529,6 +535,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                               .routeName,
                                                           queryParameters: {
                                                             'selectedTab':
+                                                                serializeParam(
+                                                              1,
+                                                              ParamType.int,
+                                                            ),
+                                                            'mainCat':
                                                                 serializeParam(
                                                               2,
                                                               ParamType.int,
@@ -640,6 +651,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                               2,
                                                               ParamType.int,
                                                             ),
+                                                            'mainCat':
+                                                                serializeParam(
+                                                              3,
+                                                              ParamType.int,
+                                                            ),
                                                           }.withoutNulls,
                                                         );
                                                       },
@@ -741,6 +757,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                             'selectedTab':
                                                                 serializeParam(
                                                               3,
+                                                              ParamType.int,
+                                                            ),
+                                                            'mainCat':
+                                                                serializeParam(
+                                                              4,
                                                               ParamType.int,
                                                             ),
                                                           }.withoutNulls,
@@ -2156,14 +2177,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 67.5, 16.0, 0.0),
+                                  0.0, 67.5, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.end,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(1.0, -1.0),
+                                    alignment: AlignmentDirectional(0.0, -1.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -2176,7 +2197,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       child: Container(
                                         key: ValueKey('userMenu'),
                                         width: 54.0,
-                                        height: 12.0,
+                                        height: 14.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .greenInit,
@@ -2191,12 +2212,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             AlignmentDirectional(-1.0, 0.0),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, -1.0),
                                           child: Icon(
-                                            Icons.keyboard_control,
+                                            Icons.arrow_drop_down,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryWhite,
-                                            size: 16.0,
+                                            size: 20.0,
                                           ),
                                         ),
                                       ),
@@ -2799,6 +2820,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     ),
                                 ],
                               ),
+                            ),
+                            wrapWithModel(
+                              model: _model.reportBugModel,
+                              updateCallback: () => safeSetState(() {}),
+                              child: ReportBugWidget(),
                             ),
                           ],
                         ),

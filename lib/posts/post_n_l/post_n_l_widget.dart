@@ -12,6 +12,7 @@ import '/shared_components/comunication_bar/comunication_bar_widget.dart';
 import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.dart';
 import '/shared_components/custom_snackbar/custom_snackbar_widget.dart';
 import '/shared_components/photo_gallary/photo_gallary_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/shared_components/reporting_popup/reporting_popup_widget.dart';
 import 'dart:async';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -2333,6 +2334,11 @@ class _PostNLWidgetState extends State<PostNLWidget>
                           subCat: postNLViewPostSearchNlRow.subCatName!,
                         ),
                       ),
+                    ),
+                    wrapWithModel(
+                      model: _model.reportBugModel,
+                      updateCallback: () => safeSetState(() {}),
+                      child: ReportBugWidget(),
                     ),
                   ],
                 ),

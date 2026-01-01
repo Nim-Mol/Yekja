@@ -1,4 +1,5 @@
 import '/flutter_flow/flutter_flow_util.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'sign_up_page_widget.dart' show SignUpPageWidget;
 import 'package:flutter/material.dart';
@@ -101,6 +102,8 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
   bool? checkboxValue;
   // Stores action output result for [Custom Action - customSignUpWithEmail] action in Button widget.
   String? authonticationError;
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
 
   @override
   void initState(BuildContext context) {
@@ -109,6 +112,7 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
     passWordVisibility = false;
     passWordTextControllerValidator = _passWordTextControllerValidator;
     confPasswordVisibility = false;
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
@@ -124,5 +128,7 @@ class SignUpPageModel extends FlutterFlowModel<SignUpPageWidget> {
 
     confPasswordFocusNode?.dispose();
     confPasswordTextController?.dispose();
+
+    reportBugModel.dispose();
   }
 }

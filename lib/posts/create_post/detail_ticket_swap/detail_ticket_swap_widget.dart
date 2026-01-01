@@ -6,6 +6,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/posts/create_post/description/description_widget.dart';
 import '/posts/create_post/title/title_widget.dart';
 import '/shared_components/error_pop_up/error_pop_up_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -2900,6 +2901,11 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                     ],
                   ),
                 ),
+              ),
+              wrapWithModel(
+                model: _model.reportBugModel,
+                updateCallback: () => safeSetState(() {}),
+                child: ReportBugWidget(),
               ),
             ],
           ),

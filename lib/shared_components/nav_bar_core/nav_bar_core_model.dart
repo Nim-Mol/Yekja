@@ -4,6 +4,10 @@ import 'nav_bar_core_widget.dart' show NavBarCoreWidget;
 import 'package:flutter/material.dart';
 
 class NavBarCoreModel extends FlutterFlowModel<NavBarCoreWidget> {
+  ///  Local state fields for this component.
+
+  int? unseenMessages;
+
   ///  State fields for stateful widgets in this component.
 
   // Stores action output result for [Backend Call - Query Rows] action in NavBarCore widget.

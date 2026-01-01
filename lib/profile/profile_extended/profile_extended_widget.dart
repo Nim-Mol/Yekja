@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/profile/review_card/review_card_widget.dart';
 import '/shared_components/item_card_horizental/item_card_horizental_widget.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -643,6 +644,11 @@ class _ProfileExtendedWidgetState extends State<ProfileExtendedWidget>
                     model: _model.navBarModel,
                     updateCallback: () => safeSetState(() {}),
                     child: NavBarWidget(),
+                  ),
+                  wrapWithModel(
+                    model: _model.reportBugModel,
+                    updateCallback: () => safeSetState(() {}),
+                    child: ReportBugWidget(),
                   ),
                 ],
               ),

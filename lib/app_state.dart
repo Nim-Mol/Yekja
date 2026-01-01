@@ -127,21 +127,6 @@ class FFAppState extends ChangeNotifier {
           _SubcatApp;
     });
     _safeInit(() {
-      _citiesApp = prefs
-              .getStringList('ff_citiesApp')
-              ?.map((x) {
-                try {
-                  return CitiesModelStruct.fromSerializableMap(jsonDecode(x));
-                } catch (e) {
-                  print("Can't decode persisted data type. Error: $e.");
-                  return null;
-                }
-              })
-              .withoutNulls
-              .toList() ??
-          _citiesApp;
-    });
-    _safeInit(() {
       if (prefs.containsKey('ff_GuestInfo')) {
         try {
           final serializedData = prefs.getString('ff_GuestInfo') ?? '{}';
@@ -522,47 +507,6 @@ class FFAppState extends ChangeNotifier {
         'ff_SubcatApp', _SubcatApp.map((x) => x.serialize()).toList());
   }
 
-  List<CitiesModelStruct> _citiesApp = [];
-  List<CitiesModelStruct> get citiesApp => _citiesApp;
-  set citiesApp(List<CitiesModelStruct> value) {
-    _citiesApp = value;
-    prefs.setStringList(
-        'ff_citiesApp', value.map((x) => x.serialize()).toList());
-  }
-
-  void addToCitiesApp(CitiesModelStruct value) {
-    citiesApp.add(value);
-    prefs.setStringList(
-        'ff_citiesApp', _citiesApp.map((x) => x.serialize()).toList());
-  }
-
-  void removeFromCitiesApp(CitiesModelStruct value) {
-    citiesApp.remove(value);
-    prefs.setStringList(
-        'ff_citiesApp', _citiesApp.map((x) => x.serialize()).toList());
-  }
-
-  void removeAtIndexFromCitiesApp(int index) {
-    citiesApp.removeAt(index);
-    prefs.setStringList(
-        'ff_citiesApp', _citiesApp.map((x) => x.serialize()).toList());
-  }
-
-  void updateCitiesAppAtIndex(
-    int index,
-    CitiesModelStruct Function(CitiesModelStruct) updateFn,
-  ) {
-    citiesApp[index] = updateFn(_citiesApp[index]);
-    prefs.setStringList(
-        'ff_citiesApp', _citiesApp.map((x) => x.serialize()).toList());
-  }
-
-  void insertAtIndexInCitiesApp(int index, CitiesModelStruct value) {
-    citiesApp.insert(index, value);
-    prefs.setStringList(
-        'ff_citiesApp', _citiesApp.map((x) => x.serialize()).toList());
-  }
-
   FilterSmallModelStruct _filterSmall =
       FilterSmallModelStruct.fromSerializableMap(
           jsonDecode('{\"main_cat_id\":\"2\",\"cat_id\":\"4\"}'));
@@ -722,6 +666,21 @@ class FFAppState extends ChangeNotifier {
   void clearFAQqueryCache() => _fAQqueryManager.clear();
   void clearFAQqueryCacheKey(String? uniqueKey) =>
       _fAQqueryManager.clearRequest(uniqueKey);
+
+  final _subCatsManager = FutureRequestManager<List<SubCategoriesRow>>();
+  Future<List<SubCategoriesRow>> subCats({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<List<SubCategoriesRow>> Function() requestFn,
+  }) =>
+      _subCatsManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearSubCatsCache() => _subCatsManager.clear();
+  void clearSubCatsCacheKey(String? uniqueKey) =>
+      _subCatsManager.clearRequest(uniqueKey);
 }
 
 void _safeInit(Function() initializeField) {

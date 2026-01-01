@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
+import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'swipable_widget.dart' show SwipableWidget;
 import 'package:flutter/material.dart';
@@ -12,15 +13,19 @@ class SwipableModel extends FlutterFlowModel<SwipableWidget> {
   late CardSwiperController swipeableStackController;
   // Model for NavBar component.
   late NavBarModel navBarModel;
+  // Model for reportBug component.
+  late ReportBugModel reportBugModel;
 
   @override
   void initState(BuildContext context) {
     swipeableStackController = CardSwiperController();
     navBarModel = createModel(context, () => NavBarModel());
+    reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
   void dispose() {
     navBarModel.dispose();
+    reportBugModel.dispose();
   }
 }

@@ -1,7 +1,6 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
-import '/components/post_owner_card_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -13,6 +12,7 @@ import '/shared_components/comunication_bar/comunication_bar_widget.dart';
 import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.dart';
 import '/shared_components/custom_snackbar/custom_snackbar_widget.dart';
 import '/shared_components/photo_gallary/photo_gallary_widget.dart';
+import '/shared_components/post_owner_card/post_owner_card_widget.dart';
 import '/shared_components/report_bug/report_bug_widget.dart';
 import '/shared_components/reporting_popup/reporting_popup_widget.dart';
 import 'dart:async';
@@ -617,307 +617,43 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                                                     await Future
                                                                         .wait([
                                                                       Future(
-                                                                          () async {
-                                                                        FFAppState().postDetailJSON =
-                                                                            functions.decodeDetails(postEnViewPostSearchEnRow.detailsText!);
-                                                                        safeSetState(
-                                                                            () {});
-                                                                      }),
+                                                                          () async {}),
+                                                                      Future(
+                                                                          () async {}),
+                                                                      Future(
+                                                                          () async {}),
                                                                       Future(
                                                                           () async {
-                                                                        FFAppState().postState =
-                                                                            PostModelStruct(
-                                                                          id: postEnViewPostSearchEnRow
-                                                                              .postId,
-                                                                          ownerId:
-                                                                              postEnViewPostSearchEnRow.ownerId,
-                                                                          title:
-                                                                              postEnViewPostSearchEnRow.title,
-                                                                          description:
-                                                                              postEnViewPostSearchEnRow.description,
+                                                                        FFAppState().EditPostData =
+                                                                            EditPostDateStruct(
                                                                           city:
                                                                               postEnViewPostSearchEnRow.city,
-                                                                          subCatId:
-                                                                              postEnViewPostSearchEnRow.subCatId,
-                                                                          postLikes:
-                                                                              postEnViewPostSearchEnRow.postLikes,
-                                                                          images:
+                                                                          description:
+                                                                              postEnViewPostSearchEnRow.description,
+                                                                          title:
+                                                                              postEnViewPostSearchEnRow.title,
+                                                                          imags:
                                                                               postEnViewPostSearchEnRow.images,
-                                                                          catName:
-                                                                              postEnViewPostSearchEnRow.catLabel,
-                                                                          subCatName:
-                                                                              postEnViewPostSearchEnRow.subCatLabel,
-                                                                          createdAt:
-                                                                              postEnViewPostSearchEnRow.createdAt,
-                                                                          review:
-                                                                              postEnViewPostSearchEnRow.review,
-                                                                          ratings:
-                                                                              postEnViewPostSearchEnRow.ratings,
-                                                                          rentalType:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.detailsLabels,
-                                                                            r'''$.rental_type''',
-                                                                          ).toString(),
-                                                                          intend:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.detailsLabels,
-                                                                            r'''$.intend''',
-                                                                          ).toString(),
-                                                                          price:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.price''',
-                                                                          ),
-                                                                          isNegotiable:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.is_negotiable''',
-                                                                          ),
-                                                                          condition:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.detailsLabels,
-                                                                            r'''$.condition''',
-                                                                          ).toString(),
-                                                                          deliveryMethod:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.detailsLabels,
-                                                                            r'''$.delivery_method''',
-                                                                          ).toString(),
-                                                                          openForSwap:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.open_for_swap''',
-                                                                          ),
-                                                                          wishlistText:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.wishlist_text''',
-                                                                          ).toString(),
-                                                                          ticketsQty:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.tickets_qty''',
-                                                                          ),
-                                                                          eventDatetime:
-                                                                              functions.jsonToDateTimeUtc(getJsonField(
-                                                                            postEnViewPostSearchEnRow.details!,
-                                                                            r'''$.event_datetime''',
-                                                                          )),
-                                                                          venueName:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.venue_name''',
-                                                                          ).toString(),
-                                                                          currency:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.detailsLabels,
-                                                                            r'''$.venue_name''',
-                                                                          ).toString(),
-                                                                          amount:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.amount''',
-                                                                          ),
-                                                                          allowPartial:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.allow_partial''',
-                                                                          ),
-                                                                          method:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.detailsLabels,
-                                                                            r'''$.method''',
-                                                                          ).toString(),
-                                                                          originCountry:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.origin_country''',
-                                                                          ).toString(),
-                                                                          originCity:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.origin_city''',
-                                                                          ).toString(),
-                                                                          destinationCountry:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.destination_country''',
-                                                                          ).toString(),
-                                                                          destinationCity:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.destination_city''',
-                                                                          ).toString(),
-                                                                          isDocument:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.is_document''',
-                                                                          ),
-                                                                          weightKg:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.detailsLabels,
-                                                                            r'''$.weight_kg''',
-                                                                          ).toString(),
-                                                                          dimensionsText:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.detailsLabels,
-                                                                            r'''$.dimensions_text''',
-                                                                          ).toString(),
-                                                                          isFragile:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.is_fragile''',
-                                                                          ),
-                                                                          travelDate:
-                                                                              functions.jsonToDateTimeUtc(getJsonField(
-                                                                            postEnViewPostSearchEnRow.details!,
-                                                                            r'''$.travel_date''',
-                                                                          )),
-                                                                          deadline:
-                                                                              functions.jsonToDateTimeUtc(getJsonField(
-                                                                            postEnViewPostSearchEnRow.details!,
-                                                                            r'''$.deadline''',
-                                                                          )),
-                                                                          priceText:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.detailsLabels,
-                                                                            r'''$.price_text''',
-                                                                          ).toString(),
-                                                                          pricePeriod:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.detailsLabels,
-                                                                            r'''$.price_period''',
-                                                                          ).toString(),
-                                                                          deposit:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.deposit''',
-                                                                          ),
-                                                                          availableFrom:
-                                                                              functions.jsonToDateTimeUtc(getJsonField(
-                                                                            postEnViewPostSearchEnRow.details!,
-                                                                            r'''$.available_from''',
-                                                                          )),
-                                                                          availableUntil:
-                                                                              functions.jsonToDateTimeUtc(getJsonField(
-                                                                            postEnViewPostSearchEnRow.details!,
-                                                                            r'''$.available_until''',
-                                                                          )),
-                                                                          furnished:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.furnished''',
-                                                                          ),
-                                                                          utilitiesIncluded:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.utilities_included''',
-                                                                          ),
-                                                                          registrationPossible:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.registration_possible''',
-                                                                          ),
-                                                                          compensationType:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.detailsLabels,
-                                                                            r'''$.compensation_type''',
-                                                                          ).toString(),
-                                                                          durationMin:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.duration_min''',
-                                                                          ),
-                                                                          eventStartsAt:
-                                                                              functions.jsonToDateTimeUtc(getJsonField(
-                                                                            postEnViewPostSearchEnRow.details!,
-                                                                            r'''$.event_starts_at''',
-                                                                          )),
-                                                                          eventEndsAt:
-                                                                              functions.jsonToDateTimeUtc(getJsonField(
-                                                                            postEnViewPostSearchEnRow.details!,
-                                                                            r'''$.event_ends_at''',
-                                                                          )),
-                                                                          repeats:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.detailsLabels,
-                                                                            r'''$.repeats''',
-                                                                          ),
-                                                                          venueAddress:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.venue_address''',
-                                                                          ).toString(),
-                                                                          onlineUrl:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.online_url''',
-                                                                          ).toString(),
-                                                                          capacity:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.capacity''',
-                                                                          ),
-                                                                          totalArea:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.total_area''',
-                                                                          ),
-                                                                          allowCashAdjustment:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.allow_cash_adjustment''',
-                                                                          ),
-                                                                          repeatsText:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.detailsLabels,
-                                                                            r'''$.repeats''',
-                                                                          ).toString(),
-                                                                          nGoing:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.n_going''',
-                                                                          ),
-                                                                          serviceMode:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.detailsLabels,
-                                                                            r'''$.service_mode''',
-                                                                          ).toString(),
-                                                                          experienceYears:
-                                                                              getJsonField(
-                                                                            postEnViewPostSearchEnRow.detailsLabels,
-                                                                            r'''$.experience_years''',
-                                                                          ).toString(),
-                                                                          languages: (getJsonField(
-                                                                            postEnViewPostSearchEnRow.details,
-                                                                            r'''$.languages''',
-                                                                            true,
-                                                                          ) as List?)
-                                                                              ?.map<String>((e) => e.toString())
-                                                                              .toList()
-                                                                              .cast<String>(),
-                                                                          catId:
-                                                                              postEnViewPostSearchEnRow.catId,
-                                                                          mainCatId:
-                                                                              postEnViewPostSearchEnRow.mainCatId,
                                                                         );
-                                                                        safeSetState(
-                                                                            () {});
-                                                                      }),
-                                                                      Future(
-                                                                          () async {
-                                                                        FFAppState().postDetailLabel =
-                                                                            functions.decodeDetails(postEnViewPostSearchEnRow.detailsLabelText!);
-                                                                        FFAppState().postDetailTable =
-                                                                            postEnViewPostSearchEnRow.detailTable!;
                                                                         safeSetState(
                                                                             () {});
                                                                       }),
                                                                     ]);
 
-                                                                    context.pushNamed(
-                                                                        PostEditWidget
-                                                                            .routeName);
+                                                                    context
+                                                                        .pushNamed(
+                                                                      PostEditWidget
+                                                                          .routeName,
+                                                                      queryParameters:
+                                                                          {
+                                                                        'edit':
+                                                                            serializeParam(
+                                                                          true,
+                                                                          ParamType
+                                                                              .bool,
+                                                                        ),
+                                                                      }.withoutNulls,
+                                                                    );
                                                                   },
                                                                   child:
                                                                       Container(
@@ -1184,10 +920,28 @@ class _PostEnWidgetState extends State<PostEnWidget>
                                                                               FFAppState().postDetailTable = postEnViewPostSearchEnRow.detailTable!;
                                                                               safeSetState(() {});
                                                                             }),
+                                                                            Future(() async {
+                                                                              FFAppState().EditPostData = EditPostDateStruct(
+                                                                                city: postEnViewPostSearchEnRow.city,
+                                                                                description: postEnViewPostSearchEnRow.description,
+                                                                                title: postEnViewPostSearchEnRow.title,
+                                                                                imags: postEnViewPostSearchEnRow.images,
+                                                                              );
+                                                                              safeSetState(() {});
+                                                                            }),
                                                                           ]);
 
                                                                           context
-                                                                              .pushNamed(PostEditWidget.routeName);
+                                                                              .pushNamed(
+                                                                            PostEditWidget.routeName,
+                                                                            queryParameters:
+                                                                                {
+                                                                              'edit': serializeParam(
+                                                                                true,
+                                                                                ParamType.bool,
+                                                                              ),
+                                                                            }.withoutNulls,
+                                                                          );
                                                                         },
                                                                       ),
                                                                     ),

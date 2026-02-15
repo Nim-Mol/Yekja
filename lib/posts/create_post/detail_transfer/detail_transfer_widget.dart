@@ -291,7 +291,7 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                           ),
                                           Text(
                                             FFLocalizations.of(context).getText(
-                                              'pjdod6a2' /* parcel transfer */,
+                                              'pjdod6a2' /* Parcel transfer  */,
                                             ),
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
@@ -4286,7 +4286,7 @@ class _DetailTransferWidgetState extends State<DetailTransferWidget> {
                                     ),
                                   }.withoutNulls,
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
+                                    '__transition_info__': TransitionInfo(
                                       hasTransition: true,
                                       transitionType:
                                           PageTransitionType.rightToLeft,

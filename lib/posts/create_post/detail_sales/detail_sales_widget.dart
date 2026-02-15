@@ -3,10 +3,10 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/posts/create_post/description/description_widget.dart';
 import '/posts/create_post/title/title_widget.dart';
-import '/shared_components/error_pop_up/error_pop_up_widget.dart';
 import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -2763,159 +2763,80 @@ class _DetailSalesWidgetState extends State<DetailSalesWidget>
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Builder(
-                        builder: (context) => Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 16.0, 24.0, 0.0),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              if ((FFAppState().postState.title != '') &&
-                                  (FFAppState().postState.city != '') &&
-                                  ((FFAppState().postState.price > 0) ||
-                                      (FFAppState().postState.priceText !=
-                                              ''))) {
-                                FFAppState().postDetailJSON = <String, dynamic>{
-                                  'condition': FFAppState().postState.condition,
-                                  'price': FFAppState().postState.price,
-                                  'is_negotiable':
-                                      FFAppState().postState.isNegotiable,
-                                  'delivery_method':
-                                      FFAppState().postState.deliveryMethod,
-                                  'open_for_swap':
-                                      FFAppState().postState.openForSwap,
-                                  'wishlist_text':
-                                      FFAppState().postState.wishlistText,
-                                  'price_text':
-                                      FFAppState().postState.priceText,
-                                };
-                                safeSetState(() {});
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            24.0, 16.0, 24.0, 0.0),
+                        child: FFButtonWidget(
+                          onPressed: ((FFAppState().postState.title == '') ||
+                                  (FFAppState().postState.city == '') ||
+                                  ((FFAppState().postState.price <= 0) ||
+                                      (FFAppState().postState.priceText ==
+                                              '')))
+                              ? null
+                              : () async {
+                                  FFAppState().postDetailJSON =
+                                      <String, dynamic>{
+                                    'condition':
+                                        FFAppState().postState.condition,
+                                    'price': FFAppState().postState.price,
+                                    'is_negotiable':
+                                        FFAppState().postState.isNegotiable,
+                                    'delivery_method':
+                                        FFAppState().postState.deliveryMethod,
+                                    'open_for_swap':
+                                        FFAppState().postState.openForSwap,
+                                    'wishlist_text':
+                                        FFAppState().postState.wishlistText,
+                                    'price_text':
+                                        FFAppState().postState.priceText,
+                                  };
+                                  safeSetState(() {});
 
-                                context.pushNamed(
-                                  PostImageWidget.routeName,
-                                  queryParameters: {
-                                    'navRoute': serializeParam(
-                                      widget.navRoute,
-                                      ParamType.String,
-                                    ),
-                                  }.withoutNulls,
-                                  extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType:
-                                          PageTransitionType.rightToLeft,
-                                      duration: Duration(milliseconds: 600),
-                                    ),
-                                  },
-                                );
-                              } else {
-                                await showDialog(
-                                  context: context,
-                                  builder: (dialogContext) {
-                                    return Dialog(
-                                      elevation: 0,
-                                      insetPadding: EdgeInsets.zero,
-                                      backgroundColor: Colors.transparent,
-                                      alignment: AlignmentDirectional(0.0, 0.0)
-                                          .resolve(Directionality.of(context)),
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          FocusScope.of(dialogContext)
-                                              .unfocus();
-                                          FocusManager.instance.primaryFocus
-                                              ?.unfocus();
-                                        },
-                                        child: ErrorPopUpWidget(
-                                          errorText: FFLocalizations.of(context)
-                                              .getText(
-                                            'fha4ecx7' /* Some fields are empty. Please ... */,
-                                          ),
-                                        ),
+                                  context.pushNamed(
+                                    PostImageWidget.routeName,
+                                    queryParameters: {
+                                      'navRoute': serializeParam(
+                                        widget.navRoute,
+                                        ParamType.String,
                                       ),
-                                    );
-                                  },
-                                );
-                              }
-                            },
-                            child: Container(
-                              width: double.infinity,
-                              height: 45.0,
-                              decoration: BoxDecoration(
-                                color: (FFAppState().postState.title !=
-                                                '') &&
-                                        (FFAppState().postState.city !=
-                                                '') &&
-                                        ((FFAppState().postState.price > 0) ||
-                                            (FFAppState()
-                                                        .postState
-                                                        .priceText !=
-                                                    ''))
-                                    ? FlutterFlowTheme.of(context).greenInit
-                                    : FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8.0),
-                                border: Border.all(
-                                  color: (FFAppState().postState.title !=
-                                                  '') &&
-                                          (FFAppState().postState.city !=
-                                                  '') &&
-                                          ((FFAppState().postState.price > 0) ||
-                                              (FFAppState()
-                                                          .postState
-                                                          .priceText !=
-                                                      ''))
-                                      ? FlutterFlowTheme.of(context).greenInit
-                                      : FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                    }.withoutNulls,
+                                    extra: <String, dynamic>{
+                                      '__transition_info__': TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType:
+                                            PageTransitionType.rightToLeft,
+                                        duration: Duration(milliseconds: 600),
+                                      ),
+                                    },
+                                  );
+                                },
+                          text: FFLocalizations.of(context).getText(
+                            'pzlaytdt' /* Next */,
+                          ),
+                          options: FFButtonOptions(
+                            width: double.infinity,
+                            height: 45.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).greenInit,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .titleSmallFamily,
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                  useGoogleFonts: !FlutterFlowTheme.of(context)
+                                      .titleSmallIsCustom,
                                 ),
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'xxw4ioga' /* Next */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily,
-                                          color: (FFAppState()
-                                                              .postState
-                                                              .title !=
-                                                          '') &&
-                                                  (FFAppState()
-                                                              .postState
-                                                              .city !=
-                                                          '') &&
-                                                  ((FFAppState()
-                                                              .postState
-                                                              .price >
-                                                          0) ||
-                                                      (FFAppState()
-                                                                  .postState
-                                                                  .priceText !=
-                                                              ''))
-                                              ? FlutterFlowTheme.of(context)
-                                                  .primary
-                                              : Color(0xFF6B6969),
-                                          fontSize: 16.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                          useGoogleFonts:
-                                              !FlutterFlowTheme.of(context)
-                                                  .bodyMediumIsCustom,
-                                        ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                            elevation: 0.0,
+                            borderRadius: BorderRadius.circular(8.0),
+                            disabledColor:
+                                FlutterFlowTheme.of(context).textgray,
+                            disabledTextColor:
+                                FlutterFlowTheme.of(context).lightGray,
                           ),
                         ),
                       ),

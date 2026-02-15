@@ -128,7 +128,7 @@ class _ReportingPopupWidgetState extends State<ReportingPopupWidget> {
                             ),
                             TextSpan(
                               text: FFLocalizations.of(context).getText(
-                                '2pjit2x3' /* . Please provide your reason b... */,
+                                '2pjit2x3' /* Please provide your reason bel... */,
                               ),
                               style: TextStyle(),
                             )

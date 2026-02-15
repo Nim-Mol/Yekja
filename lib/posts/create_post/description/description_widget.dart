@@ -9,12 +9,7 @@ import 'description_model.dart';
 export 'description_model.dart';
 
 class DescriptionWidget extends StatefulWidget {
-  const DescriptionWidget({
-    super.key,
-    this.initialText,
-  });
-
-  final String? initialText;
+  const DescriptionWidget({super.key});
 
   @override
   State<DescriptionWidget> createState() => _DescriptionWidgetState();
@@ -34,8 +29,10 @@ class _DescriptionWidgetState extends State<DescriptionWidget> {
     super.initState();
     _model = createModel(context, () => DescriptionModel());
 
-    _model.textController ??=
-        TextEditingController(text: FFAppState().postState.description);
+    _model.textController ??= TextEditingController(
+        text: FFAppState().EditPostData.description != ''
+            ? FFAppState().EditPostData.description
+            : FFAppState().postState.description);
     _model.textFieldFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
@@ -169,7 +166,7 @@ class _DescriptionWidgetState extends State<DescriptionWidget> {
                             decoration: InputDecoration(
                               isDense: true,
                               hintText: FFLocalizations.of(context).getText(
-                                '0luhlo2r' /* Write here... */,
+                                '0luhlo2r' /* Add a short description. Pleas... */,
                               ),
                               enabledBorder: InputBorder.none,
                               focusedBorder: InputBorder.none,
@@ -242,12 +239,24 @@ class _DescriptionWidgetState extends State<DescriptionWidget> {
                                   (_model.textController.text == ''))
                               ? null
                               : () async {
-                                  FFAppState().updatePostStateStruct(
-                                    (e) => e
-                                      ..description =
-                                          _model.textController.text,
-                                  );
-                                  _model.updatePage(() {});
+                                  if (FFAppState().EditPostData.description !=
+                                          '') {
+                                    FFAppState().updateEditPostDataStruct(
+                                      (e) => e
+                                        ..description =
+                                            _model.textController.text
+                                        ..isModified = false,
+                                    );
+                                    safeSetState(() {});
+                                  } else {
+                                    FFAppState().updatePostStateStruct(
+                                      (e) => e
+                                        ..description =
+                                            _model.textController.text,
+                                    );
+                                    _model.updatePage(() {});
+                                  }
+
                                   context.safePop();
                                 },
                           text: FFLocalizations.of(context).getText(

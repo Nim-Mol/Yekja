@@ -3790,7 +3790,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget>
                                     ),
                                   }.withoutNulls,
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
+                                    '__transition_info__': TransitionInfo(
                                       hasTransition: true,
                                       transitionType:
                                           PageTransitionType.rightToLeft,

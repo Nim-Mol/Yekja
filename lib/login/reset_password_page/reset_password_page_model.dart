@@ -43,7 +43,7 @@ class ResetPasswordPageModel extends FlutterFlowModel<ResetPasswordPageWidget> {
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'yk1e4onw' /* Confirm password is required */,
+        'yk1e4onw' /* Confirming password is require... */,
       );
     }
 

@@ -36,6 +36,8 @@ enum Languages {
   Dutch,
   Kurdish,
   Urdu,
+  Pashto,
+  Dari,
 }
 
 extension FFEnumExtensions<T extends Enum> on T {

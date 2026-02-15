@@ -3,10 +3,10 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/posts/create_post/description/description_widget.dart';
 import '/posts/create_post/title/title_widget.dart';
-import '/shared_components/error_pop_up/error_pop_up_widget.dart';
 import '/shared_components/report_bug/report_bug_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
@@ -25,9 +25,11 @@ class DetailEventsWidget extends StatefulWidget {
   const DetailEventsWidget({
     super.key,
     this.navRoute,
+    this.editPostData,
   });
 
   final String? navRoute;
+  final dynamic editPostData;
 
   static String routeName = 'DetailEvents';
   static String routePath = '/detailEvents';
@@ -61,12 +63,22 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget>
         FFAppState().postState.priceText == 'Free for all';
     _model.priceBoolSwitchValue2 =
         FFAppState().postState.priceText == 'Pay what you feel';
-    _model.priceFieldTextController ??=
-        TextEditingController(text: FFAppState().postState.price.toString());
+    _model.priceFieldTextController ??= TextEditingController(
+        text: _model.textController5.text != ''
+            ? getJsonField(
+                widget.editPostData,
+                r'''$.price''',
+              ).toString()
+            : FFAppState().postState.price.toString());
     _model.priceFieldFocusNode ??= FocusNode();
 
-    _model.capacityFieldTextController ??=
-        TextEditingController(text: FFAppState().postState.capacity.toString());
+    _model.capacityFieldTextController ??= TextEditingController(
+        text: _model.textController5.text != ''
+            ? getJsonField(
+                widget.editPostData,
+                r'''$.capacity''',
+              ).toString()
+            : FFAppState().postState.capacity.toString());
     _model.capacityFieldFocusNode ??= FocusNode();
 
     _model.textController5 ??=
@@ -325,7 +337,7 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget>
                                           ),
                                           Text(
                                             FFLocalizations.of(context).getText(
-                                              '2hfhu5k5' /* event post */,
+                                              '2hfhu5k5' /* Event  */,
                                             ),
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
@@ -543,17 +555,22 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget>
                                                     ],
                                                   ),
                                                   Text(
-                                                    FFAppState()
-                                                                    .postState
-                                                                    .title !=
-                                                                ''
-                                                        ? FFAppState()
-                                                            .postState
-                                                            .title
-                                                        : ''.maybeHandleOverflow(
-                                                            maxChars: 35,
-                                                            replacement: '…',
-                                                          ),
+                                                    valueOrDefault<String>(
+                                                      widget.editPostData !=
+                                                              null
+                                                          ? getJsonField(
+                                                              widget
+                                                                  .editPostData,
+                                                              r'''$.title''',
+                                                            ).toString()
+                                                          : FFAppState()
+                                                              .postState
+                                                              .title,
+                                                      'Title',
+                                                    ).maybeHandleOverflow(
+                                                      maxChars: 35,
+                                                      replacement: '…',
+                                                    ),
                                                     maxLines: 1,
                                                     style:
                                                         FlutterFlowTheme.of(
@@ -1669,7 +1686,7 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget>
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'cx5qymde' /* Starts at: */,
+                                                'cx5qymde' /* From: */,
                                               ),
                                               style: FlutterFlowTheme.of(
                                                       context)
@@ -1980,7 +1997,7 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget>
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'm20wyojj' /* Ends at (optional): */,
+                                                'm20wyojj' /* To:  */,
                                               ),
                                               style: FlutterFlowTheme.of(
                                                       context)
@@ -2292,7 +2309,7 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget>
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'sccmk1mq' /* Event repeats (optional)? */,
+                                                      'sccmk1mq' /* Recurring event? */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -3465,7 +3482,7 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget>
                                             0.0, 4.0, 0.0, 2.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'cxs946ao' /* URL (optional) */,
+                                            'cxs946ao' /* URL or link? */,
                                           ),
                                           textAlign: TextAlign.start,
                                           style: FlutterFlowTheme.of(context)
@@ -3507,7 +3524,7 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget>
                                             0.0, 12.0, 0.0, 8.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'fyyx577k' /* In case needed, you can insert... */,
+                                            'fyyx577k' /* You can insert a URL for your ... */,
                                           ),
                                           maxLines: 2,
                                           style: FlutterFlowTheme.of(context)
@@ -3679,18 +3696,13 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget>
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Builder(
-                        builder: (context) => Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 16.0, 24.0, 0.0),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              if ((FFAppState().postState.title != '') &&
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
+                        child: FFButtonWidget(
+                          onPressed: !((FFAppState().postState.title != '') &&
                                   (FFAppState().postState.description !=
                                           '') &&
                                   (FFAppState().postState.city != '') &&
@@ -3702,174 +3714,78 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget>
                                             locale: FFLocalizations.of(context)
                                                 .languageCode,
                                           ) !=
-                                          '')) {
-                                FFAppState().postDetailJSON = <String, dynamic>{
-                                  'price': FFAppState().postState.price,
-                                  'price_text':
-                                      FFAppState().postState.priceText,
-                                  'capacity': FFAppState().postState.capacity,
-                                  'event_starts_at': functions.dateTimeToString(
-                                      FFAppState().postState.eventStartsAt),
-                                  'venue_name':
-                                      FFAppState().postState.venueName,
-                                  'intend': FFAppState().postState.intend,
-                                  'venue_address':
-                                      FFAppState().postState.venueAddress,
-                                  'online_url':
-                                      FFAppState().postState.onlineUrl,
-                                  'event_ends_at': functions.dateTimeToString(
-                                      FFAppState().postState.eventEndsAt),
-                                  'repeats': FFAppState().postState.repeatsText,
-                                };
-                                safeSetState(() {});
+                                          ''))
+                              ? null
+                              : () async {
+                                  FFAppState().postDetailJSON =
+                                      <String, dynamic>{
+                                    'price': FFAppState().postState.price,
+                                    'price_text':
+                                        FFAppState().postState.priceText,
+                                    'capacity': FFAppState().postState.capacity,
+                                    'event_starts_at':
+                                        functions.dateTimeToString(FFAppState()
+                                            .postState
+                                            .eventStartsAt),
+                                    'venue_name':
+                                        FFAppState().postState.venueName,
+                                    'intend': FFAppState().postState.intend,
+                                    'venue_address':
+                                        FFAppState().postState.venueAddress,
+                                    'online_url':
+                                        FFAppState().postState.onlineUrl,
+                                    'event_ends_at': functions.dateTimeToString(
+                                        FFAppState().postState.eventEndsAt),
+                                    'repeats':
+                                        FFAppState().postState.repeatsText,
+                                  };
+                                  safeSetState(() {});
 
-                                context.pushNamed(
-                                  PostImageWidget.routeName,
-                                  queryParameters: {
-                                    'navRoute': serializeParam(
-                                      widget.navRoute,
-                                      ParamType.String,
-                                    ),
-                                  }.withoutNulls,
-                                  extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType:
-                                          PageTransitionType.rightToLeft,
-                                      duration: Duration(milliseconds: 600),
-                                    ),
-                                  },
-                                );
-                              } else {
-                                await showDialog(
-                                  context: context,
-                                  builder: (dialogContext) {
-                                    return Dialog(
-                                      elevation: 0,
-                                      insetPadding: EdgeInsets.zero,
-                                      backgroundColor: Colors.transparent,
-                                      alignment: AlignmentDirectional(0.0, 0.0)
-                                          .resolve(Directionality.of(context)),
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          FocusScope.of(dialogContext)
-                                              .unfocus();
-                                          FocusManager.instance.primaryFocus
-                                              ?.unfocus();
-                                        },
-                                        child: ErrorPopUpWidget(
-                                          errorText: FFLocalizations.of(context)
-                                              .getText(
-                                            '6h8k0agb' /* Some fields are left unfilled.... */,
-                                          ),
-                                        ),
+                                  context.pushNamed(
+                                    PostImageWidget.routeName,
+                                    queryParameters: {
+                                      'navRoute': serializeParam(
+                                        widget.navRoute,
+                                        ParamType.String,
                                       ),
-                                    );
-                                  },
-                                );
-                              }
-                            },
-                            child: Container(
-                              width: double.infinity,
-                              height: 45.0,
-                              decoration: BoxDecoration(
-                                color: (FFAppState().postState.title !=
-                                                '') &&
-                                        (FFAppState()
-                                                    .postState
-                                                    .description !=
-                                                '') &&
-                                        (FFAppState().postState.city !=
-                                                '') &&
-                                        (dateTimeFormat(
-                                                  "d/M h:mm a",
-                                                  FFAppState()
-                                                      .postState
-                                                      .eventStartsAt,
-                                                  locale: FFLocalizations.of(
-                                                          context)
-                                                      .languageCode,
-                                                ) !=
-                                                '')
-                                    ? FlutterFlowTheme.of(context).greenInit
-                                    : FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8.0),
-                                border: Border.all(
-                                  color: (FFAppState().postState.title !=
-                                                  '') &&
-                                          (FFAppState()
-                                                      .postState
-                                                      .description !=
-                                                  '') &&
-                                          (FFAppState().postState.city !=
-                                                  '') &&
-                                          (dateTimeFormat(
-                                                    "d/M h:mm a",
-                                                    FFAppState()
-                                                        .postState
-                                                        .eventStartsAt,
-                                                    locale: FFLocalizations.of(
-                                                            context)
-                                                        .languageCode,
-                                                  ) !=
-                                                  '')
-                                      ? FlutterFlowTheme.of(context).greenInit
-                                      : FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                    }.withoutNulls,
+                                    extra: <String, dynamic>{
+                                      '__transition_info__': TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType:
+                                            PageTransitionType.rightToLeft,
+                                        duration: Duration(milliseconds: 600),
+                                      ),
+                                    },
+                                  );
+                                },
+                          text: FFLocalizations.of(context).getText(
+                            'isja5kr7' /* Next */,
+                          ),
+                          options: FFButtonOptions(
+                            width: double.infinity,
+                            height: 45.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).greenInit,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .titleSmallFamily,
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                  useGoogleFonts: !FlutterFlowTheme.of(context)
+                                      .titleSmallIsCustom,
                                 ),
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'm77mofj6' /* Next */,
-                                    ),
-                                    style:
-                                        FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily,
-                                              color: (FFAppState()
-                                                                  .postState
-                                                                  .title !=
-                                                              '') &&
-                                                      (FFAppState()
-                                                                  .postState
-                                                                  .description !=
-                                                              '') &&
-                                                      (FFAppState()
-                                                                  .postState
-                                                                  .city !=
-                                                              '') &&
-                                                      (dateTimeFormat(
-                                                                "d/M h:mm a",
-                                                                FFAppState()
-                                                                    .postState
-                                                                    .eventStartsAt,
-                                                                locale: FFLocalizations.of(
-                                                                        context)
-                                                                    .languageCode,
-                                                              ) !=
-                                                              '')
-                                                  ? FlutterFlowTheme.of(context)
-                                                      .primary
-                                                  : Color(0xFF6B6969),
-                                              fontSize: 16.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w500,
-                                              useGoogleFonts:
-                                                  !FlutterFlowTheme.of(context)
-                                                      .bodyMediumIsCustom,
-                                            ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                            elevation: 0.0,
+                            borderRadius: BorderRadius.circular(8.0),
+                            disabledColor:
+                                FlutterFlowTheme.of(context).textgray,
+                            disabledTextColor:
+                                FlutterFlowTheme.of(context).lightGray,
                           ),
                         ),
                       ),
@@ -3877,10 +3793,13 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget>
                   ),
                 ),
               ),
-              wrapWithModel(
-                model: _model.reportBugModel,
-                updateCallback: () => safeSetState(() {}),
-                child: ReportBugWidget(),
+              Align(
+                alignment: AlignmentDirectional(0.0, 0.0),
+                child: wrapWithModel(
+                  model: _model.reportBugModel,
+                  updateCallback: () => safeSetState(() {}),
+                  child: ReportBugWidget(),
+                ),
               ),
             ],
           ),

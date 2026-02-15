@@ -15,7 +15,9 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -41,6 +43,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      safeSetState(() {
+        _model.searchFieldTextController?.clear();
+      });
+    });
 
     _model.searchFieldTextController ??= TextEditingController();
     _model.searchFieldFocusNode ??= FocusNode();
@@ -142,7 +151,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 16.0, 16.0),
+                                        16.0, 15.0, 16.0, 16.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       mainAxisAlignment:
@@ -163,6 +172,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       .searchFieldTextController,
                                                   focusNode: _model
                                                       .searchFieldFocusNode,
+                                                  onChanged: (_) =>
+                                                      EasyDebounce.debounce(
+                                                    '_model.searchFieldTextController',
+                                                    Duration(
+                                                        milliseconds: 2000),
+                                                    () => safeSetState(() {}),
+                                                  ),
                                                   onFieldSubmitted: (_) async {
                                                     FFAppState()
                                                             .filterAppState =
@@ -301,6 +317,24 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                               .primaryText,
                                                       size: 24.0,
                                                     ),
+                                                    suffixIcon: _model
+                                                            .searchFieldTextController!
+                                                            .text
+                                                            .isNotEmpty
+                                                        ? InkWell(
+                                                            onTap: () async {
+                                                              _model
+                                                                  .searchFieldTextController
+                                                                  ?.clear();
+                                                              safeSetState(
+                                                                  () {});
+                                                            },
+                                                            child: Icon(
+                                                              Icons.clear,
+                                                              size: 22,
+                                                            ),
+                                                          )
+                                                        : null,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -324,6 +358,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .primaryText,
+                                                  enableInteractiveSelection:
+                                                      true,
                                                   validator: _model
                                                       .searchFieldTextControllerValidator
                                                       .asValidator(context),
@@ -340,7 +376,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 16.0, 8.0),
+                                            16.0, 0.0, 16.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.min,
                                           mainAxisAlignment:
@@ -353,16 +389,18 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'uecq8i6w' /* What are you looking for today... */,
+                                                    'uecq8i6w' /* Thanks for testing Yekja 💚
+Yo... */
+                                                    ,
                                                   ),
-                                                  textAlign: TextAlign.start,
+                                                  textAlign: TextAlign.center,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .titleLarge
                                                       .override(
                                                         fontFamily:
                                                             'FarsiFonts',
-                                                        fontSize: 18.0,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -941,7 +979,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   queryParameters: {
                                                     'selectedTab':
                                                         serializeParam(
-                                                      trendingItem.mainCatId,
+                                                      (trendingItem
+                                                              .mainCatId!) -
+                                                          1,
                                                       ParamType.int,
                                                     ),
                                                     'mainCat': serializeParam(
@@ -1299,7 +1339,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   16.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              '4827h0f4' /* How It Works? */,
+                                              '4827h0f4' /* 4 hints to use Yekja app.  */,
                                             ),
                                             textAlign: TextAlign.start,
                                             style: FlutterFlowTheme.of(context)
@@ -1465,7 +1505,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                           child:
                                                                               Text(
                                                                             FFLocalizations.of(context).getText(
-                                                                              'fsf3mcvr' /* Choose where your post belongs */,
+                                                                              'fsf3mcvr' /* Choose a suitable category */,
                                                                             ),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'FarsiFonts',
@@ -1497,7 +1537,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                           child:
                                                                               Text(
                                                                             FFLocalizations.of(context).getText(
-                                                                              'xvibk9g9' /* Add details and pics */,
+                                                                              'xvibk9g9' /* Clearly describe the details */,
                                                                             ),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'FarsiFonts',
@@ -1519,7 +1559,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                           [
                                                                         Icon(
                                                                           Icons
-                                                                              .swap_horiz,
+                                                                              .image_outlined,
                                                                           color:
                                                                               FlutterFlowTheme.of(context).greenInit,
                                                                           size:
@@ -1529,7 +1569,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                           child:
                                                                               Text(
                                                                             FFLocalizations.of(context).getText(
-                                                                              '6jcii098' /* Say what you want in return */,
+                                                                              '6jcii098' /* Attach images if needed */,
                                                                             ),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'FarsiFonts',
@@ -1560,7 +1600,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                         Text(
                                                                           FFLocalizations.of(context)
                                                                               .getText(
-                                                                            'o4t933ga' /* Your post is live! */,
+                                                                            'o4t933ga' /* Publish your post ✅ */,
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
@@ -1600,7 +1640,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            'pfhno2h7' /* 1. Share an item, skill, or se... */,
+                                                            'pfhno2h7' /* 1. Create your own post or see... */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -1623,7 +1663,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            'v9eb6c1w' /* For example, request or offer ... */,
+                                                            'v9eb6c1w' /* For example, offer or request ... */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -1710,7 +1750,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            '6s56pbb1' /* 2. Receive offers & discuss */,
+                                                            '6s56pbb1' /* 2. Send or receive offers */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -1733,7 +1773,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            '0n59oasi' /* If you receive an offer, discu... */,
+                                                            '0n59oasi' /* Discuss the details about an o... */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -1817,7 +1857,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            'h0ay052s' /* 3. Meet up in person & finaliz... */,
+                                                            'h0ay052s' /* 3. Call or meet with each othe... */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -1840,7 +1880,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            'iiu0tp23' /* It’s always nice to meet in pe... */,
+                                                            'iiu0tp23' /* While respecting your own priv... */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -1939,7 +1979,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            'r365vlqj' /* Build trust and make it easier... */,
+                                                            'r365vlqj' /* By sharing your feedback, you ... */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -2595,111 +2635,107 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 ),
                                               ),
                                             ),
-                                            if (currentUserUid != '')
-                                              InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  _model.showMenu = false;
-                                                  safeSetState(() {});
+                                            InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                _model.showMenu = false;
+                                                safeSetState(() {});
 
-                                                  context.pushNamed(
-                                                      ContactYEKJAWidget
-                                                          .routeName);
-                                                },
-                                                child: Container(
-                                                  key: ValueKey(
-                                                      'home_btn_contactUs'),
-                                                  width: 187.0,
-                                                  height: 35.0,
-                                                  decoration: BoxDecoration(
+                                                context.pushNamed(
+                                                    ContactYEKJAWidget
+                                                        .routeName);
+                                              },
+                                              child: Container(
+                                                key: ValueKey(
+                                                    'home_btn_contactUs'),
+                                                width: 187.0,
+                                                height: 35.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          4.0),
+                                                  border: Border.all(
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .secondaryBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            4.0),
-                                                    border: Border.all(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryText,
-                                                      width: 0.3,
-                                                    ),
+                                                        .secondaryText,
+                                                    width: 0.3,
                                                   ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(16.0, 0.0,
+                                                ),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          16.0, 0.0, 0.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
                                                                 0.0, 0.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child:
-                                                              FlutterFlowIconButton(
-                                                            borderRadius: 50.0,
-                                                            buttonSize: 30.0,
-                                                            fillColor: Color(
-                                                                0xFF195E24),
-                                                            icon: FaIcon(
-                                                              FontAwesomeIcons
-                                                                  .comment,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .info,
-                                                              size: 15.0,
-                                                            ),
-                                                            onPressed:
-                                                                () async {
-                                                              _model.showMenu =
-                                                                  false;
-                                                              safeSetState(
-                                                                  () {});
+                                                        child:
+                                                            FlutterFlowIconButton(
+                                                          borderRadius: 50.0,
+                                                          buttonSize: 30.0,
+                                                          fillColor:
+                                                              Color(0xFF195E24),
+                                                          icon: FaIcon(
+                                                            FontAwesomeIcons
+                                                                .comment,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .info,
+                                                            size: 15.0,
+                                                          ),
+                                                          onPressed: () async {
+                                                            _model.showMenu =
+                                                                false;
+                                                            safeSetState(() {});
 
-                                                              context.pushNamed(
-                                                                  ContactYEKJAWidget
-                                                                      .routeName);
-                                                            },
-                                                          ),
+                                                            context.pushNamed(
+                                                                ContactYEKJAWidget
+                                                                    .routeName);
+                                                          },
                                                         ),
-                                                        Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'gwt0vsq7' /* Contact Us */,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                useGoogleFonts:
-                                                                    !FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMediumIsCustom,
-                                                              ),
+                                                      ),
+                                                      Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'gwt0vsq7' /* Contact Us */,
                                                         ),
-                                                      ].divide(SizedBox(
-                                                          width: 10.0)),
-                                                    ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMediumIsCustom,
+                                                                ),
+                                                      ),
+                                                    ].divide(
+                                                        SizedBox(width: 10.0)),
                                                   ),
                                                 ),
                                               ),
+                                            ),
                                             if (currentUserUid != '')
                                               InkWell(
                                                 splashColor: Colors.transparent,
@@ -2760,7 +2796,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .info,
-                                                              size: 18.0,
+                                                              size: 15.0,
                                                             ),
                                                             onPressed:
                                                                 () async {

@@ -3,7 +3,7 @@ import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.dart';
+import '/shared_components/consent_reminder/consent_reminder_widget.dart';
 import '/shared_components/custom_snackbar/custom_snackbar_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
@@ -140,7 +140,7 @@ class _NavBarCoreWidgetState extends State<NavBarCoreWidget> {
                         ),
                         onPressed: () async {
                           if (currentUserUid != '') {
-                            if (FFAppState().userInfo.city != '') {
+                            if (FFAppState().userInfo.agreeConsent == true) {
                               context.pushNamed(PostMainCatWidget.routeName);
                             } else {
                               await showDialog(
@@ -152,31 +152,7 @@ class _NavBarCoreWidgetState extends State<NavBarCoreWidget> {
                                     backgroundColor: Colors.transparent,
                                     alignment: AlignmentDirectional(0.0, 0.0)
                                         .resolve(Directionality.of(context)),
-                                    child: ConfirmCancelPopUpWidget(
-                                      header:
-                                          FFLocalizations.of(context).getText(
-                                        'lmrhij3e' /* Complete profile before postin... */,
-                                      ),
-                                      hintText:
-                                          FFLocalizations.of(context).getText(
-                                        '91puj2om' /* Take 2 minutes to add your inf... */,
-                                      ),
-                                      cancelText:
-                                          FFLocalizations.of(context).getText(
-                                        't1t4f6fq' /* Cancel */,
-                                      ),
-                                      confirmText:
-                                          FFLocalizations.of(context).getText(
-                                        'l1hz8qip' /* Go  */,
-                                      ),
-                                      onConfirmAction: () async {
-                                        context.pushNamed(
-                                            ProfileEditWidget.routeName);
-                                      },
-                                      onCancelAction: () async {
-                                        Navigator.pop(context);
-                                      },
-                                    ),
+                                    child: ConsentReminderWidget(),
                                   );
                                 },
                               );
@@ -194,7 +170,8 @@ class _NavBarCoreWidgetState extends State<NavBarCoreWidget> {
                                   textAlign: TextAlign.center,
                                 ),
                                 duration: Duration(milliseconds: 5000),
-                                backgroundColor: Color(0xFFBA8D08),
+                                backgroundColor:
+                                    FlutterFlowTheme.of(context).warningSnack,
                               ),
                             );
                             return;

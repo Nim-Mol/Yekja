@@ -229,6 +229,10 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                   obscureText: !_model.passwordVisibility,
                                   decoration: InputDecoration(
                                     isDense: false,
+                                    labelText:
+                                        FFLocalizations.of(context).getText(
+                                      '0peyon7h' /* New password */,
+                                    ),
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -301,10 +305,11 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                         EdgeInsetsDirectional.fromSTEB(
                                             16.0, 13.0, 0.0, 13.0),
                                     suffixIcon: InkWell(
-                                      onTap: () => safeSetState(
-                                        () => _model.passwordVisibility =
-                                            !_model.passwordVisibility,
-                                      ),
+                                      onTap: () async {
+                                        safeSetState(() =>
+                                            _model.passwordVisibility =
+                                                !_model.passwordVisibility);
+                                      },
                                       focusNode: FocusNode(skipTraversal: true),
                                       child: Icon(
                                         _model.passwordVisibility
@@ -383,6 +388,10 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                 obscureText: !_model.confirmPasswordVisibility,
                                 decoration: InputDecoration(
                                   isDense: false,
+                                  labelText:
+                                      FFLocalizations.of(context).getText(
+                                    'e3y7muka' /* Confirm password */,
+                                  ),
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
@@ -451,10 +460,11 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                                       EdgeInsetsDirectional.fromSTEB(
                                           16.0, 13.0, 0.0, 13.0),
                                   suffixIcon: InkWell(
-                                    onTap: () => safeSetState(
-                                      () => _model.confirmPasswordVisibility =
-                                          !_model.confirmPasswordVisibility,
-                                    ),
+                                    onTap: () async {
+                                      safeSetState(() => _model
+                                              .confirmPasswordVisibility =
+                                          !_model.confirmPasswordVisibility);
+                                    },
                                     focusNode: FocusNode(skipTraversal: true),
                                     child: Icon(
                                       _model.confirmPasswordVisibility

@@ -13,7 +13,12 @@ import 'intend_model.dart';
 export 'intend_model.dart';
 
 class IntendWidget extends StatefulWidget {
-  const IntendWidget({super.key});
+  const IntendWidget({
+    super.key,
+    this.selectedIntend,
+  });
+
+  final String? selectedIntend;
 
   @override
   State<IntendWidget> createState() => _IntendWidgetState();

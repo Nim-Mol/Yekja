@@ -22,7 +22,7 @@ class DetailCurrencyExchangeModel
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'jsgjzpxv' /* Amount is required. */,
+        'jsgjzpxv' /* Price is required. */,
       );
     }
 

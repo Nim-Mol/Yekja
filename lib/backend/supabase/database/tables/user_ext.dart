@@ -71,4 +71,7 @@ class UserExtRow extends SupabaseDataRow {
 
   bool get emailConfirmed => getField<bool>('email_confirmed')!;
   set emailConfirmed(bool value) => setField<bool>('email_confirmed', value);
+
+  bool? get agreeConsent => getField<bool>('agree_Consent');
+  set agreeConsent(bool? value) => setField<bool>('agree_Consent', value);
 }

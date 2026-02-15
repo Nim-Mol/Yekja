@@ -1,7 +1,9 @@
+import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -90,6 +92,7 @@ class _CityWidgetState extends State<CityWidget> {
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .titleSmallFamily,
+                                    color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
@@ -218,7 +221,9 @@ class _CityWidgetState extends State<CityWidget> {
                             controller: _model.dropdownCityValueController ??=
                                 FormFieldController<String>(
                               _model.dropdownCityValue ??=
-                                  FFAppState().postState.city,
+                                  FFAppState().EditPostData.city == ''
+                                      ? FFAppState().EditPostData.city
+                                      : FFAppState().postState.city,
                             ),
                             options: dropdownCityCitiesRowList
                                 .map((e) => e.name)
@@ -227,10 +232,18 @@ class _CityWidgetState extends State<CityWidget> {
                             onChanged: (val) async {
                               safeSetState(
                                   () => _model.dropdownCityValue = val);
-                              FFAppState().updatePostStateStruct(
-                                (e) => e..city = _model.dropdownCityValue,
-                              );
-                              safeSetState(() {});
+                              if (FFAppState().EditPostData.city == '') {
+                                FFAppState().EditPostData = EditPostDateStruct(
+                                  city: FFAppState().EditPostData.city,
+                                  isModified: true,
+                                );
+                                safeSetState(() {});
+                              } else {
+                                FFAppState().updatePostStateStruct(
+                                  (e) => e..city = _model.dropdownCityValue,
+                                );
+                                safeSetState(() {});
+                              }
                             },
                             height: 40.0,
                             textStyle: FlutterFlowTheme.of(context)
@@ -293,68 +306,56 @@ class _CityWidgetState extends State<CityWidget> {
                     children: [
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 16.0, 24.0, 0.0),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            if (FFAppState().postState.city != '') {
-                              Navigator.pop(context);
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    'This field is mandatory.',
-                                    style: TextStyle(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                  duration: Duration(milliseconds: 4000),
-                                  backgroundColor:
-                                      FlutterFlowTheme.of(context).warning,
-                                ),
-                              );
-                            }
-                          },
-                          child: Container(
+                            16.0, 0.0, 16.0, 0.0),
+                        child: FFButtonWidget(
+                          onPressed: (_model.dropdownCityValue == null ||
+                                  _model.dropdownCityValue == '')
+                              ? null
+                              : () async {
+                                  if (FFAppState().postState.city != '') {
+                                    Navigator.pop(context);
+                                  } else {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'This field is mandatory.',
+                                          style: TextStyle(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                        duration: Duration(milliseconds: 4000),
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .warning,
+                                      ),
+                                    );
+                                  }
+                                },
+                          text: FFLocalizations.of(context).getText(
+                            '70zmg2qb' /* Next */,
+                          ),
+                          options: FFButtonOptions(
                             width: double.infinity,
                             height: 45.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).greenInit,
-                              borderRadius: BorderRadius.circular(8.0),
-                              border: Border.all(
-                                color: FlutterFlowTheme.of(context).greenInit,
-                              ),
-                            ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'cwasdfnt' /* Save */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                        useGoogleFonts:
-                                            !FlutterFlowTheme.of(context)
-                                                .bodyMediumIsCustom,
-                                      ),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 16.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).greenInit,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .titleSmallFamily,
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                  useGoogleFonts: !FlutterFlowTheme.of(context)
+                                      .titleSmallIsCustom,
                                 ),
-                              ],
-                            ),
+                            elevation: 0.0,
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
                         ),
                       ),

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class CatModel extends FlutterFlowModel<CatWidget> {
   ///  Local state fields for this component.
 
-  int maincat = 1;
+  int? maniCat;
 
   int? selectedCat;
 

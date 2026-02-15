@@ -1,4 +1,5 @@
 import '/auth/supabase_auth/auth_util.dart';
+import '/backend/schema/enums/enums.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -7,9 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
-import '/shared_components/custom_snackbar/custom_snackbar_widget.dart';
 import '/index.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'contact_y_e_k_j_a_model.dart';
@@ -105,7 +104,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                           children: [
                             TextSpan(
                               text: FFLocalizations.of(context).getText(
-                                'uaue3xf2' /* Welcome to support! */,
+                                '59x3i729' /* Welcome to support  */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .labelLarge
@@ -139,61 +138,19 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
-                        child: RichText(
-                          textScaler: MediaQuery.of(context).textScaler,
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: FFLocalizations.of(context).getText(
-                                  '18qj4qd2' /* Make sure you check our  */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .titleLarge
-                                    .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .titleLargeFamily,
-                                      fontSize: 18.0,
-                                      letterSpacing: 0.0,
-                                      useGoogleFonts:
-                                          !FlutterFlowTheme.of(context)
-                                              .titleLargeIsCustom,
-                                    ),
-                              ),
-                              TextSpan(
-                                text: FFLocalizations.of(context).getText(
-                                  'f2k084ch' /* FAQ */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .titleLarge
-                                    .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .titleLargeFamily,
-                                      color:
-                                          FlutterFlowTheme.of(context).green1,
-                                      fontSize: 18.0,
-                                      letterSpacing: 0.0,
-                                      useGoogleFonts:
-                                          !FlutterFlowTheme.of(context)
-                                              .titleLargeIsCustom,
-                                    ),
-                                mouseCursor: SystemMouseCursors.click,
-                                recognizer: TapGestureRecognizer()
-                                  ..onTap = () async {
-                                    context.pushNamed(FaqWidget.routeName);
-                                  },
-                              )
-                            ],
-                            style: FlutterFlowTheme.of(context)
-                                .headlineSmall
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .headlineSmallFamily,
-                                  fontSize: 20.0,
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .headlineSmallIsCustom,
-                                ),
+                        child: Text(
+                          FFLocalizations.of(context).getText(
+                            'muilg3z3' /* Make sure you check our FAQ */,
                           ),
+                          style: FlutterFlowTheme.of(context)
+                              .headlineSmall
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .headlineSmallFamily,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: !FlutterFlowTheme.of(context)
+                                    .headlineSmallIsCustom,
+                              ),
                         ),
                       ),
                       Row(
@@ -201,82 +158,17 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Expanded(
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                await launchURL('https://wa.me/31617063942');
-                              },
-                              child: Container(
-                                width: 120.0,
-                                constraints: BoxConstraints(
-                                  maxWidth: 500.0,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: Color(0xF8C9D7C9),
-                                  borderRadius: BorderRadius.circular(12.0),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 16.0, 8.0, 16.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.asset(
-                                          'assets/images/whatsapp.png',
-                                          width: 40.0,
-                                          height: 40.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 10.0, 0.0, 0.0),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'ydnrk5zy' /* App Us */,
-                                          ),
-                                          textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMediumIsCustom,
-                                              ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Expanded(
                             child: Container(
                               width: 120.0,
                               constraints: BoxConstraints(
                                 maxWidth: 500.0,
                               ),
                               decoration: BoxDecoration(
-                                color: Color(0xFF555454),
+                                color: Color(0xFF6F1010),
                                 borderRadius: BorderRadius.circular(12.0),
+                                border: Border.all(
+                                  width: 2.0,
+                                ),
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -288,7 +180,8 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                   children: [
                                     Icon(
                                       Icons.local_phone,
-                                      color: Color(0xFF9D9A9A),
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                       size: 36.0,
                                     ),
                                     Padding(
@@ -296,7 +189,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                           0.0, 12.0, 0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          'u9lm95sn' /* Call Us */,
+                                          'p580489r' /* Call Us */,
                                         ),
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
@@ -305,7 +198,6 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMediumFamily,
-                                              color: Color(0xFF9D9A9A),
                                               letterSpacing: 0.0,
                                               useGoogleFonts:
                                                   !FlutterFlowTheme.of(context)
@@ -325,7 +217,16 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
+                                _model.fAQClicked =
+                                    await MonitoringLogsTable().insert({
+                                  'scrren_name': 'Contact',
+                                  'action': 'FAQ',
+                                  'user_id': currentUserUid,
+                                });
+
                                 context.pushNamed(FaqWidget.routeName);
+
+                                safeSetState(() {});
                               },
                               child: Container(
                                 width: 120.0,
@@ -333,8 +234,11 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                   maxWidth: 500.0,
                                 ),
                                 decoration: BoxDecoration(
-                                  color: Color(0xFF4F8DAD),
+                                  color: Color(0xFF074462),
                                   borderRadius: BorderRadius.circular(12.0),
+                                  border: Border.all(
+                                    width: 2.0,
+                                  ),
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
@@ -356,7 +260,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                             0.0, 12.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'ofdaiisb' /* Go to FAQs */,
+                                            '362h0umn' /* Search FAQs */,
                                           ),
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
@@ -365,9 +269,6 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMediumFamily,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts:
                                                     !FlutterFlowTheme.of(
@@ -393,35 +294,11 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                             FlutterFlowDropDown<String>(
                               controller: _model.dropDownValueController ??=
                                   FormFieldController<String>(null),
-                              options: [
-                                FFLocalizations.of(context).getText(
-                                  'rhw1og4g' /* Feedback or suggestion */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  '9ptgnueo' /* Help on using Yekja */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  '1jg9wm4c' /* Technical issue or bug */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  'od7rce8o' /* Account or login issue */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  'ejl6tvcr' /* Partnership or collaboration w... */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  'lqf58oxs' /* Business account */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  '0mcwgpc2' /* Advertising */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  'rr1n0bua' /* Report an incident or fraud */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  'ekr80jb8' /* General question */,
-                                )
-                              ],
+                              options: ContactSubject.values
+                                  .map((e) => e)
+                                  .toList()
+                                  .map((e) => e.name)
+                                  .toList(),
                               onChanged: (val) => safeSetState(
                                   () => _model.dropDownValue = val),
                               width: double.infinity,
@@ -437,7 +314,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                             .bodyMediumIsCustom,
                                   ),
                               hintText: FFLocalizations.of(context).getText(
-                                'uy7ff9ps' /* Choose a relevant subject */,
+                                'psage2id' /* Choose a relevant subject */,
                               ),
                               icon: Icon(
                                 Icons.keyboard_arrow_down_rounded,
@@ -479,15 +356,13 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                                 .labelMediumIsCustom,
                                       ),
                                   hintText: FFLocalizations.of(context).getText(
-                                    '7p9q5poi' /* Please provide your descriptio... */,
+                                    'anu2oizg' /* Please provide description of ... */,
                                   ),
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .labelMediumFamily,
-                                        color: FlutterFlowTheme.of(context)
-                                            .bordergray,
                                         letterSpacing: 0.0,
                                         useGoogleFonts:
                                             !FlutterFlowTheme.of(context)
@@ -580,6 +455,8 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       final selectedMedia = await selectMedia(
+                                        maxWidth: 150.00,
+                                        maxHeight: 150.00,
                                         mediaSource: MediaSource.photoGallery,
                                         multiImage: true,
                                       );
@@ -636,7 +513,7 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                                         16.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'qc3iypvs' /* Upload image */,
+                                        '1ui5tvgn' /* Upload image */,
                                       ),
                                       textAlign: TextAlign.center,
                                       style: FlutterFlowTheme.of(context)
@@ -726,313 +603,127 @@ class _ContactYEKJAWidgetState extends State<ContactYEKJAWidget> {
                           ),
                         ),
                       ),
-                      Builder(
-                        builder: (context) => Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 20.0, 0.0, 16.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              var _shouldSetState = false;
-                              if (_model
-                                  .uploadedLocalFiles_uploadImages.isNotEmpty) {
-                                for (int loop1Index = 0;
-                                    loop1Index <
-                                        _model.uploadedLocalFiles_uploadImages
-                                            .length;
-                                    loop1Index++) {
-                                  final currentLoop1Item =
-                                      _model.uploadedLocalFiles_uploadImages[
-                                          loop1Index];
-                                  {
-                                    safeSetState(() => _model
-                                        .isDataUploading_uploadedimage = true);
-                                    var selectedUploadedFiles =
-                                        <FFUploadedFile>[];
-                                    var selectedMedia = <SelectedFile>[];
-                                    var downloadUrls = <String>[];
-                                    try {
-                                      selectedUploadedFiles =
-                                          currentLoop1Item.bytes!.isNotEmpty
-                                              ? [currentLoop1Item]
-                                              : <FFUploadedFile>[];
-                                      selectedMedia =
-                                          selectedFilesFromUploadedFiles(
-                                        selectedUploadedFiles,
-                                        storageFolderPath: 'Contact_us',
-                                      );
-                                      downloadUrls =
-                                          await uploadSupabaseStorageFiles(
-                                        bucketName: 'yekja',
-                                        selectedFiles: selectedMedia,
-                                      );
-                                    } finally {
-                                      _model.isDataUploading_uploadedimage =
-                                          false;
-                                    }
-                                    if (selectedUploadedFiles.length ==
-                                            selectedMedia.length &&
-                                        downloadUrls.length ==
-                                            selectedMedia.length) {
-                                      safeSetState(() {
-                                        _model.uploadedLocalFile_uploadedimage =
-                                            selectedUploadedFiles.first;
-                                        _model.uploadedFileUrl_uploadedimage =
-                                            downloadUrls.first;
-                                      });
-                                    } else {
-                                      safeSetState(() {});
-                                      return;
-                                    }
-                                  }
-
-                                  _model.addToListOfimages(
-                                      _model.uploadedFileUrl_uploadedimage);
-                                  safeSetState(() {});
-                                  if (!(_model.listOfimages.isNotEmpty)) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (dialogContext) {
-                                        return Dialog(
-                                          elevation: 0,
-                                          insetPadding: EdgeInsets.zero,
-                                          backgroundColor: Colors.transparent,
-                                          alignment: AlignmentDirectional(
-                                                  0.0, 0.0)
-                                              .resolve(
-                                                  Directionality.of(context)),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              FocusScope.of(dialogContext)
-                                                  .unfocus();
-                                              FocusManager.instance.primaryFocus
-                                                  ?.unfocus();
-                                            },
-                                            child: CustomSnackbarWidget(
-                                              myText:
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                'jgmwqnex' /* Something went wrong while upl... */,
-                                              ),
-                                              textColor: Color(0x00000000),
-                                              waitMS: 3000,
-                                              backgroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .errorSnack,
-                                            ),
-                                          ),
-                                        );
-                                      },
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 20.0, 0.0, 16.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            if (_model
+                                .uploadedLocalFiles_uploadImages.isNotEmpty) {
+                              for (int loop1Index = 0;
+                                  loop1Index <
+                                      _model.uploadedLocalFiles_uploadImages
+                                          .length;
+                                  loop1Index++) {
+                                final currentLoop1Item =
+                                    _model.uploadedLocalFiles_uploadImages[
+                                        loop1Index];
+                                {
+                                  safeSetState(() => _model
+                                      .isDataUploading_uploadedimage = true);
+                                  var selectedUploadedFiles =
+                                      <FFUploadedFile>[];
+                                  var selectedMedia = <SelectedFile>[];
+                                  var downloadUrls = <String>[];
+                                  try {
+                                    selectedUploadedFiles =
+                                        currentLoop1Item.bytes!.isNotEmpty
+                                            ? [currentLoop1Item]
+                                            : <FFUploadedFile>[];
+                                    selectedMedia =
+                                        selectedFilesFromUploadedFiles(
+                                      selectedUploadedFiles,
+                                      storageFolderPath: 'Contact_us',
                                     );
-
-                                    if (_shouldSetState) safeSetState(() {});
+                                    downloadUrls =
+                                        await uploadSupabaseStorageFiles(
+                                      bucketName: 'yekja',
+                                      selectedFiles: selectedMedia,
+                                    );
+                                  } finally {
+                                    _model.isDataUploading_uploadedimage =
+                                        false;
+                                  }
+                                  if (selectedUploadedFiles.length ==
+                                          selectedMedia.length &&
+                                      downloadUrls.length ==
+                                          selectedMedia.length) {
+                                    safeSetState(() {
+                                      _model.uploadedLocalFile_uploadedimage =
+                                          selectedUploadedFiles.first;
+                                      _model.uploadedFileUrl_uploadedimage =
+                                          downloadUrls.first;
+                                    });
+                                  } else {
+                                    safeSetState(() {});
                                     return;
                                   }
                                 }
-                                _model.submitedContactWithImg =
-                                    await ContactYekjaTable().insert({
-                                  'message': _model.messageTextController.text,
-                                  'subject': _model.dropDownValue,
-                                  'user_id': currentUserUid,
-                                  'img': _model.listOfimages,
-                                });
-                                _shouldSetState = true;
-                                if (_model.submitedContactWithImg != null) {
-                                  context.safePop();
-                                  await showDialog(
-                                    context: context,
-                                    builder: (dialogContext) {
-                                      return Dialog(
-                                        elevation: 0,
-                                        insetPadding: EdgeInsets.zero,
-                                        backgroundColor: Colors.transparent,
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0)
-                                                .resolve(
-                                                    Directionality.of(context)),
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            FocusScope.of(dialogContext)
-                                                .unfocus();
-                                            FocusManager.instance.primaryFocus
-                                                ?.unfocus();
-                                          },
-                                          child: CustomSnackbarWidget(
-                                            myText: FFLocalizations.of(context)
-                                                .getText(
-                                              'pp28kkvp' /* Your message was successfully ... */,
-                                            ),
-                                            textColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryWhite,
-                                            waitMS: 3000,
-                                            backgroundColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .successSnack,
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  );
 
-                                  if (_shouldSetState) safeSetState(() {});
-                                  return;
-                                } else {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (dialogContext) {
-                                      return Dialog(
-                                        elevation: 0,
-                                        insetPadding: EdgeInsets.zero,
-                                        backgroundColor: Colors.transparent,
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0)
-                                                .resolve(
-                                                    Directionality.of(context)),
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            FocusScope.of(dialogContext)
-                                                .unfocus();
-                                            FocusManager.instance.primaryFocus
-                                                ?.unfocus();
-                                          },
-                                          child: CustomSnackbarWidget(
-                                            myText: FFLocalizations.of(context)
-                                                .getText(
-                                              'nxkcssv0' /* Something went wrong , please ... */,
-                                            ),
-                                            textColor: Color(0x00000000),
-                                            waitMS: 3000,
-                                            backgroundColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .errorSnack,
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  );
-
-                                  if (_shouldSetState) safeSetState(() {});
-                                  return;
-                                }
-                              } else {
-                                _model.submitedContact =
-                                    await ContactYekjaTable().insert({
-                                  'message': _model.messageTextController.text,
-                                  'subject': _model.dropDownValue,
-                                  'user_id': currentUserUid,
-                                });
-                                _shouldSetState = true;
-                                if (_model.submitedContact != null) {
-                                  context.safePop();
-                                  await showDialog(
-                                    context: context,
-                                    builder: (dialogContext) {
-                                      return Dialog(
-                                        elevation: 0,
-                                        insetPadding: EdgeInsets.zero,
-                                        backgroundColor: Colors.transparent,
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0)
-                                                .resolve(
-                                                    Directionality.of(context)),
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            FocusScope.of(dialogContext)
-                                                .unfocus();
-                                            FocusManager.instance.primaryFocus
-                                                ?.unfocus();
-                                          },
-                                          child: CustomSnackbarWidget(
-                                            myText: FFLocalizations.of(context)
-                                                .getText(
-                                              'z976q2o4' /* Your message was successfully ... */,
-                                            ),
-                                            textColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryWhite,
-                                            waitMS: 3000,
-                                            backgroundColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .successSnack,
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  );
-
-                                  if (_shouldSetState) safeSetState(() {});
-                                  return;
-                                } else {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (dialogContext) {
-                                      return Dialog(
-                                        elevation: 0,
-                                        insetPadding: EdgeInsets.zero,
-                                        backgroundColor: Colors.transparent,
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0)
-                                                .resolve(
-                                                    Directionality.of(context)),
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            FocusScope.of(dialogContext)
-                                                .unfocus();
-                                            FocusManager.instance.primaryFocus
-                                                ?.unfocus();
-                                          },
-                                          child: CustomSnackbarWidget(
-                                            myText: FFLocalizations.of(context)
-                                                .getText(
-                                              'seq8xspt' /* Something went wrong , please ... */,
-                                            ),
-                                            textColor: Color(0x00000000),
-                                            waitMS: 3000,
-                                            backgroundColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .errorSnack,
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  );
-
-                                  if (_shouldSetState) safeSetState(() {});
-                                  return;
-                                }
+                                _model.addToListOfimages(
+                                    _model.uploadedFileUrl_uploadedimage);
+                                safeSetState(() {});
                               }
+                              _model.submitedContactWithImg =
+                                  await ContactYekjaTable().insert({
+                                'message': _model.messageTextController.text,
+                                'subject': _model.dropDownValue,
+                                'user_id': currentUserUid,
+                                'img': _model.listOfimages,
+                              });
+                            } else {
+                              _model.submitedContact =
+                                  await ContactYekjaTable().insert({
+                                'message': _model.messageTextController.text,
+                                'subject': _model.dropDownValue,
+                                'user_id': currentUserUid,
+                              });
+                            }
 
-                              if (_shouldSetState) safeSetState(() {});
-                            },
-                            text: FFLocalizations.of(context).getText(
-                              'ziper6ve' /* Submit  */,
-                            ),
-                            options: FFButtonOptions(
-                              width: double.infinity,
-                              height: 48.0,
-                              padding: EdgeInsets.all(0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).greenInit,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .titleSmallFamily,
+                            context.safePop();
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  'Your message was successfully submitted.',
+                                  style: TextStyle(
                                     color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    letterSpacing: 0.0,
-                                    useGoogleFonts:
-                                        !FlutterFlowTheme.of(context)
-                                            .titleSmallIsCustom,
+                                        .lighterGreen,
                                   ),
-                              elevation: 4.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
+                                ),
+                                duration: Duration(milliseconds: 4000),
+                                backgroundColor: Color(0x426A966A),
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                            );
+
+                            safeSetState(() {});
+                          },
+                          text: FFLocalizations.of(context).getText(
+                            'pave2s9k' /* Submit  */,
+                          ),
+                          options: FFButtonOptions(
+                            width: double.infinity,
+                            height: 48.0,
+                            padding: EdgeInsets.all(0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).greenInit,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .titleSmallFamily,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  letterSpacing: 0.0,
+                                  useGoogleFonts: !FlutterFlowTheme.of(context)
+                                      .titleSmallIsCustom,
+                                ),
+                            elevation: 4.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
                             ),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
                         ),
                       ),

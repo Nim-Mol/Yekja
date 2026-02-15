@@ -1,6 +1,7 @@
 export '/backend/schema/util/schema_util.dart';
 
 export 'cities_model_struct.dart';
+export 'edit_post_date_struct.dart';
 export 'filter_model_struct.dart';
 export 'filter_model2_struct.dart';
 export 'filter_modelwith_details_table_struct.dart';

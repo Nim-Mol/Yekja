@@ -1,7 +1,6 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
-import '/components/post_owner_card_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -12,6 +11,7 @@ import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.da
 import '/shared_components/custom_snackbar/custom_snackbar_widget.dart';
 import '/shared_components/error_pop_up/error_pop_up_widget.dart';
 import '/shared_components/photo_gallary/photo_gallary_widget.dart';
+import '/shared_components/post_owner_card/post_owner_card_widget.dart';
 import '/shared_components/report_bug/report_bug_widget.dart';
 import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
@@ -485,26 +485,64 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 24.0, 16.0, 16.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Expanded(
-                                child: wrapWithModel(
-                                  model: _model.postOwnerCardModel,
-                                  updateCallback: () => safeSetState(() {}),
-                                  child: PostOwnerCardWidget(
-                                    consentShowProfile: true,
-                                    userAvatar: FFAppState().userInfo.avatar,
-                                    ownerUsername:
-                                        FFAppState().userInfo.userName,
-                                    avarageReviewScore: 3.2,
-                                    totalReviwer: 99,
-                                    profileId: currentUserUid,
-                                  ),
+                          child: FutureBuilder<List<ConsentsRow>>(
+                            future: FFAppState().userConsents(
+                              uniqueQueryKey: currentUserUid,
+                              requestFn: () => ConsentsTable().querySingleRow(
+                                queryFn: (q) => q.eqOrNull(
+                                  'user_id',
+                                  currentUserUid,
                                 ),
                               ),
-                            ].divide(SizedBox(width: 4.0)),
+                            ),
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: SpinKitChasingDots(
+                                      color: FlutterFlowTheme.of(context)
+                                          .greenInit,
+                                      size: 50.0,
+                                    ),
+                                  ),
+                                );
+                              }
+                              List<ConsentsRow> profileConsentsRowList =
+                                  snapshot.data!;
+
+                              final profileConsentsRow =
+                                  profileConsentsRowList.isNotEmpty
+                                      ? profileConsentsRowList.first
+                                      : null;
+
+                              return Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Expanded(
+                                    child: wrapWithModel(
+                                      model: _model.postOwnerCardModel,
+                                      updateCallback: () => safeSetState(() {}),
+                                      child: PostOwnerCardWidget(
+                                        consentShowProfile: profileConsentsRow!
+                                            .showProfileImage,
+                                        userAvatar:
+                                            FFAppState().userInfo.avatar,
+                                        ownerUsername:
+                                            FFAppState().userInfo.userName,
+                                        avarageReviewScore: 5.0,
+                                        totalReviwer: 1,
+                                        profileId: currentUserUid,
+                                      ),
+                                    ),
+                                  ),
+                                ].divide(SizedBox(width: 4.0)),
+                              );
+                            },
                           ),
                         ),
                         Padding(
@@ -685,7 +723,7 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                       context.goNamed(
                                         PostMainCatWidget.routeName,
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
+                                          '__transition_info__': TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -812,7 +850,6 @@ class _PostPreviewWidgetState extends State<PostPreviewWidget>
                                                                 .postDetailTable,
                                                         'details': FFAppState()
                                                             .postDetailJSON,
-                                                        'post_id': '',
                                                       });
                                                     }(),
                                                   );

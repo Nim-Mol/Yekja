@@ -309,7 +309,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
         FFRoute(
           name: PostEditWidget.routeName,
           path: PostEditWidget.routePath,
-          builder: (context, params) => PostEditWidget(),
+          builder: (context, params) => PostEditWidget(
+            edit: params.getParam(
+              'edit',
+              ParamType.bool,
+            ),
+          ),
         ),
         FFRoute(
           name: ForgotPasswordPageWidget.routeName,
@@ -328,10 +333,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
             navRoute: params.getParam(
               'navRoute',
               ParamType.String,
-            ),
-            mainCat: params.getParam(
-              'mainCat',
-              ParamType.int,
             ),
           ),
         ),
@@ -478,6 +479,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
               'navRoute',
               ParamType.String,
             ),
+            editPostData: params.getParam(
+              'editPostData',
+              ParamType.JSON,
+            ),
           ),
         ),
         FFRoute(
@@ -542,6 +547,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           name: CustomSplashWidget.routeName,
           path: CustomSplashWidget.routePath,
           builder: (context, params) => CustomSplashWidget(),
+        ),
+        FFRoute(
+          name: XxxWidget.routeName,
+          path: XxxWidget.routePath,
+          requireAuth: true,
+          builder: (context, params) => XxxWidget(
+            profileId: params.getParam(
+              'profileId',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

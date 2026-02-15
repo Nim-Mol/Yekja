@@ -37,4 +37,10 @@ class ContactYekjaRow extends SupabaseDataRow {
 
   bool? get resolved => getField<bool>('resolved');
   set resolved(bool? value) => setField<bool>('resolved', value);
+
+  DateTime? get syncedAt => getField<DateTime>('synced_at');
+  set syncedAt(DateTime? value) => setField<DateTime>('synced_at', value);
+
+  String? get lastError => getField<String>('last_error');
+  set lastError(String? value) => setField<String>('last_error', value);
 }

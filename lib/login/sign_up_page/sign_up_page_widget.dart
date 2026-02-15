@@ -729,12 +729,12 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                             .of(context)
                                                         .secondaryBackground,
                                                     suffixIcon: InkWell(
-                                                      onTap: () => safeSetState(
-                                                        () => _model
+                                                      onTap: () async {
+                                                        safeSetState(() => _model
                                                                 .passWordVisibility =
                                                             !_model
-                                                                .passWordVisibility,
-                                                      ),
+                                                                .passWordVisibility);
+                                                      },
                                                       focusNode: FocusNode(
                                                           skipTraversal: true),
                                                       child: Icon(
@@ -896,13 +896,12 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
                                                                 .of(context)
                                                             .secondaryBackground,
                                                         suffixIcon: InkWell(
-                                                          onTap: () =>
-                                                              safeSetState(
-                                                            () => _model
+                                                          onTap: () async {
+                                                            safeSetState(() => _model
                                                                     .confPasswordVisibility =
                                                                 !_model
-                                                                    .confPasswordVisibility,
-                                                          ),
+                                                                    .confPasswordVisibility);
+                                                          },
                                                           focusNode: FocusNode(
                                                               skipTraversal:
                                                                   true),

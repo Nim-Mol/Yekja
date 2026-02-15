@@ -1,6 +1,5 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/supabase/supabase.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -17,7 +16,6 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -47,8 +45,6 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
   bool expandableListenerRegistered1 = false;
   bool expandableListenerRegistered2 = false;
 
-  final animationsMap = <String, AnimationInfo>{};
-
   @override
   void initState() {
     super.initState();
@@ -67,12 +63,13 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
 
     _model.tabBarController = TabController(
       vsync: this,
-      length: 3,
+      length: 2,
       initialIndex: 0,
     )..addListener(() => safeSetState(() {}));
 
     _model.expandableExpandableController1 =
-        ExpandableController(initialExpanded: false);
+        ExpandableController(initialExpanded: false)
+          ..addListener(() => safeSetState(() {}));
 
     _model.userNameFocusNode ??= FocusNode();
 
@@ -83,38 +80,12 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
     _model.biographyFocusNode ??= FocusNode();
 
     _model.expandableExpandableController2 =
-        ExpandableController(initialExpanded: false);
+        ExpandableController(initialExpanded: false)
+          ..addListener(() => safeSetState(() {}));
 
     _model.emailFocusNode ??= FocusNode();
 
     _model.phoneNumberFocusNode ??= FocusNode();
-
-    animationsMap.addAll({
-      'listViewOnPageLoadAnimation1': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'listViewOnPageLoadAnimation2': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -140,7 +111,6 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
               child: SingleChildScrollView(
-                primary: false,
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -160,7 +130,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                           child: Column(
                             children: [
                               Align(
-                                alignment: Alignment(0.0, 0),
+                                alignment: Alignment(-1.0, 0),
                                 child: TabBar(
                                   isScrollable: true,
                                   labelColor:
@@ -199,7 +169,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                   tabs: [
                                     Tab(
                                       text: FFLocalizations.of(context).getText(
-                                        '1tg5n8be' /* Personal */,
+                                        '1tg5n8be' /* Personal Information */,
                                       ),
                                     ),
                                     Tab(
@@ -207,19 +177,10 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                         '6a2fziro' /* Privacy Setting */,
                                       ),
                                     ),
-                                    Tab(
-                                      text: FFLocalizations.of(context).getText(
-                                        '9w8zjkix' /* Terms & Conditions */,
-                                      ),
-                                    ),
                                   ],
                                   controller: _model.tabBarController,
                                   onTap: (i) async {
-                                    [
-                                      () async {},
-                                      () async {},
-                                      () async {}
-                                    ][i]();
+                                    [() async {}, () async {}][i]();
                                   },
                                 ),
                               ),
@@ -266,6 +227,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                   : null;
 
                                           return SingleChildScrollView(
+                                            primary: false,
                                             child: Column(
                                               mainAxisSize: MainAxisSize.min,
                                               mainAxisAlignment:
@@ -874,7 +836,8 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                 ),
                                                                 collapsed:
                                                                     Container(
-                                                                  width: 100.0,
+                                                                  width: double
+                                                                      .infinity,
                                                                   height: 1.0,
                                                                   decoration:
                                                                       BoxDecoration(
@@ -1333,7 +1296,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                                 false,
                                                                             labelText:
                                                                                 FFLocalizations.of(context).getText(
-                                                                              'og8w26in' /* Biography */,
+                                                                              'og8w26in' /* About Me! */,
                                                                             ),
                                                                             labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                   fontFamily: 'Satoshi',
@@ -1345,7 +1308,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                                                 false,
                                                                             hintText:
                                                                                 FFLocalizations.of(context).getText(
-                                                                              '1vdcvtwy' /* Let everyone know about you. */,
+                                                                              '1vdcvtwy' /* Introduce and tell a bit about... */,
                                                                             ),
                                                                             hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
                                                                                   fontFamily: 'Satoshi',
@@ -2717,7 +2680,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          '34uhaw3r' /* Allow users to share my posts. */,
+                                                          '34uhaw3r' /* Allow users to re-share my pos... */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -3004,347 +2967,6 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget>
                                             );
                                           },
                                         ),
-                                      ),
-                                    ),
-                                    KeepAliveWidgetWrapper(
-                                      builder: (context) => Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          ListView(
-                                            padding: EdgeInsets.fromLTRB(
-                                              0,
-                                              16.0,
-                                              0,
-                                              24.0,
-                                            ),
-                                            shrinkWrap: true,
-                                            scrollDirection: Axis.vertical,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        20.0, 0.0, 0.0, 0.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        '0eqbpyfb' /* Last update: */,
-                                                      ),
-                                                      maxLines: 1,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Satoshi',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                                fontSize: 17.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
-                                                    ),
-                                                    Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        '86b9dl0z' /*  27/12/2023 */,
-                                                      ),
-                                                      maxLines: 1,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Satoshi',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                                fontSize: 17.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        20.0, 8.0, 20.0, 24.0),
-                                                child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    '5rxx4eqd' /* Please read these terms of ser... */,
-                                                  ),
-                                                  maxLines: 2,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily: 'Satoshi',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                      ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        20.0, 0.0, 0.0, 0.0),
-                                                child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'z6oq407a' /* Conditions of Uses */,
-                                                  ),
-                                                  textAlign: TextAlign.start,
-                                                  maxLines: 1,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Satoshi',
-                                                        fontSize: 20.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        lineHeight: 1.5,
-                                                      ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        20.0, 16.0, 20.0, 0.0),
-                                                child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    '4hmiyku9' /* It is a long established fact ... */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily: 'Satoshi',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                      ),
-                                                ),
-                                              ),
-                                            ],
-                                          ).animateOnPageLoad(animationsMap[
-                                              'listViewOnPageLoadAnimation1']!),
-                                          SizedBox(
-                                            width: 300.0,
-                                            child: Divider(
-                                              thickness: 2.0,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                            ),
-                                          ),
-                                          Expanded(
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      20.0, 0.0, 20.0, 0.0),
-                                              child: ListView(
-                                                padding: EdgeInsets.fromLTRB(
-                                                  0,
-                                                  16.0,
-                                                  0,
-                                                  24.0,
-                                                ),
-                                                primary: false,
-                                                shrinkWrap: true,
-                                                scrollDirection: Axis.vertical,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 8.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'bugt9s1t' /* Types of data we collect */,
-                                                      ),
-                                                      maxLines: 1,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Satoshi',
-                                                            fontSize: 20.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                            lineHeight: 1.5,
-                                                          ),
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      '7nzis5rd' /* Torem ipsum dolor sit amet, co... */,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily: 'Satoshi',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 24.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'fiujz5ly' /* Use of your personal data */,
-                                                      ),
-                                                      maxLines: 1,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Satoshi',
-                                                            fontSize: 20.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                          ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 8.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        '874gf5jc' /* Torem ipsum dolor sit amet, co... */,
-                                                      ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Satoshi',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                                fontSize: 16.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 24.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'stvk2rzm' /* Disclosure of your data */,
-                                                      ),
-                                                      maxLines: 1,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Satoshi',
-                                                            fontSize: 20.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                          ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 8.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'gbbs7qhx' /* Lorem ipsum dolor sit amet, co... */,
-                                                      ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Satoshi',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                                fontSize: 17.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ).animateOnPageLoad(animationsMap[
-                                                  'listViewOnPageLoadAnimation2']!),
-                                            ),
-                                          ),
-                                        ],
                                       ),
                                     ),
                                   ],

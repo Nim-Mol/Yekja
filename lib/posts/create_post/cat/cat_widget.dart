@@ -7,6 +7,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'cat_model.dart';
@@ -37,6 +38,9 @@ class _CatWidgetState extends State<CatWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CatModel());
+
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {});
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -184,6 +188,9 @@ best fitti... */
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
+                                            _model.selectedCat =
+                                                categoriesItem.catId;
+                                            safeSetState(() {});
                                             FFAppState().updatePostStateStruct(
                                               (e) => e
                                                 ..catId = categoriesItem.catId
@@ -194,9 +201,6 @@ best fitti... */
                                                 categoriesItem.detailTable!;
                                             _model.updatePage(() {});
                                             FFAppState().postDetailJSON = null;
-                                            safeSetState(() {});
-                                            _model.selectedCat =
-                                                categoriesItem.catId;
                                             safeSetState(() {});
                                             await _model.col2ScrollController
                                                 ?.animateTo(
@@ -426,15 +430,13 @@ best fitti... */
                                   alignment: AlignmentDirectional(-1.0, -1.0),
                                   child: FutureBuilder<List<SubCategoriesRow>>(
                                     future: FFAppState().subCats(
-                                      uniqueQueryKey: valueOrDefault<String>(
-                                        _model.selectedCat?.toString(),
-                                        '0',
-                                      ),
+                                      uniqueQueryKey:
+                                          _model.selectedCat?.toString(),
                                       requestFn: () =>
                                           SubCategoriesTable().queryRows(
                                         queryFn: (q) => q.eqOrNull(
                                           'cat_id',
-                                          _model.selectedCat,
+                                          FFAppState().postState.catId,
                                         ),
                                       ),
                                     ),
@@ -443,13 +445,14 @@ best fitti... */
                                       if (!snapshot.hasData) {
                                         return Center(
                                           child: SizedBox(
-                                            width: 50.0,
-                                            height: 50.0,
-                                            child: SpinKitChasingDots(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .greenInit,
-                                              size: 50.0,
+                                            width: 40.0,
+                                            height: 40.0,
+                                            child: CircularProgressIndicator(
+                                              valueColor:
+                                                  AlwaysStoppedAnimation<Color>(
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              ),
                                             ),
                                           ),
                                         );
@@ -511,7 +514,7 @@ best fitti... */
                                                 context.pushNamed(
                                                   PostIntendWidget.routeName,
                                                   extra: <String, dynamic>{
-                                                    kTransitionInfoKey:
+                                                    '__transition_info__':
                                                         TransitionInfo(
                                                       hasTransition: true,
                                                       transitionType:

@@ -1,10 +1,12 @@
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 import 'profile_setting_model.dart';
 export 'profile_setting_model.dart';
@@ -122,22 +124,18 @@ class _ProfileSettingWidgetState extends State<ProfileSettingWidget>
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: Container(
-                                  width: 25.0,
-                                  height: 25.0,
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFF073D2E),
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Icon(
-                                    Icons.edit_rounded,
-                                    color:
-                                        FlutterFlowTheme.of(context).greenInit,
-                                    size: 15.0,
-                                  ),
+                              FlutterFlowIconButton(
+                                borderRadius: 50.0,
+                                buttonSize: 30.0,
+                                fillColor: FlutterFlowTheme.of(context).warning,
+                                icon: Icon(
+                                  Icons.edit,
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  size: 15.0,
                                 ),
+                                onPressed: () {
+                                  print('IconButton pressed ...');
+                                },
                               ),
                               Text(
                                 FFLocalizations.of(context).getText(
@@ -196,25 +194,22 @@ class _ProfileSettingWidgetState extends State<ProfileSettingWidget>
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: Container(
-                                  width: 25.0,
-                                  height: 25.0,
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFB0D375D),
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Icon(
-                                    Icons.post_add_sharp,
-                                    color: FlutterFlowTheme.of(context).blue2,
-                                    size: 15.0,
-                                  ),
+                              FlutterFlowIconButton(
+                                borderRadius: 50.0,
+                                buttonSize: 30.0,
+                                fillColor: Color(0xFF036391),
+                                icon: FaIcon(
+                                  FontAwesomeIcons.wpforms,
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  size: 15.0,
                                 ),
+                                onPressed: () {
+                                  print('IconButton pressed ...');
+                                },
                               ),
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  'ux5iqynl' /* Terms & Conditions */,
+                                  'ux5iqynl' /* Terms & Privacy Policy */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .titleSmall
@@ -266,22 +261,18 @@ class _ProfileSettingWidgetState extends State<ProfileSettingWidget>
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Container(
-                                    width: 25.0,
-                                    height: 25.0,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFF3D164B),
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: Icon(
-                                      Icons.share_sharp,
-                                      color:
-                                          FlutterFlowTheme.of(context).magenta1,
-                                      size: 15.0,
-                                    ),
+                                FlutterFlowIconButton(
+                                  borderRadius: 50.0,
+                                  buttonSize: 30.0,
+                                  fillColor: Color(0xFF532AD0),
+                                  icon: Icon(
+                                    Icons.share_sharp,
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    size: 14.0,
                                   ),
+                                  onPressed: () {
+                                    print('IconButton pressed ...');
+                                  },
                                 ),
                                 Text(
                                   FFLocalizations.of(context).getText(
@@ -340,20 +331,21 @@ class _ProfileSettingWidgetState extends State<ProfileSettingWidget>
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Container(
-                                width: 25.0,
-                                height: 25.0,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFF4F1829),
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Icon(
-                                    Icons.favorite_rounded,
-                                    color: FlutterFlowTheme.of(context).red2,
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: FlutterFlowIconButton(
+                                  borderRadius: 50.0,
+                                  buttonSize: 30.0,
+                                  fillColor: Color(0xFF195E24),
+                                  icon: FaIcon(
+                                    FontAwesomeIcons.comment,
+                                    color: FlutterFlowTheme.of(context).info,
                                     size: 15.0,
                                   ),
+                                  onPressed: () async {
+                                    context.pushNamed(
+                                        ContactYEKJAWidget.routeName);
+                                  },
                                 ),
                               ),
                               Text(
@@ -411,22 +403,19 @@ class _ProfileSettingWidgetState extends State<ProfileSettingWidget>
                               children: [
                                 Align(
                                   alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Container(
-                                    width: 25.0,
-                                    height: 25.0,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFE513900),
-                                      shape: BoxShape.circle,
+                                  child: FlutterFlowIconButton(
+                                    borderRadius: 50.0,
+                                    buttonSize: 30.0,
+                                    fillColor: Color(0xE97C0401),
+                                    icon: Icon(
+                                      Icons.logout_outlined,
+                                      color: FlutterFlowTheme.of(context).info,
+                                      size: 15.0,
                                     ),
-                                    child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Icon(
-                                        Icons.logout_sharp,
-                                        color: FlutterFlowTheme.of(context)
-                                            .yellow1,
-                                        size: 15.0,
-                                      ),
-                                    ),
+                                    onPressed: () async {
+                                      context.goNamed(
+                                          FinalizedLoginWidget.routeName);
+                                    },
                                   ),
                                 ),
                                 Text(

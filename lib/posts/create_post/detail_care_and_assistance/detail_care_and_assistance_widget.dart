@@ -1492,7 +1492,7 @@ class _DetailCareAndAssistanceWidgetState
                                                 color: FFAppState()
                                                             .postState
                                                             .compensationType ==
-                                                        'Free help appreciated'
+                                                        'Free support'
                                                     ? FlutterFlowTheme.of(
                                                             context)
                                                         .greenInit
@@ -1505,7 +1505,7 @@ class _DetailCareAndAssistanceWidgetState
                                                   color: FFAppState()
                                                               .postState
                                                               .compensationType ==
-                                                          'Free help appreciated'
+                                                          'Free support'
                                                       ? FlutterFlowTheme.of(
                                                               context)
                                                           .greenInit
@@ -1576,7 +1576,7 @@ class _DetailCareAndAssistanceWidgetState
                                                 color: FFAppState()
                                                             .postState
                                                             .compensationType ==
-                                                        'Can offer something back'
+                                                        'Compensation possible'
                                                     ? FlutterFlowTheme.of(
                                                             context)
                                                         .greenInit
@@ -1589,7 +1589,7 @@ class _DetailCareAndAssistanceWidgetState
                                                   color: FFAppState()
                                                               .postState
                                                               .compensationType ==
-                                                          'Can offer something back'
+                                                          'Compensation possible'
                                                       ? FlutterFlowTheme.of(
                                                               context)
                                                           .greenInit
@@ -1786,7 +1786,7 @@ class _DetailCareAndAssistanceWidgetState
                                     ),
                                   }.withoutNulls,
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
+                                    '__transition_info__': TransitionInfo(
                                       hasTransition: true,
                                       transitionType:
                                           PageTransitionType.rightToLeft,

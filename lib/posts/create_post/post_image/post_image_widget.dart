@@ -1,8 +1,10 @@
 import '/auth/supabase_auth/auth_util.dart';
+import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/upload_data.dart';
+import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -90,18 +92,84 @@ class _PostImageWidgetState extends State<PostImageWidget> {
                                       .primaryBackground,
                                   shape: BoxShape.circle,
                                 ),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    context.safePop();
-                                  },
-                                  child: Icon(
-                                    Icons.arrow_back,
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    size: 20.0,
+                                child: Builder(
+                                  builder: (context) => InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      if (FFAppState()
+                                              .EditPostData
+                                              .isModified ==
+                                          true) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (dialogContext) {
+                                            return Dialog(
+                                              elevation: 0,
+                                              insetPadding: EdgeInsets.zero,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              alignment:
+                                                  AlignmentDirectional(0.0, 0.0)
+                                                      .resolve(
+                                                          Directionality.of(
+                                                              context)),
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  FocusScope.of(dialogContext)
+                                                      .unfocus();
+                                                  FocusManager
+                                                      .instance.primaryFocus
+                                                      ?.unfocus();
+                                                },
+                                                child: ConfirmCancelPopUpWidget(
+                                                  header: FFLocalizations.of(
+                                                          context)
+                                                      .getText(
+                                                    'qlh04702' /* You have on saved change. */,
+                                                  ),
+                                                  hintText: FFLocalizations.of(
+                                                          context)
+                                                      .getText(
+                                                    'na89mbcl' /* Are you sure you want to leave... */,
+                                                  ),
+                                                  cancelText:
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                    'd35dr0st' /* Disgard */,
+                                                  ),
+                                                  confirmText:
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                    'lxxdz09c' /* Continue */,
+                                                  ),
+                                                  onConfirmAction: () async {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  onCancelAction: () async {
+                                                    FFAppState().EditPostData =
+                                                        EditPostDateStruct();
+                                                    context.safePop();
+                                                  },
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                        );
+                                      } else {
+                                        context.safePop();
+                                      }
+                                    },
+                                    child: Icon(
+                                      Icons.arrow_back,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      size: 20.0,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -421,98 +489,104 @@ class _PostImageWidgetState extends State<PostImageWidget> {
                                                   if (_model
                                                           .localImages.length <=
                                                       4)
-                                                    Container(
-                                                      width: 60.0,
-                                                      height: 60.0,
-                                                      decoration:
-                                                          BoxDecoration(),
-                                                      child: Card(
-                                                        clipBehavior: Clip
-                                                            .antiAliasWithSaveLayer,
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        elevation: 0.0,
-                                                        shape:
-                                                            RoundedRectangleBorder(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      12.0),
-                                                        ),
-                                                        child: InkWell(
-                                                          splashColor: Colors
-                                                              .transparent,
-                                                          focusColor: Colors
-                                                              .transparent,
-                                                          hoverColor: Colors
-                                                              .transparent,
-                                                          highlightColor: Colors
-                                                              .transparent,
-                                                          onTap: () async {
-                                                            final selectedMedia =
-                                                                await selectMediaWithSourceBottomSheet(
-                                                              context: context,
-                                                              maxWidth: 480.00,
-                                                              imageQuality: 100,
-                                                              allowPhoto: true,
-                                                            );
-                                                            if (selectedMedia !=
-                                                                    null &&
-                                                                selectedMedia.every((m) =>
-                                                                    validateFileFormat(
-                                                                        m.storagePath,
-                                                                        context))) {
-                                                              safeSetState(() =>
-                                                                  _model.isDataUploading_uploadimageLocal =
-                                                                      true);
-                                                              var selectedUploadedFiles =
-                                                                  <FFUploadedFile>[];
+                                                    InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        final selectedMedia =
+                                                            await selectMediaWithSourceBottomSheet(
+                                                          context: context,
+                                                          imageQuality: 100,
+                                                          allowPhoto: true,
+                                                        );
+                                                        if (selectedMedia !=
+                                                                null &&
+                                                            selectedMedia.every((m) =>
+                                                                validateFileFormat(
+                                                                    m.storagePath,
+                                                                    context))) {
+                                                          safeSetState(() =>
+                                                              _model.isDataUploading_uploadimageLocal =
+                                                                  true);
+                                                          var selectedUploadedFiles =
+                                                              <FFUploadedFile>[];
 
-                                                              try {
-                                                                selectedUploadedFiles =
-                                                                    selectedMedia
-                                                                        .map((m) =>
-                                                                            FFUploadedFile(
-                                                                              name: m.storagePath.split('/').last,
-                                                                              bytes: m.bytes,
-                                                                              height: m.dimensions?.height,
-                                                                              width: m.dimensions?.width,
-                                                                              blurHash: m.blurHash,
-                                                                              originalFilename: m.originalFilename,
-                                                                            ))
-                                                                        .toList();
-                                                              } finally {
-                                                                _model.isDataUploading_uploadimageLocal =
-                                                                    false;
-                                                              }
-                                                              if (selectedUploadedFiles
-                                                                      .length ==
-                                                                  selectedMedia
-                                                                      .length) {
-                                                                safeSetState(
-                                                                    () {
-                                                                  _model.uploadedLocalFile_uploadimageLocal =
-                                                                      selectedUploadedFiles
-                                                                          .first;
-                                                                });
-                                                              } else {
-                                                                safeSetState(
-                                                                    () {});
-                                                                return;
-                                                              }
-                                                            }
+                                                          try {
+                                                            selectedUploadedFiles =
+                                                                selectedMedia
+                                                                    .map((m) =>
+                                                                        FFUploadedFile(
+                                                                          name: m
+                                                                              .storagePath
+                                                                              .split('/')
+                                                                              .last,
+                                                                          bytes:
+                                                                              m.bytes,
+                                                                          height: m
+                                                                              .dimensions
+                                                                              ?.height,
+                                                                          width: m
+                                                                              .dimensions
+                                                                              ?.width,
+                                                                          blurHash:
+                                                                              m.blurHash,
+                                                                          originalFilename:
+                                                                              m.originalFilename,
+                                                                        ))
+                                                                    .toList();
+                                                          } finally {
+                                                            _model.isDataUploading_uploadimageLocal =
+                                                                false;
+                                                          }
+                                                          if (selectedUploadedFiles
+                                                                  .length ==
+                                                              selectedMedia
+                                                                  .length) {
+                                                            safeSetState(() {
+                                                              _model.uploadedLocalFile_uploadimageLocal =
+                                                                  selectedUploadedFiles
+                                                                      .first;
+                                                            });
+                                                          } else {
+                                                            safeSetState(() {});
+                                                            return;
+                                                          }
+                                                        }
 
-                                                            if ((_model
-                                                                        .uploadedLocalFile_uploadimageLocal
-                                                                        .bytes
-                                                                        ?.isNotEmpty ??
-                                                                    false)) {
-                                                              _model.addToLocalImages(
-                                                                  _model
-                                                                      .uploadedLocalFile_uploadimageLocal);
-                                                            }
-                                                          },
+                                                        if (_model
+                                                                .isDataUploading_uploadimageLocal ==
+                                                            false) {
+                                                          _model.addToLocalImages(
+                                                              _model
+                                                                  .uploadedLocalFile_uploadimageLocal);
+                                                          safeSetState(() {});
+                                                        }
+                                                      },
+                                                      child: Container(
+                                                        width: 60.0,
+                                                        height: 60.0,
+                                                        decoration:
+                                                            BoxDecoration(),
+                                                        child: Card(
+                                                          clipBehavior: Clip
+                                                              .antiAliasWithSaveLayer,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          elevation: 0.0,
+                                                          shape:
+                                                              RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        12.0),
+                                                          ),
                                                           child: Icon(
                                                             Icons.add,
                                                             color: FlutterFlowTheme
@@ -658,13 +732,19 @@ class _PostImageWidgetState extends State<PostImageWidget> {
                                                             0.0, 1.0),
                                                     child: Builder(
                                                       builder: (context) {
-                                                        final tempImages =
-                                                            FFAppState()
-                                                                .postState
-                                                                .images
-                                                                .toList()
-                                                                .take(4)
-                                                                .toList();
+                                                        final tempImages = (FFAppState()
+                                                                    .EditPostData
+                                                                    .imags
+                                                                    .isNotEmpty
+                                                                ? FFAppState()
+                                                                    .EditPostData
+                                                                    .imags
+                                                                : FFAppState()
+                                                                    .postState
+                                                                    .images)
+                                                            .toList()
+                                                            .take(4)
+                                                            .toList();
 
                                                         return GridView.builder(
                                                           padding: EdgeInsets
@@ -755,18 +835,16 @@ class _PostImageWidgetState extends State<PostImageWidget> {
                                                                             Colors.transparent,
                                                                         onTap:
                                                                             () async {
-                                                                          FFAppState()
-                                                                              .updatePostStateStruct(
+                                                                          FFAppState().updateEditPostDataStruct(
                                                                             (e) => e
-                                                                              ..updateImages(
+                                                                              ..updateImags(
                                                                                 (e) => e.remove(tempImagesItem),
-                                                                              ),
+                                                                              )
+                                                                              ..isModified = true,
                                                                           );
-                                                                          safeSetState(
-                                                                              () {});
-                                                                          await deleteSupabaseFileFromPublicUrl(
-                                                                              tempImagesItem);
-                                                                        },
+                                                                          safeSetState(() {});
+                                                                          await deleteSupabaseFileFromPublicUrl(tempImagesItem);
+                                                                                                                                                },
                                                                         child:
                                                                             Icon(
                                                                           Icons
@@ -804,318 +882,199 @@ class _PostImageWidgetState extends State<PostImageWidget> {
                       ],
                     ),
                   ),
-                  Stack(
-                    children: [
-                      if (widget.navRoute != 'PostPreview')
-                        Align(
-                          alignment: AlignmentDirectional(0.0, 1.0),
-                          child: Container(
-                            width: double.infinity,
-                            height: 90.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
-                              border: Border.all(
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                              ),
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 16.0, 24.0, 0.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      if (_model.localImages.isNotEmpty) {
-                                        for (int loop1Index = 0;
-                                            loop1Index <
-                                                _model.localImages.length;
-                                            loop1Index++) {
-                                          final currentLoop1Item =
-                                              _model.localImages[loop1Index];
-                                          // upload to Temporarily storage
-                                          {
-                                            safeSetState(() => _model
-                                                    .isDataUploading_uploadToStorageURL =
-                                                true);
-                                            var selectedUploadedFiles =
-                                                <FFUploadedFile>[];
-                                            var selectedMedia =
-                                                <SelectedFile>[];
-                                            var downloadUrls = <String>[];
-                                            try {
-                                              selectedUploadedFiles =
-                                                  currentLoop1Item
-                                                          .bytes!.isNotEmpty
-                                                      ? [currentLoop1Item]
-                                                      : <FFUploadedFile>[];
-                                              selectedMedia =
-                                                  selectedFilesFromUploadedFiles(
-                                                selectedUploadedFiles,
-                                                storageFolderPath:
-                                                    currentUserUid,
-                                              );
-                                              downloadUrls =
-                                                  await uploadSupabaseStorageFiles(
-                                                bucketName: 'users_media',
-                                                selectedFiles: selectedMedia,
-                                              );
-                                            } finally {
-                                              _model.isDataUploading_uploadToStorageURL =
-                                                  false;
-                                            }
-                                            if (selectedUploadedFiles.length ==
-                                                    selectedMedia.length &&
-                                                downloadUrls.length ==
-                                                    selectedMedia.length) {
-                                              safeSetState(() {
-                                                _model.uploadedLocalFile_uploadToStorageURL =
-                                                    selectedUploadedFiles.first;
-                                                _model.uploadedFileUrl_uploadToStorageURL =
-                                                    downloadUrls.first;
-                                              });
-                                            } else {
-                                              safeSetState(() {});
-                                              return;
-                                            }
-                                          }
-
-                                          FFAppState().updatePostStateStruct(
-                                            (e) => e
-                                              ..updateImages(
-                                                (e) => e.add(_model
-                                                    .uploadedFileUrl_uploadToStorageURL),
-                                              ),
-                                          );
-                                          safeSetState(() {});
-                                        }
-                                        safeSetState(() {
-                                          _model.isDataUploading_uploadimageLocal =
-                                              false;
-                                          _model.uploadedLocalFile_uploadimageLocal =
-                                              FFUploadedFile(
-                                                  bytes: Uint8List.fromList([]),
-                                                  originalFilename: '');
-                                        });
-
-                                        _model.localImages = [];
-                                        safeSetState(() {});
+                  Align(
+                    alignment: AlignmentDirectional(0.0, 1.0),
+                    child: Container(
+                      width: double.infinity,
+                      height: 90.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).primaryBackground,
+                        border: Border.all(
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                        ),
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                24.0, 16.0, 24.0, 0.0),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                if (_model.localImages.isNotEmpty) {
+                                  for (int loop1Index = 0;
+                                      loop1Index < _model.localImages.length;
+                                      loop1Index++) {
+                                    final currentLoop1Item =
+                                        _model.localImages[loop1Index];
+                                    // upload to Temporarily storage
+                                    {
+                                      safeSetState(() => _model
+                                              .isDataUploading_uploadToStorageURLEdit =
+                                          true);
+                                      var selectedUploadedFiles =
+                                          <FFUploadedFile>[];
+                                      var selectedMedia = <SelectedFile>[];
+                                      var downloadUrls = <String>[];
+                                      try {
+                                        selectedUploadedFiles =
+                                            currentLoop1Item.bytes!.isNotEmpty
+                                                ? [currentLoop1Item]
+                                                : <FFUploadedFile>[];
+                                        selectedMedia =
+                                            selectedFilesFromUploadedFiles(
+                                          selectedUploadedFiles,
+                                          storageFolderPath: currentUserUid,
+                                        );
+                                        downloadUrls =
+                                            await uploadSupabaseStorageFiles(
+                                          bucketName: 'users_media',
+                                          selectedFiles: selectedMedia,
+                                        );
+                                      } finally {
+                                        _model.isDataUploading_uploadToStorageURLEdit =
+                                            false;
                                       }
+                                      if (selectedUploadedFiles.length ==
+                                              selectedMedia.length &&
+                                          downloadUrls.length ==
+                                              selectedMedia.length) {
+                                        safeSetState(() {
+                                          _model.uploadedLocalFile_uploadToStorageURLEdit =
+                                              selectedUploadedFiles.first;
+                                          _model.uploadedFileUrl_uploadToStorageURLEdit =
+                                              downloadUrls.first;
+                                        });
+                                      } else {
+                                        safeSetState(() {});
+                                        return;
+                                      }
+                                    }
 
-                                      context.pushNamed(
-                                          PostPreviewWidget.routeName);
-                                    },
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: 45.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .greenInit,
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        border: Border.all(
-                                          color: FlutterFlowTheme.of(context)
-                                              .greenInit,
-                                        ),
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'klkdc69y' /* See Preview */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
-                                                  useGoogleFonts:
-                                                      !FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumIsCustom,
-                                                ),
+                                    if (FFAppState().EditPostData.title != '') {
+                                      // EditPostUpdate
+                                      FFAppState().updateEditPostDataStruct(
+                                        (e) => e
+                                          ..updateImags(
+                                            (e) => e.add(_model
+                                                .uploadedFileUrl_uploadToStorageURLEdit),
+                                          )
+                                          ..isModified = true,
+                                      );
+                                      safeSetState(() {});
+                                    } else {
+                                      FFAppState().updatePostStateStruct(
+                                        (e) => e
+                                          ..updateImages(
+                                            (e) => e.add(_model
+                                                .uploadedFileUrl_uploadToStorageURLEdit),
                                           ),
-                                        ],
-                                      ),
-                                    ),
+                                      );
+                                      safeSetState(() {});
+                                    }
+                                  }
+                                  if (FFAppState().EditPostData.title != '') {
+                                    safeSetState(() {
+                                      _model.isDataUploading_uploadimageLocal =
+                                          false;
+                                      _model.uploadedLocalFile_uploadimageLocal =
+                                          FFUploadedFile(
+                                              bytes: Uint8List.fromList([]),
+                                              originalFilename: '');
+                                    });
+
+                                    _model.localImages = [];
+                                    safeSetState(() {});
+
+                                    context.pushNamed(
+                                      PostEditWidget.routeName,
+                                      queryParameters: {
+                                        'edit': serializeParam(
+                                          true,
+                                          ParamType.bool,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  } else {
+                                    safeSetState(() {
+                                      _model.isDataUploading_uploadimageLocal =
+                                          false;
+                                      _model.uploadedLocalFile_uploadimageLocal =
+                                          FFUploadedFile(
+                                              bytes: Uint8List.fromList([]),
+                                              originalFilename: '');
+                                    });
+
+                                    _model.localImages = [];
+                                    safeSetState(() {});
+
+                                    context
+                                        .pushNamed(PostPreviewWidget.routeName);
+                                  }
+
+                                  return;
+                                } else {
+                                  if (FFAppState().EditPostData.title != '') {
+                                    context.pushNamed(
+                                      PostEditWidget.routeName,
+                                      queryParameters: {
+                                        'edit': serializeParam(
+                                          true,
+                                          ParamType.bool,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  } else {
+                                    context
+                                        .pushNamed(PostPreviewWidget.routeName);
+                                  }
+                                }
+                              },
+                              child: Container(
+                                width: double.infinity,
+                                height: 45.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context).greenInit,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  border: Border.all(
+                                    color:
+                                        FlutterFlowTheme.of(context).greenInit,
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      if (widget.navRoute == 'PostPreview')
-                        Align(
-                          alignment: AlignmentDirectional(0.0, 1.0),
-                          child: Container(
-                            width: double.infinity,
-                            height: 90.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
-                              border: Border.all(
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Save',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            fontSize: 16.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w500,
+                                            useGoogleFonts:
+                                                !FlutterFlowTheme.of(context)
+                                                    .bodyMediumIsCustom,
+                                          ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 16.0, 24.0, 0.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      if (_model.localImages.isNotEmpty) {
-                                        for (int loop1Index = 0;
-                                            loop1Index <
-                                                _model.localImages.length;
-                                            loop1Index++) {
-                                          final currentLoop1Item =
-                                              _model.localImages[loop1Index];
-                                          // upload to Temporarily storage
-                                          {
-                                            safeSetState(() => _model
-                                                    .isDataUploading_uploadToStorageURLEdit =
-                                                true);
-                                            var selectedUploadedFiles =
-                                                <FFUploadedFile>[];
-                                            var selectedMedia =
-                                                <SelectedFile>[];
-                                            var downloadUrls = <String>[];
-                                            try {
-                                              selectedUploadedFiles =
-                                                  currentLoop1Item
-                                                          .bytes!.isNotEmpty
-                                                      ? [currentLoop1Item]
-                                                      : <FFUploadedFile>[];
-                                              selectedMedia =
-                                                  selectedFilesFromUploadedFiles(
-                                                selectedUploadedFiles,
-                                                storageFolderPath:
-                                                    currentUserUid,
-                                              );
-                                              downloadUrls =
-                                                  await uploadSupabaseStorageFiles(
-                                                bucketName: 'users_media',
-                                                selectedFiles: selectedMedia,
-                                              );
-                                            } finally {
-                                              _model.isDataUploading_uploadToStorageURLEdit =
-                                                  false;
-                                            }
-                                            if (selectedUploadedFiles.length ==
-                                                    selectedMedia.length &&
-                                                downloadUrls.length ==
-                                                    selectedMedia.length) {
-                                              safeSetState(() {
-                                                _model.uploadedLocalFile_uploadToStorageURLEdit =
-                                                    selectedUploadedFiles.first;
-                                                _model.uploadedFileUrl_uploadToStorageURLEdit =
-                                                    downloadUrls.first;
-                                              });
-                                            } else {
-                                              safeSetState(() {});
-                                              return;
-                                            }
-                                          }
-
-                                          FFAppState().updatePostStateStruct(
-                                            (e) => e
-                                              ..updateImages(
-                                                (e) => e.add(_model
-                                                    .uploadedFileUrl_uploadToStorageURLEdit),
-                                              ),
-                                          );
-                                          safeSetState(() {});
-                                        }
-                                        safeSetState(() {
-                                          _model.isDataUploading_uploadimageLocal =
-                                              false;
-                                          _model.uploadedLocalFile_uploadimageLocal =
-                                              FFUploadedFile(
-                                                  bytes: Uint8List.fromList([]),
-                                                  originalFilename: '');
-                                        });
-
-                                        _model.localImages = [];
-                                        safeSetState(() {});
-                                      }
-
-                                      context.goNamed(PostEditWidget.routeName);
-                                    },
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: 45.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .greenInit,
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        border: Border.all(
-                                          color: FlutterFlowTheme.of(context)
-                                              .greenInit,
-                                        ),
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'q3yy9x1s' /* Save */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
-                                                  useGoogleFonts:
-                                                      !FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumIsCustom,
-                                                ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
                           ),
-                        ),
-                    ],
+                        ],
+                      ),
+                    ),
                   ),
                 ],
               ),

@@ -49,4 +49,7 @@ class PostsRow extends SupabaseDataRow {
 
   List<String> get images => getListField<String>('images');
   set images(List<String> value) => setListField<String>('images', value);
+
+  int? get catId => getField<int>('cat_id');
+  set catId(int? value) => setField<int>('cat_id', value);
 }

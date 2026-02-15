@@ -2938,7 +2938,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                     ),
                                     Text(
                                       FFLocalizations.of(context).getText(
-                                        'ivh9ys6v' /* Starts */,
+                                        'ivh9ys6v' /* From: */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .labelSmall
@@ -2996,7 +2996,7 @@ class _ItemCardGlobalWidgetState extends State<ItemCardGlobalWidget> {
                                   ),
                                   Text(
                                     FFLocalizations.of(context).getText(
-                                      'ynjjmp1u' /* Ends: */,
+                                      'ynjjmp1u' /* To: */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .labelSmall

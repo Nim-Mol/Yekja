@@ -2,7 +2,7 @@
 export '/profile/privacy_policy_page/privacy_policy_page_widget.dart'
     show PrivacyPolicyPageWidget;
 export '/profile/faq/faq_widget.dart' show FaqWidget;
-export '/events/events_widget.dart' show EventsWidget;
+export '/test_pages/events/events_widget.dart' show EventsWidget;
 export '/onboarding/onboarding_page/onboarding_page_widget.dart'
     show OnboardingPageWidget;
 export '/posts/image_gallery_page/image_gallery_page_widget.dart'
@@ -25,7 +25,8 @@ export '/chat/chat_page/chat_page_widget.dart' show ChatPageWidget;
 export '/search_filter/search_page/search_page_widget.dart'
     show SearchPageWidget;
 export '/profile/profile_page/profile_page_widget.dart' show ProfilePageWidget;
-export '/x_x_x_busines/x_x_x_busines_widget.dart' show XXXBusinesWidget;
+export '/test_pages/x_x_x_busines/x_x_x_busines_widget.dart'
+    show XXXBusinesWidget;
 export '/login/sign_in_confirm/sign_in_confirm_widget.dart'
     show SignInConfirmWidget;
 export '/login/change_email_page/change_email_page_widget.dart'
@@ -50,7 +51,7 @@ export '/main_overview_pages/main_page/main_page_widget.dart'
     show MainPageWidget;
 export '/posts/post_fa/post_fa_widget.dart' show PostFaWidget;
 export '/posts/post_n_l/post_n_l_widget.dart' show PostNLWidget;
-export '/posts/create_post/detail_rentals/detail_rentals_widget.dart'
+export '/posts/detail_rentals/detail_rentals_widget.dart'
     show DetailRentalsWidget;
 export '/posts/create_post/detail_sales/detail_sales_widget.dart'
     show DetailSalesWidget;
@@ -73,3 +74,4 @@ export '/posts/create_post/detail_transfer/detail_transfer_widget.dart'
 export '/posts/post_en/post_en_widget.dart' show PostEnWidget;
 export '/onboarding/custom_splash/custom_splash_widget.dart'
     show CustomSplashWidget;
+export '/shared_components/xxx/xxx_widget.dart' show XxxWidget;

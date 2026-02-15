@@ -49,18 +49,23 @@ class _FilterCompWidgetState extends State<FilterCompWidget>
     _model = createModel(context, () => FilterCompModel());
 
     _model.expandableExpandableController1 =
-        ExpandableController(initialExpanded: false);
+        ExpandableController(initialExpanded: false)
+          ..addListener(() => safeSetState(() {}));
     _model.expandableExpandableController2 =
-        ExpandableController(initialExpanded: false);
+        ExpandableController(initialExpanded: false)
+          ..addListener(() => safeSetState(() {}));
     _model.expandableExpandableController3 =
-        ExpandableController(initialExpanded: false);
+        ExpandableController(initialExpanded: false)
+          ..addListener(() => safeSetState(() {}));
     _model.expandableExpandableController4 =
-        ExpandableController(initialExpanded: false);
+        ExpandableController(initialExpanded: false)
+          ..addListener(() => safeSetState(() {}));
     _model.switchValue1 = FFAppState().filterAppState.hasImages;
     _model.switchValue2 = FFAppState().filterAppState.yekjaVerified;
     _model.switchValue3 = FFAppState().filterAppState.highRatedUsers;
     _model.expandableExpandableController5 =
-        ExpandableController(initialExpanded: false);
+        ExpandableController(initialExpanded: false)
+          ..addListener(() => safeSetState(() {}));
     animationsMap.addAll({
       'listViewOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -1988,7 +1993,7 @@ class _FilterCompWidgetState extends State<FilterCompWidget>
                       ),
                     }.withoutNulls,
                     extra: <String, dynamic>{
-                      kTransitionInfoKey: TransitionInfo(
+                      '__transition_info__': TransitionInfo(
                         hasTransition: true,
                         transitionType: PageTransitionType.fade,
                         duration: Duration(milliseconds: 0),
@@ -2039,7 +2044,7 @@ class _FilterCompWidgetState extends State<FilterCompWidget>
                         ),
                       }.withoutNulls,
                       extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
+                        '__transition_info__': TransitionInfo(
                           hasTransition: true,
                           transitionType: PageTransitionType.fade,
                           duration: Duration(milliseconds: 0),

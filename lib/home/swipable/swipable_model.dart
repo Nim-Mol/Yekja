@@ -1,16 +1,15 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/shared_components/nav_bar/nav_bar_widget.dart';
 import '/shared_components/report_bug/report_bug_widget.dart';
-import '/index.dart';
+import '/shared_components/swipe_cards/swipe_cards_widget.dart';
 import 'swipable_widget.dart' show SwipableWidget;
 import 'package:flutter/material.dart';
-import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 
 class SwipableModel extends FlutterFlowModel<SwipableWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for SwipeableStack widget.
-  late CardSwiperController swipeableStackController;
+  // Model for swipeCards component.
+  late SwipeCardsModel swipeCardsModel;
   // Model for NavBar component.
   late NavBarModel navBarModel;
   // Model for reportBug component.
@@ -18,13 +17,14 @@ class SwipableModel extends FlutterFlowModel<SwipableWidget> {
 
   @override
   void initState(BuildContext context) {
-    swipeableStackController = CardSwiperController();
+    swipeCardsModel = createModel(context, () => SwipeCardsModel());
     navBarModel = createModel(context, () => NavBarModel());
     reportBugModel = createModel(context, () => ReportBugModel());
   }
 
   @override
   void dispose() {
+    swipeCardsModel.dispose();
     navBarModel.dispose();
     reportBugModel.dispose();
   }

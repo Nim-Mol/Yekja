@@ -132,7 +132,7 @@ class _PostNLWidgetState extends State<PostNLWidget>
     });
 
     animationsMap.addAll({
-      'rowOnPageLoadAnimation': AnimationInfo(
+      'columnOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -267,48 +267,317 @@ class _PostNLWidgetState extends State<PostNLWidget>
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 24.0, 16.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              FlutterFlowIconButton(
-                                                borderRadius: 50.0,
-                                                buttonSize: 40.0,
-                                                fillColor:
-                                                    FlutterFlowTheme.of(context)
+                                        Stack(
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      16.0, 24.0, 16.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  FlutterFlowIconButton(
+                                                    borderRadius: 50.0,
+                                                    buttonSize: 40.0,
+                                                    fillColor: FlutterFlowTheme
+                                                            .of(context)
                                                         .secondaryBackground,
-                                                icon: Icon(
-                                                  Icons.chevron_left,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  size: 24.0,
-                                                ),
-                                                onPressed: () async {
-                                                  context.safePop();
-                                                },
-                                              ),
-                                              if (currentUserUid != '')
-                                                Flexible(
-                                                  child: Container(
-                                                    decoration: BoxDecoration(),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment.end,
-                                                      children: [
-                                                        if ((postNLViewPostSearchNlRow
-                                                                    .ownerId !=
-                                                                currentUserUid) &&
-                                                            !FFAppState()
+                                                    icon: Icon(
+                                                      Icons.chevron_left,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      size: 24.0,
+                                                    ),
+                                                    onPressed: () async {
+                                                      context.safePop();
+                                                    },
+                                                  ),
+                                                  if (currentUserUid != '')
+                                                    Flexible(
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .end,
+                                                          children: [
+                                                            if ((postNLViewPostSearchNlRow
+                                                                        .ownerId !=
+                                                                    currentUserUid) &&
+                                                                !FFAppState()
+                                                                    .IsGust)
+                                                              Container(
+                                                                width: 40.0,
+                                                                height: 40.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                                  shape: BoxShape
+                                                                      .circle,
+                                                                ),
+                                                                child:
+                                                                    ToggleIcon(
+                                                                  onPressed:
+                                                                      () async {
+                                                                    safeSetState(() => _model
+                                                                            .isLiked =
+                                                                        !_model
+                                                                            .isLiked);
+                                                                    if (_model
+                                                                            .isLiked ==
+                                                                        true) {
+                                                                      await PostsLikesTable()
+                                                                          .insert({
+                                                                        'user_id':
+                                                                            currentUserUid,
+                                                                        'post_id':
+                                                                            widget.postID,
+                                                                      });
+                                                                    } else {
+                                                                      await PostsLikesTable()
+                                                                          .delete(
+                                                                        matchingRows: (rows) => rows
+                                                                            .eqOrNull(
+                                                                              'post_id',
+                                                                              widget.postID,
+                                                                            )
+                                                                            .eqOrNull(
+                                                                              'user_id',
+                                                                              currentUserUid,
+                                                                            ),
+                                                                      );
+                                                                    }
+
+                                                                    safeSetState(
+                                                                        () {
+                                                                      _model.clearPostNLCacheKey(
+                                                                          _model
+                                                                              .requestLastUniqueKey2);
+                                                                      _model.requestCompleted2 =
+                                                                          false;
+                                                                    });
+                                                                    await _model
+                                                                        .waitForRequestCompleted2();
+                                                                  },
+                                                                  value: _model
+                                                                      .isLiked,
+                                                                  onIcon: Icon(
+                                                                    Icons
+                                                                        .favorite,
+                                                                    color: Color(
+                                                                        0xFFF10707),
+                                                                    size: 22.0,
+                                                                  ),
+                                                                  offIcon: Icon(
+                                                                    Icons
+                                                                        .favorite_border,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    size: 20.0,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            if ((currentUserUid !=
+                                                                    postNLViewPostSearchNlRow
+                                                                        .ownerId) &&
+                                                                !FFAppState()
+                                                                    .IsGust)
+                                                              Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        1.0,
+                                                                        0.0),
+                                                                child:
+                                                                    Container(
+                                                                  width: 40.0,
+                                                                  height: 40.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                    shape: BoxShape
+                                                                        .circle,
+                                                                  ),
+                                                                  child:
+                                                                      ToggleIcon(
+                                                                    onPressed:
+                                                                        () async {
+                                                                      safeSetState(() => _model
+                                                                              .isFav =
+                                                                          !_model
+                                                                              .isFav);
+                                                                      if (functions.listContainsString(
+                                                                          FFAppState()
+                                                                              .userInfo
+                                                                              .userFavs
+                                                                              .toList(),
+                                                                          widget
+                                                                              .postID!)) {
+                                                                        FFAppState()
+                                                                            .updateUserInfoStruct(
+                                                                          (e) => e
+                                                                            ..updateUserFavs(
+                                                                              (e) => e.remove(widget.postID),
+                                                                            ),
+                                                                        );
+                                                                        await UserFavoritesTable()
+                                                                            .delete(
+                                                                          matchingRows: (rows) => rows
+                                                                              .eqOrNull(
+                                                                                'user_id',
+                                                                                currentUserUid,
+                                                                              )
+                                                                              .eqOrNull(
+                                                                                'post_id',
+                                                                                widget.postID,
+                                                                              ),
+                                                                        );
+                                                                      } else {
+                                                                        FFAppState()
+                                                                            .updateUserInfoStruct(
+                                                                          (e) => e
+                                                                            ..updateUserFavs(
+                                                                              (e) => e.add(widget.postID!),
+                                                                            ),
+                                                                        );
+                                                                        await UserFavoritesTable()
+                                                                            .insert({
+                                                                          'user_id':
+                                                                              currentUserUid,
+                                                                          'post_id':
+                                                                              widget.postID,
+                                                                        });
+                                                                      }
+
+                                                                      safeSetState(
+                                                                          () {
+                                                                        _model.clearPostNLCacheKey(
+                                                                            _model.requestLastUniqueKey2);
+                                                                        _model.requestCompleted2 =
+                                                                            false;
+                                                                      });
+                                                                      await _model
+                                                                          .waitForRequestCompleted2();
+                                                                    },
+                                                                    value: _model
+                                                                        .isFav,
+                                                                    onIcon:
+                                                                        Icon(
+                                                                      Icons
+                                                                          .bookmark_added,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .greenInit,
+                                                                      size:
+                                                                          20.0,
+                                                                    ),
+                                                                    offIcon:
+                                                                        Icon(
+                                                                      Icons
+                                                                          .bookmark_border,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                      size:
+                                                                          20.0,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            if (!FFAppState()
                                                                 .IsGust)
-                                                          Container(
+                                                              Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        0.0,
+                                                                        0.0),
+                                                                child:
+                                                                    Container(
+                                                                  width: 40.0,
+                                                                  height: 40.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                    shape: BoxShape
+                                                                        .circle,
+                                                                  ),
+                                                                  child:
+                                                                      ToggleIcon(
+                                                                    onPressed:
+                                                                        () async {
+                                                                      safeSetState(() => _model
+                                                                              .isClose =
+                                                                          !_model
+                                                                              .isClose);
+                                                                    },
+                                                                    value: _model
+                                                                        .isClose,
+                                                                    onIcon:
+                                                                        FaIcon(
+                                                                      FontAwesomeIcons
+                                                                          .ellipsisV,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                      size:
+                                                                          14.0,
+                                                                    ),
+                                                                    offIcon:
+                                                                        FaIcon(
+                                                                      FontAwesomeIcons
+                                                                          .angleRight,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText,
+                                                                      size:
+                                                                          14.0,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                          ].divide(SizedBox(
+                                                              width: 10.0)),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 70.0, 16.0, 0.0),
+                                              child: Container(
+                                                decoration: BoxDecoration(),
+                                                child: Visibility(
+                                                  visible: !_model.isClose,
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      if ((postNLViewPostSearchNlRow
+                                                                  .ownerId ==
+                                                              currentUserUid) &&
+                                                          !FFAppState().IsGust)
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  1.0, 0.0),
+                                                          child: Container(
                                                             width: 40.0,
                                                             height: 40.0,
                                                             decoration:
@@ -319,624 +588,523 @@ class _PostNLWidgetState extends State<PostNLWidget>
                                                               shape: BoxShape
                                                                   .circle,
                                                             ),
-                                                            child: ToggleIcon(
-                                                              onPressed:
-                                                                  () async {
-                                                                safeSetState(() =>
-                                                                    _model.isLiked =
-                                                                        !_model
-                                                                            .isLiked);
-                                                                if (_model
-                                                                        .isLiked ==
-                                                                    true) {
-                                                                  await PostsLikesTable()
-                                                                      .insert({
-                                                                    'user_id':
-                                                                        currentUserUid,
-                                                                    'post_id':
-                                                                        widget
-                                                                            .postID,
-                                                                  });
-                                                                } else {
-                                                                  await PostsLikesTable()
-                                                                      .delete(
-                                                                    matchingRows:
-                                                                        (rows) => rows
-                                                                            .eqOrNull(
-                                                                              'post_id',
-                                                                              widget.postID,
-                                                                            )
-                                                                            .eqOrNull(
-                                                                              'user_id',
-                                                                              currentUserUid,
-                                                                            ),
-                                                                  );
-                                                                }
-
-                                                                safeSetState(
-                                                                    () {
-                                                                  _model.clearPostNLCacheKey(
-                                                                      _model
-                                                                          .requestLastUniqueKey2);
-                                                                  _model.requestCompleted2 =
-                                                                      false;
-                                                                });
-                                                                await _model
-                                                                    .waitForRequestCompleted2();
-                                                              },
-                                                              value: _model
-                                                                  .isLiked,
-                                                              onIcon: Icon(
-                                                                Icons.favorite,
-                                                                color: Color(
-                                                                    0xFFF10707),
-                                                                size: 22.0,
-                                                              ),
-                                                              offIcon: Icon(
-                                                                Icons
-                                                                    .favorite_border,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                                size: 20.0,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        if ((currentUserUid !=
-                                                                postNLViewPostSearchNlRow
-                                                                    .ownerId) &&
-                                                            !FFAppState()
-                                                                .IsGust)
-                                                          Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    1.0, 0.0),
-                                                            child: Container(
-                                                              width: 40.0,
-                                                              height: 40.0,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
+                                                            child: Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      1.0, 0.0),
+                                                              child:
+                                                                  FlutterFlowIconButton(
+                                                                borderRadius:
+                                                                    50.0,
+                                                                buttonSize:
+                                                                    40.0,
+                                                                fillColor: FlutterFlowTheme.of(
                                                                         context)
                                                                     .secondaryBackground,
-                                                                shape: BoxShape
-                                                                    .circle,
-                                                              ),
-                                                              child: ToggleIcon(
+                                                                icon: Icon(
+                                                                  Icons.edit,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                  size: 20.0,
+                                                                ),
                                                                 onPressed:
                                                                     () async {
-                                                                  safeSetState(() =>
-                                                                      _model.isFav =
-                                                                          !_model
-                                                                              .isFav);
-                                                                  if (functions.listContainsString(
+                                                                  await Future
+                                                                      .wait([
+                                                                    Future(
+                                                                        () async {
                                                                       FFAppState()
-                                                                          .userInfo
-                                                                          .userFavs
-                                                                          .toList(),
-                                                                      widget
-                                                                          .postID!)) {
-                                                                    FFAppState()
-                                                                        .updateUserInfoStruct(
-                                                                      (e) => e
-                                                                        ..updateUserFavs(
-                                                                          (e) =>
-                                                                              e.remove(widget.postID),
+                                                                              .postDetailJSON =
+                                                                          functions
+                                                                              .decodeDetails(postNLViewPostSearchNlRow.detailsText!);
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    }),
+                                                                    Future(
+                                                                        () async {
+                                                                      FFAppState()
+                                                                              .postState =
+                                                                          PostModelStruct(
+                                                                        id: postNLViewPostSearchNlRow
+                                                                            .postId,
+                                                                        ownerId:
+                                                                            postNLViewPostSearchNlRow.ownerId,
+                                                                        title: postNLViewPostSearchNlRow
+                                                                            .title,
+                                                                        description:
+                                                                            postNLViewPostSearchNlRow.description,
+                                                                        city: postNLViewPostSearchNlRow
+                                                                            .city,
+                                                                        subCatId:
+                                                                            postNLViewPostSearchNlRow.subCatId,
+                                                                        postLikes:
+                                                                            postNLViewPostSearchNlRow.postLikes,
+                                                                        images:
+                                                                            postNLViewPostSearchNlRow.images,
+                                                                        catName:
+                                                                            postNLViewPostSearchNlRow.catLabel,
+                                                                        subCatName:
+                                                                            postNLViewPostSearchNlRow.subCatLabel,
+                                                                        createdAt:
+                                                                            postNLViewPostSearchNlRow.createdAt,
+                                                                        review:
+                                                                            postNLViewPostSearchNlRow.review,
+                                                                        ratings:
+                                                                            postNLViewPostSearchNlRow.ratings,
+                                                                        intend:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.intend''',
+                                                                        ).toString(),
+                                                                        condition:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.condition''',
+                                                                        ).toString(),
+                                                                        deliveryMethod:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.delivery_method''',
+                                                                        ).toString(),
+                                                                        currency:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.currency''',
+                                                                        ).toString(),
+                                                                        method:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.method''',
+                                                                        ).toString(),
+                                                                        price:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.price''',
                                                                         ),
-                                                                    );
-                                                                    await UserFavoritesTable()
-                                                                        .delete(
-                                                                      matchingRows: (rows) => rows
-                                                                          .eqOrNull(
-                                                                            'user_id',
-                                                                            currentUserUid,
-                                                                          )
-                                                                          .eqOrNull(
-                                                                            'post_id',
-                                                                            widget.postID,
-                                                                          ),
-                                                                    );
-                                                                  } else {
-                                                                    FFAppState()
-                                                                        .updateUserInfoStruct(
-                                                                      (e) => e
-                                                                        ..updateUserFavs(
-                                                                          (e) =>
-                                                                              e.add(widget.postID!),
+                                                                        isNegotiable:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.is_negotiable''',
                                                                         ),
-                                                                    );
-                                                                    await UserFavoritesTable()
-                                                                        .insert({
-                                                                      'user_id':
-                                                                          currentUserUid,
-                                                                      'post_id':
-                                                                          widget
-                                                                              .postID,
-                                                                    });
-                                                                  }
+                                                                        openForSwap:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.open_for_swap''',
+                                                                        ),
+                                                                        wishlistText:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.wishlist_text''',
+                                                                        ).toString(),
+                                                                        ticketsQty:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.tickets_qty''',
+                                                                        ),
+                                                                        venueName:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.venue_name''',
+                                                                        ).toString(),
+                                                                        amount:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.amount''',
+                                                                        ),
+                                                                        allowPartial:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.allow_partial''',
+                                                                        ),
+                                                                        originCountry:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.origin_country''',
+                                                                        ).toString(),
+                                                                        originCity:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.origin_city''',
+                                                                        ).toString(),
+                                                                        destinationCountry:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.destination_country''',
+                                                                        ).toString(),
+                                                                        destinationCity:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.destination_city''',
+                                                                        ).toString(),
+                                                                        isDocument:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.is_document''',
+                                                                        ),
+                                                                        weightKg:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.weight_kg''',
+                                                                        ).toString(),
+                                                                        dimensionsText:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.dimensions_text''',
+                                                                        ).toString(),
+                                                                        isFragile:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.is_fragile''',
+                                                                        ),
+                                                                        rentalType:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.rental_type''',
+                                                                        ).toString(),
+                                                                        priceText:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.price_text''',
+                                                                        ).toString(),
+                                                                        pricePeriod:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.price_period''',
+                                                                        ).toString(),
+                                                                        deposit:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.deposit''',
+                                                                        ),
+                                                                        furnished:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.furnished''',
+                                                                        ),
+                                                                        utilitiesIncluded:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.utilities_included''',
+                                                                        ),
+                                                                        registrationPossible:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.registration_possible''',
+                                                                        ),
+                                                                        compensationType:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.compensation_type''',
+                                                                        ).toString(),
+                                                                        durationMin:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.duration_min''',
+                                                                        ),
+                                                                        venueAddress:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.venue_address''',
+                                                                        ).toString(),
+                                                                        onlineUrl:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.online_url''',
+                                                                        ).toString(),
+                                                                        capacity:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.capacity''',
+                                                                        ),
+                                                                        totalArea:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.total_area''',
+                                                                        ),
+                                                                        allowCashAdjustment:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.allow_cash_adjustment''',
+                                                                        ),
+                                                                        nGoing:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.n_going''',
+                                                                        ),
+                                                                        repeatsText:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.repeats''',
+                                                                        ).toString(),
+                                                                        serviceMode:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.service_mode''',
+                                                                        ).toString(),
+                                                                        experienceYears:
+                                                                            getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.experience_years''',
+                                                                        ).toString(),
+                                                                        languages: (getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details,
+                                                                          r'''$.languages''',
+                                                                          true,
+                                                                        ) as List?)
+                                                                            ?.map<String>((e) => e.toString())
+                                                                            .toList()
+                                                                            .cast<String>(),
+                                                                        eventDatetime:
+                                                                            functions.jsonToDateTimeUtc(getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details!,
+                                                                          r'''$.event_datetime''',
+                                                                        )),
+                                                                        travelDate:
+                                                                            functions.jsonToDateTimeUtc(getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details!,
+                                                                          r'''$.travel_date''',
+                                                                        )),
+                                                                        deadline:
+                                                                            functions.jsonToDateTimeUtc(getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details!,
+                                                                          r'''$.deadline''',
+                                                                        )),
+                                                                        availableFrom:
+                                                                            functions.jsonToDateTimeUtc(getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details!,
+                                                                          r'''$.available_from''',
+                                                                        )),
+                                                                        availableUntil:
+                                                                            functions.jsonToDateTimeUtc(getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details!,
+                                                                          r'''$.available_until''',
+                                                                        )),
+                                                                        eventStartsAt:
+                                                                            functions.jsonToDateTimeUtc(getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details!,
+                                                                          r'''$.event_starts_at''',
+                                                                        )),
+                                                                        eventEndsAt:
+                                                                            functions.jsonToDateTimeUtc(getJsonField(
+                                                                          postNLViewPostSearchNlRow
+                                                                              .details!,
+                                                                          r'''$.event_ends_at''',
+                                                                        )),
+                                                                        catId: postNLViewPostSearchNlRow
+                                                                            .catId,
+                                                                        mainCatId:
+                                                                            postNLViewPostSearchNlRow.mainCatId,
+                                                                      );
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    }),
+                                                                    Future(
+                                                                        () async {
+                                                                      FFAppState()
+                                                                              .postDetailLabel =
+                                                                          functions
+                                                                              .decodeDetails(postNLViewPostSearchNlRow.detailsLabelText!);
+                                                                      FFAppState()
+                                                                              .postDetailTable =
+                                                                          postNLViewPostSearchNlRow
+                                                                              .detailTable!;
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    }),
+                                                                  ]);
 
-                                                                  safeSetState(
-                                                                      () {
-                                                                    _model.clearPostNLCacheKey(
-                                                                        _model
-                                                                            .requestLastUniqueKey2);
-                                                                    _model.requestCompleted2 =
-                                                                        false;
-                                                                  });
-                                                                  await _model
-                                                                      .waitForRequestCompleted2();
+                                                                  context.pushNamed(
+                                                                      PostEditWidget
+                                                                          .routeName);
                                                                 },
-                                                                value: _model
-                                                                    .isFav,
-                                                                onIcon: Icon(
-                                                                  Icons
-                                                                      .bookmark_added,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .greenInit,
-                                                                  size: 20.0,
-                                                                ),
-                                                                offIcon: Icon(
-                                                                  Icons
-                                                                      .bookmark_border,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  size: 20.0,
-                                                                ),
                                                               ),
                                                             ),
                                                           ),
-                                                        if (!FFAppState()
-                                                            .IsGust)
-                                                          Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.0, 0.0),
-                                                            child: Container(
-                                                              width: 40.0,
-                                                              height: 40.0,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                                shape: BoxShape
-                                                                    .circle,
-                                                              ),
-                                                              child: ToggleIcon(
-                                                                onPressed:
-                                                                    () async {
-                                                                  safeSetState(() =>
-                                                                      _model.isClose =
-                                                                          !_model
-                                                                              .isClose);
-                                                                },
-                                                                value: _model
-                                                                    .isClose,
-                                                                onIcon: FaIcon(
-                                                                  FontAwesomeIcons
-                                                                      .ellipsisV,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  size: 14.0,
-                                                                ),
-                                                                offIcon: FaIcon(
-                                                                  FontAwesomeIcons
-                                                                      .angleRight,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  size: 14.0,
-                                                                ),
-                                                              ),
+                                                        ),
+                                                      if ((currentUserUid !=
+                                                              postNLViewPostSearchNlRow
+                                                                  .ownerId) &&
+                                                          !FFAppState().IsGust)
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  1.0, 0.0),
+                                                          child: Container(
+                                                            width: 40.0,
+                                                            height: 40.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                              shape: BoxShape
+                                                                  .circle,
                                                             ),
-                                                          ),
-                                                        if (!_model.isClose)
-                                                          Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              if ((postNLViewPostSearchNlRow
-                                                                          .ownerId ==
-                                                                      currentUserUid) &&
-                                                                  !FFAppState()
-                                                                      .IsGust)
-                                                                Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          1.0,
-                                                                          0.0),
-                                                                  child:
-                                                                      Container(
-                                                                    width: 40.0,
-                                                                    height:
-                                                                        40.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondaryBackground,
-                                                                      shape: BoxShape
-                                                                          .circle,
-                                                                    ),
+                                                            child: Stack(
+                                                              children: [
+                                                                if (functions.listContainsString(
+                                                                    FFAppState()
+                                                                        .userInfo
+                                                                        .reportedList
+                                                                        .toList(),
+                                                                    widget
+                                                                        .postID!))
+                                                                  Align(
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
                                                                     child:
-                                                                        Align(
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              1.0,
-                                                                              0.0),
-                                                                      child:
-                                                                          FlutterFlowIconButton(
-                                                                        borderRadius:
-                                                                            50.0,
-                                                                        buttonSize:
-                                                                            40.0,
-                                                                        fillColor:
-                                                                            FlutterFlowTheme.of(context).secondaryBackground,
-                                                                        icon:
-                                                                            Icon(
-                                                                          Icons
-                                                                              .edit,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primary,
-                                                                          size:
-                                                                              20.0,
-                                                                        ),
-                                                                        onPressed:
+                                                                        FaIcon(
+                                                                      FontAwesomeIcons
+                                                                          .solidFlag,
+                                                                      color: Color(
+                                                                          0xFFDC0D08),
+                                                                      size:
+                                                                          16.0,
+                                                                    ),
+                                                                  ),
+                                                                if (!functions.listContainsString(
+                                                                    FFAppState()
+                                                                        .userInfo
+                                                                        .reportedList
+                                                                        .toList(),
+                                                                    widget
+                                                                        .postID!))
+                                                                  Align(
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        Builder(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
                                                                             () async {
-                                                                          await Future
-                                                                              .wait([
-                                                                            Future(() async {
-                                                                              FFAppState().postDetailJSON = functions.decodeDetails(postNLViewPostSearchNlRow.detailsText!);
-                                                                              safeSetState(() {});
-                                                                            }),
-                                                                            Future(() async {
-                                                                              FFAppState().postState = PostModelStruct(
-                                                                                id: postNLViewPostSearchNlRow.postId,
-                                                                                ownerId: postNLViewPostSearchNlRow.ownerId,
-                                                                                title: postNLViewPostSearchNlRow.title,
-                                                                                description: postNLViewPostSearchNlRow.description,
-                                                                                city: postNLViewPostSearchNlRow.city,
-                                                                                subCatId: postNLViewPostSearchNlRow.subCatId,
-                                                                                postLikes: postNLViewPostSearchNlRow.postLikes,
-                                                                                images: postNLViewPostSearchNlRow.images,
-                                                                                catName: postNLViewPostSearchNlRow.catLabel,
-                                                                                subCatName: postNLViewPostSearchNlRow.subCatLabel,
-                                                                                createdAt: postNLViewPostSearchNlRow.createdAt,
-                                                                                review: postNLViewPostSearchNlRow.review,
-                                                                                ratings: postNLViewPostSearchNlRow.ratings,
-                                                                                intend: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.intend''',
-                                                                                ).toString(),
-                                                                                condition: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.condition''',
-                                                                                ).toString(),
-                                                                                deliveryMethod: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.delivery_method''',
-                                                                                ).toString(),
-                                                                                currency: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.currency''',
-                                                                                ).toString(),
-                                                                                method: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.method''',
-                                                                                ).toString(),
-                                                                                price: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.price''',
+                                                                          await showDialog(
+                                                                            context:
+                                                                                context,
+                                                                            builder:
+                                                                                (dialogContext) {
+                                                                              return Dialog(
+                                                                                elevation: 0,
+                                                                                insetPadding: EdgeInsets.zero,
+                                                                                backgroundColor: Colors.transparent,
+                                                                                alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                child: ConfirmCancelPopUpWidget(
+                                                                                  header: 'Reporting ',
+                                                                                  hintText: 'Are you sure you want to report this post?',
+                                                                                  cancelText: 'Cancel',
+                                                                                  confirmText: 'Report',
+                                                                                  onConfirmAction: () async {
+                                                                                    await showDialog(
+                                                                                      context: context,
+                                                                                      builder: (dialogContext) {
+                                                                                        return Dialog(
+                                                                                          elevation: 0,
+                                                                                          insetPadding: EdgeInsets.zero,
+                                                                                          backgroundColor: Colors.transparent,
+                                                                                          alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                          child: ReportingPopupWidget(
+                                                                                            reportingData: ReportingDataStruct(
+                                                                                              postId: widget.postID,
+                                                                                              postTitle: postNLViewPostSearchNlRow.title,
+                                                                                              isProfile: false,
+                                                                                              profileOwnerName: postNLViewPostSearchNlRow.userName,
+                                                                                              profileId: postNLViewPostSearchNlRow.ownerId,
+                                                                                            ),
+                                                                                          ),
+                                                                                        );
+                                                                                      },
+                                                                                    );
+                                                                                  },
+                                                                                  onCancelAction: () async {},
                                                                                 ),
-                                                                                isNegotiable: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.is_negotiable''',
-                                                                                ),
-                                                                                openForSwap: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.open_for_swap''',
-                                                                                ),
-                                                                                wishlistText: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.wishlist_text''',
-                                                                                ).toString(),
-                                                                                ticketsQty: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.tickets_qty''',
-                                                                                ),
-                                                                                venueName: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.venue_name''',
-                                                                                ).toString(),
-                                                                                amount: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.amount''',
-                                                                                ),
-                                                                                allowPartial: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.allow_partial''',
-                                                                                ),
-                                                                                originCountry: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.origin_country''',
-                                                                                ).toString(),
-                                                                                originCity: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.origin_city''',
-                                                                                ).toString(),
-                                                                                destinationCountry: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.destination_country''',
-                                                                                ).toString(),
-                                                                                destinationCity: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.destination_city''',
-                                                                                ).toString(),
-                                                                                isDocument: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.is_document''',
-                                                                                ),
-                                                                                weightKg: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.weight_kg''',
-                                                                                ).toString(),
-                                                                                dimensionsText: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.dimensions_text''',
-                                                                                ).toString(),
-                                                                                isFragile: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.is_fragile''',
-                                                                                ),
-                                                                                rentalType: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.rental_type''',
-                                                                                ).toString(),
-                                                                                priceText: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.price_text''',
-                                                                                ).toString(),
-                                                                                pricePeriod: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.price_period''',
-                                                                                ).toString(),
-                                                                                deposit: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.deposit''',
-                                                                                ),
-                                                                                furnished: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.furnished''',
-                                                                                ),
-                                                                                utilitiesIncluded: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.utilities_included''',
-                                                                                ),
-                                                                                registrationPossible: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.registration_possible''',
-                                                                                ),
-                                                                                compensationType: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.compensation_type''',
-                                                                                ).toString(),
-                                                                                durationMin: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.duration_min''',
-                                                                                ),
-                                                                                venueAddress: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.venue_address''',
-                                                                                ).toString(),
-                                                                                onlineUrl: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.online_url''',
-                                                                                ).toString(),
-                                                                                capacity: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.capacity''',
-                                                                                ),
-                                                                                totalArea: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.total_area''',
-                                                                                ),
-                                                                                allowCashAdjustment: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.allow_cash_adjustment''',
-                                                                                ),
-                                                                                nGoing: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.n_going''',
-                                                                                ),
-                                                                                repeatsText: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.repeats''',
-                                                                                ).toString(),
-                                                                                serviceMode: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.service_mode''',
-                                                                                ).toString(),
-                                                                                experienceYears: getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.experience_years''',
-                                                                                ).toString(),
-                                                                                languages: (getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details,
-                                                                                  r'''$.languages''',
-                                                                                  true,
-                                                                                ) as List?)
-                                                                                    ?.map<String>((e) => e.toString())
-                                                                                    .toList()
-                                                                                    .cast<String>(),
-                                                                                eventDatetime: functions.jsonToDateTimeUtc(getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details!,
-                                                                                  r'''$.event_datetime''',
-                                                                                )),
-                                                                                travelDate: functions.jsonToDateTimeUtc(getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details!,
-                                                                                  r'''$.travel_date''',
-                                                                                )),
-                                                                                deadline: functions.jsonToDateTimeUtc(getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details!,
-                                                                                  r'''$.deadline''',
-                                                                                )),
-                                                                                availableFrom: functions.jsonToDateTimeUtc(getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details!,
-                                                                                  r'''$.available_from''',
-                                                                                )),
-                                                                                availableUntil: functions.jsonToDateTimeUtc(getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details!,
-                                                                                  r'''$.available_until''',
-                                                                                )),
-                                                                                eventStartsAt: functions.jsonToDateTimeUtc(getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details!,
-                                                                                  r'''$.event_starts_at''',
-                                                                                )),
-                                                                                eventEndsAt: functions.jsonToDateTimeUtc(getJsonField(
-                                                                                  postNLViewPostSearchNlRow.details!,
-                                                                                  r'''$.event_ends_at''',
-                                                                                )),
-                                                                                catId: postNLViewPostSearchNlRow.catId,
-                                                                                mainCatId: postNLViewPostSearchNlRow.mainCatId,
                                                                               );
-                                                                              safeSetState(() {});
-                                                                            }),
-                                                                            Future(() async {
-                                                                              FFAppState().postDetailLabel = functions.decodeDetails(postNLViewPostSearchNlRow.detailsLabelText!);
-                                                                              FFAppState().postDetailTable = postNLViewPostSearchNlRow.detailTable!;
-                                                                              safeSetState(() {});
-                                                                            }),
-                                                                          ]);
-
-                                                                          context
-                                                                              .pushNamed(PostEditWidget.routeName);
+                                                                            },
+                                                                          );
                                                                         },
+                                                                        child:
+                                                                            FaIcon(
+                                                                          FontAwesomeIcons
+                                                                              .flag,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primaryText,
+                                                                          size:
+                                                                              16.0,
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                ),
-                                                              if ((currentUserUid !=
-                                                                      postNLViewPostSearchNlRow
-                                                                          .ownerId) &&
-                                                                  !FFAppState()
-                                                                      .IsGust)
-                                                                Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          1.0,
-                                                                          0.0),
-                                                                  child:
-                                                                      Container(
-                                                                    width: 40.0,
-                                                                    height:
-                                                                        40.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondaryBackground,
-                                                                      shape: BoxShape
-                                                                          .circle,
-                                                                    ),
-                                                                    child:
-                                                                        Stack(
-                                                                      children: [
-                                                                        if (functions.listContainsString(
-                                                                            FFAppState().userInfo.reportedList.toList(),
-                                                                            widget.postID!))
-                                                                          Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.0, 0.0),
-                                                                            child:
-                                                                                FaIcon(
-                                                                              FontAwesomeIcons.solidFlag,
-                                                                              color: Color(0xFFDC0D08),
-                                                                              size: 16.0,
-                                                                            ),
-                                                                          ),
-                                                                        if (!functions.listContainsString(
-                                                                            FFAppState().userInfo.reportedList.toList(),
-                                                                            widget.postID!))
-                                                                          Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.0, 0.0),
-                                                                            child:
-                                                                                Builder(
-                                                                              builder: (context) => InkWell(
-                                                                                splashColor: Colors.transparent,
-                                                                                focusColor: Colors.transparent,
-                                                                                hoverColor: Colors.transparent,
-                                                                                highlightColor: Colors.transparent,
-                                                                                onTap: () async {
-                                                                                  await showDialog(
-                                                                                    context: context,
-                                                                                    builder: (dialogContext) {
-                                                                                      return Dialog(
-                                                                                        elevation: 0,
-                                                                                        insetPadding: EdgeInsets.zero,
-                                                                                        backgroundColor: Colors.transparent,
-                                                                                        alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                                        child: ConfirmCancelPopUpWidget(
-                                                                                          header: 'Reporting ',
-                                                                                          hintText: 'Are you sure you want to report this post?',
-                                                                                          cancelText: 'Cancel',
-                                                                                          confirmText: 'Report',
-                                                                                          onConfirmAction: () async {
-                                                                                            await showDialog(
-                                                                                              context: context,
-                                                                                              builder: (dialogContext) {
-                                                                                                return Dialog(
-                                                                                                  elevation: 0,
-                                                                                                  insetPadding: EdgeInsets.zero,
-                                                                                                  backgroundColor: Colors.transparent,
-                                                                                                  alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                                                  child: ReportingPopupWidget(
-                                                                                                    reportingData: ReportingDataStruct(
-                                                                                                      postId: widget.postID,
-                                                                                                      postTitle: postNLViewPostSearchNlRow.title,
-                                                                                                      isProfile: false,
-                                                                                                      profileOwnerName: postNLViewPostSearchNlRow.userName,
-                                                                                                      profileId: postNLViewPostSearchNlRow.ownerId,
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                );
-                                                                                              },
-                                                                                            );
-                                                                                          },
-                                                                                          onCancelAction: () async {},
-                                                                                        ),
-                                                                                      );
-                                                                                    },
-                                                                                  );
-                                                                                },
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.flag,
-                                                                                  color: FlutterFlowTheme.of(context).primaryText,
-                                                                                  size: 16.0,
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                            ].divide(SizedBox(
-                                                                width: 3.0)),
-                                                          ).animateOnPageLoad(
-                                                              animationsMap[
-                                                                  'rowOnPageLoadAnimation']!),
-                                                      ].divide(SizedBox(
-                                                          width: 10.0)),
-                                                    ),
-                                                  ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+                                                    ].divide(
+                                                        SizedBox(height: 5.0)),
+                                                  ).animateOnPageLoad(animationsMap[
+                                                      'columnOnPageLoadAnimation']!),
                                                 ),
-                                            ],
-                                          ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ],
                                     ),

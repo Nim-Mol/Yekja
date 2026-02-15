@@ -1746,7 +1746,7 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                                   4.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              'h4m9ps4s' /* Ticket Quantity: */,
+                                              'h4m9ps4s' /* Number of tickets: */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -2382,56 +2382,64 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              '1rgiabxg' /* Open for swap without money? */,
+                                      Flexible(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '1rgiabxg' /* Open for swap without money? */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                    letterSpacing: 0.0,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
                                             ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  letterSpacing: 0.0,
-                                                  useGoogleFonts:
-                                                      !FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumIsCustom,
-                                                ),
-                                          ),
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              '77uuem4d' /* Try item exchange, not just pa... */,
+                                            Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '77uuem4d' /* There can always be someone wh... */,
+                                              ),
+                                              maxLines: 2,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                    letterSpacing: 0.0,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
                                             ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  letterSpacing: 0.0,
-                                                  useGoogleFonts:
-                                                      !FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumIsCustom,
-                                                ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                       Transform.scale(
                                         scaleX: 0.85,
@@ -2488,7 +2496,7 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                                   0.0, 12.0, 0.0, 8.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              'n7rm4sxc' /* Please insert a wishlist for w... */,
+                                              'n7rm4sxc' /* What are you hoping to swap th... */,
                                             ),
                                             maxLines: 2,
                                             style: FlutterFlowTheme.of(context)
@@ -2566,7 +2574,7 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                                 hintText:
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                  '1bv0ikje' /* What items are you looking to ... */,
+                                                  '1bv0ikje' /*  */,
                                                 ),
                                                 hintStyle: FlutterFlowTheme.of(
                                                         context)
@@ -2751,7 +2759,7 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                     ),
                                   }.withoutNulls,
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
+                                    '__transition_info__': TransitionInfo(
                                       hasTransition: true,
                                       transitionType:
                                           PageTransitionType.rightToLeft,
@@ -2779,7 +2787,7 @@ class _DetailTicketSwapWidgetState extends State<DetailTicketSwapWidget> {
                                         child: ErrorPopUpWidget(
                                           errorText: FFLocalizations.of(context)
                                               .getText(
-                                            'er5xc5je' /* Some fields are left unfilled.... */,
+                                            'er5xc5je' /* Some fields are empty Please t... */,
                                           ),
                                         ),
                                       ),

@@ -19,6 +19,7 @@ class UserInfoStruct extends BaseStruct {
     int? unseenMessages,
     String? role,
     String? instaLink,
+    bool? agreeConsent,
   })  : _userId = userId,
         _userName = userName,
         _name = name,
@@ -30,7 +31,8 @@ class UserInfoStruct extends BaseStruct {
         _unseenChats = unseenChats,
         _unseenMessages = unseenMessages,
         _role = role,
-        _instaLink = instaLink;
+        _instaLink = instaLink,
+        _agreeConsent = agreeConsent;
 
   // "userId" field.
   String? _userId;
@@ -129,6 +131,13 @@ class UserInfoStruct extends BaseStruct {
 
   bool hasInstaLink() => _instaLink != null;
 
+  // "agree_consent" field.
+  bool? _agreeConsent;
+  bool get agreeConsent => _agreeConsent ?? false;
+  set agreeConsent(bool? val) => _agreeConsent = val;
+
+  bool hasAgreeConsent() => _agreeConsent != null;
+
   static UserInfoStruct fromMap(Map<String, dynamic> data) => UserInfoStruct(
         userId: data['userId'] as String?,
         userName: data['userName'] as String?,
@@ -142,6 +151,7 @@ class UserInfoStruct extends BaseStruct {
         unseenMessages: castToType<int>(data['unseen_messages']),
         role: data['Role'] as String?,
         instaLink: data['Insta_Link'] as String?,
+        agreeConsent: data['agree_consent'] as bool?,
       );
 
   static UserInfoStruct? maybeFromMap(dynamic data) =>
@@ -160,6 +170,7 @@ class UserInfoStruct extends BaseStruct {
         'unseen_messages': _unseenMessages,
         'Role': _role,
         'Insta_Link': _instaLink,
+        'agree_consent': _agreeConsent,
       }.withoutNulls;
 
   @override
@@ -213,6 +224,10 @@ class UserInfoStruct extends BaseStruct {
         'Insta_Link': serializeParam(
           _instaLink,
           ParamType.String,
+        ),
+        'agree_consent': serializeParam(
+          _agreeConsent,
+          ParamType.bool,
         ),
       }.withoutNulls;
 
@@ -278,6 +293,11 @@ class UserInfoStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        agreeConsent: deserializeParam(
+          data['agree_consent'],
+          ParamType.bool,
+          false,
+        ),
       );
 
   @override
@@ -298,7 +318,8 @@ class UserInfoStruct extends BaseStruct {
         unseenChats == other.unseenChats &&
         unseenMessages == other.unseenMessages &&
         role == other.role &&
-        instaLink == other.instaLink;
+        instaLink == other.instaLink &&
+        agreeConsent == other.agreeConsent;
   }
 
   @override
@@ -314,7 +335,8 @@ class UserInfoStruct extends BaseStruct {
         unseenChats,
         unseenMessages,
         role,
-        instaLink
+        instaLink,
+        agreeConsent
       ]);
 }
 
@@ -329,6 +351,7 @@ UserInfoStruct createUserInfoStruct({
   int? unseenMessages,
   String? role,
   String? instaLink,
+  bool? agreeConsent,
 }) =>
     UserInfoStruct(
       userId: userId,
@@ -341,4 +364,5 @@ UserInfoStruct createUserInfoStruct({
       unseenMessages: unseenMessages,
       role: role,
       instaLink: instaLink,
+      agreeConsent: agreeConsent,
     );

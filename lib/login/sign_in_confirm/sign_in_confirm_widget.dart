@@ -515,11 +515,11 @@ class _SignInConfirmWidgetState extends State<SignInConfirmWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .secondaryBackground,
                                             suffixIcon: InkWell(
-                                              onTap: () => safeSetState(
-                                                () => _model
+                                              onTap: () async {
+                                                safeSetState(() => _model
                                                         .passWordVisibility =
-                                                    !_model.passWordVisibility,
-                                              ),
+                                                    !_model.passWordVisibility);
+                                              },
                                               focusNode: FocusNode(
                                                   skipTraversal: true),
                                               child: Icon(

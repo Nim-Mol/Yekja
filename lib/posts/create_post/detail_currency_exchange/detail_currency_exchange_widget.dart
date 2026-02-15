@@ -1360,6 +1360,11 @@ class _DetailCurrencyExchangeWidgetState
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               isDense: true,
+                                              labelText:
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                'zqql20jx' /* Rate: */,
+                                              ),
                                               hintStyle: FlutterFlowTheme.of(
                                                       context)
                                                   .labelMedium
@@ -2395,7 +2400,7 @@ class _DetailCurrencyExchangeWidgetState
                                     ),
                                   }.withoutNulls,
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
+                                    '__transition_info__': TransitionInfo(
                                       hasTransition: true,
                                       transitionType:
                                           PageTransitionType.rightToLeft,
@@ -2423,7 +2428,7 @@ class _DetailCurrencyExchangeWidgetState
                                         child: ErrorPopUpWidget(
                                           errorText: FFLocalizations.of(context)
                                               .getText(
-                                            'ritftihu' /* Some fields are left unfilled.... */,
+                                            'ritftihu' /* Some fields are empty. Please ... */,
                                           ),
                                         ),
                                       ),

@@ -561,6 +561,16 @@ class FFAppState extends ChangeNotifier {
     _navRoutePost = value;
   }
 
+  EditPostDateStruct _EditPostData = EditPostDateStruct();
+  EditPostDateStruct get EditPostData => _EditPostData;
+  set EditPostData(EditPostDateStruct value) {
+    _EditPostData = value;
+  }
+
+  void updateEditPostDataStruct(Function(EditPostDateStruct) updateFn) {
+    updateFn(_EditPostData);
+  }
+
   final _userPostsManager = FutureRequestManager<List<ViewPostFilterRow>>();
   Future<List<ViewPostFilterRow>> userPosts({
     String? uniqueQueryKey,
@@ -681,6 +691,21 @@ class FFAppState extends ChangeNotifier {
   void clearSubCatsCache() => _subCatsManager.clear();
   void clearSubCatsCacheKey(String? uniqueKey) =>
       _subCatsManager.clearRequest(uniqueKey);
+
+  final _userConsentsManager = FutureRequestManager<List<ConsentsRow>>();
+  Future<List<ConsentsRow>> userConsents({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<List<ConsentsRow>> Function() requestFn,
+  }) =>
+      _userConsentsManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearUserConsentsCache() => _userConsentsManager.clear();
+  void clearUserConsentsCacheKey(String? uniqueKey) =>
+      _userConsentsManager.clearRequest(uniqueKey);
 }
 
 void _safeInit(Function() initializeField) {

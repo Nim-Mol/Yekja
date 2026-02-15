@@ -29,8 +29,10 @@ class _TitleWidgetState extends State<TitleWidget> {
     super.initState();
     _model = createModel(context, () => TitleModel());
 
-    _model.titleTxtTextController ??=
-        TextEditingController(text: FFAppState().postState.title);
+    _model.titleTxtTextController ??= TextEditingController(
+        text: FFAppState().EditPostData.title != ''
+            ? FFAppState().EditPostData.title
+            : FFAppState().postState.title);
     _model.titleTxtFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
@@ -80,7 +82,7 @@ class _TitleWidgetState extends State<TitleWidget> {
                         children: [
                           Text(
                             FFLocalizations.of(context).getText(
-                              '6ic7t8mm' /* Give your post short a title */,
+                              '6ic7t8mm' /* Give your post a short a title */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .titleSmall
@@ -140,6 +142,7 @@ class _TitleWidgetState extends State<TitleWidget> {
                             '_model.titleTxtTextController',
                             Duration(milliseconds: 2000),
                             () async {
+                              var _shouldSetState = false;
                               if (_model.titleTxtTextController.text != '') {
                                 _model.validationResult = true;
                                 if (_model.formKey.currentState == null ||
@@ -148,9 +151,13 @@ class _TitleWidgetState extends State<TitleWidget> {
                                       () => _model.validationResult = false);
                                   return;
                                 }
+                                _shouldSetState = true;
+                              } else {
+                                if (_shouldSetState) safeSetState(() {});
+                                return;
                               }
 
-                              safeSetState(() {});
+                              if (_shouldSetState) safeSetState(() {});
                             },
                           ),
                           autofocus: true,
@@ -243,16 +250,27 @@ class _TitleWidgetState extends State<TitleWidget> {
                                   (_model.titleTxtTextController.text == ''))
                               ? null
                               : () async {
-                                  FFAppState().updatePostStateStruct(
-                                    (e) => e
-                                      ..title =
-                                          _model.titleTxtTextController.text,
-                                  );
-                                  _model.updatePage(() {});
+                                  if (FFAppState().EditPostData.title != '') {
+                                    FFAppState().updateEditPostDataStruct(
+                                      (e) => e
+                                        ..title =
+                                            _model.titleTxtTextController.text
+                                        ..isModified = true,
+                                    );
+                                    safeSetState(() {});
+                                  } else {
+                                    FFAppState().updatePostStateStruct(
+                                      (e) => e
+                                        ..title =
+                                            _model.titleTxtTextController.text,
+                                    );
+                                    _model.updatePage(() {});
+                                  }
+
                                   context.safePop();
                                 },
                           text: FFLocalizations.of(context).getText(
-                            'the65glr' /* Save */,
+                            'the65glr' /* Next */,
                           ),
                           options: FFButtonOptions(
                             width: double.infinity,

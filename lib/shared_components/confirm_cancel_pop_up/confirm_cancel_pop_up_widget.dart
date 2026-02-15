@@ -111,34 +111,39 @@ class _ConfirmCancelPopUpWidgetState extends State<ConfirmCancelPopUpWidget> {
                   Expanded(
                     child: Align(
                       alignment: AlignmentDirectional(0.0, -1.0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          Navigator.pop(context);
-                        },
-                        text: widget.cancelText,
-                        options: FFButtonOptions(
-                          width: double.infinity,
-                          height: 35.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).midgray,
-                          textStyle: FlutterFlowTheme.of(context)
-                              .titleSmall
-                              .override(
-                                fontFamily: 'FarsiFonts',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                fontSize: 16.0,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.w500,
-                              ),
-                          elevation: 0.0,
-                          borderSide: BorderSide(
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(3.0, 0.0, 3.0, 0.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            Navigator.pop(context);
+                          },
+                          text: widget.cancelText,
+                          options: FFButtonOptions(
+                            width: double.infinity,
+                            height: 35.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).midgray,
-                            width: 1.0,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'FarsiFonts',
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                            elevation: 0.0,
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).midgray,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(6.0),
                           ),
-                          borderRadius: BorderRadius.circular(6.0),
                         ),
                       ),
                     ),
@@ -146,35 +151,40 @@ class _ConfirmCancelPopUpWidgetState extends State<ConfirmCancelPopUpWidget> {
                   Expanded(
                     child: Align(
                       alignment: AlignmentDirectional(0.0, -1.0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          await widget.onConfirmAction?.call();
-                          Navigator.pop(context);
-                        },
-                        text: widget.confirmText,
-                        options: FFButtonOptions(
-                          width: double.infinity,
-                          height: 35.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).greenInit,
-                          textStyle: FlutterFlowTheme.of(context)
-                              .titleSmall
-                              .override(
-                                fontFamily: 'FarsiFonts',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                fontSize: 16.0,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.w500,
-                              ),
-                          elevation: 0.0,
-                          borderSide: BorderSide(
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(3.0, 0.0, 3.0, 0.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            await widget.onConfirmAction?.call();
+                            Navigator.pop(context);
+                          },
+                          text: widget.confirmText,
+                          options: FFButtonOptions(
+                            width: double.infinity,
+                            height: 35.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).greenInit,
-                            width: 1.0,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'FarsiFonts',
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                            elevation: 0.0,
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).greenInit,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(6.0),
                           ),
-                          borderRadius: BorderRadius.circular(6.0),
                         ),
                       ),
                     ),

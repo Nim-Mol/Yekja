@@ -20,6 +20,8 @@ class ContactYEKJAModel extends FlutterFlowModel<ContactYEKJAWidget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
+  // Stores action output result for [Backend Call - Insert Row] action in Container widget.
+  MonitoringLogsRow? fAQClicked;
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
@@ -35,7 +37,7 @@ class ContactYEKJAModel extends FlutterFlowModel<ContactYEKJAWidget> {
     if (!RegExp('^[\\u0600-\\u06FF\\s_\\u0660-\\u06690-9a-zA-Z]+\$')
         .hasMatch(val)) {
       return FFLocalizations.of(context).getText(
-        'n246spdb' /* Please use only letters (Engli... */,
+        'gt74k3lg' /* Please use only letters (Engli... */,
       );
     }
     return null;

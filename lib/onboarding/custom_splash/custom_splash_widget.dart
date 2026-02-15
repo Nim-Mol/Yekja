@@ -118,7 +118,7 @@ class _CustomSplashWidgetState extends State<CustomSplashWidget>
                   decoration: BoxDecoration(),
                   alignment: AlignmentDirectional(0.0, 1.0),
                   child: Lottie.asset(
-                    'assets/jsons/old_man_V6.json',
+                    'assets/jsons/main_gif.json',
                     width: 200.0,
                     height: 200.0,
                     fit: BoxFit.contain,

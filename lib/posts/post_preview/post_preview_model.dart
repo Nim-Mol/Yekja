@@ -1,9 +1,9 @@
 import '/backend/supabase/supabase.dart';
-import '/components/post_owner_card_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/main_overview_pages/post_detail_column/post_detail_column_widget.dart';
 import '/profile/review_card_small/review_card_small_widget.dart';
 import '/shared_components/photo_gallary/photo_gallary_widget.dart';
+import '/shared_components/post_owner_card/post_owner_card_widget.dart';
 import '/shared_components/report_bug/report_bug_widget.dart';
 import '/index.dart';
 import 'post_preview_widget.dart' show PostPreviewWidget;

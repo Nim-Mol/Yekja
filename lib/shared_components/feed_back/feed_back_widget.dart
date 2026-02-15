@@ -78,7 +78,7 @@ class _FeedBackWidgetState extends State<FeedBackWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
-                      'p3u8bq3i' /* Your feedback submitted */,
+                      'p3u8bq3i' /* Your feedback is submitted */,
                     ),
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).titleLarge.override(

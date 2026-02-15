@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/main_overview_pages/post_detail_column/post_detail_column_widget.dart';
+import '/posts/create_post/title/title_widget.dart';
 import '/profile/review_card_small/review_card_small_widget.dart';
 import '/shared_components/confirm_cancel_pop_up/confirm_cancel_pop_up_widget.dart';
 import '/shared_components/custom_snackbar/custom_snackbar_widget.dart';
@@ -22,7 +23,12 @@ import 'post_edit_model.dart';
 export 'post_edit_model.dart';
 
 class PostEditWidget extends StatefulWidget {
-  const PostEditWidget({super.key});
+  const PostEditWidget({
+    super.key,
+    bool? edit,
+  }) : this.edit = edit ?? false;
+
+  final bool edit;
 
   static String routeName = 'PostEdit';
   static String routePath = '/editPost';
@@ -88,6 +94,7 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                           child: Container(
                             height: 400.0,
                             child: Stack(
+                              alignment: AlignmentDirectional(1.0, -1.0),
                               children: [
                                 Align(
                                   alignment: AlignmentDirectional(0.0, 1.0),
@@ -102,7 +109,7 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                           ? [
                                               'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg'
                                             ]
-                                          : FFAppState().postState.images,
+                                          : FFAppState().EditPostData.imags,
                                     ),
                                   ),
                                 ),
@@ -136,6 +143,24 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                               context.safePop();
                                             },
                                           ),
+                                          FlutterFlowIconButton(
+                                            borderRadius: 8.0,
+                                            buttonSize: 30.0,
+                                            fillColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .lighterSecBackground,
+                                            icon: Icon(
+                                              Icons.edit,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryWhite,
+                                              size: 15.0,
+                                            ),
+                                            onPressed: () async {
+                                              context.pushNamed(
+                                                  PostImageWidget.routeName);
+                                            },
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -143,77 +168,120 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                 ),
                                 Align(
                                   alignment: AlignmentDirectional(0.0, 1.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed(
-                                        ImageGalleryPageWidget.routeName,
-                                        queryParameters: {
-                                          'previewImages': serializeParam(
-                                            FFAppState().postState.images,
-                                            ParamType.String,
-                                            isList: true,
-                                          ),
-                                        }.withoutNulls,
-                                      );
-                                    },
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: 100.0,
-                                      decoration: BoxDecoration(
-                                        gradient: LinearGradient(
-                                          colors: [
-                                            Color(0x00232426),
-                                            Color(0xDF0E0E0E)
-                                          ],
-                                          stops: [0.0, 1.0],
-                                          begin:
-                                              AlignmentDirectional(0.0, -1.0),
-                                          end: AlignmentDirectional(0, 1.0),
-                                        ),
+                                  child: Container(
+                                    width: double.infinity,
+                                    height: 100.0,
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Color(0x00232426),
+                                          Color(0xDF0E0E0E)
+                                        ],
+                                        stops: [0.0, 1.0],
+                                        begin: AlignmentDirectional(0.0, -1.0),
+                                        end: AlignmentDirectional(0, 1.0),
                                       ),
-                                      alignment: AlignmentDirectional(0.0, 1.0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 20.0, 16.0, 16.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Flexible(
-                                              child: Text(
-                                                FFAppState().postState.title,
-                                                textAlign: TextAlign.start,
-                                                maxLines: 2,
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleLarge
-                                                    .override(
-                                                      fontFamily:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleLargeFamily,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryWhite,
-                                                      fontSize: 28.0,
-                                                      letterSpacing: 0.0,
-                                                      lineHeight: 1.1,
-                                                      useGoogleFonts:
-                                                          !FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleLargeIsCustom,
-                                                    ),
+                                    ),
+                                    alignment: AlignmentDirectional(0.0, 1.0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 20.0, 16.0, 16.0),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(8.0),
+                                            bottomRight: Radius.circular(8.0),
+                                            topLeft: Radius.circular(8.0),
+                                            topRight: Radius.circular(8.0),
+                                          ),
+                                          border: Border.all(
+                                            color: widget.edit == true
+                                                ? FlutterFlowTheme.of(context)
+                                                    .secondaryBackground
+                                                : Color(0x00000000),
+                                          ),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  5.0, 5.0, 5.0, 5.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Flexible(
+                                                child: Text(
+                                                  FFAppState()
+                                                      .EditPostData
+                                                      .title,
+                                                  textAlign: TextAlign.start,
+                                                  maxLines: 2,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .titleLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleLargeFamily,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryWhite,
+                                                        fontSize: 28.0,
+                                                        letterSpacing: 0.0,
+                                                        lineHeight: 1.1,
+                                                        useGoogleFonts:
+                                                            !FlutterFlowTheme
+                                                                    .of(context)
+                                                                .titleLargeIsCustom,
+                                                      ),
+                                                ),
                                               ),
-                                            ),
-                                          ].divide(SizedBox(width: 8.0)),
+                                              Builder(
+                                                builder: (context) =>
+                                                    FlutterFlowIconButton(
+                                                  borderRadius: 8.0,
+                                                  buttonSize: 30.0,
+                                                  fillColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .lighterSecBackground,
+                                                  icon: Icon(
+                                                    Icons.edit,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryWhite,
+                                                    size: 15.0,
+                                                  ),
+                                                  onPressed: () async {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder: (dialogContext) {
+                                                        return Dialog(
+                                                          elevation: 0,
+                                                          insetPadding:
+                                                              EdgeInsets.zero,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          alignment: AlignmentDirectional(
+                                                                  0.0, 0.0)
+                                                              .resolve(
+                                                                  Directionality.of(
+                                                                      context)),
+                                                          child: TitleWidget(),
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                ),
+                                              ),
+                                            ].divide(SizedBox(width: 8.0)),
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -268,66 +336,7 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                       details: FFAppState().postDetailJSON,
                                       detailLabels:
                                           FFAppState().postDetailLabel,
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 16.0, 16.0, 0.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          context.pushNamed(
-                                            PostCatWidget.routeName,
-                                            queryParameters: {
-                                              'navRoute': serializeParam(
-                                                FFAppState().navRoutePost,
-                                                ParamType.String,
-                                              ),
-                                            }.withoutNulls,
-                                          );
-                                        },
-                                        child: Icon(
-                                          Icons.edit,
-                                          color: FlutterFlowTheme.of(context)
-                                              .green1,
-                                          size: 24.0,
-                                        ),
-                                      ),
-                                    ].divide(SizedBox(width: 6.0)),
-                                  ),
-                                ),
-                                Align(
-                                  alignment: AlignmentDirectional(0.0, 1.0),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 60.0, 0.0, 0.0),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        await actions.navigateToDetailForm1(
-                                          context,
-                                          FFAppState().postDetailTable,
-                                          FFAppState().navRoutePost,
-                                        );
-                                      },
-                                      child: Icon(
-                                        Icons.edit,
-                                        color:
-                                            FlutterFlowTheme.of(context).green1,
-                                        size: 24.0,
-                                      ),
+                                      edit: true,
                                     ),
                                   ),
                                 ),
@@ -1011,141 +1020,166 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                   alignment: AlignmentDirectional(0.0, -1.0),
                                   child: Builder(
                                     builder: (context) => FFButtonWidget(
-                                      onPressed: () async {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (dialogContext) {
-                                            return Dialog(
-                                              elevation: 0,
-                                              insetPadding: EdgeInsets.zero,
-                                              backgroundColor:
-                                                  Colors.transparent,
-                                              alignment:
-                                                  AlignmentDirectional(0.0, 0.0)
-                                                      .resolve(
-                                                          Directionality.of(
-                                                              context)),
-                                              child: ConfirmCancelPopUpWidget(
-                                                header:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  'g3y2is5w' /* Are you sure you want to updat... */,
-                                                ),
-                                                hintText:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  'fqxvxcs2' /* Your post will update instantl... */,
-                                                ),
-                                                cancelText:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  '2k2s462g' /* Cancel */,
-                                                ),
-                                                confirmText:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  'v1ly20lq' /* Confirm */,
-                                                ),
-                                                onConfirmAction: () async {
-                                                  _model.rowUpdated =
-                                                      await PostCreateMuxTblTable()
-                                                          .insert({
-                                                    'title': FFAppState()
-                                                        .postState
-                                                        .title,
-                                                    'description': FFAppState()
-                                                        .postState
-                                                        .description,
-                                                    'city': FFAppState()
-                                                        .postState
-                                                        .city,
-                                                    'sub_cat_id': FFAppState()
-                                                        .postState
-                                                        .subCatId,
-                                                    'images': FFAppState()
-                                                        .postState
-                                                        .images,
-                                                    'detail_table': FFAppState()
-                                                        .postDetailTable,
-                                                    'details': FFAppState()
-                                                        .postDetailJSON,
-                                                    'post_id': FFAppState()
-                                                        .postState
-                                                        .id,
-                                                  });
-                                                  if (_model.rowUpdated !=
-                                                      null) {
-                                                    await showDialog(
-                                                      context: context,
-                                                      builder: (dialogContext) {
-                                                        return Dialog(
-                                                          elevation: 0,
-                                                          insetPadding:
-                                                              EdgeInsets.zero,
-                                                          backgroundColor:
-                                                              Colors
-                                                                  .transparent,
-                                                          alignment: AlignmentDirectional(
-                                                                  0.0, 0.0)
-                                                              .resolve(
-                                                                  Directionality.of(
-                                                                      context)),
-                                                          child:
-                                                              CustomSnackbarWidget(
-                                                            myText:
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .getText(
-                                                              'n1juv3ju' /* Your post is updated successfu... */,
-                                                            ),
-                                                            waitMS: 3000,
-                                                          ),
-                                                        );
+                                      onPressed: (FFAppState()
+                                                  .EditPostData
+                                                  .isModified ==
+                                              false)
+                                          ? null
+                                          : () async {
+                                              await showDialog(
+                                                context: context,
+                                                builder: (dialogContext) {
+                                                  return Dialog(
+                                                    elevation: 0,
+                                                    insetPadding:
+                                                        EdgeInsets.zero,
+                                                    backgroundColor:
+                                                        Colors.transparent,
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                                0.0, 0.0)
+                                                            .resolve(
+                                                                Directionality.of(
+                                                                    context)),
+                                                    child:
+                                                        ConfirmCancelPopUpWidget(
+                                                      header:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                        'g3y2is5w' /* Are you sure you want to updat... */,
+                                                      ),
+                                                      hintText:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                        'fqxvxcs2' /* Your post will update instantl... */,
+                                                      ),
+                                                      cancelText:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                        '2k2s462g' /* Cancel */,
+                                                      ),
+                                                      confirmText:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                        'v1ly20lq' /* Confirm */,
+                                                      ),
+                                                      onConfirmAction:
+                                                          () async {
+                                                        _model.rowUpdated =
+                                                            await PostCreateMuxTblTable()
+                                                                .insert({
+                                                          'title': FFAppState()
+                                                              .EditPostData
+                                                              .title,
+                                                          'description':
+                                                              FFAppState()
+                                                                  .EditPostData
+                                                                  .description,
+                                                          'city': FFAppState()
+                                                              .EditPostData
+                                                              .city,
+                                                          'sub_cat_id':
+                                                              FFAppState()
+                                                                  .postState
+                                                                  .subCatId,
+                                                          'images': FFAppState()
+                                                              .EditPostData
+                                                              .imags,
+                                                          'detail_table':
+                                                              FFAppState()
+                                                                  .postDetailTable,
+                                                          'details': FFAppState()
+                                                              .postDetailJSON,
+                                                          'post_id':
+                                                              FFAppState()
+                                                                  .postState
+                                                                  .id,
+                                                        });
+                                                        if (_model.rowUpdated !=
+                                                            null) {
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (dialogContext) {
+                                                              return Dialog(
+                                                                elevation: 0,
+                                                                insetPadding:
+                                                                    EdgeInsets
+                                                                        .zero,
+                                                                backgroundColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                alignment: AlignmentDirectional(
+                                                                        0.0,
+                                                                        0.0)
+                                                                    .resolve(
+                                                                        Directionality.of(
+                                                                            context)),
+                                                                child:
+                                                                    CustomSnackbarWidget(
+                                                                  myText: FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    'n1juv3ju' /* Your post is updated successfu... */,
+                                                                  ),
+                                                                  waitMS: 3000,
+                                                                ),
+                                                              );
+                                                            },
+                                                          );
+
+                                                          context.goNamed(
+                                                            ProfilePageWidget
+                                                                .routeName,
+                                                            queryParameters: {
+                                                              'profileId':
+                                                                  serializeParam(
+                                                                currentUserUid,
+                                                                ParamType
+                                                                    .String,
+                                                              ),
+                                                            }.withoutNulls,
+                                                          );
+
+                                                          FFAppState()
+                                                                  .postState =
+                                                              PostModelStruct();
+                                                          FFAppState()
+                                                                  .postDetailJSON =
+                                                              null;
+                                                          FFAppState()
+                                                              .postDetailTable = '';
+                                                          FFAppState()
+                                                                  .postDetailLabel =
+                                                              null;
+                                                          FFAppState()
+                                                              .navRoutePost = '';
+                                                          safeSetState(() {});
+                                                        } else {
+                                                          Navigator.pop(
+                                                              context);
+                                                        }
                                                       },
-                                                    );
-
-                                                    context.goNamed(
-                                                      ProfilePageWidget
-                                                          .routeName,
-                                                      queryParameters: {
-                                                        'profileId':
-                                                            serializeParam(
-                                                          currentUserUid,
-                                                          ParamType.String,
-                                                        ),
-                                                      }.withoutNulls,
-                                                    );
-
-                                                    FFAppState().postState =
-                                                        PostModelStruct();
-                                                    FFAppState()
-                                                        .postDetailJSON = null;
-                                                    FFAppState()
-                                                        .postDetailTable = '';
-                                                    FFAppState()
-                                                        .postDetailLabel = null;
-                                                    FFAppState().navRoutePost =
-                                                        '';
-                                                    safeSetState(() {});
-                                                  } else {
-                                                    Navigator.pop(context);
-                                                  }
+                                                      onCancelAction: () async {
+                                                        Navigator.pop(context);
+                                                      },
+                                                    ),
+                                                  );
                                                 },
-                                                onCancelAction: () async {
-                                                  Navigator.pop(context);
-                                                },
-                                              ),
-                                            );
-                                          },
-                                        );
+                                              );
 
-                                        FFAppState().clearUserPostsCacheKey(
-                                            currentUserUid);
+                                              FFAppState()
+                                                  .clearUserPostsCacheKey(
+                                                      currentUserUid);
 
-                                        safeSetState(() {});
-                                      },
+                                              safeSetState(() {});
+                                            },
                                       text: FFLocalizations.of(context).getText(
-                                        '3b0fgnsw' /* Edit pos */,
+                                        '3b0fgnsw' /* Save */,
                                       ),
                                       options: FFButtonOptions(
                                         width: double.infinity,
@@ -1181,6 +1215,12 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                         elevation: 0.0,
                                         borderRadius:
                                             BorderRadius.circular(8.0),
+                                        disabledColor:
+                                            FlutterFlowTheme.of(context)
+                                                .textgray,
+                                        disabledTextColor:
+                                            FlutterFlowTheme.of(context)
+                                                .bordergray,
                                       ),
                                     ),
                                   ),

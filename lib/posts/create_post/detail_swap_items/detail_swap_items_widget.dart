@@ -350,7 +350,7 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget>
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'xcdfbio2' /* Helps others understand your p... */,
+                                                'xcdfbio2' /* Details build trust and save b... */,
                                               ),
                                               style: FlutterFlowTheme.of(
                                                       context)
@@ -1579,7 +1579,7 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget>
                                                   0.0, 12.0, 0.0, 6.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              'u6ez8fmp' /* Please insert a wishlist for w... */,
+                                              'u6ez8fmp' /* What are you hoping to swap th... */,
                                             ),
                                             maxLines: 2,
                                             style: FlutterFlowTheme.of(context)
@@ -1657,7 +1657,7 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget>
                                                 hintText:
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                  '1iqn48px' /* What items are you looking to ... */,
+                                                  '1iqn48px' /*  */,
                                                 ),
                                                 hintStyle: FlutterFlowTheme.of(
                                                         context)
@@ -1828,7 +1828,7 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget>
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'd0tqcv4n' /* Allow cash adjustment? */,
+                                                        'd0tqcv4n' /* Is payment also possible?  */,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -3374,7 +3374,7 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget>
                                       children: [
                                         Text(
                                           FFLocalizations.of(context).getText(
-                                            '6fm7r7ko' /* Compensation  */,
+                                            '6fm7r7ko' /* Cost */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .titleMedium
@@ -3792,7 +3792,7 @@ class _DetailSwapItemsWidgetState extends State<DetailSwapItemsWidget>
                                     ),
                                   }.withoutNulls,
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
+                                    '__transition_info__': TransitionInfo(
                                       hasTransition: true,
                                       transitionType:
                                           PageTransitionType.rightToLeft,

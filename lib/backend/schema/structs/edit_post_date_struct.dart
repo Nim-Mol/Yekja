@@ -12,11 +12,13 @@ class EditPostDateStruct extends BaseStruct {
     String? title,
     List<String>? imags,
     bool? isModified,
+    String? postID,
   })  : _city = city,
         _description = description,
         _title = title,
         _imags = imags,
-        _isModified = isModified;
+        _isModified = isModified,
+        _postID = postID;
 
   // "City" field.
   String? _city;
@@ -57,6 +59,13 @@ class EditPostDateStruct extends BaseStruct {
 
   bool hasIsModified() => _isModified != null;
 
+  // "PostID" field.
+  String? _postID;
+  String get postID => _postID ?? '';
+  set postID(String? val) => _postID = val;
+
+  bool hasPostID() => _postID != null;
+
   static EditPostDateStruct fromMap(Map<String, dynamic> data) =>
       EditPostDateStruct(
         city: data['City'] as String?,
@@ -64,6 +73,7 @@ class EditPostDateStruct extends BaseStruct {
         title: data['Title'] as String?,
         imags: getDataList(data['Imags']),
         isModified: data['IsModified'] as bool?,
+        postID: data['PostID'] as String?,
       );
 
   static EditPostDateStruct? maybeFromMap(dynamic data) => data is Map
@@ -76,6 +86,7 @@ class EditPostDateStruct extends BaseStruct {
         'Title': _title,
         'Imags': _imags,
         'IsModified': _isModified,
+        'PostID': _postID,
       }.withoutNulls;
 
   @override
@@ -100,6 +111,10 @@ class EditPostDateStruct extends BaseStruct {
         'IsModified': serializeParam(
           _isModified,
           ParamType.bool,
+        ),
+        'PostID': serializeParam(
+          _postID,
+          ParamType.String,
         ),
       }.withoutNulls;
 
@@ -130,6 +145,11 @@ class EditPostDateStruct extends BaseStruct {
           ParamType.bool,
           false,
         ),
+        postID: deserializeParam(
+          data['PostID'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -143,12 +163,13 @@ class EditPostDateStruct extends BaseStruct {
         description == other.description &&
         title == other.title &&
         listEquality.equals(imags, other.imags) &&
-        isModified == other.isModified;
+        isModified == other.isModified &&
+        postID == other.postID;
   }
 
   @override
-  int get hashCode =>
-      const ListEquality().hash([city, description, title, imags, isModified]);
+  int get hashCode => const ListEquality()
+      .hash([city, description, title, imags, isModified, postID]);
 }
 
 EditPostDateStruct createEditPostDateStruct({
@@ -156,10 +177,12 @@ EditPostDateStruct createEditPostDateStruct({
   String? description,
   String? title,
   bool? isModified,
+  String? postID,
 }) =>
     EditPostDateStruct(
       city: city,
       description: description,
       title: title,
       isModified: isModified,
+      postID: postID,
     );

@@ -26,9 +26,11 @@ class PostEditWidget extends StatefulWidget {
   const PostEditWidget({
     super.key,
     bool? edit,
-  }) : this.edit = edit ?? false;
+    required this.postId,
+  }) : this.edit = edit ?? true;
 
   final bool edit;
+  final String? postId;
 
   static String routeName = 'PostEdit';
   static String routePath = '/editPost';
@@ -102,14 +104,14 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                     model: _model.photoGallaryModel,
                                     updateCallback: () => safeSetState(() {}),
                                     child: PhotoGallaryWidget(
-                                      photoList: !(FFAppState()
-                                              .postState
-                                              .images
-                                              .isNotEmpty)
-                                          ? [
+                                      photoList: FFAppState()
+                                              .EditPostData
+                                              .imags
+                                              .isNotEmpty
+                                          ? FFAppState().EditPostData.imags
+                                          : [
                                               'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eastly-rpftt6/assets/uhwqu36njkuw/default_post_image.jpg'
-                                            ]
-                                          : FFAppState().EditPostData.imags,
+                                            ],
                                     ),
                                   ),
                                 ),
@@ -140,6 +142,12 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                               size: 24.0,
                                             ),
                                             onPressed: () async {
+                                              FFAppState().EditPostData =
+                                                  EditPostDateStruct
+                                                      .fromSerializableMap(
+                                                          jsonDecode(
+                                                              '{\"Imags\":\"[]\"}'));
+                                              safeSetState(() {});
                                               context.safePop();
                                             },
                                           ),
@@ -1070,99 +1078,91 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                                       onConfirmAction:
                                                           () async {
                                                         _model.rowUpdated =
-                                                            await PostCreateMuxTblTable()
-                                                                .insert({
-                                                          'title': FFAppState()
-                                                              .EditPostData
-                                                              .title,
-                                                          'description':
-                                                              FFAppState()
-                                                                  .EditPostData
-                                                                  .description,
-                                                          'city': FFAppState()
-                                                              .EditPostData
-                                                              .city,
-                                                          'sub_cat_id':
-                                                              FFAppState()
-                                                                  .postState
-                                                                  .subCatId,
-                                                          'images': FFAppState()
-                                                              .EditPostData
-                                                              .imags,
-                                                          'detail_table':
-                                                              FFAppState()
-                                                                  .postDetailTable,
-                                                          'details': FFAppState()
-                                                              .postDetailJSON,
-                                                          'post_id':
-                                                              FFAppState()
-                                                                  .postState
-                                                                  .id,
-                                                        });
-                                                        if (_model.rowUpdated !=
-                                                            null) {
-                                                          await showDialog(
-                                                            context: context,
-                                                            builder:
-                                                                (dialogContext) {
-                                                              return Dialog(
-                                                                elevation: 0,
-                                                                insetPadding:
-                                                                    EdgeInsets
-                                                                        .zero,
-                                                                backgroundColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                alignment: AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0)
-                                                                    .resolve(
-                                                                        Directionality.of(
-                                                                            context)),
-                                                                child:
-                                                                    CustomSnackbarWidget(
-                                                                  myText: FFLocalizations.of(
-                                                                          context)
-                                                                      .getText(
-                                                                    'n1juv3ju' /* Your post is updated successfu... */,
-                                                                  ),
-                                                                  waitMS: 3000,
+                                                            await PostsTable()
+                                                                .update(
+                                                          data: {
+                                                            'title': FFAppState()
+                                                                .EditPostData
+                                                                .title,
+                                                            'description':
+                                                                FFAppState()
+                                                                    .EditPostData
+                                                                    .description,
+                                                            'city': FFAppState()
+                                                                .EditPostData
+                                                                .city,
+                                                            'images':
+                                                                FFAppState()
+                                                                    .EditPostData
+                                                                    .imags,
+                                                          },
+                                                          matchingRows:
+                                                              (rows) =>
+                                                                  rows.eqOrNull(
+                                                            'id',
+                                                            widget.postId,
+                                                          ),
+                                                          returnRows: true,
+                                                        );
+                                                        await showDialog(
+                                                          context: context,
+                                                          builder:
+                                                              (dialogContext) {
+                                                            return Dialog(
+                                                              elevation: 0,
+                                                              insetPadding:
+                                                                  EdgeInsets
+                                                                      .zero,
+                                                              backgroundColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              alignment: AlignmentDirectional(
+                                                                      0.0, 0.0)
+                                                                  .resolve(
+                                                                      Directionality.of(
+                                                                          context)),
+                                                              child:
+                                                                  CustomSnackbarWidget(
+                                                                myText: FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'n1juv3ju' /* Your post is updated successfu... */,
                                                                 ),
-                                                              );
-                                                            },
-                                                          );
-
-                                                          context.goNamed(
-                                                            ProfilePageWidget
-                                                                .routeName,
-                                                            queryParameters: {
-                                                              'profileId':
-                                                                  serializeParam(
-                                                                currentUserUid,
-                                                                ParamType
-                                                                    .String,
+                                                                waitMS: 3000,
                                                               ),
-                                                            }.withoutNulls,
-                                                          );
+                                                            );
+                                                          },
+                                                        );
 
-                                                          FFAppState()
-                                                                  .postState =
-                                                              PostModelStruct();
-                                                          FFAppState()
-                                                                  .postDetailJSON =
-                                                              null;
-                                                          FFAppState()
-                                                              .postDetailTable = '';
-                                                          FFAppState()
-                                                                  .postDetailLabel =
-                                                              null;
-                                                          FFAppState()
-                                                              .navRoutePost = '';
-                                                          safeSetState(() {});
-                                                        } else {
-                                                          Navigator.pop(
-                                                              context);
-                                                        }
+                                                        FFAppState()
+                                                                .EditPostData =
+                                                            EditPostDateStruct
+                                                                .fromSerializableMap(
+                                                                    jsonDecode(
+                                                                        '{\"Imags\":\"[]\"}'));
+                                                        FFAppState().postState =
+                                                            PostModelStruct();
+                                                        FFAppState()
+                                                                .postDetailJSON =
+                                                            null;
+                                                        FFAppState()
+                                                            .postDetailTable = '';
+                                                        safeSetState(() {});
+                                                        FFAppState()
+                                                            .clearUserPostsCacheKey(
+                                                                currentUserUid);
+
+                                                        context.goNamed(
+                                                          ProfilePageWidget
+                                                              .routeName,
+                                                          queryParameters: {
+                                                            'profileId':
+                                                                serializeParam(
+                                                              currentUserUid,
+                                                              ParamType.String,
+                                                            ),
+                                                          }.withoutNulls,
+                                                        );
                                                       },
                                                       onCancelAction: () async {
                                                         Navigator.pop(context);
@@ -1171,10 +1171,6 @@ class _PostEditWidgetState extends State<PostEditWidget> {
                                                   );
                                                 },
                                               );
-
-                                              FFAppState()
-                                                  .clearUserPostsCacheKey(
-                                                      currentUserUid);
 
                                               safeSetState(() {});
                                             },

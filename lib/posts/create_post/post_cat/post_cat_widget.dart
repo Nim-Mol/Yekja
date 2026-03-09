@@ -202,11 +202,7 @@ class _PostCatWidgetState extends State<PostCatWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                if (widget.navRoute == 'PostPreview') {
-                                  context.goNamed(PostEditWidget.routeName);
-                                } else {
-                                  context.goNamed(HomePageWidget.routeName);
-                                }
+                                context.goNamed(HomePageWidget.routeName);
                               },
                               child: Icon(
                                 Icons.close,

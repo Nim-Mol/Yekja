@@ -7,6 +7,7 @@ import '/posts/create_post/description/description_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 import 'post_detail_column_model.dart';
 export 'post_detail_column_model.dart';
 
@@ -68,6 +69,8 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
       child: SingleChildScrollView(
@@ -311,10 +314,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                     ),
                                   ),
                                   Text(
-                                    valueOrDefault<String>(
-                                      widget.itemData?.itemLocation,
-                                      'City',
-                                    ),
+                                    FFAppState().EditPostData.city,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -470,35 +470,28 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      if (valueOrDefault<String>(
-                                                widget.itemData?.description,
-                                                'No descriptions',
-                                              ) !=
-                                              '')
-                                        Flexible(
-                                          child: Text(
-                                            valueOrDefault<String>(
-                                              widget.itemData?.description,
-                                              'NA',
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  letterSpacing: 0.0,
-                                                  useGoogleFonts:
-                                                      !FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumIsCustom,
-                                                ),
-                                          ),
+                                      Flexible(
+                                        child: Text(
+                                          FFAppState()
+                                                  .EditPostData
+                                                  .description,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    !FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMediumIsCustom,
+                                              ),
                                         ),
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -1107,10 +1100,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 ),
                               ),
                               Text(
-                                valueOrDefault<String>(
-                                  widget.itemData?.itemLocation,
-                                  'City',
-                                ),
+                                FFAppState().EditPostData.city,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -1261,34 +1251,27 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    if (valueOrDefault<String>(
-                                              widget.itemData?.description,
-                                              'No descriptions',
-                                            ) !=
-                                            '')
-                                      Flexible(
-                                        child: Text(
-                                          valueOrDefault<String>(
-                                            widget.itemData?.description,
-                                            'NA',
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMediumIsCustom,
-                                              ),
-                                        ),
+                                    Flexible(
+                                      child: Text(
+                                        FFAppState()
+                                                .EditPostData
+                                                .description,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .bodyMediumIsCustom,
+                                            ),
                                       ),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -1914,10 +1897,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 ),
                               ),
                               Text(
-                                valueOrDefault<String>(
-                                  widget.itemData?.itemLocation,
-                                  'City',
-                                ),
+                                FFAppState().EditPostData.city,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -2068,34 +2048,27 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    if (valueOrDefault<String>(
-                                              widget.itemData?.description,
-                                              'No descriptions',
-                                            ) !=
-                                            '')
-                                      Flexible(
-                                        child: Text(
-                                          valueOrDefault<String>(
-                                            widget.itemData?.description,
-                                            'NA',
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMediumIsCustom,
-                                              ),
-                                        ),
+                                    Flexible(
+                                      child: Text(
+                                        FFAppState()
+                                                .EditPostData
+                                                .description,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .bodyMediumIsCustom,
+                                            ),
                                       ),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -3233,10 +3206,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                     ),
                                   ),
                                   Text(
-                                    valueOrDefault<String>(
-                                      widget.itemData?.itemLocation,
-                                      'City',
-                                    ),
+                                    FFAppState().EditPostData.city,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -3395,33 +3365,29 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
-                                        if (functions.isNullSingleString(
-                                            widget.itemData?.description))
-                                          Flexible(
-                                            child: Text(
-                                              valueOrDefault<String>(
-                                                widget.itemData?.description,
-                                                'NA',
-                                              ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                    letterSpacing: 0.0,
-                                                    useGoogleFonts:
-                                                        !FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumIsCustom,
-                                                  ),
-                                            ),
+                                        Flexible(
+                                          child: Text(
+                                            FFAppState()
+                                                    .EditPostData
+                                                    .description,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  letterSpacing: 0.0,
+                                                  useGoogleFonts:
+                                                      !FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumIsCustom,
+                                                ),
                                           ),
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -4186,10 +4152,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 ),
                               ),
                               Text(
-                                valueOrDefault<String>(
-                                  widget.itemData?.itemLocation,
-                                  'City',
-                                ),
+                                FFAppState().EditPostData.city,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -4340,34 +4303,27 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    if (valueOrDefault<String>(
-                                              widget.itemData?.description,
-                                              'No descriptions',
-                                            ) !=
-                                            '')
-                                      Flexible(
-                                        child: Text(
-                                          valueOrDefault<String>(
-                                            widget.itemData?.description,
-                                            'No descriptions',
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMediumIsCustom,
-                                              ),
-                                        ),
+                                    Flexible(
+                                      child: Text(
+                                        FFAppState()
+                                                .EditPostData
+                                                .description,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .bodyMediumIsCustom,
+                                            ),
                                       ),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -5128,10 +5084,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  valueOrDefault<String>(
-                                    widget.itemData?.itemLocation,
-                                    'City',
-                                  ),
+                                  FFAppState().EditPostData.city,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -5275,10 +5228,9 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 children: [
                                   Flexible(
                                     child: Text(
-                                      valueOrDefault<String>(
-                                        widget.itemData?.description,
-                                        'Descriptions',
-                                      ),
+                                      FFAppState()
+                                              .EditPostData
+                                              .description,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -6265,10 +6217,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 ),
                               ),
                               Text(
-                                valueOrDefault<String>(
-                                  widget.itemData?.itemLocation,
-                                  'City',
-                                ),
+                                FFAppState().EditPostData.city,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -7080,10 +7029,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 ),
                               ),
                               Text(
-                                valueOrDefault<String>(
-                                  widget.itemData?.itemLocation,
-                                  'City',
-                                ),
+                                FFAppState().EditPostData.city,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -7234,35 +7180,28 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    if (valueOrDefault<String>(
-                                              widget.itemData?.description,
-                                              'No descriptions',
-                                            ) !=
-                                            '')
-                                      Flexible(
-                                        child: Text(
-                                          valueOrDefault<String>(
-                                            widget.itemData?.description,
-                                            'Descriptions',
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.normal,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMediumIsCustom,
-                                              ),
-                                        ),
+                                    Flexible(
+                                      child: Text(
+                                        FFAppState()
+                                                .EditPostData
+                                                .description,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.normal,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .bodyMediumIsCustom,
+                                            ),
                                       ),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -7798,10 +7737,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 ),
                               ),
                               Text(
-                                valueOrDefault<String>(
-                                  widget.itemData?.itemLocation,
-                                  'City',
-                                ),
+                                FFAppState().EditPostData.city,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -7952,34 +7888,27 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    if (valueOrDefault<String>(
-                                              widget.itemData?.description,
-                                              'No descriptions',
-                                            ) !=
-                                            '')
-                                      Flexible(
-                                        child: Text(
-                                          valueOrDefault<String>(
-                                            widget.itemData?.description,
-                                            'Descriptions',
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMediumIsCustom,
-                                              ),
-                                        ),
+                                    Flexible(
+                                      child: Text(
+                                        FFAppState()
+                                                .EditPostData
+                                                .description,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .bodyMediumIsCustom,
+                                            ),
                                       ),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -8752,10 +8681,7 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                               ),
                             ),
                             Text(
-                              valueOrDefault<String>(
-                                widget.itemData?.itemLocation,
-                                'City',
-                              ),
+                              FFAppState().EditPostData.city,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -8895,33 +8821,26 @@ class _PostDetailColumnWidgetState extends State<PostDetailColumnWidget>
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  if (valueOrDefault<String>(
-                                            widget.itemData?.description,
-                                            'No descriptions',
-                                          ) !=
-                                          '')
-                                    Flexible(
-                                      child: Text(
-                                        valueOrDefault<String>(
-                                          widget.itemData?.description,
-                                          'Descriptions',
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              letterSpacing: 0.0,
-                                              useGoogleFonts:
-                                                  !FlutterFlowTheme.of(context)
-                                                      .bodyMediumIsCustom,
-                                            ),
-                                      ),
+                                  Flexible(
+                                    child: Text(
+                                      FFAppState()
+                                              .EditPostData
+                                              .description,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts:
+                                                !FlutterFlowTheme.of(context)
+                                                    .bodyMediumIsCustom,
+                                          ),
                                     ),
+                                  ),
                                 ],
                               ),
                             ),

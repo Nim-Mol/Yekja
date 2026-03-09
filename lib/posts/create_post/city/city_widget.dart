@@ -1,4 +1,3 @@
-import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -232,10 +231,11 @@ class _CityWidgetState extends State<CityWidget> {
                             onChanged: (val) async {
                               safeSetState(
                                   () => _model.dropdownCityValue = val);
-                              if (FFAppState().EditPostData.city == '') {
-                                FFAppState().EditPostData = EditPostDateStruct(
-                                  city: FFAppState().EditPostData.city,
-                                  isModified: true,
+                              if (FFAppState().EditPostData.city != '') {
+                                FFAppState().updateEditPostDataStruct(
+                                  (e) => e
+                                    ..city = _model.dropdownCityValue
+                                    ..isModified = true,
                                 );
                                 safeSetState(() {});
                               } else {
@@ -244,6 +244,8 @@ class _CityWidgetState extends State<CityWidget> {
                                 );
                                 safeSetState(() {});
                               }
+
+                              context.safePop();
                             },
                             height: 40.0,
                             textStyle: FlutterFlowTheme.of(context)

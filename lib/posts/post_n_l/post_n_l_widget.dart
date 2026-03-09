@@ -958,11 +958,48 @@ class _PostNLWidgetState extends State<PostNLWidget>
                                                                       safeSetState(
                                                                           () {});
                                                                     }),
+                                                                    Future(
+                                                                        () async {
+                                                                      FFAppState()
+                                                                              .EditPostData =
+                                                                          EditPostDateStruct(
+                                                                        city: postNLViewPostSearchNlRow
+                                                                            .city,
+                                                                        description:
+                                                                            postNLViewPostSearchNlRow.description,
+                                                                        title: postNLViewPostSearchNlRow
+                                                                            .title,
+                                                                        imags: postNLViewPostSearchNlRow
+                                                                            .images,
+                                                                        postID:
+                                                                            widget.postID,
+                                                                      );
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    }),
                                                                   ]);
 
-                                                                  context.pushNamed(
-                                                                      PostEditWidget
-                                                                          .routeName);
+                                                                  context
+                                                                      .pushNamed(
+                                                                    PostEditWidget
+                                                                        .routeName,
+                                                                    queryParameters:
+                                                                        {
+                                                                      'edit':
+                                                                          serializeParam(
+                                                                        true,
+                                                                        ParamType
+                                                                            .bool,
+                                                                      ),
+                                                                      'postId':
+                                                                          serializeParam(
+                                                                        widget
+                                                                            .postID,
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                    }.withoutNulls,
+                                                                  );
                                                                 },
                                                               ),
                                                             ),

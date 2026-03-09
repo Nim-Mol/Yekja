@@ -252,11 +252,7 @@ class _DetailRentalsWidgetState extends State<DetailRentalsWidget>
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              if (widget.navRoute == 'PostPreview') {
-                                context.goNamed(PostEditWidget.routeName);
-                              } else {
-                                context.pushNamed(HomePageWidget.routeName);
-                              }
+                              context.pushNamed(HomePageWidget.routeName);
                             },
                             child: Icon(
                               Icons.close,

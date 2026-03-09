@@ -21,10 +21,10 @@ class PostEditModel extends FlutterFlowModel<PostEditWidget> {
   late PostDetailColumnModel postDetailColumnModel;
   // Models for ReviewCard_small dynamic component.
   late FlutterFlowDynamicModels<ReviewCardSmallModel> reviewCardSmallModels;
-  // Stores action output result for [Backend Call - Delete Row(s)] action in Button widget.
+  // Stores action output result for [Backend Call - Delete Row(s)] action in Delete widget.
   List<PostsRow>? postDeleted;
-  // Stores action output result for [Backend Call - Insert Row] action in Edit widget.
-  PostCreateMuxTblRow? rowUpdated;
+  // Stores action output result for [Backend Call - Update Row(s)] action in Edit widget.
+  List<PostsRow>? rowUpdated;
   // Model for reportBug component.
   late ReportBugModel reportBugModel;
 

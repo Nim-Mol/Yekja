@@ -245,7 +245,7 @@ class _DescriptionWidgetState extends State<DescriptionWidget> {
                                       (e) => e
                                         ..description =
                                             _model.textController.text
-                                        ..isModified = false,
+                                        ..isModified = true,
                                     );
                                     safeSetState(() {});
                                   } else {

@@ -137,6 +137,17 @@ class FFAppState extends ChangeNotifier {
         }
       }
     });
+    _safeInit(() {
+      if (prefs.containsKey('ff_EditPostData')) {
+        try {
+          final serializedData = prefs.getString('ff_EditPostData') ?? '{}';
+          _EditPostData = EditPostDateStruct.fromSerializableMap(
+              jsonDecode(serializedData));
+        } catch (e) {
+          print("Can't decode persisted data type. Error: $e.");
+        }
+      }
+    });
   }
 
   void update(VoidCallback callback) {
@@ -561,14 +572,17 @@ class FFAppState extends ChangeNotifier {
     _navRoutePost = value;
   }
 
-  EditPostDateStruct _EditPostData = EditPostDateStruct();
+  EditPostDateStruct _EditPostData =
+      EditPostDateStruct.fromSerializableMap(jsonDecode('{\"Imags\":\"[]\"}'));
   EditPostDateStruct get EditPostData => _EditPostData;
   set EditPostData(EditPostDateStruct value) {
     _EditPostData = value;
+    prefs.setString('ff_EditPostData', value.serialize());
   }
 
   void updateEditPostDataStruct(Function(EditPostDateStruct) updateFn) {
     updateFn(_EditPostData);
+    prefs.setString('ff_EditPostData', _EditPostData.serialize());
   }
 
   final _userPostsManager = FutureRequestManager<List<ViewPostFilterRow>>();

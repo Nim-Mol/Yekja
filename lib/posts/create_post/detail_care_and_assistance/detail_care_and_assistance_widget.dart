@@ -221,11 +221,7 @@ class _DetailCareAndAssistanceWidgetState
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              if (widget.navRoute == 'PostPreview') {
-                                context.goNamed(PostEditWidget.routeName);
-                              } else {
-                                context.pushNamed(HomePageWidget.routeName);
-                              }
+                              context.pushNamed(HomePageWidget.routeName);
                             },
                             child: Icon(
                               Icons.close,
@@ -513,16 +509,12 @@ class _DetailCareAndAssistanceWidgetState
                                                   ),
                                                   Text(
                                                     FFAppState()
-                                                                    .postState
-                                                                    .title !=
-                                                                ''
-                                                        ? FFAppState()
-                                                            .postState
-                                                            .title
-                                                        : ''.maybeHandleOverflow(
-                                                            maxChars: 35,
-                                                            replacement: '…',
-                                                          ),
+                                                        .postState
+                                                        .title
+                                                        .maybeHandleOverflow(
+                                                          maxChars: 35,
+                                                          replacement: '…',
+                                                        ),
                                                     maxLines: 1,
                                                     style:
                                                         FlutterFlowTheme.of(
@@ -714,16 +706,12 @@ class _DetailCareAndAssistanceWidgetState
                                                   ),
                                                   AutoSizeText(
                                                     FFAppState()
-                                                                    .postState
-                                                                    .description !=
-                                                                ''
-                                                        ? FFAppState()
-                                                            .postState
-                                                            .description
-                                                        : ''.maybeHandleOverflow(
-                                                            maxChars: 90,
-                                                            replacement: '…',
-                                                          ),
+                                                        .postState
+                                                        .description
+                                                        .maybeHandleOverflow(
+                                                          maxChars: 90,
+                                                          replacement: '…',
+                                                        ),
                                                     maxLines: 2,
                                                     style:
                                                         FlutterFlowTheme.of(

@@ -265,11 +265,7 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget>
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                if (widget.navRoute == 'PostPreview') {
-                                  context.goNamed(PostEditWidget.routeName);
-                                } else {
-                                  context.pushNamed(HomePageWidget.routeName);
-                                }
+                                context.pushNamed(HomePageWidget.routeName);
                               },
                               child: Icon(
                                 Icons.close,
@@ -314,26 +310,56 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget>
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'hom4dzos' /* Details about your */,
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showDialog(
+                                                context: context,
+                                                builder: (alertDialogContext) {
+                                                  return AlertDialog(
+                                                    title: Text(FFAppState()
+                                                        .postState
+                                                        .title),
+                                                    content: Text(FFAppState()
+                                                        .EditPostData
+                                                        .title),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  );
+                                                },
+                                              );
+                                            },
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'hom4dzos' /* Details about your */,
+                                              ),
+                                              textAlign: TextAlign.center,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .headlineLarge
+                                                  .override(
+                                                    fontFamily: FlutterFlowTheme
+                                                            .of(context)
+                                                        .headlineLargeFamily,
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w600,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .headlineLargeIsCustom,
+                                                  ),
                                             ),
-                                            textAlign: TextAlign.center,
-                                            style: FlutterFlowTheme.of(context)
-                                                .headlineLarge
-                                                .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .headlineLargeFamily,
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w600,
-                                                  useGoogleFonts:
-                                                      !FlutterFlowTheme.of(
-                                                              context)
-                                                          .headlineLargeIsCustom,
-                                                ),
                                           ),
                                           Text(
                                             FFLocalizations.of(context).getText(
@@ -555,22 +581,13 @@ class _DetailEventsWidgetState extends State<DetailEventsWidget>
                                                     ],
                                                   ),
                                                   Text(
-                                                    valueOrDefault<String>(
-                                                      widget.editPostData !=
-                                                              null
-                                                          ? getJsonField(
-                                                              widget
-                                                                  .editPostData,
-                                                              r'''$.title''',
-                                                            ).toString()
-                                                          : FFAppState()
-                                                              .postState
-                                                              .title,
-                                                      'Title',
-                                                    ).maybeHandleOverflow(
-                                                      maxChars: 35,
-                                                      replacement: '…',
-                                                    ),
+                                                    FFAppState()
+                                                        .postState
+                                                        .title
+                                                        .maybeHandleOverflow(
+                                                          maxChars: 35,
+                                                          replacement: '…',
+                                                        ),
                                                     maxLines: 1,
                                                     style:
                                                         FlutterFlowTheme.of(

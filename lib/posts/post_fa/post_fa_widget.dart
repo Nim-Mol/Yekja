@@ -919,11 +919,44 @@ class _PostFaWidgetState extends State<PostFaWidget>
                                                                           safeSetState(
                                                                               () {});
                                                                         }),
+                                                                        Future(
+                                                                            () async {
+                                                                          FFAppState().EditPostData =
+                                                                              EditPostDateStruct(
+                                                                            city:
+                                                                                postFaViewPostSearchFaRow.city,
+                                                                            description:
+                                                                                postFaViewPostSearchFaRow.description,
+                                                                            title:
+                                                                                postFaViewPostSearchFaRow.title,
+                                                                            imags:
+                                                                                postFaViewPostSearchFaRow.images,
+                                                                            postID:
+                                                                                widget.postID,
+                                                                          );
+                                                                          safeSetState(
+                                                                              () {});
+                                                                        }),
                                                                       ]);
 
-                                                                      context.pushNamed(
-                                                                          PostEditWidget
-                                                                              .routeName);
+                                                                      context
+                                                                          .pushNamed(
+                                                                        PostEditWidget
+                                                                            .routeName,
+                                                                        queryParameters:
+                                                                            {
+                                                                          'edit':
+                                                                              serializeParam(
+                                                                            false,
+                                                                            ParamType.bool,
+                                                                          ),
+                                                                          'postId':
+                                                                              serializeParam(
+                                                                            widget.postID,
+                                                                            ParamType.String,
+                                                                          ),
+                                                                        }.withoutNulls,
+                                                                      );
                                                                     },
                                                                   ),
                                                                 ),

@@ -152,7 +152,10 @@ class _PostImageWidgetState extends State<PostImageWidget> {
                                                   },
                                                   onCancelAction: () async {
                                                     FFAppState().EditPostData =
-                                                        EditPostDateStruct();
+                                                        EditPostDateStruct
+                                                            .fromSerializableMap(
+                                                                jsonDecode(
+                                                                    '{\"Imags\":\"[]\"}'));
                                                     context.safePop();
                                                   },
                                                 ),
@@ -338,8 +341,20 @@ class _PostImageWidgetState extends State<PostImageWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    if (widget.navRoute == 'PostPreview') {
-                                      context.goNamed(PostEditWidget.routeName);
+                                    if (widget.navRoute != 'PostPreview') {
+                                      context.goNamed(
+                                        PostEditWidget.routeName,
+                                        queryParameters: {
+                                          'postId': serializeParam(
+                                            FFAppState().EditPostData.postID,
+                                            ParamType.String,
+                                          ),
+                                          'edit': serializeParam(
+                                            true,
+                                            ParamType.bool,
+                                          ),
+                                        }.withoutNulls,
+                                      );
                                     } else {
                                       context
                                           .pushNamed(HomePageWidget.routeName);
@@ -844,6 +859,7 @@ class _PostImageWidgetState extends State<PostImageWidget> {
                                                                           );
                                                                           safeSetState(() {});
                                                                           await deleteSupabaseFileFromPublicUrl(tempImagesItem);
+                                                                          return;
                                                                                                                                                 },
                                                                         child:
                                                                             Icon(
@@ -997,6 +1013,10 @@ class _PostImageWidgetState extends State<PostImageWidget> {
                                           true,
                                           ParamType.bool,
                                         ),
+                                        'postId': serializeParam(
+                                          FFAppState().EditPostData.postID,
+                                          ParamType.String,
+                                        ),
                                       }.withoutNulls,
                                     );
                                   } else {
@@ -1025,6 +1045,10 @@ class _PostImageWidgetState extends State<PostImageWidget> {
                                         'edit': serializeParam(
                                           true,
                                           ParamType.bool,
+                                        ),
+                                        'postId': serializeParam(
+                                          FFAppState().EditPostData.postID,
+                                          ParamType.String,
                                         ),
                                       }.withoutNulls,
                                     );
